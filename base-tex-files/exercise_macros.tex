@@ -1,0 +1,26 @@
+% LTeX: enabled=false
+
+\renewcommand\thesubsection{\thesection\Alph{subsection}}
+
+\newcounter{exercount}[subsection]
+\counterwithin{exercount}{subsection}
+
+\renewcommand{\subsectionautorefname}{Section}
+
+\newtcbtheorem[use counter=exercount]{exer}% environment name
+    {Exercise}% Title text
+    {enhanced,
+    arc=0pt, drop fuzzy shadow southeast,
+    boxrule=0pt, %
+    colframe = gray!20, coltitle=black, %
+    colback = white,
+    fonttitle=\bfseries, %
+    borderline west={2.5pt}{0pt}{CadetBlue}%
+    }%
+{}
+
+\newenvironment{exercise}{\begin{exer}{}{}}{\end{exer}}
+
+\newenvironment{sol}{%
+\begin{proof}[Solution]%
+}{\end{proof}}

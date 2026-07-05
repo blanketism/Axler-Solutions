@@ -1,0 +1,45 @@
+\documentclass[10pt]{extarticle}
+\usepackage[margin = 1in]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{graphicx, fancyhdr, lipsum}
+\usepackage{amsfonts, amssymb}
+\usepackage{amsmath, amsthm, mathtools}
+\usepackage{xparse, tikz, enumitem}
+\usepackage[most]{tcolorbox}
+\usepackage{hyperref}
+\usepackage{cmbright}
+\usepackage[T1]{fontenc}
+\usetikzlibrary{fadings}
+
+\setlength{\parindent}{0.75cm}
+\setlength{\jot}{3pt}
+
+\input{base-tex-files/commands.tex}
+\input{base-tex-files/exercise_macros.tex}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=PineGreen,
+    urlcolor=cyan}
+
+\pagecolor{ProcessBlue!3}
+
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[R]{\rightmark}
+\setlength{\headheight}{15pt}
+\addtolength{\topmargin}{-3.0pt}
+
+\title{Solutions to Axler's Linear Algebra}
+\author{JR}
+\date{July $4^{\text{th}}$, 2026}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\include{exercises/chapter1}
+
+\end{document}
