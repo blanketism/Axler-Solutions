@@ -1,0 +1,1401 @@
+\section{Linear Maps}
+
+\subsection{Vector Space of Linear Maps}
+
+\begin{exercise}[3a1]
+    Suppose $b, c \in \r$. Define $T: \r^3 \to \r^2$ by
+    \[T(x, y, z) = (2x - 4y + 3z + b, 6x + cxyz).\]
+    Show that $T$ is linear if and only if $b = c = 0$.
+\end{exercise}
+
+\begin{sol}
+    Suppose $T$ is linear. Then
+    \[T(1, 1, 1) = T(1, 0, 0) + T(0, 1, 0) + T(0, 0, 1) = (2 + b, 6) + (-4 + b, 0) + (3 + b, 0) = (1 + 3b, 6).\]
+    On the other hand,
+    \[T(1, 1, 1) = (2 - 4 + 3 + b, 6 + c) = (1 + b, 6 + c).\]
+    Comparing the two expressions, we get $1 + 3b = 1 + b$ and $6 = 6 + c$, which implies $b = 0$ and $c = 0$.
+
+    Conversely, if $b = c = 0$, then $T(x, y, z) = (2x - 4y + 3z, 6x)$. Let $(x_1, y_1, z_1), (x_2, y_2, z_2) \in \r^3$ and $\alpha \in \r$. Then
+    \begin{align*}
+        T(x_1 + x_2, y_1 + y_2, z_1 + z_2) & = (2(x_1 + x_2) - 4(y_1 + y_2) + 3(z_1 + z_2), 6(x_1 + x_2)) \\
+        & = (2x_1 + 2x_2 - 4y_1 - 4y_2 + 3z_1 + 3z_2, 6x_1 + 6x_2) \\
+        & = (2x_1 - 4y_1 + 3z_1, 6x_1) + (2x_2 - 4y_2 + 3z_2, 6x_2) \\
+        & = T(x_1, y_1, z_1) + T(x_2, y_2, z_2),
+    \end{align*}
+    and
+    \begin{align*}
+        T(\alpha x_1, \alpha y_1, \alpha z_1) & = (2(\alpha x_1) - 4(\alpha y_1) + 3(\alpha z_1), 6(\alpha x_1)) \\
+        & = (\alpha(2x_1 - 4y_1 + 3z_1), \alpha(6x_1)) \\
+        & = \alpha(2x_1 - 4y_1 + 3z_1, 6x_1) \\
+        & = \alpha T(x_1, y_1, z_1).
+    \end{align*}
+    Therefore, $T$ is linear if and only if $b = c = 0$.
+\end{sol}
+
+\begin{exercise}[3a2]
+    Suppose $b, c \in \r$. Define $T: \pp(\r) \to \r^2$ by
+    \[Tp = \left(3p(4) + 5p'(6) + bp(1)p(2), \int_{-1}^{2} x^3 p(x) \dd x + c \sin p(0)\right).\]
+    Show that $T$ is linear if and only if $b = c = 0$.
+\end{exercise}
+
+\begin{sol}
+    Suppose $T$ is linear. Then for any $p \in \pp(\r)$, we have $T(2p) = 2Tp$. Looking at the first component of $T(2p)$, we have
+    \[3(2p)(4) + 5(2p)'(6) + b(2p)(1)(2p)(2) = 6p(4) + 10p'(6) + 4bp(1)p(2).\]
+    On the other hand, the first component of $2Tp$ is
+    \[2(3p(4) + 5p'(6) + bp(1)p(2)) = 6p(4) + 10p'(6) + 2bp(1)p(2).\]
+    Comparing the two expressions, we get $4bp(1)p(2) = 2bp(1)p(2)$ for all $p \in \pp(\r)$. Since there exist polynomials $p$ such that $p(1)p(2) \neq 0$, we must have $b = 0$.
+
+    The second component of $T(2p)$ must be equal to the second component of $2Tp$. We have
+    \[\int_{-1}^{2} x^3 (2p)(x) \dd x + c \sin(2p(0)) = 2\int_{-1}^{2} x^3 p(x) \dd x + 2c \sin (p(0)).\]
+    The integral terms may be subtracted, so we get $c \sin(2p(0)) = 2c \sin(p(0))$ for all $p \in \pp(\r)$. If $c \neq 0$, then we can divide both sides by $c$ to get $\sin(2p(0)) = 2\sin(p(0))$, which implies $\sin(2x) = 2\sin(x)$ for all $x \in \r$. Then $\cos(x) = 1$ for all $x \in \r$, which is a contradiction. Therefore, $c = 0$.
+
+    Conversely, if $b = c = 0$, let $p, q \in \pp(\r)$ and $\alpha \in \r$. Then
+    \begin{align*}
+        T(p + q) & = \left(3(p + q)(4) + 5(p + q)'(6), \int_{-1}^{2} x^3 (p + q)(x) \dd x\right) \\
+        & = \left(3p(4) + 3q(4) + 5p'(6) + 5q'(6), \int_{-1}^{2} x^3 p(x) \dd x + \int_{-1}^{2} x^3 q(x) \dd x\right) \\
+        & = \left(3p(4) + 5p'(6), \int_{-1}^{2} x^3 p(x) \dd x\right) + \left(3q(4) + 5q'(6), \int_{-1}^{2} x^3 q(x) \dd x\right) \\
+        & = Tp + Tq,
+    \end{align*}
+    and
+    \begin{align*}
+        T(\alpha p) & = \left(3(\alpha p)(4) + 5(\alpha p)'(6), \int_{-1}^{2} x^3 (\alpha p)(x) \dd x\right) \\
+        & = \left(\alpha (3p(4) + 5p'(6)), \alpha \int_{-1}^{2} x^3 p(x) \dd x\right) \\
+        & = \alpha\left(3p(4) + 5p'(6), \int_{-1}^{2} x^3 p(x) \dd x\right) \\
+        & = \alpha Tp.
+    \end{align*}
+    Therefore, $T$ is linear if and only if $b = c = 0$.
+\end{sol}
+
+\begin{exercise}[3a3]
+    Suppose that $T \in \lin{\f^n, \f^m}$. Show that there exist scalars $A_{j, k} \in \f$ for $j = 1, \ldots, m$ and $k = 1, \ldots, n$ such that
+    \[T(x_1, \ldots, x_n) = (A_{1,1} x_1 + \cdots + A_{1, n} x_n, \ldots, A_{m, 1} x_1 + \cdots + A_{m, n} x_n)\]
+    for every $(x_1, \ldots, x_n) \in \f^n$.
+\end{exercise}
+
+\begin{sol}
+    Let $e_1, \ldots, e_n$ be the standard basis of $\f^n$. Then for each $j = 1, \ldots, m$, we have
+    \[T(e_k) = (A_{1, k}, A_{2, k}, \ldots, A_{m, k})\]
+    for some scalars $A_{j, k} \in \f$. Now let $(x_1, \ldots, x_n) \in \f^n$. Then
+    \begin{align*}
+        T(x_1, \ldots, x_n) & = T(x_1 e_1 + \cdots + x_n e_n) \\
+        & = x_1 T(e_1) + \cdots + x_n T(e_n) \\
+        & = x_1 (A_{1, 1}, A_{2, 1}, \ldots, A_{m, 1}) + \cdots + x_n (A_{1, n}, A_{2, n}, \ldots, A_{m, n}) \\
+        & = (A_{1, 1} x_1 + \cdots + A_{1, n} x_n, A_{2, 1} x_1 + \cdots + A_{2, n} x_n, \ldots, A_{m, 1} x_1 + \cdots + A_{m, n} x_n).
+    \end{align*}
+    Therefore,
+    \[T(x_1, \ldots, x_n) = (A_{1, 1} x_1 + \cdots + A_{1, n} x_n, A_{2, 1} x_1 + \cdots + A_{2, n} x_n, \ldots, A_{m, 1} x_1 + \cdots + A_{m, n} x_n). \qh\]
+\end{sol}
+
+\begin{exercise}[3a4]
+    Suppose $T \in \lin{V, W}$ and $v_1, \ldots, v_m$ is a list of vectors in $V$ such that $Tv_1, \ldots, Tv_m$ is a linearly independent list in $W$. Prove that $v_1, \ldots, v_m$ is linearly independent.
+\end{exercise}
+
+\begin{sol}
+    Suppose that $a_1 v_1 + \cdots + a_m v_m = 0$ for some scalars $a_1, \ldots, a_m \in \f$. Applying $T$ to both sides, we get
+    \[a_1 Tv_1 + \cdots + a_m Tv_m = T(0) = 0.\]
+    Since $Tv_1, \ldots, Tv_m$ is linearly independent, it follows that $a_1 = \cdots = a_m = 0$. Therefore, $v_1, \ldots, v_m$ is linearly independent.
+\end{sol}
+
+\begin{exercise}[3a5]
+    Prove that $\lin{V, W}$ is a vector space, as was asserted in 3.6.
+\end{exercise}
+
+\begin{sol}
+    We must first ensure that the operations of addition and scalar multiplication are well-defined, i.e., if $S, T \in \lin{V, W}$ and $\alpha \in \f$, then $S + T \in \lin{V, W}$ and $\alpha T \in \lin{V, W}$. To that end, let $v, u \in V$. Then
+    \begin{align*}
+        (S + T)(v + u) & = S(v + u) + T(v + u) \\
+        & = (Sv + Su) + (Tv + Tu) \\
+        & = (Sv + Tv) + (Su + Tu) \\
+        & = (S + T)v + (S + T)u,
+    \end{align*}
+    and
+    \begin{align*}
+        (\alpha T)(v + u) & = \alpha T(v + u) \\
+        & = \alpha (Tv + Tu) \\
+        & = \alpha Tv + \alpha Tu \\
+        & = (\alpha T)v + (\alpha T)u.
+    \end{align*}
+    Also, for any $v \in V$ and $\alpha \in \f$,
+    \begin{align*}
+        (S + T)(\alpha v) & = S(\alpha v) + T(\alpha v) \\
+        & = \alpha Sv + \alpha Tv \\
+        & = \alpha (Sv + Tv) \\
+        & = \alpha (S + T)v,
+    \end{align*}
+    and
+    \begin{align*}
+        (\alpha T)(\beta v) & = \alpha T(\beta v) \\
+        & = \alpha (\beta Tv) \\
+        & = (\alpha \beta) Tv \\
+        & = (\alpha \beta) T v.
+    \end{align*}
+    Therefore, $S + T \in \lin{V, W}$ and $\alpha T \in \lin{V, W}$. We now check the vector space axioms:
+    \begin{enumerate}
+        \item \textbf{Commutativity}: Let $S, T \in \lin{V, W}$. Then for any $v \in V$,
+        \begin{align*}
+            (S + T)v & = Sv + Tv \\
+            & = Tv + Sv \\
+            & = (T + S)v.
+        \end{align*}
+        \item \textbf{Associativity}: Let $R, S, T \in \lin{V, W}$. Then for any $v \in V$,
+        \begin{align*}
+            ((R + S) + T)v & = (R + S)v + Tv \\
+            & = (Rv + Sv) + Tv \\
+            & = Rv + (Sv + Tv) \\
+            & = Rv + (S + T)v \\
+            & = (R + (S + T))v.
+        \end{align*}
+        Similarly, for any $\alpha, \beta \in \f$ and $T \in \lin{V, W}$,
+        \begin{align*}
+            ((\alpha\beta)T)v & = (\alpha\beta)(Tv) \\
+            & = \alpha(\beta Tv) \\
+            & = \alpha(\beta T)v \\
+            & = (\alpha(\beta T))v.
+        \end{align*}
+        \item \textbf{Additive identity}: Let $0 \in \lin{V, W}$ be the zero map defined by $0v = 0$ for all $v \in V$. Then for any $T \in \lin{V, W}$ and $v \in V$,
+        \[(T + 0)v = Tv + 0v = Tv + 0 = Tv.\]
+        \item \textbf{Inverse}: Let $T \in \lin{V, W}$. Define $-T \in \lin{V, W}$ by $(-T)v = -Tv$ for all $v \in V$. Then for any $v \in V$,
+        \[(T + (-T))v = Tv + (-T)v = Tv - Tv = 0 = 0v.\]
+        \item \textbf{Multiplicative identity}: Let $1 \in \f$ be the multiplicative identity. Then for any $T \in \lin{V, W}$ and $v \in V$,
+        \[(1T)v = 1(Tv) = Tv.\]
+        \item \textbf{Distributive properties}: Let $T, S \in \lin{V, W}$ and $\alpha, \beta \in \f$. Then for any $v \in V$,
+        \begin{align*}
+            (\alpha(T + S))v & = (\alpha T + \alpha S)v \\
+            & = (\alpha T)v + (\alpha S)v \\
+            & = \alpha(Tv) + \alpha(Sv) \\
+            & = \alpha(Tv + Sv) \\
+            & = \alpha((T + S)v),
+        \end{align*}
+        and
+        \begin{align*}
+            ((\alpha + \beta)T)v & = (\alpha + \beta)(Tv) \\
+            & = \alpha(Tv) + \beta(Tv) \\
+            & = (\alpha T)v + (\beta T)v \\
+            & = (\alpha T + \beta T)v. \qh
+        \end{align*}
+    \end{enumerate}
+\end{sol}
+
+\begin{exercise}[3a6]
+    Prove that multiplication of linear maps has the associative, identity, and distributive properties asserted in 3.8.
+    \begin{subexercises}
+        \item \textbf{Associativity}: $(T_1T_2)T_3 = T_1(T_2T_3)$ whenever $T_1, T_2,$ and $T_3$ are linear maps such that the products make sense (meaning $T_3$ maps into the domain of $T_2$, and $T_2$ maps into the domain of $T_1$).
+        \item \textbf{Identity}: $TI = IT = T$ whenever $T \in \lin{V, W}$; here the first $I$ is the identity operator on $V$ and the second $I$ is the identity operator on $W$.
+        \item \textbf{Distributive properties}: $(S_1 + S_2)T = S_1T + S_2T$ and $S(T_1 + T_2) = ST_1 + ST_2$ whenever $T, T_1, T_2 \in \lin{U, V}$ and $S, S_1, S_2 \in \lin{V, W}$.
+    \end{subexercises}
+\end{exercise}
+
+\begin{sole}
+    \item Let $T_1 \in \lin{V, W}$, $T_2 \in \lin{U, V}$, and $T_3 \in \lin{X, U}$. Then for any $x \in X$,
+    \begin{align*}
+        ((T_1T_2)T_3)x & = (T_1T_2)(T_3x) \\
+        & = T_1(T_2(T_3x)) \\
+        & = T_1((T_2T_3)x) \\
+        & = (T_1(T_2T_3))x.
+    \end{align*}
+    \item Let $T \in \lin{V, W}$. Then for any $v \in V$,
+    \[(TI)v = T(Iv) = Tv \quad \text{and} \quad (IT)v = I(Tv) = Tv.\]
+    \item Let $T, T_1, T_2 \in \lin{U, V}$ and $S, S_1, S_2 \in \lin{V, W}$. Then for any $u \in U$,
+    \begin{align*}
+        ((S_1 + S_2)T)u & = (S_1 + S_2)(Tu) \\
+        & = S_1(Tu) + S_2(Tu) \\
+        & = (S_1T)u + (S_2T)u \\
+        & = (S_1T + S_2T)u,
+    \end{align*}
+    and
+    \begin{align*}
+        (S(T_1 + T_2))u & = S((T_1 + T_2)u) \\
+        & = S(T_1u + T_2u) \\
+        & = S(T_1u) + S(T_2u) \\
+        & = (ST_1)u + (ST_2)u \\
+        & = (ST_1 + ST_2)u. \qh
+    \end{align*}
+\end{sole}
+
+\begin{exercise}[3a7]
+    Show that every linear map from a one-dimensional vector space to itself is multiplication by some scalar. More precisely, prove that if $\dim V = 1$ and $T \in \lin{V}$, then there exists $\lambda \in \f$ such that $T\varphi = \lambda\varphi$ for all $v \in V$.
+\end{exercise}
+
+\begin{sol}
+    Suppose $\dim V = 1$ and let $v \in V$ be a nonzero vector. Then $\set{v}$ is a basis of $V$. Let $T \in \lin{V}$. Since $Tv \in V$, there exists $\lambda \in \f$ such that $Tv = \lambda v$. Now let $u \in V$. Then there exists $\alpha \in \f$ such that $u = \alpha v$. Therefore,
+    \[Tu = T(\alpha v) = \alpha Tv = \alpha (\lambda v) = \lambda (\alpha v) = \lambda u. \qh\]
+\end{sol}
+
+\begin{exercise}[3a8]
+    Give an example of a function $\varphi: \r^2 \to \r$ such that
+    \[\varphi(av) = a\varphi(v)\]
+    for all $a \in \r$ and all $v \in \r^2$ but $\varphi$ is not linear.
+
+    \remark{This was a surprisingly difficult exercise for me, namely because there were no obvious examples of homogeneous functions that were not linear. However, the idea is that while $x^n$ functions aren't linear, they don't maintain homogeneity due to an extra $a^{n - 1}$ factor. It follows that we must divide $x^n$ by some $n - 1$ power to maintain homogeneity. However, dividing by just $y$ risks division by zero, so we must divide by $x + y$ to avoid this.}
+\end{exercise}
+
+\begin{sol}
+    Let $\varphi: \r^2 \to \r$ be defined by
+    \[\varphi(x, y) = \frac{x^2}{x + y}.\]
+    Then for any $a \in \r$ and $(x, y) \in \r^2$,
+    \[\varphi(a(x, y)) = \varphi(ax, ay) = \frac{(ax)^2}{ax + ay} = \frac{a^2 x^2}{a(x + y)} = a\frac{x^2}{x + y} = a\varphi(x, y).\]
+    However, $\varphi$ is not additive. For example, let $v = (1, 0)$ and $w = (0, 1)$. Then
+    \[\varphi(v + w) = \varphi(1, 1) = \frac{1^2}{1 + 1} = \frac{1}{2},\]
+    but
+    \[\varphi(v) + \varphi(w) = \varphi(1, 0) + \varphi(0, 1) = \frac{1^2}{1 + 0} + \frac{0^2}{0 + 1} = 1 + 0 = 1.\]
+    Therefore, $\varphi$ is not linear.
+\end{sol}
+
+\begin{exercise}[3a9]
+    Give an example of a function $\varphi: \c \to \c$ such that
+    \[\varphi(w + z) = \varphi(w) + \varphi(z)\]
+    for all $w, z \in \c$ but $\varphi$ is not linear. (Here $\c$ is thought of as a complex vector space.)
+\end{exercise}
+
+\begin{sol}
+    Let $\varphi: \c \to \c$ be defined by
+    \[\varphi(x + iy) = x.\]
+    Then for any $w = x_1 + iy_1$ and $z = x_2 + iy_2$ in $\c$,
+    \[\varphi(w + z) = \varphi((x_1 + x_2) + i(y_1 + y_2)) = x_1 + x_2 = \varphi(w) + \varphi(z).\]
+    However, $\varphi$ is not homogeneous. For example, let $a = i$ and $z = 1$. Then
+    \[\varphi(iz) = \varphi(i) = 0,\]
+    but
+    \[i\varphi(z) = i\varphi(1) = i(1) = i.\]
+    Therefore, $\varphi$ is not linear.
+\end{sol}
+
+\begin{exercise}[3a10]
+    Prove or give a counterexample: If $q \in \pp(\r)$ and $T: \pp(\r) \to \pp(\r)$ is defined by $Tp = q \circ p$, then $T$ is a linear map.
+\end{exercise}
+
+\begin{sol}
+    This is false. Let $q(x) = x^2$ and define $T: \pp(\r) \to \pp(\r)$ by $Tp = q \circ p$. Then for any $p_1, p_2 \in \pp(\r)$,
+    \[T(p_1 + p_2) = q \circ (p_1 + p_2) = (p_1 + p_2)^2 = p_1^2 + 2p_1p_2 + p_2^2 \neq p_1^2 + p_2^2 = Tp_1 + Tp_2. \qh\]
+\end{sol}
+
+\begin{exercise}[3a11]
+    Suppose $V$ is finite-dimensional and $T \in \lin{V}$. Prove that $T$ is a scalar multiple of the identity if and only if $ST = TS$ for every $S \in \lin{V}$.
+
+    \remark{The backwards direction is difficult. The idea is to construct many such $S$ that will force $T$ to be a scalar multiple of the identity.}
+\end{exercise}
+
+\begin{sol}
+    Suppose $T$ is a scalar multiple of the identity, i.e., $T = \lambda I$ for some $\lambda \in \f$. Then for any $S \in \lin{V}$,
+    \[ST = S(\lambda I) = \lambda S = (\lambda I)S = TS.\]
+
+    Conversely, suppose $ST = TS$ for every $S \in \lin{V}$. Let $v_1, \ldots, v_n$ be a basis of $V$. Define $S_{ij} \in \lin{V}$ by
+    \[S_{ij}v_k = 
+    \begin{cases}
+        v_j & \text{if } k = i, \\
+        0 & \text{if } k \neq i.
+    \end{cases}.\]
+    In other words, $S_{ij}$ sends $v_i$ to $v_j$ and sends all other basis vectors to $0$. Fix some $i$, and let $Tv_i = \alpha_1 v_1 + \cdots + \alpha_n v_n$. Then
+    \[S_{ij}Tv_i = S_{ij}(\alpha_1 v_1 + \cdots + \alpha_n v_n) = \alpha_i v_j,\]
+    and
+    \[TS_{ij}v_i = T(v_j) = \beta_1 v_1 + \cdots + \beta_n v_n\]
+    for some $\beta_1, \ldots, \beta_n \in \f$. Since $S_{ij}T = TS_{ij}$, we have
+    \[\alpha_i v_j = \beta_1 v_1 + \cdots + \beta_n v_n.\]
+    Since $v_1, \ldots, v_n$ is a basis, it follows that $\beta_k = 0$ for all $k \neq j$ and $\beta_j = \alpha_i$. Therefore, $Tv_j = \alpha_i v_j$. Since $i$ was arbitrary, it follows that $Tv_j = \alpha_j v_j$ for some $\alpha_j \in \f$, hence $T$ sends each basis vector to a scalar multiple of itself.
+
+    Now consider any $\ell \neq j$. Then
+    \[S_{\ell j}Tv_\ell = S_{\ell j}(\alpha_\ell v_\ell) = \alpha_\ell v_j,\]
+    and
+    \[TS_{\ell j}v_\ell = T(v_j) = \alpha_j v_j.\]
+    Since $S_{\ell j}T = TS_{\ell j}$, we have $\alpha_\ell v_j = \alpha_j v_j$, which implies $\alpha_\ell = \alpha_j$. Since $\ell$ and $j$ were arbitrary, it follows that all $\alpha_k$ are equal, say $\alpha_k = \lambda$ for all $k$. Therefore, $Tv_k = \lambda v_k$ for all $k$, and hence $T = \lambda I$.
+\end{sol}
+
+\begin{exercise}[3a12]
+    Suppose $U$ is a subspace of $V$ with $U \neq V$. Suppose $S \in \lin{U, W}$ and $S \neq 0$ (which means that $Su \neq 0$ for some $u \in U$). Define $T: V \to W$ by
+    \[Tv = 
+    \begin{cases}
+        Sv & \text{if } v \in U, \\
+        0 & \text{if } v \in V \text{ and } v \notin U. 
+    \end{cases}
+    \]
+    Prove that $T$ is not a linear map on $V$.
+\end{exercise}
+
+\begin{sol}
+    Since $U \neq V$, there exists $v \in V$ such that $v \notin U$. Let $u \in U$ be such that $Su \neq 0$. Then
+    \[T(u + v) = 0,\]
+    but
+    \[Tu + Tv = Su + 0 = Su \neq 0.\]
+    Therefore, $T$ is not linear.
+\end{sol}
+
+\begin{exercise}[3a13]
+    Suppose $V$ is finite-dimensional. Prove that every linear map on a subspace of $V$ can be extended to a linear map on $V$. In other words, show that if $U$ is a subspace of $V$ and $S \in \lin{U, W}$, then there exists $T \in \lin{V, W}$ such that $Tu = Su$ for all $u \in U$.
+\end{exercise}
+
+\begin{sol}
+    Let $u_1, \ldots, u_m$ be a basis of $U$. Since $U$ is a subspace of $V$, we can extend this basis to a basis of $V$, say $u_1, \ldots, u_m, v_1, \ldots, v_n$. Define $T: V \to W$ by
+    \[Tu = Su \quad \text{for all } u \in U,\]
+    and
+    \[Tv_k = 0 \quad \text{for all } k = 1, \ldots, n.\]
+    Then $T$ is well-defined on the basis of $V$, and we can extend it linearly to all of $V$. For any $u \in U$, we may write
+    \[u = \alpha_1 u_1 + \cdots + \alpha_m u_m\]
+    for some scalars $\alpha_1, \ldots, \alpha_m \in \f$, and 0 as the coefficients for $v_1, \ldots, v_n$. Then
+    \[Tu = \alpha_1 Tu_1 + \cdots + \alpha_m Tu_m + 0 \cdot Tv_1 + \cdots + 0 \cdot Tv_n = \alpha_1 Su_1 + \cdots + \alpha_m Su_m = Su.\]
+    Therefore, $T$ extends $S$ to all of $V$.
+\end{sol}
+
+\begin{exercise}[3a14]
+    Suppose $V$ is finite-dimensional with $\dim V > 0$, and suppose $W$ is infinite-dimensional. Prove that $\lin{V, W}$ is infinite-dimensional.
+\end{exercise}
+
+\begin{sol}
+    Let $v_1, \ldots, v_n$ be a basis of $V$. Since $W$ is infinite-dimensional, there exists an infinite linearly independent list of vectors $w_1, w_2, \ldots$ in $W$. For each $k \in \n$, define $T_k \in \lin{V, W}$ by
+    \[T_k v_j =
+    \begin{cases}
+        w_k & \text{if } j = 1, \\
+        0 & \text{if } j \neq 1.
+    \end{cases}\]
+    In other words, $T_k$ sends the first basis vector $v_1$ to $w_k$ and all other basis vectors to $0$. We claim that the list $T_1, T_2, \ldots$ is linearly independent in $\lin{V, W}$. Suppose that
+    \[a_1 T_1 + a_2 T_2 + \cdots + a_m T_m = 0\]
+    for some scalars $a_1, \ldots, a_m \in \f$. Evaluating both sides at $v_1$, we get
+    \[a_1 T_1 v_1 + a_2 T_2 v_1 + \cdots + a_m T_m v_1 = a_1 w_1 + a_2 w_2 + \cdots + a_m w_m = 0.\]
+    Since $w_1, \ldots, w_m$ is linearly independent in $W$, it follows that $a_1 = \cdots = a_m = 0$. Therefore, $T_1, T_2, \ldots$ is linearly independent in $\lin{V, W}$, and hence $\lin{V, W}$ is infinite-dimensional.
+\end{sol}
+
+\begin{exercise}[3a15]
+    Suppose $v_1, \ldots, v_m$ is a linearly dependent list of vectors in $V$. Suppose also that $W \neq \set{0}$. Prove that there exist $w_1, \ldots, w_m \in W$ such that no $T \in \lin{V, W}$ satisfies $Tv_k = w_k$ for each $k = 1, \ldots, m$.
+\end{exercise}
+
+\begin{sol}
+    Since $v_1, \ldots, v_m$ is linearly dependent, there exist scalars $a_1, \ldots, a_m \in \f$, not all zero, such that
+    \[a_1 v_1 + \cdots + a_m v_m = 0.\]
+    Let $w_1, \ldots, w_m \in W$ be defined by
+    \[w_k =
+    \begin{cases}
+        0 & \text{if } a_k = 0, \\
+        w & \text{if } a_k \neq 0,
+    \end{cases}\]
+    where $w$ is any nonzero vector in $W$. Suppose for contradiction that there exists $T \in \lin{V, W}$ such that $Tv_k = w_k$ for each $k = 1, \ldots, m$. Then
+    \[T(a_1 v_1 + \cdots + a_m v_m) = a_1 Tv_1 + \cdots + a_m Tv_m = a_1 w_1 + \cdots + a_m w_m.\]
+    Since $a_1 v_1 + \cdots + a_m v_m = 0$, we have $T(0) = 0$, so
+    \[0 = a_1 w_1 + \cdots + a_m w_m.\]
+    However, by the definition of $w_k$, we have $a_k w_k = a_k w$ for all $k$ such that $a_k \neq 0$, and $a_k w_k = 0$ for all $k$ such that $a_k = 0$. Therefore, the sum $a_1 w_1 + \cdots + a_m w_m$ is a nonzero scalar multiple of $w$, which is nonzero since $w \neq 0$. This is a contradiction. Therefore, no such $T \in \lin{V, W}$ exists.
+\end{sol}
+
+\begin{exercise}[3a16]
+    Suppose $V$ is finite-dimensional with $\dim V > 1$. Prove that there exist $S, T \in \lin{V}$ such that $ST \neq TS$.
+\end{exercise}
+
+\begin{sol}
+    Let $v_1, v_2$ be linearly independent vectors in $V$. We may extend this list to a basis of $V$, say $v_1, v_2, \ldots, v_n$. Define $S, T \in \lin{V}$ by
+    \[Sv_1 = v_2, \quad Sv_2 = v_1, \quad Sv_k = 0 \text{ for } k > 2,\]
+    and
+    \[Tv_1 = v_1, \quad Tv_2 = 0, \quad Tv_k = 0 \text{ for } k > 2.\]
+    Then
+    \[STv_1 = S(Tv_1) = Sv_1 = v_2,\]
+    but
+    \[TSv_1 = T(Sv_1) = Tv_2 = 0.\]
+    Therefore, $ST \neq TS$.
+\end{sol}
+
+\begin{exercise}[3a17]
+    Suppose $V$ is finite-dimensional. Show that the only two-sided ideals of $\lin{V}$ are $\set{0}$ and $\lin{V}$.
+    
+    \note{A subspace $\ee$ of $\lin{V}$ is called a two-sided ideal of $\lin{V}$ if $TE \in \ee$ and $ET \in \ee$ for all $E \in \ee$ and all $T \in \lin{V}$.}
+\end{exercise}
+
+\begin{sol}
+    Let $\ee$ be a two-sided ideal of $\lin V$. If $\ee = \set 0$, then we are done. Otherwise, there exists $E \in \ee$ such that $E \neq 0$. Then there exists $v_1 \in V$ such that $Ev_1 \neq 0$. Since $V$ is finite-dimensional, we may extend the list $\set v_1$ to a basis of $V$, say $v_1, v_2, \ldots, v_n$. Let $w_1 = Ev_1 \neq 0$. We may also extend the list $\set w_1$ to a basis of $V$, say $w_1, w_2, \ldots, w_n$. Define $T_1 \in \lin V$ by
+    \[T_1w_1 = v_1, \quad T_1w_k = 0 \text{ for } k > 1.\]
+    Then $T_1E \in \ee$ since $\ee$ is a two-sided ideal. Observe that $T_1Ev_1 = T_1(Ev_1) = T_1w_1 = v_1 \neq 0$. Therefore, $T_1E \neq 0$. Consider $S_1 \in \lin V$ defined by
+    \[S_1v_1 = v_1, \quad S_1v_k = 0 \text{ for } k > 1.\]
+    Then $T_1ES_1 \in \ee$ since $\ee$ is a two-sided ideal. Observe that $T_1ES_1v_1 = T_1Ev_1 = T_1w_1 = v_1 \neq 0$. Therefore, $T_1ES_1 \neq 0$. We now discuss the construction of the identity map $I \in \lin V$.
+    
+    Construct $T_i, S_i \in \lin V$ for each $i = 1, \ldots, n$ as follows:
+    \[T_i w_1 = v_i, \quad T_i w_k = 0 \text{ for } k \neq 1,\]
+    and
+    \[S_i v_i = v_1, \quad S_i v_k = 0 \text{ for } k \neq i.\]
+    Then $T_iES_i \in \ee$ and $T_iES_i v_i = v_i \neq 0$. Since $\ee$ is a subspace, it contains all linear combinations of these maps. In particular, for any $v \in V$, we can write $v = \alpha_1 v_1 + \alpha_2 v_2 + \cdots + \alpha_n v_n$ for some scalars $\alpha_1, \alpha_2, \ldots, \alpha_n \in \f$. Observe that
+    \[T_iES_iv = T_iES_i(\alpha_1 v_1) + \cdots + T_iES_i(\alpha_i v_i) + \cdots + T_iES_i(\alpha_n v_n) = \alpha_i v_i.\]
+    Consider the map
+    \[E^* = T_1ES_1 + T_2ES_2 + \cdots + T_nES_n \in \ee,\]
+    where $E^* \in \ee$ since $\ee$ is a subspace. Then
+    \[E^*v = T_1ES_1 v + T_2ES_2 v + \cdots + T_nES_n v = \alpha_1 v_1 + \alpha_2 v_2 + \cdots + \alpha_n v_n = v.\]
+    Therefore, for any $v \in V$, there exists $E^* \in \ee$ such that $E^*v = v$. Now let $T \in \lin V$ be arbitrary. Then
+    \[T = TE^* \in \ee\]
+    since $TE^* \in \ee$ and $\ee$ is a two-sided ideal. Therefore, $\ee = \lin V$. We conclude that the only two-sided ideals of $\lin V$ are $\set 0$ and $\lin V$.
+\end{sol}
+
+\newpage
+
+\subsection{Null Spaces and Ranges}
+
+\begin{exercise}[3b1]
+    Give an example of a linear map $T$ with $\dim \nul T = 3$ and $\dim \range T = 2$.
+\end{exercise}
+
+\begin{sol}
+    Let $T \in \lin{\r^5, \r^2}$ be defined by
+    \[T(x_1, x_2, x_3, x_4, x_5) = (x_1, x_2).\]
+    Then $\nul T = \set{(0, 0, x_3, x_4, x_5) \mid x_3, x_4, x_5 \in \r}$, which has dimension $3$, and $\range T = \r^2$, which has dimension $2$.
+\end{sol}
+
+\begin{exercise}[3b2]
+    Suppose $S, T \in \lin{V}$ are such that $\range S \subseteq \nul T$. Prove that $(ST)^2 = 0$.
+\end{exercise}
+
+\begin{sol}
+    Let $v \in V$. Then
+    \[(ST)^2 v = ST(STv) = S(T(STv)).\]
+    Since $STv \in \range S$ and $\range S \subseteq \nul T$, we have $T(STv) = 0$. Therefore,
+    \[(ST)^2 v = S(0) = 0.\]
+    Since $v$ was arbitrary, it follows that $(ST)^2 = 0$.
+\end{sol}
+
+\begin{exercise}[3b3]
+    Suppose $v_1, \ldots, v_m$ is a list of vectors in $V$. Define $T \in \lin{\f^m, V}$ by
+    \[T(z_1, \ldots, z_m) = z_1 v_1 + \cdots + z_m v_m.\]
+    \begin{subexercises}
+        \item What property of $T$ corresponds to $v_1, \ldots, v_m$ spanning $V$?
+        \item What property of $T$ corresponds to the list $v_1, \ldots, v_m$ being linearly independent?
+    \end{subexercises}
+\end{exercise}
+
+\begin{sole}
+    \item The list $v_1, \ldots, v_m$ spans $V$ if and only if $\range T = V$, i.e., $T$ is surjective.
+    \item The list $v_1, \ldots, v_m$ is linearly independent if and only if $\nul T = \set{0}$, i.e., $T$ is injective.
+\end{sole}
+
+\begin{exercise}[3b4]
+    Show that $\set{T \in \lin{\r^5, \r^4} \mid \dim \nul T > 2}$ is not a subspace of $\lin{\r^5, \r^4}$.
+\end{exercise}
+
+\begin{sol}
+    Let $T_1, T_2 \in \lin{\r^5, \r^4}$ be defined by
+    \[T_1(x_1, x_2, x_3, x_4, x_5) = (x_1, x_2, 0, 0)\]
+    and
+    \[T_2(x_1, x_2, x_3, x_4, x_5) = (0, 0, x_3, x_4).\]
+    Then $\nul T_1 = \set{(0, 0, x_3, x_4, x_5) \mid x_3, x_4, x_5 \in \r}$ and $\nul T_2 = \set{(x_1, x_2, 0, 0, x_5) \mid x_1, x_2, x_5 \in \r}$ both have dimension $3$, so $T_1$ and $T_2$ are in the set $\set{T \in \lin{\r^5, \r^4} \mid \dim \nul T > 2}$. However,
+    \[(T_1 + T_2)(x_1, x_2, x_3, x_4, x_5) = (x_1, x_2, x_3, x_4),\]
+    which has null space $\nul(T_1 + T_2) = \set{(0, 0, 0, 0, x_5) \mid x_5 \in \r}$ of dimension $1$. Therefore,
+    \[\dim \nul(T_1 + T_2) = 1 < 2,\]
+    so $T_1 + T_2$ is not in the set. Hence, the set is not closed under addition and is not a subspace of $\lin{\r^5, \r^4}$.
+\end{sol}
+
+\begin{exercise}[3b5]
+    Give an example of $T \in \lin{\r^4}$ such that $\range T = \nul T$.
+\end{exercise}
+
+\begin{sol}
+    Let $v_1, v_2, v_3, v_4$ be the standard basis of $\r^4$. Define $T \in \lin{\r^4}$ by
+    \[Tv_1 = v_3, \quad Tv_2 = v_4, \quad Tv_3 = 0, \quad Tv_4 = 0.\]
+    Then for any $x = (x_1, x_2, x_3, x_4) \in \r^4$,
+    \[Tx = x_1 Tv_1 + x_2 Tv_2 + x_3 Tv_3 + x_4 Tv_4 = x_1 v_3 + x_2 v_4.\]
+    Then $\range T = \spn{v_3, v_4}$. If $Tx = 0$, then $x_1 v_3 + x_2 v_4 = 0$, which implies $x_1 = x_2 = 0$. Therefore, $\nul T = \set{(0, 0, x_3, x_4) \mid x_3, x_4 \in \r} = \spn{v_3, v_4}$. Hence, $\range T = \nul T$.
+\end{sol}
+
+\begin{exercise}[3b6]
+    Prove that there does not exist $T \in \lin{\r^5}$ such that $\range T = \nul T$.
+\end{exercise}
+
+\begin{sol}
+    Suppose for contradiction that there exists $T \in \lin{\r^5}$ such that $\range T = \nul T$. Then by the rank-nullity theorem,
+    \[\dim \r^5 = \dim \nul T + \dim \range T = 2\dim \range T.\]
+    Therefore, $5 = 2\dim \range T$, which is impossible since $5$ is odd and $2\dim \range T$ is even. Hence, no such $T$ exists.
+\end{sol}
+
+\begin{exercise}[3b7]
+    Suppose $V$ and $W$ are finite-dimensional with $2 \leq \dim V \leq \dim W$. Show that $\set{T \in \lin{V, W} \mid T \text{ is not injective}}$ is not a subspace of $\lin{V, W}$.
+\end{exercise}
+
+\begin{sol}
+    Let $\dim V = n$ and $\dim W = m$ with $2 \leq n \leq m$. Let $v_1, v_2, \ldots, v_n$ be a basis of $V$, and let $w_1, w_2, \ldots, w_m$ be a basis of $W$. Define $T_1, T_2 \in \lin{V, W}$ by
+    \[T_1 v_1 = w_1, \quad T_1 v_k = 0 \text{ for } k \geq 2,\]
+    and
+    \[T_2 v_1 = 0, \quad T_2 v_k = w_k \text{ for } k \geq 2.\]
+    Then $v_2 \in \nul T_1$ and $v_1 \in \nul T_2$, so both $T_1$ and $T_2$ are not injective. However,
+    \[(T_1 + T_2)v_1 = T_1 v_1 + T_2 v_1 = w_1 + 0 = w_1 \neq 0,\]
+    and for $k \geq 2$,
+    \[(T_1 + T_2)v_k = T_1 v_k + T_2 v_k = 0 + w_k = w_k \neq 0.\]
+    Suppose $v \in V$ such that $(T_1 + T_2)v = 0$. Then $v$ can be expressed as a linear combination of the basis vectors:
+    \[v = \alpha_1 v_1 + \alpha_2 v_2 + \cdots + \alpha_n v_n.\]
+    Then
+    \[(T_1 + T_2)v = \alpha_1 w_1 + \alpha_2 w_2 + \cdots + \alpha_n w_n = 0.\]
+    Since $w_1, w_2, \ldots, w_m$ are linearly independent, it follows that $\alpha_1 = \alpha_2 = \cdots = \alpha_n = 0$, hence $v = 0$. Therefore, $T_1 + T_2$ is injective. Since $T_1$ and $T_2$ are not injective, but their sum is injective, the set $\set{T \in \lin{V, W} \mid T \text{ is not injective}}$ is not closed under addition and thus is not a subspace of $\lin{V, W}$.
+\end{sol}
+
+\begin{exercise}[3b8]
+    Suppose $V$ and $W$ are finite-dimensional with $\dim V \geq \dim W \geq 2$. Show that $\set{T \in \lin{V, W} \mid T \text{ is not surjective}}$ is not a subspace of $\lin{V, W}$.
+\end{exercise}
+
+\begin{sol}
+    We proceed similarly to the previous exercise. Let $\dim V = n$ and $\dim W = m$ with $n \geq m \geq 2$. Let $v_1, v_2, \ldots, v_n$ be a basis of $V$, and let $w_1, w_2, \ldots, w_m$ be a basis of $W$. Define $T_1, T_2 \in \lin{V, W}$ by
+    \[T_1 v_1 = w_1, \quad T_1 v_k = 0 \text{ for } k \geq 2,\]
+    and
+    \[T_2 v_1 = 0, \quad T_2 v_k = w_k \text{ for } k = 2, \ldots, m, \quad T_2 v_k = 0 \text{ for } k > m.\]
+    Then $\range T_1 = \spn{w_1}$ and $\range T_2 = \spn{w_2, \ldots, w_m}$, both of which are proper subspaces of $W$, so $T_1$ and $T_2$ are not surjective. However,
+    \[(T_1 + T_2)v_1 = T_1 v_1 + T_2 v_1 = w_1 + 0 = w_1,\]
+    and for $k = 2, \ldots, m$,
+    \[(T_1 + T_2)v_k = T_1 v_k + T_2 v_k = 0 + w_k = w_k.\]
+    Therefore, $\range(T_1 + T_2) = \spn{w_1, w_2, \ldots, w_m} = W$, so $T_1 + T_2$ is surjective. Since $T_1$ and $T_2$ are not surjective, but their sum is surjective, the set $\set{T \in \lin{V, W} \mid T \text{ is not surjective}}$ is not closed under addition and thus is not a subspace of $\lin{V, W}$.
+\end{sol}
+
+\begin{exercise}[3b9]
+    Suppose $T \in \lin{V, W}$ is injective and $v_1, \ldots, v_n$ is linearly independent in $V$. Prove that $Tv_1, \ldots, Tv_n$ is linearly independent in $W$.
+\end{exercise}
+
+\begin{sol}
+    Suppose $a_1, \ldots, a_n \in \f$ are such that
+    \[a_1 Tv_1 + \cdots + a_n Tv_n = 0.\]
+    By linearity of $T$, we have
+    \[T(a_1 v_1 + \cdots + a_n v_n) = 0.\]
+    Injectivity of $T$ implies that $\nul T = \set{0}$, so
+    \[a_1 v_1 + \cdots + a_n v_n = 0.\]
+    Since $v_1, \ldots, v_n$ is linearly independent, it follows that $a_1 = \cdots = a_n = 0$. Therefore, $Tv_1, \ldots, Tv_n$ is linearly independent in $W$.
+\end{sol}
+
+\begin{exercise}[3b10]
+    Suppose $v_1, \ldots, v_n$ spans $V$ and $T \in \lin{V, W}$. Show that $Tv_1, \ldots, Tv_n$ spans $\range T$.
+\end{exercise}
+
+\begin{sol}
+    Let $w \in \range T$. Then there exists $v \in V$ such that $Tv = w$. Since $v_1, \ldots, v_n$ spans $V$, we can write
+    \[v = a_1 v_1 + \cdots + a_n v_n\]
+    for some scalars $a_1, \ldots, a_n \in \f$. By linearity of $T$, we have
+    \[w = Tv = T(a_1 v_1 + \cdots + a_n v_n) = a_1 Tv_1 + \cdots + a_n Tv_n.\]
+    Therefore, $w$ is a linear combination of $Tv_1, \ldots, Tv_n$. Since $w$ was arbitrary in $\range T$, it follows that $Tv_1, \ldots, Tv_n$ spans $\range T$.
+\end{sol}
+
+\begin{exercise}[3b11]
+    Suppose that $V$ is finite-dimensional and that $T \in \lin{V, W}$. Prove that there exists a subspace $U$ of $V$ such that
+    \[U \cap \nul T = \set{0} \quad \text{and} \quad \range T = \set{Tu \mid u \in U}.\]
+    \remark{Note that this exercise proves the existence of a subspace $U$ of $V$ such that $V = U \op \nul T$.}
+\end{exercise}
+
+\begin{sol}
+    Since $\nul T$ is a subspace of $V$, we can extend a basis of $\nul T$ to a basis of $V$. Let $n_1, \ldots, n_k$ be a basis of $\nul T$, and extend this to a basis of $V$ by adding vectors $u_1, \ldots, u_m$. Hence, a basis for $V$ is given by
+    \[n_1, \ldots, n_k, u_1, \ldots, u_m.\]
+    Define $U = \spn(u_1, \ldots, u_m)$. Suppose $v \in U \cap \nul T$. Then $v$ can be expressed as a linear combination of the basis vectors of $U$:
+    \[v = \alpha_1 u_1 + \cdots + \alpha_m u_m.\]
+    Since $v \in \nul T$ as well, we can also express $v$ as a linear combination of the basis vectors of $\nul T$:
+    \[v = \beta_1 n_1 + \cdots + \beta_k n_k.\]
+    Equating the two expressions for $v$, we have
+    \[\alpha_1 u_1 + \cdots + \alpha_m u_m = \beta_1 n_1 + \cdots + \beta_k n_k.\]
+    Since $n_1, \ldots, n_k, u_1, \ldots, u_m$ is a basis for $V$, the only way this equality can hold is if all coefficients are zero, i.e., $\alpha_1 = \cdots = \alpha_m = 0$ and $\beta_1 = \cdots = \beta_k = 0$. Therefore, $v = 0$, and we conclude that $U \cap \nul T = \set{0}$.
+
+    Now, let $w \in \range T$. Then there exists $v \in V$ such that $Tv = w$. We can express $v$ as a linear combination of the basis vectors of $V$:
+    \[v = \gamma_1 n_1 + \cdots + \gamma_k n_k + \delta_1 u_1 + \cdots + \delta_m u_m.\]
+    Applying $T$ to both sides, we have
+    \[Tv = T(\gamma_1 n_1 + \cdots + \gamma_k n_k + \delta_1 u_1 + \cdots + \delta_m u_m) = \gamma_1 Tn_1 + \cdots + \gamma_k Tn_k + \delta_1 Tu_1 + \cdots + \delta_m Tu_m.\]
+    Since $n_1, \ldots, n_k \in \nul T$, we have $Tn_i = 0$ for all $i = 1, \ldots, k$. Therefore,
+    \[Tv = \delta_1 Tu_1 + \cdots + \delta_m Tu_m.\]
+    Let $u = \delta_1 u_1 + \cdots + \delta_m u_m \in U$. Then $Tu = w$. Since $w$ was arbitrary in $\range T$, it follows that $\range T = \set{Tu \mid u \in U}$. Thus, we have found a subspace $U$ of $V$ such that $U \cap \nul T = \set{0}$ and $\range T = \set{Tu \mid u \in U}$.
+\end{sol}
+
+\begin{exercise}[3b12]
+    Suppose $T$ is a linear map from $\f^4$ to $\f^2$ such that
+    \[\nul T = \set{(x_1, x_2, x_3, x_4) \in \f^4 \mid x_1 = 5x_2 \text{ and } x_3 = 7x_4}.\]
+    Prove that $T$ is surjective.
+\end{exercise}
+
+\begin{sol}
+    We may write the null space of $T$ as
+    \[\nul T = \set{(5x_2, x_2, 7x_4, x_4) \mid x_2, x_4 \in \f}.\]
+    From this, we can see that $\nul T$ is spanned by the vectors $(5, 1, 0, 0)$ and $(0, 0, 7, 1)$. Therefore, $\dim \nul T = 2$. By the rank-nullity theorem, we have
+    \[\dim \f^4 = \dim \nul T + \dim \range T \implies 4 = 2 + \dim \range T.\]
+    Solving for $\dim \range T$, we find that $\dim \range T = 2$. Since $\dim \f^2 = 2$, it follows that $\range T = \f^2$. Therefore, $T$ is surjective.
+\end{sol}
+
+\begin{exercise}[3b13]
+    Suppose $U$ is a three-dimensional subspace of $\r^8$ and that $T$ is a linear map from $\r^8$ to $\r^5$ such that $\nul T = U$. Prove that $T$ is surjective.
+\end{exercise}
+
+\begin{sol}
+    By the rank-nullity theorem, we have
+    \[\dim \r^8 = \dim \nul T + \dim \range T \implies 8 = 3 + \dim \range T.\]
+    Solving for $\dim \range T$, we find that $\dim \range T = 5$. Since $\dim \r^5 = 5$, it follows that $\range T = \r^5$. Therefore, $T$ is surjective.
+\end{sol}
+
+\begin{exercise}[3b14]
+    Prove that there does not exist a linear map from $\f^5$ to $\f^2$ whose null space equals $\set{(x_1, x_2, x_3, x_4, x_5) \in \f^5 \mid x_1 = 3x_2 \text{ and } x_3 = x_4 = x_5}$.
+\end{exercise}
+
+\begin{sol}
+    We can express the null space as
+    \[\nul T = \set{(3x_2, x_2, x_4, x_4, x_4) \mid x_2, x_4 \in \f}.\]
+    From this, we can see that $\nul T$ is spanned by the vectors $(3, 1, 0, 0, 0)$ and $(0, 0, 1, 1, 1)$. Therefore, $\dim \nul T = 2$. By the rank-nullity theorem, we have
+    \[\dim \f^5 = \dim \nul T + \dim \range T \implies 5 = 2 + \dim \range T.\]
+    Solving for $\dim \range T$, we find that $\dim \range T = 3$. However, $\dim \f^2 = 2$, which is less than $3$. This is a contradiction, as the dimension of the range cannot exceed the dimension of the target space. Therefore, no such linear map exists.
+\end{sol}
+
+\begin{exercise}[3b15]
+    Suppose there exists a linear map on $V$ whose $\nul$ space and $\range$ are both finite-dimensional. Prove that $V$ is finite-dimensional.
+\end{exercise}
+
+\begin{sol}
+    Let $T \in \lin{V}$ be such that $\nul T$ and $\range T$ are both finite-dimensional. By the rank-nullity theorem, we have
+    \[\dim V = \dim \nul T + \dim \range T.\]
+    Since both $\dim \nul T$ and $\dim \range T$ are finite, their sum is also finite. Therefore, $\dim V$ is finite, which implies that $V$ is finite-dimensional.
+\end{sol}
+
+\begin{exercise}[3b16]
+    Suppose $V$ and $W$ are both finite-dimensional. Prove that there exists an injective linear map from $V$ to $W$ if and only if $\dim V \leq \dim W$.
+\end{exercise}
+
+\begin{sol}
+    Suppose there exists an injective linear map $T \in \lin{V, W}$. By the rank-nullity theorem, we have
+    \[\dim V = \dim \nul T + \dim \range T.\]
+    Since $T$ is injective, $\nul T = \set{0}$, so $\dim \nul T = 0$. Therefore,
+    \[\dim V = 0 + \dim \range T = \dim \range T.\]
+    Since $\range T$ is a subspace of $W$, we have $\dim \range T \leq \dim W$. Thus,
+    \[\dim V = \dim \range T \leq \dim W.\]
+
+    Conversely, suppose $\dim V \leq \dim W$. Let $n = \dim V$ and $m = \dim W$. Choose a basis $\set{v_1, \ldots, v_n}$ of $V$. Let $\set{w_1, \ldots, w_m}$ be a basis of $W$. Define a linear map $T \in \lin{V, W}$ by
+    \[Tv_i = w_i \quad \text{for } i = 1, \ldots, n.\]
+    Since $n \leq m$, we can assign each basis vector of $V$ to a distinct basis vector of $W$. To show that $T$ is injective, let $v = \alpha_1 v_1 + \cdots + \alpha_n v_n \in V$ such that $Tv = 0$. Then
+    \[Tv = \alpha_1 Tv_1 + \cdots + \alpha_n Tv_n = \alpha_1 w_1 + \cdots + \alpha_n w_n = 0.\]
+    Since $w_1, \ldots, w_n$ are linearly independent, it follows that $\alpha_1 = \cdots = \alpha_n = 0$. Therefore, $v = 0$, and $T$ is injective. Hence, there exists an injective linear map from $V$ to $W$ if and only if $\dim V \leq \dim W$.
+\end{sol}
+
+\begin{exercise}[3b17]
+    Suppose $V$ and $W$ are both finite-dimensional. Prove that there exists a surjective linear map from $V$ onto $W$ if and only if $\dim V \geq \dim W$.
+\end{exercise}
+
+\begin{sol}
+    Suppose there exists a surjective linear map $T \in \lin{V, W}$. By the rank-nullity theorem, we have
+    \[\dim V = \dim \nul T + \dim \range T.\]
+    Since $T$ is surjective, $\range T = W$, so $\dim \range T = \dim W$. Therefore,
+    \[\dim V = \dim \nul T + \dim W.\]
+    Since $\dim \nul T \geq 0$, it follows that
+    \[\dim V \geq \dim W.\]
+
+    Conversely, suppose $\dim V \geq \dim W$. Let $n = \dim V$ and $m = \dim W$. Choose a basis $\set{v_1, \ldots, v_n}$ of $V$. Let $\set{w_1, \ldots, w_m}$ be a basis of $W$. Define a linear map $T \in \lin{V, W}$ by
+    \[Tv_i = w_i \quad \text{for } i = 1, \ldots, m, \quad Tv_i = 0 \quad \text{for } i = m + 1, \ldots, n.\]
+    To show that $T$ is surjective, let $w \in W$. Then $w$ can be expressed as a linear combination of the basis vectors of $W$:
+    \[w = \beta_1 w_1 + \cdots + \beta_m w_m.\]
+    Consider the vector $v = \beta_1 v_1 + \cdots + \beta_m v_m \in V$. Then
+    \[Tv = \beta_1 Tv_1 + \cdots + \beta_m Tv_m = \beta_1 w_1 + \cdots + \beta_m w_m = w.\]
+    Since $w$ was arbitrary in $W$, it follows that $\range T = W$. Therefore, $T$ is surjective. Hence, there exists a surjective linear map from $V$ onto $W$ if and only if $\dim V \geq \dim W$.
+\end{sol}
+
+\begin{exercise}[3b18]
+    Suppose $V$ and $W$ are finite-dimensional and that $U$ is a subspace of $V$. Prove that there exists $T \in \lin{V, W}$ such that $\nul T = U$ if and only if $\dim U \geq \dim V - \dim W$.
+\end{exercise}
+
+\begin{sol}
+    Suppose there exists $T \in \lin{V, W}$ such that $\nul T = U$. By the rank-nullity theorem, we have
+    \[\dim V = \dim \nul T + \dim \range T = \dim U + \dim \range T.\]
+    Since $\range T$ is a subspace of $W$, we have $\dim \range T \leq \dim W$. Therefore,
+    \[\dim V = \dim U + \dim \range T \leq \dim U + \dim W.\]
+    Rearranging this inequality gives
+    \[\dim U \geq \dim V - \dim W.\]
+
+    Conversely, suppose $\dim U \geq \dim V - \dim W$. Let $n = \dim V$, $m = \dim W$, and $k = \dim U$. Let $u_1, \ldots, u_k$ be a basis of $U$. Extend this basis to a basis of $V$ by adding vectors $v_1, \ldots, v_{n - k}$. Define a linear map $T \in \lin{V, W}$ by
+    \[Tu_i = 0 \quad \text{for } i = 1, \ldots, k, \quad Tv_j = w_j \quad \text{for } j = 1, \ldots, n - k,\]
+    where $w_1, \ldots, w_{n - k}$ are linearly independent vectors in $W$. Since $\dim U = k$ and $\dim V - \dim W = n - m$, we have $k \geq n - m$, which implies that $n - k \leq m$. Therefore, we can choose $w_1, \ldots, w_{n - k}$ to be linearly independent in $W$. To show that $\nul T = U$, let $v \in \nul T$. Then $Tv = 0$. Express $v$ as a linear combination of the basis vectors of $V$:
+    \[v = \alpha_1 u_1 + \cdots + \alpha_k u_k + \beta_1 v_1 + \cdots + \beta_{n - k} v_{n - k}.\]
+    Applying $T$ to both sides, we have
+    \[Tv = \alpha_1 Tu_1 + \cdots + \alpha_k Tu_k + \beta_1 Tv_1 + \cdots + \beta_{n - k} Tv_{n - k} = 0 + \beta_1 w_1 + \cdots + \beta_{n - k} w_{n - k} = 0.\]
+    Since $w_1, \ldots, w_{n - k}$ are linearly independent, it follows that $\beta_1 = \cdots = \beta_{n - k} = 0$. Therefore,
+    \[v = \alpha_1 u_1 + \cdots + \alpha_k u_k \in U.\]
+    Hence, $\nul T \subseteq U$. Conversely, if $v \in U$, then $Tv = 0$ by the definition of $T$. Therefore, $U \subseteq \nul T$. Combining these two inclusions, we have $\nul T = U$. Thus, there exists $T \in \lin{V, W}$ such that $\nul T = U$ if and only if $\dim U \geq \dim V - \dim W$.
+\end{sol}
+
+\begin{exercise}[3b19]
+    Suppose $W$ is finite-dimensional and $T \in \lin{V, W}$. Prove that $T$ is injective if and only if there exists $S \in \lin{W, V}$ such that $ST$ is the identity operator on $V$.
+\end{exercise}
+
+\begin{sol}
+    Suppose $T$ is injective. Then $\nul T = \set{0}$. Let $n = \dim V$ and $m = \dim W$. Since $T$ is injective, we have $\dim \range T = n$. Choose a basis $\set{v_1, \ldots, v_n}$ of $V$. Then $\set{Tv_1, \ldots, Tv_n}$ is linearly independent in $W$. Extend this set to a basis of $W$ by adding vectors $w_1, \ldots, w_{m - n}$. Define a linear map $S \in \lin{W, V}$ by
+    \[S(Tv_i) = v_i \quad \text{for } i = 1, \ldots, n, \quad S(w_j) = 0 \quad \text{for } j = 1, \ldots, m - n.\]
+    Then for any $v \in V$, we can express $v$ as a linear combination of the basis vectors:
+    \[v = \alpha_1 v_1 + \cdots + \alpha_n v_n.\]
+    Applying $T$ to both sides, we have
+    \[Tv = \alpha_1 Tv_1 + \cdots + \alpha_n Tv_n.\]
+    Now, applying $S$ to $Tv$, we get
+    \[STv = S(\alpha_1 Tv_1 + \cdots + \alpha_n Tv_n) = \alpha_1 S(Tv_1) + \cdots + \alpha_n S(Tv_n) = \alpha_1 v_1 + \cdots + \alpha_n v_n = v.\]
+    Therefore, $ST$ is the identity operator on $V$.
+
+    Conversely, suppose there exists $S \in \lin{W, V}$ such that $ST$ is the identity operator on $V$. Let $v \in \nul T$. Then $Tv = 0$, and applying $S$ gives
+    \[STv = S(0) = 0.\]
+    Since $ST$ is the identity operator on $V$, we have $v = STv = 0$. Therefore, $\nul T = \set{0}$, which means $T$ is injective.
+\end{sol}
+
+\begin{exercise}[3b20]
+    Suppose $W$ is finite-dimensional and $T \in \lin{V, W}$. Prove that $T$ is surjective if and only if there exists $S \in \lin{W, V}$ such that $TS$ is the identity operator on $W$.
+\end{exercise}
+
+\begin{sol}
+    Suppose $T$ is surjective. Then $\range T = W$. Let $m = \dim W$ and choose a basis $\set{w_1, \ldots, w_m}$ of $W$. Since $T$ is surjective, for each $w_i$, there exists $v_i \in V$ such that $Tv_i = w_i$. Define a linear map $S \in \lin{W, V}$ by
+    \[S(w_i) = v_i \quad \text{for } i = 1, \ldots, m.\]
+    Then for any $w \in W$, we can express $w$ as a linear combination of the basis vectors:
+    \[w = \alpha_1 w_1 + \cdots + \alpha_m w_m.\]
+    Applying $S$ to both sides, we have
+    \[Sw = S(\alpha_1 w_1 + \cdots + \alpha_m w_m) = \alpha_1 S(w_1) + \cdots + \alpha_m S(w_m) = \alpha_1 v_1 + \cdots + \alpha_m v_m.\]
+    Now, applying $T$ to $Sw$, we get
+    \[TSw = T(\alpha_1 v_1 + \cdots + \alpha_m v_m) = \alpha_1 Tv_1 + \cdots + \alpha_m Tv_m = \alpha_1 w_1 + \cdots + \alpha_m w_m = w.\]
+    Therefore, $TS$ is the identity operator on $W$.
+
+    Conversely, suppose there exists $S \in \lin{W, V}$ such that $TS$ is the identity operator on $W$. Let $w \in W$. Then
+    \[TSw = w.\]
+    This means that for every $w \in W$, there exists a vector $v = Sw \in V$ such that $Tv = T(Sw) = w$. Therefore, $\range T = W$, which means that $T$ is surjective.
+\end{sol}
+
+\begin{exercise}[3b21]
+    Suppose $V$ is finite-dimensional, $T \in \lin{V, W}$, and $U$ is a subspace of $W$. Prove that $\set{v \in V \mid Tv \in U}$ is a subspace of $V$ and
+    \[\dim\set{v \in V \mid Tv \in U} = \dim \nul T + \dim(U \cap \range T).\]
+\end{exercise}
+
+\begin{sol}
+    Let $X = \set{v \in V \mid Tv \in U}$. We first show that $X$ is a subspace of $V$. Let $v_1, v_2 \in X$ and $\alpha, \beta \in \f$. Then
+    \[T(\alpha v_1 + \beta v_2) = \alpha Tv_1 + \beta Tv_2.\]
+    Since $Tv_1, Tv_2 \in U$ and $U$ is a subspace of $W$, it follows that $\alpha Tv_1 + \beta Tv_2 \in U$. Therefore, $\alpha v_1 + \beta v_2 \in X$, and thus $X$ is a subspace of $V$.
+
+    Now, we will compute the dimension of $X$. Let $Y = U \cap \range T$. Let $\dim \null T = k$ and $\dim Y = m$. Let $n_1, \ldots, n_k$ be a basis of $\nul T$, and let $y_1, \ldots, y_m$ be a basis of $Y$. Since $y_i \in \range T$, there exist vectors $v_i \in V$ such that $Tv_i = y_i$ for $i = 1, \ldots, m$. We claim that the set $\set{n_1, \ldots, n_k, v_1, \ldots, v_m}$ is a basis of $X$.
+
+    First, we show that this set spans $X$. Let $v \in X$. Then $Tv \in U$, and since $Tv \in \range T$, we have $Tv \in Y$. Therefore, there exist scalars $\alpha_1, \ldots, \alpha_m \in \f$ such that
+    \[Tv = \alpha_1 y_1 + \cdots + \alpha_m y_m = \alpha_1 Tv_1 + \cdots + \alpha_m Tv_m.\]
+    Let $v' = v - (\alpha_1 v_1 + \cdots + \alpha_m v_m)$. Then
+    \[Tv' = Tv - T(\alpha_1 v_1 + \cdots + \alpha_m v_m) = Tv - (\alpha_1 Tv_1 + \cdots + \alpha_m Tv_m) = 0.\]
+    Therefore, $v' \in \nul T$, and we can express $v'$ as a linear combination of the basis vectors of $\nul T$:
+    \[v' = \beta_1 n_1 + \cdots + \beta_k n_k\]
+    for some scalars $\beta_1, \ldots, \beta_k \in \f$. Thus,
+    \[v = v' + (\alpha_1 v_1 + \cdots + \alpha_m v_m) = \beta_1 n_1 + \cdots + \beta_k n_k + \alpha_1 v_1 + \cdots + \alpha_m v_m.\]
+    This shows that $v$ is a linear combination of the vectors in $\set{n_1, \ldots, n_k, v_1, \ldots, v_m}$, and hence this set spans $X$.
+
+    Next, we show that this set is linearly independent. Suppose
+    \[\gamma_1 n_1 + \cdots + \gamma_k n_k + \delta_1 v_1 + \cdots + \delta_m v_m = 0\]
+    for some scalars $\gamma_1, \ldots, \gamma_k, \delta_1, \ldots, \delta_m \in \f$. Observe that $Tn_i = 0$ for all $i = 1, \ldots, k$, and $Tv_j = y_j$ for all $j = 1, \ldots, m$. Therefore,
+    \[0 = T(\gamma_1 n_1 + \cdots + \gamma_k n_k + \delta_1 v_1 + \cdots + \delta_m v_m) = \delta_1 y_1 + \cdots + \delta_m y_m.\]
+    Since $y_1, \ldots, y_m$ are linearly independent, it follows that $\delta_1 = \cdots = \delta_m = 0$. Therefore,
+    \[\gamma_1 n_1 + \cdots + \gamma_k n_k = 0.\]
+    Since $n_1, \ldots, n_k$ are linearly independent, then $\gamma_1 = \cdots = \gamma_k = 0$. Thus, the set $\set{n_1, \ldots, n_k, v_1, \ldots, v_m}$ is linearly independent and a basis of $X$. Therefore,
+    \[\dim X = k + m = \dim \nul T + \dim(U \cap \range T).\]
+\end{sol}
+
+\begin{exercise}[3b22]
+    Suppose $U$ and $V$ are finite-dimensional vector spaces and $S \in \lin{V, W}$ and $T \in \lin{U, V}$. Prove that
+    \[\dim \nul ST \leq \dim \nul S + \dim \nul T.\]
+\end{exercise}
+
+\begin{sol}
+    Let $u \in U$ such that $u \in \nul ST$. Then $STu = 0$, which implies that $Tu \in \nul S$. Therefore, we can express $\nul ST$ as
+    \[\nul ST = \set{u \in U \mid Tu \in \nul S}.\]
+    Observe that this looks similar to the set in Exercise 3b21, where $T$ is a linear map from $U$ to $V$ and $\nul S$ is a subspace of $V$. By applying the result from Exercise 3b21, we have
+    \[\dim \nul ST = \dim \nul T + \dim(\nul S \cap \range T).\]
+    Since $\nul S \cap \range T$ is a subspace of $\nul S$, we have
+    \[\dim(\nul S \cap \range T) \leq \dim \nul S.\]
+    Therefore,
+    \[\dim \nul ST = \dim \nul T + \dim(\nul S \cap \range T) \leq \dim \nul T + \dim \nul S. \qh\]
+\end{sol}
+
+\begin{exercise}[3b23]
+    Suppose $U$ and $V$ are finite-dimensional vector spaces and $S \in \lin{V, W}$ and $T \in \lin{U, V}$. Prove that
+    \[\dim \range ST \leq \min(\dim \range S, \dim \range T).\]
+\end{exercise}
+
+\begin{sol}
+    Let $u \in U$ such that $STu \in \range ST$. Then $STu = S(Tu)$, which implies that $Tu \in \range T$. Therefore, we can express $\range ST$ as
+    \[\range ST = \set{S(Tu) \mid u \in U}.\]
+    Since $Tu \in \range T$, we can rewrite this as
+    \[\range ST = \set{Sv \mid v \in \range T}.\]
+    This shows that $\range ST$ is a subset of $\range S$, and hence
+    \[\dim \range ST \leq \dim \range S.\]
+    Now let $v_1, \ldots, v_m$ be a basis of $\range T$. Then for any $u \in U$, we can express $Tu$ as a linear combination of the basis vectors:
+    \[Tu = \alpha_1 v_1 + \cdots + \alpha_m v_m\]
+    for some scalars $\alpha_1, \ldots, \alpha_m \in \f$. Applying $S$ to both sides, we have
+    \[STu = S(Tu) = S(\alpha_1 v_1 + \cdots + \alpha_m v_m) = \alpha_1 Sv_1 + \cdots + \alpha_m Sv_m.\]
+    This shows that $\range ST$ is spanned by the vectors $Sv_1, \ldots, Sv_m$. Therefore,
+    \[\dim \range ST \leq m = \dim \range T.\]
+    Combining the two inequalities, we have
+    \[\dim \range ST \leq \min(\dim \range S, \dim \range T). \qh\]
+\end{sol}
+
+\begin{exercise}[3b24]
+    \begin{subexercises}
+        \item Suppose $\dim V = 5$ and $S, T \in \lin{V}$ are such that $ST = 0$. Prove that $\dim \range TS \leq 2$.
+        \item Give an example of $S, T \in \lin{\f^5}$ with $ST = 0$ and $\dim \range TS = 2$.
+    \end{subexercises}
+\end{exercise}
+
+\begin{sole}
+    \item Since $ST = 0$, then $S(Tv) = 0$ for all $v \in V$. This implies that $\range T \subseteq \nul S$. By the rank-nullity theorem, we have
+    \[5 = \dim \nul S + \dim \range S \geq \dim \range T + \dim \range S.\]
+    Now, by \autoref{ex:3b23}, we have
+    \[\dim \range TS \leq \min(\dim \range T, \dim \range S).\]
+    Suppose that $\dim \range TS > 2$. Then both $\dim \range T$ and $\dim \range S$ must be greater than $2$, or equivalently, $\dim \range T \geq 3$ and $\dim \range S \geq 3$. This implies that
+    \[\dim \range T + \dim \range S \geq 3 + 3 = 6 > 5,\]
+    which is a contradiction. Therefore, $\dim \range TS \leq 2$.
+    \item Let $v_1, v_2, v_3, v_4, v_5$ be a basis of $\f^5$. Define $S, T \in \lin{\f^5}$ by
+    \[Sv_1 = v_1, \quad Sv_2 = v_2, \quad Sv_3 = Sv_4 = Sv_5 = 0,\]
+    and
+    \[Tv_1 = v_3, \quad Tv_2 = v_4, \quad Tv_3 = Tv_4 = Tv_5 = 0.\]
+    Then $ST = 0$ since $S(Tv_i) = S(0) = 0$ for all $i = 1, \ldots, 5$. Now, we compute $\range TS$. We have
+    \[TSv_1 = T(Sv_1) = Tv_1 = v_3, \quad TSv_2 = T(Sv_2) = Tv_2 = v_4, \quad TSv_3 = TSv_4 = TSv_5 = 0.\]
+    Therefore, $\range TS = \spn(v_3, v_4)$, which has dimension $2$. Thus, we have constructed an example of $S, T \in \lin{\f^5}$ with $ST = 0$ and $\dim \range TS = 2$.
+\end{sole}
+
+\begin{exercise}[3b25]
+    Suppose that $W$ is finite-dimensional and $S, T \in \lin{V, W}$. Prove that $\nul S \subseteq \nul T$ if and only if there exists $E \in \lin{W}$ such that $T = ES$.
+
+    \remark{This exercise requires showing that some $R \in \lin{\range S, W}$ is well-defined. An issue arises when $T$ is not injective: for some $w \in \range S$, there may be multiple $v_1, \ldots, v_k \in V$ such that $Sv_1 = \cdots = Sv_k = w$. In this case, we need to show that $Tv_1 = \cdots = Tv_k$.}
+\end{exercise}
+
+\begin{sol}
+    Suppose $\nul S \subseteq \nul T$. Define a linear map $R: \range S \to W$ by $R(Sv) = Tv$ for all $v \in V$. We need to show that $R$ is well-defined. Suppose $Sv_1 = Sv_2$ for some $v_1, v_2 \in V$. Then $S(v_1 - v_2) = 0$, which implies that $v_1 - v_2 \in \nul S$. Since $\nul S \subseteq \nul T$, we have $v_1 - v_2 \in \nul T$, which means that $T(v_1 - v_2) = 0$. Therefore, $Tv_1 = Tv_2$, and hence $R(Sv_1) = R(Sv_2)$. Thus, $R$ is well-defined.
+
+    By \autoref{ex:3a13}, we can extend $R$ to some $E \in \lin{W}$. Then for any $v \in V$, we have
+    \[Tv = R(Sv) = E(Sv),\]
+    and hence $T = ES$.
+
+    Conversely, suppose there exists $E \in \lin{W}$ such that $T = ES$. Let $v \in \nul S$. Then $Sv = 0$, and applying $E$ gives
+    \[Tv = E(Sv) = E(0) = 0.\]
+    Therefore, $v \in \nul T$, and hence $\nul S \subseteq \nul T$.
+\end{sol}
+
+\begin{exercise}[3b26]
+    Suppose that $V$ is finite-dimensional and $S, T \in \lin{V, W}$. Prove that $\range S \subseteq \range T$ if and only if there exists $E \in \lin{V}$ such that $S = TE$.
+
+    \remark{From the previous exercise, the reader may be tempted to show that a map is well-defined again. However, this is not necessary here, since we are defining a map on the entire space $V$, not just on $\range S$.}
+\end{exercise}
+
+\begin{sol}
+    Suppose $\range S \subseteq \range T$. Let $v_1, \ldots, v_n$ be a basis of $V$. For each $i = 1, \ldots, n$, since $Sv_i \in \range S \subseteq \range T$, there exists $u_i \in V$ such that $Tu_i = Sv_i$. Define a linear map $E \in \lin{V}$ by
+    \[Ev_i = u_i \quad \text{for } i = 1, \ldots, n.\]
+    Then for any $v \in V$, we can express $v$ as a linear combination of the basis vectors:
+    \[v = \alpha_1 v_1 + \cdots + \alpha_n v_n\]
+    for some scalars $\alpha_1, \ldots, \alpha_n \in \f$. Applying $S$ and $TE$ to both sides, we have
+    \[Sv = \alpha_1 Sv_1 + \cdots + \alpha_n Sv_n = \alpha_1 Tu_1 + \cdots + \alpha_n Tu_n = T(\alpha_1 u_1 + \cdots + \alpha_n u_n) = TEv.\]
+    Therefore, $S = TE$.
+
+    Conversely, suppose there exists $E \in \lin{V}$ such that $S = TE$. Let $w \in \range S$. Then there exists $v \in V$ such that $Sv = w$. Applying the definition of $S$, we have
+    \[w = Sv = TE(v) = T(E(v)).\]
+    Therefore, $w \in \range T$, and hence $\range S \subseteq \range T$.
+\end{sol}
+
+\begin{exercise}[3b27]
+    Suppose $P \in \lin{V}$ and $P^2 = P$. Prove that $V = \nul P \op \range P$.
+\end{exercise}
+
+\begin{sol}
+    Let $v \in V$. We can express $v$ as
+    \[v = (v - Pv) + Pv.\]
+    Observe that $Pv \in \range P$ by definition. Now, we need to show that $v - Pv \in \nul P$. Applying $P$ to $v - Pv$, we have
+    \[P(v - Pv) = Pv - P^2v = Pv - Pv = 0.\]
+    Therefore, $v - Pv \in \nul P$. This shows that every vector $v \in V$ can be expressed as a sum of a vector in $\nul P$ and a vector in $\range P$, which implies that
+    \[V = \nul P + \range P.\]
+
+    Next, we need to show that the sum is direct. Suppose $u \in \nul P \cap \range P$. Then there exists some $w \in V$ such that $u = Pw$. Since $u \in \nul P$, we have
+    \[Pu = P(Pw) = P^2w = Pw = u.\]
+    But since $u \in \nul P$, we also have $Pu = 0$. Therefore, we have
+    \[u = Pu = 0.\]
+    This shows that the intersection of $\nul P$ and $\range P$ is trivial, i.e., $\nul P \cap \range P = \set{0}$. Hence, the sum is direct, and we conclude that
+    \[V = \nul P \oplus \range P. \qh\]
+\end{sol}
+
+\begin{exercise}[3b28]
+    Suppose $D \in \lin{\pp(\r)}$ is such that $\deg Dp = (\deg p) - 1$ for every nonconstant polynomial $p \in \pp(\r)$. Prove that $D$ is surjective.
+    
+    \remark{Note that $\pp(\r)$ is infinite-dimensional, so we cannot use the rank-nullity theorem directly. Instead, one should consider finite-dimensional subspaces of $\pp(\r)$.}
+\end{exercise}
+
+\begin{sol}
+    Let $p \in \pp(\r)$ be an arbitrary polynomial. We want to show that there exists a polynomial $q \in \pp(\r)$ such that $Dq = p$. Consider the subspace $\pp_{n + 1}(\r)$ of polynomials of degree at most $n + 1$, where $n = \deg p$. Since $\deg Dq = (\deg q) - 1$, we have $D: \pp_{n + 1}(\r) \to \pp_n(\r)$. The dimension of $\pp_{n + 1}(\r)$ is $n + 2$, and the dimension of $\pp_n(\r)$ is $n + 1$. By the rank-nullity theorem, we have
+    \[\dim \nul D + \dim \range D = \dim \pp_{n + 1}(\r) = n + 2.\]
+    Since $\deg Dp = (\deg p) - 1$ for every nonconstant polynomial $p$, the kernel of $D$ consists of constant polynomials, which has dimension $1$. Therefore, $\dim \nul D = 1$, and we have
+    \[\dim \range D = n + 2 - 1 = n + 1 = \dim \pp_n(\r).\]
+    Since $\dim \range D = \dim \pp_n(\r)$, it follows that $\range D = \pp_n(\r)$. Therefore, for any polynomial $p \in \pp_n(\r)$, there exists a polynomial $q \in \pp_{n + 1}(\r)$ such that $Dq = p$. Since $p$ was arbitrary, we conclude that $D$ is surjective.
+\end{sol}
+
+\begin{exercise}[3b29]
+    Suppose $p \in \pp(\r)$. Prove that there exists a polynomial $q \in \pp(\r)$ such that $5q'' + 3q' = p$.
+\end{exercise}
+
+\begin{sol}
+    Let $p \in \pp(\r)$ be an arbitrary polynomial. We want to show that there exists a polynomial $q \in \pp(\r)$ such that $5q'' + 3q' = p$. Consider the subspace $\pp_{n + 2}(\r)$ of polynomials of degree at most $n + 2$, where $n = \deg p$. Define the linear map $D: \pp_{n + 2}(\r) \to \pp_{n + 1}(\r)$ by $Dq = 5q'' + 3q'$. The dimension of $\pp_{n + 2}(\r)$ is $n + 3$, and the dimension of $\pp_{n + 1}(\r)$ is $n + 2$. By the rank-nullity theorem, we have
+    \[\dim \nul D + \dim \range D = \dim \pp_{n + 2}(\r) = n + 3.\]
+    The kernel of $D$ consists of polynomials $q$ such that $5q'' + 3q' = 0$, or $5q'' = -3q'$. Note that if $\deg q = m$, then $\deg q' = m - 1$ and $\deg q'' = m - 2$. Therefore, the degree of $5q'' + 3q'$ is at most $m - 1$. For this to be zero, we must have $q' = 0$, which implies that $q$ is a constant polynomial. Therefore, $\dim \nul D = 1$, and we have
+    \[\dim \range D = n + 3 - 1 = n + 2 = \dim \pp_{n + 1}(\r).\]
+    Since $\dim \range D = \dim \pp_{n + 1}(\r)$, it follows that $\range D = \pp_{n + 1}(\r)$. Therefore, for any polynomial $p \in \pp_{n + 1}(\r)$, there exists a polynomial $q \in \pp_{n + 2}(\r)$ such that $Dq = p$. Since $p$ was arbitrary, we conclude that $D$ is surjective.
+\end{sol}
+
+\begin{exercise}[3b30]
+    Suppose $\varphi \in \lin{V, \f}$ and $\varphi \neq 0$. Suppose $u \in V$ is not in $\nul \varphi$. Prove that
+    \[V = \nul \varphi \op \set{au \mid a \in \f}.\]
+\end{exercise}
+
+\begin{sol}
+    Let $v \in V$. We want to show that $v$ can be expressed as a sum of a vector in $\nul \varphi$ and a scalar multiple of $u$. Since $\varphi(u) \neq 0$, we can define a scalar
+    \[a = \frac{\varphi(v)}{\varphi(u)}.\]
+    Then consider the vector
+    \[w = v - au.\]
+    We have
+    \[\varphi(w) = \varphi(v - au) = \varphi(v) - a\varphi(u) = \varphi(v) - \frac{\varphi(v)}{\varphi(u)}\varphi(u) = 0.\]
+    Therefore, $w \in \nul \varphi$. Thus, we can express $v$ as
+    \[v = w + au,\]
+    where $w \in \nul \varphi$ and $au$ is a scalar multiple of $u$. This shows that every vector in $V$ can be expressed as a sum of a vector in $\nul \varphi$ and a scalar multiple of $u$, which implies that
+    \[V = \nul \varphi + \set{au \mid a \in \f}.\]
+
+    Next, we need to show that the sum is direct. Suppose $w \in \nul \varphi \cap \set{au \mid a \in \f}$. Then there exists a scalar $a \in \f$ such that $w = au$. Since $w \in \nul \varphi$, we have
+    \[0 = \varphi(w) = \varphi(au) = a\varphi(u).\]
+    Since $\varphi(u) \neq 0$, it follows that $a = 0$. Therefore, $w = 0$, which shows that the intersection of $\nul \varphi$ and $\set{au \mid a \in \f}$ is trivial. Hence, the sum is direct, and we conclude that
+    \[V = \nul \varphi \oplus \set{au \mid a \in \f}. \qh\]
+\end{sol}
+
+\begin{exercise}[3b31]
+    Suppose $V$ is finite-dimensional, $X$ is a subspace of $V$, and $Y$ is a finite-dimensional subspace of $W$. Prove that there exists $T \in \lin{V, W}$ such that $\nul T = X$ and $\range T = Y$ if and only if $\dim X + \dim Y = \dim V$.
+\end{exercise}
+
+\begin{sol}
+    Suppose there exists $T \in \lin{V, W}$ such that $\nul T = X$ and $\range T = Y$. By the rank-nullity theorem, we have
+    \[\dim V = \dim \nul T + \dim \range T = \dim X + \dim Y.\]
+
+    Conversely, suppose $\dim X + \dim Y = \dim V$. Let $n = \dim V$, $k = \dim X$, and $m = \dim Y$. Then $n = k + m$. Choose a basis $\set{x_1, \ldots, x_k}$ of $X$ and extend it to a basis $\set{x_1, \ldots, x_k, v_1, \ldots, v_m}$ of $V$. Let $\set{y_1, \ldots, y_m}$ be a basis of $Y$. Define a linear map $T \in \lin{V, W}$ by
+    \[Tx_i = 0 \quad \text{for } i = 1, \ldots, k,\]
+    and
+    \[Tv_j = y_j \quad \text{for } j = 1, \ldots, m.\]
+    Then for any $v \in V$, we can express $v$ as a linear combination of the basis vectors:
+    \[v = \alpha_1 x_1 + \cdots + \alpha_k x_k + \beta_1 v_1 + \cdots + \beta_m v_m\]
+    for some scalars $\alpha_1, \ldots, \alpha_k, \beta_1, \ldots, \beta_m \in \f$. Applying $T$ to both sides gives
+    \[Tv = \alpha_1 Tx_1 + \cdots + \alpha_k Tx_k + \beta_1 Tv_1 + \cdots + \beta_m Tv_m = 0 + \beta_1 y_1 + \cdots + \beta_m y_m.\]
+    Therefore, $Tv \in Y$. Now suppose $y = \gamma_1 y_1 + \cdots + \gamma_m y_m \in Y$. Then
+    \[T(\gamma_1 v_1 + \cdots + \gamma_m v_m) = \gamma_1 y_1 + \cdots + \gamma_m y_m = y.\]
+    Hence, $\range T = Y$. Moreover, if $Tv = 0$, then $\beta_1 y_1 + \cdots + \beta_m y_m = 0$. Since $y_1, \ldots, y_m$ are linearly independent, it follows that $\beta_1 = \cdots = \beta_m = 0$. Thus, $v \in X$. Additionally, if $v \in X$, then $v = \alpha_1 x_1 + \cdots + \alpha_k x_k$ for some scalars $\alpha_1, \ldots, \alpha_k \in \f$, and hence $Tv = 0$. Therefore, $\nul T = X$. This shows that there exists a linear map $T \in \lin{V, W}$ such that $\nul T = X$ and $\range T = Y$.
+\end{sol}
+
+\begin{exercise}[3b32]
+    Suppose $V$ is finite-dimensional with $\dim V > 1$. Show that if $\varphi: \lin{V} \to \f$ is a linear map such that $\varphi(ST) = \varphi(S)\varphi(T)$ for all $S, T \in \lin{V}$, then $\varphi = 0$.
+    
+    \note{The description of the two-sided ideals of $\lin{V}$ given by \autoref{ex:3a17} might be useful.}
+\end{exercise}
+
+\begin{sol}
+    Suppose $\varphi: \lin{V} \to \f$ is a linear map such that $\varphi(ST) = \varphi(S)\varphi(T)$ for all $S, T \in \lin{V}$. We want to show that $\varphi = 0$. 
+
+    Let $I$ be the identity operator on $V$. Then for any $T \in \lin{V}$, we have
+    \[\varphi(T) = \varphi(IT) = \varphi(I)\varphi(T).\]
+    We now claim that $\null \varphi$ is a two-sided ideal of $\lin{V}$. Let $S \in \lin{V}$ and $T \in \null \varphi$. Then
+    \[\varphi(ST) = \varphi(S)\varphi(T) = \varphi(S) \cdot 0 = 0,\]
+    and similarly,
+    \[\varphi(TS) = \varphi(T)\varphi(S) = 0 \cdot \varphi(S) = 0.\]
+    Therefore, $ST, TS \in \null \varphi$, and hence $\null \varphi$ is a two-sided ideal of $\lin{V}$. By \autoref{ex:3a17}, the only two-sided ideals of $\lin{V}$ are $\set{0}$ and $\lin{V}$ itself. If $\null \varphi = \set{0}$, then $\varphi$ is injective. However, since $\dim V > 1$, observe from \autoref{ex:3a16} that we may construct $S, T \in \lin V$ such that $ST \neq TS$. If $\alpha S + \beta T = 0$ for some scalars $\alpha, \beta \in \f$, then we have
+    \[(\alpha S + \beta T)v_1 = \alpha Sv_1 + \beta Tv_1 = \alpha v_2 + \beta v_1 = 0.\]
+    This implies that $\alpha = \beta = 0$, and hence $S$ and $T$ are linearly independent. Then $\dim \lin V \geq 2$. Since $\dim \f = 1$, the linear map $\varphi$ cannot be injective, and hence $\null \varphi \neq \set{0}$. Therefore, we must have $\null \varphi = \lin{V}$, which implies that $\varphi = 0$.
+\end{sol}
+
+\begin{exercise}[3b33]
+    Suppose that $V$ and $W$ are real vector spaces and $T \in \lin{V, W}$. Define $T_\c: V_\c \to W_\c$ by
+    \[T_\c(u + iv) = Tu + iTv\]
+    for all $u, v \in V$.
+    \begin{subexercises}
+        \item Show that $T_\c$ is a (complex) linear map from $V_\c$ to $W_\c$.
+        \item Show that $T_\c$ is injective if and only if $T$ is injective.
+        \item Show that $\range T_\c = W_\c$ if and only if $\range T = W$.
+    \end{subexercises}
+    
+    \note{See Exercise 8 in Section 1B for the definition of the complexification $V_\c$. The linear map $T_\c$ is called the \textbf{complexification} of the linear map $T$.}
+\end{exercise}
+
+\begin{sole}
+    \item Let $u_1 + iv_1, u_2 + iv_2 \in V_\c$ and $\alpha, \beta \in \c$. By the definition of complex scalar multiplication in $V_\c$, we have
+    \[\alpha(u_1 + iv_1) + \beta(u_2 + iv_2) = (\alpha u_1 + \beta u_2) + i(\alpha v_1 + \beta v_2).\]
+    Applying $T_\c$ to both sides, we have
+    \begin{align*}
+        T_\c(\alpha(u_1 + iv_1) + \beta(u_2 + iv_2)) & = T_\c((\alpha u_1 + \beta u_2) + i(\alpha v_1 + \beta v_2)) \\
+        & = T(\alpha u_1 + \beta u_2) + iT(\alpha v_1 + \beta v_2) \\
+        & = \alpha Tu_1 + \beta Tu_2 + i(\alpha Tv_1 + \beta Tv_2) \\
+        & = \alpha(Tu_1 + iTv_1) + \beta(Tu_2 + iTv_2) \\
+        & = \alpha T_\c(u_1 + iv_1) + \beta T_\c(u_2 + iv_2).
+    \end{align*}
+    Therefore, $T_\c$ is a complex linear map from $V_\c$ to $W_\c$.
+    \item Suppose $T_\c$ is injective. Let $v \in V$ such that $Tv = 0$. Then
+    \[T_\c(v + i0) = Tv + iT0 = 0 + i0 = 0.\]
+    Since $T_\c$ is injective, we have $v + i0 = 0$, which implies that $v = 0$. Therefore, $T$ is injective.
+
+    Conversely, suppose $T$ is injective. Let $u + iv \in V_\c$ such that $T_\c(u + iv) = 0$. Then
+    \[Tu + iTv = 0.\]
+    This implies that $Tu = 0$ and $Tv = 0$. Since $T$ is injective, we have $u = 0$ and $v = 0$. Therefore, $u + iv = 0$, and hence $T_\c$ is injective.
+    \item Suppose $\range T_\c = W_\c$. Let $w \in W$. Then $w + i0 \in W_\c$, and since $\range T_\c = W_\c$, there exists $u + iv \in V_\c$ such that
+    \[T_\c(u + iv) = Tu + iTv = w + i0.\]
+    This implies that $Tu = w$ and $Tv = 0$. Therefore, $w \in \range T$, and hence $\range T = W$.
+
+    Conversely, suppose $\range T = W$. Let $w_1 + iw_2 \in W_\c$. Since $\range T = W$, there exist $u, v \in V$ such that $Tu = w_1$ and $Tv = w_2$. Then
+    \[T_\c(u + iv) = Tu + iTv = w_1 + iw_2.\]
+    Therefore, $w_1 + iw_2 \in \range T_\c$, and hence $\range T_\c = W_\c$.
+\end{sole}
+
+\newpage
+
+\subsection{Matrices}
+
+\begin{exercise}[3c1]
+    Suppose $T \in \lin{V, W}$. Show that with respect to each choice of bases of $V$ and $W$, the matrix of $T$ has at least $\dim \range T$ nonzero entries.
+\end{exercise}
+
+\begin{sol}
+    Let $v_1, \ldots, v_n$ be a basis of $V$ and $w_1, \ldots, w_m$ be a basis of $W$. Then the matrix of $T$ with respect to these bases is given by
+    \[\mm(T) = 
+    \begin{pmatrix}
+        Tv_1 & Tv_2 & \cdots & Tv_n
+    \end{pmatrix}
+    \]
+    where each $Tv_j$ is expressed as a linear combination of the basis vectors $w_1, \ldots, w_m$. Let $\dim \range T = r$. Then there exist $r$ linearly independent vectors in $\range T$. After possibly reordering the basis vectors of $V$, we can assume that $Tv_1, \ldots, Tv_r$ are linearly independent. Since each $Tv_j$ is a linear combination of the basis vectors of $W$, each $Tv_j$ must have at least one nonzero entry in its corresponding column of the matrix $\mm(T)$. Therefore, there are at least $r$ nonzero entries in the matrix $\mm(T)$, which shows that the matrix of $T$ has at least $\dim \range T$ nonzero entries.
+\end{sol}
+
+\begin{exercise}[3c2]
+    Suppose $V$ and $W$ are finite-dimensional and $T \in \lin{V, W}$. Prove that $\dim \range T = 1$ if and only if there exist a basis of $V$ and a basis of $W$ such that with respect to these bases, all entries of $\mm(T)$ equal $1$.
+\end{exercise}
+
+\begin{sol}
+    Suppose $\dim \range T = 1$. Then there exists a nonzero vector $y_1 \in W$ such that $\range T = \spn y_1$. Let $\dim V = n$ and $\dim W = m$. Extend $y_1$ to a basis $y_1, \ldots, y_m$ of $W$, and define the following vectors in $W$:
+    \[w_1 = y_1 - (y_2 + \cdots + y_m), \quad w_k = y_k \text{ for } k = 2, \ldots, m.\]
+    It is clear that $w_1 + w_2 + \cdots + w_m = y_1$, and hence $w_1, \ldots, w_m$ spans $W$. Now suppose for scalars $\alpha_1, \ldots, \alpha_m \in \f$, we have
+    \[\alpha_1 w_1 + \alpha_2 w_2 + \cdots + \alpha_m w_m = 0.\]
+    Then we can express this as
+    \[\alpha_1(y_1 - (y_2 + \cdots + y_m)) + \alpha_2 y_2 + \cdots + \alpha_m y_m = 0.\]
+    Simplifying, we get
+    \[(\alpha_1) y_1 + (-\alpha_1 + \alpha_2) y_2 + \cdots + (-\alpha_1 + \alpha_m) y_m = 0.\]
+    Since $y_1, \ldots, y_m$ are linearly independent, we must have $\alpha_1 = \alpha_2 = \cdots = \alpha_m = 0$. Therefore, $w_1, \ldots, w_m$ are linearly independent and hence form a basis of $W$.
+
+    We now construct a basis of $V$. By the rank nullity theorem, we have
+    \[\dim V = \dim \null T + \dim \range T = \dim \null T + 1.\]
+    Let $u_2, \ldots, u_n$ be a basis of $\null T$. Then we can extend this to a basis $u_1, u_2, \ldots, u_n$ of $V$, where $u_1 \notin \null T$. Since $\range T = \spn y_1$, we have
+    \[Tu_1 = \beta y_1\]
+    for some nonzero scalar $\beta \in \f$. If $\beta \neq 1$, we may replace $u_1$ with $\beta\inv u_1$ to ensure that $Tu_1 = y_1$. We construct the following vectors in $V$:
+    \[v_1 = u_1, \quad v_k = u_1 + u_k \text{ for } k = 2, \ldots, n.\]
+    Note that for every $j = 1, \ldots, n$, we have $Tv_j = Tu_1 + Tu_j = y_1 + 0 = y_1$. We claim that $v_1, \ldots, v_n$ form a basis of $V$. Suppose for scalars $\alpha_1, \ldots, \alpha_n \in \f$, we have
+    \[\alpha_1 v_1 + \alpha_2 v_2 + \cdots + \alpha_n v_n = 0.\]
+    Then we can express this as
+    \[(\alpha_1 + \alpha_2 + \cdots + \alpha_n) u_1 + \alpha_2 u_2 + \cdots + \alpha_n u_n = 0.\]
+    Since $u_1, \ldots, u_n$ are linearly independent, we must have $\alpha_1 + \alpha_2 + \cdots + \alpha_n = 0$ and $\alpha_2 = \cdots = \alpha_n = 0$. This implies that $\alpha_1 = 0$, and hence $v_1, \ldots, v_n$ are linearly independent and form a basis of $V$. Then with respect to the bases $v_1, \ldots, v_n$ of $V$ and $w_1, \ldots, w_m$ of $W$, we have that $Tv_j = y_1 = w_1 + w_2 + \cdots + w_m$ for each $j = 1, \ldots, n$. Therefore, the matrix of $T$ with respect to these bases has all entries equal to $1$.
+
+    Conversely, suppose there exist a basis of $V$ and a basis of $W$ such that with respect to these bases, all entries of $\mm(T)$ equal $1$. Then for each basis vector $v_j$ of $V$, we have
+    \[Tv_j = w\]
+    for some fixed nonzero vector $w \in W$, where $w = w_1 + \cdots + w_m$ is the sum of the basis vectors of $W$. Since $\range T$ is spanned by the images of the basis vectors of $V$, then any sum of $Tv_j$ is a scalar multiple of $w$. Therefore, $\range T = \spn w$, and hence $\dim \range T = 1$.
+\end{sol}
+
+\begin{exercise}[3c3]
+    Suppose $v_1, \ldots, v_n$ is a basis of $V$ and $w_1, \ldots, w_m$ is a basis of $W$.
+    \begin{subexercises}
+        \item Show that if $S, T \in \lin{V, W}$, then $\mm(S + T) = \mm(S) + \mm(T)$.
+        \item Show that if $\lambda \in \f$ and $T \in \lin{V, W}$, then $\mm(\lambda T) = \lambda \mm(T)$.
+    \end{subexercises}
+\end{exercise}
+
+\begin{sole}
+    \item Let $v_1, \ldots, v_n$ be a basis of $V$ and $w_1, \ldots, w_m$ be a basis of $W$. Then the matrix of $S + T$ with respect to these bases is given by
+    \begin{align*}
+        \mm(S + T) & = 
+        \begin{pmatrix}
+            (S + T)v_1 & (S + T)v_2 & \cdots & (S + T)v_n
+        \end{pmatrix} \\
+        & = 
+        \begin{pmatrix}
+            Sv_1 + Tv_1 & Sv_2 + Tv_2 & \cdots & Sv_n + Tv_n
+        \end{pmatrix} \\
+        & = 
+        \begin{pmatrix}
+            Sv_1 & Sv_2 & \cdots & Sv_n
+        \end{pmatrix} +
+        \begin{pmatrix}
+            Tv_1 & Tv_2 & \cdots & Tv_n
+        \end{pmatrix} \\
+        & = \mm(S) + \mm(T).
+    \end{align*}
+    \item Let $v_1, \ldots, v_n$ be a basis of $V$ and $w_1, \ldots, w_m$ be a basis of $W$. Then the matrix of $\lambda T$ with respect to these bases is given by
+    \begin{align*}
+        \mm(\lambda T) & = 
+        \begin{pmatrix}
+            (\lambda T)v_1 & (\lambda T)v_2 & \cdots & (\lambda T)v_n
+        \end{pmatrix} \\
+        & = 
+        \begin{pmatrix}
+            \lambda Tv_1 & \lambda Tv_2 & \cdots & \lambda Tv_n
+        \end{pmatrix} \\
+        & = \lambda
+        \begin{pmatrix}
+            Tv_1 & Tv_2 & \cdots & Tv_n
+        \end{pmatrix} \\
+        & = \lambda \mm(T). \qh
+    \end{align*}
+\end{sole}
+
+\begin{exercise}[3c4]
+    Suppose that $D \in \lin{\pp_3(\r), \pp_2(\r)}$ is the differentiation map defined by $Dp = p'$. Find a basis of $\pp_3(\r)$ and a basis of $\pp_2(\r)$ such that the matrix of $D$ with respect to these bases is
+    \[\begin{pmatrix}
+        1 & 0 & 0 & 0 \\
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 1 & 0
+    \end{pmatrix}.\]
+\end{exercise}
+
+\begin{sol}
+    Consider the standard basis of $\pp_3(\r)$. Reorder it to obtain the basis $x^3, x^2, x, 1$. Consider the standard basis of $\pp_2(\r)$. Reorder it to obtain the basis $x^2, x, 1$. Observe that $D(x^3) = 3x^2$, $D(x^2) = 2x$, $D(x) = 1$, and $D(1) = 0$. However, we need the matrix of $D$ to have the desired form. To achieve this, we can scale the basis vectors of $\pp_3(\r)$ and $\pp_2(\r)$ appropriately. Then we may define the basis for $\pp_3(\r)$ as
+    \[\frac 13 x^3, \frac 12 x^2, x, 1\]
+    while maintaining the standard basis for $\pp_2(\r)$ as $x^2, x, 1$. Then we have
+    \[D\left(\frac 13 x^3\right) = x^2, \quad D\left(\frac 12 x^2\right) = x, \quad D(x) = 1, \quad D(1) = 0.\]
+    Therefore, with respect to the bases, we get the desired matrix representation of $D$.
+\end{sol}
+
+\begin{exercise}[3c5]
+    Suppose $V$ and $W$ are finite-dimensional and $T \in \lin{V, W}$. Prove that there exist a basis of $V$ and a basis of $W$ such that with respect to these bases, all entries of $\mm(T)$ are $0$ except that the entries in row $k$, column $k$, equal $1$ if $1 \leq k \leq \dim \range T$.
+\end{exercise}
+
+\begin{sol}
+    Let $n = \dim V$ and $m = \dim W$. By the rank-nullity theorem, we have
+    \[\dim V = \dim \nul T + \dim \range T.\]
+    Let $r = \dim \range T$. Let $u_1, \ldots, u_{n - r}$ be a basis of $\nul T$. Extend this to a basis $u_1, \ldots, u_{n - r}, v_1, \ldots, v_r$ of $V$. We claim that $Tv_1, \ldots, Tv_r$ are linearly independent. Suppose for scalars $\alpha_1, \ldots, \alpha_r \in \f$, we have
+    \[\alpha_1 Tv_1 + \cdots + \alpha_r Tv_r = 0.\]
+    Then
+    \[T(\alpha_1 v_1 + \cdots + \alpha_r v_r) = 0,\]
+    which implies that $\alpha_1 v_1 + \cdots + \alpha_r v_r \in \nul T$. Since $u_1, \ldots, u_{n - r}, v_1, \ldots, v_r$ is a basis of $V$, it follows that $\alpha_1 = \cdots = \alpha_r = 0$. Therefore, $Tv_1, \ldots, Tv_r$ are linearly independent and form a basis of $\range T$. Extend this to a basis $Tv_1, \ldots, Tv_r, w_1, \ldots, w_{m - r}$ of $W$.
+
+    If needed, reorder the basis of $V$ so that $v_1, \ldots, v_r$ are the first $r$ basis vectors, and reorder the basis of $W$ so that $Tv_1, \ldots, Tv_r$ are the first $r$ basis vectors. Then with respect to these bases, we have
+    \[Tv_k = Tv_k \quad \text{for } k = 1, \ldots, r,\]
+    and
+    \[Tu_j = 0 \quad \text{for } j = 1, \ldots, n - r.\]
+    Therefore, the matrix of $T$ with respect to these bases has $1$'s in the diagonal entries corresponding to $Tv_k$ and $0$'s elsewhere, as desired.
+\end{sol}
+
+\begin{exercise}[3c6]
+    Suppose $v_1, \ldots, v_m$ is a basis of $V$ and $W$ is finite-dimensional. Suppose $T \in \lin{V, W}$. Prove that there exists a basis $w_1, \ldots, w_n$ of $W$ such that all entries in the first column of $\mm(T)$ [with respect to the bases $v_1, \ldots, v_m$ and $w_1, \ldots, w_n$] are $0$ except for possibly a $1$ in the first row, first column.
+\end{exercise}
+
+\begin{sol}
+    Let $n = \dim W$. If $Tv_1 = 0$, then we can choose any basis of $W$ and the first column of $\mm(T)$ will be all zeros. If $Tv_1 \neq 0$, then we can extend $Tv_1$ to a basis of $W$. Let $w_1 = Tv_1$ and extend it to a basis $w_1, w_2, \ldots, w_n$ of $W$. Then with respect to the bases $v_1, \ldots, v_m$ of $V$ and $w_1, \ldots, w_n$ of $W$, we have
+    \[Tv_1 = w_1\]
+    and for each $j = 2, \ldots, m$, we can express
+    \[Tv_j = \alpha_{j1} w_1 + \alpha_{j2} w_2 + \cdots + \alpha_{jn} w_n\]
+    for some scalars $\alpha_{j1}, \alpha_{j2}, \ldots, \alpha_{jn} \in \f$. Therefore, the first column of $\mm(T)$ has a $1$ in the first row and zeros in all other rows, as desired.
+\end{sol}
+
+\begin{exercise}[3c7]
+    Suppose $w_1, \ldots, w_n$ is a basis of $W$ and $V$ is finite-dimensional. Suppose $T \in \lin{V, W}$. Prove that there exists a basis $v_1, \ldots, v_m$ of $V$ such that all entries in the first row of $\mm(T)$ [with respect to the bases $v_1, \ldots, v_m$ and $w_1, \ldots, w_n$] are $0$ except for possibly a $1$ in the first row, first column.
+\end{exercise}
+
+\begin{sol}
+    Let $m = \dim V$. If $T$ is the zero map, then we can choose any basis of $V$ and the first row of $\mm(T)$ will be all zeros. If $T$ is not the zero map, let $u_1, \ldots, u_m$ be a basis for $V$. Then there is some $u_j$ such that $Tu_j \neq 0$. Reorder the basis of $V$ so that $u_1$ is such that $Tu_1 \neq 0$. Then we can express
+    \[Tu_1 = \alpha w_1 + \beta_2 w_2 + \cdots + \beta_n w_n\]
+    for some scalars $\alpha, \beta_2, \ldots, \beta_n \in \f$. Since $Tu_1 \neq 0$, we have $\alpha \neq 0$. We can scale $u_1$ by $\alpha\inv$ to obtain a new vector $v_1 = \alpha\inv u_1$ such that
+    \[Tv_1 = w_1 + \frac{\beta_2}{\alpha} w_2 + \cdots + \frac{\beta_n}{\alpha} w_n.\]
+    With the remaining $u_2, \ldots, u_m$ basis vectors of $V$, note that they can be expressed as
+    \[Tv_j = \alpha_{j1} w_1 + \alpha_{j2} w_2 + \cdots + \alpha_{jn} w_n\]
+    for some scalars $\alpha_{j1}, \alpha_{j2}, \ldots, \alpha_{jn} \in \f$. Consider the set of vectors of $V$ given by
+    \[v_1 = \alpha\inv u_1, \quad v_j = u_j - \alpha_{j1} v_1 \text{ for } j = 2, \ldots, m.\]
+    Note that $Tv_j = Tu_j - \alpha_{j1} Tv_1$ is just a combination of $w_2, \ldots, w_n$. We now claim that $v_1, v_2, \ldots, v_m$ are linearly independent. Suppose for scalars $\gamma_1, \ldots, \gamma_m \in \f$, we have
+    \[\gamma_1 v_1 + \gamma_2 v_2 + \cdots + \gamma_m v_m = 0.\]
+    Then we can express this as
+    \[\gamma_1 v_1 + \gamma_2 (u_2 - \alpha_{21} v_1) + \cdots + \gamma_m (u_m - \alpha_{m1} v_1) = 0.\]
+    Simplifying, we get
+    \[(\gamma_1 - \gamma_2 \alpha_{21} - \cdots - \gamma_m \alpha_{m1}) v_1 + \gamma_2 u_2 + \cdots + \gamma_m u_m = 0.\]
+    Since $v_1, u_2, \ldots, u_m$ are linearly independent, we must have $\gamma_1 - \gamma_2 \alpha_{21} - \cdots - \gamma_m \alpha_{m1} = 0$ and $\gamma_2 = \cdots = \gamma_m = 0$. This implies that $\gamma_1 = 0$, and hence $v_1, v_2, \ldots, v_m$ are linearly independent. Then $v_1, v_2, \ldots, v_m$ form a basis of $V$. It follows that $Tv_1$ has a 1 in the first row, while $Tv_j$ for $j = 2, \ldots, m$ have zeros in the first row.
+\end{sol}
+
+\begin{exercise}[3c8]
+    Suppose $A$ is an $m$-by-$n$ matrix and $B$ is an $n$-by-$p$ matrix. Prove that $(AB)_{j, \cdot} = A_{j, \cdot} B$ for each $1 \leq j \leq m$. In other words, show that row $j$ of $AB$ equals (row $j$ of $A$) times $B$.
+\end{exercise}
+
+\begin{sol}
+    Let $A$ be an $m$-by-$n$ matrix and $B$ be an $n$-by-$p$ matrix. The entry in row $j$, column $k$, of the product $AB$ is given by
+    \[(AB)_{j, k} = \sum_{r = 1}^{n} A_{j, r} B_{r, k}.\]
+    The row vector $A_{j, \cdot}$ is the $j$-th row of $A$, which can be expressed as
+    \[A_{j, \cdot} = (A_{j, 1}, A_{j, 2}, \ldots, A_{j, n}).\]
+    When we multiply this row vector by the matrix $B$, we get a new row vector whose entries are given by
+    \[(A_{j, \cdot} B)_k = \sum_{r = 1}^{n} A_{j, r} B_{r, k}.\]
+    Comparing this with the expression for $(AB)_{j, k}$, we see that
+    \[(AB)_{j, k} = (A_{j, \cdot} B)_k\]
+    for each column index $k$. Therefore, the entire row vector $(AB)_{j, \cdot}$ is equal to the row vector $A_{j, \cdot} B$. This proves that row $j$ of $AB$ equals (row $j$ of $A$) times $B$.
+\end{sol}
+
+\begin{exercise}[3c9]
+    Suppose $a = (a_1 \quad \cdots \quad a_n)$ is a $1$-by-$n$ matrix and $B$ is an $n$-by-$p$ matrix. Prove that
+    \[aB = a_1 B_{1, \cdot} + \cdots + a_n B_{n, \cdot}.\]
+    In other words, show that $aB$ is a linear combination of the rows of $B$, with the scalars that multiply the rows coming from $a$.
+\end{exercise}
+
+\begin{sol}
+    Let $a = (a_1 \quad \cdots \quad a_n)$ be a $1$-by-$n$ matrix and $B$ be an $n$-by-$p$ matrix. The product $aB$ is a $1$-by-$p$ matrix, and its entries are given by
+    \[(aB)_{1, k} = \sum_{j = 1}^{n} a_j B_{j, k}\]
+    for each column index $k$. 
+
+    Now, consider the linear combination of the rows of $B$ given by
+    \[a_1 B_{1, \cdot} + a_2 B_{2, \cdot} + \cdots + a_n B_{n, \cdot}.\]
+    The entry in row $1$, column $k$, of this linear combination is
+    \[(a_1 B_{1, \cdot} + a_2 B_{2, \cdot} + \cdots + a_n B_{n, \cdot})_k = a_1 B_{1, k} + a_2 B_{2, k} + \cdots + a_n B_{n, k} = \sum_{j = 1}^{n} a_j B_{j, k}.\]
+
+    Comparing this with the expression for $(aB)_{1, k}$, we see that
+    \[(aB)_{1, k} = (a_1 B_{1, \cdot} + a_2 B_{2, \cdot} + \cdots + a_n B_{n, \cdot})_k\]
+    for each column index $k$. Therefore, we conclude that
+    \[aB = a_1 B_{1, \cdot} + a_2 B_{2, \cdot} + \cdots + a_n B_{n, \cdot},\]
+    which shows that $aB$ is indeed a linear combination of the rows of $B$, with the scalars coming from the entries of $a$.
+\end{sol}
+
+\begin{exercise}[3c10]
+    Give an example of $2$-by-$2$ matrices $A$ and $B$ such that $AB \neq BA$.
+\end{exercise}
+
+\begin{sol}
+    Let 
+    \[A =
+    \begin{pmatrix}
+        1 & 2 \\
+        3 & 4
+    \end{pmatrix} \quad \text{and} \quad B = 
+    \begin{pmatrix}
+        0 & 1 \\
+        1 & 0
+    \end{pmatrix}.\]
+    Then we compute the products $AB$ and $BA$:
+    \[AB = 
+    \begin{pmatrix}
+        1 & 2 \\
+        3 & 4
+    \end{pmatrix} 
+    \begin{pmatrix}
+        0 & 1 \\
+        1 & 0
+    \end{pmatrix} 
+    = 
+    \begin{pmatrix}
+        1 \cdot 0 + 2 \cdot 1 & 1 \cdot 1 + 2 \cdot 0 \\
+        3 \cdot 0 + 4 \cdot 1 & 3 \cdot 1 + 4 \cdot 0
+    \end{pmatrix} 
+    = 
+    \begin{pmatrix}
+        2 & 1 \\
+        4 & 3
+    \end{pmatrix},\]
+    and
+    \[BA = 
+    \begin{pmatrix}
+        0 & 1 \\
+        1 & 0
+    \end{pmatrix} 
+    \begin{pmatrix}
+        1 & 2 \\
+        3 & 4
+    \end{pmatrix} 
+    = 
+    \begin{pmatrix}
+        0 \cdot 1 + 1 \cdot 3 & 0 \cdot 2 + 1 \cdot 4 \\
+        1 \cdot 1 + 0 \cdot 3 & 1 \cdot 2 + 0 \cdot 4
+    \end{pmatrix} 
+    = 
+    \begin{pmatrix}
+        3 & 4 \\
+        1 & 2
+    \end{pmatrix}.\]
+    By comparing the two products, we see that $AB \neq BA$.
+\end{sol}
+
+\begin{exercise}[3c11]
+    Prove that the distributive property holds for matrix addition and matrix multiplication. In other words, suppose $A, B, C, D, E$, and $F$ are matrices whose sizes are such that $A(B + C)$ and $(D + E)F$ make sense. Explain why $AB + AC$ and $DF + EF$ both make sense and prove that
+    \[A(B + C) = AB + AC \quad \text{and} \quad (D + E)F = DF + EF.\]
+\end{exercise}
+
+\begin{sol}
+    Let $A$ be an $m$-by-$n$ matrix, and let $B$ and $C$ be $n$-by-$p$ matrices. Then the product $A(B + C)$ is defined. By \autoref{ex:3c8} and \autoref{ex:3c9}, we have
+    \[A(B + C)_{j, \cdot} = A_{j, \cdot} (B + C) = A_{j, \cdot} B + A_{j, \cdot} C = (AB)_{j, \cdot} + (AC)_{j, \cdot} = (AB + AC)_{j, \cdot}\]
+    for all $j = 1, \ldots, m$. Therefore, $A(B + C) = AB + AC$.
+
+    Similarly, let $D$ and $E$ be $m$-by-$n$ matrices, and let $F$ be an $n$-by-$p$ matrix. Then the product $(D + E)F$ is defined. By \autoref{ex:3c8} and \autoref{ex:3c9}, we have
+    \[(D + E)F_{j, \cdot} = (D + E)_{j, \cdot} F = D_{j, \cdot} F + E_{j, \cdot} F = (DF)_{j, \cdot} + (EF)_{j, \cdot} = (DF + EF)_{j, \cdot}\]
+    for all $j = 1, \ldots, m$. Therefore, $(D + E)F = DF + EF$.
+\end{sol}
+
+\begin{exercise}[3c12]
+    Prove that matrix multiplication is associative. In other words, suppose $A$, $B$, and $C$ are matrices whose sizes are such that $(AB)C$ makes sense. Explain why $A(BC)$ makes sense and prove that
+    \[(AB)C = A(BC).\]
+    \remark{Unfortunately, we cannot use the same trick as in \autoref{ex:3c11} to prove this result.}
+\end{exercise}
+
+\begin{sol}
+    Let $A$ be an $m$-by-$n$ matrix, $B$ be an $n$-by-$p$ matrix, and $C$ be a $p$-by-$q$ matrix. Then the product $(AB)C$ is defined. Going by the definition of matrix multiplication, we have
+    \[((AB)C)_{j, k} = \sum_{r = 1}^{p} (AB)_{j, r} C_{r, k} = \sum_{r = 1}^{p} \left( \sum_{s = 1}^{n} A_{j, s} B_{s, r} \right) C_{r, k} = \sum_{r = 1}^{p} \sum_{s = 1}^{n} A_{j, s} B_{s, r} C_{r, k}.\]
+    On the other hand, the product $A(BC)$ is also defined. Again, by the definition of matrix multiplication, we have
+    \[(A(BC))_{j, k} = \sum_{s = 1}^{n} A_{j, s} (BC)_{s, k} = \sum_{s = 1}^{n} A_{j, s} \left( \sum_{r = 1}^{p} B_{s, r} C_{r, k} \right) = \sum_{s = 1}^{n} \sum_{r = 1}^{p} A_{j, s} B_{s, r} C_{r, k}.\]
+    Since the order of summation does not matter, we can interchange the order of the sums in the last expression to get
+    \[(A(BC))_{j, k} = \sum_{r = 1}^{p} \sum_{s = 1}^{n} A_{j, s} B_{s, r} C_{r, k}.\]
+    Comparing the expressions for $((AB)C)_{j, k}$ and $(A(BC))_{j, k}$, we see that they are equal for all $j$ and $k$.
+\end{sol}
+
+\begin{exercise}[3c13]
+    Suppose $A$ is an $n$-by-$n$ matrix and $1 \leq j, k \leq n$. Show that the entry in row $j$, column $k$, of $A^3$ (which is defined to mean $AAA$) is
+    \[\sum_{p = 1}^{n} \sum_{r = 1}^{n} A_{j, p} A_{p, r} A_{r, k}.\]
+\end{exercise}
+
+\begin{sol}
+    Note that $A^3 = (AA)A = A^2 A$. By the definition of matrix multiplication, we have
+    \[(A^3)_{j, k} = (A^2 A)_{j, k} = \sum_{p = 1}^{n} (A^2)_{j, p} A_{p, k}.\]
+    Now, we can express $(A^2)_{j, p}$ as
+    \[(A^2)_{j, p} = (AA)_{j, p} = \sum_{r = 1}^{n} A_{j, r} A_{r, p}.\]
+    Substituting this back into the expression for $(A^3)_{j, k}$, we get
+    \[(A^3)_{j, k} = \sum_{p = 1}^{n} \left( \sum_{r = 1}^{n} A_{j, r} A_{r, p} \right) A_{p, k} = \sum_{p = 1}^{n} \sum_{r = 1}^{n} A_{j, r} A_{r, p} A_{p, k}.\]
+    By renaming the indices $r$ and $p$, we can rewrite this as
+    \[(A^3)_{j, k} = \sum_{p = 1}^{n} \sum_{r = 1}^{n} A_{j, p} A_{p, r} A_{r, k},\]
+    which is the desired expression.
+\end{sol}
+
+\begin{exercise}[3c14]
+    Suppose $m$ and $n$ are positive integers. Prove that the function $A \mapsto A^t$ is a linear map from $\f^{m, n}$ to $\f^{n, m}$.
+\end{exercise}
+
+\begin{sol}
+    Let $A, B \in \f^{m, n}$ and let $\lambda \in \f$. We need to show that $(A + B)^t = A^t + B^t$ and $(\lambda A)^t = \lambda A^t$.
+
+    First, consider the sum $A + B$. The entry in row $j$, column $k$, of $A + B$ is given by
+    \[(A + B)_{j, k} = A_{j, k} + B_{j, k}.\]
+    Taking the transpose, we have
+    \[((A + B)^t)_{k, j} = (A + B)_{j, k} = A_{j, k} + B_{j, k} = (A^t)_{k, j} + (B^t)_{k, j} = (A^t + B^t)_{k, j}.\]
+    Therefore, $(A + B)^t = A^t + B^t$.
+
+    Next, consider the scalar multiplication $\lambda A$. The entry in row $j$, column $k$, of $\lambda A$ is given by
+    \[(\lambda A)_{j, k} = \lambda A_{j, k}.\]
+    Taking the transpose, we have
+    \[((\lambda A)^t)_{k, j} = (\lambda A)_{j, k} = \lambda A_{j, k} = \lambda (A^t)_{k, j} = (\lambda A^t)_{k, j}.\]
+    Therefore, $(\lambda A)^t = \lambda A^t$.
+
+    Since both properties hold, we conclude that the function $A \mapsto A^t$ is a linear map from $\f^{m, n}$ to $\f^{n, m}$.
+\end{sol}
+
+\begin{exercise}[3c15]
+    Prove that if $A$ is an $m$-by-$n$ matrix and $C$ is an $n$-by-$p$ matrix, then
+    \[(AC)^t = C^t A^t.\]
+\end{exercise}
+
+\begin{sol}
+    Let $A$ be an $m$-by-$n$ matrix and $C$ be an $n$-by-$p$ matrix. The entry in row $j$, column $k$, of the product $AC$ is given by
+    \[(AC)_{j, k} = \sum_{r = 1}^{n} A_{j, r} C_{r, k}.\]
+    Taking the transpose, we have
+    \[((AC)^t)_{k, j} = (AC)_{j, k} = \sum_{r = 1}^{n} A_{j, r} C_{r, k}.\]
+
+    Now, consider the product $C^t A^t$. The entry in row $k$, column $j$, of this product is given by
+    \[(C^t A^t)_{k, j} = \sum_{r = 1}^{n} (C^t)_{k, r} (A^t)_{r, j} = \sum_{r = 1}^{n} C_{r, k} A_{j, r}.\]
+
+    Since multiplication in the field $\f$ is commutative, we can rewrite this as
+    \[(C^t A^t)_{k, j} = \sum_{r = 1}^{n} A_{j, r} C_{r, k},\]
+    which is exactly the same as the expression for $((AC)^t)_{k, j}$.
+
+    Therefore, we conclude that
+    \[(AC)^t = C^t A^t.\]
+\end{sol}
+
+\begin{exercise}[3c16]
+    Suppose $A$ is an $m$-by-$n$ matrix with $A \neq 0$. Prove that the rank of $A$ is $1$ if and only if there exist $(c_1, \ldots, c_m) \in \f^m$ and $(d_1, \ldots, d_n) \in \f^n$ such that $A_{j, k} = c_j d_k$ for every $j = 1, \ldots, m$ and every $k = 1, \ldots, n$.
+\end{exercise}
+
+\begin{sol}
+    Suppose the rank of $A$ is 1. Then the column rank of $A$ is 1, which means that all columns of $A$ are scalar multiples of a single non-zero column vector. Let $c = (c_1, \ldots, c_m)^t$ be this non-zero column vector. Then for each column $k$ of $A$, there exists a scalar $d_k \in \f$ such that the $k$-th column of $A$ is given by $d_k c$. Therefore, we can express the entries of $A$ as
+    \[A_{j, k} = c_j d_k\]
+    for all $j = 1, \ldots, m$ and $k = 1, \ldots, n$.
+
+    Conversely, suppose there exist $(c_1, \ldots, c_m) \in \f^m$ and $(d_1, \ldots, d_n) \in \f^n$ such that $A_{j, k} = c_j d_k$ for all $j$ and $k$. Since $A \neq 0$, then $(c_1, \ldots, c_m) \neq 0$ and $(d_1, \ldots, d_n) \neq 0$. This means that all columns of $A$ are scalar multiples of the column vector $c$, and hence the column rank of $A$ is 1. Therefore, the rank of $A$ is 1.
+\end{sol}
+
+\begin{exercise}[3c17]
+    Suppose $T \in \lin{V}$, and $u_1, \ldots, u_n$ and $v_1, \ldots, v_n$ are bases of $V$. Prove that the following are equivalent.
+    \begin{subexercises}
+        \item $T$ is injective.
+        \item The columns of $\mm(T)$ are linearly independent in $\f^{n, 1}$.
+        \item The columns of $\mm(T)$ span $\f^{n, 1}$.
+        \item The rows of $\mm(T)$ span $\f^{1, n}$.
+        \item The rows of $\mm(T)$ are linearly independent in $\f^{1, n}$.
+    \end{subexercises}
+\end{exercise}
+
+\begin{sole}
+    \item (a) $\iff$ (b): (a) $\iff \dim \nul T = 0 \iff \dim \range T = n \iff \colrank \mm(T) = n$. For $n$ column vectors, $\rank n$ implies linear independence $\iff$ (b).
+    \item (b) $\iff$ (c): $n$ columns of $\mm(T)$ are linearly independent in $\f^{n, 1} \iff n$ columns of $\mm(T)$ span $\f^{n, 1}$.
+    \item (c) $\iff$ (d): columns span $\f^{n, 1} \iff \rank \mm(T) = n$ by (b) $\iff$ (c). By Theorem 3.57, $\rank \mm(T) = \rowrank \mm(T) \iff$ rows span $\f^{1, n}$.
+    \item (d) $\iff$ (e): $n$ rows of $\mm(T)$ span $\f^{1, n} \iff n$ rows of $\mm(T)$ are linearly independent in $\f^{1, n}$.
+\end{sole}
