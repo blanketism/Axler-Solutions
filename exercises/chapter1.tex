@@ -266,3 +266,565 @@
         & = ax + bx. \qh
     \end{align*}
 \end{sol}
+
+\newpage
+
+\subsection{Definition of Vector Space}
+
+\begin{exercise}[1b1]
+    Prove that $-(-v) = v$ for every $v \in V$.
+\end{exercise}
+
+\begin{sol}
+    Let $v \in V$. By the definition of additive inverse, we have
+    \[v + (-v) = 0 = -(-v) + (-v).\]
+    Adding $-(-v)$ to both sides, we get
+    \[v + (-v) + (-(-v)) = -(-v) + (-v) + (-(-v)).\]
+    Simplifying both sides, we obtain
+    \[v = -(-v). \qh\]
+\end{sol}
+
+\begin{exercise}[1b2]
+    Suppose $a \in \f, v \in V$, and $av = 0$. Prove that $a = 0$ or $v = 0$.
+\end{exercise}
+
+\begin{sol}
+    If $a = 0$, then we are done. Suppose $a \neq 0$. Then
+    \[v = 1v = \frac1a(av) = \frac1a \cdot 0 = 0. \qh\]
+\end{sol}
+
+\begin{exercise}[1b3]
+    Suppose $v, w \in V$. Explain why there exists a unique $x \in V$ such that $v + 3x = w$.
+\end{exercise}
+
+\begin{sol}
+    Solving for $x$ explicitly, we obtain
+    \[3x = w - v \implies x = \frac13(w - v).\]
+    This shows that there exists $x \in V$ such that $v + 3x = w$. To see that $x$ is unique, suppose there exists another $y \in V$ such that $v + 3y = w$. Then dividing by 3, we get
+    \[3x = w - v = 3y \implies x = y. \qh\]
+\end{sol}
+
+\begin{exercise}[1b4]
+    The empty set is not a vector space. The empty set fails to satisfy only one of the requirements listed in the definition of a vector space. Which one?
+\end{exercise}
+
+\begin{sol}
+    The empty set fails to satisfy the requirement that there exists a zero vector $0 \in V$ such that $v + 0 = v$ for all $v \in V$ since it contains no elements.
+\end{sol}
+
+\begin{exercise}[1b5]
+    Show that in the definition of a vector space, the additive inverse condition can be replaced with the condition that
+    \[0v = 0 \text{ for all } v \in V.\]
+    Here, the 0 on the left side is the number 0, and the 0 on the right side is the additive identity in $V$.
+\end{exercise}
+
+\begin{sol}
+    Suppose that $0v = 0$ for all $v \in V$. Let $v \in V$. Then
+    \[v + (-1)v = 1v + (-1)v = (1 + (-1))v = 0v = 0.\]
+    Hence, $(-1)v$ is the additive inverse of $v$.
+    
+    Conversely, suppose that for every $v \in V$, there exists an additive inverse $-v \in V$ such that $v + (-v) = 0$. Then $0v = (0 + 0)v = 0v + 0v$. Adding $-0v$ to both sides, we get $0 = 0v$. Hence, $0v = 0$ for all $v \in V$.
+\end{sol}
+
+\begin{exercise}[1b6]
+    Let $\infty$ and $-\infty$ denote two distinct objects, neither of which is in $\r$. Define an addition and scalar multiplication on $\r \cup \set{\infty, -\infty}$ as you could guess from the notation. Specifically, the sum and product of two real numbers is as usual, and for $t \in \r$, define
+    \[t\infty = 
+    \begin{cases}
+        -\infty & \text{if } t < 0, \\
+        0 & \text{if } t = 0, \\
+        \infty & \text{if } t > 0,
+    \end{cases} \quad
+    t(-\infty) = 
+    \begin{cases}
+        \infty & \text{if } t < 0, \\
+        0 & \text{if } t = 0, \\
+        -\infty & \text{if } t > 0,
+    \end{cases}\]
+    and
+    \begin{align*}
+        t + \infty & = \infty + t = \infty + \infty = \infty, \\
+        t + (-\infty) & = (-\infty) + t = (-\infty) + (-\infty) = -\infty, \\
+        \infty + (-\infty) & = (-\infty) + \infty = 0.
+    \end{align*}
+    With these operations of addition and scalar multiplication, is $\r \cup \set{\infty, -\infty}$ a vector space over $\r$? Explain.
+\end{exercise}
+
+\begin{sol}
+    No, $\r \cup \set{\infty, -\infty}$ is not a vector space over $\r$ as it does not satisfy the associative property of addition. Let $t \in \r$. Then
+    \[(t + \infty) + (-\infty) = \infty + (-\infty) = 0 \neq t = t + 0 = t + (\infty + (-\infty)). \qh\]
+\end{sol}
+
+\begin{exercise}[1b7]
+    Suppose $S$ is a nonempty set. Let $V^S$ denote the set of functions from $S$ to $V$. Define a natural addition and scalar multiplication on $V^S$, and show that $V^S$ is a vector space with these definitions.
+\end{exercise}
+
+\begin{sol}
+    Let $f, g \in V^S$ and $t \in \f$. Define addition and scalar multiplication as follows:
+    \[(f + g)(s) = f(s) + g(s), \quad (tf)(s) = t(f(s))\]
+    for all $s \in S$. We will show that $V^S$ is a vector space with these operations.
+    \begin{enumerate}
+        \item \textbf{Commutativity}: Let $f, g \in V^S$. Then for all $s \in S$,
+        \[(f + g)(s) = f(s) + g(s) = g(s) + f(s) = (g + f)(s).\]
+        \item \textbf{Associativity}: Let $f, g, h \in V^S$ and $t, u \in \f$. Then for all $s \in S$,
+        \begin{align*}
+            ((f + g) + h)(s) &= (f + g)(s) + h(s) \\
+            &= (f(s) + g(s)) + h(s) \\
+            &= f(s) + (g(s) + h(s)) \\
+            &= f(s) + (g + h)(s) \\
+            &= (f + (g + h))(s),
+        \end{align*}
+        and
+        \begin{align*}
+            ((tu)f)(s) & = (tu)(f(s)) \\
+            & = t(u(f(s))) \\
+            & = t(uf)(s) \\
+            & = (t(uf))(s).
+        \end{align*}
+        \item \textbf{Additive identity}: Let $0 \in V$ be the additive identity in $V$. Define the zero function $0_S \in V^S$ by $0_S(s) = 0$ for all $s \in S$. Then for all $f \in V^S$ and $s \in S$,
+        \[(f + 0_S)(s) = f(s) + 0_S(s) = f(s) + 0 = f(s) = 0 + f(s) = (0_S + f)(s).\]
+        Hence, $0_S$ is the additive identity in $V^S$.
+        \item \textbf{Additive inverse}: Let $f \in V^S$. Define the function $-f \in V^S$ by $(-f)(s) = -f(s)$ for all $s \in S$. Then for all $s \in S$,
+        \[(f + (-f))(s) = f(s) + (-f)(s) = f(s) + (-f(s)) = 0 = 0_S(s).\]
+        Hence, $-f$ is the additive inverse of $f$ in $V^S$.
+        \item \textbf{Multiplicative identity}: For all $f \in V^S$ and $s \in S$,
+        \[(1f)(s) = 1(f(s)) = f(s).\]
+        \item \textbf{Distributive properties}: Let $f, g \in V^S$ and $t, u \in \f$. Then for all $s \in S$,
+        \begin{align*}
+            ((t + u)f)(s) & = (t + u)(f(s)) \\
+            & = t(f(s)) + u(f(s)) \\
+            & = (tf)(s) + (uf)(s) \\
+            & = (tf + uf)(s),
+        \end{align*}
+        and
+        \begin{align*}
+            (t(f + g))(s) & = t((f + g)(s)) \\
+            & = t(f(s) + g(s)) \\
+            & = t(f(s)) + t(g(s)) \\
+            & = (tf)(s) + (tg)(s) \\
+            & = (tf + tg)(s). \qh
+        \end{align*}
+    \end{enumerate}
+\end{sol}
+
+\begin{exercise}[1b8]
+    Suppose $V$ is a real vector space.
+    \begin{itemize}
+        \item The \textbf{complexification} of $V$, denoted by $V_{\c}$, equals $V \times V$. An element of $V_{\c}$ is an ordered pair $(u, v)$, where $u, v \in V$, but we write this as $u + iv$.
+        \item Addition on $V_{\c}$ is defined by
+        \[(u_1 + iv_1) + (u_2 + iv_2) = (u_1 + u_2) + i(v_1 + v_2)\]
+        for all $u_1, u_2, v_1, v_2 \in V$.
+        \item Complex scalar multiplication on $V_{\c}$ is defined by
+        \[(a + ib)(u + iv) = (au - bv) + i(av + bu)\]
+        for all $a, b \in \r$ and $u, v \in V$.
+    \end{itemize}
+    Prove that with the definitions of addition and scalar multiplication as above, $V_{\c}$ is a complex vector space.
+\end{exercise}
+
+\begin{sol}
+    We prove that $V_{\c}$ is a complex vector space by verifying the vector space axioms.
+    \begin{enumerate}
+        \item \textbf{Commutativity}: Let $u_1 + v_1i, u_2 + v_2i \in V_{\c}$. Then
+        \[(u_1 + v_1i) + (u_2 + v_2i) = (u_1 + u_2) + i(v_1 + v_2) = (u_2 + u_1) + i(v_2 + v_1) = (u_2 + v_2i) + (u_1 + v_1i).\]
+        \item \textbf{Associativity}: Let $u_1 + v_1i, u_2 + v_2i, u_3 + v_3i \in V_{\c}$. Then
+        \begin{align*}
+            ((u_1 + v_1i) + (u_2 + v_2i)) + (u_3 + v_3i) & = ((u_1 + u_2) + i(v_1 + v_2)) + (u_3 + v_3i) \\
+            & = ((u_1 + u_2) + u_3) + i((v_1 + v_2) + v_3) \\
+            & = (u_1 + (u_2 + u_3)) + i(v_1 + (v_2 + v_3)) \\
+            & = (u_1 + v_1i) + ((u_2 + v_2i) + (u_3 + v_3i)).
+        \end{align*}
+        Similarly, let $a + bi, c + di \in \c$ and $u + vi \in V_{\c}$. Then
+        \begin{align*}
+            ((a + bi)(c + di))(u + vi) & = ((ac - bd) + i(ad + bc))(u + vi) \\
+            & = ((ac - bd)u - (ad + bc)v) + i((ac - bd)v + (ad + bc)u) \\
+            & = (a(cu - dv) - b(du + cv)) + i(a(du + cv) + b(cu - dv)) \\
+            & = (a + bi)((cu - dv) + i(du + cv)) \\
+            & = (a + bi)((c + di)(u + vi)).
+        \end{align*}
+        \item \textbf{Additive identity}: Let $0 \in V$ be the additive identity in $V$. Then for all $u + vi \in V_{\c}$,
+        \[(u + vi) + (0 + 0i) = (u + 0) + i(v + 0) = u + vi = (0 + 0i) + (u + vi).\]
+        Hence, $0 + 0i$ is the additive identity in $V_{\c}$.
+        \item \textbf{Additive inverse}: Let $u + vi \in V_{\c}$. Then
+        \[(u + vi) + (-u + (-v)i) = (u - u) + i(v - v) = 0 + 0i.\]
+        Hence, $-u + (-v)i$ is the additive inverse of $u + vi$ in $V_{\c}$.
+        \item \textbf{Multiplicative identity}: For all $u + vi \in V_{\c}$,
+        \[(1 + 0i)(u + vi) = (1u - 0v) + i(1v + 0u) = u + vi.\]
+        Hence, $1 + 0i$ is the multiplicative identity in $V_{\c}$.
+        \item \textbf{Distributive properties}: Let $a + bi, c + di \in \c$ and $u_1 + v_1i, u_2 + v_2i \in V_{\c}$. Then
+        \begin{align*}
+            (a + bi)((u_1 + v_1i) + (u_2 + v_2i)) & = (a + bi)((u_1 + u_2) + i(v_1 + v_2)) \\
+            & = (a(u_1 + u_2) - b(v_1 + v_2)) + i(a(v_1 + v_2) + b(u_1 + u_2)) \\
+            & = (au_1 - bv_1) + i(av_1 + bu_1) + (au_2 - bv_2) + i(av_2 + bu_2) \\
+            & = (a + bi)(u_1 + v_1i) + (a + bi)(u_2 + v_2i),
+        \end{align*}
+        and
+        \begin{align*}
+            ((a + bi) + (c + di))(u_1 + v_1i) & = ((a + c) + (b + d)i)(u_1 + v_1i) \\
+            & = ((a + c)u_1 - (b + d)v_1) + i((a + c)v_1 + (b + d)u_1) \\
+            & = (au_1 - bv_1) + i(av_1 + bu_1) + (cu_1 - dv_1) + i(cv_1 + du_1) \\
+            & = (a + bi)(u_1 + v_1i) + (c + di)(u_1 + v_1i). \qh
+        \end{align*}
+    \end{enumerate}
+\end{sol}
+
+\newpage
+
+\subsection{Subspaces}
+
+\begin{exercise}[1c1]
+    For each of the following subsets of $\f^3$, determine whether it is a subspace of $\f^3$.
+    \begin{subexercises}
+        \item $\set{(x_1, x_2, x_3) \in \f^3 \mid x_1 + 2x_2 + 3x_3 = 0}$
+        \item $\set{(x_1, x_2, x_3) \in \f^3 \mid x_1 + 2x_2 + 3x_3 = 4}$
+        \item $\set{(x_1, x_2, x_3) \in \f^3 \mid x_1x_2x_3 = 0}$
+        \item $\set{(x_1, x_2, x_3) \in \f^3 \mid x_1 = 5x_3}$
+    \end{subexercises}
+\end{exercise}
+
+\begin{sol}
+    Let $U$ be the subset of $\f^3$ in question.
+    \begin{subexercises}
+        \item Since the zero vector $(0, 0, 0)$ satisfies $0 + 2(0) + 3(0) = 0$, $U$ is nonempty. Let $u = (u_1, u_2, u_3)$ and $v = (v_1, v_2, v_3)$ be elements of $U$. Then
+        \[(u_1 + v_1) + 2(u_2 + v_2) + 3(u_3 + v_3) = (u_1 + 2u_2 + 3u_3) + (v_1 + 2v_2 + 3v_3) = 0 + 0 = 0.\]
+        Hence, $u + v$ is in $U$. Let $a \in \f$. Then
+        \[a u_1 + 2(a u_2) + 3(a u_3) = a(u_1 + 2u_2 + 3u_3) = a \cdot 0 = 0.\]
+        Hence, $au$ is in $U$. Therefore, $U$ is a subspace of $\f^3$.
+        \item The zero vector $(0, 0, 0)$ does not satisfy $0 + 2(0) + 3(0) = 4$, so $U$ does not contain the zero vector. Hence, it is not a subspace of $\f^3$.
+        \item Suppose $u = (1, 0, 0)$ and $v = (0, 1, 1)$. Then $u$ and $v$ are in $U$ since $1 \cdot 0 \cdot 0 = 0$ and $0 \cdot 1 \cdot 1 = 0$. However, $u + v = (1, 1, 1)$ is not in $U$ since $1 \cdot 1 \cdot 1 = 1 \neq 0$. Hence, $U$ is not closed under addition and is not a subspace of $\f^3$.
+        \item Since the zero vector $(0, 0, 0)$ satisfies $0 = 5(0)$, $U$ is nonempty. Let $u = (u_1, u_2, u_3)$ and $v = (v_1, v_2, v_3)$ be elements of $U$. Then
+        \[u_1 + v_1 = 5u_3 + 5v_3 = 5(u_3 + v_3).\]
+        Hence, $u + v$ is in $U$. Let $a \in \f$. Then
+        \[a u_1 = a(5u_3) = 5(a u_3).\]
+        Hence, $au$ is in $U$. Therefore, $U$ is a subspace of $\f^3$. \qh
+    \end{subexercises}
+\end{sol}
+
+\begin{exercise}[1c2]
+    Verify all assertions about subspaces in Example 1.35.
+    \begin{subexercises}
+        \item If $b \in \f$, then
+        \[\set{(x_1, x_2, x_3, x_4) \in \f^4 \mid x_3 = 5x_4 + b}\]
+        is a subspace of $\f^4$ if and only if $b = 0$.
+        \item The set of continuous, real-valued functions on the interval $[0, 1]$ is a subspace of $\r^{[0, 1]}$.
+        \item The set of differentiable real-valued functions on $\r$ is a subspace of $\r^{\r}$.
+        \item The set of differentiable real-valued functions $f$ on the interval $(0, 3)$ such that $f'(2) = b$ is a subspace of $\r^{(0, 3)}$ if and only if $b = 0$.
+        \item The set of all sequences of complex numbers with limit 0 is a subspace of $\c^\infty$.
+    \end{subexercises}
+\end{exercise}
+
+\begin{sol}
+    Let $U$ be the subset of $\f^4$ in question.
+    \begin{subexercises}
+        \item Suppose $U$ is a subspace of $\f^4$. Then it must contain the zero vector $(0, 0, 0, 0)$. Then $0 = 5(0) + b$, which implies $b = 0$.
+        
+        Conversely, suppose $b = 0$. Then $U = \set{(x_1, x_2, x_3, x_4) \in \f^4 \mid x_3 = 5x_4}$. The proof is similar to that of \autoref{ex:1c1} (d), hence $U$ is a subspace of $\f^4$.
+        \item Note that the 0 function on $[0, 1]$ is continuous, so $0 \in U$. Let $f, g \in U$ be continuous functions. Then $f + g$ is continuous, so $f + g \in U$. Let $a \in \r$. Then $af$ is continuous, so $af \in U$. Therefore, $U$ is a subspace of $\r^{[0, 1]}$.
+        \item Since the derivative of the 0 function is the 0 function, $0 \in U$. Let $f, g \in U$ be differentiable functions. Then $f + g$ is differentiable, so $f + g \in U$. Let $a \in \r$. Then $af$ is differentiable, so $af \in U$. Therefore, $U$ is a subspace of $\r^{\r}$.
+        \item Suppose $U$ is a subspace of $\r^{(0, 3)}$. Then it must contain the 0 function on $(0, 3)$. Then $0' = 0 = b$, which implies $b = 0$.
+        
+        Conversely, suppose $b = 0$. Then $U = \set{f \in \r^{(0, 3)} \mid f'(2) = 0}$. Let $f, g \in U$ be differentiable functions such that $f'(2) = g'(2) = 0$. Then
+        \[(f + g)'(2) = f'(2) + g'(2) = 0 + 0 = 0,\]
+        so $f + g \in U$. Let $a \in \r$. Then
+        \[(af)'(2) = a f'(2) = a \cdot 0 = 0,\]
+        so $af \in U$. Therefore, $U$ is a subspace of $\r^{(0, 3)}$.
+        \item Let $U$ be the set of all sequences of complex numbers with limit 0. Then the zero sequence is in $U$. Let $(z_n), (w_n) \in U$ be sequences with limit 0. Then
+        \[\lim_{n \to \infty} (z_n + w_n) = \lim_{n \to \infty} z_n + \lim_{n \to \infty} w_n = 0 + 0 = 0,\]
+        so $(z_n) + (w_n) \in U$. Let $a \in \c$. Then
+        \[\lim_{n \to \infty} (a z_n) = a \lim_{n \to \infty} z_n = a \cdot 0 = 0,\]
+        so $a(z_n) \in U$. Therefore, $U$ is a subspace of $\c^\infty$. \qh
+    \end{subexercises}
+\end{sol}
+
+\begin{exercise}[1c3]
+    Show that the set of differentiable real-valued functions $f$ on the interval $(-4, 4)$ such that $f'(-1) = 3f(2)$ is a subspace of $\r^{(-4, 4)}$.
+\end{exercise}
+
+\begin{sol}
+    Let $U$ be the set in question. Then the zero function is in $U$ since $0'(-1) = 0 = 3 \cdot 0 = 3 \cdot 0(2)$. Let $f, g \in U$ be differentiable functions such that $f'(-1) = 3f(2)$ and $g'(-1) = 3g(2)$. Then
+    \[(f + g)'(-1) = f'(-1) + g'(-1) = 3f(2) + 3g(2) = 3(f(2) + g(2)) = 3(f + g)(2),\]
+    so $f + g \in U$. Let $a \in \r$. Then
+    \[(af)'(-1) = a f'(-1) = a \cdot 3f(2) = 3(af)(2),\]
+    so $af \in U$. Therefore, $U$ is a subspace of $\r^{(-4, 4)}$.
+\end{sol}
+
+\begin{exercise}[1c4]
+    Suppose $b \in \r$. Show that the set of continuous real-valued functions $f$ on the interval $[0, 1]$ such that
+    \[\int_0^1 f = b\]
+    is a subspace of $\r^{[0, 1]}$ if and only if $b = 0$.
+\end{exercise}
+
+\begin{sol}
+    Let $U$ be the set in question. Suppose $U$ is a subspace of $\r^{[0, 1]}$. Then it must contain the zero function on $[0, 1]$. Then
+    \[\int_0^1 0 = 0 = b,\]
+    which implies $b = 0$.
+
+    Conversely, suppose $b = 0$. Then
+    \[U = \set*{f \in \r^{[0, 1]}\left|~\int_0^1 f = 0\right.}.\]
+    The zero function is in $U$ since $\int_0^1 0 = 0$. Let $f, g \in U$ be continuous functions such that $\int_0^1 f = \int_0^1 g = 0$. Then
+    \[\int_0^1 (f + g) = \int_0^1 f + \int_0^1 g = 0 + 0 = 0,\]
+    so $f + g \in U$. Let $a \in \r$. Then
+    \[\int_0^1 (af) = a \int_0^1 f = a \cdot 0 = 0,\]
+    so $af \in U$. Therefore, $U$ is a subspace of $\r^{[0, 1]}$.
+\end{sol}
+
+\begin{exercise}[1c5]
+    Is $\r^2$ a subspace of the complex vector space $\c^2$?
+\end{exercise}
+
+\begin{sol}
+    No, $\r^2$ is not a subspace of $\c^2$. Let $u = (1, 0) \in \r^2$ and $a = i \in \c$. Then $au = (i, 0) \notin \r^2$, so $\r^2$ is not closed under scalar multiplication and is not a subspace of $\c^2$.
+\end{sol}
+
+\begin{exercise}[1c6]
+    \begin{subexercises}
+        \item Is $\set{(a, b, c) \in \r^3 \mid a^3 = b^3}$ a subspace of $\r^3$?
+        \item Is $\set{(a, b, c) \in \c^3 \mid a^3 = b^3}$ a subspace of $\c^3$?
+    \end{subexercises}
+    \remark{Here, I present an elementary argument that does not require the use of De Moivre's Theorem; rather, I arrive to the conclusion directly. However, readers who are familiar with it may find it easier to note that the complex number 1 has three cubic roots of unity. Other readers may also use Vieta's formulas to arrive at the same polynomial in $\omega$ to obtain $1 + \omega = -\omega^2$.}
+\end{exercise}
+
+\begin{sol}
+    Let $U$ be the subset in question.
+    \begin{subexercises}
+        \item Since the zero vector $(0, 0, 0)$ satisfies $0^3 = 0^3$, $U$ is nonempty. Let $x = (x_1, x_2, x_3)$ and $y = (y_1, y_2, y_3)$ be elements of $U$. Then $x_1^3 = x_2^3$ and $y_1^3 = y_2^3$ both imply that $x_1 = x_2$ and $y_1 = y_2$. Hence,
+        \[(x_1 + y_1)^3 = (x_2 + y_2)^3,\]
+        so $x + y \in U$. Let $a \in \r$. Then
+        \[(ax_1)^3 = a^3 x_1^3 = a^3 x_2^3 = (ax_2)^3,\]
+        so $ax \in U$. Therefore, $U$ is a subspace of $\r^3$.
+        \item No, $U$ is not a subspace of $\c^3$. To see this, consider the cubic polynomial $x^3 - 1 = 0$. This polynomial has three distinct roots in $\c$ as follows:
+        \[x^3 - 1 = (x - 1)(x^2 + x + 1) = 0\]
+        Applying the quadratic formula to $x^2 + x + 1 = 0$, we get
+        \[x = \frac{-1 \pm \sqrt{(-1)^2 - 4(1)(1)}}{2(1)} = \frac{-1 \pm i\sqrt{3}}{2}.\]
+        Let
+        \[\omega = \frac{-1 + i\sqrt{3}}{2}.\]
+        Then $\omega^3 = 1$, and
+        \[\omega^2 = \frac{-1 - i\sqrt{3}}{2}.\]
+        Moreover, it is not hard to see that $\omega + \omega^2 = -1$. Let $u = (1, 1, 0)$ and $v = (\omega, 1, 0)$. Then $u, v \in U$ since $1^3 = 1^3$ and $\omega^3 = 1^3$. Then $u + v = (1 + \omega, 2, 0)$. However,
+        \[(1 + \omega)^3 = 1 + 3\omega + 3\omega^2 + \omega^3 = 1 + 3(-1) + 1 = -1 \neq 2^3 = 8.\]
+        Hence, $u + v \notin U$, so $U$ is not closed under addition and is not a subspace of $\c^3$. \qh
+    \end{subexercises}
+\end{sol}
+
+\begin{exercise}[1c7]
+    Prove or give a counterexample: If $U$ is a nonempty subset of $\r^2$ such that $U$ is closed under addition and under taking additive inverses (meaning $-u \in U$ whenever $u \in U$), then $U$ is a subspace of $\r^2$.
+\end{exercise}
+
+\begin{sol}
+    Consider the subset $\q^2$ of $\r^2$. Then $\q^2$ is nonempty because $(0, 0) \in \q^2$, closed under addition since the sum of any two rational numbers is rational, and closed under taking additive inverses since the additive inverse of a rational number is rational. However, for any irrational number $r \in \r$, the vector $(r, 0) \in \r^2$ is not in $\q^2$. Hence, $\q^2$ is not closed under scalar multiplication and is not a subspace of $\r^2$. Therefore, the statement is false.
+\end{sol}
+
+\begin{exercise}[1c8]
+    Give an example of a nonempty subset $U$ of $\r^2$ such that $U$ is closed under scalar multiplication, but $U$ is not a subspace of $\r^2$.
+\end{exercise}
+
+\begin{sol}
+    Consider the subset
+    \[U = \{(x, 0) \mid x \in \r\} \cup \{(0, y) \mid y \in \r\}.\]
+    Then $U$ is nonempty since $(1, 0) \in U$, and it is closed under scalar multiplication since any scalar multiple of $(1, 0)$ or $(0, 1)$ is still in $U$. However, $U$ is not closed under addition since $(1, 0) + (0, 1) = (1, 1) \notin U$. Hence, $U$ is not a subspace of $\r^2$.
+\end{sol}
+
+\begin{exercise}[1c9]
+    A function $f : \r \to \r$ is called \emph{periodic} if there exists a positive number $p$ such that $f(x + p) = f(x)$ for all $x \in \r$. Is the set of periodic functions from $\r$ to $\r$ a subspace of $\r^{\r}$? Explain.
+\end{exercise}
+
+\begin{sol}
+    It is not a subspace of $\r^{\r}$. Consider the periodic functions $f(x) = \sin(2x)$ and $g(x) = \sin(\pi x)$. The function $f$ has period $\pi$, and the function $g$ has period $2$. For $f(x + p) + g(x + p) = f(x) + g(x)$ to hold for all $x \in \r$, we would need a common period $p$ that is a multiple of both $\pi$ and $2$. However, no such positive number exists since $\pi$ is irrational. Therefore, the sum $f + g$ is not periodic, and the set of periodic functions is not closed under addition. Hence, it is not a subspace of $\r^{\r}$.
+\end{sol}
+
+\begin{exercise}[1c10]
+    Suppose $V_1$ and $V_2$ are subspaces of $V$. Prove that the intersection $V_1 \cap V_2$ is a subspace of $V$.
+\end{exercise}
+
+\begin{sol}
+    Let $U = V_1 \cap V_2$. Since both $V_1$ and $V_2$ are subspaces of $V$, they both contain the zero vector of $V$. Hence, $0 \in U$, so $U$ is nonempty. Let $u, v \in U$. Then $u, v \in V_1$ and $u, v \in V_2$. Since both $V_1$ and $V_2$ are subspaces, they are closed under addition. Therefore, $u + v \in V_1$ and $u + v \in V_2$, which implies that $u + v \in U$. Let $a \in \f$. Then since both $V_1$ and $V_2$ are closed under scalar multiplication, we have that $au \in V_1$ and $au \in V_2$, which implies that $au \in U$. Therefore, $U$ is a subspace of $V$.
+\end{sol}
+
+\begin{exercise}[1c11]
+    Prove that the intersection of every collection of subspaces of $V$ is a subspace of $V$.
+\end{exercise}
+
+\begin{sol}
+    Let $\cc$ be a collection of subspaces of $V$, and let
+    \[U = \bigcap_{W \in \cc} W.\]
+    Since each subspace in $\cc$ contains the zero vector, $0 \in U$, so $U$ is nonempty. Let $u, v \in U$. Then $u, v \in W$ for all $W \in \cc$. Since each $W$ is a subspace, they are closed under addition, so $u + v \in W$ for all $W \in \cc$, which implies $u + v \in U$. Let $a \in \f$. Then $au \in W$ for all $W \in \cc$, which implies $au \in U$. Therefore, $U$ is a subspace of $V$.
+\end{sol}
+
+\begin{exercise}[1c12]
+    Prove that the union of two subspaces of $V$ is a subspace of $V$ if and only if one of the subspaces is contained in the other.
+\end{exercise}
+
+\begin{sol}
+    Let $U, W$ be subspaces of $V$. Suppose $U \subseteq W$. Then $U \cup W = W$, which is a subspace of $V$. Similarly, if $W \subseteq U$, then $U \cup W = U$, which is a subspace of $V$.
+
+    Conversely, suppose $U \cup W$ is a subspace of $V$. If neither $U \subseteq W$ nor $W \subseteq U$, then there exist $u \in U \setminus W$ and $w \in W \setminus U$. Since $U \cup W$ is a subspace, it must be closed under addition. Then $u + w \in U \cup W$. However, $u + w \not\in U$ because if it were, then $w = (u + w) - u \in U$, which is a contradiction. Similarly, $u + w \not\in W$ because if it were, then $u = (u + w) - w \in W$, which is also a contradiction. Hence, $u + w \not\in U \cup W$, which contradicts the assumption that $U \cup W$ is a subspace. Therefore, one of the subspaces must be contained in the other.
+\end{sol}
+
+\begin{exercise}[1c13]
+    Prove that the union of three subspaces of $V$ is a subspace of $V$ if and only if one of the subspaces contains the other two.
+\end{exercise}
+
+\begin{sol}
+    Let $U_1, U_2, U_3$ be subspaces of $V$. Without loss of generality, suppose $U_2 \subseteq U_1$ and $U_3 \subseteq U_1$. Then $U_1 \cup U_2 \cup U_3 = U_1$, which is a subspace of $V$.
+
+    Conversely, suppose $U_1 \cup U_2 \cup U_3$ is a subspace of $V$. Note that $U_1 \cup U_2 \cup U_3 = (U_1 \cup U_2) \cup U_3$. Using \autoref{ex:1c12}, one of the subspaces $U_1 \cup U_2$ or $U_3$ must be contained in the other. If $U_1 \cup U_2 \subseteq U_3$, then $U_1 \cup U_2 \cup U_3 = U_3$, which is a subspace of $V$. If $U_3 \subseteq U_1 \cup U_2$, then $U_1 \cup U_2$ must be a subspace of $V$. By \autoref{ex:1c12} again, then either $U_1 \subseteq U_2$ or $U_2 \subseteq U_1$. If the former is true, then $U_1 \cup U_2 = U_2$, hence $U_2$ contains $U_1$ and $U_3$. If the latter is true, then $U_1 \cup U_2 = U_1$, hence $U_1$ contains $U_2$ and $U_3$. Therefore, one of the subspaces must contain the other two.
+\end{sol}
+
+\begin{exercise}[1c14]
+    Suppose
+    \[U = \set{(x, -x, 2x) \in \f^3 \mid x \in \f} \quad \text{and} \quad W = \set{(x, x, 2x) \in \f^3 \mid x \in \f}.\]
+    Describe $U + W$ using symbols, and also give a description of $U + W$ that uses no symbols.
+\end{exercise}
+
+\begin{sol}
+    Let $u = (x, -x, 2x) \in U$ and $w = (y, y, 2y) \in W$. Then
+    \[u + w = (x + y, -x + y, 2x + 2y) = (x + y, y - x, 2(x + y)).\]
+    Observe that $x + y$ can take any value in $\f$, and $y - x$ can also take any value in $\f$. Hence, we can write
+    \[U + W = \set{(a, b, 2a) \in \f^3 \mid a, b \in \f}.\]
+    In words, $U + W$ is the set of all vectors in $\f^3$ whose third component is twice the first component, and whose second component can be any value in $\f$.
+\end{sol}
+
+\begin{exercise}[1c15]
+    Suppose $U$ is a subspace of $V$. What is $U + U$?
+\end{exercise}
+
+\begin{sol}
+    Let $u_1, u_2 \in U$. Then $u_1 + u_2 \in U$ since $U$ is closed under addition. Hence, $U + U \subseteq U$. Conversely, let $u \in U$. Then $u = u + 0$, where $0$ is the additive identity in $U$. Since $0 \in U$, we have that $u \in U + U$. Hence, $U \subseteq U + U$. Therefore, $U + U = U$.
+\end{sol}
+
+\begin{exercise}[1c16]
+    Is the operation of addition on subspaces of $V$ commutative? In other words, if $U$ and $W$ are subspaces of $V$, is $U + W = W + U$?
+\end{exercise}
+
+\begin{sol}
+    Yes, the operation of addition on subspaces of $V$ is commutative. Let $u \in U$ and $w \in W$. Then $u + w \in U + W$. Because addition in $V$ is commutative, we have that $u + w = w + u$, where $w \in W$ and $u \in U$. Hence, $w + u \in W + U$. Therefore, every element of $U + W$ is also an element of $W + U$, which implies that $U + W \subseteq W + U$. By a similar argument, we can show that $W + U \subseteq U + W$. Hence, $U + W = W + U$.
+\end{sol}
+
+\begin{exercise}[1c17]
+    Is the operation of addition on the subspaces of $V$ associative? In other words, if $V_1, V_2, V_3$ are subspaces of $V$, is
+    \[(V_1 + V_2) + V_3 = V_1 + (V_2 + V_3)?\]
+\end{exercise}
+
+\begin{sol}
+    Yes, the operation of addition on subspaces of $V$ is associative. Let $u_1 \in V_1$, $u_2 \in V_2$, and $u_3 \in V_3$. Then $(u_1 + u_2) + u_3 \in (V_1 + V_2) + V_3$. Because addition in $V$ is associative, we have that $(u_1 + u_2) + u_3 = u_1 + (u_2 + u_3)$, where $u_1 \in V_1$, $u_2 \in V_2$, and $u_3 \in V_3$. Hence, $u_1 + (u_2 + u_3) \in V_1 + (V_2 + V_3)$. Therefore, every element of $(V_1 + V_2) + V_3$ is also an element of $V_1 + (V_2 + V_3)$, which implies that $(V_1 + V_2) + V_3 \subseteq V_1 + (V_2 + V_3)$. By a similar argument, we can show that $V_1 + (V_2 + V_3) \subseteq (V_1 + V_2) + V_3$. Hence, $(V_1 + V_2) + V_3 = V_1 + (V_2 + V_3)$.
+\end{sol}
+
+\begin{exercise}[1c18]
+    Does the operation of addition on the subspaces of $V$ have an additive identity? Which subspaces have additive inverses?
+\end{exercise}
+
+\begin{sol}
+    Yes, the operation of addition on the subspaces of $V$ has an additive identity. The additive identity is the zero subspace $\{0\}$, which contains only the zero vector of $V$. For any subspace $U$ of $V$, we have that $U + \{0\} = U$.
+
+    If a subspace $U$ of $V$ had an additive inverse $W$, then we would have that $U + W = \{0\}$. However, $U \subseteq U + W$ since $u = u + 0$ for any $u \in U$. Hence, $U + W = \{0\}$ implies that $U = \{0\}$. Therefore, the only subspace of $V$ that has an additive inverse is the zero subspace $\{0\}$.
+\end{sol}
+
+\begin{exercise}[1c19]
+    Prove or give a counterexample: If $V_1, V_2, U$ are subspaces of $V$ such that
+    \[V_1 + U = V_2 + U,\]
+    then $V_1 = V_2$.
+\end{exercise}
+
+\begin{sol}
+    The statement is false. Consider the vector space $\r^2$ and let
+    \[V_1 = \set{(x, 0) \in \r^2 \mid x \in \r}, \quad V_2 = \set{(0, y) \in \r^2 \mid y \in \r}, \quad U = \set{(x, x) \in \r^2 \mid x \in \r}.\]
+    Then $V_1 + U = \r^2$ and $V_2 + U = \r^2$, but $V_1 \neq V_2$. Therefore, the statement is false.
+\end{sol}
+
+\begin{exercise}[1c20]
+    Suppose
+    \[U = \set{(x, x, y, y) \in \f^4 \mid x, y \in \f}.\]
+    Find a subspace $W$ of $\f^4$ such that $\f^4 = U \op W$.
+\end{exercise}
+
+\begin{sol}
+    Let
+    \[W = \set{(0, z, 0, w) \in \f^4 \mid z, w \in \f}.\]
+    If $(x, x, y, y) \in U$ and $(0, z, 0, w) \in W$, then $(x, x, y, y) = (0, z, 0, w)$ if and only if $x = 0$, $y = 0$, $z = 0$, and $w = 0$. Hence, $U \cap W = \{0\}$. Moreover, for any $(a, b, c, d) \in \f^4$, we can write
+    \[(a, b, c, d) = (x, x, y, y) + (0, z, 0, w),\]
+    where
+    \[x = a, \quad y = c, \quad z = b - x = b - a, \quad w = d - y = d - c.\]
+    Hence, every vector in $\f^4$ can be written as a sum of a vector in $U$ and a vector in $W$. Therefore, $\f^4 = U \op W$.
+\end{sol}
+
+\begin{exercise}[1c21]
+    Suppose
+    \[U = \set{(x, y, x + y, x - y, 2x) \in \f^5 \mid x, y \in \f}.\]
+    Find a subspace $W$ of $\f^5$ such that $\f^5 = U \op W$.
+\end{exercise}
+
+\begin{sol}
+    Let
+    \[W = \set{(0, 0, z, w, v) \in \f^5 \mid z, w, v \in \f}.\]
+    If $(x, y, x + y, x - y, 2x) \in U$ and $(0, 0, z, w, v) \in W$, then $(x, y, x + y, x - y, 2x) = (0, 0, z, w, v)$ if and only if $x = 0$, $y = 0$, $z = 0$, $w = 0$, and $v = 0$. Hence, $U \cap W = \{0\}$. Moreover, for any $(a, b, c, d, e) \in \f^5$, we can write
+    \[(a, b, c, d, e) = (x, y, x + y, x - y, 2x) + (0, 0, z, w, v),\]
+    which implies
+    \[
+    \begin{cases}
+        a = x + 0 \\
+        b = y + 0 \\
+        c = (x + y) + z \\
+        d = (x - y) + w \\
+        e = 2x + v
+    \end{cases} \implies 
+    \begin{cases}
+        x = a \\
+        y = b \\
+        z = c - (x + y) = c - (a + b) \\
+        w = d - (x - y) = d - (a - b) \\
+        v = e - 2x = e - 2a
+    \end{cases}\]
+    Hence, every vector in $\f^5$ can be written as a sum of a vector in $U$ and a vector in $W$. Therefore, $\f^5 = U \op W$.
+\end{sol}
+
+\begin{exercise}[1c22]
+    Suppose
+    \[U = \set{(x, y, x + y, x - y, 2x) \in \f^5 \mid x, y \in \f}.\]
+    Find three subspaces $W_1, W_2, W_3$ of $\f^5$, none of which equals $\set 0$, such that $\f^5 = U \op W_1 \op W_2 \op W_3$.
+\end{exercise}
+
+\begin{sol}
+    Let
+    \begin{align*}
+        W_1 &= \set{(0, 0, z, 0, 0) \in \f^5 \mid z \in \f}, \\
+        W_2 &= \set{(0, 0, 0, w, 0) \in \f^5 \mid w \in \f}, \\
+        W_3 &= \set{(0, 0, 0, 0, v) \in \f^5 \mid v \in \f}.
+    \end{align*}
+    The intersection of any two of these subspaces is $\{0\}$, since they have no nonzero vectors in common. Additionally, the intersection of $W_1, W_2, W_3$ with $U$ is also $\{0\}$, since any nonzero vector in $U$ has nonzero entries in the first two coordinates, while any vector in $W_1, W_2,$ or $W_3$ has zeros in the first two coordinates. The proof of showing that $\f^5 = U \op W_1 \op W_2 \op W_3$ is similar to that of \autoref{ex:1c21}, hence omitted. Therefore, $\f^5 = U \op W_1 \op W_2 \op W_3$.
+\end{sol}
+
+\begin{exercise}[1c23]
+    Prove or give a counterexample: If $V_1, V_2, U$ are subspaces of $V$ such that
+    \[V = V_1 \op U \quad \text{ and } \quad V = V_2 \op U,\]
+    then $V_1 = V_2$.
+\end{exercise}
+
+\begin{sol}
+    See \autoref{ex:1c19} for a counterexample. For $V_1 \op U$, observe that $V_1 \cap U = \set 0$. Moreover, for any $(a, b) \in \r^2$, we can write
+    \[(a, b) = (a - b, 0) + (b, b) \in V_1 \op U.\]
+    The proof for $V_2 \op U$ is similar. Hence, $V = V_1 \op U = V_2 \op U$, but $V_1 \neq V_2$. Therefore, the statement is false.
+\end{sol}
+
+\begin{exercise}[1c24]
+    A function $f : \r \to \r$ is called \emph{even} if
+    \[f(-x) = f(x)\]
+    for all $x \in \r$. A function $f : \r \to \r$ is called \emph{odd} if
+    \[f(-x) = -f(x)\]
+    for all $x \in \r$. Let $V_e$ denote the set of real-valued even functions on $\r$, and let $V_o$ denote the set of real-valued odd functions on $\r$. Show that $\r^{\r} = V_e \op V_o$.
+\end{exercise}
+
+\begin{sol}
+    Let $f \in \r^{\r}$. Define
+    \[f_e(x) = \frac{f(x) + f(-x)}{2} \quad \text{and} \quad f_o(x) = \frac{f(x) - f(-x)}{2}.\]
+    Then $f_e$ is even since
+    \[f_e(-x) = \frac{f(-x) + f(x)}{2} = f_e(x),\]
+    and $f_o$ is odd since
+    \[f_o(-x) = \frac{f(-x) - f(x)}{2} = -\frac{f(x) - f(-x)}{2} = -f_o(x).\]
+    Moreover, we have that
+    \[f(x) = f_e(x) + f_o(x).\]
+    Hence, every function in $\r^{\r}$ can be written as a sum of an even function and an odd function. 
+
+    Now, suppose $g \in V_e \cap V_o$. Then $g$ is both even and odd, which implies that
+    \[g(0) = g(-0) = -g(0),\]
+    so $g(0) = 0$. For any $x \in \r$, we have that
+    \[g(x) = g(-(-x)) = -g(-x) = -g(x),\]
+    which implies that $g(x) = 0$. Hence, the only function in the intersection of $V_e$ and $V_o$ is the zero function. Therefore, $\r^{\r} = V_e \op V_o$.
+\end{sol}
