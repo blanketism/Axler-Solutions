@@ -1,24 +1,38 @@
-# Axler Solutions Guide
+# Axler Linear Algebra Solutions Guide
 
-This repository contains my solutions to exercises from Axler's textbook.
+A structured set of LaTeX-based solutions for selected exercises from Sheldon Axler's linear algebra text.
 
-## Overview
+## Purpose
 
-These solutions are intended as a study aid and reference for working through the material systematically.
+This repository is designed for students who are reading Axler and want:
 
-## Structure
+- clear, written solution strategies
+- concise mathematical exposition
+- a chapter-by-chapter reference while studying
 
-Solutions are organized by chapter and section for easy navigation.
+The goal is to support learning, not replace independent problem solving.
 
-## Usage
+## How To Use This Guide Effectively
 
-Feel free to refer to these solutions while working through the exercises, but try to attempt problems independently first.
+1. Attempt each exercise on your own first.
+2. Compare your reasoning with the solution here.
+3. Focus on method and structure, not just final answers.
+4. Rework difficult problems after reading the solution.
 
-## Notes
+## Repository Structure
 
-- Solutions may vary in approach and presentation
-- Corrections and improvements are welcome
+- `axler_lin_alg.tex`: main LaTeX document
+- `base-tex-files/`: shared commands and exercise macros
+- `exercises/`: chapter-specific solution files
 
----
+## Academic Integrity
 
-For questions or feedback, please open an issue.
+Use this material responsibly:
+
+- do not submit these solutions as your own coursework
+- use the writeups to check understanding and fill conceptual gaps
+- cite this repository if your institution requires attribution
+
+## Feedback
+
+Corrections, suggestions, and clarity improvements are welcome.
