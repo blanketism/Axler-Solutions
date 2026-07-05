@@ -1,3 +1,7 @@
 complexification
 Moivre
 Vieta
+surjective
+Injectivity
+codomain
+injectivity
