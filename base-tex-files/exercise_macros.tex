@@ -2,12 +2,22 @@
 
 \renewcommand\thesubsection{\thesection\Alph{subsection}}
 
+\newcommand{\remark}[1]{\textcolor{BurntOrange}{\textbf{Remark.}~{#1}}}
+
+\setlist[enumerate]{listparindent=\parindent}
+
+\newlist{subexercises}{enumerate}{1}
+\setlist[subexercises]{label=(\alph*), listparindent=\parindent}
+
 \newcounter{exercount}[subsection]
-\counterwithin{exercount}{subsection}
+
+\renewcommand{\theexercount}{\thesubsection\arabic{exercount}}
+
+\newcommand{\exercountautorefname}{Exercise}
 
 \renewcommand{\subsectionautorefname}{Section}
 
-\newtcbtheorem[use counter=exercount]{exer}% environment name
+\newtcbtheorem[use counter*=exercount]{exer}% environment name
     {Exercise}% Title text
     {enhanced,
     arc=0pt, drop fuzzy shadow southeast,
@@ -17,10 +27,16 @@
     fonttitle=\bfseries, %
     borderline west={2.5pt}{0pt}{CadetBlue}%
     }%
-{}
+{ex}
 
-\newenvironment{exercise}{\begin{exer}{}{}}{\end{exer}}
+\newenvironment{exercise}[1][]{\begin{exer}{}{#1}}{\end{exer}}
 
 \newenvironment{sol}{%
 \begin{proof}[Solution]%
 }{\end{proof}}
+
+\newenvironment{sole}{%
+\begin{proof}[Solution]%
+    \leavevmode%
+    \begin{subexercises}%
+}{\qh\end{subexercises}\end{proof}}
