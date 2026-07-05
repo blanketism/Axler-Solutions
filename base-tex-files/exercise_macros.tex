@@ -3,6 +3,7 @@
 \renewcommand\thesubsection{\thesection\Alph{subsection}}
 
 \newcommand{\remark}[1]{\textcolor{BurntOrange}{\textbf{Remark.}~{#1}}}
+\newcommand{\note}[1]{\textcolor{CadetBlue}{\textbf{Note.}~{#1}}}
 
 \setlist[enumerate]{listparindent=\parindent}
 
@@ -20,12 +21,14 @@
 \newtcbtheorem[use counter*=exercount]{exer}% environment name
     {Exercise}% Title text
     {enhanced,
+    toptitle=2pt, bottomtitle=2pt,
     arc=0pt, drop fuzzy shadow southeast,
     boxrule=0pt, %
     colframe = gray!20, coltitle=black, %
     colback = white,
     fonttitle=\bfseries, %
-    borderline west={2.5pt}{0pt}{CadetBlue}%
+    borderline west={2.5pt}{0pt}{CadetBlue},%
+    after skip=1.2\baselineskip, before skip=1.2\baselineskip%
     }%
 {ex}
 
