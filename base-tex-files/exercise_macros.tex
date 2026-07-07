@@ -2,8 +2,9 @@
 
 \renewcommand\thesubsection{\thesection\Alph{subsection}}
 
-\newcommand{\remark}[1]{\textcolor{BurntOrange}{\textbf{Remark.}~{#1}}}
-\newcommand{\note}[1]{\textcolor{CadetBlue}{\textbf{Note.}~{#1}}}
+\definecolor{remarkcolor}{HTML}{4B7A4E}
+\newcommand{\remark}[1]{\textcolor{remarkcolor}{\textbf{Remark.}~\emph{#1}}}
+\newcommand{\note}[1]{\textcolor{CadetBlue}{\textbf{Note.}~\emph{#1}}}
 
 \setlist[enumerate]{listparindent=\parindent}
 
@@ -25,7 +26,7 @@
     arc=0pt, drop fuzzy shadow southeast,
     boxrule=0pt, %
     colframe = gray!20, coltitle=black, %
-    colback = white,
+    colback = White,
     fonttitle=\bfseries, %
     borderline west={2.5pt}{0pt}{CadetBlue},%
     after skip=1.2\baselineskip, before skip=1.2\baselineskip%
