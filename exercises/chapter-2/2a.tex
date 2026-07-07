@@ -1,0 +1,334 @@
+\section{Finite-Dimensional Vector Spaces}
+
+\subsection{Span and Linear Independence}
+
+\begin{exercise}[2a1]
+    Find a list of four distinct vectors in $\f^3$ whose span equals
+    \[\set{(x, y, z) \in \f^3 \mid x + y + z = 0}\]
+\end{exercise}
+
+\begin{sol}
+    Clearly, the span of the list involves two vectors, since we may rewrite $z$ in terms of $x$ and $y$ as $z = -x - y$. Thus, we may choose the following two vectors:
+    \[v_1 = (1, 0, -1), \quad v_2 = (0, 1, -1).\]
+    To find two more vectors, we may pick any two distinct linear combinations of $v_1$ and $v_2$. For example, we may select
+    \[v_3 = v_1 + v_2 = (1, 1, -2), \quad v_4 = 2v_1 + 3v_2 = (2, 3, -5).\]
+    Then
+    \[\spn(v_1, v_2, v_3, v_4) = \spn(v_1, v_2) = \set{(x, y, z) \in \f^3 \mid x + y + z = 0}. \qh\]
+\end{sol}
+
+\begin{exercise}[2a2]
+    Prove or give a counterexample: If $v_1, v_2, v_3, v_4$ spans $V$, then the list
+    \[v_1 - v_2, v_2 - v_3, v_3 - v_4, v_4\]
+    also spans $V$.
+\end{exercise}
+
+\begin{sol}
+    Let $U = \set{v_1, v_2, v_3, v_4}$ and $W = \set{v_1 - v_2, v_2 - v_3, v_3 - v_4, v_4}$. Clearly, $v_4 \in \spn U$. Then we may write
+    \begin{align*}
+        v_3 &= (v_3 - v_4) + v_4 \in \spn W, \\
+        v_2 &= (v_2 - v_3) + v_3 \in \spn W, \\
+        v_1 &= (v_1 - v_2) + v_2 \in \spn W.
+    \end{align*}
+    Thus, $v_1, v_2, v_3, v_4 \in \spn W$, and so $V = \spn U \subseteq \spn W$. Since $W$ is a list of vectors in $V$, we have $\spn W \subseteq V$. Therefore, $\spn W = V$, and so $W$ spans $V$.
+\end{sol}
+ 
+\begin{exercise}[2a3]
+    Suppose $v_1, \ldots, v_m$ is a list of vectors in $V$. For $k \in \set{1, \ldots, m}$, let
+    \[w_k = v_1 + \cdots + v_k.\]
+    Show that $\spn(v_1, \ldots, v_m) = \spn(w_1, \ldots, w_m)$.
+\end{exercise}
+
+\begin{sol}
+    This is a generalization of \autoref{ex:2a2} and a direct consequence of the fact that $v_k = w_k - w_{k-1}$ for $k \in \set{2, \ldots, m}$ and $v_1 = w_1$. Since each $v_k$ is a linear combination of $w_1, \ldots, w_k$, we have $\spn(v_1, \ldots, v_m) \subseteq \spn(w_1, \ldots, w_m)$. On the other hand, each $w_k$ is a linear combination of $v_1, \ldots, v_k$, so $\spn(w_1, \ldots, w_m) \subseteq \spn(v_1, \ldots, v_m)$. Therefore, $\spn(v_1, \ldots, v_m) = \spn(w_1, \ldots, w_m)$.
+\end{sol}
+ 
+\begin{exercise}[2a4]
+    \begin{subexercises}
+        \item Show that a list of length one in a vector space is linearly independent if and only if the vector in the list is not 0.
+        \item Show that a list of length two in a vector space is linearly independent if and only if neither of the two vectors in the list is a scalar multiple of the other.
+    \end{subexercises}
+\end{exercise}
+
+\begin{sole}
+    \item Let $v$ be the vector in the list. If $v = 0$, then the list is linearly dependent, since $0 \cdot v = 0$. If $v \neq 0$, then the only way to write $0$ as a linear combination of $v$ is to take the scalar multiple to be $0$. Thus, the list is linearly independent.
+    \item Let $v_1$ and $v_2$ be the vectors in the list. If $v_1$ is a scalar multiple of $v_2$, then there exists a scalar $\lambda$ such that $v_1 = \lambda v_2$. Then we may write
+    \[0 = v_1 - \lambda v_2,\]
+    which shows that the list is linearly dependent. Conversely, if the list is linearly dependent, then there exist scalars $\alpha$ and $\beta$, not both zero, such that
+    \[\alpha v_1 + \beta v_2 = 0.\]
+    If $\alpha \neq 0$, then
+    \[v_1 = -\frac{\beta}{\alpha} v_2.\]
+    Similarly, if $\beta \neq 0$, then
+    \[v_2 = -\frac{\alpha}{\beta} v_1.\]
+    Thus, the list is linearly independent if and only if neither vector is a scalar multiple of the other.
+\end{sole}
+ 
+\begin{exercise}[2a5]
+    Find a number $t$ such that
+    \[(3, 1, 4), (2, -3, 5), (5, 9, t)\]
+    is not linearly independent in $\mathbb{R}^3$.
+\end{exercise}
+
+\begin{sol}
+    To say that the list is not linearly independent is to say that there exist scalars $\alpha, \beta, \gamma$, not all zero, such that
+    \[\alpha(3, 1, 4) + \beta(2, -3, 5) + \gamma(5, 9, t) = (0, 0, 0).\]
+    This is equivalent to the following system of equations:
+    \begin{align*}
+        0 & = 3\alpha + 2\beta + 5\gamma, \\
+        0 & = \alpha - 3\beta + 9\gamma, \\
+        0 & = 4\alpha + 5\beta + t\gamma.
+    \end{align*}
+    From the second equation, we obtain $\alpha = 3\beta - 9\gamma$. Substituting this into the first equation, we have
+    \begin{align*}
+        0 & = 3(3\beta - 9\gamma) + 2\beta + 5\gamma \\
+        & = 11\beta - 22\gamma.
+    \end{align*}
+    Thus, $\beta = 2\gamma$. Substituting this into the expression for $\alpha$, we have $\alpha = 3(2\gamma) - 9\gamma = -3\gamma$. Substituting these values into the third equation, we have
+    \begin{align*}
+        0 & = 4(-3\gamma) + 5(2\gamma) + t\gamma \\
+        & = -12\gamma + 10\gamma + t\gamma \\
+        & = (t - 2)\gamma.
+    \end{align*}
+    Since $\gamma \neq 0$, we must have $t - 2 = 0$, or $t = 2$. Then the list is not linearly independent when $t = 2$.
+\end{sol}
+ 
+\begin{exercise}[2a6]
+    Show that the list $(2, 3, 1), (1, -1, 2), (7, 3, c)$ is linearly dependent in $\mathbb{F}^3$ if and only if $c = 8$.
+\end{exercise}
+
+\begin{sol}
+    We may proceed similarly to \autoref{ex:2a5} to obtain the following system of equations:
+    \begin{align*}
+        0 & = 2\alpha + \beta + 7\gamma, \\
+        0 & = 3\alpha - \beta + 3\gamma, \\
+        0 & = \alpha + 2\beta + c\gamma.
+    \end{align*}
+    The second equation gives us $\beta = 3\alpha + 3\gamma$. Substituting this into the first equation, we have
+    \begin{align*}
+        0 & = 2\alpha + (3\alpha + 3\gamma) + 7\gamma \\
+        & = 5\alpha + 10\gamma.
+    \end{align*}
+    Thus, $\alpha = -2\gamma$. Substituting this into the expression for $\beta$, we have $\beta = 3(-2\gamma) + 3\gamma = -3\gamma$. Substituting these values into the third equation, we have
+    \begin{align*}
+        0 & = (-2\gamma) + 2(-3\gamma) + c\gamma \\
+        & = -2\gamma - 6\gamma + c\gamma \\
+        & = (c - 8)\gamma.
+    \end{align*}
+    Since $\gamma \neq 0$, we must have $c - 8 = 0$, or $c = 8$. Then the list is linearly dependent when $c = 8$.
+
+    Conversely, if $c \neq 8$, then $(c - 8)\gamma = 0$ implies $\gamma = 0$. Then $\alpha = -2\gamma = 0$ and $\beta = -3\gamma = 0$, so the only solution to the system of equations is $\alpha = \beta = \gamma = 0$. Thus, the list is linearly independent when $c \neq 8$.
+\end{sol}
+ 
+\begin{exercise}[2a7]
+    \begin{subexercises}
+        \item Show that if we think of $\c$ as a vector space over $\r$, then the list $1 + i, 1 - i$ is linearly independent.
+        \item Show that if we think of $\c$ as a vector space over $\c$, then the list $1 + i, 1 - i$ is linearly dependent.
+    \end{subexercises}
+\end{exercise}
+
+\begin{sole}
+    \item Suppose $\alpha, \beta \in \r$ such that
+    \[\alpha(1 + i) + \beta(1 - i) = 0.\]
+    Then we have
+    \[(\alpha + \beta) + (\alpha - \beta)i = 0.\]
+    Since $0 = 0 + 0i$, we must have $\alpha + \beta = 0$ and $\alpha - \beta = 0$. Solving this system of equations, we find that $\alpha = \beta = 0$. Thus, the list is linearly independent.
+    \item Suppose $a + bi, c + di \in \c$ such that
+    \[(a + bi)(1 + i) + (c + di)(1 - i) = 0.\]
+    Then we have
+    \[(a - b + c + d) + (a + b - c + d)i = 0.\]
+    Then we have the system of equations
+    \begin{align*}
+        0 & = a - b + c + d, \\
+        0 & = a + b - c + d.
+    \end{align*}
+    Adding the two equations results in $0 = 2a + 2d$, or $a = -d$. Substituting this into the first equation, we obtain $b = c$. Then we have infinitely many nontrivial solutions to the system of equations, such as $a = 1, b = 0, c = 0, d = -1$. Thus, the list is linearly dependent.
+\end{sole}
+
+\begin{exercise}[2a8]
+    Suppose $v_1, v_2, v_3, v_4$ is linearly independent in $V$. Prove that the list
+    \(v_1 - v_2, v_2 - v_3, v_3 - v_4, v_4\)
+    is also linearly independent.
+\end{exercise}
+
+\begin{sol}
+    Let $\alpha, \beta, \gamma, \delta \in \f$ such that
+    \[\alpha(v_1 - v_2) + \beta(v_2 - v_3) + \gamma(v_3 - v_4) + \delta v_4 = 0.\]
+    Then we have
+    \[\alpha v_1 + (-\alpha + \beta)v_2 + (-\beta + \gamma)v_3 + (-\gamma + \delta)v_4 = 0.\]
+    Since $v_1, v_2, v_3, v_4$ is linearly independent, we must have
+    \begin{align*}
+        0 & = \alpha, \\
+        0 & = -\alpha + \beta, \\
+        0 & = -\beta + \gamma, \\
+        0 & = -\gamma + \delta.
+    \end{align*}
+    From the first equation, we have $\alpha = 0$. Substituting this into the second equation gives us $\beta = 0$. Substituting this into the third equation gives us $\gamma = 0$. Finally, substituting this into the fourth equation gives us $\delta = 0$. Thus, the only solution to the original equation is $\alpha = \beta = \gamma = \delta = 0$, and so the list is linearly independent.
+\end{sol}
+ 
+\begin{exercise}[2a9]
+    Prove or give a counterexample: If $v_1, v_2, \ldots, v_m$ is a linearly independent list of vectors in $V$, then
+    \(5v_1 - 4v_2, v_2, v_3, \ldots, v_m\)
+    is linearly independent.
+\end{exercise}
+
+\begin{sol}
+    Let $\alpha_1, \ldots, \alpha_m \in \f$ such that
+    \[\alpha_1(5v_1 - 4v_2) + \alpha_2 v_2 + \cdots + \alpha_m v_m = 0.\]
+    Then we have
+    \[5\alpha_1 v_1 + (-4\alpha_1 + \alpha_2)v_2 + \alpha_3 v_3 + \cdots + \alpha_m v_m = 0.\]
+    Since $v_1, v_2, \ldots, v_m$ is linearly independent, we must have
+    \begin{align*}
+        0 & = 5\alpha_1, \\
+        0 & = -4\alpha_1 + \alpha_2, \\
+        0 & = \alpha_3, \\
+        & \vdots \\
+        0 & = \alpha_m.
+    \end{align*}
+    From the first equation, we have $\alpha_1 = 0$. Substituting this into the second equation gives us $\alpha_2 = 0$. The remaining equations give us $\alpha_k = 0$ for $k = 3, \ldots, m$. Thus, the only solution to the original equation is $\alpha_k = 0$ for $k = 1, \ldots, m$, and so the list is linearly independent.
+\end{sol}
+
+\begin{exercise}[2a10]
+    Prove or give a counterexample: If $v_1, v_2, \ldots, v_m$ is a linearly independent list of vectors in $V$ and $\lambda \in \f$ with $\lambda \neq 0$, then $\lambda v_1, \lambda v_2, \ldots, \lambda v_m$ is linearly independent.
+\end{exercise}
+
+\begin{sol}
+    Let $\alpha_1, \ldots, \alpha_m \in \f$ such that
+    \[\alpha_1(\lambda v_1) + \cdots + \alpha_m(\lambda v_m) = 0.\]
+    Then we have
+    \[\lambda(\alpha_1 v_1 + \cdots + \alpha_m v_m) = 0.\]
+    Since $\lambda \neq 0$, we must have
+    \[\alpha_1 v_1 + \cdots + \alpha_m v_m = 0.\]
+    Since $v_1, v_2, \ldots, v_m$ is linearly independent, we must have $\alpha_k = 0$ for $k = 1, \ldots, m$. Thus, the only solution to the original equation is $\alpha_k = 0$ for $k = 1, \ldots, m$, and so the list is linearly independent.
+\end{sol}
+ 
+\begin{exercise}[2a11]
+    Prove or give a counterexample: If $v_1, \ldots, v_m$ and $w_1, \ldots, w_m$ are linearly independent lists of vectors in $V$, then the list $v_1 + w_1, \ldots, v_m + w_m$ is linearly independent.
+\end{exercise}
+
+\begin{sol}
+    Consider the following counterexample in $\r^2$:
+    \[v_1 = (1, 0), \quad v_2 = (0, 1), \quad w_1 = (0, 1), \quad w_2 = (1, 0).\]
+    Then $v_1, v_2$ and $w_1, w_2$ are linearly independent lists of vectors in $\r^2$. However,
+    \[v_1 + w_1 = (1, 1), \quad v_2 + w_2 = (1, 1),\]
+    and so the list $v_1 + w_1, v_2 + w_2$ is linearly dependent. Thus, the statement is false.
+\end{sol}
+ 
+\begin{exercise}[2a12]
+    Suppose $v_1, \ldots, v_m$ is linearly independent in $V$ and $w \in V$. Prove that if $v_1 + w, \ldots, v_m + w$ is linearly dependent, then $w \in \spn(v_1, \ldots, v_m)$.
+\end{exercise}
+
+\begin{sol}
+    Let $\alpha_1, \ldots, \alpha_m \in \f$, not all zero, such that
+    \[\alpha_1(v_1 + w) + \cdots + \alpha_m(v_m + w) = 0.\]
+    Then we have
+    \[(\alpha_1 v_1 + \cdots + \alpha_m v_m) + (\alpha_1 + \cdots + \alpha_m)w = 0.\]
+    If $\alpha_1 + \cdots + \alpha_m = 0$, then we have
+    \[\alpha_1 v_1 + \cdots + \alpha_m v_m = 0,\]
+    which contradicts the linear independence of $v_1, \ldots, v_m$. Thus, we must have $\alpha_1 + \cdots + \alpha_m \neq 0$. Let $\beta = \alpha_1 + \cdots + \alpha_m$. Then we may write
+    \[w = -\frac{\alpha_1}{\beta}v_1 - \cdots - \frac{\alpha_m}{\beta}v_m.\]
+    Thus, $w$ is a linear combination of $v_1, \ldots, v_m$, and so $w \in \spn(v_1, \ldots, v_m)$.
+\end{sol}
+ 
+\begin{exercise}[2a13]
+    Suppose $v_1, \ldots, v_m$ is linearly independent in $V$ and $w \in V$. Show that
+    \[v_1, \ldots, v_m, w \text{ is linearly independent} \iff w \notin \spn(v_1, \ldots, v_m).\]
+\end{exercise}
+
+\begin{sol}
+    Suppose $v_1, \ldots, v_m, w$ is linearly independent. If there were scalars $\alpha_1, \ldots, \alpha_m, \beta$ such that
+    \[\alpha_1 v_1 + \cdots + \alpha_m v_m + \beta w = 0,\]
+    then linear independence would imply that $\alpha_1 = \cdots = \alpha_m = \beta = 0$. Suppose $w \in \spn(v_1, \ldots, v_m)$. Then there exist scalars $\gamma_1, \ldots, \gamma_m$ not all zero such that
+    \[\gamma_1 v_1 + \cdots + \gamma_m v_m = w.\]
+    Then we may write
+    \[-\gamma_1 v_1 - \cdots - \gamma_m v_m + 1\cdot w = 0,\]
+    which contradicts the linear independence of $v_1, \ldots, v_m, w$. Thus, $w \notin \spn(v_1, \ldots, v_m)$.
+
+    Conversely, suppose $w \notin \spn(v_1, \ldots, v_m)$. Then there do not exist scalars $\alpha_1, \ldots, \alpha_m$ such that
+    \[\alpha_1 v_1 + \cdots + \alpha_m v_m = w.\]
+    If $v_1, \ldots, v_m, w$ is linearly dependent, then there exist scalars $\beta_1, \ldots, \beta_m, \gamma$, not all zero, such that
+    \[\beta_1 v_1 + \cdots + \beta_m v_m + \gamma w = 0.\]
+    If $\gamma = 0$, then we have
+    \[\beta_1 v_1 + \cdots + \beta_m v_m = 0,\]
+    which contradicts the linear independence of $v_1, \ldots, v_m$. Thus, we must have $\gamma \neq 0$. Then we may write
+    \[w = -\frac{\beta_1}{\gamma}v_1 - \cdots -\frac{\beta_m}{\gamma}v_m,\]
+    which contradicts the assumption that $w$ is not in the span of $v_1, \ldots, v_m$. Thus, $v_1, \ldots, v_m, w$ is linearly independent.
+\end{sol}
+ 
+\begin{exercise}[2a14]
+    Suppose $v_1, \ldots, v_m$ is a list of vectors in $V$. For $k \in \set{1, \ldots, m}$, let
+    \[w_k = v_1 + \cdots + v_k.\]
+    Show that the list $v_1, \ldots, v_m$ is linearly independent if and only if the list $w_1, \ldots, w_m$ is linearly independent.
+\end{exercise}
+
+\begin{sol}
+    Suppose $v_1, \ldots, v_m$ is linearly independent. Let $\alpha_1, \ldots, \alpha_m \in \f$ such that
+    \[\alpha_1 w_1 + \cdots + \alpha_m w_m = 0.\]
+    Noting that $v_k = w_k - w_{k-1}$ for $k \in \set{2, \ldots, m}$ and $v_1 = w_1$, we may rewrite the equation as
+    \[\alpha_1 v_1 + (\alpha_2 - \alpha_1)v_2 + \cdots + (\alpha_m - \alpha_{m-1})v_m = 0.\]
+    Since $v_1, \ldots, v_m$ is linearly independent, we must have $\alpha_1 = 0$. Then this implies that $\alpha_2 - \alpha_1 = 0$, and so on, until we have $\alpha_m - \alpha_{m-1} = 0$. Thus, the only solution to the original equation is $\alpha_1 = \cdots = \alpha_m = 0$, and so $w_1, \ldots, w_m$ is linearly independent.
+
+    Conversely, suppose $w_1, \ldots, w_m$ is linearly independent. Let $\beta_1, \ldots, \beta_m \in \f$ such that
+    \[\beta_1 v_1 + \cdots + \beta_m v_m = 0.\]
+    Then we have
+    \[\beta_1 w_1 + (\beta_2 + \beta_1) w_2 + \cdots + (\beta_m + \cdots + \beta_1) w_m = 0.\]
+    Since $w_1, \ldots, w_m$ is linearly independent, we must have $\beta_1 = 0$. Then this implies that $\beta_2 + \beta_1 = 0$, and so on, until we have $\beta_m + \cdots + \beta_1 = 0$. Thus, the only solution to the original equation is $\beta_1 = \cdots = \beta_m = 0$, and so $v_1, \ldots, v_m$ is linearly independent.
+\end{sol}
+ 
+\begin{exercise}[2a15]
+    Explain why there does not exist a list of six polynomials that is linearly independent in $\pp_4(\f)$.
+\end{exercise}
+
+\begin{sol}
+    Since $\pp_4(\f)$ can be spanned by the list $1, x, x^2, x^3, x^4$, and the length of a linearly independent list cannot exceed the length of a spanning list, there does not exist a list of six polynomials that is linearly independent in $\pp_4(\f)$.
+\end{sol}
+ 
+\begin{exercise}[2a16]
+    Explain why no list of four polynomials spans $\pp_4(\f)$.
+\end{exercise}
+
+\begin{sol}
+    Since $\pp_4(\f)$ can be spanned by the list $1, x, x^2, x^3, x^4$, and the length of a spanning list cannot be less than the length of a linearly independent list, no list of four polynomials spans $\pp_4(\f)$.
+\end{sol}
+ 
+\begin{exercise}[2a17]
+    Prove that $V$ is infinite-dimensional if and only if there is a sequence $v_1, v_2, \ldots$ of vectors in $V$ such that $v_1, \ldots, v_m$ is linearly independent for every positive integer $m$.
+\end{exercise}
+
+\begin{sol}
+    Suppose $V$ is infinite-dimensional. We proceed by induction to construct a sequence of vectors $v_1, v_2, \ldots$ in $V$ such that $v_1, \ldots, v_m$ is linearly independent for every positive integer $m$. Since $V$ is infinite-dimensional, there exists a nonzero vector $v_1 \in V$. Suppose we have constructed a linearly independent list of vectors $v_1, \ldots, v_m$ in $V$. Since $V$ is infinite-dimensional, there exists a vector $v_{m+1} \in V$ such that $v_{m + 1} \notin \spn(v_1, \ldots, v_m)$. Then $v_1, \ldots, v_m, v_{m+1}$ is linearly independent. By induction, we have constructed a sequence of vectors $v_1, v_2, \ldots$ in $V$ such that $v_1, \ldots, v_m$ is linearly independent for every positive integer $m$.
+
+    Conversely, suppose there exists a sequence of vectors $v_1, v_2, \ldots$ in $V$ such that $v_1, \ldots, v_m$ is linearly independent for every positive integer $m$. Then for every positive integer $m$, there exists a linearly independent list of vectors in $V$ of length $m$. Since there is no maximum length for a linearly independent list of vectors in $V$, this implies that $V$ is infinite-dimensional.
+\end{sol}
+ 
+\begin{exercise}[2a18]
+    Prove that $\f^\infty$ is infinite-dimensional.
+\end{exercise}
+
+\begin{sol}
+    By \autoref{ex:2a17}, it suffices to construct a sequence of vectors $v_1, v_2, \ldots$ in $\f^\infty$ such that $v_1, \ldots, v_m$ is linearly independent for every positive integer $m$. Let $v_k$ be the vector in $\f^\infty$ whose $k$-th coordinate is $1$ and all other coordinates are $0$. Explicitly, we have
+    \[v_1 = (1, 0, 0, \ldots), \quad v_2 = (0, 1, 0, \ldots), \quad v_3 = (0, 0, 1, \ldots), \quad \ldots\]
+    Then for any positive integer $m$, the list $v_1, \ldots, v_m$ is linearly independent, since the only way to write the zero vector as a linear combination of $v_1, \ldots, v_m$ is to take all coefficients to be zero. Thus, by \autoref{ex:2a17}, $\f^\infty$ is infinite-dimensional.
+\end{sol}
+ 
+\begin{exercise}[2a19]
+    Prove that the real vector space of all continuous real-valued functions on the interval $[0, 1]$ is infinite-dimensional.
+\end{exercise}
+
+\begin{sol}
+    By \autoref{ex:2a17}, it suffices to construct a sequence of continuous real-valued functions $f_1, f_2, \ldots$ on the interval $[0, 1]$ such that $f_1, \ldots, f_m$ is linearly independent for every positive integer $m$. Let $f_k(x) = x^{k-1}$ for $k = 1, 2, \ldots$. Then for any positive integer $m$, the list $f_1, \ldots, f_m$ is linearly independent, since the only way to write the zero function as a linear combination of $f_1, \ldots, f_m$ is to take all coefficients to be zero. Thus, by \autoref{ex:2a17}, $\r^{[0, 1]}$ is infinite-dimensional.
+\end{sol}
+ 
+\begin{exercise}[2a20]
+    Suppose $p_0, p_1, \ldots, p_m$ are polynomials in $\pp_m(\f)$ such that $p_k(2) = 0$ for each $k \in \set{0, \ldots, m}$. Prove that $p_0, p_1, \ldots, p_m$ is not linearly independent in $\pp_m(\f)$.
+\end{exercise}
+
+\begin{sol}
+    Since $p_k(2) = 0$ for each $k \in \set{0, \ldots, m}$, we have
+    \[p_k(x) = (x - 2)q_k(x)\]
+    for some polynomial $q_k(x) \in \pp_{m-1}(\f)$. Then we may write
+    \[p_0(x), p_1(x), \ldots, p_m(x) = (x - 2)q_0(x), (x - 2)q_1(x), \ldots, (x - 2)q_m(x).\]
+    Since $\pp_{m - 1}(\f)$ can be spanned by the $m$ polynomials $1, x, \ldots, x^{m-1}$, the list of $m + 1$ polynomials $q_0, q_1, \ldots, q_m$ must be linearly dependent. Thus, there exist scalars $\alpha_0, \ldots, \alpha_m$, not all zero, such that
+    \[\alpha_0 q_0(x) + \cdots + \alpha_m q_m(x) = 0.\]
+    Then we may write
+    \[\alpha_0 p_0(x) + \cdots + \alpha_m p_m(x) = (x - 2)(\alpha_0 q_0(x) + \cdots + \alpha_m q_m(x)) = 0.\]
+    Since not all the scalars $\alpha_0, \ldots, \alpha_m$ are zero, this shows that $p_0, p_1, \ldots, p_m$ is linearly dependent in $\pp_m(\f)$.
+\end{sol}
