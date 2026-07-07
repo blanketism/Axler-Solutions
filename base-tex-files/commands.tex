@@ -52,10 +52,13 @@
 
 \newcommand{\op}{\oplus}
 \DeclareMathOperator{\nul}{null}
-\DeclareMathOperator{\ran}{range}
+\DeclareMathOperator{\range}{range}
 \DeclareMathOperator{\spn}{span}
 \DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\colrank}{column\,rank}
+\DeclareMathOperator{\rowrank}{row\,rank}
 \DeclareMathOperator{\trace}{trace}
+\newcommand{\lin}[1]{\mathcal L(#1)}
 
 % Statistics Commands
 
@@ -123,16 +126,11 @@
 \NewDocumentCommand{\bbar}{m O{}}{\bar{#1}{}^{#2}}
 \NewDocumentCommand{\dbar}{m O{}}{\bar{#1}{}_{#2}}
 \renewcommand{\b}{\textbf}
-\newcommand{\longand}{\quad \text{and} \quad}
 \newcommand{\nexnum}{\stepcounter{global}}
 \renewcommand{\qedsymbol}{$\blacksquare$}
-\newcommand{\dint}{\displaystyle\int}
 \newcommand{\rightimp}{($\Rightarrow$) }
 \newcommand{\leftimp}{($\Leftarrow$) }
 \newcommand{\ep}{\varepsilon}
-\newcommand{\bl}{\backslash}
-\newcommand{\pinf}{+\infty}
-\newcommand{\ninf}{-\infty}
 \newcommand{\qh}{\qedhere}
 \newcommand{\wt}[1]{\widetilde{#1}}
 \newcommand{\wh}[1]{\smash{\widehat{#1}}}
