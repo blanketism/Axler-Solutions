@@ -6,3 +6,5 @@ Injectivity
 codomain
 injectivity
 Invertibility
+invertibility
+surjectivity
