@@ -5,3 +5,4 @@ surjective
 Injectivity
 codomain
 injectivity
+Invertibility
