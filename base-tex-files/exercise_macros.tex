@@ -5,6 +5,7 @@
 \definecolor{remarkcolor}{HTML}{4B7A4E}
 \newcommand{\remark}[1]{\textcolor{remarkcolor}{\textbf{Remark.}~\emph{#1}}}
 \newcommand{\note}[1]{\textcolor{CadetBlue}{\textbf{Note.}~\emph{#1}}}
+\newcommand{\hint}[1]{\textcolor{Plum}{\textbf{Hint.}~\emph{#1}}}
 
 \setlist[enumerate]{listparindent=\parindent}
 
@@ -44,3 +45,9 @@
     \leavevmode%
     \begin{subexercises}%
 }{\qh\end{subexercises}\end{proof}}
+
+\newenvironment{solitem}{%
+\begin{proof}[\emph{\textbf{\textcolor{CadetBlue}{Solution}}}]%
+    \leavevmode%
+    \begin{itemize}%
+}{\qh\end{itemize}\end{proof}}
