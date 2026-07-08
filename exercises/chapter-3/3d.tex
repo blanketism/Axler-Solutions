@@ -1,0 +1,205 @@
+\subsection{Invertibility and Isomorphisms}
+
+\begin{exercise}[3d1]
+    Suppose $T \in \lin{V, W}$ is invertible. Show that $T\inv$ is invertible and
+    \[(T\inv)\inv = T.\]
+\end{exercise}
+
+\begin{sol}
+    Since $T$ is invertible, then $T\inv \in \lin{W, V}$. By $TT\inv = I$ and $T\inv T = I$, we have that $T\inv$ is invertible and $(T\inv)\inv = T$.
+\end{sol}
+
+\begin{exercise}[3d2]
+    Suppose $T \in \lin{U, V}$ and $S \in \lin{V, W}$ are both invertible linear maps. Prove that $ST \in \lin{U, W}$ is invertible and that $(ST)\inv = T\inv S\inv$.
+\end{exercise}
+
+\begin{sol}
+    Since $T$ and $S$ are invertible, then $T\inv \in \lin{V, U}$ and $S\inv \in \lin{W, V}$. By the definition of the inverse, we have that
+    \[(ST)(T\inv S\inv) = S(TT\inv)S\inv = SIS\inv = SS\inv = I,\]
+    and
+    \[(T\inv S\inv)(ST) = T\inv(S\inv S)T = T\inv IT = T\inv T = I.\]
+    Thus, $ST$ is invertible and $(ST)\inv = T\inv S\inv$.
+\end{sol}
+
+\begin{exercise}[3d3]
+    Suppose $V$ is finite-dimensional and $T \in \lin{V}$. Prove that the following are equivalent.
+    \begin{subexercises}
+        \item $T$ is invertible.
+        \item $Tv_1, \ldots, Tv_n$ is a basis of $V$ for every basis $v_1, \ldots, v_n$ of $V$.
+        \item $Tv_1, \ldots, Tv_n$ is a basis of $V$ for some basis $v_1, \ldots, v_n$ of $V$.
+    \end{subexercises}
+\end{exercise}
+
+\begin{solitem}
+    \item (a) $\implies$ (b): Suppose $T$ is invertible. Then $T\inv \in \lin{V}$. Let $v_1, \ldots, v_n$ be a basis of $V$. Since $T\inv$ is invertible, then $T\inv v_1, \ldots, T\inv v_n$ is a basis of $V$. Then there exist scalars $\alpha_1, \ldots, \alpha_n$ such that
+    \[v = \alpha_1 T\inv v_1 + \cdots + \alpha_n T\inv v_n\]
+    for every $v \in V$. Applying $T$ to both sides, we have
+    \[Tv = \alpha_1 v_1 + \cdots + \alpha_n v_n\]
+    for every $v \in V$. Thus, $Tv_1, \ldots, Tv_n$ spans $V$. Now suppose that
+    \[\alpha_1 Tv_1 + \cdots + \alpha_n Tv_n = 0\]
+    for some scalars $\alpha_1, \ldots, \alpha_n$. Applying $T\inv$ to both sides, we have
+    \[\alpha_1 v_1 + \cdots + \alpha_n v_n = 0.\]
+    Since $v_1, \ldots, v_n$ is a basis of $V$, then $\alpha_1 = \cdots = \alpha_n = 0$. Hence, $Tv_1, \ldots, Tv_n$ is linearly independent. Since $Tv_1, \ldots, Tv_n$ spans $V$ and is linearly independent, then $Tv_1, \ldots, Tv_n$ is a basis of $V$.
+    \item (b) $\implies$ (c): This is trivial.
+    \item (c) $\implies$ (a): Suppose $Tv_1, \ldots, Tv_n$ is a basis of $V$ for some basis $v_1, \ldots, v_n$ of $V$. Then $\range T = V$. By the rank-nullity theorem, we have that $\dim \nul T = 0$. Thus, $T$ is injective. Since $T$ is injective and $\range T = V$, then $T$ is invertible.
+\end{solitem}
+
+\begin{exercise}[3d4]
+    Suppose $V$ is finite-dimensional and $\dim V > 1$. Prove that the set of non-invertible linear maps from $V$ to itself is not a subspace of $\lin{V}$.
+\end{exercise}
+
+\begin{sol}
+    Let $v_1, \ldots, v_n$ be a basis of $V$. Define $T, S \in \lin V$ such that
+    \[Tv_1 = 0, \quad Tv_k = v_k \text{ for } k = 2, \ldots, n,\]
+    and
+    \[Sv_1 = v_1, \quad Sv_k = 0 \text{ for } k = 2, \ldots, n.\]
+    Then $T$ and $S$ are non-invertible linear maps, since $\nul T = \spn v_1$ and $\nul S = \spn(v_2, \ldots, v_n)$. However, $T + S$ is invertible, since
+    \[(T + S)v_1 = v_1, \quad (T + S)v_k = v_k \text{ for } k = 2, \ldots, n.\]
+    Hence, $T + S = I$ is invertible. Therefore, the set of non-invertible linear maps from $V$ to itself is not a subspace of $\lin{V}$.
+\end{sol}
+
+\begin{exercise}[3d5]
+    Suppose $V$ is finite-dimensional, $U$ is a subspace of $V$, and $S \in \lin{U, V}$. Prove that there exists an invertible linear map $T$ from $V$ to itself such that $Tu = Su$ for every $u \in U$ if and only if $S$ is injective.
+\end{exercise}
+
+\begin{sol}
+    Suppose there exists an invertible linear map $T$ from $V$ to itself such that $Tu = Su$ for every $u \in U$. If $Su = 0$, then $Tu = 0$, and since $T$ is invertible, $u = 0$. Hence, $S$ is injective.
+
+    Conversely, suppose $S$ is injective. Let $u_1, \ldots, u_m$ be a basis of $U$. Since $S$ is injective, then $Su_1, \ldots, Su_m$ is linearly independent. Extend $u_1, \ldots, u_m$ to a basis $u_1, \ldots, u_n$ of $V$. Extend $Su_1, \ldots, Su_m$ to a basis $v_1, \ldots, v_n$ of $V$. Define $T \in \lin{V}$ such that
+    \[Tu_k = Su_k \text{ for } k = 1, \ldots, m, \quad Tu_k = v_k \text{ for } k = m + 1, \ldots, n.\]
+    Then $T$ is invertible, since $Tu_1, \ldots, Tu_n$ is a basis of $V$. Thus, there exists an invertible linear map $T$ from $V$ to itself such that $Tu = Su$ for every $u \in U$.
+\end{sol}
+
+\begin{exercise}[3d6]
+    Suppose that $W$ is finite-dimensional and $S, T \in \lin{V, W}$. Prove that $\nul S = \nul T$ if and only if there exists an invertible $E \in \lin{W}$ such that $S = ET$.
+\end{exercise}
+
+\begin{sol}
+    Suppose $\nul S = \nul T$. From \autoref{ex:3b25}, we know that $\nul S \subseteq \nul T$ implies the existence of some $E \in \lin W$ such that $T = ES$. Moreover, $\nul T \subseteq \nul S$ implies the existence of some $F \in \lin W$ such that $S = FT$. Thus, we have
+    \[S = FT = F(ES) = (FE)S.\]
+    Since $S$ is a linear map from $V$ to $W$, then $FE = I$. Similarly, we have
+    \[T = ES = E(FT) = (EF)T.\]
+    Since $T$ is a linear map from $V$ to $W$, then $EF = I$. Hence, $E$ is invertible and $S = ET$.
+
+    Conversely, suppose there exists an invertible $E \in \lin{W}$ such that $S = ET$. If $v \in \nul S$, then $Sv = 0$, and since $S = ET$, we have $ETv = 0$. Since $E$ is invertible, then $Tv = 0$, and thus $v \in \nul T$. Hence, $\nul S \subseteq \nul T$. Similarly, if $v \in \nul T$, then $Tv = 0$, and since $S = ET$, we have $Sv = ETv = E0 = 0$. Thus, $v \in \nul S$, and $\nul T \subseteq \nul S$. Therefore, $\nul S = \nul T$.
+\end{sol}
+
+\begin{exercise}[3d7]
+    Suppose that $V$ is finite-dimensional and $S, T \in \lin{V, W}$. Prove that $\range S = \range T$ if and only if there exists an invertible $E \in \lin{V}$ such that $S = TE$.
+\end{exercise}
+
+\begin{sol}
+    Suppose $\range S = \range T$. From \autoref{ex:3b26}, we know that $\range S \subseteq \range T$ implies the existence of some $E \in \lin V$ such that $S = TE$. Moreover, $\range T \subseteq \range S$ implies the existence of some $F \in \lin V$ such that $T = FS$. Thus, we have
+    \[T = FS = F(TE) = (FE)T.\]
+    Since $T$ is a linear map from $V$ to $W$, then $FE = I$. Similarly, we have
+    \[S = TE = T(FS) = (TF)S.\]
+    Since $S$ is a linear map from $V$ to $W$, then $TF = I$. Hence, $E$ is invertible and $S = TE$.
+
+    Conversely, suppose there exists an invertible $E \in \lin{V}$ such that $S = TE$. If $w \in \range S$, then there exists some $v \in V$ such that $Sv = w$. Since $S = TE$, we have $TEv = w$, and thus $w \in \range T$. Hence, $\range S \subseteq \range T$. Similarly, if $w \in \range T$, then there exists some $v \in V$ such that $Tv = w$. Since $E$ is invertible, there exists some $u \in V$ such that $Eu = v$. Then we have
+    \[Su = TEu = Tv = w,\]
+    and thus $w \in \range S$. Hence, $\range T \subseteq \range S$. Therefore, $\range S = \range T$.
+\end{sol}
+
+\begin{exercise}[3d8]
+    Suppose $V$ and $W$ are finite-dimensional and $S, T \in \lin{V, W}$. Prove that there exist invertible $E_1 \in \lin{V}$ and $E_2 \in \lin{W}$ such that $S = E_2 T E_1$ if and only if $\dim \nul S = \dim \nul T$.
+\end{exercise}
+
+\begin{sol}
+    Suppose there exist invertible $E_1 \in \lin{V}$ and $E_2 \in \lin{W}$ such that $S = E_2 T E_1$. Let $v \in \nul S$. Then $Sv = 0$, and since $S = E_2 T E_1$, we have $E_2 T E_1 v = 0$. Since $E_2$ is invertible, then $T E_1 v = 0$, and thus $E_1 v \in \nul T$. Similarly, if $u \in \nul T$, then $Tu = 0$, and since $E_1$ is invertible, there exists some $v \in V$ such that $E_1 v = u$. Then we have
+    \[Sv = E_2 T E_1 v = E_2 Tu = E_2 0 = 0,\]
+    and thus $v \in \nul S$. Hence, the function $E_1 \in \lin{\nul S, \nul T}$ is invertible, and thus $\dim \nul S = \dim \nul T$.
+\end{sol}
+
+\begin{exercise}[3d9]
+    Suppose $V$ is finite-dimensional and $T: V \to W$ is a surjective linear map of $V$ onto $W$. Prove that there is a subspace $U$ of $V$ such that $T|_U$ is an isomorphism of $U$ onto $W$.
+    
+    \note{Here $T|_U$ means the function $T$ restricted to $U$. Thus $T|_U$ is the function whose domain is $U$, with $T|_U(u) = Tu$ for every $u \in U$.}
+\end{exercise}
+
+\begin{exercise}[3d10]
+    Suppose $V$ and $W$ are finite-dimensional and $U$ is a subspace of $V$. Let
+    \[\ee = \set{T \in \lin{V, W} \mid U \subseteq \nul T}.\]
+    \begin{subexercises}
+        \item Show that $\ee$ is a subspace of $\lin{V, W}$.
+        \item Find a formula for $\dim \ee$ in terms of $\dim V$, $\dim W$, and $\dim U$.
+    \end{subexercises}
+    
+    \hint{Define $\Phi: \lin{V, W} \to \lin{U, W}$ by $\Phi(T) = T|_U$. What is $\nul \Phi$? What is $\range \Phi$?}
+\end{exercise}
+
+\begin{exercise}[3d11]
+    Suppose $V$ is finite-dimensional and $S, T \in \lin{V}$. Prove that
+    \[ST \text{ is invertible} \iff S \text{ and } T \text{ are invertible}.\]
+\end{exercise}
+
+\begin{exercise}[3d12]
+    Suppose $V$ is finite-dimensional and $S, T, U \in \lin{V}$ and $STU = I$. Show that $T$ is invertible and that $T\inv = US$.
+\end{exercise}
+
+\begin{exercise}[3d13]
+    Show that the result in Exercise 12 can fail without the hypothesis that $V$ is finite-dimensional.
+\end{exercise}
+
+\begin{exercise}[3d14]
+    Prove or give a counterexample: If $V$ is a finite-dimensional vector space and $R, S, T \in \lin{V}$ are such that $RST$ is surjective, then $S$ is injective.
+\end{exercise}
+
+\begin{exercise}[3d15]
+    Suppose $T \in \lin{V}$ and $v_1, \ldots, v_m$ is a list in $V$ such that $Tv_1, \ldots, Tv_m$ spans $V$. Prove that $v_1, \ldots, v_m$ spans $V$.
+\end{exercise}
+
+\begin{exercise}[3d16]
+    Prove that every linear map from $\f^{n, 1}$ to $\f^{m, 1}$ is given by a matrix multiplication. In other words, prove that if $T \in \lin{\f^{n, 1}, \f^{m, 1}}$, then there exists an $m$-by-$n$ matrix $A$ such that $Tx = Ax$ for every $x \in \f^{n, 1}$.
+\end{exercise}
+
+\begin{exercise}[3d17]
+    Suppose $V$ is finite-dimensional and $S \in \lin{V}$. Define $\mathcal{A} \in \lin{\lin{V}}$ by
+    \[\mathcal{A}(T) = ST\]
+    for $T \in \lin{V}$.
+    \begin{subexercises}
+        \item Show that $\dim \nul \mathcal{A} = (\dim V)(\dim \nul S)$.
+        \item Show that $\dim \range \mathcal{A} = (\dim V)(\dim \range S)$.
+    \end{subexercises}
+\end{exercise}
+
+\begin{exercise}[3d18]
+    Show that $V$ and $\lin{\f, V}$ are isomorphic vector spaces.
+\end{exercise}
+
+\begin{exercise}[3d19]
+    Suppose $V$ is finite-dimensional and $T \in \lin{V}$. Prove that $T$ has the same matrix with respect to every basis of $V$ if and only if $T$ is a scalar multiple of the identity operator.
+\end{exercise}
+
+\begin{exercise}[3d20]
+    Suppose $q \in \pp(\r)$. Prove that there exists a polynomial $p \in \pp(\r)$ such that
+    \[q(x) = (x^2 + x) p''(x) + 2x p'(x) + p(3)\]
+    for all $x \in \r$.
+\end{exercise}
+
+\begin{exercise}[3d21]
+    Suppose $n$ is a positive integer and $A_{j, k} \in \f$ for all $j, k = 1, \ldots, n$. Prove that the following are equivalent (note that in both parts below, the number of equations equals the number of variables).
+    \begin{subexercises}
+        \item The trivial solution $x_1 = \cdots = x_n = 0$ is the only solution to the homogeneous system of equations
+        \[\sum_{k = 1}^{n} A_{1, k} x_k = 0\]
+        \[\vdots\]
+        \[\sum_{k = 1}^{n} A_{n, k} x_k = 0.\]
+        \item For every $c_1, \ldots, c_n \in \f$, there exists a solution to the system of equations
+        \[\sum_{k = 1}^{n} A_{1, k} x_k = c_1\]
+        \[\vdots\]
+        \[\sum_{k = 1}^{n} A_{n, k} x_k = c_n.\]
+    \end{subexercises}
+\end{exercise}
+
+\begin{exercise}[3d22]
+    Suppose $T \in \lin{V}$ and $v_1, \ldots, v_n$ is a basis of $V$. Prove that
+    \[\mm(T, (v_1, \ldots, v_n)) \text{ is invertible} \iff T \text{ is invertible}.\]
+\end{exercise}
+
+\begin{exercise}[3d23]
+    Suppose that $u_1, \ldots, u_n$ and $v_1, \ldots, v_n$ are bases of $V$. Let $T \in \lin{V}$ be such that $Tv_k = u_k$ for each $k = 1, \ldots, n$. Prove that
+    \[\mm(T, (v_1, \ldots, v_n)) = \mm(I, (u_1, \ldots, u_n), (v_1, \ldots, v_n)).\]
+\end{exercise}
+
+\begin{exercise}[3d24]
+    Suppose $A$ and $B$ are square matrices of the same size and $AB = I$. Prove that $BA = I$.
+\end{exercise}
