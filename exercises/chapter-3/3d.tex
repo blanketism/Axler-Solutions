@@ -264,30 +264,81 @@
     for all $x \in \r$.
 \end{exercise}
 
+\begin{sol}
+    Let $T : \pp_n(\r) \to \pp_n(\r)$ be defined by
+    \[Tp = (x^2 + x) p'' + 2x p' + p(3)\]
+    for $p \in \pp_n(\r)$. We first show that $T$ is a linear map. Let $p, q \in \pp_n(\r)$ and $\alpha \in \r$. Then
+    \[T(p + q) = (x^2 + x) (p + q)'' + 2x (p + q)' + (p + q)(3) = Tp + Tq,\]
+    and
+    \[T(\alpha p) = (x^2 + x) (\alpha p)'' + 2x (\alpha p)' + (\alpha p)(3) = \alpha Tp.\]
+    Then $T \in \lin{\pp_n(\r)}$. We now show that $T$ is invertible. To see injectivity, let $p \in \pp_n(\r)$ such that $Tp = 0$. Then
+    \[(x^2 + x) p'' + 2x p' + p(3) = 0.\]
+    Then
+    \[(x^2 + x) p'' + 2x p' = -p(3).\]
+    We analyze the degree of $p$ as follows:
+    \begin{itemize}
+        \item If $\deg p \geq 2$, it is clear that $(x^2 + x) p''$ has degree at least $2$, and thus the left-hand side has degree at least $2$. However, the right-hand side is a constant, which is a contradiction.
+        \item If $\deg p = 1$, then $p(x) = ax + b$ for some $a, b \in \r$. Then $p''(x) = 0$ and $p'(x) = a$, so the left-hand side is $2ax$. Since the right-hand side is a constant, this is a contradiction.
+        \item If $\deg p = 0$, then $p(x) = c$ for some $c \in \r$. Then $p''(x) = 0$ and $p'(x) = 0$, so the left-hand side is 0, and the right-hand side is $p(3) = c$. Hence, $c = 0$, and thus $p = 0$. Therefore, $T$ is injective.
+    \end{itemize}
+    Since $T$ is injective and $\pp_n(\r)$ is finite-dimensional, then $T$ is surjective, hence invertible. Then there does exist some $p \in \pp_n(\r)$ such that $Tp = q$.
+\end{sol}
+
 \begin{exercise}[3d21]
     Suppose $n$ is a positive integer and $A_{j, k} \in \f$ for all $j, k = 1, \ldots, n$. Prove that the following are equivalent (note that in both parts below, the number of equations equals the number of variables).
     \begin{subexercises}
         \item The trivial solution $x_1 = \cdots = x_n = 0$ is the only solution to the homogeneous system of equations
-        \[\sum_{k = 1}^{n} A_{1, k} x_k = 0\]
-        \[\vdots\]
-        \[\sum_{k = 1}^{n} A_{n, k} x_k = 0.\]
+        \begin{align*}
+            \sum_{k = 1}^{n} A_{1, k} x_k & = 0 \\
+            \vdots \\
+            \sum_{k = 1}^{n} A_{n, k} x_k & = 0
+        \end{align*}
         \item For every $c_1, \ldots, c_n \in \f$, there exists a solution to the system of equations
-        \[\sum_{k = 1}^{n} A_{1, k} x_k = c_1\]
-        \[\vdots\]
-        \[\sum_{k = 1}^{n} A_{n, k} x_k = c_n.\]
+        \begin{align*}
+            \sum_{k = 1}^{n} A_{1, k} x_k & = c_1 \\
+            \vdots \\
+            \sum_{k = 1}^{n} A_{n, k} x_k & = c_n
+        \end{align*}
     \end{subexercises}
 \end{exercise}
 
+\begin{sole}
+    \item Suppose the trivial solution $0 \in \f^{n, 1}$ is the only solution to the homogeneous system of equations. Then $\nul T = \set 0$, where $T : \f^{n, 1} \to \f^{n, 1}$ is defined by $Tx = Ax$ for $x \in \f^{n, 1}$. Since $\nul T = \set 0$, then $T$ is injective. Since $\f^{n, 1}$ is finite-dimensional, then $T$ is surjective, hence invertible. Then for every $c_1, \ldots, c_n \in \f$, there exists some $x \in \f^{n, 1}$ such that $Tx = c$, where $c$ is the column vector with entries $c_1, \ldots, c_n$. Hence, there exists a solution to the system of equations.
+    \item Suppose for every $c_1, \ldots, c_n \in \f$, there exists a solution to the system of equations. Then $T : \f^{n, 1} \to \f^{n, 1}$ defined by $Tx = Ax$ for $x \in \f^{n, 1}$ is surjective. Since $\f^{n, 1}$ is finite-dimensional, then $T$ is injective. Hence, the trivial solution is the only solution to the homogeneous system of equations.
+\end{sole}
+
 \begin{exercise}[3d22]
     Suppose $T \in \lin{V}$ and $v_1, \ldots, v_n$ is a basis of $V$. Prove that
-    \[\mm(T, (v_1, \ldots, v_n)) \text{ is invertible} \iff T \text{ is invertible}.\]
+    \[\mm(T, (v_1, \ldots, v_n))~\text{is invertible} \iff T~\text{is invertible}.\]
 \end{exercise}
+
+\begin{sol}
+    Suppose $\mm(T, (v_1, \ldots, v_n))$ is invertible. Then there exists some $A \in \f^{n, n}$ such that $A\mm(T, (v_1, \ldots, v_n)) = I$. Let $U$ be the linear map from $V$ to $V$ whose matrix with respect to the basis $v_1, \ldots, v_n$ is $A$. Then
+    \[\mm(UT, (v_1, \ldots, v_n)) = \mm(U, (v_1, \ldots, v_n))\mm(T, (v_1, \ldots, v_n)) = A\mm(T, (v_1, \ldots, v_n)) = I.\]
+    Then $UT$ is the identity operator, and thus $T$ is injective. Since $V$ is finite-dimensional, then $T$ is surjective, hence invertible.
+
+    Suppose $T$ is invertible. Then $T\inv$ exists, and we have
+    \[\mm(T\inv T, (v_1, \ldots, v_n)) = \mm(T\inv, (v_1, \ldots, v_n))\mm(T, (v_1, \ldots, v_n)) = I.\]
+    Hence, $\mm(T, (v_1, \ldots, v_n))$ is invertible.
+\end{sol}
 
 \begin{exercise}[3d23]
     Suppose that $u_1, \ldots, u_n$ and $v_1, \ldots, v_n$ are bases of $V$. Let $T \in \lin{V}$ be such that $Tv_k = u_k$ for each $k = 1, \ldots, n$. Prove that
     \[\mm(T, (v_1, \ldots, v_n)) = \mm(I, (u_1, \ldots, u_n), (v_1, \ldots, v_n)).\]
 \end{exercise}
 
+\begin{sol}
+    By definition, the columns of $\mm(T, (v_1, \ldots, v_n))$ are $Tv_1, \ldots, Tv_n$. Since $Tv_k = u_k$ for each $k = 1, \ldots, n$, then the columns of $\mm(T, (v_1, \ldots, v_n))$ are $u_1, \ldots, u_n$. By definition, the columns of $\mm(I, (u_1, \ldots, u_n), (v_1, \ldots, v_n))$ are also $u_1, \ldots, u_n$. The result follows.
+\end{sol}
+
 \begin{exercise}[3d24]
     Suppose $A$ and $B$ are square matrices of the same size and $AB = I$. Prove that $BA = I$.
 \end{exercise}
+
+\begin{sol}
+    Let $T : \f^{n, 1} \to \f^{n, 1}$ be defined by $Tx = Ax$ for $x \in \f^{n, 1}$. Since $AB = I$, then for any $x \in \f^{n, 1}$, we have
+    \[TBx = A(Bx) = (AB)x = Ix = x.\]
+    Hence, $T$ is invertible and $T\inv = B$. Therefore,
+    \[BAx = B(Tx) = T\inv (Tx) = x\]
+    for every $x \in \f^{n, 1}$. Hence, $BA = I$.
+\end{sol}
