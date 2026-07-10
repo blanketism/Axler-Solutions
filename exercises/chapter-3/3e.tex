@@ -199,25 +199,87 @@
     \end{subexercises}
 \end{exercise}
 
+\begin{sole}
+    \item Consider any element of $A$, say $\lambda_1 v_1 + \cdots + \lambda_m v_m$ with $\lambda_1 + \cdots + \lambda_m = 1$. Since the $\lambda_i$'s sum to 1, a natural choice for scalars are
+    \[\lambda_i = \mu_i + \frac 1m, \quad i = 1, \ldots, m, \text{ with } \mu_1 + \cdots + \mu_m = 0.\]
+    We claim that the set of all elements
+    \[A' = \set{\mu_1 v_1 + \cdots + \mu_m v_m \mid \mu_1 + \cdots + \mu_m = 0}\]
+    form a subspace of $V$. To see this, note that $0 \in A'$ since we can take $\mu_1 = \cdots = \mu_m = 0$. Moreover, if $x, y \in A'$, say $x = \mu_1 v_1 + \cdots + \mu_m v_m$ and $y = \nu_1 v_1 + \cdots + \nu_m v_m$ with $\mu_1 + \cdots + \mu_m = 0$ and $\nu_1 + \cdots + \nu_m = 0$, then for any scalar $\alpha \in \f$, we have
+    \[\alpha x + y = (\alpha \mu_1 + \nu_1) v_1 + \cdots + (\alpha \mu_m + \nu_m) v_m,\]
+    and $\alpha \mu_1 + \nu_1 + \cdots + \alpha \mu_m + \nu_m = \alpha (\mu_1 + \cdots + \mu_m) + (\nu_1 + \cdots + \nu_m) = 0$. Hence, $\alpha x + y \in A'$, proving that $A'$ is indeed a subspace of $V$.
+    
+    Finally, note that any element of $A$ can be written as
+    \[\lambda_1 v_1 + \cdots + \lambda_m v_m = \left(\frac{1}{m}(v_1 + \cdots + v_m)\right) + (\mu_1 v_1 + \cdots + \mu_m v_m).\]
+    This shows that $A \subseteq \frac{1}{m}(v_1 + \cdots + v_m) + A'$. To see the reverse inclusion, note that any element of $\frac{1}{m}(v_1 + \cdots + v_m) + A'$ is of the form
+    \[\frac{1}{m}(v_1 + \cdots + v_m) + (\mu_1 v_1 + \cdots + \mu_m v_m) = (\mu_1 + \frac{1}{m})v_1 + \cdots + (\mu_m + \frac{1}{m})v_m,\]
+    with $\mu_1 + \cdots + \mu_m = 0$. Setting $\lambda_i = \mu_i + \frac{1}{m}$, we have $\lambda_1 + \cdots + \lambda_m = 1$, and hence this element belongs to $A$. Therefore, $A = \frac{1}{m}(v_1 + \cdots + v_m) + A'$, proving that $A$ is indeed a translate of the subspace $A'$.
+    \item Suppose $B$ is a translate of some subspace of $V$, say $B = v + U$ for some $v \in V$ and subspace $U \subseteq V$, and $\set{v_1, \ldots, v_m} \subseteq B$. Then for each $i$, we can write $v_i = v + u_i$ with $u_i \in U$. Consider any element of $A$, say $\lambda_1 v_1 + \cdots + \lambda_m v_m$ with $\lambda_1 + \cdots + \lambda_m = 1$. We have
+    \begin{align*}
+        \lambda_1 v_1 + \cdots + \lambda_m v_m &= \lambda_1 (v + u_1) + \cdots + \lambda_m (v + u_m) \\
+        &= (\lambda_1 + \cdots + \lambda_m) v + (\lambda_1 u_1 + \cdots + \lambda_m u_m) \\
+        &= v + (\lambda_1 u_1 + \cdots + \lambda_m u_m).
+    \end{align*}
+    Since $U$ is a subspace, $\lambda_1 u_1 + \cdots + \lambda_m u_m \in U$, and hence $\lambda_1 v_1 + \cdots + \lambda_m v_m \in v + U = B$. Therefore, $A \subseteq B$.
+    \item To see that $\dim A' < m$, observe that $\mu_1 + \cdots + \mu_m = 0$ imposes a linear constraint on the $\mu_i$'s. In particular, observe that
+    \[\mu_1 = -(\mu_2 + \cdots + \mu_m).\]
+    Hence, any element of $A'$ can be written as
+    \[\mu_1 v_1 + \cdots + \mu_m v_m = -(\mu_2 + \cdots + \mu_m)v_1 + \mu_2 v_2 + \cdots + \mu_m v_m = \mu_2 (v_2 - v_1) + \cdots + \mu_m (v_m - v_1),\]
+    which shows that $A'$ is spanned by $v_2 - v_1, \ldots, v_m - v_1$. Therefore, $\dim A' \leq m - 1 < m$.
+\end{sole}
+
 \begin{exercise}[3e13]
     Suppose $U$ is a subspace of $V$ such that $V / U$ is finite-dimensional. Prove that $V$ is isomorphic to $U \times (V / U)$.
 \end{exercise}
+
+\begin{sol}
+    Since $V / U$ is finite-dimensional, let $v_1 + U, \ldots, v_m + U$ be a basis of $V / U$. Let $W = \spn(v_1, \ldots, v_m)$. We show that $V = U \op W$. First, note that any $v \in V$ can be written as $v = u + w$ for some $u \in U$ and $w \in W$. Indeed, since $v + U \in V / U$, we can write
+    \[v + U = \lambda_1 (v_1 + U) + \cdots + \lambda_m (v_m + U)\]
+    for some scalars $\lambda_1, \ldots, \lambda_m$. This gives
+    \[v - (\lambda_1 v_1 + \cdots + \lambda_m v_m) \in U.\]
+    So setting $u = v - (\lambda_1 v_1 + \cdots + \lambda_m v_m) \in U$ and $w = \lambda_1 v_1 + \cdots + \lambda_m v_m \in W$, we have $v = u + w$. To see that the sum is direct, suppose $u + w = 0$ with $u \in U$ and $w \in W$. Then $w = -u \in W \cap U$. But if $w = \lambda_1 v_1 + \cdots + \lambda_m v_m \in U$, then $w + U = 0 + U$ in $V / U$, which implies $\lambda_1 = \cdots = \lambda_m = 0$ since $v_1 + U, \ldots, v_m + U$ are linearly independent in $V / U$. Hence, $w = 0$ and $u = 0$, proving that $V = U \op W$.
+
+    Consider the map $T : V \to U \times V/U$ given by $Tv = (u, v + U)$, where $v = u + w$ with $u \in U$ and $w \in W$. This map is well-defined because the decomposition $v = u + w$ is unique. It is linear, injective, and surjective, hence an isomorphism. Therefore, $V \cong U \times V/U$.
+\end{sol}
 
 \begin{exercise}[3e14]
     Suppose $U$ and $W$ are subspaces of $V$ and $V = U \op W$. Suppose $w_1, \ldots, w_m$ is a basis of $W$. Prove that $w_1 + U, \ldots, w_m + U$ is a basis of $V / U$.
 \end{exercise}
 
+\begin{sol}
+    Since $V = U \op W$, every $v \in V$ can be written uniquely as $v = u + w$ with $u \in U$ and $w \in W$. We claim that $w_1 + U, \ldots, w_m + U$ is a basis of $V / U$. First, we show that they span $V / U$. Let $v + U \in V / U$. Write $v = u + w$ with $u \in U$ and $w \in W$. Then $v + U = (u + w) + U = w + U$. Since $w \in W$, we can write $w = \lambda_1 w_1 + \cdots + \lambda_m w_m$ for some scalars $\lambda_1, \ldots, \lambda_m$. Hence, $v + U = \lambda_1 (w_1 + U) + \cdots + \lambda_m (w_m + U)$, showing that $w_1 + U, \ldots, w_m + U$ span $V / U$.
+    
+    Next, we show linear independence. Suppose $\lambda_1 (w_1 + U) + \cdots + \lambda_m (w_m + U) = 0 + U$. Then $\lambda_1 w_1 + \cdots + \lambda_m w_m \in U$. But $\lambda_1 w_1 + \cdots + \lambda_m w_m \in W$ and $U \cap W = \{0\}$, so $\lambda_1 w_1 + \cdots + \lambda_m w_m = 0$. Since $w_1, \ldots, w_m$ are linearly independent, we have $\lambda_1 = \cdots = \lambda_m = 0$. Therefore, $w_1 + U, \ldots, w_m + U$ are linearly independent, and hence form a basis of $V / U$.
+\end{sol}
+
 \begin{exercise}[3e15]
     Suppose $U$ is a subspace of $V$ and $v_1 + U, \ldots, v_m + U$ is a basis of $V / U$ and $u_1, \ldots, u_n$ is a basis of $U$. Prove that $v_1, \ldots, v_m, u_1, \ldots, u_n$ is a basis of $V$.
 \end{exercise}
+
+\begin{sol}
+    First, we show that $v_1, \ldots, v_m, u_1, \ldots, u_n$ span $V$. Let $v \in V$. Then $v + U \in V / U$, so we can write
+    \[v + U = \lambda_1 (v_1 + U) + \cdots + \lambda_m (v_m + U)\]
+    for some scalars $\lambda_1, \ldots, \lambda_m$. This gives $v - (\lambda_1 v_1 + \cdots + \lambda_m v_m) \in U$. Since $u_1, \ldots, u_n$ is a basis of $U$, we can write $v - (\lambda_1 v_1 + \cdots + \lambda_m v_m) = \mu_1 u_1 + \cdots + \mu_n u_n$ for some scalars $\mu_1, \ldots, \mu_n$. Hence, $v = \lambda_1 v_1 + \cdots + \lambda_m v_m + \mu_1 u_1 + \cdots + \mu_n u_n$, showing that $v_1, \ldots, v_m, u_1, \ldots, u_n$ span $V$.
+
+    Next, we show linear independence. Suppose $\lambda_1 v_1 + \cdots + \lambda_m v_m + \mu_1 u_1 + \cdots + \mu_n u_n = 0$. Then $\lambda_1 v_1 + \cdots + \lambda_m v_m \in U$. Then
+    \[\lambda_1(v_1 + U) + \cdots + \lambda_m(v_m + U) = 0 + U.\]
+    Since $v_1 + U, \ldots, v_m + U$ are linearly independent in $V / U$, we must have $\lambda_1 = \cdots = \lambda_m = 0$. Then the original equation reduces to $\mu_1 u_1 + \cdots + \mu_n u_n = 0$, and since $u_1, \ldots, u_n$ are linearly independent, we have $\mu_1 = \cdots = \mu_n = 0$. Therefore, $v_1, \ldots, v_m, u_1, \ldots, u_n$ are linearly independent, and hence form a basis of $V$.
+\end{sol}
 
 \begin{exercise}[3e16]
     Suppose $\varphi \in \lin{V, \f}$ and $\varphi \neq 0$. Prove that $\dim V / (\nul \varphi) = 1$.
 \end{exercise}
 
+\begin{sol}
+   From 3.107 in the text, we know that $V / \nul \varphi \cong \f$. Since $\dim \f = 1$, it follows that $\dim V / (\nul \varphi) = 1$.
+\end{sol}
+
 \begin{exercise}[3e17]
     Suppose $U$ is a subspace of $V$ such that $\dim V / U = 1$. Prove that there exists $\varphi \in \lin{V, \f}$ such that $\nul \varphi = U$.
 \end{exercise}
+
+\begin{sol}
+    Since $\dim V / U = \dim \f = 1$, then there exists some isomorphism $\psi \in \lin{V /U, \f}$. Let $\pi: V \to V / U$ be the quotient map. Define $\varphi = \psi \circ \pi \in \lin{V, \f}$. Suppose $\varphi(v) = 0$. Then $\psi(\pi(v)) = 0$, which implies $\pi(v) = 0$ since $\psi$ is an isomorphism. Hence, $v \in U$, and we have $\nul \varphi \subseteq U$. Conversely, if $v \in U$, then $\pi(v) = 0$, so $\varphi(v) = \psi(\pi(v)) = 0$. Therefore, $\nul \varphi = U$.
+\end{sol}
 
 \begin{exercise}[3e18]
     Suppose that $U$ is a subspace of $V$ such that $V / U$ is finite-dimensional.
@@ -227,6 +289,28 @@
     \end{subexercises}
 \end{exercise}
 
+\begin{sole}
+    \item Suppose $W$ is a finite-dimensional subspace of $V$ and $V = U + W$. Let $\pi: V \to V / U$ be the quotient map, and consider the restriction $\pi|_W : W \to V / U$. To see that $\range(\pi|_W) = V / U$, note that for any $v + U \in V / U$, we can write $v = u + w$ for some $u \in U$ and $w \in W$. Then $\pi(v) = \pi(u + w) = \pi(u) + \pi(w) = 0 + \pi(w) = \pi(w)$, so $v + U = \pi(w) \in \range(\pi|_W)$. Hence, $\range(\pi|_W) = V / U$. From the rank-nullity theorem, we have
+    \[\dim W = \dim \nul \pi|_W + \dim \range(\pi|_W) = \dim \nul \pi|_W + \dim V / U \geq \dim V / U.\]
+    \item Let $v_1 + U, \ldots, v_m + U$ be a basis of $V / U$. We claim that $v_1, \ldots, v_m$ are linearly independent. Suppose $\lambda_1 v_1 + \cdots + \lambda_m v_m = 0$ for some scalars $\lambda_1, \ldots, \lambda_m$. Then
+    \[\lambda_1 v_1 + \cdots + \lambda_m v_m \in U.\]
+    But $\lambda_1 (v_1 + U) + \cdots + \lambda_m (v_m + U) = 0$ in $V / U$, and since $v_1 + U, \ldots, v_m + U$ are linearly independent, it follows that $\lambda_1 = \cdots = \lambda_m = 0$. Hence, $v_1, \ldots, v_m$ are linearly independent.
+
+    Let $W = \spn\{v_1, \ldots, v_m\}$. Then $\dim W = m = \dim V / U$. For any $v \in V$, we can write
+    \[v + U = \lambda_1(v_1 + U) + \cdots + \lambda_m(v_m + U).\]
+    This implies that 
+    \[v - (\lambda_1 v_1 + \cdots + \lambda_m v_m) \in U,\]
+    so $v \in U + W$. Hence, $V = U + W$. To see that $U \cap W = \set 0$, let $w \in U \cap W$. Then $w \in W$, so $w = \lambda_1 v_1 + \cdots + \lambda_m v_m$ for some scalars $\lambda_1, \ldots, \lambda_m$. But $w \in U$, so $w + U = 0$ in $V / U$. Hence,
+    \[\lambda_1 (v_1 + U) + \cdots + \lambda_m (v_m + U) = 0\]
+    in $V / U$. Since $v_1 + U, \ldots, v_m + U$ are linearly independent, it follows that $\lambda_1 = \cdots = \lambda_m = 0$. Hence, $w = 0$, and we have $U \cap W = \set 0$. Therefore, $V = U \op W$.
+\end{sole}
+
 \begin{exercise}[3e19]
     Suppose $T \in \lin{V, W}$ and $U$ is a subspace of $V$. Let $\pi$ denote the quotient map from $V$ onto $V / U$. Prove that there exists $S \in \lin{V / U, W}$ such that $T = S \circ \pi$ if and only if $U \subseteq \nul T$.
 \end{exercise}
+
+\begin{sol}
+    Suppose $S \in \lin{V / U, W}$ is such that $T = S \circ \pi$. Then for any $u \in U$, we have $T(u) = S(\pi(u)) = S(0) = 0$, so $U \subseteq \nul T$.
+
+    Conversely, suppose $U \subseteq \nul T$. Define $S: V / U \to W$ by $S(v + U) = T(v)$. This is well-defined because if $v + U = v' + U$, then $v - v' \in U \subseteq \nul T$, so $T(v) = T(v')$. It is straightforward to check that $S$ is linear and that $T = S \circ \pi$.
+\end{sol}
