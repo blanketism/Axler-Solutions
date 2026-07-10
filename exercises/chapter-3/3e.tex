@@ -1,0 +1,232 @@
+\subsection{Products and Quotients of Vector Spaces}
+
+\begin{exercise}[3e1]
+    Suppose $T$ is a function from $V$ to $W$. The \textit{graph of $T$} is the subset of $V \times W$ defined by
+    \[\text{graph of } T = \set{(v, Tv) \in V \times W \mid v \in V}.\]
+    Prove that $T$ is a linear map if and only if the graph of $T$ is a subspace of $V \times W$.
+    
+    \textit{Formally, a function $T$ from $V$ to $W$ is a subset $T$ of $V \times W$ such that for each $v \in V$, there exists exactly one element $(v, w) \in T$. In other words, formally a function is what is called above its graph. We do not usually think of functions in this formal manner. However, if we do become formal, then this exercise could be rephrased as follows: Prove that a function $T$ from $V$ to $W$ is a linear map if and only if $T$ is a subspace of $V \times W$.}
+\end{exercise}
+
+\begin{sol}
+    Let $G(T)$ denote the graph of $T$. Now, suppose $T$ is a linear map. Then $G(T)$ is nonempty since $(0, T0) = (0, 0) \in G(T)$. Now, let $(v_1, Tv_1), (v_2, Tv_2) \in G(T)$. Then
+    \[(v_1 - v_2, Tv_1 - Tv_2) = (v_1, Tv_1) - (v_2, Tv_2) \in G(T)\]
+    since $T$ is linear. Now, let $(v, Tv) \in G(T)$ and $\alpha \in \f$. Then
+    \[(\alpha v, \alpha Tv) = \alpha (v, Tv) \in G(T)\]
+    since $T$ is linear. Thus, $G(T)$ is a subspace of $V \times W$.
+
+    Conversely, suppose $G(T)$ is a subspace of $V \times W$. By definition, we have $(v_1, Tv_1), (v_2, Tv_2) \in G(T)$ for all $v_1, v_2 \in V$. Since $G(T)$ is a subspace of $V \times W$, then for all $\alpha, \beta \in \f$, we have
+    \[(\alpha v_1 + \beta v_2, \alpha Tv_1 + \beta Tv_2) = \alpha (v_1, Tv_1) + \beta (v_2, Tv_2) \in G(T).\]
+    By definition of $G(T)$, we have $\alpha Tv_1 + \beta Tv_2 = T(\alpha v_1 + \beta v_2)$. Thus, $T$ is a linear map.
+\end{sol}
+
+\begin{exercise}[3e2]
+    Suppose that $V_1, \ldots, V_m$ are vector spaces such that $V_1 \times \cdots \times V_m$ is finite-dimensional. Prove that $V_k$ is finite-dimensional for each $k = 1, \ldots, m$.
+\end{exercise}
+
+\begin{sol}
+    Let $V = V_1 \times \cdots \times V_m$, and consider $T \in \lin(V, V_k)$ defined by $T(v_1, \ldots, v_m) = v_k$. Then $T$ is a linear map since for all $\alpha, \beta \in \f$ and all $(v_1, \ldots, v_m), (w_1, \ldots, w_m) \in V$, we have
+    \begin{align*}
+        T(\alpha (v_1, \ldots, v_m) + \beta (w_1, \ldots, w_m)) &= T(\alpha v_1 + \beta w_1, \ldots, \alpha v_m + \beta w_m) \\
+        &= \alpha v_k + \beta w_k \\
+        &= \alpha T(v_1, \ldots, v_m) + \beta T(w_1, \ldots, w_m).
+    \end{align*}
+    Since $V$ is finite-dimensional and $T$ is a linear map, it follows that $V_k$ is finite-dimensional.
+\end{sol}
+
+\begin{exercise}[3e3]
+    Suppose $V_1, \ldots, V_m$ are vector spaces. Prove that $\lin{V_1 \times \cdots \times V_m, W}$ and $\lin{V_1, W} \times \cdots \times \lin{V_m, W}$ are isomorphic vector spaces.
+\end{exercise}
+
+\begin{sol}
+    Let $V = V_1 \times \cdots \times V_m$. Let $L = \lin{V_1, W} \times \cdots \times \lin{V_m, W}$. Define $T \in \lin{\lin{V, W}, L}$ by
+    \[T(S) = (S \circ \iota_1, \ldots, S \circ \iota_m)\]
+    where $\iota_k \in \lin{V_k, V}$ is the map defined as
+    \[\iota_k(v_k) = (0, \ldots, 0, v_k, 0, \ldots, 0)\]
+    with $\iota_k(v_k)$ having $v_k$ in the $k$-th coordinate and 0 in all other coordinates. Then $T$ is linear since for all $\alpha, \beta \in \f$ and all $S_1, S_2 \in \lin{V, W}$, we have
+    \begin{align*}
+        T(\alpha S_1 + \beta S_2) & = ((\alpha S_1 + \beta S_2) \circ \iota_1, \ldots, (\alpha S_1 + \beta S_2) \circ \iota_m) \\
+        & = (\alpha (S_1 \circ \iota_1) + \beta (S_2 \circ \iota_1), \ldots, \alpha (S_1 \circ \iota_m) + \beta (S_2 \circ \iota_m)) \\
+        & = \alpha T(S_1) + \beta T(S_2),
+    \end{align*}
+    hence $T$ is a linear map. Now suppose $T(S) = 0$. Then $S \circ \iota_k = 0$ for all $k = 1, \ldots, m$. Moreover, for all $(v_1, \ldots, v_m) \in V$, we have
+    \[S(v_1, \ldots, v_m) = S(\iota_1(v_1) + \cdots + \iota_m(v_m)) = S \circ \iota_1(v_1) + \cdots + S \circ \iota_m(v_m) = 0.\]
+    It follows that $S(v_1, \ldots, v_m) = 0$ for all $(v_1, \ldots, v_m) \in V$. Thus, $S = 0$, and hence $T$ is injective.
+    
+    Now, let $(S_1, \ldots, S_m) \in L$. Define $S \in \lin{V, W}$ by $S(v_1, \ldots, v_m) = S_1 v_1 + \cdots + S_m v_m$. Then $T(S) = (S_1, \ldots, S_m)$. Thus, $T$ is surjective. Therefore, $T$ is an isomorphism.
+\end{sol}
+
+\begin{exercise}[3e4]
+    Suppose $W_1, \ldots, W_m$ are vector spaces. Prove that $\lin{V, W_1 \times \cdots \times W_m}$ and $\lin{V, W_1} \times \cdots \times \lin{V, W_m}$ are isomorphic vector spaces.
+
+    \remark{Note the difference between this exercise and \autoref{ex:3e3}. Here, the domain is decomposed, while in \autoref{ex:3e3}, the codomain is decomposed. Hence, the use of the maps $\iota_k$ and $\pi_k$ in the solutions to these exercises are reversed.}
+\end{exercise}
+
+\begin{sol}
+    Let $W = W_1 \times \cdots \times W_m$. Let $L = \lin{V, W_1} \times \cdots \times \lin{V, W_m}$. Define $T \in \lin{\lin{V, W}, L}$ by
+    \[T(S) = (\pi_1 \circ S, \ldots, \pi_m \circ S)\]
+    where $\pi_k \in \lin{W, W_k}$ is the map defined as
+    \[\pi_k(w_1, \ldots, w_m) = w_k\]
+    with $\pi_k(w_1, \ldots, w_m)$ having $w_k$ in the $k$-th coordinate. Then $T$ is linear since for all $\alpha, \beta \in \f$ and all $S_1, S_2 \in \lin{V, W}$, we have
+    \begin{align*}
+        T(\alpha S_1 + \beta S_2) & = (\pi_1 \circ (\alpha S_1 + \beta S_2), \ldots, \pi_m \circ (\alpha S_1 + \beta S_2)) \\
+        & = (\alpha (\pi_1 \circ S_1) + \beta (\pi_1 \circ S_2), \ldots, \alpha (\pi_m \circ S_1) + \beta (\pi_m \circ S_2))\\
+        & = 	\alpha T(S_1) + \beta T(S_2),
+    \end{align*}
+    hence $T$ is a linear map. Now suppose $T(S) = 0$. Then $\pi_k \circ S = 0$ for all $k = 1, \ldots, m$. Moreover, for all $v \in V$, we have
+    \[S v = (\pi_1(Sv), \ldots, \pi_m(Sv)) = (0, 0, 0) = 0.\]
+    It follows that $S v = 0$ for all $v$, hence $S = 0$, and thus $T$ is injective.
+
+    Now let $(S_1, \ldots, S_m) \in L$. Define $S \in \lin{V, W}$ by $S v = (S_1 v, \ldots, S_m v)$. Then $T(S) = (S_1, \ldots, S_m)$. Thus, $T$ is surjective. Therefore, $T$ is an isomorphism.
+\end{sol}
+
+\begin{exercise}[3e5]
+    For $m$ a positive integer, define $V^m$ by
+    \[V^m = \underbrace{V \times \cdots \times V}_{m \text{ times}}.\]
+    Prove that $V^m$ and $\lin{\f^m, V}$ are isomorphic vector spaces.
+\end{exercise}
+
+\begin{sol}
+    Let $e_1, \ldots, e_m$ be the standard basis of $\f^m$. Define $T \in \lin{V^m, \lin{\f^m, V}}$ by
+    \[T(v_1, \ldots, v_m)(\lambda_1, \ldots, \lambda_m) = \lambda_1 v_1 + \cdots + \lambda_m v_m.\]
+    Then $T$ is linear since for all $\alpha, \beta \in \f$ and all $v = (v_1, \ldots, v_m), w = (w_1, \ldots, w_m) \in V^m$, we have
+    \begin{align*}
+        T(\alpha v + \beta w)(\lambda_1, \ldots, \lambda_m) & = T(\alpha v_1 + \beta w_1, \ldots, \alpha v_m + \beta w_m)(\lambda_1, \ldots, \lambda_m) \\
+        & = \lambda_1 (\alpha v_1 + \beta w_1) + \cdots + \lambda_m (\alpha v_m + \beta w_m) \\
+        & = \alpha (\lambda_1 v_1 + \cdots + \lambda_m v_m) + \beta (\lambda_1 w_1 + \cdots + \lambda_m w_m)\\
+        & = \alpha T(v)(\lambda_1, \ldots, \lambda_m) + \beta T(w)(\lambda_1, \ldots, \lambda_m),
+    \end{align*}
+    hence $T$ is a linear map. Now suppose $T(v) = 0$. Then $T(v)(e_k) = 0$ for all $k = 1, \ldots, m$. It follows that $v_k = 0$ for all $k = 1, \ldots, m$, hence $v = 0$, and thus $T$ is injective.
+
+    Now let $S \in \lin{\f^m, V}$. Define $v \in V^m$ by $v_k = S e_k$ for all $k = 1, \ldots, m$. Then $T(v) = S$. Thus, $T$ is surjective. Therefore, $T$ is an isomorphism.
+\end{sol}
+
+\begin{exercise}[3e6]
+    Suppose that $v, x$ are vectors in $V$ and that $U, W$ are subspaces of $V$ such that $v + U = x + W$. Prove that $U = W$.
+\end{exercise}
+
+\begin{sol}
+    Let $u \in U$. Then $v + u \in v + U = x + W$. Thus, there exists $w \in W$ such that $v + u = x + w$. It follows that $u = (x - v) + w \in W$, hence $U \subseteq W$. Now let $w \in W$. Then $x + w \in x + W = v + U$. Thus, there exists $u \in U$ such that $x + w = v + u$. It follows that $w = (v - x) + u \in U$, hence $W \subseteq U$. Therefore, $U = W$.
+\end{sol}
+
+\begin{exercise}[3e7]
+    Let $U = \set{(x, y, z) \in \r^3 \mid 2x + 3y + 5z = 0}$. Suppose $A \subseteq \r^3$. Prove that $A$ is a translate of $U$ if and only if there exists $c \in \r$ such that
+    \[A = \set{(x, y, z) \in \r^3 \mid 2x + 3y + 5z = c}.\]
+\end{exercise}
+
+\begin{sol}
+    Suppose $A$ is a translate of $U$. Then there exists $v \in \r^3$ such that $A = v + U$. Let $v = (x_0, y_0, z_0)$. Then
+    \begin{align*}
+        A & = v + U \\
+        & = \set{(x_0, y_0, z_0) + (x, y, z) \in \r^3 \mid 2x + 3y + 5z = 0} \\
+        & = \set{(x', y', z') \in \r^3 \mid 2(x' - x_0) + 3(y' - y_0) + 5(z' - z_0) = 0} \\
+        & = \set{(x', y', z') \in \r^3 \mid 2x' + 3y' + 5z' = 2x_0 + 3y_0 + 5z_0}.
+    \end{align*}
+    Conversely, suppose there exists $c \in \r$ such that
+    \[A = \set{(x, y, z) \in \r^3 \mid 2x + 3y + 5z = c}.\]
+    Let $v = (x_0, y_0, z_0)$ where $x_0, y_0, z_0$ are any real numbers such that $2x_0 + 3y_0 + 5z_0 = c$. Then
+    \begin{align*}
+        v + U & = (x_0, y_0, z_0) + U \\
+        & = \set{(x_0, y_0, z_0) + (x, y, z) \in \r^3 \mid 2x + 3y + 5z = 0} \\
+        & = A. \qh
+    \end{align*}
+\end{sol}
+
+\begin{exercise}[3e8]
+    \begin{subexercises}
+        \item Suppose $T \in \lin{V, W}$ and $c \in W$. Prove that $\set{x \in V \mid Tx = c}$ is either the empty set or is a translate of $\nul T$.
+        \item Explain why the set of solutions to a system of linear equations such as 3.27 is either the empty set or is a translate of some subspace of $\f^n$.
+    \end{subexercises}
+\end{exercise}
+
+\begin{sole}
+    \item Suppose $T \in \lin{V, W}$ and $c \in W$. Let $A = \set{x \in V \mid Tx = c}$. If $A$ is nonempty, then there exists $v \in V$ such that $Tv = c$. We claim that $A = v + \nul T$. Let $x \in A$. Then $Tx = c = Tv$, hence $T(x - v) = 0$, and thus $x - v \in \nul T$. It follows that $x \in v + \nul T$, hence $A \subseteq v + \nul T$. Now let $y \in v + \nul T$. Then there exists $u \in \nul T$ such that $y = v + u$. It follows that $Ty = T(v + u) = Tv + Tu = c + 0 = c$, hence $y \in A$, and thus $v + \nul T \subseteq A$. Therefore, $A = v + \nul T$.
+    \item A system of linear equations such as 3.27 can be written in the form $Tx = c$ for some linear map $T$ and some vector $c$. By part (a), the set of solutions to this system of linear equations is either the empty set or is a translate of $\nul T$, which is a subspace of $\f^n$.
+\end{sole}
+
+\begin{exercise}[3e9]
+    Prove that a nonempty subset $A$ of $V$ is a translate of some subspace of $V$ if and only if $\lambda v + (1 - \lambda) w \in A$ for all $v, w \in A$ and all $\lambda \in \f$.
+\end{exercise}
+
+\begin{sol}
+    Suppose $A$ is a translate of some subspace of $V$. Then there exists $v \in V$ and a subspace $U$ of $V$ such that $A = v + U$. Let $w \in A$. Then there exists $u \in U$ such that $w = v + u$. Now let $\lambda \in \f$. Then
+    \[\lambda v + (1 - \lambda) w = \lambda v + (1 - \lambda)(v + u) = v + (1 - \lambda) u \in A.\]
+    Conversely, suppose $\lambda v + (1 - \lambda) w  \in A$ for all $v, w \in A$ and all $\lambda \in \f$. Fix some $v_0 \in A$, and let $U = \set{u \in V \mid v_0 + u \in A}$. We first claim that $U$ is a subspace of $V$. Let $u_1, u_2 \in U$. Then $v_0 + u_1, v_0 + u_2 \in A$. Now let $\lambda \in \f$. Then
+    \begin{align*}
+        \lambda (v_0 + u_1) + (1 - \lambda)(v_0 + u_2) & = v_0 + \lambda u_1 + (1 - \lambda) u_2 \\
+        & = v_0 + (\lambda u_1 + (1 - \lambda) u_2) \in A.
+    \end{align*}
+    It follows that $\lambda u_1 + (1 - \lambda) u_2 \in U$, hence $U$ is a subspace of $V$. Now we claim that $A = v_0 + U$. Let $w \in A$. By definition, $v_0 + (w - v_0) = w \in A$, hence $w - v_0 \in U$, and thus $w \in v_0 + U$, so $A \subseteq v_0 + U$. Now let $v_0 + u \in v_0 + U$. Then $v_0 + u \in A$ by definition of $U$, hence $v_0 + U \subseteq A$. Therefore, $A = v_0 + U$.
+\end{sol}
+
+\begin{exercise}[3e10]
+    Suppose $A_1 = v + U_1$ and $A_2 = w + U_2$ for some $v, w \in V$ and some subspaces $U_1, U_2$ of $V$. Prove that the intersection $A_1 \cap A_2$ is either a translate of some subspace of $V$ or is the empty set.
+\end{exercise}
+
+\begin{sol}
+    If $A_1 \cap A_2$ is the empty set, then we are done. Suppose that $A_1 \cap A_2$ is nonempty. Let $x, y \in A_1 \cap A_2$ with $\lambda \in \f$. Then $x, y \in A_1$, hence $\lambda x + (1 - \lambda) y \in A_1$. Moreover, $x, y \in A_2$, hence $\lambda x + (1 - \lambda) y \in A_2$. It follows that $\lambda x + (1 - \lambda) y \in A_1 \cap A_2$. Thus, by \autoref{ex:3e9}, $A_1 \cap A_2$ is a translate of some subspace of $V$.
+\end{sol}
+
+\begin{exercise}[3e11]
+    Suppose $U = \set{(x_1, x_2, \ldots) \in \f^\infty \mid x_k \neq 0 \text{ for only finitely many } k}$.
+    \begin{subexercises}
+        \item Show that $U$ is a subspace of $\f^\infty$.
+        \item Prove that $\f^\infty / U$ is infinite-dimensional.
+    \end{subexercises}
+\end{exercise}
+
+\begin{sole}
+    \item Since $(0, \ldots) \in U$, then $U$ is nonempty. Let $u = (u_1, u_2, \ldots), v = (v_1, v_2, \ldots) \in U$ and $\lambda \in \f$. Then $u_k \neq 0$ for only finitely many $k$, and $v_k \neq 0$ for only finitely many $k$. It follows that $\lambda u_k + (1 - \lambda) v_k \neq 0$ for only finitely many $k$, hence $\lambda u + (1 - \lambda) v \in U$. Thus, $U$ is a subspace of $\f^\infty$.
+    \item For any given positive integer $m$, define the sets $B_i$ for $1 \leq i \leq m$ as follows:
+    \[B_i = \set{i + km \mid k \in \mathbb{N}} = \set{i, i + m, i + 2m, \ldots}.\]
+    Then $B_1, \ldots, B_m$ are pairwise disjoint subsets of $\mathbb{N}$. For each $i = 1, \ldots, m$, define the $j$-th coordinate of $v_i \in \f^\infty$ by
+    \[v_{i, j} = 
+    \begin{cases}
+        1 & \text{if } j \in B_i \\
+        0 & \text{otherwise}
+    \end{cases}
+    \]
+    Hence, $v_1 = (1, 0, \ldots, 0, 1, 0, \ldots)$ with 1's in the $1$-st, $(m + 1)$-st, $(2m + 1)$-st, $\ldots$ coordinates and $v_2 = (0, 1, 0, \ldots)$ with 1's in the $2$-nd, $(m + 2)$-nd, $(2m + 2)$-nd, $\ldots$ coordinates and so on. We claim that $v_1 + U, \ldots, v_m + U$ are linearly independent in $\f^\infty / U$. Let $\lambda_1, \ldots, \lambda_m \in \f$ such that $\lambda_1 (v_1 + U) + \cdots + \lambda_m (v_m + U) = U$. Then $\lambda_1 v_1 + \cdots + \lambda_m v_m \in U$. Since $U$ consists of all sequences that are nonzero in only finitely many coordinates, it follows that $\lambda_i = 0$ for all $i = 1, \ldots, m$. Thus, $v_1 + U, \ldots, v_m + U$ are linearly independent in $\f^\infty / U$. Since $m$ was an arbitrary positive integer, it follows that $\f^\infty / U$ is infinite-dimensional.
+\end{sole}
+
+\begin{exercise}[3e12]
+    Suppose $v_1, \ldots, v_m \in V$. Let
+    \[A = \set{\lambda_1 v_1 + \cdots + \lambda_m v_m \mid \lambda_1, \ldots, \lambda_m \in \f \text{ and } \lambda_1 + \cdots + \lambda_m = 1}.\]
+    \begin{subexercises}
+        \item Prove that $A$ is a translate of some subspace of $V$.
+        \item Prove that if $B$ is a translate of some subspace of $V$ and $\set{v_1, \ldots, v_m} \subseteq B$, then $A \subseteq B$.
+        \item Prove that $A$ is a translate of some subspace of $V$ of dimension less than $m$.
+    \end{subexercises}
+\end{exercise}
+
+\begin{exercise}[3e13]
+    Suppose $U$ is a subspace of $V$ such that $V / U$ is finite-dimensional. Prove that $V$ is isomorphic to $U \times (V / U)$.
+\end{exercise}
+
+\begin{exercise}[3e14]
+    Suppose $U$ and $W$ are subspaces of $V$ and $V = U \op W$. Suppose $w_1, \ldots, w_m$ is a basis of $W$. Prove that $w_1 + U, \ldots, w_m + U$ is a basis of $V / U$.
+\end{exercise}
+
+\begin{exercise}[3e15]
+    Suppose $U$ is a subspace of $V$ and $v_1 + U, \ldots, v_m + U$ is a basis of $V / U$ and $u_1, \ldots, u_n$ is a basis of $U$. Prove that $v_1, \ldots, v_m, u_1, \ldots, u_n$ is a basis of $V$.
+\end{exercise}
+
+\begin{exercise}[3e16]
+    Suppose $\varphi \in \lin{V, \f}$ and $\varphi \neq 0$. Prove that $\dim V / (\nul \varphi) = 1$.
+\end{exercise}
+
+\begin{exercise}[3e17]
+    Suppose $U$ is a subspace of $V$ such that $\dim V / U = 1$. Prove that there exists $\varphi \in \lin{V, \f}$ such that $\nul \varphi = U$.
+\end{exercise}
+
+\begin{exercise}[3e18]
+    Suppose that $U$ is a subspace of $V$ such that $V / U$ is finite-dimensional.
+    \begin{subexercises}
+        \item Show that if $W$ is a finite-dimensional subspace of $V$ and $V = U + W$, then $\dim W \geq \dim V / U$.
+        \item Prove that there exists a finite-dimensional subspace $W$ of $V$ such that $\dim W = \dim V / U$ and $V = U \op W$.
+    \end{subexercises}
+\end{exercise}
+
+\begin{exercise}[3e19]
+    Suppose $T \in \lin{V, W}$ and $U$ is a subspace of $V$. Let $\pi$ denote the quotient map from $V$ onto $V / U$. Prove that there exists $S \in \lin{V / U, W}$ such that $T = S \circ \pi$ if and only if $U \subseteq \nul T$.
+\end{exercise}
