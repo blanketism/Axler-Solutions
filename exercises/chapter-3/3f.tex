@@ -441,7 +441,22 @@
 \end{exercise}
 
 \begin{sole}
-    \item 
+    \item Suppose $\varphi_1, \ldots, \varphi_m$ spans $V'$. If $\Gamma(v) = 0$, then $\varphi_i(v) = 0$ for all $i = 1, \ldots, m$. Since $\varphi_1, \ldots, \varphi_m$ spans $V'$, then by \autoref{ex:3f3}, it follows that $\psi(v) = 0$ for all $\psi \in V'$, i.e., $v = 0$. Hence, $\Gamma$ is injective.
+    
+    Conversely, suppose $\Gamma$ is injective. Then $\nul \Gamma = \set 0$. By definition, we have
+    \[\nul \Gamma = \nul \varphi_1 \cap \cdots \cap \nul \varphi_m.\]
+    By \autoref{ex:3f23}, we have
+    \[\spn(\varphi_1, \ldots, \varphi_m) = ((\nul \varphi_1) \cap \cdots \cap (\nul \varphi_m))^0 = (\nul \Gamma)^0 = \set{\psi \in V' \mid \nul \Gamma \subseteq \nul \psi} = V'.\]
+    Hence, $\varphi_1, \ldots, \varphi_m$ spans $V'$.
+    \item Suppose $\varphi_1, \ldots, \varphi_m$ is linearly independent. Then $\dim \spn(\varphi_1, \ldots, \varphi_m) = m$. By the rank-nullity theorem and \autoref{ex:3f23}, we have
+    \[\dim \range \Gamma = \dim V - \dim \nul \Gamma = \dim V - \dim((\nul \varphi_1) \cap \cdots \cap (\nul \varphi_m)) = m.\]
+    Since $\range \Gamma$ is a subspace of $\f^m$ and has dimension $m$, we conclude that $\range \Gamma = \f^m$, so $\Gamma$ is surjective.
+
+    Conversely, suppose $\Gamma$ is surjective. Then $\range \Gamma = \f^m$, so $\dim \range \Gamma = m$. By the rank-nullity theorem, we have
+    \[\dim \range \Gamma = \dim V - \dim \nul \Gamma = \dim V - \dim((\nul \varphi_1) \cap \cdots \cap (\nul \varphi_m)).\]
+    By \autoref{ex:3f23}, we have
+    \[\spn(\varphi_1, \ldots, \varphi_m) = ((\nul \varphi_1) \cap \cdots \cap (\nul \varphi_m))^0,\]
+    so $\dim \spn(\varphi_1, \ldots, \varphi_m) = \dim V - \dim((\nul \varphi_1) \cap \cdots \cap (\nul \varphi_m)) = m$. Hence, $\varphi_1, \ldots, \varphi_m$ is linearly independent.
 \end{sole}
 
 \begin{exercise}[3f26]
@@ -449,15 +464,43 @@
     \[\Omega = \set{v \in V \mid \varphi(v) = 0 \text{ for every } \varphi \in \Omega}^0.\]
 \end{exercise}
 
+\begin{sol}
+    Let $S = \set{v \in V \mid \varphi(v) = 0 \text{ for every } \varphi \in \Omega}$. We need to show that $\Omega = S^0$.
+
+    First, if $\varphi \in \Omega$, then for any $v \in S$, we have $\varphi(v) = 0$ by definition of $S$. Hence, $\varphi \in S^0$, so $\Omega \subseteq S^0$.
+
+    Conversely, let $\varphi_1, \ldots, \varphi_m$ be a basis of $\Omega$. Then $S = (\nul \varphi_1) \cap \cdots \cap (\nul \varphi_m)$. By \autoref{ex:3f23}, we have
+    \[\Omega = \spn(\varphi_1, \ldots, \varphi_m) = ((\nul \varphi_1) \cap \cdots \cap (\nul \varphi_m))^0 = S^0.\]
+    Hence, $S^0 \subseteq \Omega$. Combining both inclusions, we get $\Omega = S^0$, as desired.
+\end{sol}
+
 \begin{exercise}[3f27]
     Suppose $T \in \lin{\pp_5(\r)}$ and $\nul T' = \spn(\varphi)$, where $\varphi$ is the linear functional on $\pp_5(\r)$ defined by $\varphi(p) = p(8)$. Prove that
     \[\range T = \set{p \in \pp_5(\r) \mid p(8) = 0}.\]
 \end{exercise}
 
+\begin{sol}
+    Let $W = \set{p \in \pp_5(\r) \mid p(8) = 0}$. We need to show that $\range T = W$.
+
+    First, if $p \in \range T$, then there exists $q \in \pp_5(\r)$ such that $T(q) = p$. Since $\varphi \in \nul T'$, we have
+    \[\varphi(T(q)) = (T'(\varphi))(q) = 0.\]
+    But $\varphi(T(q)) = T(q)(8) = p(8)$, so $p(8) = 0$. Hence, $p \in W$, and we have shown that $\range T \subseteq W$.
+
+    Now we compare the dimensions of $\range T$ and $W$. Recall that $(\range T)^0 = \nul T' = \spn(\varphi)$, so $\dim (\range T)^0 = 1$. Since $\pp_5(\r)$ has dimension $6$, we have $\dim \range T = 6 - 1 = 5$. On the other hand, $W$ is the set of all polynomials in $\pp_5(\r)$ that vanish at $8$. Using the rank-nullity theorem and the fact that $\varphi \neq 0$ is surjective by \autoref{ex:3f1}, we have $\dim W = \dim \pp_5(\r) - 1 = 5$. Hence, $\range T$ and $W$ are subspaces of $\pp_5(\r)$ with the same dimension, and $\range T \subseteq W$. We conclude that $\range T = W$, as desired.
+\end{sol}
+
 \begin{exercise}[3f28]
     Suppose $V$ is finite-dimensional and $\varphi_1, \ldots, \varphi_m$ is a linearly independent list in $V'$. Prove that
     \[\dim((\nul \varphi_1) \cap \cdots \cap (\nul \varphi_m)) = (\dim V) - m.\]
 \end{exercise}
+
+\begin{sol}
+    Since $\varphi_1, \ldots, \varphi_m$ is linearly independent, we have $\dim \spn(\varphi_1, \ldots, \varphi_m) = m$. By \autoref{ex:3f23}, we have
+    \[\spn(\varphi_1, \ldots, \varphi_m) = ((\nul \varphi_1) \cap \cdots \cap (\nul \varphi_m))^0.\]
+    Hence, $\dim((\nul \varphi_1) \cap \cdots \cap (\nul \varphi_m))^0 = m$. Since $V$ is finite-dimensional, we have
+    \[\dim((\nul \varphi_1) \cap \cdots \cap (\nul \varphi_m)) = \dim V - \dim((\nul \varphi_1) \cap \cdots \cap (\nul \varphi_m))^0 = \dim V - m,\]
+    as desired.
+\end{sol}
 
 \begin{exercise}[3f29]
     Suppose $V$ and $W$ are finite-dimensional and $T \in \lin{V, W}$.
@@ -467,9 +510,34 @@
     \end{subexercises}
 \end{exercise}
 
+\begin{sole}
+    \item Note that if $w \in \range T$, then there exists $v \in V$ such that $T(v) = w$. Since $\varphi \in \nul T'$, we have
+    \[\varphi(w) = \varphi(T(v)) = (T'(\varphi))(v) = 0.\]
+    Hence, $\range T \subseteq \nul \varphi$.
+    
+    Observe that $\dim \null T' = 1$ since $\nul T' = \spn(\varphi)$. By the rank-nullity theorem, we have
+    \[\dim \range T' = \dim W' - \dim \nul T' = \dim W - 1.\]
+    Since $\dim \range T' = \dim range T$, we have $\dim \range T = \dim W - 1$. This is also $\dim \null \varphi$ since $\varphi \neq 0$ is surjective by \autoref{ex:3f1}. Hence, $\range T$ and $\nul \varphi$ are subspaces of $W$ with the same dimension, and $\range T \subseteq \nul \varphi$. We conclude that $\range T = \nul \varphi$, as desired.
+    \item Note that if $v \in \nul T$, then $T(v) = 0$. Since $\psi \in \range T'$, there exists $\varphi \in W'$ such that $T'(\varphi) = \psi$. Then
+    \[\psi(v) = (T'(\varphi))(v) = \varphi(T(v)) = \varphi(0) = 0.\]
+    Hence, $\nul T \subseteq \nul \psi$.
+
+    Observe that $\dim \range T' = 1$. Since $\dim \range T' = \dim \range T$, then it follows that $\dim \range T = 1$ as well. Rank-nullity then gives $\dim \nul T = \dim V - 1$. This is also $\dim \nul \psi$ since $\psi \neq 0$ is surjective by \autoref{ex:3f1}. Hence, $\nul T$ and $\nul \psi$ are subspaces of $V$ with the same dimension, and $\nul T \subseteq \nul \psi$. We conclude that $\nul T = \nul \psi$, as desired.
+\end{sole}
+
 \begin{exercise}[3f30]
     Suppose $V$ is finite-dimensional and $\varphi_1, \ldots, \varphi_n$ is a basis of $V'$. Show that there exists a basis of $V$ whose dual basis is $\varphi_1, \ldots, \varphi_n$.
 \end{exercise}
+
+\begin{sol}
+    Let $\varphi_1, \ldots, \varphi_n$ be a basis of $V'$. From \autoref{ex:3f25}, there exists a map $\Gamma : V \to \f^n$ that is an isomorphism, since $\varphi_1, \ldots, \varphi_n$ is a basis for $V'$. Let $e_1, \ldots, e_n$ be the standard basis of $\f^n$. Since $\Gamma$ is an isomorphism, there exist $v_1, \ldots, v_n \in V$ such that $\Gamma(v_i) = e_i$ for each $i = 1, \ldots, n$. We claim that $v_1, \ldots, v_n$ is a basis of $V$ whose dual basis is $\varphi_1, \ldots, \varphi_n$.
+
+    To see that $v_1, \ldots, v_n$ is a basis of $V$, we show linear independence. Suppose $a_1, \ldots, a_n$ are scalars such that $a_1 v_1 + \cdots + a_n v_n = 0$. Applying $\Gamma$ to both sides gives
+    \[a_1 e_1 + \cdots + a_n e_n = \Gamma(a_1 v_1 + \cdots + a_n v_n) = \Gamma(0) = 0.\]
+    Since $e_1, \ldots, e_n$ is a basis of $\f^n$, it follows that $a_1 = \cdots = a_n = 0$. Hence, $v_1, \ldots, v_n$ is linearly independent. Since $\dim V = n$, we conclude that $v_1, \ldots, v_n$ is a basis of $V$. To see that the dual basis of $v_1, \ldots, v_n$ is $\varphi_1, \ldots, \varphi_n$, we need to show that $\varphi_i(v_j) = \delta_{ij}$ for each $i, j = 1, \ldots, n$. Since $\Gamma(v_j) = e_j$, we have
+    \[\varphi_i(v_j) = (\Gamma(v_j))_i = (e_j)_i = \delta_{ij},\]
+    as desired.
+\end{sol}
 
 \begin{exercise}[3f31]
     Suppose $U$ is a subspace of $V$. Let $i: U \to V$ be the inclusion map defined by $i(u) = u$. Thus $i' \in \lin{V', U'}$.
@@ -479,6 +547,18 @@
         \item Prove that if $V$ is finite-dimensional, then $i'$ is an isomorphism from $V' / U^0$ onto $U'$.
     \end{subexercises}
 \end{exercise}
+
+\begin{sole}
+    \item Note that if $\varphi \in \nul i'$, then $i'(\varphi) = 0$, so $\varphi(i(u)) = 0$ for all $u \in U$. Since $i(u) = u$, we have $\varphi(u) = 0$ for all $u \in U$, so $\varphi \in U^0$. Hence, $\nul i' \subseteq U^0$. Conversely, if $\varphi \in U^0$, then $\varphi(u) = 0$ for all $u \in U$, so $i'(\varphi) = 0$. Hence, $U^0 \subseteq \nul i'$, and we conclude that $\nul i' = U^0$.
+    \item To see $\range i' \subseteq U'$, note that if $\varphi \in V'$, then $i'(\varphi) \in U'$ since $i'(\varphi)(u) = \varphi(i(u)) = \varphi(u)$ for all $u \in U$. Hence, $\range i' \subseteq U'$.
+    
+    Since $V$ is finite-dimensional, we have $\dim V' = \dim V$. By the rank-nullity theorem, we have
+    \[\dim \range i' = \dim V' - \dim \nul i' = \dim V - \dim U^0.\]
+    By the annihilator dimension formula, we have $\dim U^0 = \dim V - \dim U$. Hence,
+    \[\dim \range i' = \dim V - (\dim V - \dim U) = \dim U = \dim U'.\]
+    Since $\range i'$ is a subspace of $U'$ and has the same dimension, we conclude that $\range i' = U'$, as desired.
+    \item From part (a), we have $\nul i' = U^0$. Then we know that $V' / U^0$ is isomorphic to $\range i'$. Then the induced map $\tilde{i'}: V' / U^0 \to \range i'$ defined by $\tilde{i'}(\varphi + U^0) = i'(\varphi)$ is an isomorphism. Since $\range i' = U'$ by part (b), we conclude that $i'$ induces an isomorphism from $V' / U^0$ onto $U'$, as desired.
+\end{sole}
 
 \begin{exercise}[3f32]
     The \textbf{double dual space} of $V$, denoted by $V''$, is defined to be the dual space of $V'$. In other words, $V'' = (V')'$. Define $\Lambda: V \to V''$ by
@@ -492,6 +572,28 @@
     \note{Suppose $V$ is finite-dimensional. Then $V$ and $V'$ are isomorphic, but finding an isomorphism from $V$ onto $V'$ generally requires choosing a basis of $V$. In contrast, the isomorphism $\Lambda$ from $V$ onto $V''$ does not require a choice of basis and thus is considered more natural.}
 \end{exercise}
 
+\begin{sole}
+    \item To see that $\Lambda$ is linear, let $v, w \in V$ and $a \in \f$. Then for any $\varphi \in V'$, we have
+    \begin{align*}
+        (\Lambda(v + w))(\varphi) &= \varphi(v + w) = \varphi(v) + \varphi(w) = (\Lambda v)(\varphi) + (\Lambda w)(\varphi),\\
+        (\Lambda(av))(\varphi) &= \varphi(av) = a \varphi(v) = a (\Lambda v)(\varphi).
+    \end{align*}
+    Hence, $\Lambda$ is linear.
+    \item Let $v \in V$ and $\varphi \in V'$. Then
+    \begin{align*}
+        ((T'' \circ \Lambda)(v))(\varphi) &= (T''(\Lambda v))(\varphi) \\
+        &= (T'(\varphi))(\Lambda v) \\
+        &= (\Lambda v)(T'(\varphi)) \\
+        &= T'(\varphi)(v) \\
+        &= \varphi(T(v)) \\
+        &= (\Lambda(T(v)))(\varphi) = ((\Lambda \circ T)(v))(\varphi).
+    \end{align*}
+    Hence, $T'' \circ \Lambda = \Lambda \circ T$.
+    \item Since $V$ is finite-dimensional, we have $\dim V = \dim V'$. Then $\dim V'' = \dim (V')' = \dim V' = \dim V$. By the rank-nullity theorem, we have
+    \[\dim \range \Lambda = \dim V - \dim \nul \Lambda.\]
+    To see that $\Lambda$ is injective, suppose $\Lambda v = 0$ for some $v \in V$. Then for any $\varphi \in V'$, we have $\varphi(v) = (\Lambda v)(\varphi) = 0$. Since this holds for all $\varphi \in V'$ by \autoref{ex:3f3}, it follows that $v = 0$. Hence, $\Lambda$ is injective, so $\nul \Lambda = \set 0$. Therefore, $\dim \range \Lambda = \dim V - 0 = \dim V$. Since $\range \Lambda$ is a subspace of $V''$ and has the same dimension as $V''$, we conclude that $\range \Lambda = V''$, so $\Lambda$ is surjective. Combining injectivity and surjectivity, we conclude that $\Lambda$ is an isomorphism from $V$ onto $V''$, as desired.
+\end{sole}
+
 \begin{exercise}[3f33]
     Suppose $U$ is a subspace of $V$. Let $\pi: V \to V / U$ be the usual quotient map. Thus $\pi' \in \lin{(V / U)', V'}$.
     \begin{subexercises}
@@ -500,3 +602,16 @@
         \item Conclude that $\pi'$ is an isomorphism from $(V / U)'$ onto $U^0$.
     \end{subexercises}
 \end{exercise}
+
+\begin{sole}
+    \item Suppose $\pi'(\varphi) = 0$ for some $\varphi \in (V / U)'$. Then $\varphi(\pi(v)) = 0$ for all $v \in V$. Since $\pi(v) = v + U$, we have $\varphi(v + U) = 0$ for all $v \in V$. Since this holds for all $v \in V$ by surjectivity of $\pi$, it follows that $\varphi = 0$. Hence, $\pi'$ is injective.
+    \item To see $\range \pi' \subseteq U^0$, note that if $\varphi \in (V / U)'$, then for any $u \in U$, we have $\pi'( \varphi)(u) = \varphi(\pi(u)) = \varphi(0 + U) = 0$. Hence, $\range \pi' \subseteq U^0$.
+    
+    To see the other inclusion, let $\psi \in U^0$. We want to find $\varphi \in (V / U)'$ such that $\pi'(\varphi) = \psi$. Define $\varphi: V / U \to \f$ by $\varphi(v + U) = \psi(v)$ for each $v \in V$. We need to check that $\varphi$ is well-defined. If $v + U = w + U$, then $v - w \in U$, so $\psi(v - w) = 0$, which implies that $\psi(v) = \psi(w)$. Hence, $\varphi$ is well-defined. It is also linear since for any $a, b \in \f$ and $v, w \in V$, we have
+    \begin{align*}
+        \varphi(a(v + U) + b(w + U)) &= \varphi((av + bw) + U) = \psi(av + bw) \\
+        &= a \psi(v) + b \psi(w) = a \varphi(v + U) + b \varphi(w + U).
+    \end{align*}
+    Finally, we have $\pi'(\varphi)(v) = \varphi(\pi(v)) = \varphi(v + U) = \psi(v)$ for all $v \in V$, so $\pi'(\varphi) = \psi$. Hence, $U^0 \subseteq \range \pi'$, and we conclude that $\range \pi' = U^0$.
+    \item From part (a), we have $\pi'$ is injective. From part (b), we have $\range \pi' = U^0$. Then the induced map $\tilde{\pi'}: (V / U)' \to U^0$ defined by $\tilde{\pi'}(\varphi) = \pi'(\varphi)$ is an isomorphism. Hence, $\pi'$ is an isomorphism from $(V / U)'$ onto $U^0$, as desired.
+\end{sole}
