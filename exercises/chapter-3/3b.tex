@@ -567,15 +567,13 @@
 \end{exercise}
 
 \begin{sole}
-    \item Let $u_1 + iv_1, u_2 + iv_2 \in V_\c$ and $\alpha, \beta \in \c$. By the definition of complex scalar multiplication in $V_\c$, we have
-    \[\alpha(u_1 + iv_1) + \beta(u_2 + iv_2) = (\alpha u_1 + \beta u_2) + i(\alpha v_1 + \beta v_2).\]
-    Applying $T_\c$ to both sides, we have
+    \item Let $u + vi$ and $w + xi \in V_\c$. Then for any $a + bi \in \c$, we have
     \begin{align*}
-        T_\c(\alpha(u_1 + iv_1) + \beta(u_2 + iv_2)) & = T_\c((\alpha u_1 + \beta u_2) + i(\alpha v_1 + \beta v_2)) \\
-        & = T(\alpha u_1 + \beta u_2) + iT(\alpha v_1 + \beta v_2) \\
-        & = \alpha Tu_1 + \beta Tu_2 + i(\alpha Tv_1 + \beta Tv_2) \\
-        & = \alpha(Tu_1 + iTv_1) + \beta(Tu_2 + iTv_2) \\
-        & = \alpha T_\c(u_1 + iv_1) + \beta T_\c(u_2 + iv_2).
+        T_\c((a + bi)(u + vi) + (w + xi)) & = T_\c((au - bv + (av + bu)i) + (w + xi)) \\
+        & = T(au - bv + w) + iT(av + bu + x) \\
+        & = aTu - bTv + Tw + i(aTv + bTu + Tx) \\
+        & = (a + bi)(Tu + iTv) + (Tw + iTx) \\
+        & = (a + bi)T_\c(u + vi) + T_\c(w + xi).
     \end{align*}
     Therefore, $T_\c$ is a complex linear map from $V_\c$ to $W_\c$.
     \item Suppose $T_\c$ is injective. Let $v \in V$ such that $Tv = 0$. Then

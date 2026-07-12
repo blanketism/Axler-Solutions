@@ -190,12 +190,18 @@
 
 \begin{exercise}[1c13]
     Prove that the union of three subspaces of $V$ is a subspace of $V$ if and only if one of the subspaces contains the other two.
+
+    \remark{As mentioned in the book, this result is not true when the field has only two elements. Moreover, this problem is particularly difficult in that it requires careful tracking of elements across the three subspaces to ensure that the union remains a subspace.}
 \end{exercise}
 
 \begin{sol}
     Let $U_1, U_2, U_3$ be subspaces of $V$. Without loss of generality, suppose $U_2 \subseteq U_1$ and $U_3 \subseteq U_1$. Then $U_1 \cup U_2 \cup U_3 = U_1$, which is a subspace of $V$.
 
-    Conversely, suppose $U_1 \cup U_2 \cup U_3$ is a subspace of $V$. Note that $U_1 \cup U_2 \cup U_3 = (U_1 \cup U_2) \cup U_3$. Using \autoref{ex:1c12}, one of the subspaces $U_1 \cup U_2$ or $U_3$ must be contained in the other. If $U_1 \cup U_2 \subseteq U_3$, then $U_1 \cup U_2 \cup U_3 = U_3$, which is a subspace of $V$. If $U_3 \subseteq U_1 \cup U_2$, then $U_1 \cup U_2$ must be a subspace of $V$. By \autoref{ex:1c12} again, then either $U_1 \subseteq U_2$ or $U_2 \subseteq U_1$. If the former is true, then $U_1 \cup U_2 = U_2$, hence $U_2$ contains $U_1$ and $U_3$. If the latter is true, then $U_1 \cup U_2 = U_1$, hence $U_1$ contains $U_2$ and $U_3$. Therefore, one of the subspaces must contain the other two.
+    Conversely, suppose $U_1 \cup U_2 \cup U_3$ is a subspace of $V$. Without loss of generality, suppose $U_3 \subseteq U_2$. Let $W = U_2 \cup U_3 = U_2$. Then $U_1 \cup W$ is a subspace since $U_1 \cup W = U_1 \cup U_2 \cup U_3$. By \autoref{ex:1c12}, either $U_1 \subseteq U_2$ or $U_2 \subseteq U_1$. If the first case occurs, then $U_1 \cup U_2 = U_2$ which also contains $U_3$. If the second case occurs, then $U_2 \subseteq U_1$, and since $U_3 \subseteq U_2$, we have $U_3 \subseteq U_1$. Hence, $U_1$ contains both $U_2$ and $U_3$. Therefore, in either case, one of the subspaces contains the other two. By symmetry, the argument applies regardless of which subspace is assumed to be contained in another, ensuring that one of the three subspaces must contain the other two. We now suppose $U_2$ and $U_3$ do not contain each other, i.e, $U_2 \nsubseteq U_3$ and $U_3 \nsubseteq U_2$.
+
+    Let $u \in U_2 \setminus U_3$ and $v \in U_3 \setminus U_2$. Let $\alpha \in \f$ be any scalar so that $u + \alpha v \in U_1 \cup U_2 \cup U_3$. If $u + \alpha v \in U_2$, then $\alpha v = (u + \alpha v) - u \in U_2$, which implies $v \in U_2$, a contradiction. If $u + \alpha v \in U_3$, then $u = (u + \alpha v) - \alpha v \in U_3$, a contradiction. Hence, $u + \alpha v \notin U_2 \cup U_3$. It must be that $u + \alpha v \in U_1$ for every $\alpha \in \f$. In particular, choose $\beta, \gamma \in \f$ such that $\alpha, \beta, \gamma$ are all distinct. Then $u + \beta v \in U_1$ and $u + \gamma v \in U_1$. Since $U_1$ is a subspace, we have
+    \[(\gamma - \beta)v = (u + \gamma v) - (u + \beta v) \in U_1.\]
+    Since $\gamma \neq \beta$, we have $v \in U_1$. Similarly, for any $u \in U_2 \setminus U_3$ and $v \in U_3 \setminus U_2$, we can show that $u \in U_1$. Hence, $U_1$ contains both $U_2$ and $U_3$.
 \end{sol}
 
 \begin{exercise}[1c14]

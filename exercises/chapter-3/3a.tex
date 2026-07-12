@@ -226,18 +226,18 @@
     \[\varphi(av) = a\varphi(v)\]
     for all $a \in \r$ and all $v \in \r^2$ but $\varphi$ is not linear.
 
-    \remark{This was a surprisingly difficult exercise for me, namely because there were no obvious examples of homogeneous functions that were not linear. However, the idea is that while $x^n$ functions aren't linear, they don't maintain homogeneity due to an extra $a^{n - 1}$ factor. It follows that we must divide $x^n$ by some $n - 1$ power to maintain homogeneity. However, dividing by just $y$ risks division by zero, so we must divide by $x + y$ to avoid this.}
+    \remark{This was }
 \end{exercise}
 
 \begin{sol}
     Let $\varphi: \r^2 \to \r$ be defined by
-    \[\varphi(x, y) = \frac{x^2}{x + y}.\]
+    \[\varphi(x, y) = \sqrt[3]{x^3 + y^3}.\]
     Then for any $a \in \r$ and $(x, y) \in \r^2$,
-    \[\varphi(a(x, y)) = \varphi(ax, ay) = \frac{(ax)^2}{ax + ay} = \frac{a^2 x^2}{a(x + y)} = a\frac{x^2}{x + y} = a\varphi(x, y).\]
+    \[\varphi(a(x, y)) = \varphi(ax, ay) = \sqrt[3]{(ax)^3 + (ay)^3} = \sqrt[3]{a^3(x^3 + y^3)} = a\sqrt[3]{x^3 + y^3} = a\varphi(x, y).\]
     However, $\varphi$ is not additive. For example, let $v = (1, 0)$ and $w = (0, 1)$. Then
-    \[\varphi(v + w) = \varphi(1, 1) = \frac{1^2}{1 + 1} = \frac{1}{2},\]
+    \[\varphi(v + w) = \varphi(1, 1) = \sqrt[3]{1^3 + 1^3} = \sqrt[3]{2},\]
     but
-    \[\varphi(v) + \varphi(w) = \varphi(1, 0) + \varphi(0, 1) = \frac{1^2}{1 + 0} + \frac{0^2}{0 + 1} = 1 + 0 = 1.\]
+    \[\varphi(v) + \varphi(w) = \varphi(1, 0) + \varphi(0, 1) = \sqrt[3]{1^3 + 0^3} + \sqrt[3]{0^3 + 1^3} = 1 + 1 = 2.\]
     Therefore, $\varphi$ is not linear.
 \end{sol}
 
@@ -290,13 +290,7 @@
     \[TS_{ij}v_i = T(v_j) = \beta_1 v_1 + \cdots + \beta_n v_n\]
     for some $\beta_1, \ldots, \beta_n \in \f$. Since $S_{ij}T = TS_{ij}$, we have
     \[\alpha_i v_j = \beta_1 v_1 + \cdots + \beta_n v_n.\]
-    Since $v_1, \ldots, v_n$ is a basis, it follows that $\beta_k = 0$ for all $k \neq j$ and $\beta_j = \alpha_i$. Therefore, $Tv_j = \alpha_i v_j$. Since $i$ was arbitrary, it follows that $Tv_j = \alpha_j v_j$ for some $\alpha_j \in \f$, hence $T$ sends each basis vector to a scalar multiple of itself.
-
-    Now consider any $\ell \neq j$. Then
-    \[S_{\ell j}Tv_\ell = S_{\ell j}(\alpha_\ell v_\ell) = \alpha_\ell v_j,\]
-    and
-    \[TS_{\ell j}v_\ell = T(v_j) = \alpha_j v_j.\]
-    Since $S_{\ell j}T = TS_{\ell j}$, we have $\alpha_\ell v_j = \alpha_j v_j$, which implies $\alpha_\ell = \alpha_j$. Since $\ell$ and $j$ were arbitrary, it follows that all $\alpha_k$ are equal, say $\alpha_k = \lambda$ for all $k$. Therefore, $Tv_k = \lambda v_k$ for all $k$, and hence $T = \lambda I$.
+    Since $v_1, \ldots, v_n$ is a basis, it follows that $\beta_k = 0$ for all $k \neq j$ and $\beta_j = \alpha_i$. Therefore, $Tv_j = \alpha_i v_j$. Since $i$ and $j$ were arbitrary, it follows that all $\alpha_k$ are equal, say $\alpha_k = \lambda$ for all $k$. Therefore, $Tv_k = \lambda v_k$ for all $k$, and hence $T = \lambda I$.
 \end{sol}
 
 \begin{exercise}[3a12]
@@ -359,17 +353,17 @@
 \begin{sol}
     Since $v_1, \ldots, v_m$ is linearly dependent, there exist scalars $a_1, \ldots, a_m \in \f$, not all zero, such that
     \[a_1 v_1 + \cdots + a_m v_m = 0.\]
-    Let $w_1, \ldots, w_m \in W$ be defined by
+    Fix some nonzero $a_i$ among $a_1, \ldots, a_m$. Let $w_1, \ldots, w_m \in W$ be defined by
     \[w_k =
     \begin{cases}
-        0 & \text{if } a_k = 0, \\
-        w & \text{if } a_k \neq 0,
+        0 & \text{if } k \neq i, \\
+        w & \text{if } k = i,
     \end{cases}\]
     where $w$ is any nonzero vector in $W$. Suppose for contradiction that there exists $T \in \lin{V, W}$ such that $Tv_k = w_k$ for each $k = 1, \ldots, m$. Then
     \[T(a_1 v_1 + \cdots + a_m v_m) = a_1 Tv_1 + \cdots + a_m Tv_m = a_1 w_1 + \cdots + a_m w_m.\]
     Since $a_1 v_1 + \cdots + a_m v_m = 0$, we have $T(0) = 0$, so
     \[0 = a_1 w_1 + \cdots + a_m w_m.\]
-    However, by the definition of $w_k$, we have $a_k w_k = a_k w$ for all $k$ such that $a_k \neq 0$, and $a_k w_k = 0$ for all $k$ such that $a_k = 0$. Therefore, the sum $a_1 w_1 + \cdots + a_m w_m$ is a nonzero scalar multiple of $w$, which is nonzero since $w \neq 0$. This is a contradiction. Therefore, no such $T \in \lin{V, W}$ exists.
+    However, by definition of $w_k$, we have $a_kw_k = a_i w$ if $k = i$ and $a_kw_k = 0$ if $k \neq i$. Therefore, the sum $a_1 w_1 + \cdots + a_m w_m$ is a nonzero scalar multiple of $w$, which is nonzero since $w \neq 0$. This is a contradiction. Therefore, no such $T \in \lin{V, W}$ exists.
 \end{sol}
 
 \begin{exercise}[3a16]
