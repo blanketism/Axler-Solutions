@@ -511,14 +511,18 @@
 \end{exercise}
 
 \begin{sole}
-    \item Note that if $w \in \range T$, then there exists $v \in V$ such that $T(v) = w$. Since $\varphi \in \nul T'$, we have
+    \item If $\varphi = 0$, then $\nul T' = \set 0$, hence $T'$ is injective. Then $\dim \range T' = \dim W' = \dim W$. Then $\dim \range T = \dim \range T' = \dim W$. In this case, $\range T = W$ and $\nul \varphi = W$, so $\range T = \nul \varphi$. Otherwise, we proceed as follows.
+    
+    Note that if $w \in \range T$, then there exists $v \in V$ such that $T(v) = w$. Since $\varphi \in \nul T'$, we have
     \[\varphi(w) = \varphi(T(v)) = (T'(\varphi))(v) = 0.\]
     Hence, $\range T \subseteq \nul \varphi$.
     
     Observe that $\dim \null T' = 1$ since $\nul T' = \spn(\varphi)$. By the rank-nullity theorem, we have
     \[\dim \range T' = \dim W' - \dim \nul T' = \dim W - 1.\]
     Since $\dim \range T' = \dim range T$, we have $\dim \range T = \dim W - 1$. This is also $\dim \null \varphi$ since $\varphi \neq 0$ is surjective by \autoref{ex:3f1}. Hence, $\range T$ and $\nul \varphi$ are subspaces of $W$ with the same dimension, and $\range T \subseteq \nul \varphi$. We conclude that $\range T = \nul \varphi$, as desired.
-    \item Note that if $v \in \nul T$, then $T(v) = 0$. Since $\psi \in \range T'$, there exists $\varphi \in W'$ such that $T'(\varphi) = \psi$. Then
+    \item If $\psi = 0$, then $\range T' = \set 0$, hence $T' = 0$. Then $\nul T = V$ since $T = 0$ and $V$ is finite-dimensional. In this case, $\nul \psi = V$ as well, so $\nul T = \nul \psi = V$. Otherwise, we proceed as follows.
+    
+    Note that if $v \in \nul T$, then $T(v) = 0$. Since $\psi \in \range T'$, there exists $\varphi \in W'$ such that $T'(\varphi) = \psi$. Then
     \[\psi(v) = (T'(\varphi))(v) = \varphi(T(v)) = \varphi(0) = 0.\]
     Hence, $\nul T \subseteq \nul \psi$.
 

@@ -23,13 +23,13 @@
 \end{exercise}
 
 \begin{sol}
-    Let $V = V_1 \times \cdots \times V_m$, and consider $T \in \lin(V, V_k)$ defined by $T(v_1, \ldots, v_m) = v_k$. Then $T$ is a linear map since for all $\alpha, \beta \in \f$ and all $(v_1, \ldots, v_m), (w_1, \ldots, w_m) \in V$, we have
+    Let $V = V_1 \times \cdots \times V_m$, and consider $T \in \lin{V, V_k}$ defined by $T(v_1, \ldots, v_m) = v_k$. Then $T$ is a linear map since for all $\alpha, \beta \in \f$ and all $(v_1, \ldots, v_m), (w_1, \ldots, w_m) \in V$, we have
     \begin{align*}
         T(\alpha (v_1, \ldots, v_m) + \beta (w_1, \ldots, w_m)) &= T(\alpha v_1 + \beta w_1, \ldots, \alpha v_m + \beta w_m) \\
         &= \alpha v_k + \beta w_k \\
         &= \alpha T(v_1, \ldots, v_m) + \beta T(w_1, \ldots, w_m).
     \end{align*}
-    Since $V$ is finite-dimensional and $T$ is a linear map, it follows that $V_k$ is finite-dimensional.
+    Moreover, $T$ is surjective since for any $v_k \in V_k$, we have $v_k = T(0, \ldots, 0, v_k, 0, \ldots, 0)$ where $v_k$ is in the $k$-th coordinate. Since $V$ is finite-dimensional and $T$ is a linear map that is surjective, it follows that $V_k$ is finite-dimensional.
 \end{sol}
 
 \begin{exercise}[3e3]
@@ -104,7 +104,7 @@
 \end{exercise}
 
 \begin{sol}
-    Let $u \in U$. Then $v + u \in v + U = x + W$. Thus, there exists $w \in W$ such that $v + u = x + w$. It follows that $u = (x - v) + w \in W$, hence $U \subseteq W$. Now let $w \in W$. Then $x + w \in x + W = v + U$. Thus, there exists $u \in U$ such that $x + w = v + u$. It follows that $w = (v - x) + u \in U$, hence $W \subseteq U$. Therefore, $U = W$.
+    Let $u \in U$. Then $v + u \in v + U = x + W$. Thus, there exists $w \in W$ such that $v + u = x + w$. Note that $v \in x + W$ implies the existence of some $w' \in W$ such that $v = x + w'$, or $x - v = -w' \in W$. Similarly, $x \in v + U$ implies the existence of some $u' \in U$ such that $x = v + u'$, or $v - x = -u' \in U$. It follows that $u = (x - v) + w \in W$, hence $U \subseteq W$. Now let $w \in W$. Then $x + w \in x + W = v + U$. Thus, there exists $u \in U$ such that $x + w = v + u$. It follows that $w = (v - x) + u \in U$, hence $W \subseteq U$. Therefore, $U = W$.
 \end{sol}
 
 \begin{exercise}[3e7]
@@ -147,9 +147,9 @@
 \end{exercise}
 
 \begin{sol}
-    Suppose $A$ is a translate of some subspace of $V$. Then there exists $v \in V$ and a subspace $U$ of $V$ such that $A = v + U$. Let $w \in A$. Then there exists $u \in U$ such that $w = v + u$. Now let $\lambda \in \f$. Then
-    \[\lambda v + (1 - \lambda) w = \lambda v + (1 - \lambda)(v + u) = v + (1 - \lambda) u \in A.\]
-    Conversely, suppose $\lambda v + (1 - \lambda) w  \in A$ for all $v, w \in A$ and all $\lambda \in \f$. Fix some $v_0 \in A$, and let $U = \set{u \in V \mid v_0 + u \in A}$. We first claim that $U$ is a subspace of $V$. Let $u_1, u_2 \in U$. Then $v_0 + u_1, v_0 + u_2 \in A$. Now let $\lambda \in \f$. Then
+    Suppose $A$ is a translate of some subspace of $V$. Then there exists $v \in V$ and a subspace $U$ of $V$ such that $A = v + U$. Let $v + u, v + u' \in A$. Then for any $\lambda \in \f$,
+    \[\lambda (v + u) + (1 - \lambda) (v + u') = v + \underbrace{(\lambda u + (1 - \lambda) u')}_{\in U} \in A.\]
+    Conversely, suppose $\lambda v + (1 - \lambda) w  \in A$ for all $v, w \in A$ and all $\lambda \in \f$. Fix some $v_0 \in A$, and let $U = \set{u \in V \mid v_0 + u \in A}$. We first claim that $U$ is a subspace of $V$. Since $v_0 = v_0 + 0 \in A$, we have $0 \in U$. Let $u_1, u_2 \in U$. Then $v_0 + u_1, v_0 + u_2 \in A$. Now let $\lambda \in \f$. Then
     \begin{align*}
         \lambda (v_0 + u_1) + (1 - \lambda)(v_0 + u_2) & = v_0 + \lambda u_1 + (1 - \lambda) u_2 \\
         & = v_0 + (\lambda u_1 + (1 - \lambda) u_2) \in A.

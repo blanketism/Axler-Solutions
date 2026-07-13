@@ -75,11 +75,7 @@
 \end{exercise}
 
 \begin{sol}
-    Suppose $\nul S = \nul T$. From \autoref{ex:3b25}, we know that $\nul S \subseteq \nul T$ implies the existence of some $E \in \lin W$ such that $T = ES$. Moreover, $\nul T \subseteq \nul S$ implies the existence of some $F \in \lin W$ such that $S = FT$. Thus, we have
-    \[S = FT = F(ES) = (FE)S.\]
-    Since $S$ is a linear map from $V$ to $W$, then $FE = I$. Similarly, we have
-    \[T = ES = E(FT) = (EF)T.\]
-    Since $T$ is a linear map from $V$ to $W$, then $EF = I$. Hence, $E$ is invertible and $S = ET$.
+    Suppose $\nul S = \nul T$. Then $\dim \range S = \dim \range T$. Define a linear map $E$ from $\range T$ to $\range S$ by setting $E(Tv) = Sv$ for all $v \in V$. This is well-defined because if $Tv = Tv'$ for some $v, v' \in V$, then $T(v - v') = 0$, so $v - v' \in \nul T = \nul S$, and thus $S(v - v') = 0$, which implies $Sv = Sv'$. Extend $E$ to an invertible linear map on $W$. Then $S = ET$.
 
     Conversely, suppose there exists an invertible $E \in \lin{W}$ such that $S = ET$. If $v \in \nul S$, then $Sv = 0$, and since $S = ET$, we have $ETv = 0$. Since $E$ is invertible, then $Tv = 0$, and thus $v \in \nul T$. Hence, $\nul S \subseteq \nul T$. Similarly, if $v \in \nul T$, then $Tv = 0$, and since $S = ET$, we have $Sv = ETv = E0 = 0$. Thus, $v \in \nul S$, and $\nul T \subseteq \nul S$. Therefore, $\nul S = \nul T$.
 \end{sol}
@@ -89,11 +85,11 @@
 \end{exercise}
 
 \begin{sol}
-    Suppose $\range S = \range T$. From \autoref{ex:3b26}, we know that $\range S \subseteq \range T$ implies the existence of some $E \in \lin V$ such that $S = TE$. Moreover, $\range T \subseteq \range S$ implies the existence of some $F \in \lin V$ such that $T = FS$. Thus, we have
-    \[T = FS = F(TE) = (FE)T.\]
-    Since $T$ is a linear map from $V$ to $W$, then $FE = I$. Similarly, we have
-    \[S = TE = T(FS) = (TF)S.\]
-    Since $S$ is a linear map from $V$ to $W$, then $TF = I$. Hence, $E$ is invertible and $S = TE$.
+    Suppose $\range S = \range T$. Then $\dim \null S = \dim \null T$. Let $s_1, \ldots, s_k$ be a basis of $\null S$ and $t_1, \ldots, t_k$ be a basis for $\null T$. Extend both bases to a basis of $V$, so we have $s_1, \ldots, s_n$ and $t_1, \ldots, t_n$. Note that for $i > k$, observe that $Ss_i \in \range S = \range T$, hence there must be $u_i$ such that $Tu_i = Ss_i$. Define $E$ such that $Es_i = t_i$ for $i \leq k$ and $Es_i = u_i$ for $i > k$. Then $S = TE$. To see that $E$ is invertible, suppose there are scalars $\alpha_1, \ldots, \alpha_n$ such that
+    \[\alpha_1 Es_1 + \cdots + \alpha_n Es_n = 0.\]
+    For $i \leq k$, $Es_i = t_i$, and for $i > k$, $Es_i = u_i$. So we have
+    \[\alpha_1 t_1 + \cdots + \alpha_k t_k = -(\alpha_{k+1} u_{k+1} + \cdots + \alpha_n u_n).\]
+    Then $\alpha_{k + 1} u_{k + 1} + \cdots + \alpha_n u_n \in \null T$, hence it equals 0. This implies that $\alpha_1 t_1 + \cdots + \alpha_k t_k = 0$. Since $t_1, \ldots, t_k$ are linearly independent, we must have $\alpha_1 = \cdots = \alpha_k = 0$. Therefore, all the scalars $\alpha_1, \ldots, \alpha_n$ are zero, proving that $E$ is invertible.
 
     Conversely, suppose there exists an invertible $E \in \lin{V}$ such that $S = TE$. If $w \in \range S$, then there exists some $v \in V$ such that $Sv = w$. Since $S = TE$, we have $TEv = w$, and thus $w \in \range T$. Hence, $\range S \subseteq \range T$. Similarly, if $w \in \range T$, then there exists some $v \in V$ such that $Tv = w$. Since $E$ is invertible, there exists some $u \in V$ such that $Eu = v$. Then we have
     \[Su = TEu = Tv = w,\]
@@ -249,11 +245,11 @@
 \begin{sol}
     Suppose $T$ has the same matrix with respect to every basis of $V$. Then for any set of bases for $V$, its matrix must be the same. In particular, for any bases $v_1, \ldots, v_n$ and $u_1, \ldots, u_n$ of $V$, we have
     \[\mm(T, (v_1, \ldots, v_n)) = \mm(T, (u_1, \ldots, u_n)).\]
-    Hence, we can declare that their matrix is just some $A$. By the change-of-basis formula, there exists invertible $C$ such that
-    \[A = C\inv AC,\]
-    which implies that $AC = CA$. Since $C$ is arbitrary, then $A$ must be a matrix that commutes with every matrix. We claim that $A$ must be a scalar multiple of the identity matrix. To see this, let $E_{j, k}$ be the matrix with $1$ in the $(j, k)$-th entry and $0$ elsewhere. Then
-    \[AE_{j, k} = E_{j, k}A\]
-    implies that the $j$-th column of $A$ is the same as the $k$-th column of $A$. Since this is true for all $j, k = 1, \ldots, n$, then all columns of $A$ are the same. Let $\lambda$ be the entry in the first column of $A$. Then $A = \lambda I$, and thus $T$ is a scalar multiple of the identity operator.
+    Hence, we can declare that their matrix is just some $A$. Consider the basis $v_1 + v_2, v_2, \ldots, v_n$. This new basis must also yield the same matrix $A$. In particular, let $w_1 = v_1 + v_2$, and $w_i = v_i$ for $i \geq 2$. Then
+    \[Tw_1 = A_{1, 1} w_1 + A_{2, 1} w_2 + \cdots + A_{n, 1} w_n = A_{1, 1} (v_1 + v_2) + \cdots + A_{n, 1} v_n.\]
+    But this must also be equal to
+    \[Tw_1 = A_{1, 1}v_1 + \cdots A_{n, 1} v_n.\]
+    This shows that $A_{1, 2} = 0$. Moreover, $A_{1, 1} = A_{2, 2}$. Comparing for $j \geq 3$, we get $A_{j, 1} = A_{j, 1} + A_{j, 2}$, so $A_{j, 2} = 0$. Then the off-diagonal entries in the first two columns vanish, and the diagonal entries are equal. Repeating the switch of replacing $v_1$ with $v_1 + v_k$ for all $k \geq 3$ shows that all off-diagonal entries must be zero and all diagonal entries must be equal. Hence, $A$ is a scalar multiple of the identity matrix.
 
     Conversely, suppose $T$ is a scalar multiple of the identity operator. Then there exists some $\lambda \in \f$ such that $T = \lambda I$. For any basis of $V$, the matrix representation of $T$ with respect to that basis is the diagonal matrix with $\lambda$ on the diagonal. Hence, $T$ has the same matrix with respect to every basis of $V$.
 \end{sol}
@@ -277,7 +273,7 @@
     \[(x^2 + x) p'' + 2x p' = -p(3).\]
     We analyze the degree of $p$ as follows:
     \begin{itemize}
-        \item If $\deg p \geq 2$, it is clear that $(x^2 + x) p''$ has degree at least $2$, and thus the left-hand side has degree at least $2$. However, the right-hand side is a constant, which is a contradiction.
+        \item If $\deg p \geq 2$, consider $(x^2 + x)p''$. In particular, $(a_m x^m)'' = a_m m(m - 1)x^{m - 2}$, hence the coefficient of $x^m$ is $a_m m(m - 1)$. Moreover, $2xp'$ has coefficient $2m a_m$. Since $\deg p \geq 2$, then $m \geq 2$, so the total coefficient of $x^m$ is $a_m m(m - 1) + 2m a_m = a_m m(m - 1 + 2) = a_m m(m + 1)$. Since this is nonzero for $a_m \neq 0$, we get a contradiction with the right-hand side being a constant.
         \item If $\deg p = 1$, then $p(x) = ax + b$ for some $a, b \in \r$. Then $p''(x) = 0$ and $p'(x) = a$, so the left-hand side is $2ax$. Since the right-hand side is a constant, this is a contradiction.
         \item If $\deg p = 0$, then $p(x) = c$ for some $c \in \r$. Then $p''(x) = 0$ and $p'(x) = 0$, so the left-hand side is 0, and the right-hand side is $p(3) = c$. Hence, $c = 0$, and thus $p = 0$. Therefore, $T$ is injective.
     \end{itemize}
@@ -336,9 +332,7 @@
 \end{exercise}
 
 \begin{sol}
-    Let $T : \f^{n, 1} \to \f^{n, 1}$ be defined by $Tx = Ax$ for $x \in \f^{n, 1}$. Since $AB = I$, then for any $x \in \f^{n, 1}$, we have
-    \[TBx = A(Bx) = (AB)x = Ix = x.\]
-    Hence, $T$ is invertible and $T\inv = B$. Therefore,
+    Let $T : \f^{n, 1} \to \f^{n, 1}$ be defined by $Tx = Ax$ for $x \in \f^{n, 1}$. Since $AB = I$, then $T$ is surjective. Since $\f^{n, 1}$ is finite-dimensional, surjectivity implies injectivity. Hence, $T$ is invertible, and $T(Bx) = x = T(T\inv x)$. Then $Bx = T\inv x$ for every $x \in \f^{n, 1}$. Therefore,
     \[BAx = B(Tx) = T\inv (Tx) = x\]
     for every $x \in \f^{n, 1}$. Hence, $BA = I$.
 \end{sol}

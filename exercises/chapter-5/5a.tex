@@ -110,7 +110,7 @@
 \end{exercise}
 
 \begin{sol}
-    Let $p$ have degree $n$ and be an eigenvector of $T$ with eigenvalue $\lambda$. Since $\deg p' = n - 1 \neq \deg \lambda p = n$, then $p$ must have degree 0, i.e., $p$ is a constant polynomial. In this case, $Tp = p' = 0 = 0 \cdot p$, so the only eigenvalue is $\lambda = 0$, and the corresponding eigenvectors are the nonzero constant polynomials.
+    Let $p$ have degree $n$ and be an eigenvector of $T$ with eigenvalue $\lambda$. If $\deg \lambda p = 0$, then $\deg p = 0$, so $p$ is a constant polynomial. Otherwise, $\deg p \geq 1$. Since $\deg p' = n - 1 \neq \deg \lambda p = n$, then $p$ must have degree 0, i.e., $p$ is a constant polynomial. In this case, $Tp = p' = 0 = 0 \cdot p$, so the only eigenvalue is $\lambda = 0$, and the corresponding eigenvectors are the nonzero constant polynomials.
 \end{sol}
 
 \begin{exercise}[5a10]
@@ -300,11 +300,11 @@
 \end{exercise}
 
 \begin{sol}
-    Note that
-    \[T(u + w) = Tu + Tw = 3w + 3u = 3(u + w).\]
-    This shows that $u + w$ is an eigenvector of $T$ corresponding to the eigenvalue $3$. If $u + w = 0$, then $u = -w$, and we can consider $u - w = -2w$, which is nonzero since $w \neq 0$. Then
-    \[T(u - w) = Tu - Tw = 3w - 3u = 3w - 3(-w) = 6w = -3(u - w),\]
-    showing that $u - w$ is an eigenvector corresponding to the eigenvalue $-3$. Therefore, either $3$ or $-3$ is an eigenvalue of $T$.
+    Consider the vectors $u + w$ and $u - w$. Since $u$ and $w$ are both nonzero, at least one of $u + w$ or $u - w$ is nonzero. We have
+    \[T(u + w) = Tu + Tw = 3w + 3u = 3(u + w),\]
+    and
+    \[T(u - w) = Tu - Tw = 3w - 3u = -3(u - w).\]
+    Hence, one of $u + w$ or $u - w$ are eigenvectors with eigenvalues 3 and $-3$ respectively.
 \end{sol}
 
 \begin{exercise}[5a23]
@@ -351,13 +351,9 @@
 \end{exercise}
 
 \begin{sol}
-    Let $v \in V$ be any nonzero vector. By assumption, $v$ is an eigenvector of $T$, so $Tv = \lambda_v v$ for some scalar $\lambda_v \in \f$. Now, let $u \in V$ be another nonzero vector. Consider $u + v$, which is also nonzero and hence an eigenvector of $T$. Then
-    \[T(u + v) = \lambda_{u+v} (u + v) = \lambda_{u+v} u + \lambda_{u+v} v.\]
-    On the other hand,
-    \[T(u + v) = Tu + Tv = \lambda_u u + \lambda_v v.\]
-    If $u + v = 0$, then $u = -v$. This implies $\lambda_u u = Tu = T(-v) = -Tv = -\lambda_v v = -\lambda_v (-u) = \lambda_v u$. Since $u \neq 0$, we get $\lambda_u = \lambda_v$. If $u$ and $v$ are linearly dependent, let $u = \alpha v$ for some scalar $\alpha \in \f$. Then $\lambda_u u = \lambda_u \alpha v = T(\alpha v) = \alpha Tv = \alpha \lambda_v v$. Since $\alpha \neq 0$ and $v \neq 0$, we get $\lambda_u = \lambda_v$.
-    
-    If $u + v \neq 0$, then we can equate coefficients of $u$ and $v$ in \(\lambda_{u+v} u + \lambda_{u+v} v = \lambda_u u + \lambda_v v\) to get $\lambda_{u+v} = \lambda_u = \lambda_v$. 
+    Let $v \in V$ be any nonzero vector. By assumption, $v$ is an eigenvector of $T$, so $Tv = \lambda_v v$ for some scalar $\lambda_v \in \f$. Now, let $u \in V$ be another nonzero vector. Consider the vector $u + v$. If it is zero, it cannot be an eigenvector. If it is nonzero such that $u$ and $v$ are linearly dependent, then without loss of generality, let $u = \alpha v$ for some scalar $\alpha \in \f$. Then $Tu = \lambda_u u = \lambda_u \alpha v$, and $Tu = T(\alpha v) = \alpha Tv = \alpha \lambda_v v$. Equating these, we get $\lambda_u \alpha v = \alpha \lambda_v v$, and since $\alpha \neq 0$ and $v \neq 0$, it follows that $\lambda_u = \lambda_v$.
+
+    The remaining case is when $u + v$ is nonzero such that they are linearly independent. In this case, $u + v$ is an eigenvector of $T$, so $T(u + v) = \lambda_{u+v} (u + v)$ for some scalar $\lambda_{u+v} \in \f$. On the other hand, $T(u + v) = Tu + Tv = \lambda_u u + \lambda_v v$. Equating these, we get $\lambda_{u+v} u + \lambda_{u+v} v = \lambda_u u + \lambda_v v$. Since $u$ and $v$ are linearly independent, we can equate coefficients to get $\lambda_{u+v} = \lambda_u = \lambda_v$.
     
     Since $u$ and $v$ were arbitrary nonzero vectors, it follows that there exists a scalar $\lambda \in \f$ such that $Tv = \lambda v$ for all nonzero $v \in V$. Hence, $T = \lambda I$.
 \end{sol}
