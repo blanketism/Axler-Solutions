@@ -439,9 +439,11 @@
 \begin{sol}
     Note that
     \[T^4 - I = (T^2 - I)(T^2 + I) = (T - I)(T + I)(T^2 + I) = 0.\]
-    Since $T$ has no eigenvalues, $T - I$ and $T + I$ are invertible. Then we may apply $(T - I)\inv$ and $(T + I)\inv$ to both sides of the equation to get
-    \[T^2 + I = 0,\]
-    which implies that $T^2 = -I$.
+    Applying $T^4 - I$ to any nonzero $v \in V$, we get
+    \[(T - I)(T + I)(T^2 + I)v = 0.\]
+    Let $(T^2 + I)v = w$. If $w \neq 0$, then $(T - I)(T + I)w = 0$. If $(T + I)w \neq 0$, then
+    \[(T - I)(T + I)w = T(T + I)w - I(T + I)w = 0,\]
+    which implies $T(T + I)w = (T + I)w$. Then $(T + I)w$ would have to be an eigenvector of $T$ corresponding to the eigenvalue $1$, contradicting the assumption that $T$ has no eigenvalues. If $(T + I)w = 0$, then $Tw = -w$, which would make $w$ an eigenvector of $T$ corresponding to the eigenvalue $-1$, again contradicting the assumption that $T$ has no eigenvalues. Hence, we must have $w = 0$, i.e., $(T^2 + I)v = 0$. Since $v$ was arbitrary and nonzero, we conclude that $T^2 + I = 0$, i.e., $T^2 = -I$.
 \end{sol}
 
 \begin{exercise}[5a33]
