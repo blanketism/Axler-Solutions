@@ -52,7 +52,7 @@
 \end{exercise}
 
 \begin{sol}
-    Let $v \in V$. Then there exists $s, t \in \r$ such that
+    Let $v \in V$. Then there exist $s, t \in \r$ such that
     \[\varphi(v) = s + ti.\]
     Then
     \[\sigma(v) = \Re \varphi(v) = s \quad \text{and} \quad \sigma(iv) = \Re \varphi(iv) = \Re (i(s + ti)) = \Re (-t + si) = -t.\]
@@ -205,7 +205,7 @@
 \end{exercise}
 
 \begin{sole}
-    \item To show that $T$ is injective, suppose that $T(r, s) = rp + sq = 0$ for some $(r, s) \in \pp_{n-1}(\c) \times \pp_{m-1}(\c)$. Then $rp = -sq$, we see that $q$ divides $rp$. Since $p$ and $q$ have no zeros in common, $q$ must divide $r$. But $\deg r < \deg q$, so the only possibility is that $r = 0$. Then $-sq = 0$. Since $q$ is nonconstant, this implies that $s = 0$. Therefore, the kernel of $T$ is trivial, and $T$ is injective.
+    \item To show that $T$ is injective, suppose that $T(r, s) = rp + sq = 0$ for some $(r, s) \in \pp_{n-1}(\c) \times \pp_{m-1}(\c)$. Then $rp = -sq$ so that $q$ divides $rp$. Since $p$ and $q$ have no zeros in common, $q$ must divide $r$. But $\deg r < \deg q$, so the only possibility is that $r = 0$. Then $-sq = 0$. Since $q$ is nonconstant, this implies that $s = 0$. Therefore, the kernel of $T$ is trivial, and $T$ is injective.
     \item To show that $T$ is surjective, note that $\dim(\pp_{n-1}(\c) \times \pp_{m-1}(\c)) = n + m = \dim \pp_{m+n-1}(\c)$. Since $T$ is a linear map between vector spaces of the same finite dimension, and we have already shown that $T$ is injective, it follows that $T$ is also surjective.
     \item The existence of such polynomials $r$ and $s$ demonstrates that $1$ lies in the image of $T$, which is precisely what we wanted to prove: there exist $r \in \pp_{n-1}(\c)$ and $s \in \pp_{m-1}(\c)$ such that $rp + sq = 1$.
 \end{sole}

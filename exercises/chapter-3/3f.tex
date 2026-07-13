@@ -294,7 +294,7 @@
 
     Conversely, we prove the contrapositive. Suppose $T$ is not invertible. Then it is either not injective or not surjective.
 
-    If $T$ is not injective, then there exists nonzero $v \in V$ such that $T(v) = 0$. By \autoref{ex:3f3}, there exists $\psi \in W'$ such that $\psi(v) = 1$. Since $\range T'$ contains all functionals of the form $T'(\varphi) = \varphi \circ T$ for $\varphi \in W'$, we have $(T'(\psi))(v) = \psi(T(v)) = \psi(0) = 0$, which contradicts $\psi(v) = 1$. Hence, $T'$ cannot be surjective, and therefore not invertible.
+    If $T$ is not injective, then there exists nonzero $v \in V$ such that $T(v) = 0$. By \autoref{ex:3f3}, there exists $\psi \in V'$ such that $\psi(v) = 1$. Since $\range T'$ contains all functionals of the form $T'(\varphi) = \varphi \circ T$ for $\varphi \in W'$, we have $(T'(\varphi))(v) = (\varphi \circ T)(v) = \varphi(T(v)) = \varphi(0) = 0$, which contradicts $\psi(v) = 1$. Hence, $T'$ cannot be surjective, and therefore not invertible.
 
     If $T$ is not surjective, then there exists $w \in W$ such that $w \notin \range T$. Since $W$ is finite-dimensional, by \autoref{ex:3f4}, there exists $\varphi \in W'$ such that $\varphi(w) \neq 0$ and $\varphi$ vanishes on $\range T$. Then $T'(\varphi) = \varphi \circ T = 0$, which shows that $T'$ is not injective, and therefore not invertible. It follows that $T'$ is not invertible whenever $T$ is not invertible, which proves the contrapositive of the statement. Hence, if $T'$ is invertible, then $T$ must be invertible.
 \end{sol}
