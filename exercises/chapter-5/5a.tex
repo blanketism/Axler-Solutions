@@ -468,21 +468,47 @@
     Suppose $V$ is finite-dimensional and $v_1, \ldots, v_m \in V$. Prove that the list $v_1, \ldots, v_m$ is linearly independent if and only if there exists $T \in \lin{V}$ such that $v_1, \ldots, v_m$ are eigenvectors of $T$ corresponding to distinct eigenvalues.
 \end{exercise}
 
+\begin{sol}
+    Suppose $v_1, \ldots, v_m$ is linearly independent. Since $V$ is finite-dimensional, we can extend this list to a basis $v_1, \ldots, v_m, v_{m+1}, \ldots, v_n$ of $V$. Define $T \in \lin{V}$ by setting $Tv_i = \lambda_i v_i$ for $i = 1, \ldots, m$, where $\lambda_1, \ldots, \lambda_m$ are distinct scalars, and choose $\lambda_{m+1}, \ldots, \lambda_n$ arbitrarily (distinct from each other and from $\lambda_1, \ldots, \lambda_m$). Then $v_1, \ldots, v_m$ are eigenvectors of $T$ corresponding to distinct eigenvalues.
+
+    Conversely, suppose there exists $T \in \lin{V}$ such that $v_1, \ldots, v_m$ are eigenvectors corresponding to distinct eigenvalues $\lambda_1, \ldots, \lambda_m$. By 5.11, eigenvectors corresponding to distinct eigenvalues are linearly independent. Hence, $v_1, \ldots, v_m$ are linearly independent.
+\end{sol}
+
 \begin{exercise}[5a35]
     Suppose that $\lambda_1, \ldots, \lambda_n$ is a list of distinct real numbers. Prove that the list $e^{\lambda_1 x}, \ldots, e^{\lambda_n x}$ is linearly independent in the vector space of real-valued functions on $\r$.
     
     \hint{Let $V = \spn(e^{\lambda_1 x}, \ldots, e^{\lambda_n x})$, and define an operator $D \in \lin{V}$ by $Df = f'$. Find eigenvalues and eigenvectors of $D$.}
 \end{exercise}
 
+\begin{sol}
+    Suppose there exists a linear combination
+    \[a_1 e^{\lambda_1 x} + \cdots + a_n e^{\lambda_n x} = 0\]
+    for all $x \in \r$. Let $V = \spn(e^{\lambda_1 x}, \ldots, e^{\lambda_n x})$ and define $D \in \lin{V}$ by $Df = f'$. Then $De^{\lambda_i x} = \lambda_i e^{\lambda_i x}$, so $e^{\lambda_i x}$ is an eigenvector of $D$ corresponding to the eigenvalue $\lambda_i$. Since the $\lambda_i$ are distinct, by 5.11, the eigenvectors corresponding to distinct eigenvalues are linearly independent. Hence, $a_1 = \cdots = a_n = 0$, proving that $e^{\lambda_1 x}, \ldots, e^{\lambda_n x}$ are linearly independent.
+\end{sol}
+
 \begin{exercise}[5a36]
     Suppose that $\lambda_1, \ldots, \lambda_n$ is a list of distinct positive numbers. Prove that the list $\cos(\lambda_1 x), \ldots, \\ \cos(\lambda_n x)$ is linearly independent in the vector space of real-valued functions on $\r$.
 \end{exercise}
+
+\begin{sol}
+    Suppose there exists a linear combination
+    \[a_1 \cos(\lambda_1 x) + \cdots + a_n \cos(\lambda_n x) = 0\]
+    for all $x \in \r$. Let $V = \spn(\cos(\lambda_1 x), \sin(\lambda_1 x), \ldots, \cos(\lambda_n x), \sin(\lambda_n x))$ and define $D \in \lin{V}$ by $Df = f'$. Then $D^2 \cos(\lambda_i x) = -\lambda_i^2 \cos(\lambda_i x)$, so $\cos(\lambda_i x)$ is an eigenvector of $D^2$ corresponding to the eigenvalue $-\lambda_i^2$. Since the $\lambda_i$ are distinct and positive, the $-\lambda_i^2$ are distinct, and by 5.11, the eigenvectors corresponding to distinct eigenvalues are linearly independent. Hence, $a_1 = \cdots = a_n = 0$, proving that $\cos(\lambda_1 x), \ldots, \cos(\lambda_n x)$ are linearly independent.
+\end{sol}
 
 \begin{exercise}[5a37]
     Suppose $V$ is finite-dimensional and $T \in \lin{V}$. Define $\mathcal{A} \in \lin{\lin{V}}$ by
     \[\mathcal{A}(S) = TS\]
     for each $S \in \lin{V}$. Prove that the set of eigenvalues of $T$ equals the set of eigenvalues of $\mathcal{A}$.
 \end{exercise}
+
+\begin{sol}
+    Suppose $\lambda$ is an eigenvalue of $T$ with corresponding eigenvector $v \in V$, so $Tv = \lambda v$. Consider a nonzero $\varphi \in V'$ and consider $S \in \lin{V}$ defined by $Sw = \varphi(w)v$ for all $w \in V$. Then $S \neq 0$ and for all $w \in V$,
+    \[TSw = T(\varphi(w)v) = \varphi(w)Tv = \varphi(w)\lambda v = \lambda \varphi(w)v = \lambda Sw.\]
+    Hence, $\lambda$ is an eigenvalue of $\mathcal{A}$.
+    
+    Conversely, if $\lambda$ is an eigenvalue of $\mathcal{A}$ with corresponding eigenvector $S \in \lin{V}$, then $\mathcal{A}(S) = TS = \lambda S$. Since $S \neq 0$, there exists $v \in V$ such that $Sv \neq 0$. Then $TSv = \lambda Sv$, so $\lambda$ is an eigenvalue of $T$. Therefore, the set of eigenvalues of $T$ equals the set of eigenvalues of $\mathcal{A}$.
+\end{sol}
 
 \begin{exercise}[5a38]
     Suppose $V$ is finite-dimensional, $T \in \lin{V}$, and $U$ is a subspace of $V$ invariant under $T$. The \textit{\emph{\textbf{quotient operator}}} $T / U \in \lin{V / U}$ is defined by
@@ -494,18 +520,66 @@
     \end{subexercises}
 \end{exercise}
 
+\begin{sole}
+    \item  To show that the definition of $T / U$ makes sense, suppose $v + U = v' + U$ for some $v, v' \in V$. Then $v - v' \in U$, and since $U$ is invariant under $T$, we have $T(v - v') \in U$, so $Tv - Tv' \in U$, which implies $Tv + U = Tv' + U$. Hence, the definition of $T / U$ is well-defined.
+
+    To show that $T / U$ is an operator on $V / U$, note that for any $v + U \in V / U$, $(T / U)(v + U) = Tv + U \in V / U$. Linearity follows from the linearity of $T$: for any $\alpha, \beta \in \f$ and $v + U, w + U \in V / U$,
+    \begin{align*}
+        (T / U)(\alpha(v + U) + \beta(w + U)) &= (T / U)(\alpha v + \beta w + U) \\
+        &= T(\alpha v + \beta w) + U \\
+        &= \alpha Tv + \beta Tw + U \\
+        &= \alpha(T / U)(v + U) + \beta(T / U)(w + U)
+    \end{align*}
+    \item Suppose $\lambda$ is an eigenvalue of $T / U$ with corresponding eigenvector $v + U \in V / U$, so $(T / U)(v + U) = Tv + U = \lambda(v + U) = \lambda v + U$. This means $Tv - \lambda v \in U$. Suppose now that $T - \lambda I$ has no eigenvector in $V$ corresponding to $\lambda$. Since $U$ is invariant under $T - \lambda I$, then its restriction $(T - \lambda I)|_U$ is an operator on $U$. By the rank-nullity theorem, we have
+    \[\dim U = \dim \nul(T - \lambda I)|_U + \dim \range(T - \lambda I)|_U.\]
+    Now for any $v + U \neq U$ with $(T - \lambda I)v \in U$, then surjectivity of $(T - \lambda I)|_U$ would imply that there exists $u \in U$ such that $(T - \lambda I)u = (T - \lambda I)v$. By injectivity, we get that $u = v$, which is a contradiction since $v \notin U$. Therefore, our assumption that $T - \lambda I$ has no eigenvector corresponding to $\lambda$ must be false, and $\lambda$ is indeed an eigenvalue of $T$.
+\end{sole}
+
 \begin{exercise}[5a39]
     Suppose $V$ is finite-dimensional and $T \in \lin{V}$. Prove that $T$ has an eigenvalue if and only if there exists a subspace of $V$ of dimension $\dim V - 1$ that is invariant under $T$.
 \end{exercise}
+
+\begin{sol}
+    Suppose $T$ has an eigenvalue $\lambda$ with corresponding eigenvector $v \in V$. Consider $\range(T - \lambda I)$. Then $\dim \range(T - \lambda I) \leq \dim V - 1$. Extend to a subspace $U$ of $V$ of dimension $\dim V - 1$ that contains $\range(T - \lambda I)$. Then $U$ is invariant under $T$ because for any $u \in U$, $Tu = (T - \lambda I)u + \lambda u \in U$. Hence, there exists a subspace of $V$ of dimension $\dim V - 1$ that is invariant under $T$.
+
+    Conversely, suppose there exists a subspace $U$ of $V$ of dimension $\dim V - 1$ that is invariant under $T$. Then $V / U$ is one-dimensional, and the induced operator $T / U$ on $V / U$ must have an eigenvalue $\lambda$. Let $v + U \in V / U$ be a corresponding eigenvector. Then $(T / U)(v + U) = Tv + U = \lambda(v + U)$, which implies $Tv - \lambda v \in U$. Since $U$ is invariant under $T - \lambda I$, and $(T - \lambda I)v \in U$ for all $v \notin U$, then $\range(T - \lambda I) \subseteq U$. Hence, $T - \lambda I$ is not surjective so that it is not injective, so $\lambda$ is an eigenvalue of $T$.
+\end{sol}
 
 \begin{exercise}[5a40]
     Suppose $S, T \in \lin{V}$ and $S$ is invertible. Suppose $p \in \pp(\f)$ is a polynomial. Prove that
     \[p(STS\inv) = Sp(T)S\inv.\]
 \end{exercise}
 
+\begin{sol}
+    We first prove by induction that $(STS\inv)^k = ST^kS\inv$ for all non-negative integers $k$. For $k = 0$, we have $(STS\inv)^0 = I = ST^0S\inv$. Suppose the result holds for some $k = n$, so that $(STS\inv)^n = ST^nS\inv$. Then
+    \begin{align*}
+        (STS\inv)^{n+1} &= (STS\inv)^n (STS\inv) \\
+        &= (ST^nS\inv)(STS\inv) \\
+        &= S T^n (S\inv S) T S\inv \\
+        &= S T^n T S\inv \\
+        &= S T^{n+1} S\inv.
+    \end{align*}
+    By induction, the result holds for all non-negative integers $k$.
+
+    Now let $p(z) = a_0 + a_1 z + \cdots + a_m z^m$ be any polynomial. Then
+    \begin{align*}
+        p(STS\inv) &= a_0 I + a_1 (STS\inv) + \cdots + a_m (STS\inv)^m \\
+        &= a_0 I + a_1 (STS\inv) + \cdots + a_m (ST^mS\inv) \\
+        &= S(a_0 I + a_1 T + \cdots + a_m T^m)S\inv \\
+        &= Sp(T)S\inv.
+    \end{align*}
+    Hence, the result holds for all polynomials $p$.
+\end{sol}
+
 \begin{exercise}[5a41]
     Suppose $T \in \lin{V}$ and $U$ is a subspace of $V$ invariant under $T$. Prove that $U$ is invariant under $p(T)$ for every polynomial $p \in \pp(\f)$.
 \end{exercise}
+
+\begin{sol}
+    Let $u \in U$. Since $U$ is invariant under $T$, we have $T(u) \in U$. By induction, suppose $T^k(u) \in U$ for some non-negative integer $k$. Then $T^{k+1}(u) = T(T^k(u)) \in U$ since $U$ is invariant under $T$. Hence, $T^k(u) \in U$ for all non-negative integers $k$. Now let $p(z) = a_0 + a_1 z + \cdots + a_m z^m$ be any polynomial. Then
+    \[p(T)(u) = a_0 u + a_1 T(u) + \cdots + a_m T^m(u) \in U,\]
+    since each term is in $U$. Therefore, $U$ is invariant under $p(T)$ for every polynomial $p \in \pp(\f)$.
+\end{sol}
 
 \begin{exercise}[5a42]
     Define $T \in \lin{\f^n}$ by $T(x_1, x_2, x_3, \ldots, x_n) = (x_1, 2x_2, 3x_3, \ldots, nx_n)$.
@@ -515,6 +589,25 @@
     \end{subexercises}
 \end{exercise}
 
+\begin{sole}
+    \item Let $\lambda$ be an eigenvalue of $T$ with corresponding eigenvector $v = (x_1, x_2, \ldots, x_n) \in \f^n$. Then $T(v) = \lambda v$, which means
+    \[(x_1, 2x_2, 3x_3, \ldots, nx_n) = (\lambda x_1, \lambda x_2, \ldots, \lambda x_n).\]
+    Comparing components, we get $\lambda x_i = i x_i$ for each $i = 1, 2, \ldots, n$. Hence, if $x_i \neq 0$, then $\lambda = i$. Therefore, the eigenvalues of $T$ are $1, 2, \ldots, n$, and the corresponding eigenvectors are nonzero multiples of the standard basis vectors $e_1, e_2, \ldots, e_n$.
+    \item Let $U$ be an invariant subspace of $\f^n$ under $T$. Let
+    \[u = \sum_{i = 1}^n \alpha_i e_i \in U,\]
+    where $e_i$ are the standard basis vectors of $\f^n$ and $\alpha_i \in \f$. Since $U$ is invariant under $T$, we have
+    \[Tu = \sum_{i = 1}^n \alpha_i T(e_i) = \sum_{i = 1}^n \alpha_i i e_i \in U.\]
+    Consider some index $i$ such that $\alpha_i \neq 0$. Then
+    \[u_1 = Tu - i u = \sum_{j = 1}^n \alpha_j j e_j - i \sum_{j = 1}^n \alpha_j e_j = \sum_{j = 1}^n \alpha_j (j - i) e_j \in U.\]
+    The $i$-th term in this sum is $\alpha_i (i - i) e_i = 0$, and $u_1$ now has all terms except the $i$-th term. Consider another index $j$ of $u_1$ such that $\alpha_j \neq 0$. Then we can form
+    \[u_2 = Tu_1 - j u_1 = \sum_{k = 1}^n \alpha_k (k - i) k e_k - j \sum_{k = 1}^n \alpha_k (k - i) e_k = \sum_{k = 1}^n \alpha_k (k - i) (k - j) e_k \in U.\]
+    The $j$-th term in this sum is $\alpha_j (j - i) (j - j) e_j = 0$, and $u_2$ now has all terms except the $i$-th and $j$-th terms. By repeating this process for each index with a nonzero coefficient, we can isolate each $\alpha_i e_i$ in $U$ whenever $\alpha_i \neq 0$. Therefore, $U$ must be the span of some subset of the standard basis vectors $\{e_1, e_2, \ldots, e_n\}$.
+\end{sole}
+
 \begin{exercise}[5a43]
     Suppose that $V$ is finite-dimensional, $\dim V > 1$, and $T \in \lin{V}$. Prove that $\set{p(T) \mid p \in \pp(\f)} \neq \lin{V}$.
 \end{exercise}
+
+\begin{sol}
+    Note that $\dim \lin V > 4$. Let $S$ be the set in question and assume $S = \lin V$. Then every element of $S$ is of the form $p(T)$ for some polynomial $p \in \pp(\f)$. In particular, each element of $S$ commutes with $T$. By \autoref{ex:3a11}, if every operator in $\lin{V}$ commutes with $T$, then $T$ must be a scalar multiple of the identity, say $T = \lambda I$ for some scalar $\lambda \in \f$. But then $p(T) = p(\lambda) I$ for some scalar $p(\lambda) \in \f$, which is always a scalar multiple of the identity. Therefore, $S$ consists only of scalar multiples of the identity operator, and cannot equal $\lin{V}$ since $\dim \lin{V} \geq 4$. Hence, $S \neq \lin{V}$.
+\end{sol}
