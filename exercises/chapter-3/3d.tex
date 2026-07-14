@@ -85,11 +85,11 @@
 \end{exercise}
 
 \begin{sol}
-    Suppose $\range S = \range T$. Then $\dim \null S = \dim \null T$. Let $s_1, \ldots, s_k$ be a basis of $\null S$ and $t_1, \ldots, t_k$ be a basis for $\null T$. Extend both bases to a basis of $V$, so we have $s_1, \ldots, s_n$ and $t_1, \ldots, t_n$. Note that for $i > k$, observe that $Ss_i \in \range S = \range T$, hence there must be $u_i$ such that $Tu_i = Ss_i$. Define $E$ such that $Es_i = t_i$ for $i \leq k$ and $Es_i = u_i$ for $i > k$. Then $S = TE$. To see that $E$ is invertible, suppose there are scalars $\alpha_1, \ldots, \alpha_n$ such that
-    \[\alpha_1 Es_1 + \cdots + \alpha_n Es_n = 0.\]
-    For $i \leq k$, $Es_i = t_i$, and for $i > k$, $Es_i = u_i$. So we have
-    \[\alpha_1 t_1 + \cdots + \alpha_k t_k = -(\alpha_{k+1} u_{k+1} + \cdots + \alpha_n u_n).\]
-    Then $\alpha_{k + 1} u_{k + 1} + \cdots + \alpha_n u_n \in \null T$, hence it equals 0. This implies that $\alpha_1 t_1 + \cdots + \alpha_k t_k = 0$. Since $t_1, \ldots, t_k$ are linearly independent, we must have $\alpha_1 = \cdots = \alpha_k = 0$. Therefore, all the scalars $\alpha_1, \ldots, \alpha_n$ are zero, proving that $E$ is invertible.
+    Suppose $\range S = \range T$. Then $\dim \nul S = \dim \nul T$. Let $u_1, \ldots, u_k$ be a basis of $\nul S$ and $v_1, \ldots, v_k$ be a basis of $\nul T$. Extend both bases to a basis of $V$, say $u_1 \ldots, u_n$ and $v_1, \ldots, v_n$. Observe that for $i > k$, we have that $Su_i \in \range S = \range T$. Then there must exist $y_i \in V$ such that $Ty_i = Su_i$. Define a linear map $E \in \lin{V}$ by setting $Eu_i = v_i$ for $i \leq k$ and $Eu_i = y_i$ for $i > k$. To see that $TE = S$, we have for $i \leq k$ that $TEu_i = Tv_i = 0 = Su_i$. Moreover, for $i > k$, we have $TEu_i = Ty_i = Su_i$. To see that $E$ is invertible, suppose we have scalars $\alpha_1, \ldots, \alpha_n$ such that
+    \[\alpha_1 Eu_1 + \alpha_2 Eu_2 + \cdots + \alpha_n Eu_n = 0.\]
+    Applying $T$, we get
+    \[\alpha_{k + 1} Su_{k + 1} + \cdots + \alpha_n Su_n = 0,\]
+    where we used the fact that $TE = S$ and $Su_1 = \cdots = Su_k = 0$ because $u_1, \ldots, u_k \in \nul S$. Since $Su_{k + 1}, \ldots, Su_n$ are linearly independent (they form a basis of $\range S$), we must have $\alpha_{k + 1} = \cdots = \alpha_n = 0$. Then from the previous equation, $\alpha_1 v_1 + \cdots + \alpha_k v_k = 0$, and since $v_1, \ldots, v_k$ are linearly independent, we must have $\alpha_1 = \cdots = \alpha_k = 0$. Hence, all the scalars are zero, proving that $E$ is invertible.
 
     Conversely, suppose there exists an invertible $E \in \lin{V}$ such that $S = TE$. If $w \in \range S$, then there exists some $v \in V$ such that $Sv = w$. Since $S = TE$, we have $TEv = w$, and thus $w \in \range T$. Hence, $\range S \subseteq \range T$. Similarly, if $w \in \range T$, then there exists some $v \in V$ such that $Tv = w$. Since $E$ is invertible, there exists some $u \in V$ such that $Eu = v$. Then we have
     \[Su = TEu = Tv = w,\]
@@ -240,16 +240,37 @@
 
 \begin{exercise}[3d19]
     Suppose $V$ is finite-dimensional and $T \in \lin{V}$. Prove that $T$ has the same matrix with respect to every basis of $V$ if and only if $T$ is a scalar multiple of the identity operator.
+
+    \remark{This exercise has a beautiful alternate solution as follows: let $V$ have a basis $v_1, \ldots, v_n$. Consider the basis $w_1, \ldots, w_n$, where $w_i = v_j$ and $w_j = v_i$ for some $i \neq j$, and $w_k = v_k$ for $k \neq i, j$. One may perform similar calculations to deduce that the diagonal entries are equal to some $\lambda$, while every off-diagonal entry must be equal to some $\gamma$. The last step is to consider the basis $-v_1, v_2, \ldots, v_n$ to deduce that $\gamma = 0$, so that $T$ is a scalar multiple of the identity operator.}
 \end{exercise}
 
 \begin{sol}
     Suppose $T$ has the same matrix with respect to every basis of $V$. Then for any set of bases for $V$, its matrix must be the same. In particular, for any bases $v_1, \ldots, v_n$ and $u_1, \ldots, u_n$ of $V$, we have
     \[\mm(T, (v_1, \ldots, v_n)) = \mm(T, (u_1, \ldots, u_n)).\]
-    Hence, we can declare that their matrix is just some $A$. Consider the basis $v_1 + v_2, v_2, \ldots, v_n$. This new basis must also yield the same matrix $A$. In particular, let $w_1 = v_1 + v_2$, and $w_i = v_i$ for $i \geq 2$. Then
-    \[Tw_1 = A_{1, 1} w_1 + A_{2, 1} w_2 + \cdots + A_{n, 1} w_n = A_{1, 1} (v_1 + v_2) + \cdots + A_{n, 1} v_n.\]
-    But this must also be equal to
-    \[Tw_1 = A_{1, 1}v_1 + \cdots A_{n, 1} v_n.\]
-    This shows that $A_{1, 2} = 0$. Moreover, $A_{1, 1} = A_{2, 2}$. Comparing for $j \geq 3$, we get $A_{j, 1} = A_{j, 1} + A_{j, 2}$, so $A_{j, 2} = 0$. Then the off-diagonal entries in the first two columns vanish, and the diagonal entries are equal. Repeating the switch of replacing $v_1$ with $v_1 + v_k$ for all $k \geq 3$ shows that all off-diagonal entries must be zero and all diagonal entries must be equal. Hence, $A$ is a scalar multiple of the identity matrix.
+    Hence, we can declare that their matrix is just some $A$. We now consider the basis $v_1 + v_2, v_2, \ldots, v_n$, which yields the same matrix $A$. Let $w_1 = v_1 + v_2$ and $w_i = v_i$ for $i \geq 2$. In the new basis, we have the expression
+    \[Tw_1 = A_{1, 1} w_1 + A_{2, 1} w_2 + \cdots + A_{n, 1} w_n = A_{1, 1} v_1 + (A_{1, 1} + A_{2, 1}) v_2 + A_{3, 1} v_3 + \cdots + A_{n, 1} v_n.\]
+    This must equal the expression for $Tw_1 = Tv_1 + Tv_2$ in the original basis:
+    \[Tv_1 + Tv_2 = (A_{1, 1} + A_{1, 2}) v_1 + (A_{2, 1} + A_{2, 2}) v_2 + \cdots + (A_{n, 1} + A_{n, 2}) v_n.\]
+    Comparing coefficients of $v_1, \ldots, v_n$ in the two expressions, we get
+    \begin{align*}
+        A_{1, 1} &= A_{1, 1} + A_{1, 2}, \\
+        A_{1, 1} + A_{2, 1} &= A_{2, 1} + A_{2, 2}, \\
+        A_{j, 1} &= A_{j, 1} + A_{j, 2}~\text{for}~j \geq 3.
+    \end{align*}
+    From this, we obtain that $A_{1, 2} = 0, A_{2, 2} = A_{1, 1}$, and $A_{j, 2} = 0$ for $j \geq 3$, i.e., the diagonal elements $A_{1, 1}$ and $A_{2, 2}$ are equal, while off-diagonal entries in column 2 are 0. Now consider the basis $v_1, v_1 + v_2, \ldots, v_n$. Let $u_1 = v_1, u_2 = v_1 + v_2$, and $u_i = v_i$ for $i \geq 3$. In the new basis, we have
+    \begin{align*}
+        Tu_2 &= A_{1, 2}u_1 + \cdots + A_{n, 2}u_n \\
+        &= A_{1, 2}v_1 + A_{2, 2}(v_1 + v_2) + A_{3, 2}v_3 + \cdots + A_{n, 2}v_n \\
+        &= (A_{1, 2} + A_{2, 2})v_1 + A_{2, 2}v_2 + A_{3, 2}v_3 + \cdots + A_{n, 2}v_n. \\
+        &= A_{1, 1}v_1 + A_{2, 2}v_2.
+    \end{align*}
+    This must equal the expression for $Tu_2 = Tv_1 + Tv_2$ in the original basis, whose expression is listed above. Comparing coefficients of $v_1$ and $v_2$, we get
+    \begin{align*}
+        A_{1, 1} &= A_{1, 1} + A_{1, 2}, \\
+        A_{2, 2} &= A_{2, 1} + A_{2, 2}, \\ 
+        A_{j, 2} &= A_{j, 1} + A_{j, 2} \quad \text{for } j \geq 3.
+    \end{align*}
+    From this, we obtain similar results about diagonal entries, but the off-diagonal entries in column 1 must also be 0. We may repeat the first process for $v_1 + v_k$ for $k \geq 3$ to get that entries off the diagonal in column $k$ must also be 0. Continuing this process, we conclude all off-diagonal entries are 0, and all diagonal entries are equal, i.e., $A$ is a scalar multiple of the identity matrix.
 
     Conversely, suppose $T$ is a scalar multiple of the identity operator. Then there exists some $\lambda \in \f$ such that $T = \lambda I$. For any basis of $V$, the matrix representation of $T$ with respect to that basis is the diagonal matrix with $\lambda$ on the diagonal. Hence, $T$ has the same matrix with respect to every basis of $V$.
 \end{sol}
@@ -324,7 +345,7 @@
 \end{exercise}
 
 \begin{sol}
-    By definition, the columns of $\mm(T, (v_1, \ldots, v_n))$ are $Tv_1, \ldots, Tv_n$. Since $Tv_k = u_k$ for each $k = 1, \ldots, n$, then the columns of $\mm(T, (v_1, \ldots, v_n))$ are $u_1, \ldots, u_n$. By definition, the columns of $\mm(I, (u_1, \ldots, u_n), (v_1, \ldots, v_n))$ are also $u_1, \ldots, u_n$. The result follows.
+    By definition, column $k$ of $\mm(T, (v_1, \ldots, v_n))$ is $Tv_k = u_k$ with respect to the basis $v_1, \ldots, v_n$. Similarly, column $k$ of $\mm(I, (u_1, \ldots, u_n), (v_1, \ldots, v_n))$ is also $u_k$ with respect to the basis $v_1, \ldots, v_n$.
 \end{sol}
 
 \begin{exercise}[3d24]

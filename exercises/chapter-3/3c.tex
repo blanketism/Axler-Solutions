@@ -146,9 +146,9 @@
 \end{exercise}
 
 \begin{sol}
-    Let $m = \dim V$ and $u_1, \ldots, u_m$ be a basis for $V$. If $T$ is the zero map or has trivial $w_1$ component, meaning that the coefficient of $w_1$ in $Tv$ is zero for all $v \in V$, then choose any basis of $V$ and the first row of $\mm(T)$ will be all zeros. If at least one $Tu_j$ has non-trivial $w_1$ component, reorder the basis of $V$ so that $u_1$ is such that $Tu_1 \neq 0$. Then we can express
+    Let $m = \dim V$ and $u_1, \ldots, u_m$ be a basis for $V$. If $T$ has trivial $w_1$ component, meaning that the coefficient of $w_1$ in $Tv$ is zero for all $v \in V$, then choose any basis of $V$ and the first row of $\mm(T)$ will be all zeros. Otherwise, reorder the basis so that $Tu_1$ has non-trivial $w_1$ component. Then we can express
     \[Tu_1 = \alpha w_1 + \beta_2 w_2 + \cdots + \beta_n w_n\]
-    for some scalars $\alpha, \beta_2, \ldots, \beta_n \in \f$. Since $Tu_1 \neq 0$, we have $\alpha \neq 0$. We can scale $u_1$ by $\alpha\inv$ to obtain a new vector $v_1 = \alpha\inv u_1$ such that
+    for some scalars $\alpha, \beta_2, \ldots, \beta_n \in \f$ such that $\alpha \neq 0$. We can scale $u_1$ by $\alpha\inv$ to obtain a new vector $v_1 = \alpha\inv u_1$ such that
     \[Tv_1 = w_1 + \frac{\beta_2}{\alpha} w_2 + \cdots + \frac{\beta_n}{\alpha} w_n.\]
     With the remaining $u_2, \ldots, u_m$ basis vectors of $V$, note that they can be expressed as
     \[Tu_j = \alpha_{j1} w_1 + \alpha_{j2} w_2 + \cdots + \alpha_{jn} w_n\]

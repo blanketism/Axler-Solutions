@@ -262,15 +262,21 @@
 \begin{sol}
     Suppose $v_1, \ldots, v_m$ is linearly independent. Let $\alpha_1, \ldots, \alpha_m \in \f$ such that
     \[\alpha_1 w_1 + \cdots + \alpha_m w_m = 0.\]
-    Noting that $v_k = w_k - w_{k-1}$ for $k \in \set{2, \ldots, m}$ and $v_1 = w_1$, we may rewrite the equation as
-    \[\alpha_1 v_1 + (\alpha_2 - \alpha_1)v_2 + \cdots + (\alpha_m - \alpha_{m-1})v_m = 0.\]
-    Since $v_1, \ldots, v_m$ is linearly independent, we must have $\alpha_1 = 0$. Then this implies that $\alpha_2 - \alpha_1 = 0$, and so on, until we have $\alpha_m - \alpha_{m-1} = 0$. Thus, the only solution to the original equation is $\alpha_1 = \cdots = \alpha_m = 0$, and so $w_1, \ldots, w_m$ is linearly independent.
+    Substituting $w_k = v_1 + \cdots + v_k$ for each $k$, we get
+    \begin{align*}
+        \alpha_1 v_1 + \alpha_2(v_1 + v_2) + \alpha_3(v_1 + v_2 + v_3) + \cdots + \alpha_m(v_1 + \cdots + v_m) &= 0. \\
+        (\alpha_1 + \cdots + \alpha_m) v_1 + (\alpha_2 + \cdots + \alpha_m) v_2 + \cdots + (\alpha_{m-1} + \alpha_m) v_{m-1} + \alpha_m v_m &= 0.
+    \end{align*}
+    Since $v_1, \ldots, v_m$ is linearly independent, we must have $\alpha_1 = \cdots = \alpha_m = 0$. Hence, $w_1, \ldots, w_m$ is linearly independent.
 
     Conversely, suppose $w_1, \ldots, w_m$ is linearly independent. Let $\beta_1, \ldots, \beta_m \in \f$ such that
     \[\beta_1 v_1 + \cdots + \beta_m v_m = 0.\]
-    Then we have
-    \[\beta_1 w_1 + (\beta_2 + \beta_1) w_2 + \cdots + (\beta_m + \cdots + \beta_1) w_m = 0.\]
-    Since $w_1, \ldots, w_m$ is linearly independent, we must have $\beta_1 = 0$. Then this implies that $\beta_2 + \beta_1 = 0$, and so on, until we have $\beta_m + \cdots + \beta_1 = 0$. Thus, the only solution to the original equation is $\beta_1 = \cdots = \beta_m = 0$, and so $v_1, \ldots, v_m$ is linearly independent.
+    Noting that $v_1 = w_1$ and $v_k = w_k - w_{k-1}$ for $k \in \set{2, \ldots, m}$, we may rewrite the equation as
+    \begin{align*}
+        \beta_1 w_1 + \beta_2 (w_2 - w_1) + \cdots + \beta_m (w_m - w_{m-1}) &= 0, \\
+        (\beta_1 - \beta_2) w_1 + (\beta_2 - \beta_3) w_2 + \cdots + (\beta_{m-1} - \beta_m) w_{m-1} + \beta_m w_m &= 0.
+    \end{align*}
+    Since $w_1, \ldots, w_m$ is linearly independent, we find that $\beta_1 = \cdots = \beta_m = 0$. Hence, $v_1, \ldots, v_m$ is linearly independent.
 \end{sol}
  
 \begin{exercise}[2a15]
