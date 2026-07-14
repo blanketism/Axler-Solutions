@@ -128,9 +128,9 @@
 \end{exercise}
 
 \begin{sol}
-    Since $V$ is finite-dimensional, the set of eigenvalues of $T$ is finite. Let $\lambda_1, \ldots, \lambda_m$ be the eigenvalues of $T$. Define
-    \[\delta = \min_{1 \leq j \leq m} |\alpha - \lambda_j|.\]
-    Then for any $\lambda \in \f$ such that $0 < |\alpha - \lambda| < \delta$, we have $\lambda \neq \lambda_j$ for all $j = 1, \ldots, m$, so $\lambda$ is not an eigenvalue of $T$. If $\alpha$ was an eigenvalue of $T$, then choose $\delta$ to be the minimum of $|\alpha - \lambda_j|$ for all $\lambda_j \neq \alpha$. This ensures that $0 < |\alpha - \lambda| < \delta$ implies $\lambda \neq \alpha$ and $\lambda \neq \lambda_j$ for all other eigenvalues $\lambda_j$, so $T - \lambda I$ is invertible for all such $\lambda$.
+    Since $V$ is finite-dimensional, the set of eigenvalues of $T$ is finite. If $T$ has no eigenvalues, then $T - \lambda I$ is invertible for all $\lambda \in \f$, and we can choose any $\delta > 0$. Otherwise, let $\lambda_1, \ldots, \lambda_m$ be the eigenvalues of $T$. Define
+    \[\delta = \min_{\lambda_j \neq \alpha} |\alpha - \lambda_j|.\]
+    If $\alpha$ is the only eigenvalue, then we can select any $\delta > 0$ since any $\lambda$ satisfying $0 < |\alpha - \lambda| < \delta$ will not be equal to $\alpha$, and hence $T - \lambda I$ will be invertible. Otherwise, we have for any $\lambda \in \f$ such that $0 < |\alpha - \lambda| < \delta$, we have $\lambda \neq \lambda_j$ for all $j = 1, \ldots, m$, so $\lambda$ is not an eigenvalue of $T$. Hence, $T - \lambda I$ is invertible for all such $\lambda$.
 \end{sol}
 
 \begin{exercise}[5a12]

@@ -31,15 +31,11 @@
 \end{exercise}
 
 \begin{solitem}
-    \item (a) $\implies$ (b): Suppose $T$ is invertible. Then $T\inv \in \lin{V}$. Let $v_1, \ldots, v_n$ be a basis of $V$. Since $T\inv$ is invertible, then $T\inv v_1, \ldots, T\inv v_n$ is a basis of $V$. Then there exist scalars $\alpha_1, \ldots, \alpha_n$ such that
-    \[v = \alpha_1 T\inv v_1 + \cdots + \alpha_n T\inv v_n\]
-    for every $v \in V$. Applying $T$ to both sides, we have
-    \[Tv = \alpha_1 v_1 + \cdots + \alpha_n v_n\]
-    for every $v \in V$. Thus, $Tv_1, \ldots, Tv_n$ spans $V$. Now suppose that
-    \[\alpha_1 Tv_1 + \cdots + \alpha_n Tv_n = 0\]
-    for some scalars $\alpha_1, \ldots, \alpha_n$. Applying $T\inv$ to both sides, we have
+    \item (a) $\implies$ (b): Suppose $T$ is invertible. Consider scalars $\alpha_1, \ldots, \alpha_n$ such that
+    \[\alpha_1 Tv_1 + \cdots + \alpha_n Tv_n = 0.\]
+    Applying $T\inv$ to both sides, we get
     \[\alpha_1 v_1 + \cdots + \alpha_n v_n = 0.\]
-    Since $v_1, \ldots, v_n$ is a basis of $V$, then $\alpha_1 = \cdots = \alpha_n = 0$. Hence, $Tv_1, \ldots, Tv_n$ is linearly independent. Since $Tv_1, \ldots, Tv_n$ spans $V$ and is linearly independent, then $Tv_1, \ldots, Tv_n$ is a basis of $V$.
+    Since $v_1, \ldots, v_n$ is a basis of $V$, it follows that $\alpha_1 = \cdots = \alpha_n = 0$. Hence, $Tv_1, \ldots, Tv_n$ is linearly independent. Since $Tv_1, \ldots, Tv_n$ has $n$ elements and $V$ is $n$-dimensional, it follows that $Tv_1, \ldots, Tv_n$ is a basis of $V$.
     \item (b) $\implies$ (c): This is trivial.
     \item (c) $\implies$ (a): Suppose $Tv_1, \ldots, Tv_n$ is a basis of $V$ for some basis $v_1, \ldots, v_n$ of $V$. Then $\range T = V$. By the rank-nullity theorem, we have that $\dim \nul T = 0$. Thus, $T$ is injective. Since $T$ is injective and $\range T = V$, then $T$ is invertible.
 \end{solitem}
@@ -75,7 +71,7 @@
 \end{exercise}
 
 \begin{sol}
-    Suppose $\nul S = \nul T$. Then $\dim \range S = \dim \range T$. Define a linear map $E$ from $\range T$ to $\range S$ by setting $E(Tv) = Sv$ for all $v \in V$. This is well-defined because if $Tv = Tv'$ for some $v, v' \in V$, then $T(v - v') = 0$, so $v - v' \in \nul T = \nul S$, and thus $S(v - v') = 0$, which implies $Sv = Sv'$. Extend $E$ to an invertible linear map on $W$. Then $S = ET$.
+    Suppose $\nul S = \nul T$. Then $\dim \range S = \dim \range T$. Define a linear map $E_0$ from $\range T$ to $\range S$ by setting $E_0(Tv) = Sv$ for all $v \in V$. This is well-defined because if $Tv = Tv'$ for some $v, v' \in V$, then $T(v - v') = 0$, so $v - v' \in \nul T = \nul S$, and thus $S(v - v') = 0$, which implies $Sv = Sv'$. Moreover, $E_0$ is injective in that if $E_0(Tv) = 0$ for some $v \in V$, then $Sv = 0$, which implies $v \in \nul S = \nul T$, and thus $Tv = 0$. Hence, $E_0$ is injective. By \autoref{ex:3d5}, we can extend $E_0$ to an invertible linear map $E$ on all of $W$, and then we have $S = ET$.
 
     Conversely, suppose there exists an invertible $E \in \lin{W}$ such that $S = ET$. If $v \in \nul S$, then $Sv = 0$, and since $S = ET$, we have $ETv = 0$. Since $E$ is invertible, then $Tv = 0$, and thus $v \in \nul T$. Hence, $\nul S \subseteq \nul T$. Similarly, if $v \in \nul T$, then $Tv = 0$, and since $S = ET$, we have $Sv = ETv = E0 = 0$. Thus, $v \in \nul S$, and $\nul T \subseteq \nul S$. Therefore, $\nul S = \nul T$.
 \end{sol}
@@ -89,7 +85,7 @@
     \[\alpha_1 Eu_1 + \alpha_2 Eu_2 + \cdots + \alpha_n Eu_n = 0.\]
     Applying $T$, we get
     \[\alpha_{k + 1} Su_{k + 1} + \cdots + \alpha_n Su_n = 0,\]
-    where we used the fact that $TE = S$ and $Su_1 = \cdots = Su_k = 0$ because $u_1, \ldots, u_k \in \nul S$. Since $Su_{k + 1}, \ldots, Su_n$ are linearly independent (they form a basis of $\range S$), we must have $\alpha_{k + 1} = \cdots = \alpha_n = 0$. Then from the previous equation, $\alpha_1 v_1 + \cdots + \alpha_k v_k = 0$, and since $v_1, \ldots, v_k$ are linearly independent, we must have $\alpha_1 = \cdots = \alpha_k = 0$. Hence, all the scalars are zero, proving that $E$ is invertible.
+    where we used the fact that $TE = S$ and $Su_1 = \cdots = Su_k = 0$ because $u_1, \ldots, u_k \in \nul S$. Since $u_1, \ldots, u_n$ is a basis of $V$, the vectors $u_{k + 1}, \ldots, u_n$ map to a spanning list of $\range S$. Since $\dim \range S = n - k$, it follows that $Su_{k + 1}, \ldots, Su_n$ are linearly independent. Then from the previous equation, $\alpha_{k + 1} = \cdots = \alpha_n = 0$. Substituting this back into the original equation, we get $\alpha_1 v_1 + \cdots + \alpha_k v_k = 0$, and since $v_1, \ldots, v_k$ are linearly independent, we must have $\alpha_1 = \cdots = \alpha_k = 0$. Hence, all the scalars are zero, proving that $E$ is invertible.
 
     Conversely, suppose there exists an invertible $E \in \lin{V}$ such that $S = TE$. If $w \in \range S$, then there exists some $v \in V$ such that $Sv = w$. Since $S = TE$, we have $TEv = w$, and thus $w \in \range T$. Hence, $\range S \subseteq \range T$. Similarly, if $w \in \range T$, then there exists some $v \in V$ such that $Tv = w$. Since $E$ is invertible, there exists some $u \in V$ such that $Eu = v$. Then we have
     \[Su = TEu = Tv = w,\]
@@ -111,7 +107,7 @@
 \begin{exercise}[3d9]
     Suppose $V$ is finite-dimensional and $T: V \to W$ is a surjective linear map of $V$ onto $W$. Prove that there is a subspace $U$ of $V$ such that $T|_U$ is an isomorphism of $U$ onto $W$.
     
-    \note{Here $T|_U$ means the function $T$ restricted to $U$. Thus $T|_U$ is the function whose domain is $U$, with $T|_U(u) = Tu$ for every $u \in U$.}
+    \note{Here $T|_U$ means the function $T$ restricted to $U$. Thus, $T|_U$ is the function whose domain is $U$, with $T|_U(u) = Tu$ for every $u \in U$.}
 \end{exercise}
 
 \begin{sol}
@@ -160,8 +156,8 @@
 \end{exercise}
 
 \begin{sol}
-    Since $STU = I$, then we have that $S(TU) = I$. By \autoref{ex:3b20}, then $S$ is surjective, hence injective. Then $S$ is invertible with $S\inv = TU$. Similarly, $(ST)U = I$. By \autoref{ex:3b19}, then $ST$ is injective, hence surjective. Then $ST$ is invertible with $(ST)\inv = U$. Then
-    \[T(US) = (TU)S = S\inv S = I, \quad (US)T = U(ST) = (ST)\inv (ST) = I.\]
+    Since $STU = I$, then we have that $S(TU) = I$. By \autoref{ex:3b20}, then $S$ is surjective, hence invertible with $S\inv = TU$. Similarly, $(ST)U = I$. By \autoref{ex:3b19}, then $U$ is injective, hence invertible with $U\inv = ST$.
+    \[T(US) = (TU)S = S\inv S = I, \quad (US)T = U(ST) = UU\inv = I.\]
     Hence, $T$ is invertible with $T\inv = US$.
 \end{sol}
 
@@ -190,11 +186,11 @@
 \end{exercise}
 
 \begin{sol}
-    Since $Tv_1, \ldots, Tv_m$ spans $V$, and $V$ is finite-dimensional, then $T$ is invertible. Then for every $v \in V$, there exist scalars $\alpha_1, \ldots, \alpha_m$ such that
+    Since $Tv_1, \ldots, Tv_m$ spans $V$, we have $T$ surjective. Moreover, $V$ is finite-dimensional, so a surjective linear map on $V$ is also injective, hence invertible. Therefore, for every $v \in V$, there exist scalars $\alpha_1, \ldots, \alpha_m$ such that
     \[v = \alpha_1 Tv_1 + \cdots + \alpha_m Tv_m.\]
-    Applying $T\inv$ to both sides, we have
+    Applying $T\inv$ to both sides, we get
     \[T\inv v = \alpha_1 v_1 + \cdots + \alpha_m v_m.\]
-    Since $v$ was arbitrary, then $v_1, \ldots, v_m$ spans $V$.
+    Since $T\inv$ is surjective, every vector $w \in V$ can be written as $T\inv v$ for some $v \in V$, and thus $v_1, \ldots, v_m$ spans $V$.
 \end{sol}
 
 \begin{exercise}[3d16]
@@ -221,7 +217,12 @@
 
 \begin{sole}
     \item Consider $T \in \nul \ac$. Then $\ac(T) = ST = 0$, so $T$ is a linear map from $V$ to $\nul S$. Conversely, if $T$ is a linear map from $V$ to $\nul S$, then $ST = 0$, so $T \in \nul \ac$. Hence, $\nul \ac$ is the set of linear maps from $V$ to $\nul S$, and thus $\dim \nul \ac = (\dim V)(\dim \nul S)$.
-    \item Consider $T \in \range \ac$. Then there exists some $U \in \lin{V}$ such that $\ac(U) = ST$. Since $ST$ is a linear map from $V$ to $\range S$, then $\range \ac$ is the set of linear maps from $V$ to $\range S$, and thus $\dim \range \ac = (\dim V)(\dim \range S)$.
+    \item By rank-nullity theorem, we have
+    \[\dim \lin{V} = \dim \nul \ac + \dim \range \ac.\]
+    Since $\dim \lin{V} = (\dim V)^2$ and $\dim \nul \ac = (\dim V)(\dim \nul S)$, we get
+    \[(\dim V)^2 = (\dim V)(\dim \nul S) + \dim \range \ac,\]
+    which implies
+    \[\dim \range \ac = (\dim V)^2 - (\dim V)(\dim \nul S) = (\dim V)(\dim \range S). \qh\]
 \end{sole}
 
 \begin{exercise}[3d18]
