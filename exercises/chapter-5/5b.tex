@@ -1,0 +1,173 @@
+\subsection{The Minimal Polynomial}
+
+\begin{exercise}[5b1]
+    Suppose $T \in \lin{V}$. Prove that $9$ is an eigenvalue of $T^2$ if and only if $3$ or $-3$ is an eigenvalue of $T$.
+\end{exercise}
+
+\begin{exercise}[5b2]
+    Suppose $V$ is a complex vector space and $T \in \lin{V}$ has no eigenvalues. Prove that every subspace of $V$ invariant under $T$ is either $\set{0}$ or infinite-dimensional.
+\end{exercise}
+
+\begin{exercise}[5b3]
+    Suppose $n$ is a positive integer and $T \in \lin{\f^n}$ is defined by
+    \[T(x_1, \ldots, x_n) = (x_1 + \cdots + x_n, \ldots, x_1 + \cdots + x_n).\]
+    \begin{subexercises}
+        \item Find all eigenvalues and eigenvectors of $T$.
+        \item Find the minimal polynomial of $T$.
+    \end{subexercises}
+
+    \textit{The matrix of $T$ with respect to the standard basis of $\f^n$ consists of all $1$'s.}
+\end{exercise}
+
+\begin{exercise}[5b4]
+    Suppose $\f = \c$, $T \in \lin{V}$, $p \in \pp(\c)$, and $\alpha \in \c$. Prove that $\alpha$ is an eigenvalue of $p(T)$ if and only if $\alpha = p(\lambda)$ for some eigenvalue $\lambda$ of $T$.
+\end{exercise}
+
+\begin{exercise}[5b5]
+    Give an example of an operator on $\r^2$ that shows the result in Exercise 4 does not hold if $\c$ is replaced with $\r$.
+\end{exercise}
+
+\begin{exercise}[5b6]
+    Suppose $T \in \lin{\f^2}$ is defined by $T(w, z) = (-z, w)$. Find the minimal polynomial of $T$.
+\end{exercise}
+
+\begin{exercise}[5b7]
+    \begin{subexercises}
+        \item Give an example of $S, T \in \lin{\f^2}$ such that the minimal polynomial of $ST$ does not equal the minimal polynomial of $TS$.
+        \item Suppose $V$ is finite-dimensional and $S, T \in \lin{V}$. Prove that if at least one of $S, T$ is invertible, then the minimal polynomial of $ST$ equals the minimal polynomial of $TS$.
+    \end{subexercises}
+
+    \textit{Hint: Show that if $S$ is invertible and $p \in \pp(\f)$, then $p(TS) = S\inv p(ST) S$.}
+\end{exercise}
+
+\begin{exercise}[5b8]
+    Suppose $T \in \lin{\r^2}$ is the operator of counterclockwise rotation by $1^\circ$. Find the minimal polynomial of $T$.
+
+    \textit{Because $\dim \r^2 = 2$, the degree of the minimal polynomial of $T$ is at most $2$. Thus, the minimal polynomial of $T$ is not the tempting polynomial $x^{180} + 1$, even though $T^{180} = -I$.}
+\end{exercise}
+
+\begin{exercise}[5b9]
+    Suppose $T \in \lin{V}$ is such that with respect to some basis of $V$, all entries of the matrix of $T$ are rational numbers. Explain why all coefficients of the minimal polynomial of $T$ are rational numbers.
+\end{exercise}
+
+\begin{exercise}[5b10]
+    Suppose $V$ is finite-dimensional, $T \in \lin{V}$, and $v \in V$. Prove that
+    \[\spn(v, Tv, \ldots, T^m v) = \spn(v, Tv, \ldots, T^{\dim V - 1} v)\]
+    for all integers $m \geq \dim V - 1$.
+\end{exercise}
+
+\begin{exercise}[5b11]
+    Suppose $V$ is a two-dimensional vector space, $T \in \lin{V}$, and the matrix of $T$ with respect to some basis of $V$ is $\begin{pmatrix} a & c \\ b & d \end{pmatrix}$.
+    \begin{subexercises}
+        \item Show that $T^2 - (a + d)T + (ad - bc)I = 0$.
+        \item Show that the minimal polynomial of $T$ equals
+        \[\begin{cases}
+            z - a & \text{if } b = c = 0 \text{ and } a = d, \\
+            z^2 - (a + d)z + (ad - bc) & \text{otherwise.}
+        \end{cases}\]
+    \end{subexercises}
+\end{exercise}
+
+\begin{exercise}[5b12]
+    Define $T \in \lin{\f^n}$ by $T(x_1, x_2, x_3, \ldots, x_n) = (x_1, 2x_2, 3x_3, \ldots, nx_n)$. Find the minimal polynomial of $T$.
+\end{exercise}
+
+\begin{exercise}[5b13]
+    Suppose $T \in \lin{V}$ and $p \in \pp(\f)$. Prove that there exists a unique $r \in \pp(\f)$ such that $p(T) = r(T)$ and $\deg r$ is less than the degree of the minimal polynomial of $T$.
+\end{exercise}
+
+\begin{exercise}[5b14]
+    Suppose $V$ is finite-dimensional and $T \in \lin{V}$ has minimal polynomial $4 + 5z - 6z^2 - 7z^3 + 2z^4 + z^5$. Find the minimal polynomial of $T\inv$.
+\end{exercise}
+
+\begin{exercise}[5b15]
+    Suppose $V$ is a finite-dimensional complex vector space with $\dim V > 0$ and $T \in \lin{V}$. Define $f: \c \to \r$ by
+    \[f(\lambda) = \dim \range(T - \lambda I).\]
+    Prove that $f$ is not a continuous function.
+\end{exercise}
+
+\begin{exercise}[5b16]
+    Suppose $a_0, \ldots, a_{n-1} \in \f$. Let $T$ be the operator on $\f^n$ whose matrix (with respect to the standard basis) is
+    \[\begin{pmatrix}
+        0 & & & & -a_0 \\
+        1 & 0 & & & -a_1 \\
+        & 1 & \ddots & & -a_2 \\
+        & & \ddots & & \vdots \\
+        & & & 0 & -a_{n-2} \\
+        & & & 1 & -a_{n-1}
+    \end{pmatrix}.\]
+    Here all entries of the matrix are $0$ except for all $1$'s on the line under the diagonal and the entries in the last column (some of which might also be $0$). Show that the minimal polynomial of $T$ is the polynomial
+    \[a_0 + a_1 z + \cdots + a_{n-1} z^{n-1} + z^n.\]
+
+    \textit{The matrix above is called the \emph{\textbf{companion matrix}} of the polynomial above. This exercise shows that every monic polynomial is the minimal polynomial of some operator. Hence, a formula or an algorithm that could produce exact eigenvalues for each operator on each $\f^n$ could then produce exact zeros for each polynomial [by 5.27(a)]. Thus, there is no such formula or algorithm. However, efficient numeric methods exist for obtaining very good approximations for the eigenvalues of an operator.}
+\end{exercise}
+
+\begin{exercise}[5b17]
+    Suppose $V$ is finite-dimensional, $T \in \lin{V}$, and $p$ is the minimal polynomial of $T$. Suppose $\lambda \in \f$. Show that the minimal polynomial of $T - \lambda I$ is the polynomial $q$ defined by $q(z) = p(z + \lambda)$.
+\end{exercise}
+
+\begin{exercise}[5b18]
+    Suppose $V$ is finite-dimensional, $T \in \lin{V}$, and $p$ is the minimal polynomial of $T$. Suppose $\lambda \in \f \setminus \set{0}$. Show that the minimal polynomial of $\lambda T$ is the polynomial $q$ defined by $q(z) = \lambda^{\deg p} \, p\!\left(\frac{z}{\lambda}\right)$.
+\end{exercise}
+
+\begin{exercise}[5b19]
+    Suppose $V$ is finite-dimensional and $T \in \lin{V}$. Let $\ee$ be the subspace of $\lin{V}$ defined by
+    \[\ee = \set{q(T) \mid q \in \pp(\f)}.\]
+    Prove that $\dim \ee$ equals the degree of the minimal polynomial of $T$.
+\end{exercise}
+
+\begin{exercise}[5b20]
+    Suppose $T \in \lin{\f^4}$ is such that the eigenvalues of $T$ are $3, 5, 8$. Prove that $(T - 3I)^2(T - 5I)^2(T - 8I)^2 = 0$.
+\end{exercise}
+
+\begin{exercise}[5b21]
+    Suppose $V$ is finite-dimensional and $T \in \lin{V}$. Prove that the minimal polynomial of $T$ has degree at most $1 + \dim \range T$.
+
+    \textit{If $\dim \range T < \dim V - 1$, then this exercise gives a better upper bound than 5.22 for the degree of the minimal polynomial of $T$.}
+\end{exercise}
+
+\begin{exercise}[5b22]
+    Suppose $V$ is finite-dimensional and $T \in \lin{V}$. Prove that $T$ is invertible if and only if $I \in \spn(T, T^2, \ldots, T^{\dim V})$.
+\end{exercise}
+
+\begin{exercise}[5b23]
+    Suppose $V$ is finite-dimensional and $T \in \lin{V}$. Let $n = \dim V$. Prove that if $v \in V$, then $\spn(v, Tv, \ldots, T^{n-1}v)$ is invariant under $T$.
+\end{exercise}
+
+\begin{exercise}[5b24]
+    Suppose $V$ is a finite-dimensional complex vector space. Suppose $T \in \lin{V}$ is such that $5$ and $6$ are eigenvalues of $T$ and that $T$ has no other eigenvalues. Prove that $(T - 5I)^{\dim V - 1}(T - 6I)^{\dim V - 1} = 0$.
+\end{exercise}
+
+\begin{exercise}[5b25]
+    Suppose $V$ is finite-dimensional, $T \in \lin{V}$, and $U$ is a subspace of $V$ that is invariant under $T$.
+    \begin{subexercises}
+        \item Prove that the minimal polynomial of $T$ is a polynomial multiple of the minimal polynomial of the quotient operator $T / U$.
+        \item Prove that
+        \[(\text{minimal polynomial of } T|_U) \times (\text{minimal polynomial of } T / U)\]
+        is a polynomial multiple of the minimal polynomial of $T$.
+    \end{subexercises}
+
+    \textit{The quotient operator $T / U$ was defined in Exercise 38 in Section 5A.}
+\end{exercise}
+
+\begin{exercise}[5b26]
+    Suppose $V$ is finite-dimensional, $T \in \lin{V}$, and $U$ is a subspace of $V$ that is invariant under $T$. Prove that the set of eigenvalues of $T$ equals the union of the set of eigenvalues of $T|_U$ and the set of eigenvalues of $T / U$.
+\end{exercise}
+
+\begin{exercise}[5b27]
+    Suppose $\f = \r$, $V$ is finite-dimensional, and $T \in \lin{V}$. Prove that the minimal polynomial of $T_\c$ equals the minimal polynomial of $T$.
+
+    \textit{The complexification $T_\c$ was defined in Exercise 33 of Section 3B.}
+\end{exercise}
+
+\begin{exercise}[5b28]
+    Suppose $V$ is finite-dimensional and $T \in \lin{V}$. Prove that the minimal polynomial of $T' \in \lin{V'}$ equals the minimal polynomial of $T$.
+
+    \textit{The dual map $T'$ was defined in Section 3F.}
+\end{exercise}
+
+\begin{exercise}[5b29]
+    Show that every operator on a finite-dimensional vector space of dimension at least two has an invariant subspace of dimension two.
+
+    \textit{Exercise 6 in Section 5C will give an improvement of this result when $\f = \c$.}
+\end{exercise}
