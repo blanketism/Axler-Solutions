@@ -34,6 +34,23 @@
     }%
 {ex}
 
+\newtcolorbox{appendixexercise}[1][]{%
+    enhanced,
+    title={Exercise \MakeUppercase{#1}},
+    label=apex:#1,
+    toptitle=2pt, bottomtitle=2pt,
+    arc=0pt, drop fuzzy shadow southeast,
+    boxrule=0pt, %
+    colframe = Green!20, coltitle=black, %
+    colback = White,
+    fonttitle=\bfseries, %
+    borderline west={2.5pt}{0pt}{ForestGreen},%
+    after skip=1.2\baselineskip, before skip=1.2\baselineskip%
+}
+
+\newcommand{\apexref}[1]{\hyperref[apex:#1]{\emph{Appendix \MakeUppercase{#1}}}}
+\newcommand{\apnote}[2]{\remark{See \apexref{#1}{#2}}}
+
 \newenvironment{exercise}[1][]{\begin{exer}{}{#1}}{\end{exer}}
 
 \newenvironment{sol}{%
