@@ -1,0 +1,34 @@
+\setcounter{subsection}{4}
+
+\subsection{Eigenvalues and Eigenvectors}
+
+\begin{appendixexercise}[5a29]
+    Suppose $T \in \lin{\r^3}$ and $-4, 5$, and $\sqrt{7}$ are eigenvalues of $T$. Prove that there exists $x \in \r^3$ such that $Tx - 9x = (-4, 5, \sqrt{7})$.
+\end{appendixexercise}
+
+\begin{proof}[Civil Service Pigeon]
+    This utilizes diagonalizability of $T$, which isn't covered until 3 sections later.
+
+    $T$ acts on a $3$-dimensional space with $3$ distinct eigenvalues, so $T$ is diagonalisable. As $9$ is not an eigenvalue, $T-9I$ has eigenvalues $-13$, $-4$, and $\sqrt{7}-9$, none of which are zero. So, $T-9I$ is invertible, and hence surjective. Thus, $\left(-4,5,\sqrt{7}\right)$ is in the range.
+\end{proof}
+
+\begin{appendixexercise}[5a42]
+    Define $T \in \lin{\f^n}$ by $T(x_1, x_2, x_3, \ldots, x_n) = (x_1, 2x_2, 3x_3, \ldots, nx_n)$.
+    \begin{subexercises}
+        \item Find all eigenvalues and eigenvectors of $T$.
+        \item Find all subspaces of $\f^n$ that are invariant under $T$.
+    \end{subexercises}
+\end{appendixexercise}
+
+\begin{proof}[Civil Service Pigeon]
+    This proof is a generalization to any diagonalizable operator as well as not having to deal with Lagrange interpolation by hand.
+
+    Let $U \subseteq \mathbb{F}^n$ be invariant under $T$. Let $u=\sum^{n}_{i=1} \alpha_i e_i \in U$ and suppose $\alpha_k \neq 0$ for some $k$. Since $Te_i=ie_i$, we have distinct eigenvalues $1$, $2$, $\dots$, $n$. There exists a unique polynomial $p \in \mathcal{P}(\mathbb{F})$ such that $p(i)=\delta_{i,k}$ for $k=1$, $\dots$, $n$. 
+
+    Since $U$ is invariant under $T$, it is also invariant under $p(T)$ by 5A41:
+    $$p(T)u=\sum^{n}_{i=1} \alpha_i p(T)e_i=\alpha_k e_k.$$
+
+    Thus, $e_k \in U$ whenever $u \in U$ has a nonzero $k$th coordinate. By applying this to every index with nonzero coefficient in $u$, we see that $e_i \in U$ for every $i$ such that some element in $U$ has nonzero $i$th coordinate. Hence, $U$ is the span of $\{e_i: i \in S\}$ for some $S \subseteq \{1,\dots,n\}$. 
+
+    Conversely, any such span is invariant under $T$ since $Te_i=ie_i$. Therefore, the invariant subspaces of $T$ are precisely the spans of subsets of $\{e_1, \dots, e_n\}$.
+\end{proof}
