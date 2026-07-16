@@ -371,7 +371,7 @@
 \end{exercise}
 
 \begin{sol}
-    Let $v \in V$ be any nonzero vector. By assumption, $v$ is an eigenvector of $T$, so $Tv = \lambda_v v$ for some scalar $\lambda_v \in \f$. Now, let $u \in V$ be another nonzero vector. Consider the vector $u + v$. If it is zero, it cannot be an eigenvector. If it is nonzero such that $u$ and $v$ are linearly dependent, then without loss of generality, let $u = \alpha v$ for some scalar $\alpha \in \f$. Then $Tu = \lambda_u u = \lambda_u \alpha v$, and $Tu = T(\alpha v) = \alpha Tv = \alpha \lambda_v v$. Equating these, we get $\lambda_u \alpha v = \alpha \lambda_v v$, and since $\alpha \neq 0$ and $v \neq 0$, it follows that $\lambda_u = \lambda_v$.
+    Let $v \in V$ be any nonzero vector. By assumption, $v$ is an eigenvector of $T$, so $Tv = \lambda_v v$ for some scalar $\lambda_v \in \f$. Now, let $u \in V$ be another nonzero vector. Consider the vector $u + v$. If $u$ and $v$ are linearly dependent, then without loss of generality, let $u = \alpha v$ for some scalar $\alpha \in \f$. Then $Tu = \lambda_u u = \lambda_u \alpha v$, and $Tu = T(\alpha v) = \alpha Tv = \alpha \lambda_v v$. Equating these, we get $\lambda_u \alpha v = \alpha \lambda_v v$, and since $\alpha \neq 0$ and $v \neq 0$, it follows that $\lambda_u = \lambda_v$.
 
     The remaining case is when $u + v$ is nonzero such that they are linearly independent. In this case, $u + v$ is an eigenvector of $T$, so $T(u + v) = \lambda_{u+v} (u + v)$ for some scalar $\lambda_{u+v} \in \f$. On the other hand, $T(u + v) = Tu + Tv = \lambda_u u + \lambda_v v$. Equating these, we get $\lambda_{u+v} u + \lambda_{u+v} v = \lambda_u u + \lambda_v v$. Since $u$ and $v$ are linearly independent, we can equate coefficients to get $\lambda_{u+v} = \lambda_u = \lambda_v$.
     
@@ -398,22 +398,10 @@
 
 \begin{exercise}[5a29]
     Suppose $T \in \lin{\r^3}$ and $-4, 5$, and $\sqrt{7}$ are eigenvalues of $T$. Prove that there exists $x \in \r^3$ such that $Tx - 9x = (-4, 5, \sqrt{7})$.
-
-    \apnote{5a29}{ for a proof using diagonalization.}
 \end{exercise}
 
 \begin{sol}
-    Given the eigenvalues, there exist vectors $v_1, v_2, v_3 \in \r^3$ such that
-    \[Tv_1 = -4v_1, \quad Tv_2 = 5v_2, \quad Tv_3 = \sqrt{7}v_3.\]
-    Consider the vector
-    \[x = \alpha_1 v_1 + \alpha_2 v_2 + \alpha_3 v_3.\]
-    Then
-    \[Tx - 9x = -13\alpha_1 v_1 - 4\alpha_2 v_2 + (\sqrt{7} - 9)\alpha_3 v_3.\]
-    Since we have 3 distinct eigenvalues, the vectors $v_1, v_2, v_3$ are linearly independent. Therefore, we can choose scalars $\beta_1, \beta_2, \beta_3$ such that
-    \[(-4, 5, \sqrt{7}) = \beta_1 v_1 + \beta_2 v_2 + \beta_3 v_3.\]
-    Then we can select $\alpha_1, \alpha_2, \alpha_3$ such that
-    \[-13\alpha_1 = \beta_1, \quad -4\alpha_2 = \beta_2, \quad (\sqrt{7} - 9)\alpha_3 = \beta_3.\]
-    This gives us the desired vector $x = \alpha_1 v_1 + \alpha_2 v_2 + \alpha_3 v_3$ such that $Tx - 9x = (-4, 5, \sqrt{7})$.
+    Since $\dim \r^3 = 3$, the eigenvalues of $T$ are exactly $-4, 5$, and $\sqrt 7$. It follows that 9 is not an eigenvalue of $T$, and $\nul(T - 9I) = \set 0$. Then $T - 9I$ is injective, and since $\r^3$ is finite-dimensional, $T - 9I$ is also surjective. Therefore, for any vector in $\r^3$, there exists $x \in \r^3$ such that $(T - 9I)x = (-4, 5, \sqrt{7})$.
 \end{sol}
 
 \begin{exercise}[5a30]

@@ -101,33 +101,35 @@
 \end{exercise}
 
 \begin{sol}
-    We must first ensure that the operations of addition and scalar multiplication are well-defined, i.e., if $S, T \in \lin{V, W}$ and $\alpha \in \f$, then $S + T \in \lin{V, W}$ and $\alpha T \in \lin{V, W}$. To that end, let $v, u \in V$. Then
+    We must first ensure that the operations of addition and scalar multiplication are well-defined, i.e., if $S, T \in \lin{V, W}$ and $\alpha \in \f$, then $S + T \in \lin{V, W}$ and $\alpha T \in \lin{V, W}$. We first show that $S + T$ is linear. Let $v, u \in V$. Then
     \begin{align*}
         (S + T)(v + u) & = S(v + u) + T(v + u) \\
         & = (Sv + Su) + (Tv + Tu) \\
         & = (Sv + Tv) + (Su + Tu) \\
-        & = (S + T)v + (S + T)u,
+        & = (S + T)v + (S + T)u.
     \end{align*}
-    and
+    Moreover, for any $v \in V$ and $\alpha \in \f$,
+    \begin{align*}
+        (S + T)(\alpha v) & = S(\alpha v) + T(\alpha v) \\
+        & = \alpha Sv + \alpha Tv \\
+        & = \alpha (Sv + Tv) \\
+        & = \alpha (S + T)v.
+    \end{align*}
+    This shows that $S + T$ is linear. Now we show that $\alpha T$ is linear. Let $v, u \in V$. Then
     \begin{align*}
         (\alpha T)(v + u) & = \alpha T(v + u) \\
         & = \alpha (Tv + Tu) \\
         & = \alpha Tv + \alpha Tu \\
         & = (\alpha T)v + (\alpha T)u.
     \end{align*}
-    Also, for any $v \in V$ and $\alpha \in \f$,
-    \begin{align*}
-        (S + T)(\alpha v) & = S(\alpha v) + T(\alpha v) \\
-        & = \alpha Sv + \alpha Tv \\
-        & = \alpha (Sv + Tv) \\
-        & = \alpha (S + T)v,
-    \end{align*}
-    and
+    Also, for any $v \in V$ and $\beta \in \f$,
     \begin{align*}
         (\alpha T)(\beta v) & = \alpha T(\beta v) \\
         & = \alpha (\beta Tv) \\
         & = (\alpha \beta) Tv \\
-        & = (\alpha \beta) T v.
+        & = (\beta \alpha) Tv \\
+        & = \beta (\alpha Tv) \\
+        & = \beta(\alpha T)v.
     \end{align*}
     Therefore, $S + T \in \lin{V, W}$ and $\alpha T \in \lin{V, W}$. We now check the vector space axioms:
     \begin{enumerate}
@@ -149,7 +151,7 @@
         \begin{align*}
             ((\alpha\beta)T)v & = (\alpha\beta)(Tv) \\
             & = \alpha(\beta Tv) \\
-            & = \alpha(\beta T)v \\
+            & = \alpha((\beta T)v) \\
             & = (\alpha(\beta T))v.
         \end{align*}
         \item \textbf{Additive identity}: Let $0 \in \lin{V, W}$ be the zero map defined by $0v = 0$ for all $v \in V$. Then for any $T \in \lin{V, W}$ and $v \in V$,
@@ -160,18 +162,18 @@
         \[(1T)v = 1(Tv) = Tv.\]
         \item \textbf{Distributive properties}: Let $T, S \in \lin{V, W}$ and $\alpha, \beta \in \f$. Then for any $v \in V$,
         \begin{align*}
-            (\alpha(T + S))v & = (\alpha T + \alpha S)v \\
-            & = (\alpha T)v + (\alpha S)v \\
-            & = \alpha(Tv) + \alpha(Sv) \\
+            (\alpha(T + S))v & = \alpha((T + S)v) \\
             & = \alpha(Tv + Sv) \\
-            & = \alpha((T + S)v),
+            & = \alpha Tv + \alpha Sv \\
+            & = (\alpha T)v + (\alpha S)v \\
+            & = ((\alpha T) + (\alpha S))v.
         \end{align*}
         and
         \begin{align*}
             ((\alpha + \beta)T)v & = (\alpha + \beta)(Tv) \\
-            & = \alpha(Tv) + \beta(Tv) \\
+            & = \alpha Tv + \beta Tv \\
             & = (\alpha T)v + (\beta T)v \\
-            & = (\alpha T + \beta T)v. \qh
+            & = ((\alpha T) + (\beta T))v. \qh
         \end{align*}
     \end{enumerate}
 \end{sol}
@@ -283,14 +285,12 @@
     \begin{cases}
         v_j & \text{if } k = i, \\
         0 & \text{if } k \neq i.
-    \end{cases}.\]
-    In other words, $S_{ij}$ sends $v_i$ to $v_j$ and sends all other basis vectors to $0$. Fix some $i$, and let $Tv_i = \alpha_1 v_1 + \cdots + \alpha_n v_n$. Then
-    \[S_{ij}Tv_i = S_{ij}(\alpha_1 v_1 + \cdots + \alpha_n v_n) = \alpha_i v_j,\]
+    \end{cases}\]
+    In other words, $S_{ij}$ sends $v_i$ to $v_j$ and sends all other basis vectors to $0$. Write $Tv_i = \alpha_{i1} v_1 + \cdots + \alpha_{in} v_n$. Then
+    \[S_{ij}Tv_i = S_{ij}(\alpha_{i1} v_1 + \cdots + \alpha_{in} v_n) = \alpha_{ii} v_j,\]
     and
-    \[TS_{ij}v_i = T(v_j) = \beta_1 v_1 + \cdots + \beta_n v_n\]
-    for some $\beta_1, \ldots, \beta_n \in \f$. Since $S_{ij}T = TS_{ij}$, we have
-    \[\alpha_i v_j = \beta_1 v_1 + \cdots + \beta_n v_n.\]
-    Since $v_1, \ldots, v_n$ is a basis, it follows that $\beta_k = 0$ for all $k \neq j$ and $\beta_j = \alpha_i$. Therefore, $Tv_j = \alpha_i v_j$. Since $i$ and $j$ were arbitrary, it follows that all $\alpha_k$ are equal, say $\alpha_k = \lambda$ for all $k$. Therefore, $Tv_k = \lambda v_k$ for all $k$, and hence $T = \lambda I$.
+    \[TS_{ij}v_i = Tv_j = \alpha_{j1} v_1 + \cdots + \alpha_{jn} v_n.\]
+    Since $j$ was arbitrary, we have $Tv_k = \alpha_{ii}v_k$ for all $k$, and since $i$ was arbitrary, we have $\alpha_{11} = \alpha_{22} = \cdots = \alpha_{nn} = \lambda$, hence $T = \lambda I$.
 \end{sol}
 
 \begin{exercise}[3a12]
@@ -403,9 +403,7 @@
     \[T_iES_iv = T_iES_i(\alpha_1 v_1) + \cdots + T_iES_i(\alpha_i v_i) + \cdots + T_iES_i(\alpha_n v_n) = \alpha_i v_i.\]
     Consider the map
     \[E^* = T_1ES_1 + T_2ES_2 + \cdots + T_nES_n \in \ee,\]
-    where $E^* \in \ee$ since $\ee$ is a subspace. Then
+    Then for any $v = \alpha_1 v_1 + \cdots + \alpha_n v_n \in V$,
     \[E^*v = T_1ES_1 v + T_2ES_2 v + \cdots + T_nES_n v = \alpha_1 v_1 + \alpha_2 v_2 + \cdots + \alpha_n v_n = v.\]
-    Therefore, for any $v \in V$, there exists $E^* \in \ee$ such that $E^*v = v$. Now let $T \in \lin V$ be arbitrary. Then
-    \[T = TE^* \in \ee\]
-    since $TE^* \in \ee$ and $\ee$ is a two-sided ideal. Therefore, $\ee = \lin V$. We conclude that the only two-sided ideals of $\lin V$ are $\set 0$ and $\lin V$.
+    Hence, $E^* = I \in \ee$. Since $\ee$ is a two-sided ideal, $I = E^* \in \ee$ implies that for any $T \in \lin V$, we have $TI = T \in \ee$. Therefore, $\ee = \lin V$.
 \end{sol}

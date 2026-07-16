@@ -203,9 +203,27 @@
 \end{exercise}
 
 \begin{sol}
-    Let $T \in \lin{V}$ be such that $\nul T$ and $\range T$ are both finite-dimensional. By the rank-nullity theorem, we have
-    \[\dim V = \dim \nul T + \dim \range T.\]
-    Since both $\dim \nul T$ and $\dim \range T$ are finite, their sum is also finite. Therefore, $\dim V$ is finite, which implies that $V$ is finite-dimensional.
+    Let $T \in \lin{V}$ be such that $\nul T$ and $\range T$ are both finite-dimensional. Let $u_1, \ldots, u_m$ be a basis of $\nul T$, and let $w_1, \ldots, w_n$ be a basis of $\range T$. Let $v_j \in V$ be such that $Tv_j = w_j$ for $j = 1, \ldots, n$. We claim that the list $u_1, \ldots, u_m, v_1, \ldots, v_n$ is a basis of $V$.
+
+    To show that this list spans $V$, let $v \in V$. Then $Tv \in \range T$, so we may write
+    \[Tv = \alpha_1 w_1 + \cdots + \alpha_n w_n\]
+    for some scalars $\alpha_1, \ldots, \alpha_n \in \f$. Consider the vector
+    \[u = v - (\alpha_1 v_1 + \cdots + \alpha_n v_n).\]
+    Then
+    \[Tu = Tv - (\alpha_1 Tv_1 + \cdots + \alpha_n Tv_n) = Tv - (\alpha_1 w_1 + \cdots + \alpha_n w_n) = 0.\]
+    Therefore, $u \in \nul T$, and we can write
+    \[u = \beta_1 u_1 + \cdots + \beta_m u_m\]
+    for some scalars $\beta_1, \ldots, \beta_m \in \f$. Thus,
+    \[v = u + (\alpha_1 v_1 + \cdots + \alpha_n v_n) = \beta_1 u_1 + \cdots + \beta_m u_m + \alpha_1 v_1 + \cdots + \alpha_n v_n,\]
+    which shows that the list spans $V$.
+
+    To show that the list is linearly independent, suppose
+    \[\gamma_1 u_1 + \cdots + \gamma_m u_m + \delta_1 v_1 + \cdots + \delta_n v_n = 0\]
+    for some scalars $\gamma_1, \ldots, \gamma_m, \delta_1, \ldots, \delta_n \in \f$. Applying $T$ to both sides, we have $T(\gamma_1 u_1 + \cdots + \gamma_m u_m) + T(\delta_1 v_1 + \cdots + \delta_n v_n) = 0$. Since $u_1, \ldots, u_m \in \nul T$, we have $T(\gamma_1 u_1 + \cdots + \gamma_m u_m) = 0$. Therefore,
+    \[T(\delta_1 v_1 + \cdots + \delta_n v_n) = \delta_1 Tv_1 + \cdots + \delta_n Tv_n = \delta_1 w_1 + \cdots + \delta_n w_n = 0.\]
+    Since $w_1, \ldots, w_n$ is a basis of $\range T$, it follows that $\delta_1 = \cdots = \delta_n = 0$. Thus, we have
+    \[\gamma_1 u_1 + \cdots + \gamma_m u_m = 0.\]
+    Since $u_1, \ldots, u_m$ is a basis of $\nul T$, it follows that $\gamma_1 = \cdots = \gamma_m = 0$. Therefore, the list $u_1, \ldots, u_m, v_1, \ldots, v_n$ is linearly independent.
 \end{sol}
 
 \begin{exercise}[3b16]

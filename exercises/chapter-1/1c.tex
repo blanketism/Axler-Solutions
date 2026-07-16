@@ -191,17 +191,23 @@
 \begin{exercise}[1c13]
     Prove that the union of three subspaces of $V$ is a subspace of $V$ if and only if one of the subspaces contains the other two.
 
-    \remark{As mentioned in the book, this result is not true when the field has only two elements. Moreover, this problem is particularly difficult in that it requires careful tracking of elements across the three subspaces to ensure that the union remains a subspace.}
+    \note{This result fails when the field has only two elements.}
+
+    \remark{The proof of this exercise is more involved than the proof of \emph{\autoref{ex:1c12}} in that it requires a more careful analysis of the possible relationships between the three subspaces.}
+
+    \apnote{1c13}{ for a more elegant proof of this result, which implicitly uses the result that $\cha(\f) \neq 2$.}
 \end{exercise}
 
 \begin{sol}
     Let $U_1, U_2, U_3$ be subspaces of $V$. Without loss of generality, suppose $U_2 \subseteq U_1$ and $U_3 \subseteq U_1$. Then $U_1 \cup U_2 \cup U_3 = U_1$, which is a subspace of $V$.
 
-    Conversely, suppose $U_1 \cup U_2 \cup U_3$ is a subspace of $V$. Without loss of generality, suppose $U_3 \subseteq U_2$. Let $W = U_2 \cup U_3 = U_2$. Then $U_1 \cup W$ is a subspace since $U_1 \cup W = U_1 \cup U_2 \cup U_3$. By \autoref{ex:1c12}, either $U_1 \subseteq U_2$ or $U_2 \subseteq U_1$. If the first case occurs, then $U_1 \cup U_2 = U_2$ which also contains $U_3$. If the second case occurs, then $U_2 \subseteq U_1$, and since $U_3 \subseteq U_2$, we have $U_3 \subseteq U_1$. Hence, $U_1$ contains both $U_2$ and $U_3$. Therefore, in either case, one of the subspaces contains the other two. By symmetry, the argument applies regardless of which subspace is assumed to be contained in another, ensuring that one of the three subspaces must contain the other two. We now suppose $U_2$ and $U_3$ do not contain each other, i.e, $U_2 \nsubseteq U_3$ and $U_3 \nsubseteq U_2$.
+    Conversely, suppose $U_1 \cup U_2 \cup U_3$ is a subspace of $V$. Suppose that some pair satisfies containment, say $U_3 \subseteq U_2$. Let $W = U_2 \cup U_3 = U_2$. Then $U_1 \cup W = U_1 \cup U_2 \cup U_3$. By \autoref{ex:1c12}, either $U_1 \subseteq U_2$ or $U_2 \subseteq U_1$. If the former occurs, then $U_1 \cup U_2 = U_2$, which contains $U_3$. If the latter occurs, then $U_1 \cup U_2 = U_1$. Since $U_3 \subseteq U_2$, then $U_3 \subseteq U_1$. Therefore, one of the subspaces must contain the other two.
 
-    Let $u \in U_2 \setminus U_3$ and $v \in U_3 \setminus U_2$. Let $\alpha \in \f$ be any scalar so that $u + \alpha v \in U_1 \cup U_2 \cup U_3$. If $u + \alpha v \in U_2$, then $\alpha v = (u + \alpha v) - u \in U_2$, which implies $v \in U_2$, a contradiction. If $u + \alpha v \in U_3$, then $u = (u + \alpha v) - \alpha v \in U_3$, a contradiction. Hence, $u + \alpha v \notin U_2 \cup U_3$. It must be that $u + \alpha v \in U_1$ for every $\alpha \in \f$. In particular, choose $\beta, \gamma \in \f$ such that $\alpha, \beta, \gamma$ are all distinct. Then $u + \beta v \in U_1$ and $u + \gamma v \in U_1$. Since $U_1$ is a subspace, we have
-    \[(\gamma - \beta)v = (u + \gamma v) - (u + \beta v) \in U_1.\]
-    Since $\gamma \neq \beta$, we have $v \in U_1$. Similarly, for any $u \in U_2 \setminus U_3$ and $v \in U_3 \setminus U_2$, we can show that $u \in U_1$. Hence, $U_1$ contains both $U_2$ and $U_3$.
+    Now suppose no subspace is contained in another. Then there exist $u \in U_2 \setminus U_3$ and $v \in U_3 \setminus U_2$. Since $U_1 \cup U_2 \cup U_3$ is a subspace, $u + \alpha v \in U_1 \cup U_2 \cup U_3$ for any nonzero $\alpha \in \f$. If $u + \alpha v \in U_2$, then $\alpha v = (u + \alpha v) - u \in U_2$, which implies $v \in U_2$, a contradiction. If $u + \alpha v \in U_3$, then $u = (u + \alpha v) - \alpha v \in U_3$, a contradiction. Then $u + \alpha v \in U_1$ for all nonzero $\alpha \in \f$. Now choose nonzero $\beta, \gamma \in \f$ with $\beta \neq \gamma$. Then $u + \beta v, u + \gamma v \in U_1$, so
+    \[(u + \beta v) - (u + \gamma v) = (\beta - \gamma)v \in U_1.\]
+    Since $\beta - \gamma \neq 0$, we have $v \in U_1$. Similarly, $(u + \beta v) - \beta v = u \in U_1$. Since $u \in U_2 \setminus U_3$ and $v \in U_3 \setminus U_2$ were arbitrary, $U_2 \setminus U_3 \subseteq U_1$ and $U_3 \setminus U_2 \subseteq U_1$.
+
+    Now let $w \in U_2 \cap U_3$. Since $U_2 \nsubseteq U_3$, there exists $x \in U_2 \setminus U_3 \subseteq U_1$. Then $w + x \in U_2$. If $w + x \in U_3$, then $x = (w + x) - w \in U_3$, a contradiction. Hence, $w + x \in U_2 \setminus U_3 \subseteq U_1$, so $w = (w + x) - x \in U_1$. Therefore, $U_2 \cap U_3 \subseteq U_1$, which gives $U_2 = (U_2 \setminus U_3) \cup (U_2 \cap U_3) \subseteq U_1$ and similarly $U_3 \subseteq U_1$, contradicting our assumption. Hence, one of the subspaces must contain the other two.
 \end{sol}
 
 \begin{exercise}[1c14]
@@ -318,13 +324,25 @@
 \end{exercise}
 
 \begin{sol}
-    Let
+    Observe that $U$ can be expressed as
+    \[U = \set{(x, 0, x, x, 2x) \in \f^5 \mid x \in \f} + \set{(0, y, y, -y, 0) \in \f^5 \mid y \in \f}.\]
+    Define the subspaces
     \begin{align*}
         W_1 &= \set{(0, 0, z, 0, 0) \in \f^5 \mid z \in \f}, \\
         W_2 &= \set{(0, 0, 0, w, 0) \in \f^5 \mid w \in \f}, \\
         W_3 &= \set{(0, 0, 0, 0, v) \in \f^5 \mid v \in \f}.
     \end{align*}
-    The intersection of any two of these subspaces is $\{0\}$, since they have no nonzero vectors in common. Additionally, the intersection of $W_1, W_2, W_3$ with $U$ is also $\{0\}$, since any nonzero vector in $U$ has nonzero entries in the first two coordinates, while any vector in $W_1, W_2,$ or $W_3$ has zeros in the first two coordinates. The proof of showing that $\f^5 = U \op W_1 \op W_2 \op W_3$ is similar to that of \autoref{ex:1c21}, hence omitted. Therefore, $\f^5 = U \op W_1 \op W_2 \op W_3$.
+    Consider $(a, b, c, d, e) \in \f^5$. We can write
+    \[(a, b, c, d, e) = (x, 0, x, x, 2x) + (0, y, y, -y, 0) + (0, 0, z, 0, 0) + (0, 0, 0, w, 0) + (0, 0, 0, 0, v),\]
+    where
+    \begin{align*}
+        x &= a, \\
+        y &= b, \\
+        z &= c - a - b, \\
+        w &= d + a - b, \\
+        v &= e - 2a.
+    \end{align*}
+    Hence, every vector in $\f^5$ can be written as a sum of a vector in $U$ and vectors in $W_1, W_2, W_3$. Moreover, if $a = b = c = d = e = 0$, then $x = y = z = w = v = 0$ so that the only way to write the zero vector as a sum of vectors in $U, W_1, W_2, W_3$ is to take all of them to be the zero vector. Therefore, $\f^5 = U \op W_1 \op W_2 \op W_3$.
 \end{sol}
 
 \begin{exercise}[1c23]
