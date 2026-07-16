@@ -81,7 +81,7 @@
 \end{exercise}
 
 \begin{sol}
-    Suppose $\range S = \range T$. Then $\dim \nul S = \dim \nul T$. Let $u_1, \ldots, u_k$ be a basis of $\nul S$ and $v_1, \ldots, v_k$ be a basis of $\nul T$. Extend both bases to a basis of $V$, say $u_1 \ldots, u_n$ and $v_1, \ldots, v_n$. Observe that for $i > k$, we have that $Su_i \in \range S = \range T$. Then there must exist $y_i \in V$ such that $Ty_i = Su_i$. Define a linear map $E \in \lin{V}$ by setting $Eu_i = v_i$ for $i \leq k$ and $Eu_i = y_i$ for $i > k$. To see that $TE = S$, we have for $i \leq k$ that $TEu_i = Tv_i = 0 = Su_i$. Moreover, for $i > k$, we have $TEu_i = Ty_i = Su_i$. To see that $E$ is invertible, suppose we have scalars $\alpha_1, \ldots, \alpha_n$ such that
+    Suppose $\range S = \range T$. Then $\dim \nul S = \dim \nul T$. Let $u_1, \ldots, u_k$ be a basis of $\nul S$ and $v_1, \ldots, v_k$ be a basis of $\nul T$. Extend both bases to a basis of $V$, say $u_1, \ldots, u_n$ and $v_1, \ldots, v_n$. Observe that for $i > k$, we have that $Su_i \in \range S = \range T$. Then there must exist $y_i \in V$ such that $Ty_i = Su_i$. Define a linear map $E \in \lin{V}$ by setting $Eu_i = v_i$ for $i \leq k$ and $Eu_i = y_i$ for $i > k$. To see that $TE = S$, we have for $i \leq k$ that $TEu_i = Tv_i = 0 = Su_i$. Moreover, for $i > k$, we have $TEu_i = Ty_i = Su_i$. To see that $E$ is invertible, suppose we have scalars $\alpha_1, \ldots, \alpha_n$ such that
     \[\alpha_1 Eu_1 + \alpha_2 Eu_2 + \cdots + \alpha_n Eu_n = 0.\]
     Applying $T$, we get
     \[\alpha_{k + 1} Su_{k + 1} + \cdots + \alpha_n Su_n = 0,\]
@@ -144,7 +144,7 @@
 \end{exercise}
 
 \begin{sol}
-    Suppose $ST$ is invertible. Then it is injective. By \autoref{ex:3b19}, there exists $U \in \lin V$ such that $U(ST)$ is the identity operator. Since this is equal to $(US)T$, this implies that $T$ is injective. Since $T$ is injective on $\lin V$, it is also surjective, hence invertible.
+    Suppose $ST$ is invertible. Then it is injective. By \autoref{ex:3b19}, there exists $U \in \lin V$ such that $U(ST)$ is the identity operator. Since this is equal to $(US)T$, this implies that $T$ is injective. Since $T$ is injective on $V$, it is also surjective, hence invertible.
     
     Note that $ST$ is also surjective. By \autoref{ex:3b20}, there exists $W \in \lin V$ such that $STW$ is the identity operator. Then $S(TW)$ implies that $S$ is surjective. Since it is surjective on $V$, then $S$ is also injective, hence invertible.
 
@@ -242,7 +242,7 @@
 \begin{exercise}[3d19]
     Suppose $V$ is finite-dimensional and $T \in \lin{V}$. Prove that $T$ has the same matrix with respect to every basis of $V$ if and only if $T$ is a scalar multiple of the identity operator.
 
-    \remark{This exercise has a beautiful alternate solution as follows: let $V$ have a basis $v_1, \ldots, v_n$. Consider the basis $w_1, \ldots, w_n$, where $w_i = v_j$ and $w_j = v_i$ for some $i \neq j$, and $w_k = v_k$ for $k \neq i, j$. One may perform similar calculations to deduce that the diagonal entries are equal to some $\lambda$, while every off-diagonal entry must be equal to some $\gamma$. The last step is to consider the basis $-v_1, v_2, \ldots, v_n$ to deduce that $\gamma = 0$, so that $T$ is a scalar multiple of the identity operator.}
+    \remark{See \apexref{3d19} for other constructions of bases to eliminate off-diagonal entries.}
 \end{exercise}
 
 \begin{sol}
