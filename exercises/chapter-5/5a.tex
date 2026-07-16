@@ -182,7 +182,7 @@
 \end{exercise}
 
 \begin{sol}
-    Suppose $\lambda$ is an eigenvalue of $T$ with eigenvector $v \in V$, so $Tv = \lambda v$. Then the operator $(T - \lambda I)$ is not injective, since $(T - \lambda I)v = 0$. Taking the dual, we have $(T - \lambda I)' = T' - \lambda I$ is not surjective. Since $V$ is finite-dimensional, this implies $T' - \lambda I$ is not injective, hence $\lambda$ is an eigenvalue of $T'$.
+    Suppose $\lambda$ is an eigenvalue of $T$ with eigenvector $v \in V$, so $Tv = \lambda v$. Then the operator $(T - \lambda I)$ is not injective, since $(T - \lambda I)v = 0$. Taking the dual, we have that $(T - \lambda I)' = T' - \lambda I$ is not surjective. Since $V$ is finite-dimensional, this implies $T' - \lambda I$ is not injective, hence $\lambda$ is an eigenvalue of $T'$.
     
     Conversely, suppose $\lambda$ is an eigenvalue of $T'$ with eigenvector $\phi \in V'$, so $T'\phi = \lambda \phi$. Then $(T' - \lambda I)\phi = 0$, which implies that $T - \lambda I$ is not surjective. Since $V$ is finite-dimensional, not surjective implies not injective, so there exists a nonzero $v \in V$ such that $(T - \lambda I)v = 0$, i.e., $Tv = \lambda v$. Therefore, $\lambda$ is an eigenvalue of $T$.
 \end{sol}
