@@ -4,9 +4,21 @@
     Suppose $T \in \lin{V}$. Prove that $9$ is an eigenvalue of $T^2$ if and only if $3$ or $-3$ is an eigenvalue of $T$.
 \end{exercise}
 
+\begin{sol}
+    Suppose $9$ is an eigenvalue of $T^2$. Then there exists a nonzero vector $v \in V$ such that $T^2 v = 9v$. This implies $(T - 3I)(T + 3I)v = 0$. Let $w = (T + 3I)v$, and suppose $w \neq 0$. Then
+    \[(T - 3I)w = Tw - 3w = 0 \implies Tw = 3w,\]
+    showing that 3 is an eigenvalue of $T$. If $w = 0$, then $(T + 3I)v = 0$, which implies $Tv = -3v$, showing that $-3$ is an eigenvalue of $T$.
+
+    Conversely, suppose 3 is an eigenvalue of $T$. Then there exists a nonzero vector $v \in V$ such that $Tv = 3v$. Applying $T$ again, we get $T^2 v = T(3v) = 3Tv = 3 \cdot 3v = 9v$, showing that $9$ is an eigenvalue of $T^2$. Similarly, if $-3$ is an eigenvalue of $T$, then $9$ is an eigenvalue of $T^2$.
+\end{sol}
+
 \begin{exercise}[5b2]
     Suppose $V$ is a complex vector space and $T \in \lin{V}$ has no eigenvalues. Prove that every subspace of $V$ invariant under $T$ is either $\set{0}$ or infinite-dimensional.
 \end{exercise}
+
+\begin{sol}
+    Suppose $U$ is a subspace of $V$ invariant under $T$. If $U = \set{0}$, we are done. Suppose $U$ is nonzero and finite-dimensional. By invariance of $U$ under $T$, $T|_U \in \lin U$, and $T|_U$ has an eigenvalue $\lambda \in \c$ with corresponding eigenvector $v \in U$, $v \neq 0$. But then $v$ is also an eigenvector of $T$ with eigenvalue $\lambda$, contradicting the assumption that $T$ has no eigenvalues. Hence, any nonzero invariant subspace $U$ must be infinite-dimensional.
+\end{sol}
 
 \begin{exercise}[5b3]
     Suppose $n$ is a positive integer and $T \in \lin{\f^n}$ is defined by
@@ -15,8 +27,6 @@
         \item Find all eigenvalues and eigenvectors of $T$.
         \item Find the minimal polynomial of $T$.
     \end{subexercises}
-
-    \textit{The matrix of $T$ with respect to the standard basis of $\f^n$ consists of all $1$'s.}
 \end{exercise}
 
 \begin{exercise}[5b4]
