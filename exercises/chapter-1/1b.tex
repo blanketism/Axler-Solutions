@@ -24,6 +24,8 @@
 
 \begin{exercise}[1b3]
     Suppose $v, w \in V$. Explain why there exists a unique $x \in V$ such that $v + 3x = w$.
+
+    \remark{The solution says ``dividing by 3'' in the sense that we're dividing by the scalar 3 in the field $\f$, not a vector in $V$.}
 \end{exercise}
 
 \begin{sol}
@@ -79,7 +81,7 @@
 \end{exercise}
 
 \begin{sol}
-    No, $\r \cup \set{\infty, -\infty}$ is not a vector space over $\r$ as it does not satisfy the associative property of addition. Let $t \in \r$. Then
+    No, $\r \cup \set{\infty, -\infty}$ is not a vector space over $\r$ as it does not satisfy the associative property of addition. Let $t \setminus \set0 \in \r$. Then
     \[(t + \infty) + (-\infty) = \infty + (-\infty) = 0 \neq t = t + 0 = t + (\infty + (-\infty)). \qh\]
 \end{sol}
 
@@ -177,7 +179,6 @@
         Hence, $-u + (-v)i$ is the additive inverse of $u + vi$ in $V_{\c}$.
         \item \textbf{Multiplicative identity}: For all $u + vi \in V_{\c}$,
         \[(1 + 0i)(u + vi) = (1u - 0v) + i(1v + 0u) = u + vi.\]
-        Hence, $1 + 0i$ is the multiplicative identity in $V_{\c}$.
         \item \textbf{Distributive properties}: Let $a + bi, c + di \in \c$ and $u_1 + v_1i, u_2 + v_2i \in V_{\c}$. Then
         \begin{align*}
             (a + bi)((u_1 + v_1i) + (u_2 + v_2i)) & = (a + bi)((u_1 + u_2) + i(v_1 + v_2)) \\

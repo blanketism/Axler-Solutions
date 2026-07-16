@@ -91,7 +91,7 @@
     which is linearly independent of $u_1, u_2, u_3, u_4$ since it is not in $U$. Thus, $\set{u_1, u_2, u_3, u_4, u_5}$ is a basis of $\pp_4(\f)$.
     \item Let $W = \spn u_5 = \spn x$. Then we have
     \[\pp_4(\f) = U + W,\]
-    since every polynomial in $\pp_4(\f)$ can be written as a sum of a polynomial in $U$ and a polynomial in $W$. Moreover, if $p \in U \cap W$, then $p = \alpha x$ for some $\alpha \in \f$. Since $p(2) = p(5)$, we have $\alpha 2 = \alpha 5$, which implies that $\alpha = 0$. Thus, $U \cap W = \set{0}$, and so we have
+    since every polynomial in $\pp_4(\f)$ can be written as a sum of a polynomial in $U$ and a polynomial in $W$. Moreover, if $p \in U \cap W$, then $p = \alpha x$ for some $\alpha \in \f$. Since $p(2) = p(5)$, we have $2\alpha = 5\alpha$, which implies that $\alpha = 0$. Thus, $U \cap W = \set{0}$, and so we have
     \[\pp_4(\f) = U \op W. \qh\]
 \end{sole}
 
@@ -152,11 +152,11 @@
     \[u_1 = x, \quad u_2 = x^2 - \frac 13, \quad u_3 = x^3, \quad u_4 = x^4 - \frac 15.\]
     Moreover, these four polynomials are linearly independent, since the only way to write the zero polynomial as a linear combination of $u_1, u_2, u_3, u_4$ is to take all coefficients to be zero. Thus, $\set{u_1, u_2, u_3, u_4}$ is a basis of $U$.
     \item We can extend the basis $\set{u_1, u_2, u_3, u_4}$ of $U$ to a basis of $\pp_4(\r)$ by adding one more polynomial that is linearly independent of $u_1, u_2, u_3, u_4$. For example, we can add the polynomial
-    \[u_5 = x^4,\]
+    \[u_5 = 1,\]
     which is linearly independent of $u_1, u_2, u_3, u_4$ since it is not in $U$. Thus, $\set{u_1, u_2, u_3, u_4, u_5}$ is a basis of $\pp_4(\r)$.
-    \item Let $W = \spn u_5 = \spn x^4$. Then we have
+    Let $W = \spn u_5 = \spn 1$. Then we have
     \[\pp_4(\r) = U + W,\]
-    since every polynomial in $\pp_4(\r)$ can be written as a sum of a polynomial in $U$ and a polynomial in $W$. Moreover, if $p \in U \cap W$, then $p = \alpha x^4$ for some $\alpha \in \r$. Since the integral of an even function over a symmetric interval is nonzero unless the function is identically zero, we have $\alpha = 0$. Thus, $U \cap W = \set{0}$, and so we have
+    since every polynomial in $\pp_4(\r)$ can be written as a sum of a polynomial in $U$ and a polynomial in $W$. Moreover, if $p \in U \cap W$, then $p = \alpha$ for some $\alpha \in \r$. Since the integral of a constant over a symmetric interval is nonzero unless the function is identically zero, we have $\alpha = 0$. Thus, $U \cap W = \set{0}$, and so we have
     \[\pp_4(\r) = U \op W. \qh\]
 \end{sole}
 
@@ -183,7 +183,7 @@
 \begin{sol}
     Since each $p_k$ has degree $k$, we can write each polynomial as
     \[p_k = a_{k0} + a_{k1}x + \cdots + a_{kk}x^k\]
-    where $a_{ij} \in \f$ for all $0 \leq i \leq j \leq k$ and $a_{kk} \neq 0$. We claim that $p_0, p_1, \ldots, p_m$ is linearly independent. Suppose that
+    where $a_{kj} \in \f$ for all $0 \leq j \leq k$ and $a_{kk} \neq 0$. We claim that $p_0, p_1, \ldots, p_m$ is linearly independent. Suppose that
     \[\alpha_0 p_0 + \alpha_1 p_1 + \cdots + \alpha_m p_m = 0\]
     for some $\alpha_0, \ldots, \alpha_m \in \f$. Then we can write this equation as
     \[(\alpha_0a_{00} + \alpha_1a_{10} + \cdots + \alpha_ma_{m0}) + (\alpha_1a_{11} + \cdots + \alpha_ma_{m1})x + \cdots + (\alpha_ma_{mm})x^m = 0.\]
@@ -209,7 +209,7 @@
     \[\alpha_0 p_0 + \alpha_1 p_1 + \cdots + \alpha_m p_m = 0\]
     for some $\alpha_0, \ldots, \alpha_m \in \f$. Then we can write this equation as
     \[(\alpha_0 a_{00}) + (\alpha_0 a_{01} + \alpha_1 a_{11})x + \cdots + (\alpha_0 a_{0m} + \cdots + \alpha_m a_{mm})x^m = 0.\]
-    Since the zero polynomial has all coefficients equal to zero, and $a_{00} \neq 0$ by definition of $p_0$, we must have $\alpha_0 = 0$. Next, the coefficient of the $x$ is $\alpha_0 a_{01} + \alpha_1 a_{11} = 0$. Since $\alpha_0 = 0$ and $a_{11} \neq 0$, we must have $\alpha_1 = 0$. Continuing in this way, we find that $\alpha_2 = \cdots = \alpha_m = 0$. Thus, the list is linearly independent. Moreover, since $\dim \pp_m(\f) = m + 1$, any linearly independent list of $m + 1$ vectors in $\pp_m(\f)$ is a basis. Therefore, $p_0, p_1, \ldots, p_m$ is a basis of $\pp_m(\f)$.
+    Since the zero polynomial has all coefficients equal to zero, and $a_{00} \neq 0$ by definition of $p_0$, we must have $\alpha_0 = 0$. Next, the coefficient of $x$ is $\alpha_0 a_{01} + \alpha_1 a_{11} = 0$. Since $\alpha_0 = 0$ and $a_{11} \neq 0$, we must have $\alpha_1 = 0$. Continuing in this way, we find that $\alpha_2 = \cdots = \alpha_m = 0$. Thus, the list is linearly independent. Moreover, since $\dim \pp_m(\f) = m + 1$, any linearly independent list of $m + 1$ vectors in $\pp_m(\f)$ is a basis. Therefore, $p_0, p_1, \ldots, p_m$ is a basis of $\pp_m(\f)$.
 \end{sol}
 
 \begin{exercise}[2c11]
@@ -299,9 +299,7 @@
 \end{exercise}
 
 \begin{sol}
-    We will prove the statement by induction on $m$. For the base case, let $m = 2$. Then we have
-    \[V_1 + V_2 = V_1 + V_2,\]
-    which is finite-dimensional and
+    We will prove the statement by induction on $m$. For the base case, let $m = 2$. Then the sum $V_1 + V_2$ is finite-dimensional. By the dimension formula for the sum of two subspaces, we have
     \[\dim(V_1 + V_2) = \dim V_1 + \dim V_2 - \dim(V_1 \cap V_2) \leq \dim V_1 + \dim V_2.\]
     Hence, the statement holds for $m = 2$. Now, suppose that the statement holds for some positive integer $m$. That is, suppose that if $V_1, \ldots, V_m$ are finite-dimensional subspaces of $V$, then $V_1 + \cdots + V_m$ is finite-dimensional and
     \[\dim(V_1 + \cdots + V_m) \leq \dim V_1 + \cdots + \dim V_m.\]
@@ -338,7 +336,7 @@
 \end{exercise}
 
 \begin{sol}
-    One may guess that the given formula above is true by analogy with the formula for the number of elements in the union of three finite sets. However, this erroneously conflates that the idea of subspace sums is equivalent to the idea of set unions. In fact, the formula is not true in general. For example, let $V = \r^2$, and let
+    One may guess that the given formula above is true by analogy with the formula for the number of elements in the union of three finite sets. However, this erroneously conflates the idea of subspace sums with the idea of set unions. In fact, the formula is not true in general. For example, let $V = \r^2$, and let
     \[V_1 = \spn((1, 0)), \quad V_2 = \spn((0, 1)), \quad V_3 = \spn((1, 1)).\]
     It is easy to see that $\dim V_1 = \dim V_2 = \dim V_3 = 1$, but $\dim(V_1 \cap V_2) = \dim(V_1 \cap V_3) = \dim(V_2 \cap V_3) = 0$ and $\dim(V_1 \cap V_2 \cap V_3) = 0$. Thus, the right-hand side of the formula is
     \[1 + 1 + 1 - 0 - 0 - 0 + 0 = 3,\]
@@ -355,7 +353,7 @@
 \end{exercise}
 
 \begin{sol}
-    Note that we need to account for all pairs of subspaces all pairs of sums of subspaces, since the sum of subspaces is not equivalent to the union of sets. We can use the dimension formula repeatedly to obtain the answer. To that end, define the following subspaces:
+    Note that we need to account for all pairs of subspaces and all pairs of sums of subspaces, since the sum of subspaces is not equivalent to the union of sets. We can use the dimension formula repeatedly to obtain the answer. To that end, define the following subspaces:
     \[W_1 = V_1 + V_2, \quad W_2 = V_1 + V_3, \quad W_3 = V_2 + V_3.\]
     Applying the dimension formula to each of $W_1, W_2, W_3$, we have
     \begin{align*}

@@ -117,7 +117,6 @@
     \begin{align*}
         (-1 + \sqrt 3i)^3 & = (-1)^3 + 3(-1)^2(\sqrt3i) + 3(-1)(\sqrt3i)^2 + (\sqrt3i)^3 \\
         & = -1 + 3\sqrt3i + 3(-1)(-3) + (\sqrt3i)^3 \\
-        & = -1 + 3\sqrt3i + 9 + 3\sqrt3i(-i) \\
         & = -1 + 3\sqrt3i + 9 - 3\sqrt3i \\
         & = 8.
     \end{align*}
@@ -199,9 +198,10 @@
     Let $x = (x_1, x_2, \ldots, x_n)$, $y = (y_1, y_2, \ldots, y_n)$, and $z = (z_1, z_2, \ldots, z_n)$. Then
     \begin{align*}
         (x + y) + z & = ((x_1, x_2, \ldots, x_n) + (y_1, y_2, \ldots, y_n)) + (z_1, z_2, \ldots, z_n) \\
-        & = ( (x_1 + y_1), (x_2 + y_2), \ldots, (x_n + y_n) ) + (z_1, z_2, \ldots, z_n) \\
-        & = (x_1 + y_1 + z_1, x_2 + y_2 + z_2, \ldots, x_n + y_n + z_n) \\
-        & = (x_1, x_2, \ldots, x_n) + ((y_1 + z_1), (y_2 + z_2), \ldots, (y_n + z_n)) \\
+        & = (x_1 + y_1, x_2 + y_2, \ldots, x_n + y_n) + (z_1, z_2, \ldots, z_n) \\
+        & = ((x_1 + y_1) + z_1, (x_2 + y_2) + z_2, \ldots, (x_n + y_n) + z_n) \\
+        & = (x_1 + (y_1 + z_1), x_2 + (y_2 + z_2), \ldots, x_n + (y_n + z_n)) \\
+        & = (x_1, x_2, \ldots, x_n) + ((y_1, y_2, \ldots, y_n) + (z_1, z_2, \ldots, z_n)) \\
         & = x + (y + z). \qh
     \end{align*}
 \end{sol}
@@ -214,9 +214,9 @@
     Let $x = (x_1, x_2, \ldots, x_n) \in \f^n$ and $a, b \in \f$. Then
     \begin{align*}
         (ab)x & = (ab)(x_1, x_2, \ldots, x_n) \\
-        & = ( (ab)x_1, (ab)x_2, \ldots, (ab)x_n ) \\
-        & = ( a(bx_1), a(bx_2), \ldots, a(bx_n) ) \\
-        & = a( (bx_1, bx_2, \ldots, bx_n) ) \\
+        & = ((ab)x_1, (ab)x_2, \ldots, (ab)x_n) \\
+        & = (a(bx_1), a(bx_2), \ldots, a(bx_n)) \\
+        & = a((bx_1, bx_2, \ldots, bx_n)) \\
         & = a(bx). \qh
     \end{align*}
 \end{sol}
@@ -244,12 +244,11 @@
     Let $x = (x_1, x_2, \ldots, x_n)$ and $y = (y_1, y_2, \ldots, y_n)$ be elements of $\f^n$ and $\lambda \in \f$. Then
     \begin{align*}
         \lambda(x + y) & = \lambda((x_1, x_2, \ldots, x_n) + (y_1, y_2, \ldots, y_n)) \\
-        & = \lambda((x_1 + y_1), (x_2 + y_2), \ldots, (x_n + y_n)) \\
+        & = \lambda(x_1 + y_1, x_2 + y_2, \ldots, x_n + y_n) \\
         & = (\lambda(x_1 + y_1), \lambda(x_2 + y_2), \ldots, \lambda(x_n + y_n)) \\
         & = (\lambda x_1 + \lambda y_1, \lambda x_2 + \lambda y_2, \ldots, \lambda x_n + \lambda y_n) \\
         & = (\lambda x_1, \lambda x_2, \ldots, \lambda x_n) + (\lambda y_1, \lambda y_2, \ldots, \lambda y_n) \\
-        & = \lambda(x_1, x_2, \ldots, x_n) + \lambda(y_1, y_2, \ldots, y_n) \\
-        & = \lambda x + \lambda y. \qh
+        & = \lambda(x_1, x_2, \ldots, x_n) + \lambda(y_1, y_2, \ldots, y_n) = \lambda x + \lambda y. \qh
     \end{align*}
 \end{sol}
 

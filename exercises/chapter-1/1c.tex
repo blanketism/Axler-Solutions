@@ -109,7 +109,7 @@
         \item Is $\set{(a, b, c) \in \r^3 \mid a^3 = b^3}$ a subspace of $\r^3$?
         \item Is $\set{(a, b, c) \in \c^3 \mid a^3 = b^3}$ a subspace of $\c^3$?
     \end{subexercises}
-    \remark{Here, I present an elementary argument that does not require the use of De Moivre's Theorem; rather, I arrive to the conclusion directly. However, readers who are familiar with it may find it easier to note that the complex number 1 has three cubic roots of unity. Other readers may also use Vieta's formulas to arrive at the same polynomial in $\omega$ to obtain $1 + \omega = -\omega^2$.}
+    \remark{Here, I present an elementary argument that does not require the use of De Moivre's Theorem; rather, I arrive at the conclusion directly. However, readers who are familiar with it may find it easier to note that the complex number 1 has three cube roots of unity. Other readers may also use Vieta's formulas to arrive at the same polynomial in $\omega$ to obtain $1 + \omega = -\omega^2$.}
 \end{exercise}
 
 \begin{sol}
@@ -139,7 +139,7 @@
 \end{exercise}
 
 \begin{sol}
-    Consider the subset $\q^2$ of $\r^2$. Then $\q^2$ is nonempty because $(0, 0) \in \q^2$, closed under addition since the sum of any two rational numbers is rational, and closed under taking additive inverses since the additive inverse of a rational number is rational. However, for any irrational number $r \in \r$, the vector $(r, 0) \in \r^2$ is not in $\q^2$. Hence, $\q^2$ is not closed under scalar multiplication and is not a subspace of $\r^2$. Therefore, the statement is false.
+    Consider the subset $\q^2$ of $\r^2$. Then $\q^2$ is nonempty because $(0, 0) \in \q^2$, closed under addition since the sum of any two rational numbers is rational, and closed under taking additive inverses since the additive inverse of a rational number is rational. However, for any irrational number $r \in \r$, the vector $(r, 0) = r(1, 0) \in \r^2$ is not in $\q^2$. Hence, $\q^2$ is not closed under scalar multiplication and is not a subspace of $\r^2$. Therefore, the statement is false.
 \end{sol}
 
 \begin{exercise}[1c8]
@@ -153,7 +153,7 @@
 \end{sol}
 
 \begin{exercise}[1c9]
-    A function $f : \r \to \r$ is called \emph{periodic} if there exists a positive number $p$ such that $f(x + p) = f(x)$ for all $x \in \r$. Is the set of periodic functions from $\r$ to $\r$ a subspace of $\r^{\r}$? Explain.
+    A function $f : \r \to \r$ is called \textbf{periodic} if there exists a positive number $p$ such that $f(x + p) = f(x)$ for all $x \in \r$. Is the set of periodic functions from $\r$ to $\r$ a subspace of $\r^{\r}$? Explain.
 \end{exercise}
 
 \begin{sol}
@@ -340,9 +340,9 @@
 \end{sol}
 
 \begin{exercise}[1c24]
-    A function $f : \r \to \r$ is called \emph{even} if
+    A function $f : \r \to \r$ is called \textbf{even} if
     \[f(-x) = f(x)\]
-    for all $x \in \r$. A function $f : \r \to \r$ is called \emph{odd} if
+    for all $x \in \r$. A function $f : \r \to \r$ is called \textbf{odd} if
     \[f(-x) = -f(x)\]
     for all $x \in \r$. Let $V_e$ denote the set of real-valued even functions on $\r$, and let $V_o$ denote the set of real-valued odd functions on $\r$. Show that $\r^{\r} = V_e \op V_o$.
 \end{exercise}
@@ -358,9 +358,7 @@
     \[f(x) = f_e(x) + f_o(x).\]
     Hence, every function in $\r^{\r}$ can be written as a sum of an even function and an odd function. 
 
-    Now, suppose $g \in V_e \cap V_o$. Then $g$ is both even and odd, which implies that
-    \[g(0) = g(-0) = -g(0),\]
-    so $g(0) = 0$. For any $x \in \r$, we have that
+    Now, suppose $g \in V_e \cap V_o$. Then $g$ is both even and odd. Then for any $x \in \r$, we have
     \[g(x) = g(-(-x)) = -g(-x) = -g(x),\]
-    which implies that $g(x) = 0$. Hence, the only function in the intersection of $V_e$ and $V_o$ is the zero function. Therefore, $\r^{\r} = V_e \op V_o$.
+    which implies that $2g(x) = 0$, or $g(x) = 0$. Hence, the only function in the intersection of $V_e$ and $V_o$ is the zero function. Therefore, $\r^{\r} = V_e \op V_o$.
 \end{sol}
