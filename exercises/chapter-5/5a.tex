@@ -118,9 +118,19 @@
 \end{exercise}
 
 \begin{sol}
-    Let $p(x) = a_0 + a_1 x + a_2 x^2 + a_3 x^3 + a_4 x^4 \in \pp_4(\r)$ be an eigenvector of $T$ with eigenvalue $\lambda$. Then
-    \[xp'(x) = a_1x + 2a_2 x^2 + 3a_3 x^3 + 4a_4 x^4.\]
-    Comparing coefficients of like powers of $x$ on both sides of the equation $xp'(x) = \lambda p(x)$, we get that $\lambda a_0 = 0$ and $k a_k = \lambda a_k$ for all $k = 1, 2, 3, 4$. This forces $\lambda = k$ for some $k$ such that $a_k \neq 0$. Therefore, the eigenvalues are $\lambda = 0, 1, 2, 3, 4$, and the corresponding eigenvectors are $p(x) = Cx^\lambda$ for each $\lambda$.
+    Let $p(x) = a_0 + a_1x + a_2x^2 + a_3x^3 + a_4x^4$ be an eigenvector of $T$ with eigenvalue $\lambda$. Then
+    \[(Tp)(x) = xp'(x) = x(a_1 + 2a_2x + 3a_3x^2 + 4a_4x^3) = a_1x + 2a_2x^2 + 3a_3x^3 + 4a_4x^4.\]
+    Equating coefficients with $\lambda p(x) = \lambda a_0 + \lambda a_1x + \lambda a_2x^2 + \lambda a_3x^3 + \lambda a_4x^4$, we get the system
+    \[
+    \begin{cases}
+        0 = \lambda a_0,\\
+        a_1 = \lambda a_1,\\
+        2a_2 = \lambda a_2,\\
+        3a_3 = \lambda a_3,\\
+        4a_4 = \lambda a_4.
+    \end{cases}
+    \]
+    Because $p$ is an eigenvector, it is nonzero, so at least one of the coefficients $a_1, a_2, a_3, a_4$ must be nonzero. For equality to occur, it must be that $\lambda = k$ for some $k = 0, 1, 2, 3, 4$. Fixing some $k$, then $ka_k = \lambda a_k$ implies that $a_k$ can be a nonzero scalar. Otherwise, for $j \neq k$, then $ja_j = \lambda a_j$ implies $(j - \lambda)a_j = 0$. Since $k = \lambda \neq j$, then $a_j = 0$. Therefore, the eigenvalues of $T$ are $\lambda = 0, 1, 2, 3, 4$, and the corresponding eigenvectors are the nonzero scalar multiples of $x^\lambda$ for each $\lambda = 0, 1, 2, 3, 4$.
 \end{sol}
 
 \begin{exercise}[5a11]
@@ -214,10 +224,10 @@
     Suppose $\lambda$ is an eigenvalue of $T$ with eigenvector $v \in V$, so $Tv = \lambda v$. Then in the complexification, we have $T_\c(v + i0) = Tv + iT0 = \lambda v + i0 = \lambda (v + i0)$, showing that $\lambda$ is an eigenvalue of $T_\c$ with eigenvector $v + i0$.
 
     Conversely, suppose $\lambda$ is an eigenvalue of $T_\c$ with eigenvector $v + iw \in V_\c$, where $v, w \in V$. Then
-    \[T_\c(v + iw) = \lambda (v + iw) \implies Tv + iTw = (\Re(\lambda) + i\Im(\lambda))(v + iw) = (\Re(\lambda)v - \Im(\lambda)w) + i(\Re(\lambda)w + \Im(\lambda)v).\]
+    \[T_\c(v + iw) = Tv + iTw = \lambda (v + iw) = \lambda v + i\lambda w.\]
     Equating real and imaginary parts, we get
-    \[Tv = \Re(\lambda)v - \Im(\lambda)w \quad \text{and} \quad Tw = \Re(\lambda)w + \Im(\lambda)v.\]
-    Since $\lambda \in \r$, we have $\Im(\lambda) = 0$, so $Tv = \lambda v$ and $Tw = \lambda w$. If $v \neq 0$, then $v$ is an eigenvector of $T$ corresponding to $\lambda$. If $v = 0$, then $w \neq 0$ and $Tw = \lambda w$, so $w$ is an eigenvector of $T$ corresponding to $\lambda$. This shows that $\lambda$ is an eigenvalue of $T$.
+    \[Tv = \lambda v \quad \text{and} \quad Tw = \lambda w.\]
+    Since $\lambda \in \r$, if $v \neq 0$, then $v$ is an eigenvector of $T$ corresponding to $\lambda$. If $v = 0$, then $w \neq 0$ and $Tw = \lambda w$, so $w$ is an eigenvector of $T$ corresponding to $\lambda$. This shows that $\lambda$ is an eigenvalue of $T$.
 \end{sol}
 
 \begin{exercise}[5a18]
@@ -226,10 +236,20 @@
 
 \begin{sol}
     Suppose $\lambda$ is an eigenvalue of $T_\c$ with eigenvector $v + iw \in V_\c$, where $v, w \in V$. Then
-    \[T_\c(v + iw) = \lambda (v + iw) \implies Tv + iTw = (\Re(\lambda) + i\Im(\lambda))(v + iw) = (\Re(\lambda)v - \Im(\lambda)w) + i(\Re(\lambda)w + \Im(\lambda)v).\]
-    Taking complex conjugates, we have
-    \[\bar{T_{\c}(v + iw)} = \bar{\lambda (v + iw)} \implies T_\c(v - iw) = \bar{\lambda} (v - iw),\]
-    showing that $\bar{\lambda}$ is an eigenvalue of $T_\c$ with eigenvector $v - iw$.
+    \[T_\c(v + iw) = Tv + iTw = \lambda (v + iw) = \lambda v + i\lambda w.\]
+    Moreover, we have
+    \[T_\c(v - iw) = Tv - iTw.\]
+    Note that $v + iw = 0$ if and only if both $v = w = 0$. Then $v + iw \neq 0$ implies $v -i w \neq 0$. Let $\lambda = a + bi$ with $a, b \in \r$. Then equating real and imaginary parts, we have
+    \[Tv = av - bw \quad \text{and} \quad Tw = bv + aw.\]
+    Then
+    \begin{align*}
+        T_\c(v - iw) &= Tv - iTw \\
+        &= (av - bw) - i(bv + aw) \\
+        &= av - ibv - bw + iaw \\
+        &= (a - ib)(v - iw) \\
+        &= \bar{\lambda} (v - iw).
+    \end{align*}
+    Since $v - iw \neq 0$, this shows that $\bar{\lambda}$ is an eigenvalue of $T_\c$ with eigenvector $v - iw$.
 
     Conversely, if $\bar{\lambda}$ is an eigenvalue of $T_\c$, then by the same argument, $\lambda$ is an eigenvalue of $T_\c$. This completes the proof.
 \end{sol}
@@ -373,7 +393,7 @@
 \end{exercise}
 
 \begin{sol}
-    Let $\lambda_1, \ldots, \lambda_m$ be distinct eigenvalues of $T$ with corresponding eigenvectors $v_1, \ldots, v_m$. Since the eigenvalues are distinct, at most one eigenvalue must be 0. Then the remaining $m - 1$ eigenvectors must correspond to distinct nonzero eigenvalues, and hence they must be linearly independent. Therefore, $m - 1 \leq \dim \range T$, which implies $m \leq 1 + \dim \range T$.
+    Let $\lambda_1, \ldots, \lambda_m$ be distinct eigenvalues of $T$ with corresponding eigenvectors $v_1, \ldots, v_m$. Since the eigenvalues are distinct, at most one eigenvalue must be 0. Without loss of generality, assume $\lambda_1 = 0$ if 0 is an eigenvalue. Then $v_2, \ldots, v_m$ are $m - 1$ eigenvectors corresponding to nonzero eigenvalues. Since $Tv_i = \lambda_i v_i \neq 0$ for $i = 2, \ldots, m$, it follows that $v_i \in \range T$. Therefore, $v_2, \ldots, v_m$ are linearly independent vectors in $\range T$, which implies that $m - 1 \leq \dim \range T$. Hence, the total number of distinct eigenvalues is at most $1 + \dim \range T$.
 \end{sol}
 
 \begin{exercise}[5a29]
@@ -544,7 +564,7 @@
 \begin{sol}
     Suppose $T$ has an eigenvalue $\lambda$ with corresponding eigenvector $v \in V$. Consider $\range(T - \lambda I)$. Then $\dim \range(T - \lambda I) \leq \dim V - 1$. Extend to a subspace $U$ of $V$ of dimension $\dim V - 1$ that contains $\range(T - \lambda I)$. Then $U$ is invariant under $T$ because for any $u \in U$, $Tu = (T - \lambda I)u + \lambda u \in U$. Hence, there exists a subspace of $V$ of dimension $\dim V - 1$ that is invariant under $T$.
 
-    Conversely, suppose there exists a subspace $U$ of $V$ of dimension $\dim V - 1$ that is invariant under $T$. Then $V / U$ is one-dimensional, and the induced operator $T / U$ on $V / U$ must have an eigenvalue $\lambda$. Let $v + U \in V / U$ be a corresponding eigenvector. Then $(T / U)(v + U) = Tv + U = \lambda(v + U)$, which implies $Tv - \lambda v \in U$. Since $U$ is invariant under $T - \lambda I$, and $(T - \lambda I)v \in U$ for all $v \notin U$, then $\range(T - \lambda I) \subseteq U$. Hence, $T - \lambda I$ is not surjective so that it is not injective, so $\lambda$ is an eigenvalue of $T$.
+    Conversely, suppose there exists a subspace $U$ of $V$ of dimension $\dim V - 1$ that is invariant under $T$. Then $V / U$ is one-dimensional, and the induced operator $T / U$ on $V / U$ must have an eigenvalue $\lambda$. By \autoref{ex:5a38} (b), any eigenvalue of $T / U$ is also an eigenvalue of $T$. Hence, $T$ has an eigenvalue.
 \end{sol}
 
 \begin{exercise}[5a40]
@@ -612,5 +632,11 @@
 \end{exercise}
 
 \begin{sol}
-    Note that $\dim \lin V > 4$. Let $S$ be the set in question and assume $S = \lin V$. Then every element of $S$ is of the form $p(T)$ for some polynomial $p \in \pp(\f)$. In particular, each element of $S$ commutes with $T$. By \autoref{ex:3a11}, if every operator in $\lin{V}$ commutes with $T$, then $T$ must be a scalar multiple of the identity, say $T = \lambda I$ for some scalar $\lambda \in \f$. But then $p(T) = p(\lambda) I$ for some scalar $p(\lambda) \in \f$, which is always a scalar multiple of the identity. Therefore, $S$ consists only of scalar multiples of the identity operator, and cannot equal $\lin{V}$ since $\dim \lin{V} \geq 4$. Hence, $S \neq \lin{V}$.
+    Note that $\dim \lin V \geq 4$. Let $v_1, \ldots, v_n$ be a basis for $V$. Consider the operators $T_1, T_2 \in \lin V$ defined by
+    \[T_1v_1 = v_2, \quad T_1v_i = 0~\text{for}~i = 2, \ldots, n,\]
+    and
+    \[T_2v_1 = v_1, \quad T_2v_i = 0~\text{for}~i = 2, \ldots, n.\]
+    Then $T_2T_1v_1 = T_2(T_1v_1) = T_2v_2 = 0$, and $T_1T_2v_1 = T_1(T_2v_1) = T_1v_1 = v_2$. Hence, $T_2T_1 \neq T_1T_2$, so $T_1$ and $T_2$ do not commute. Now let $S$ be the set in question, and let $p, q \in \pp(\f)$ where
+    \[p(T) = a_0 I + a_1 T + \dots + a_m T^m, \quad q(T) = b_0 I + b_1 T + \dots + b_n T^n.\]
+    Observe that $p(T)q(T)$ consists of linear combinations of powers of $T$ with coefficients $a_i b_j$. By commutativity of $\f$, we see that $q(T)p(T) = p(T)q(T)$, so elements of $S$ commute. Since $T_1$ and $T_2$ do not commute, they cannot both be in $S$. Hence, $S \neq \lin V$.
 \end{sol}

@@ -236,7 +236,7 @@
 \begin{sol}
     Suppose $v_1, \ldots, v_m, w$ is linearly independent. If there were scalars $\alpha_1, \ldots, \alpha_m, \beta$ such that
     \[\alpha_1 v_1 + \cdots + \alpha_m v_m + \beta w = 0,\]
-    then linear independence would imply that $\alpha_1 = \cdots = \alpha_m = \beta = 0$. Suppose $w \in \spn(v_1, \ldots, v_m)$. Then there exist scalars $\gamma_1, \ldots, \gamma_m$ not all zero such that
+    then linear independence would imply that $\alpha_1 = \cdots = \alpha_m = \beta = 0$. Suppose $w \in \spn(v_1, \ldots, v_m)$. Then there exist scalars $\gamma_1, \ldots, \gamma_m$ such that
     \[\gamma_1 v_1 + \cdots + \gamma_m v_m = w.\]
     Then we may write
     \[-\gamma_1 v_1 - \cdots - \gamma_m v_m + 1\cdot w = 0,\]
@@ -292,7 +292,7 @@
 \end{exercise}
 
 \begin{sol}
-    Since $\pp_4(\f)$ can be spanned by the list $1, x, x^2, x^3, x^4$, and the length of a spanning list cannot be less than the length of a linearly independent list, no list of four polynomials spans $\pp_4(\f)$.
+    Since the list $1, x, x^2, x^3, x^4$ is a linearly independent list in $\pp_4(\f)$ and has length 5, and the length of a spanning list cannot be less than the length of a linearly independent list, no list of four polynomials can span $\pp_4(\f)$.
 \end{sol}
  
 \begin{exercise}[2a17]
@@ -300,7 +300,7 @@
 \end{exercise}
 
 \begin{sol}
-    Suppose $V$ is infinite-dimensional. We proceed by induction to construct a sequence of vectors $v_1, v_2, \ldots$ in $V$ such that $v_1, \ldots, v_m$ is linearly independent for every positive integer $m$. Since $V$ is infinite-dimensional, there exists a nonzero vector $v_1 \in V$. Suppose we have constructed a linearly independent list of vectors $v_1, \ldots, v_m$ in $V$. Since $V$ is infinite-dimensional, there exists a vector $v_{m+1} \in V$ such that $v_{m + 1} \notin \spn(v_1, \ldots, v_m)$. Then $v_1, \ldots, v_m, v_{m+1}$ is linearly independent. By induction, we have constructed a sequence of vectors $v_1, v_2, \ldots$ in $V$ such that $v_1, \ldots, v_m$ is linearly independent for every positive integer $m$.
+    Suppose $V$ is infinite-dimensional. We proceed by induction to construct a sequence of vectors $v_1, v_2, \ldots$ in $V$ such that $v_1, \ldots, v_m$ is linearly independent for every positive integer $m$. Since $V$ is infinite-dimensional, there exists a nonzero vector $v_1 \in V$. Suppose we have constructed a linearly independent list of vectors $v_1, \ldots, v_m$ in $V$. If every $v \in V$ is a linear combination of $v_1, \ldots, v_m$, then $V = \spn(v_1, \ldots, v_m)$, which contradicts the assumption that $V$ is infinite-dimensional. Thus, there exists a vector $v_{m+1} \in V$ that is not in $\spn(v_1, \ldots, v_m)$. Then by \autoref{ex:2a13}, the list $v_1, \ldots, v_m, v_{m+1}$ is linearly independent. By induction, we can construct a sequence of vectors $v_1, v_2, \ldots$ in $V$ such that $v_1, \ldots, v_m$ is linearly independent for every positive integer $m$.
 
     Conversely, suppose there exists a sequence of vectors $v_1, v_2, \ldots$ in $V$ such that $v_1, \ldots, v_m$ is linearly independent for every positive integer $m$. Then for every positive integer $m$, there exists a linearly independent list of vectors in $V$ of length $m$. Since there is no maximum length for a linearly independent list of vectors in $V$, this implies that $V$ is infinite-dimensional.
 \end{sol}
@@ -320,7 +320,11 @@
 \end{exercise}
 
 \begin{sol}
-    By \autoref{ex:2a17}, it suffices to construct a sequence of continuous real-valued functions $f_1, f_2, \ldots$ on the interval $[0, 1]$ such that $f_1, \ldots, f_m$ is linearly independent for every positive integer $m$. Let $f_k(x) = x^{k-1}$ for $k = 1, 2, \ldots$. Then for any positive integer $m$, the list $f_1, \ldots, f_m$ is linearly independent, since the only way to write the zero function as a linear combination of $f_1, \ldots, f_m$ is to take all coefficients to be zero. Thus, by \autoref{ex:2a17}, $\r^{[0, 1]}$ is infinite-dimensional.
+    By \autoref{ex:2a17}, it suffices to construct a sequence of continuous real-valued functions $f_1, f_2, \ldots$ on the interval $[0, 1]$ such that $f_1, \ldots, f_m$ is linearly independent for every positive integer $m$. Let $f_k(x) = x^{k-1}$ for each positive integer $k$. Then for any positive integer $m$, let $\alpha_1, \ldots, \alpha_m \in \r$ such that
+    \[\alpha_1 f_1(x) + \cdots + \alpha_m f_m(x) = 0\]
+    for all $x \in [0, 1]$. This is equivalent to the polynomial equation
+    \[\alpha_1 + \alpha_2 x + \cdots + \alpha_m x^{m-1} = 0\]
+    for all $x \in [0, 1]$. Since a polynomial of degree at most $m - 1$ can have at most $m - 1$ roots unless it is the zero polynomial, we must have $\alpha_1 = \cdots = \alpha_m = 0$. Thus, the list $f_1, \ldots, f_m$ is linearly independent. Therefore, by \autoref{ex:2a17}, the real vector space of all continuous real-valued functions on the interval $[0, 1]$ is infinite-dimensional.
 \end{sol}
  
 \begin{exercise}[2a20]

@@ -5,7 +5,11 @@
 \end{exercise}
 
 \begin{sol}
-    Let $V$ be a vector space. If $V$ has exactly one basis, then $V$ must be finite-dimensional, since infinite-dimensional vector spaces have infinitely many bases. Let $v_1, \ldots, v_n$ be a basis of $V$. Then any other basis of $V$ must also have length $n$. Since there is only one basis of $V$, it must be that $n = 0$, and so the only vector space that has exactly one basis is the zero vector space.
+    Since an infinite-dimensional vector space has infinitely many bases, we only need to consider finite-dimensional vector spaces. Let $V$ be a finite-dimensional vector space, and let $v_1, \ldots, v_n$ be a basis of $V$. Then any other basis of $V$ must have the same length as $v_1, \ldots, v_n$, which is $n$. If $n \geq 1$, consider a nonzero $\alpha \in \f$. Then the list $\alpha v_1, v_2, \ldots, v_n$ still spans $V$, since we may recover $v_1 = \alpha\inv(\alpha v_1)$. Moreover, the list $\alpha v_1, v_2, \ldots, v_n$ is linearly independent, since if
+    \[\beta_1(\alpha v_1) + \beta_2 v_2 + \cdots + \beta_n v_n = 0,\]
+    then we may write
+    \[(\alpha \beta_1) v_1 + \beta_2 v_2 + \cdots + \beta_n v_n = 0.\]
+    Since $v_1, \ldots, v_n$ is linearly independent, we must have $\alpha \beta_1 = 0$, which implies that $\beta_1 = 0$. Then we also have $\beta_2 = \cdots = \beta_n = 0$. Thus, the list $\alpha v_1, v_2, \ldots, v_n$ is linearly independent. Therefore, if $n \geq 1$, then $V$ has more than one basis. If $n = 0$, then $V = \set{0}$. The empty list spans $V$, and the empty list must be linearly independent, since there are no nonzero scalars to consider. Thus, the empty list is a basis of $V$. Moreover, this is the only basis of $V$, since $0$ is linearly dependent. Therefore, the only vector space that has exactly one basis is the zero vector space.
 \end{sol}
 
 \begin{exercise}[2b2]
@@ -36,13 +40,7 @@
     for $\alpha, \beta \in \f$. Solving this system of equations, we find that
     \[\alpha = 2x - y, \quad \beta = -5x + 3y.\]
     Since we can find $\alpha, \beta \in \f$ for any $(x, y) \in \f^2$, the list spans $\f^2$. Thus, the list is a basis of $\f^2$.
-    \item If $(7, -5, 6) = a(1, 2, -4)$ for some $a \in \f$, then we must have $7 = a$, $-5 = 2a$, and $6 = -4a$, which is impossible. Thus, the list is linearly independent. Moreover, the list does not span $\f^3$. If it did, then we could write $(0, 0, 1) = \alpha(1, 2, -4) + \beta(7, -5, 6)$ for some $\alpha, \beta \in \f$. This would give us the system of equations
-    \begin{align*}
-        0 & = \alpha + 7\beta, \\
-        0 & = 2\alpha - 5\beta, \\
-        1 & = -4\alpha + 6\beta.
-    \end{align*}
-    From the first equation, we see that $\alpha = -7\beta$. Substituting this into the second equation gives us $0 = -14\beta - 5\beta = -19\beta$, so $\beta = 0$ and $\alpha = 0$. However, substituting these values into the third equation gives us $1 = 0$, which is impossible. Thus, the list does not span $\f^3$, and so it is not a basis of $\f^3$.
+    \item Note that $\f^3$ is spanned by the list $(1, 0, 0), (0, 1, 0), (0, 0, 1)$. Since the length of a spanning list must be at least the length of a linearly independent list, the list $(1, 2, -4), (7, -5, 6)$ cannot span $\f^3$.
     \item From part (b), we saw that $(1, 2), (3, 5)$ is a basis of $\f^2$. Since $(4, 13) = -5(3, 5) + 19(1, 2)$, the list $(1, 2), (3, 5), (4, 13)$ is linearly dependent. Moreover, since $(1, 2), (3, 5)$ is a basis of $\f^2$, the list $(1, 2), (3, 5), (4, 13)$ spans $\f^2$. Thus, the list is not a basis of $\f^2$.
     \item Let $U$ be the subspace in question. If $\alpha, \beta \in \f$ such that
     \[\alpha(1, 1, 0) + \beta(0, 0, 1) = (0, 0, 0),\]
@@ -131,16 +129,33 @@
     Suppose $v_1, v_2, v_3, v_4$ is a basis of $V$. Prove that
     \[v_1 + v_2, v_2 + v_3, v_3 + v_4, v_4\]
     is also a basis of $V$.
+
+    \remark{The technique of transforming the scalars $\beta_1, \beta_2, \beta_3, \beta_4$ into the scalars $\alpha_1, \alpha_2, \alpha_3, \alpha_4$ is good to remember. You will later learn that this is called a \emph{change of basis}.}
 \end{exercise}
 
 \begin{sol}
-    Let $\alpha_1, \alpha_2, \alpha_3, \alpha_4 \in \f$ such that
+    Let $\alpha_1, \ldots, \alpha_4 \in \f$ such that
     \[\alpha_1(v_1 + v_2) + \alpha_2(v_2 + v_3) + \alpha_3(v_3 + v_4) + \alpha_4 v_4 = 0.\]
-    Then we may rewrite this equation as
-    \[\alpha_1 v_1 + (\alpha_1 + \alpha_2)v_2 + (\alpha_2 + \alpha_3)v_3 + (\alpha_3 + \alpha_4)v_4 = 0.\]
-    Since $v_1, v_2, v_3, v_4$ is a basis of $V$, it is linearly independent, and so we must have
+    Then we may write
+    \[\alpha_1v_1 + (\alpha_1 + \alpha_2)v_2 + (\alpha_2 + \alpha_3)v_3 + (\alpha_3 + \alpha_4)v_4 = 0.\]
+    Since $v_1, v_2, v_3, v_4$ is a basis of $V$, we must have
     \[\alpha_1 = 0, \quad \alpha_1 + \alpha_2 = 0, \quad \alpha_2 + \alpha_3 = 0, \quad \alpha_3 + \alpha_4 = 0.\]
-    From the first equation, we have $\alpha_1 = 0$. Then the second equation gives us $\alpha_2 = 0$. The third equation then gives us $\alpha_3 = 0$, and finally the fourth equation gives us $\alpha_4 = 0$. Thus, the list is linearly independent. Moreover, since $v_1, v_2, v_3, v_4$ is a basis of $V$, it spans $V$, and so the list also spans $V$. Therefore, the list is a basis of $V$.
+    From the first equation, we have $\alpha_1 = 0$. Substituting this into the second equation gives us $\alpha_2 = 0$. Substituting this into the third equation gives us $\alpha_3 = 0$. Finally, substituting this into the fourth equation gives us $\alpha_4 = 0$. Thus, the list is linearly independent. Moreover, since $v_1, v_2, v_3, v_4$ is a basis of $V$, then any vector $v \in V$ can be written as
+    \[v = \beta_1 v_1 + \beta_2 v_2 + \beta_3 v_3 + \beta_4 v_4\]
+    for some $\beta_1, \ldots, \beta_4 \in \f$. Using the expressions from proving the linear independence of the list, we may show that there exist $\alpha_1, \ldots, \alpha_4 \in \f$ such that
+    \[
+    \begin{cases}
+        \beta_1 = \alpha_1, \\
+        \beta_2 = \alpha_1 + \alpha_2, \\
+        \beta_3 = \alpha_2 + \alpha_3, \\
+        \beta_4 = \alpha_3 + \alpha_4.
+    \end{cases}
+    \]
+    Then $v \in V$ may be written as
+    \[v = \alpha_1(v_1 + v_2) + \alpha_2(v_2 + v_3) + \alpha_3(v_3 + v_4) + \alpha_4 v_4,\]
+    where
+    \[\alpha_1 = \beta_1, \quad \alpha_2 = \beta_2 - \beta_1, \quad \alpha_3 = \beta_3 - \beta_2 + \beta_1, \quad \alpha_4 = \beta_4 - \beta_3 + \beta_2 - \beta_1.\]
+    Thus, the list spans $V$. Therefore, the list is a basis of $V$.
 \end{sol}
 
 \begin{exercise}[2b8]

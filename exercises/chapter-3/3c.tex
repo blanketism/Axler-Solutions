@@ -5,13 +5,9 @@
 \end{exercise}
 
 \begin{sol}
-    Let $v_1, \ldots, v_n$ be a basis of $V$ and $w_1, \ldots, w_m$ be a basis of $W$. Then the matrix of $T$ with respect to these bases is given by
-    \[\mm(T) = 
-    \begin{pmatrix}
-        Tv_1 & Tv_2 & \cdots & Tv_n
-    \end{pmatrix}
-    \]
-    where each $Tv_j$ is expressed as a linear combination of the basis vectors $w_1, \ldots, w_m$. Let $\dim \range T = r$. Then there exist $r$ linearly independent vectors in $\range T$. After possibly reordering the basis vectors of $V$, we can assume that $Tv_1, \ldots, Tv_r$ are linearly independent. Since each $Tv_j$ is a linear combination of the basis vectors of $W$, each $Tv_j$ must have at least one nonzero entry in its corresponding column of the matrix $\mm(T)$. Therefore, there are at least $r$ nonzero entries in the matrix $\mm(T)$, which shows that the matrix of $T$ has at least $\dim \range T$ nonzero entries.
+    Let $v_1, \ldots, v_n$ be a basis of $V$ and $w_1, \ldots, w_m$ be a basis of $W$. Let $A = \mm(T)$ be the matrix with respect to these bases. Then the $j$-th column of $A$ are the coordinate vectors $Tv_1, \ldots, Tv_n$ with respect to the basis for $W$. Moreover, the span of the columns of $A$ is equal to $\range T$.
+
+    Suppose $A$ had fewer than $\dim \range T$ nonzero columns. Since zero columns do not contribute to the span, then the columns of $A$ would span a space by fewer than $\dim \range T$ vectors, contradicting that the space has dimension $\dim \range T$. Hence, $A$ must have at least $\dim \range T$ nonzero columns, and thus at least $\dim \range T$ nonzero entries.
 \end{sol}
 
 \begin{exercise}[3c2]
@@ -266,11 +262,11 @@
 \end{exercise}
 
 \begin{sol}
-    Let $A$ be an $m$-by-$n$ matrix, and let $B$ and $C$ be $n$-by-$p$ matrices. Then the product $A(B + C)$ is defined. By \autoref{ex:3c8} and \autoref{ex:3c9}, we have
+    Let $A$ be an $m$-by-$n$ matrix, and let $B$ and $C$ be $n$-by-$p$ matrices. Then $B + C$ is an $n$-by-$p$ matrix, and hence $A(B + C)$ is an $m$-by-$p$ matrix. The products $AB$ and $AC$ are also defined, and both are $m$-by-$p$ matrices. Therefore, the sum $AB + AC$ is defined and is also an $m$-by-$p$ matrix. By \autoref{ex:3c8} and \autoref{ex:3c9}, we have
     \[A(B + C)_{j, \cdot} = A_{j, \cdot} (B + C) = A_{j, \cdot} B + A_{j, \cdot} C = (AB)_{j, \cdot} + (AC)_{j, \cdot} = (AB + AC)_{j, \cdot}\]
     for all $j = 1, \ldots, m$. Therefore, $A(B + C) = AB + AC$.
 
-    Similarly, let $D$ and $E$ be $m$-by-$n$ matrices, and let $F$ be an $n$-by-$p$ matrix. Then the product $(D + E)F$ is defined. By \autoref{ex:3c8} and \autoref{ex:3c9}, we have
+    Similarly, let $D$ and $E$ be $m$-by-$n$ matrices, and let $F$ be an $n$-by-$p$ matrix. Then $D + E$ is an $m$-by-$n$ matrix, and hence $(D + E)F$ is an $m$-by-$p$ matrix. The products $DF$ and $EF$ are also defined, and both are $m$-by-$p$ matrices. Therefore, the sum $DF + EF$ is defined and is also an $m$-by-$p$ matrix. Then the product $(D + E)F$ is defined. By \autoref{ex:3c8} and \autoref{ex:3c9}, we have
     \[(D + E)F_{j, \cdot} = (D + E)_{j, \cdot} F = D_{j, \cdot} F + E_{j, \cdot} F = (DF)_{j, \cdot} + (EF)_{j, \cdot} = (DF + EF)_{j, \cdot}\]
     for all $j = 1, \ldots, m$. Therefore, $(D + E)F = DF + EF$.
 \end{sol}
@@ -282,13 +278,13 @@
 \end{exercise}
 
 \begin{sol}
-    Let $A$ be an $m$-by-$n$ matrix, $B$ be an $n$-by-$p$ matrix, and $C$ be a $p$-by-$q$ matrix. Then the product $(AB)C$ is defined. Going by the definition of matrix multiplication, we have
+    Let $A$ be an $m$-by-$n$ matrix, $B$ be an $n$-by-$p$ matrix, and $C$ be a $p$-by-$q$ matrix. Then the product $AB$ is defined and is an $m$-by-$p$ matrix. Therefore, the product $(AB)C$ is also defined and is an $m$-by-$q$ matrix. Going by the definition of matrix multiplication, we have
     \[((AB)C)_{j, k} = \sum_{r = 1}^{p} (AB)_{j, r} C_{r, k} = \sum_{r = 1}^{p} \left( \sum_{s = 1}^{n} A_{j, s} B_{s, r} \right) C_{r, k} = \sum_{r = 1}^{p} \sum_{s = 1}^{n} A_{j, s} B_{s, r} C_{r, k}.\]
-    On the other hand, the product $A(BC)$ is also defined. Again, by the definition of matrix multiplication, we have
+    On the other hand, the product $BC$ is defined and is an $n$-by-$q$ matrix. Therefore, the product $A(BC)$ is also defined and is an $m$-by-$q$ matrix. Again, by the definition of matrix multiplication, we have
     \[(A(BC))_{j, k} = \sum_{s = 1}^{n} A_{j, s} (BC)_{s, k} = \sum_{s = 1}^{n} A_{j, s} \left( \sum_{r = 1}^{p} B_{s, r} C_{r, k} \right) = \sum_{s = 1}^{n} \sum_{r = 1}^{p} A_{j, s} B_{s, r} C_{r, k}.\]
     Since the order of summation does not matter, we can interchange the order of the sums in the last expression to get
     \[(A(BC))_{j, k} = \sum_{r = 1}^{p} \sum_{s = 1}^{n} A_{j, s} B_{s, r} C_{r, k}.\]
-    Comparing the expressions for $((AB)C)_{j, k}$ and $(A(BC))_{j, k}$, we see that they are equal for all $j$ and $k$.
+    Comparing the expressions for $((AB)C)_{j, k}$ and $(A(BC))_{j, k}$, we see that they are equal for all $j$ and $k$. Therefore, $(AB)C = A(BC)$.
 \end{sol}
 
 \begin{exercise}[3c13]
