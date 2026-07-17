@@ -11,7 +11,7 @@
 \setlist[enumerate, 1]{label=\arabic*)}
 
 \newlist{subexercises}{enumerate}{1}
-\setlist[subexercises]{label=(\alph*), listparindent=\parindent}
+\setlist[subexercises]{label=(\alph*), listparindent=\parindent, parsep = 0pt}
 
 \newcounter{exercount}[subsection]
 
@@ -50,7 +50,7 @@
 }
 
 \newcommand{\apexref}[1]{\hyperref[apex:#1]{\emph{Appendix \MakeUppercase{#1}}}}
-\newcommand{\apnote}[2]{\remark{See \apexref{#1}{#2}}}
+\newcommand{\apnote}[2]{\textcolor{red!70}{\emph{\textbf{Appendix.} See \apexref{#1}{#2}}}}
 
 \newenvironment{exercise}[1][]{\begin{exer}{}{#1}}{\end{exer}}
 
