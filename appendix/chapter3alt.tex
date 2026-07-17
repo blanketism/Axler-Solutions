@@ -1,15 +1,30 @@
-\appendix
-
-\renewcommand\thesubsection{\thesection.\arabic{subsection}}
-
-\section{Appendix: Alternate Proofs of Exercises}
-
 \setcounter{subsection}{2}
 
 \subsection{Linear Maps}
 
+\begin{appendixexercise}[3e11]
+    Suppose $U = \set{(x_1, x_2, \ldots) \in \f^\infty \mid x_k \neq 0 \text{ for only finitely many } k}$.
+    \begin{subexercises}
+        \item Show that $U$ is a subspace of $\f^\infty$.
+        \item Prove that $\f^\infty / U$ is infinite-dimensional.
+    \end{subexercises}
+\end{appendixexercise}
+
+\begin{proof}
+    \leavevmode
+    \begin{subexercises}
+        \item Since $(0,0,\dots) \in U$, $U$ is nonempty. Suppose $x$, $y \in U$ and $c \in \mathbb{F}$. Let $S_x$ and $S_y$ be the sets of indices where $x$ and $y$ have nonzero terms, respectively. By definition, $S_x$ and $S_y$ are finite. $cx+y$ can only have nonzero terms at indices in $S_x \cup S_y$. Since the union of two finite sets is finite, $cx+y \in U$, which makes $U$ a subspace of $\mathbb{F}^{\infty}$. 
+
+        \item Partition $\mathbb{Z}^{+}$ into a countably infinite family of disjoint infinite subsets $A_1$, $A_2$, $\dots$. For each $n$, define $v_n \in \mathbb{F}^{\infty}$ such that its $j$th term is $1$ if $j \in A_n$ and $0$ otherwise. \\ 
+
+        Suppose that $\sum^{m}_{i=1} c_i (v_i+U)=0+U$ for some positive integer $m$ and scalars $c_1$, $\dots$, $c_m \in \mathbb{F}$. Then, $w=\sum^{m}_{i=1} c_i v_i \in U$. By construction, for $i \in \{1, \dots, m\}$, the $j$-th term of $w$ is $c_i$ for all $j \in A_i$. Since $w \in U$, it only has a finite number of nonzero terms. But each $A_i$ is infinite, so this forces $c_i=0$ for all $i \in \{1, \dots, m\}$. Hence, $v_1+U$, $v_2+U$, $\dots$ are linearly independent in $\mathbb{F}^{\infty}/U$. \\ 
+
+        Because $\mathbb{F}^{\infty}/U$ contains an infinite sequence of linearly independent vectors, it is infinite-dimensional.
+    \end{subexercises}
+\end{proof}
+
 \begin{appendixexercise}[3d19]
-    Suppose $V$ and $W$ are finite-dimensional and $T \in \lin{V, W}$. Prove that there exist a basis of $V$ and a basis of $W$ such that with respect to these bases, all entries of $\mm(T)$ are $0$ except that the entries in row $k$, column $k$, equal $1$ if $1 \leq k \leq \dim \range T$.
+    Suppose $V$ is finite-dimensional and $T \in \lin{V}$. Prove that $T$ has the same matrix with respect to every basis of $V$ if and only if $T$ is a scalar multiple of the identity operator.
 \end{appendixexercise}
 
 \begin{proof}[Coolempire93]
