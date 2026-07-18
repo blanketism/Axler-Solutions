@@ -199,7 +199,9 @@
 \end{sol}
 
 \begin{exercise}[3b15]
-    Suppose there exists a linear map on $V$ whose $\nul$ space and $\range$ are both finite-dimensional. Prove that $V$ is finite-dimensional.
+    Suppose there exists a linear map on $V$ whose null space and range are both finite-dimensional. Prove that $V$ is finite-dimensional.
+
+    \remark{The spanning list in the solution is actually a basis of $V$.}
 \end{exercise}
 
 \begin{sol}
@@ -426,7 +428,7 @@
 \begin{exercise}[3b25]
     Suppose that $W$ is finite-dimensional and $S, T \in \lin{V, W}$. Prove that $\nul S \subseteq \nul T$ if and only if there exists $E \in \lin{W}$ such that $T = ES$.
 
-    \remark{This exercise requires showing that some $R \in \lin{\range S, W}$ is well-defined. An issue arises when $T$ is not injective: for some $w \in \range S$, there may be multiple $v_1, \ldots, v_k \in V$ such that $Sv_1 = \cdots = Sv_k = w$. In this case, we need to show that $Tv_1 = \cdots = Tv_k$.}
+    \remark{This exercise requires showing that some $R \in \lin{\range S, W}$ is well-defined. An issue arises when $T$ is not injective: for some $w \in \range S$, there may be distinct $v_1, v_2 \in V$ such that $Sv_1 = Sv_2 = w$. In this case, we must show that $Tv_1 = Tv_2$.}
 \end{exercise}
 
 \begin{sol}

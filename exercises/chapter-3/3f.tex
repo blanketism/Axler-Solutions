@@ -519,14 +519,14 @@
     
     Observe that $\dim \null T' = 1$ since $\nul T' = \spn(\varphi)$. By the rank-nullity theorem, we have
     \[\dim \range T' = \dim W' - \dim \nul T' = \dim W - 1.\]
-    Since $\dim \range T' = \dim range T$, we have $\dim \range T = \dim W - 1$. This is also $\dim \null \varphi$ since $\varphi \neq 0$ is surjective by \autoref{ex:3f1}. Hence, $\range T$ and $\nul \varphi$ are subspaces of $W$ with the same dimension, and $\range T \subseteq \nul \varphi$. We conclude that $\range T = \nul \varphi$, as desired.
-    \item If $\psi = 0$, then $\range T' = \set 0$, hence $T' = 0$. Then $\nul T = V$ since $T = 0$ and $V$ is finite-dimensional. In this case, $\nul \psi = V$ as well, so $\nul T = \nul \psi = V$. Otherwise, we proceed as follows.
+    Since $\dim \range T' = \dim \range T$, we have $\dim \range T = \dim W - 1$. This is also $\dim \null \varphi$ since $\varphi \neq 0$ is surjective by \autoref{ex:3f1}. Hence, $\range T$ and $\nul \varphi$ are subspaces of $W$ with the same dimension, and $\range T \subseteq \nul \varphi$. We conclude that $\range T = \nul \varphi$, as desired.
+    \item If $\psi = 0$, then $\range T' = \set 0$, hence $T' = 0$. Then $\nul T = V$ since $T = 0$. In this case, $\nul \psi = V$ as well, so $\nul T = \nul \psi = V$. Otherwise, we proceed as follows.
     
     Note that if $v \in \nul T$, then $T(v) = 0$. Since $\psi \in \range T'$, there exists $\varphi \in W'$ such that $T'(\varphi) = \psi$. Then
     \[\psi(v) = (T'(\varphi))(v) = \varphi(T(v)) = \varphi(0) = 0.\]
     Hence, $\nul T \subseteq \nul \psi$.
 
-    Observe that $\dim \range T' = 1$. Since $\dim \range T' = \dim \range T$, then it follows that $\dim \range T = 1$ as well. Rank-nullity then gives $\dim \nul T = \dim V - 1$. This is also $\dim \nul \psi$ since $\psi \neq 0$ is surjective by \autoref{ex:3f1}. Hence, $\nul T$ and $\nul \psi$ are subspaces of $V$ with the same dimension, and $\nul T \subseteq \nul \psi$. We conclude that $\nul T = \nul \psi$, as desired.
+    Observe that $\dim \range T' = 1$. Since $\dim \range T' = \dim \range T$, it follows that $\dim \range T = 1$ as well. Rank-nullity then gives $\dim \nul T = \dim V - 1$. This is also $\dim \nul \psi$ since $\psi \neq 0$ is surjective by \autoref{ex:3f1}. Hence, $\nul T$ and $\nul \psi$ are subspaces of $V$ with the same dimension, and $\nul T \subseteq \nul \psi$. We conclude that $\nul T = \nul \psi$, as desired.
 \end{sole}
 
 \begin{exercise}[3f30]

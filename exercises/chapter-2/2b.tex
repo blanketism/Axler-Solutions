@@ -2,10 +2,12 @@
 
 \begin{exercise}[2b1]
     Find all vector spaces that have exactly one basis.
+
+    \remark{The proof of this exercise fails if $\f$ contains only two elements. In this case, an additional vector space with exactly one basis is the vector space of dimension one over $\f$, since the only nonzero scalar is $1$, and any nonzero vector $v$ in the vector space is a basis.}
 \end{exercise}
 
 \begin{sol}
-    Since an infinite-dimensional vector space has infinitely many bases, we only need to consider finite-dimensional vector spaces. Let $V$ be a finite-dimensional vector space, and let $v_1, \ldots, v_n$ be a basis of $V$. Then any other basis of $V$ must have the same length as $v_1, \ldots, v_n$, which is $n$. If $n \geq 1$, consider a nonzero $\alpha \in \f$. Then the list $\alpha v_1, v_2, \ldots, v_n$ still spans $V$, since we may recover $v_1 = \alpha\inv(\alpha v_1)$. Moreover, the list $\alpha v_1, v_2, \ldots, v_n$ is linearly independent, since if
+    Since an infinite-dimensional vector space has infinitely many bases, we only need to consider finite-dimensional vector spaces. Let $V$ be a finite-dimensional vector space, and let $v_1, \ldots, v_n$ be a basis of $V$. Then any other basis of $V$ must have the same length as $v_1, \ldots, v_n$, which is $n$. If $n \geq 1$, consider $\alpha \in \f$ such that $\alpha \neq 0$ and $\alpha \neq 1$. Then the list $\alpha v_1, v_2, \ldots, v_n$ still spans $V$, since we may recover $v_1 = \alpha\inv(\alpha v_1)$. Moreover, the list $\alpha v_1, v_2, \ldots, v_n$ is linearly independent, since if
     \[\beta_1(\alpha v_1) + \beta_2 v_2 + \cdots + \beta_n v_n = 0,\]
     then we may write
     \[(\alpha \beta_1) v_1 + \beta_2 v_2 + \cdots + \beta_n v_n = 0.\]

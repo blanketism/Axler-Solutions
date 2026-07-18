@@ -13,7 +13,7 @@
     \[(\alpha v, \alpha Tv) = \alpha (v, Tv) \in G(T)\]
     since $T$ is linear. Thus, $G(T)$ is a subspace of $V \times W$.
 
-    Conversely, suppose $G(T)$ is a subspace of $V \times W$. By definition, we have $(v_1, Tv_1), (v_2, Tv_2) \in G(T)$ for all $v_1, v_2 \in V$. Since $G(T)$ is a subspace of $V \times W$, then for all $\alpha, \beta \in \f$, we have
+    Conversely, suppose $G(T)$ is a subspace of $V \times W$. By definition, we have $(v_1, Tv_1), (v_2, Tv_2) \in G(T)$ for all $v_1, v_2 \in V$. Since $G(T)$ is a subspace of $V \times W$, for all $\alpha, \beta \in \f$, we have
     \[(\alpha v_1 + \beta v_2, \alpha Tv_1 + \beta Tv_2) = \alpha (v_1, Tv_1) + \beta (v_2, Tv_2) \in G(T).\]
     By definition of $G(T)$, we have $\alpha Tv_1 + \beta Tv_2 = T(\alpha v_1 + \beta v_2)$. Thus, $T$ is a linear map.
 \end{sol}
@@ -72,7 +72,7 @@
         & = 	\alpha T(S_1) + \beta T(S_2),
     \end{align*}
     hence $T$ is a linear map. Now suppose $T(S) = 0$. Then $\pi_k \circ S = 0$ for all $k = 1, \ldots, m$. Moreover, for all $v \in V$, we have
-    \[S v = (\pi_1(Sv), \ldots, \pi_m(Sv)) = (0, 0, 0) = 0.\]
+    \[S v = (\pi_1(Sv), \ldots, \pi_m(Sv)) = (0, \ldots, 0) = 0.\]
     It follows that $S v = 0$ for all $v$, hence $S = 0$, and thus $T$ is injective.
 
     Now let $(S_1, \ldots, S_m) \in L$. Define $S \in \lin{V, W}$ by $S v = (S_1 v, \ldots, S_m v)$. Then $T(S) = (S_1, \ldots, S_m)$. Thus, $T$ is surjective. Therefore, $T$ is an isomorphism.
@@ -162,7 +162,7 @@
 \end{exercise}
 
 \begin{sol}
-    If $A_1 \cap A_2$ is the empty set, then we are done. Suppose that $A_1 \cap A_2$ is nonempty. Let $x, y \in A_1 \cap A_2$ with $\lambda \in \f$. Then $x, y \in A_1$, hence $\lambda x + (1 - \lambda) y \in A_1$. Moreover, $x, y \in A_2$, hence $\lambda x + (1 - \lambda) y \in A_2$. It follows that $\lambda x + (1 - \lambda) y \in A_1 \cap A_2$. Thus, by \autoref{ex:3e9}, $A_1 \cap A_2$ is a translate of some subspace of $V$.
+    If $A_1 \cap A_2$ is the empty set, then we are done. Suppose that $A_1 \cap A_2$ is nonempty. Let $x, y \in A_1 \cap A_2$ and $\lambda \in \f$. Then $x, y \in A_1$, hence $\lambda x + (1 - \lambda) y \in A_1$. Moreover, $x, y \in A_2$, hence $\lambda x + (1 - \lambda) y \in A_2$. It follows that $\lambda x + (1 - \lambda) y \in A_1 \cap A_2$. Thus, by \autoref{ex:3e9}, $A_1 \cap A_2$ is a translate of some subspace of $V$.
 \end{sol}
 
 \begin{exercise}[3e11]
@@ -256,7 +256,7 @@
 
     Next, we show linear independence. Suppose $\lambda_1 v_1 + \cdots + \lambda_m v_m + \mu_1 u_1 + \cdots + \mu_n u_n = 0$. Then $\lambda_1 v_1 + \cdots + \lambda_m v_m \in U$. Then
     \[\lambda_1(v_1 + U) + \cdots + \lambda_m(v_m + U) = 0 + U.\]
-    Since $v_1 + U, \ldots, v_m + U$ are linearly independent in $V / U$, we must have $\lambda_1 = \cdots = \lambda_m = 0$. Then the original equation reduces to $\mu_1 u_1 + \cdots + \mu_n u_n = 0$, and since $u_1, \ldots, u_n$ are linearly independent, we have $\mu_1 = \cdots = \mu_n = 0$. Therefore, $v_1, \ldots, v_m, u_1, \ldots, u_n$ are linearly independent, and hence is a basis of $V$.
+    Since $v_1 + U, \ldots, v_m + U$ are linearly independent in $V / U$, we must have $\lambda_1 = \cdots = \lambda_m = 0$. Then the original equation reduces to $\mu_1 u_1 + \cdots + \mu_n u_n = 0$, and since $u_1, \ldots, u_n$ are linearly independent, we have $\mu_1 = \cdots = \mu_n = 0$. Therefore, $v_1, \ldots, v_m, u_1, \ldots, u_n$ are linearly independent, and hence form a basis of $V$.
 \end{sol}
 
 \begin{exercise}[3e16]
@@ -272,7 +272,7 @@
 \end{exercise}
 
 \begin{sol}
-    Since $\dim V / U = \dim \f = 1$, then there exists some isomorphism $\psi \in \lin{V /U, \f}$. Let $\pi: V \to V / U$ be the quotient map. Define $\varphi = \psi \circ \pi \in \lin{V, \f}$. Suppose $\varphi(v) = 0$. Then $\psi(\pi(v)) = 0$, which implies $\pi(v) = 0$ since $\psi$ is an isomorphism. Hence, $v \in U$, and we have $\nul \varphi \subseteq U$. Conversely, if $v \in U$, then $\pi(v) = 0$, so $\varphi(v) = \psi(\pi(v)) = 0$. Therefore, $\nul \varphi = U$.
+    Since $\dim V / U = \dim \f = 1$, there exists some isomorphism $\psi \in \lin{V /U, \f}$. Let $\pi: V \to V / U$ be the quotient map. Define $\varphi = \psi \circ \pi \in \lin{V, \f}$. Suppose $\varphi(v) = 0$. Then $\psi(\pi(v)) = 0$, which implies $\pi(v) = 0$ since $\psi$ is an isomorphism. Hence, $v \in U$, and we have $\nul \varphi \subseteq U$. Conversely, if $v \in U$, then $\pi(v) = 0$, so $\varphi(v) = \psi(\pi(v)) = 0$. Therefore, $\nul \varphi = U$.
 \end{sol}
 
 \begin{exercise}[3e18]
