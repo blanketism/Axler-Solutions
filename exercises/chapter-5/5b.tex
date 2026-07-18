@@ -29,17 +29,56 @@
     \end{subexercises}
 \end{exercise}
 
+\begin{sole}
+    \item Suppose $T(x_1, \ldots, x_n) = \lambda (x_1, \ldots, x_n)$ for some $\lambda \in \f$ and $(x_1, \ldots, x_n) \neq 0$. Then
+    \[\lambda x_j = x_1 + \cdots + x_n \quad \text{for all } j = 1, \ldots, n.\]
+    This implies that $\lambda x_1 = \lambda x_2 = \cdots = \lambda x_n$. If $\lambda \neq 0$, then $x_1 = x_2 = \cdots = x_n$, and we can write $(x_1, \ldots, x_n) = (x_1, \ldots, x_1) = x_1(1, \ldots, 1)$. Substituting this into the eigenvalue equation gives
+    \[\lambda (x_1, \ldots, x_1) = T(x_1, \ldots, x_1) = (nx_1, \ldots, nx_1),\]
+    which implies $\lambda = n$. If $\lambda = 0$, then $x_1 + \cdots + x_n = 0$, and the eigenvectors are all nonzero vectors $(x_1, \ldots, x_n)$ such that $x_1 + \cdots + x_n = 0$. Hence, the eigenvalues of $T$ are $0$ and $n$, with corresponding eigenvectors as described.
+    \item The minimal polynomial of $T$ must have roots at the eigenvalues of $T$, which are $0$ and $n$. Therefore, the minimal polynomial is of the form $p(z) = z(z - n)$. We claim that $p(T) = 0$. To verify this, let $x = x_1 + \cdots + x_n$. Then
+    \[T(x_1, \ldots, x_n) = (x, \ldots, x),\]
+    and
+    \[(T - nI)(x_1, \ldots, x_n) = (x - nx_1, \ldots, x - nx_n).\]
+    Observe that $(x - nx_1) + \cdots + (x - nx_n) = nx - n(x_1 + \cdots + x_n) = 0$. Therefore, $(T - nI)(x_1, \ldots, x_n)$ lies in $\nul T$, and applying $T$ again gives
+    \[T(T - nI)(x_1, \ldots, x_n) = 0.\]
+    Hence, $p(T) = T(T - nI) = 0$. To see that this is minimal, note that $T(1, \ldots, 1) = n(1, \ldots, 1) \neq 0$, so $T \neq 0$. Also, $(T - nI)(1, 0, \ldots, 0) = (1 - n, 1, \ldots, 1) \neq 0$, so $T - nI \neq 0$. Therefore, the minimal polynomial of $T$ is indeed $p(z) = z(z - n)$.
+\end{sole}
+
 \begin{exercise}[5b4]
     Suppose $\f = \c$, $T \in \lin{V}$, $p \in \pp(\c)$, and $\alpha \in \c$. Prove that $\alpha$ is an eigenvalue of $p(T)$ if and only if $\alpha = p(\lambda)$ for some eigenvalue $\lambda$ of $T$.
 \end{exercise}
+
+\begin{sol}
+    Suppose $\alpha$ is an eigenvalue of $p(T)$. Then there exists a nonzero vector $v \in V$ such that $p(T)v = \alpha v$. Then $p(T) - \alpha I$ is not injective. By the Fundamental Theorem of Algebra, we can factor $p(z) - \alpha$ as
+    \[p(z) - \alpha = c(z - \lambda_1)(z - \lambda_2) \cdots (z - \lambda_m)\]
+    for some $c \in \c \setminus \set{0}$ and $\lambda_1, \ldots, \lambda_m \in \c$. Then
+    \[p(T) - \alpha I = c(T - \lambda_1 I)(T - \lambda_2 I) \cdots (T - \lambda_m I).\]
+    Since $p(T) - \alpha I$ is not injective, at least one of the factors on the right-hand side is not injective. Therefore, $T - \lambda_j I$ is not injective for some $j$, which means $\lambda_j$ is an eigenvalue of $T$. Then $p(\lambda_j) - \alpha = 0$, so $\alpha = p(\lambda_j)$ for some eigenvalue $\lambda_j$ of $T$.
+    
+    Conversely, if $\alpha = p(\lambda)$ for some eigenvalue $\lambda$ of $T$ with corresponding eigenvector $v$, then by $T^m v = \lambda^m v$ for any polynomial $p(z) = a_m z^m + \cdots + a_1 z + a_0$, we have
+    \[p(T)v = a_m T^m v + \cdots + a_1 T v + a_0 v = a_m \lambda^m v + \cdots + a_1 \lambda v + a_0 v = p(\lambda)v = \alpha v.\]
+    Hence, $\alpha$ is an eigenvalue of $p(T)$.
+\end{sol}
 
 \begin{exercise}[5b5]
     Give an example of an operator on $\r^2$ that shows the result in Exercise 4 does not hold if $\c$ is replaced with $\r$.
 \end{exercise}
 
+\begin{sol}
+    Consider the operator $T \in \lin{\r^2}$ defined by $T(x, y) = (-y, x)$, which represents a counterclockwise rotation by $90^\circ$. Observe that $T$ has no real eigenvalues as follows: If $(x, y)$ is an eigenvector of $T$ with eigenvalue $\lambda \in \r$, then $T(x, y) = \lambda (x, y)$ implies $(-y, x) = (\lambda x, \lambda y)$. This gives the system of equations:
+    \[-y = \lambda x \quad \text{and} \quad x = \lambda y.\]
+    Since $x$ and $y$ cannot both be zero, one can work out that $\lambda^2 = -1$, which has no real solutions. Therefore, $T$ has no real eigenvalues. Now consider the polynomial $p(z) = z^2 + 1$. Then
+    \[p(T)(x, y) = T^2(x, y) + (x, y) = (-x, -y) + (x, y) = (0, 0).\]
+    Thus, $0$ is an eigenvalue of $p(T)$ with corresponding eigenvector $(1, 0)$ (or any nonzero vector in $\r^2$). However, there is no real eigenvalue $\lambda$ of $T$ such that $p(\lambda) = 0$, since the eigenvalues of $T$ are complex. This example demonstrates that the result in \autoref{ex:5b4} does not hold when $\c$ is replaced with $\r$.
+\end{sol}
+
 \begin{exercise}[5b6]
     Suppose $T \in \lin{\f^2}$ is defined by $T(w, z) = (-z, w)$. Find the minimal polynomial of $T$.
 \end{exercise}
+
+\begin{sol}
+    By the computation done in \autoref{ex:5b5}, we have $T^2(w, z) = (-w, -z)$, so $T^2 + I = 0$. Therefore, the polynomial $p(z) = z^2 + 1$ annihilates $T$. To see that this is the minimal polynomial, suppose $T = \alpha I$. Then $T(1, 0) = (0, 1) \neq \alpha(1, 0)$ for any $\alpha \in \f$, so $T \neq \alpha I$. Hence, the minimal polynomial of $T$ is $p(z) = z^2 + 1$.
+\end{sol}
 
 \begin{exercise}[5b7]
     \begin{subexercises}
@@ -50,15 +89,54 @@
     \hint{Show that if $S$ is invertible and $p \in \pp(\f)$, then $p(TS) = S\inv p(ST) S$.}
 \end{exercise}
 
+\begin{sole}
+    \item Consider the operators $S, T \in \lin{\f^2}$ defined by $S(w, z) = (0, w)$ and $T(w, z) = (w, 0)$. Then
+    \[ST(w, z) = S(w, 0) = (0, w) \quad \text{and} \quad TS(w, z) = T(0, w) = (0, 0).\]
+    The minimal polynomial of $ST$ is $p(z) = z^2$, since $ST \neq 0$ but $(ST)^2 = 0$, while the minimal polynomial of $TS$ is $q(z) = z$. Hence, the minimal polynomials of $ST$ and $TS$ are not equal.
+    \item Suppose $S$ is invertible. We claim that $(TS)^n = S\inv (ST)^n S$ for all positive integers $n$. We prove this by induction on $n$. For the base case $n = 1$, we have $(TS)^1 = TS = S\inv (ST) S$. Now suppose the claim holds for some positive integer $k$, i.e., $(TS)^k = S\inv (ST)^k S$. Then
+    \[(TS)^{k+1} = (TS)^k (TS) = S\inv (ST)^k S (TS) = S\inv (ST)^k (ST) S = S\inv (ST)^{k+1} S.\]
+    By induction, the claim holds for all positive integers $n$. Let $p = z^m + a_{m-1} z^{m-1} + \cdots + a_1 z + a_0$ be the minimal polynomial of $ST$. Then
+    \begin{align*}
+        p(TS) &= (TS)^m + a_{m-1} (TS)^{m-1} + \cdots + a_1 (TS) + a_0 I \\
+        &= S\inv (ST)^m S + a_{m-1} S\inv (ST)^{m-1} S + \cdots + a_1 S\inv (ST) S + S\inv(a_0 I)S \\
+        &= S\inv ((ST)^m + a_{m-1} (ST)^{m-1} + \cdots + a_1 (ST) + a_0 I) S \\
+        &= S\inv p(ST) S = 0,
+    \end{align*}
+    where $S\inv S = I$ implies $S\inv (a_0I) S = a_0 I$. Hence, $p$ annihilates $TS$, and since $p$ is the minimal polynomial of $ST$, it follows that the minimal polynomial $q$ of $TS$ divides $p$. Observing that $ST = S(TS)S\inv$, we can similarly show that $q$ annihilates $ST$, and thus $p$ divides $q$. Therefore, $p = q$, and the minimal polynomials of $ST$ and $TS$ are equal.
+\end{sole}
+
 \begin{exercise}[5b8]
     Suppose $T \in \lin{\r^2}$ is the operator of counterclockwise rotation by $1^\circ$. Find the minimal polynomial of $T$.
 
     \note{Because $\dim \r^2 = 2$, the degree of the minimal polynomial of $T$ is at most $2$. Thus, the minimal polynomial of $T$ is not the tempting polynomial $x^{180} + 1$, even though $T^{180} = -I$.}
 \end{exercise}
 
+\begin{sol}
+    Since $T \neq 0$, the minimal polynomial of $T$ is not linear. Moreover, $\dim \r^2 = 2$ implies that the degree of the minimal polynomial of $T$ must be 2. Therefore, the minimal polynomial of $T$ is of the form
+    \[p(z) = z^2 + bz + c.\]
+    Consider the point $(1, 0) \in \r^2$. Note that $T(x, y) = (x \cos 1^\circ - y \sin 1^\circ, x \sin 1^\circ + y \cos 1^\circ)$. Then
+    \[T(1, 0) = (\cos 1^\circ, \sin 1^\circ), \quad T^2(1, 0) = (\cos 2^\circ, \sin 2^\circ).\]
+    Since $p(T) = 0$, we have
+    \[p(T)(1, 0) = T^2(1, 0) + bT(1, 0) + c(1, 0) = (\cos 2^\circ + b \cos 1^\circ + c, \sin 2^\circ + b \sin 1^\circ) = (0, 0).\]
+    This gives the system of equations:
+    \[
+    \begin{cases}
+        \cos 2^\circ + b \cos 1^\circ + c = 0, \\
+        \sin 2^\circ + b \sin 1^\circ = 0.
+    \end{cases}
+    \]
+    From this, we get the values of $b$ and $c$:
+    \[b = -\frac{\sin 2^\circ}{\sin 1^\circ} = -2 \cos 1^\circ, \quad c = -\cos 2^\circ - b \cos 1^\circ = 1.\]
+    Therefore, the minimal polynomial of $T$ is $p(z) = z^2 - 2 \cos 1^\circ z + 1$.
+\end{sol}
+
 \begin{exercise}[5b9]
     Suppose $T \in \lin{V}$ is such that with respect to some basis of $V$, all entries of the matrix of $T$ are rational numbers. Explain why all coefficients of the minimal polynomial of $T$ are rational numbers.
 \end{exercise}
+
+\begin{sol}
+    Let $A$ be the matrix of $T$ with respect to some basis of $V$. Since all entries of $A$ are rational numbers, the characteristic polynomial of $A$, which is given by $\det(zI - A)$, has rational coefficients. The minimal polynomial of $T$ divides the characteristic polynomial, and since the characteristic polynomial has rational coefficients, the minimal polynomial must also have rational coefficients.
+\end{sol}
 
 \begin{exercise}[5b10]
     Suppose $V$ is finite-dimensional, $T \in \lin{V}$, and $v \in V$. Prove that

@@ -65,7 +65,7 @@
     \[T(S) = (\pi_1 \circ S, \ldots, \pi_m \circ S)\]
     where $\pi_k \in \lin{W, W_k}$ is the map defined as
     \[\pi_k(w_1, \ldots, w_m) = w_k\]
-    with $\pi_k(w_1, \ldots, w_m)$ having $w_k$ in the $k$-th coordinate. Then $T$ is linear since for all $\alpha, \beta \in \f$ and all $S_1, S_2 \in \lin{V, W}$, we have
+    Then $T$ is linear since for all $\alpha, \beta \in \f$ and all $S_1, S_2 \in \lin{V, W}$, we have
     \begin{align*}
         T(\alpha S_1 + \beta S_2) & = (\pi_1 \circ (\alpha S_1 + \beta S_2), \ldots, \pi_m \circ (\alpha S_1 + \beta S_2)) \\
         & = (\alpha (\pi_1 \circ S_1) + \beta (\pi_1 \circ S_2), \ldots, \alpha (\pi_m \circ S_1) + \beta (\pi_m \circ S_2))\\
@@ -230,7 +230,7 @@
     \[v + U = \lambda_1 (v_1 + U) + \cdots + \lambda_m (v_m + U)\]
     for some scalars $\lambda_1, \ldots, \lambda_m$. This gives
     \[v - (\lambda_1 v_1 + \cdots + \lambda_m v_m) \in U.\]
-    So setting $u = v - (\lambda_1 v_1 + \cdots + \lambda_m v_m) \in U$ and $w = \lambda_1 v_1 + \cdots + \lambda_m v_m \in W$, we have $v = u + w$. To see that the sum is direct, suppose $u + w = 0$ with $u \in U$ and $w \in W$. Then $w = -u \in W \cap U$. But if $w = \lambda_1 v_1 + \cdots + \lambda_m v_m \in U$, then $w + U = 0 + U$ in $V / U$, which implies $\lambda_1 = \cdots = \lambda_m = 0$ since $v_1 + U, \ldots, v_m + U$ are linearly independent in $V / U$. Hence, $w = 0$ and $u = 0$, proving that $V = U \op W$.
+    So setting $u = v - (\lambda_1 v_1 + \cdots + \lambda_m v_m) \in U$ and $w = \lambda_1 v_1 + \cdots + \lambda_m v_m \in W$, we have $v = u + w$. To see that the sum is direct, suppose $u + w = 0$ with $u \in U$ and $w \in W$. Then $w = -u \in W \cap U$. Since $w \in W$, we can write $w = \lambda_1 v_1 + \cdots + \lambda_m v_m$ for some scalars $\lambda_1, \ldots, \lambda_m$. Since we established that $w \in U$, we have $w + U = 0 + U$. But $v_1 + U, \ldots, v_m + U$ are linearly independent in $V / U$, hence $\lambda_1 = \cdots = \lambda_m = 0$, and thus $w = 0$. It follows that $u = 0$ as well, proving that the sum is direct. Therefore, $V = U \op W$.
 
     Consider the map $T : V \to U \times V/U$ given by $Tv = (u, v + U)$, where $v = u + w$ with $u \in U$ and $w \in W$. This map is well-defined because the decomposition $v = u + w$ is unique. It is linear, injective, and surjective, hence an isomorphism. Therefore, $V \cong U \times V/U$.
 \end{sol}

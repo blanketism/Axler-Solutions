@@ -205,9 +205,9 @@
 \end{exercise}
 
 \begin{sol}
-    Let $T \in \lin{V}$ be such that $\nul T$ and $\range T$ are both finite-dimensional. Let $u_1, \ldots, u_m$ be a basis of $\nul T$, and let $w_1, \ldots, w_n$ be a basis of $\range T$. Let $v_j \in V$ be such that $Tv_j = w_j$ for $j = 1, \ldots, n$. We claim that the list $u_1, \ldots, u_m, v_1, \ldots, v_n$ is a basis of $V$.
-
-    To show that this list spans $V$, let $v \in V$. Then $Tv \in \range T$, so we may write
+    Let $T \in \lin{V}$ be such that $\nul T$ and $\range T$ are both finite-dimensional. Let $u_1, \ldots, u_m$ be a basis of $\nul T$, and let $w_1, \ldots, w_n$ be a basis of $\range T$. Select $v_j \in V$ be such that $Tv_j = w_j$ for $j = 1, \ldots, n$. We claim that the list $u_1, \ldots, u_m, v_1, \ldots, v_n$ spans $V$.
+    
+    Let $v \in V$. Then $Tv \in \range T$, so we may write
     \[Tv = \alpha_1 w_1 + \cdots + \alpha_n w_n\]
     for some scalars $\alpha_1, \ldots, \alpha_n \in \f$. Consider the vector
     \[u = v - (\alpha_1 v_1 + \cdots + \alpha_n v_n).\]
@@ -217,15 +217,7 @@
     \[u = \beta_1 u_1 + \cdots + \beta_m u_m\]
     for some scalars $\beta_1, \ldots, \beta_m \in \f$. Thus,
     \[v = u + (\alpha_1 v_1 + \cdots + \alpha_n v_n) = \beta_1 u_1 + \cdots + \beta_m u_m + \alpha_1 v_1 + \cdots + \alpha_n v_n,\]
-    which shows that the list spans $V$.
-
-    To show that the list is linearly independent, suppose
-    \[\gamma_1 u_1 + \cdots + \gamma_m u_m + \delta_1 v_1 + \cdots + \delta_n v_n = 0\]
-    for some scalars $\gamma_1, \ldots, \gamma_m, \delta_1, \ldots, \delta_n \in \f$. Applying $T$ to both sides, we have $T(\gamma_1 u_1 + \cdots + \gamma_m u_m) + T(\delta_1 v_1 + \cdots + \delta_n v_n) = 0$. Since $u_1, \ldots, u_m \in \nul T$, we have $T(\gamma_1 u_1 + \cdots + \gamma_m u_m) = 0$. Therefore,
-    \[T(\delta_1 v_1 + \cdots + \delta_n v_n) = \delta_1 Tv_1 + \cdots + \delta_n Tv_n = \delta_1 w_1 + \cdots + \delta_n w_n = 0.\]
-    Since $w_1, \ldots, w_n$ is a basis of $\range T$, it follows that $\delta_1 = \cdots = \delta_n = 0$. Thus, we have
-    \[\gamma_1 u_1 + \cdots + \gamma_m u_m = 0.\]
-    Since $u_1, \ldots, u_m$ is a basis of $\nul T$, it follows that $\gamma_1 = \cdots = \gamma_m = 0$. Therefore, the list $u_1, \ldots, u_m, v_1, \ldots, v_n$ is linearly independent.
+    which shows that the list spans $V$. Hence, $V$ is finite-dimensional.
 \end{sol}
 
 \begin{exercise}[3b16]
@@ -296,7 +288,7 @@
 \end{exercise}
 
 \begin{sol}
-    Suppose $T$ is injective. Then $\nul T = \set{0}$. Let $n = \dim V$ and $m = \dim W$. Since $T$ is injective, we have $\dim \range T = n$. Choose a basis $\set{v_1, \ldots, v_n}$ of $V$. Then $\set{Tv_1, \ldots, Tv_n}$ is linearly independent in $W$. Extend this set to a basis of $W$ by adding vectors $w_1, \ldots, w_{m - n}$. Define a linear map $S \in \lin{W, V}$ by
+    Suppose $T$ is injective. Then $\nul T = \set{0}$. Also, $\range T$ is finite dimensional since it is a subspace of $W$. Since $T$ is injective, it is an isomorphism from $V$ onto $\range T$. Hence, $V$ is finite dimensional. Let $n = \dim V$ and $m = \dim W$. Since $T$ is injective, we have $\dim \range T = n$. Choose a basis $\set{v_1, \ldots, v_n}$ of $V$. Then $\set{Tv_1, \ldots, Tv_n}$ is linearly independent in $W$. Extend this set to a basis of $W$ by adding vectors $w_1, \ldots, w_{m - n}$. Define a linear map $S \in \lin{W, V}$ by
     \[S(Tv_i) = v_i \quad \text{for } i = 1, \ldots, n, \quad S(w_j) = 0 \quad \text{for } j = 1, \ldots, m - n.\]
     Then for any $v \in V$, we can express $v$ as a linear combination of the basis vectors:
     \[v = \alpha_1 v_1 + \cdots + \alpha_n v_n.\]
@@ -560,17 +552,11 @@
 \end{exercise}
 
 \begin{sol}
-    Suppose $\varphi: \lin{V} \to \f$ is a linear map such that $\varphi(ST) = \varphi(S)\varphi(T)$ for all $S, T \in \lin{V}$. We want to show that $\varphi = 0$. 
-
-    Let $I$ be the identity operator on $V$. Then for any $T \in \lin{V}$, we have
-    \[\varphi(T) = \varphi(IT) = \varphi(I)\varphi(T).\]
-    We now claim that $\null \varphi$ is a two-sided ideal of $\lin{V}$. Let $S \in \lin{V}$ and $T \in \null \varphi$. Then
-    \[\varphi(ST) = \varphi(S)\varphi(T) = \varphi(S) \cdot 0 = 0,\]
-    and similarly,
-    \[\varphi(TS) = \varphi(T)\varphi(S) = 0 \cdot \varphi(S) = 0.\]
-    Therefore, $ST, TS \in \null \varphi$, and hence $\null \varphi$ is a two-sided ideal of $\lin{V}$. By \autoref{ex:3a17}, the only two-sided ideals of $\lin{V}$ are $\set{0}$ and $\lin{V}$ itself. If $\null \varphi = \set{0}$, then $\varphi$ is injective. However, since $\dim V > 1$, observe from \autoref{ex:3a16} that we may construct $S, T \in \lin V$ such that $ST \neq TS$. If $\alpha S + \beta T = 0$ for some scalars $\alpha, \beta \in \f$, then we have
-    \[(\alpha S + \beta T)v_1 = \alpha Sv_1 + \beta Tv_1 = \alpha v_2 + \beta v_1 = 0.\]
-    This implies that $\alpha = \beta = 0$, and hence $S$ and $T$ are linearly independent. Then $\dim \lin V \geq 2$. Since $\dim \f = 1$, the linear map $\varphi$ cannot be injective, and hence $\null \varphi \neq \set{0}$. Therefore, we must have $\null \varphi = \lin{V}$, which implies that $\varphi = 0$.
+    Observe that $\nul \varphi$ is a two-sided ideal of $\lin V$ as follows: if $X \in \nul \varphi$ and $Y \in \lin V$, then
+    \[\varphi(XY) = \varphi(X)\varphi(Y) = 0 \cdot \varphi(Y) = 0, \quad \varphi(YX) = \varphi(Y)\varphi(X) = \varphi(Y) \cdot 0 = 0.\]
+    Since $\dim V > 1$, then \autoref{ex:3a16} gives the existence of $S, T \in \lin V$ such that $ST \neq TS$. Then we have
+    \[\varphi(ST - TS) = \varphi(S) \varphi(T) - \varphi(T) \varphi(S) = 0.\]
+    Therefore, $ST - TS \in \nul \varphi$. Since $\nul \varphi$ is a two-sided ideal of $\lin V$, then by \autoref{ex:3a17}, we have $\nul \varphi = \lin V$. Hence, $\varphi = 0$.
 \end{sol}
 
 \begin{exercise}[3b33]

@@ -42,7 +42,7 @@
     for $\alpha, \beta \in \f$. Solving this system of equations, we find that
     \[\alpha = 2x - y, \quad \beta = -5x + 3y.\]
     Since we can find $\alpha, \beta \in \f$ for any $(x, y) \in \f^2$, the list spans $\f^2$. Thus, the list is a basis of $\f^2$.
-    \item Note that $\f^3$ is spanned by the list $(1, 0, 0), (0, 1, 0), (0, 0, 1)$. Since the length of a spanning list must be at least the length of a linearly independent list, the list $(1, 2, -4), (7, -5, 6)$ cannot span $\f^3$.
+    \item Note that $\f^3$ is spanned by the linearly independent list $(1, 0, 0), (0, 1, 0), (0, 0, 1)$. Since the length of a spanning list must be at least the length of a linearly independent list, the list $(1, 2, -4), (7, -5, 6)$ cannot span $\f^3$.
     \item From part (b), we saw that $(1, 2), (3, 5)$ is a basis of $\f^2$. Since $(4, 13) = -5(3, 5) + 19(1, 2)$, the list $(1, 2), (3, 5), (4, 13)$ is linearly dependent. Moreover, since $(1, 2), (3, 5)$ is a basis of $\f^2$, the list $(1, 2), (3, 5), (4, 13)$ spans $\f^2$. Thus, the list is not a basis of $\f^2$.
     \item Let $U$ be the subspace in question. If $\alpha, \beta \in \f$ such that
     \[\alpha(1, 1, 0) + \beta(0, 0, 1) = (0, 0, 0),\]
@@ -51,8 +51,8 @@
     so the list spans $U$. Thus, the list is a basis of $U$.
     \item Let $U$ be the subspace in question. If $\alpha, \beta \in \f$ such that
     \[\alpha(1, -1, 0) + \beta(1, 0, -1) = (0, 0, 0),\]
-    then we must have $\alpha = \beta = 0$, so the list is linearly independent. Moreover, for any $(x, y, z) \in U$, we can write
-    \[(x, y, z) = (x - z)(1, -1, 0) + (y - z)(1, 0, -1),\]
+    then we must have $\alpha = \beta = 0$, so the list is linearly independent. Moreover, for any $(x, y, z) \in U$, note that $x + y + z = 0$, implying that $x = -y - z$. Then we can write
+    \[(x, y, z) = (-y - z, y, z) = -y(1, -1, 0) - z(1, 0, -1),\]
     so the list spans $U$. Thus, the list is a basis of $U$.
     \item If $\alpha_0, \ldots, \alpha_m \in \f$ such that
     \[\alpha_0 + \alpha_1 z + \cdots + \alpha_m z^m = 0,\]
@@ -79,7 +79,7 @@
     Moreover, these three vectors are linearly independent, since the only way to write the zero vector as a linear combination of $u_1, u_2, u_3$ is to take all coefficients to be zero. Thus, $\set{u_1, u_2, u_3}$ is a basis of $U$.
     \item We can extend the basis $\set{u_1, u_2, u_3}$ of $U$ to a basis of $\r^5$ by adding two more vectors that are linearly independent of $u_1, u_2, u_3$. For example, we can add the vectors
     \[u_4 = (1, 0, 0, 0, 0), \quad u_5 = (0, 0, 1, 0, 0),\]
-    which are linearly independent of $u_1, u_2, u_3$ since they are not in $U$. Thus, $\set{u_1, u_2, u_3, u_4, u_5}$ is a basis of $\r^5$.
+    which are linearly independent of $u_1, u_2, u_3$: since $u_1$ is the only vector in the list with a nonzero first component, $u_4$ cannot be a linear combination of $u_1, u_2, u_3$. Similarly, since $u_2$ is the only vector in the list with a nonzero third component, $u_5$ cannot be a linear combination of $u_1, u_2, u_3, u_4$. Thus, $\set{u_1, u_2, u_3, u_4, u_5}$ is a basis of $\r^5$.
     \item Let $W$ be the subspace of $\r^5$ spanned by the vectors $u_4$ and $u_5$. Then we have
     \[\r^5 = U \op W,\]
     since $U \cap W = \set{0}$ and every vector in $\r^5$ can be written as a sum of a vector in $U$ and a vector in $W$.
@@ -103,7 +103,7 @@
     Moreover, these three vectors are linearly independent, since the only way to write the zero vector as a linear combination of $u_1, u_2, u_3$ is to take all coefficients to be zero. Thus, $\set{u_1, u_2, u_3}$ is a basis of $U$.
     \item We can extend the basis $\set{u_1, u_2, u_3}$ of $U$ to a basis of $\c^5$ by adding two more vectors that are linearly independent of $u_1, u_2, u_3$. For example, we can add the vectors
     \[u_4 = (1, 0, 0, 0, 0), \quad u_5 = (0, 0, 1, 0, 0),\]
-    which are linearly independent of $u_1, u_2, u_3$ since they are not in $U$. Thus, $\set{u_1, u_2, u_3, u_4, u_5}$ is a basis of $\c^5$.
+    which are linearly independent of $u_1, u_2, u_3$: since $u_1$ is the only vector in the list with a nonzero first component, $u_4$ cannot be a linear combination of $u_1, u_2, u_3$. Similarly, $u_2$ and $u_3$ have nonzero third components, but any linear combination of $u_2$ and $u_3$ will have nonzero fourth and fifth components, so $u_5$ cannot be a linear combination of $u_1, u_2, u_3, u_4$. Thus, $\set{u_1, u_2, u_3, u_4, u_5}$ is a basis of $\c^5$.
     \item Let $W$ be the subspace of $\c^5$ spanned by the vectors $u_4$ and $u_5$. Then we have
     \[\c^5 = U \op W,\]
     since $U \cap W = \set{0}$ and every vector in $\c^5$ can be written as a sum of a vector in $U$ and a vector in $W$.

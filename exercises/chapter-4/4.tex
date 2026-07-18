@@ -157,16 +157,18 @@
     Suppose $p \in \pp(\c)$. Define $q: \c \to \c$ by
     \[q(z) = p(z) \bar{p(\bar{z})}.\]
     Prove that $q$ is a polynomial with real coefficients.
+
+    \apnote{4a11}{ provides an alternate solution by looking at the roots of $p$.}
 \end{exercise}
 
 \begin{sol}
-    Let $p \in \pp(\c)$ have degree $n$. Then we may write
-    \[p(z) = \alpha(z - \lambda_1)(z - \lambda_2) \cdots (z - \lambda_n),\]
-    where $\alpha \in \c$ and $\lambda_1, \lambda_2, \ldots, \lambda_n \in \c$ are the roots of $p$. Then
-    \[q(z) = p(z) \bar{p(\bar{z})} = \alpha(z - \lambda_1)(z - \lambda_2) \cdots (z - \lambda_n) \cdot \bar{\alpha} (z - \bar{\lambda_1}) (z - \bar{\lambda_2}) \cdots (z - \bar{\lambda_n}).\]
-    Note that the product contains the term $\alpha\bar\alpha = |\alpha|^2 \in \r$, as well as the pairs
-    \[(z - \lambda_i)(z - \bar{\lambda_i}) = z^2 - 2\Re(\lambda_i) z + |\lambda_i|^2.\]
-    Each such pair contributes a quadratic polynomial with real coefficients. Since the product of polynomials with real coefficients also has real coefficients, it follows that $q(z)$ is a polynomial with real coefficients.
+    Let $p \in \pp(\c)$ have the form $p(z) = a_0 + a_1 z + \cdots + a_n z^n$ with $a_k \in \c$. Then
+    \[\bar{p(\bar z)} = \bar{\sum_{i = 0}^n a_i \bar z^i} = \sum_{i = 0}^n \bar a_i z^i.\]
+    Therefore,
+    \[q(z) = p(z) \bar{p(\bar z)} = \left(\sum_{i = 0}^n a_i z^i\right)\left(\sum_{j = 0}^n \bar a_j z^j\right) = \sum_{k = 0}^{2n} \left(\sum_{i + j = k} a_i \bar a_j\right) z^k.\]
+    Let $a_m$ denote the coefficient of $z^m$ in $q(z)$. Then
+    \[a_m = \sum_{i + j = m} a_i \bar a_j = \sum_{i + j = m} \bar a_j a_i = \bar{a_m}.\]
+    Hence, $a_m \in \r$ for each $m = 0, 1, \ldots, 2n$. Therefore, $q$ is a polynomial with real coefficients.
 \end{sol}
 
 \begin{exercise}[4a12]

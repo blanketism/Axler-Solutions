@@ -5,9 +5,9 @@
 \end{exercise}
 
 \begin{sol}
-    Let $v_1, \ldots, v_n$ be a basis of $V$ and $w_1, \ldots, w_m$ be a basis of $W$. Let $A = \mm(T)$ be the matrix with respect to these bases. Then the $j$-th column of $A$ are the coordinate vectors $Tv_1, \ldots, Tv_n$ with respect to the basis for $W$. Moreover, the span of the columns of $A$ is equal to $\range T$.
+    Let $v_1, \ldots, v_n$ be a basis of $V$ and $w_1, \ldots, w_m$ be a basis of $W$. Let $A = \mm(T)$ be the matrix with respect to these bases. Then the $j$-th column of $A$ is the coordinate vector of $Tv_j$ with respect to the basis for $W$. Moreover, the span of the columns of $A$ is equal to $\range T$.
 
-    Suppose $A$ had fewer than $\dim \range T$ nonzero columns. Since zero columns do not contribute to the span, then the columns of $A$ would span a space by fewer than $\dim \range T$ vectors, contradicting that the space has dimension $\dim \range T$. Hence, $A$ must have at least $\dim \range T$ nonzero columns, and thus at least $\dim \range T$ nonzero entries.
+    Suppose $A$ had fewer than $\dim \range T$ nonzero columns. Since zero columns do not contribute to the span, the span of the columns of $A$ would then have a span a space of dimension less than $\dim \range T$. This is a contradiction, since the span of the columns of $A$ is equal to $\range T$. Therefore, $A$ must have at least $\dim \range T$ nonzero columns, and hence at least $\dim \range T$ nonzero entries.
 \end{sol}
 
 \begin{exercise}[3c2]

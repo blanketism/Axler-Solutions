@@ -157,7 +157,9 @@
 \end{exercise}
 
 \begin{sol}
-    It is not a subspace of $\r^{\r}$. Consider the periodic functions $f(x) = \sin(2x)$ and $g(x) = \sin(\pi x)$. The function $f$ has period $\pi$, and the function $g$ has period $2$. For $f(x + p) + g(x + p) = f(x) + g(x)$ to hold for all $x \in \r$, we would need a common period $p$ that is a multiple of both $\pi$ and $2$. However, no such positive number exists since $\pi$ is irrational. Therefore, the sum $f + g$ is not periodic, and the set of periodic functions is not closed under addition. Hence, it is not a subspace of $\r^{\r}$.
+    It is not a subspace of $\r^{\r}$. Consider the periodic functions $f(x) = \cos x$ and $g(x) = \cos \sqrt 2x$. Then the sum $f + g$ attains a maximum value of 2 at 0. If $f + g$ were periodic with period $p$, then $(f + g)(p) = (f + g)(0) = 2$. This implies $\cos p = \cos p\sqrt 2$. Then $p = 2\pi m$ and $p\sqrt 2 = 2\pi n$ for positive integers $m$ and $n$. Since $p \sqrt 2 = 2 \pi n$ implies $p = \sqrt 2 \pi n$, we have
+    \[2\pi m = \sqrt 2\pi n \implies \sqrt 2 = \frac nm,\]
+    which is a contradiction. Then $f + g$ is not periodic.
 \end{sol}
 
 \begin{exercise}[1c10]

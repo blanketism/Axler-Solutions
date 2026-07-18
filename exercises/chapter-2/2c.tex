@@ -34,13 +34,12 @@
     \[a_0 = -6a_1 - 36a_2 - 216a_3 - 1296a_4.\]
     Then we can write any polynomial in $U$ as a linear combination of the following four polynomials:
     \[u_1 = -6 + x, \quad u_2 = -36 + x^2, \quad u_3 = -216 + x^3, \quad u_4 = -1296 + x^4.\]
-    Moreover, these four polynomials are linearly independent, since the only way to write the zero polynomial as a linear combination of $u_1, u_2, u_3, u_4$ is to take all coefficients to be zero. Thus, $\set{u_1, u_2, u_3, u_4}$ is a basis of $U$.
     \item We can extend the basis $\set{u_1, u_2, u_3, u_4}$ of $U$ to a basis of $\pp_4(\f)$ by adding one more polynomial that is linearly independent of $u_1, u_2, u_3, u_4$. For example, we can add the polynomial
     \[u_5 = 1,\]
-    which is linearly independent of $u_1, u_2, u_3, u_4$ since it is not in $U$. Thus, $\set{u_1, u_2, u_3, u_4, u_5}$ is a basis of $\pp_4(\f)$.
+    which is linearly independent of $u_1, u_2, u_3, u_4$: since $u_5$ has no higher-degree terms, it cannot be expressed as a linear combination of $u_1, u_2, u_3, u_4$. Thus, $\set{u_1, u_2, u_3, u_4, u_5}$ is a basis of $\pp_4(\f)$.
     \item Let $W = \spn u_5 = \spn 1$. Then we have
     \[\pp_4(\f) = U + W,\]
-    since every polynomial in $\pp_4(\f)$ can be uniquely written as a sum of a polynomial in $U$ and a polynomial in $W$. Moreover, if $p \in U \cap W$, then $p = \alpha$ for some $\alpha \in \f$. Since $p(6) = 0$, we have $\alpha = 0$. Thus, $U \cap W = \set{0}$, and so we have
+    since every polynomial in $\pp_4(\f)$ can be written as a sum of a polynomial in $U$ and a polynomial in $W$. Moreover, if $p \in U \cap W$, then $p = \alpha$ for some $\alpha \in \f$. Since $p(6) = 0$, we have $\alpha = 0$. Thus, $U \cap W = \set{0}$, and so we have
     \[\pp_4(\f) = U \op W. \qh\]
 \end{sole}
 
@@ -62,10 +61,9 @@
     \[a_2 = -18a_3 - 216a_4.\]
     Then we can write any polynomial in $U$ as a linear combination of the following four polynomials:
     \[u_1 = 1, \quad u_2 = x, \quad u_3 = -18x^2 + x^3, \quad u_4 = -216x^2 + x^4.\]
-    Moreover, these four polynomials are linearly independent, since the only way to write the zero polynomial as a linear combination of $u_1, u_2, u_3, u_4$ is to take all coefficients to be zero. Thus, $\set{u_1, u_2, u_3, u_4}$ is a basis of $U$.
     \item We can extend the basis $\set{u_1, u_2, u_3, u_4}$ of $U$ to a basis of $\pp_4(\r)$ by adding one more polynomial that is linearly independent of $u_1, u_2, u_3, u_4$. For example, we can add the polynomial
     \[u_5 = x^2,\]
-    which is linearly independent of $u_1, u_2, u_3, u_4$ since it is not in $U$. Thus, $\set{u_1, u_2, u_3, u_4, u_5}$ is a basis of $\pp_4(\r)$.
+    which is linearly independent of $u_1, u_2, u_3, u_4$: since only $u_3$ and $u_4$ have $x^2$ terms but contain other higher-degree terms, $u_5$ cannot be expressed as a linear combination of $u_1, u_2, u_3, u_4$. Thus, $\set{u_1, u_2, u_3, u_4, u_5}$ is a basis of $\pp_4(\r)$.
     \item Let $W = \spn u_5 = \spn x^2$. Then we have
     \[\pp_4(\r) = U + W,\]
     since every polynomial in $\pp_4(\r)$ can be written as a sum of a polynomial in $U$ and a polynomial in $W$. Moreover, if $p \in U \cap W$, then $p = \alpha x^2$ for some $\alpha \in \r$. Since $p''(6) = 0$, we have $2\alpha = 0$, which implies that $\alpha = 0$. Thus, $U \cap W = \set{0}$, and so we have
@@ -90,10 +88,9 @@
     \[a_1 = -7a_2 - 39a_3 - 203a_4.\]
     Then we can write any polynomial in $U$ as a linear combination of the following four polynomials:
     \[u_1 = 1, \quad u_2 = -7x + x^2, \quad u_3 = -39x + x^3, \quad u_4 = -203x + x^4.\]
-    Moreover, these four polynomials are linearly independent, since the only way to write the zero polynomial as a linear combination of $u_1, u_2, u_3, u_4$ is to take all coefficients to be zero. Thus, $\set{u_1, u_2, u_3, u_4}$ is a basis of $U$.
     \item We can extend the basis $\set{u_1, u_2, u_3, u_4}$ of $U$ to a basis of $\pp_4(\f)$ by adding one more polynomial that is linearly independent of $u_1, u_2, u_3, u_4$. For example, we can add the polynomial
     \[u_5 = x,\]
-    which is linearly independent of $u_1, u_2, u_3, u_4$ since it is not in $U$. Thus, $\set{u_1, u_2, u_3, u_4, u_5}$ is a basis of $\pp_4(\f)$.
+    which is linearly independent of $u_1, u_2, u_3, u_4$: since only $u_2, u_3, u_4$ have $x$ terms but contain other higher-degree terms, $u_5$ cannot be expressed as a linear combination of $u_1, u_2, u_3, u_4$. Thus, $\set{u_1, u_2, u_3, u_4, u_5}$ is a basis of $\pp_4(\f)$.
     \item Let $W = \spn u_5 = \spn x$. Then we have
     \[\pp_4(\f) = U + W,\]
     since every polynomial in $\pp_4(\f)$ can be written as a sum of a polynomial in $U$ and a polynomial in $W$. Moreover, if $p \in U \cap W$, then $p = \alpha x$ for some $\alpha \in \f$. Since $p(2) = p(5)$, we have $2\alpha = 5\alpha$, which implies that $\alpha = 0$. Thus, $U \cap W = \set{0}$, and so we have
@@ -122,10 +119,9 @@
     \[a_2 = -13a_3 - 117a_4.\]
     Then $a_1 = 52a_3 + 616a_4$. Thus, we can write any polynomial in $U$ as a linear combination of the following three polynomials:
     \[u_1 = 1, \quad u_2 = 52x - 13x^2 + x^3, \quad u_3 = 616x - 117x^2 + x^4.\]
-    Moreover, these three polynomials are linearly independent, since the only way to write the zero polynomial as a linear combination of $u_1, u_2, u_3$ is to take all coefficients to be zero. Thus, $\set{u_1, u_2, u_3}$ is a basis of $U$.
     \item We can extend the basis $\set{u_1, u_2, u_3}$ of $U$ to a basis of $\pp_4(\f)$ by adding two more polynomials that are linearly independent of $u_1, u_2, u_3$. For example, we can add the polynomials
     \[u_4 = x^2, \quad u_5 = x^3,\]
-    which are linearly independent of $u_1, u_2, u_3$ since they are not in $U$. Thus, $\set{u_1, u_2, u_3, u_4, u_5}$ is a basis of $\pp_4(\f)$.
+    which are linearly independent of $u_1, u_2, u_3$: since only $u_2$ and $u_3$ have $x^2$ terms but contain other higher-degree terms, $u_4$ cannot be expressed as a linear combination of $u_1, u_2, u_3$. Similarly, $u_5$ has an $x^3$ term but no higher-degree terms, so it cannot be expressed as a linear combination of $u_1, u_2, u_3, u_4$. Thus, $\set{u_1, u_2, u_3, u_4, u_5}$ is a basis of $\pp_4(\f)$.
     \item Let $W = \spn(u_4, u_5) = \spn(x^2, x^3)$. Then we have
     \[\pp_4(\f) = U + W,\]
     since every polynomial in $\pp_4(\f)$ can be written as a sum of a polynomial in $U$ and a polynomial in $W$. Moreover, if $p \in U \cap W$, then $p = \alpha x^2 + \beta x^3$ for some $\alpha, \beta \in \f$. Since $p(2) = p(5) = p(6)$, we have
@@ -157,11 +153,10 @@
     \[a_0 = - \frac{a_2}{3} - \frac{a_4}{5}.\]
     Then we can write any polynomial in $U$ as a linear combination of the following four polynomials:
     \[u_1 = x, \quad u_2 = x^2 - \frac 13, \quad u_3 = x^3, \quad u_4 = x^4 - \frac 15.\]
-    Moreover, these four polynomials are linearly independent, since the only way to write the zero polynomial as a linear combination of $u_1, u_2, u_3, u_4$ is to take all coefficients to be zero. Thus, $\set{u_1, u_2, u_3, u_4}$ is a basis of $U$.
     \item We can extend the basis $\set{u_1, u_2, u_3, u_4}$ of $U$ to a basis of $\pp_4(\r)$ by adding one more polynomial that is linearly independent of $u_1, u_2, u_3, u_4$. For example, we can add the polynomial
     \[u_5 = 1,\]
-    which is linearly independent of $u_1, u_2, u_3, u_4$ since it is not in $U$. Thus, $\set{u_1, u_2, u_3, u_4, u_5}$ is a basis of $\pp_4(\r)$.
-    Let $W = \spn u_5 = \spn 1$. Then we have
+    which is linearly independent of $u_1, u_2, u_3, u_4$: since $u_5$ has no higher-degree terms, it cannot be expressed as a linear combination of $u_1, u_2, u_3, u_4$. Thus, $\set{u_1, u_2, u_3, u_4, u_5}$ is a basis of $\pp_4(\r)$.
+    \item Let $W = \spn u_5 = \spn 1$. Then we have
     \[\pp_4(\r) = U + W,\]
     since every polynomial in $\pp_4(\r)$ can be written as a sum of a polynomial in $U$ and a polynomial in $W$. Moreover, if $p \in U \cap W$, then $p = \alpha$ for some $\alpha \in \r$. Since the integral of a constant over a symmetric interval is nonzero unless the function is identically zero, we have $\alpha = 0$. Thus, $U \cap W = \set{0}$, and so we have
     \[\pp_4(\r) = U \op W. \qh\]
@@ -188,17 +183,9 @@
 \end{exercise}
 
 \begin{sol}
-    Since each $p_k$ has degree $k$, we can write each polynomial as
-    \[p_k = a_{k0} + a_{k1}x + \cdots + a_{kk}x^k\]
-    where $a_{kj} \in \f$ for all $0 \leq j \leq k$ and $a_{kk} \neq 0$. We claim that $p_0, p_1, \ldots, p_m$ is linearly independent. Suppose that
+    Suppose that
     \[\alpha_0 p_0 + \alpha_1 p_1 + \cdots + \alpha_m p_m = 0\]
-    for some $\alpha_0, \ldots, \alpha_m \in \f$. Then we can write this equation as
-    \[(\alpha_0a_{00} + \alpha_1a_{10} + \cdots + \alpha_ma_{m0}) + (\alpha_1a_{11} + \cdots + \alpha_ma_{m1})x + \cdots + (\alpha_ma_{mm})x^m = 0.\]
-    Since the zero polynomial has all coefficients equal to zero, we must have
-    \[\alpha_m a_{mm} = 0.\]
-    Since $a_{mm} \neq 0$, we must have $\alpha_m = 0$. Next, the coefficient of the $x^{m - 1}$ term gives us
-    \[\alpha_{m - 1} a_{m - 1, m -1} + \alpha_m a_{m, m - 1} = 0.\]
-    Since $\alpha_m = 0$ and $a_{m - 1, m - 1} \neq 0$, we must have $\alpha_{m - 1} = 0$. Continuing in this way, we find that $\alpha_{m - 2} = \cdots = \alpha_0 = 0$. Thus, the list is linearly independent. Moreover, since $\dim \pp_m(\f) = m + 1$, any linearly independent list of $m + 1$ vectors in $\pp_m(\f)$ is a basis. Therefore, $p_0, p_1, \ldots, p_m$ is a basis of $\pp_m(\f)$.
+    for some $\alpha_0, \ldots, \alpha_m \in \f$. Since $p_m$ is the only polynomial with nonzero coefficient of $x^m$, we must have $\alpha_m = 0$. Next, since $p_{m - 1}$ is the only polynomial with nonzero coefficient of $x^{m - 1}$, we must have $\alpha_{m - 1} = 0$. Continuing in this way, we find that $\alpha_0 = \cdots = \alpha_m = 0$. Thus, the list is linearly independent. Moreover, since $\dim \pp_m(\f) = m + 1$, any linearly independent list of $m + 1$ vectors in $\pp_m(\f)$ is a basis. Therefore, $p_0, p_1, \ldots, p_m$ is a basis of $\pp_m(\f)$.
 \end{sol}
 
 \begin{exercise}[2c10]
@@ -208,15 +195,9 @@
 \end{exercise}
 
 \begin{sol}
-    We first determine what exponents appear in the polynomial $p_k$. Using the Binomial Theorem, we can expand $(1 - x)^{m - k}$ and obtain the expression for $p_k(x)$ as a polynomial in $x$:
-    \[p_k(x) = x^k \sum_{i = 0}^{m - k} \binom{m - k}{i} (-1)^i x^i = \sum_{i = 0}^{m - k} \binom{m - k}{i} (-1)^i x^{k + i}.\]
-    Thus, the exponents that appear in $p_k$ are $k, k + 1, \ldots, m$, and we may write $p_k$ as
-    \[p_k(x) = a_{kk} x^k + a_{k, k + 1} x^{k + 1} + \cdots + a_{km} x^m\]
-    where $a_{kk} = 1$ and $a_{kj} \in \f$ for all $k \leq j \leq m$. We claim that $p_0, p_1, \ldots, p_m$ is linearly independent. Suppose that
+    Suppose that
     \[\alpha_0 p_0 + \alpha_1 p_1 + \cdots + \alpha_m p_m = 0\]
-    for some $\alpha_0, \ldots, \alpha_m \in \f$. Then we can write this equation as
-    \[(\alpha_0 a_{00}) + (\alpha_0 a_{01} + \alpha_1 a_{11})x + \cdots + (\alpha_0 a_{0m} + \cdots + \alpha_m a_{mm})x^m = 0.\]
-    Since the zero polynomial has all coefficients equal to zero, and $a_{00} \neq 0$ by definition of $p_0$, we must have $\alpha_0 = 0$. Next, the coefficient of $x$ is $\alpha_0 a_{01} + \alpha_1 a_{11} = 0$. Since $\alpha_0 = 0$ and $a_{11} \neq 0$, we must have $\alpha_1 = 0$. Continuing in this way, we find that $\alpha_2 = \cdots = \alpha_m = 0$. Thus, the list is linearly independent. Moreover, since $\dim \pp_m(\f) = m + 1$, any linearly independent list of $m + 1$ vectors in $\pp_m(\f)$ is a basis. Therefore, $p_0, p_1, \ldots, p_m$ is a basis of $\pp_m(\f)$.
+    for some $\alpha_0, \ldots, \alpha_m \in \f$. Since $p_0$ is the only polynomial with nonzero constant term, we must have $\alpha_0 = 0$. Next, since $p_1$ is the only polynomial with nonzero coefficient of $x$, we must have $\alpha_1 = 0$. Continuing in this way, we find that $\alpha_0 = \cdots = \alpha_m = 0$. Thus, the list is linearly independent. Moreover, since $\dim \pp_m(\f) = m + 1$, any linearly independent list of $m + 1$ vectors in $\pp_m(\f)$ is a basis. Therefore, $p_0, \ldots, p_m$ is a basis of $\pp_m(\f)$.
 \end{sol}
 
 \begin{exercise}[2c11]
@@ -295,9 +276,9 @@
 \begin{sol}
     Let $U$ be a subspace of $V$ with $\dim U = m < n = \dim V$. We can extend a basis of $U$ to a basis of $V$. Let $\set{u_1, \ldots, u_m}$ be a basis of $U$, and extend it to a basis of $V$ by adding vectors $v_1, \ldots, v_{n - m}$. Then $\set{u_1, \ldots, u_m, v_1, \ldots, v_{n - m}}$ is a basis of $V$. For each $i = 1, \ldots, n - m$, let
     \[W_i = \spn(u_1, \ldots, u_m, v_1, \ldots, v_{i - 1}, v_{i + 1}, \ldots, v_{n - m}).\]
-    Then each $W_i$ is a subspace of $V$ with dimension $n - 1$, since it is spanned by $n - 1$ linearly independent vectors. Moreover, we have
+    By construction, $W_i$ does not contain the extended basis vector $v_i$. Moreover, each $W_i$ is a subspace of $V$ with dimension $n - 1$, since it is spanned by $n - 1$ linearly independent vectors. Additionally, we have
     \[U = W_1 \cap W_2 \cap \cdots \cap W_{n - m},\]
-    since any vector in the intersection must be a linear combination of the basis vectors of $U$, and any vector in $U$ is contained in all the subspaces $W_i$. Therefore, there exist $n - m$ subspaces of $V$, each of dimension $n - 1$, whose intersection equals $U$.
+    since any vector in the intersection containing nonzero $v_i$ would not be in $W_i$, leaving behind only the basis vectors in $U$. Therefore, there exist $n - m$ subspaces of $V$, each of dimension $n - 1$, whose intersection equals $U$.
 \end{sol}
 
 \begin{exercise}[2c17]
