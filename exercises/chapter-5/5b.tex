@@ -135,7 +135,9 @@
 \end{exercise}
 
 \begin{sol}
-    Let $A$ be the matrix of $T$ with respect to some basis of $V$. Since all entries of $A$ are rational numbers, the characteristic polynomial of $A$, which is given by $\det(zI - A)$, has rational coefficients. The minimal polynomial of $T$ divides the characteristic polynomial, and since the characteristic polynomial has rational coefficients, the minimal polynomial must also have rational coefficients.
+    Let $A$ be the matrix of $T$ with respect to some basis of $V$. Since all entries of $A$ are rational numbers, $A^k$ also has rational entries for any positive integer $k$. Then the minimal polynomial $p(z) = z^m + a_{m-1} z^{m-1} + \cdots + a_1 z + a_0$ of $T$ in terms of the matrix $A$ satisfies
+    \[p(A) = A^m + a_{m-1} A^{m-1} + \cdots + a_1 A + a_0 I = 0.\]
+    Then this gives a system of $(\dim V)^2$ linear equations in the coefficients $a_0, a_1, \ldots, a_{m-1}$ with rational coefficients. By uniqueness of the minimal polynomial, this system has a unique solution. Since the system has rational coefficients and a unique solution, the solution must also be rational. Therefore, all coefficients of the minimal polynomial of $T$ are rational numbers.
 \end{sol}
 
 \begin{exercise}[5b10]
@@ -143,6 +145,19 @@
     \[\spn(v, Tv, \ldots, T^m v) = \spn(v, Tv, \ldots, T^{\dim V - 1} v)\]
     for all integers $m \geq \dim V - 1$.
 \end{exercise}
+
+\begin{sol}
+    Let $n = \dim V$, and let $p$ be the minimal polynomial of $T$ with $\deg p = d \leq n$. Then $p(T) = 0$, and we can write
+    \[p(z) = z^d + a_{d-1} z^{d-1} + \cdots + a_1 z + a_0.\]
+    Since $p(T) = 0$, we have for any vector $v \in V$ and $k \geq d$,
+    \[T^k v = -a_{d-1} T^{k-1} v - \cdots - a_1 T^{k-d+1} v - a_0 T^{k-d} v.\]
+    We now induct on $k$ to show that $T^k v \in \spn(v, Tv, \ldots, T^{d-1} v)$ for all $k \geq d$. The base case $k = d$ holds by the equation above. Suppose that $T^j v \in \spn(v, \ldots, T^{d-1} v)$ for all $d \leq j \leq k - 1$. Then
+    \[T^k v = -a_{d-1} T^{k-1} v - \cdots - a_1 T^{k-d+1} v - a_0 T^{k-d} v.\]
+    Observe that $T^{k - i}$ satisfies $k - i \geq k - d$, and $k - i \leq k - 1$ for $i = 1, \ldots, d$. By the induction hypothesis, each $T^{k - i} v$ is in $\spn(v, \ldots, T^{d-1} v)$. Therefore, $T^k v$ is a linear combination of vectors in $\spn(v, \ldots, T^{d-1} v)$, and hence $T^k v \in \spn(v, \ldots, T^{d-1} v)$. By induction, this holds for all $k \geq d$.
+
+    Since $d \leq n$, we have for any $m \geq n - 1 \geq d - 1$, that the vector $T^k v$ for $k = d, d+1, \ldots, m$ is in $\spn(v, Tv, \ldots, T^{d-1} v)$. Therefore,
+    \[\spn(v, Tv, \ldots, T^m v) = \spn(v, Tv, \ldots, T^{d-1} v) = \spn(v, Tv, \ldots, T^{n-1} v). \qh\]
+\end{sol}
 
 \begin{exercise}[5b11]
     Suppose $V$ is a two-dimensional vector space, $T \in \lin{V}$, and the matrix of $T$ with respect to some basis of $V$ is $\begin{pmatrix} a & c \\ b & d \end{pmatrix}$.
