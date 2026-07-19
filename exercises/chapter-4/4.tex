@@ -3,7 +3,8 @@
 \setcounter{subsection}{1}
 
 \begin{exercise}[4a1]
-    Suppose $w, z \in \c$. Verify the following equalities and inequalities.
+    Suppose $w, z \in \c$.
+	Verify the following equalities and inequalities.
     \begin{subexercises}
         \item $z + \bar{z} = 2 \Re z$
         \item $z - \bar{z} = 2(\Im z)i$
@@ -17,7 +18,8 @@
 \end{exercise}
 
 \begin{sol}
-    In this problem, let $z = a + bi$ and $w = c + di$ with $a, b, c, d \in \r$. Then
+    In this problem, let $z = a + bi$ and $w = c + di$ with $a, b, c, d \in \r$.
+	Then
     \begin{subexercises}
         \item $z + \bar{z} = (a + bi) + (a - bi) = 2a = 2 \Re z$.
         \item $z - \bar{z} = (a + bi) - (a - bi) = 2bi = 2(\Im z)i$.
@@ -37,22 +39,28 @@
 \end{exercise}
 
 \begin{sol}
-    Let $w, z \in \c$. By the triangle inequality, we have
+    Let $w, z \in \c$.
+	By the triangle inequality, we have
     \[|w| = |(w - z) + z| \leq |w - z| + |z|.\]
-    Rearranging gives $|w| - |z| \leq |w - z|$. Similarly,
+    Rearranging gives $|w| - |z| \leq |w - z|$.
+	Similarly,
     \[|z| = |(z - w) + w| \leq |z - w| + |w| = |w - z| + |w|,\]
-    which gives $|z| - |w| \leq |w - z|$, or equivalently $-|w - z| \leq |w| - |z|$. Combining these inequalities, we get
+    which gives $|z| - |w| \leq |w - z|$, or equivalently $-|w - z| \leq |w| - |z|$.
+	Combining these inequalities, we get
     \[||w| - |z|| \leq |w - z|. \qh\]
 \end{sol}
 
 \begin{exercise}[4a3]
-    Suppose $V$ is a complex vector space and $\varphi \in V'$. Define $\sigma: V \to \r$ by $\sigma(v) = \Re \varphi(v)$ for each $v \in V$. Show that
+    Suppose $V$ is a complex vector space and $\varphi \in V'$.
+	Define $\sigma: V \to \r$ by $\sigma(v) = \Re \varphi(v)$ for each $v \in V$.
+	Show that
     \[\varphi(v) = \sigma(v) - i\sigma(iv)\]
     for all $v \in V$.
 \end{exercise}
 
 \begin{sol}
-    Let $v \in V$. Then there exist $s, t \in \r$ such that
+    Let $v \in V$.
+	Then there exist $s, t \in \r$ such that
     \[\varphi(v) = s + ti.\]
     Then
     \[\sigma(v) = \Re \varphi(v) = s \quad \text{and} \quad \sigma(iv) = \Re \varphi(iv) = \Re (i(s + ti)) = \Re (-t + si) = -t.\]
@@ -61,13 +69,17 @@
 \end{sol}
 
 \begin{exercise}[4a4]
-    Suppose $m$ is a positive integer. Is the set
+    Suppose $m$ is a positive integer.
+	Is the set
     \[\set{0} \cup \set{p \in \pp(\f) \mid \deg p = m}\]
     a subspace of $\pp(\f)$?
 \end{exercise}
 
 \begin{sol}
-    No, the set is not a subspace of $\pp(\f)$. To see this, consider two polynomials $p, q \in \pp(\f)$ with $p(x) = x^m$ and $q(x) = -x^m + x^{m - 1}$. Then $p + q = x^{m - 1}$, which has degree $m - 1$ and is not in the set. Therefore, the set is not closed under addition and hence not a subspace.
+    No, the set is not a subspace of $\pp(\f)$.
+	To see this, consider two polynomials $p, q \in \pp(\f)$ with $p(x) = x^m$ and $q(x) = -x^m + x^{m - 1}$.
+	Then $p + q = x^{m - 1}$, which has degree $m - 1$ and is not in the set.
+	Therefore, the set is not closed under addition and hence not a subspace.
 \end{sol}
 
 \begin{exercise}[4a5]
@@ -77,41 +89,57 @@
 \end{exercise}
 
 \begin{sol}
-    No, the set is not a subspace of $\pp(\f)$. To see this, consider two polynomials $p, q \in \pp(\f)$ with $p(x) = x^2$ and $q(x) = x - x^2$. Then $p + q = x$, which has degree $1$ and is not even. Therefore, the set is not closed under addition and hence not a subspace.
+    No, the set is not a subspace of $\pp(\f)$.
+	To see this, consider two polynomials $p, q \in \pp(\f)$ with $p(x) = x^2$ and $q(x) = x - x^2$.
+	Then $p + q = x$, which has degree $1$ and is not even.
+	Therefore, the set is not closed under addition and hence not a subspace.
 \end{sol}
 
 \begin{exercise}[4a6]
-    Suppose that $m$ and $n$ are positive integers with $m \leq n$, and suppose $\lambda_1, \ldots, \lambda_m \in \f$. Prove that there exists a polynomial $p \in \pp(\f)$ with $\deg p = n$ such that $0 = p(\lambda_1) = \cdots = p(\lambda_m)$ and such that $p$ has no other zeros.
+    Suppose that $m$ and $n$ are positive integers with $m \leq n$, and suppose $\lambda_1, \ldots, \lambda_m \in \f$.
+	Prove that there exists a polynomial $p \in \pp(\f)$ with $\deg p = n$ such that $0 = p(\lambda_1) = \cdots = p(\lambda_m)$ and such that $p$ has no other zeros.
 \end{exercise}
 
 \begin{sol}
     Consider the polynomial
     \[p(x) = (x - \lambda_1)^{n - m + 1}(x - \lambda_2) \cdots (x - \lambda_m).\]
-    This polynomial has degree $n$, vanishes at $\lambda_1, \ldots, \lambda_m$, and has no other zeros. Therefore, it satisfies the required conditions.
+    This polynomial has degree $n$, vanishes at $\lambda_1, \ldots, \lambda_m$, and has no other zeros.
+	Therefore, it satisfies the required conditions.
 \end{sol}
 
 \begin{exercise}[4a7]
-    Suppose that $m$ is a nonnegative integer, $z_1, \ldots, z_{m + 1}$ are distinct elements of $\f$, and $w_1, \ldots, w_{m + 1} \in \f$. Prove that there exists a unique polynomial $p \in \pp_m(\f)$ such that
+    Suppose that $m$ is a nonnegative integer, $z_1, \ldots, z_{m + 1}$ are distinct elements of $\f$, and $w_1, \ldots, w_{m + 1} \in \f$.
+	Prove that there exists a unique polynomial $p \in \pp_m(\f)$ such that
     \[p(z_k) = w_k\]
     for each $k = 1, \ldots, m + 1$.
     
-    \note{This result can be proved without using linear algebra. However, try to find the clearer, shorter proof that uses some linear algebra.}
+    \note{This result can be proved without using linear algebra.
+	However, try to find the clearer, shorter proof that uses some linear algebra.}
 \end{exercise}
 
 \begin{sol}
     Consider the linear map $T: \pp_m(\f) \to \f^{m + 1}$ defined by
     \[T(p) = (p(z_1), \ldots, p(z_{m + 1})).\]
-    Since $\dim \pp_m(\f) = m + 1$ and $\dim \f^{m + 1} = m + 1$, it suffices to show that $T$ is injective to conclude that it is also surjective. Suppose $T(p) = 0$, i.e., $p(z_k) = 0$ for all $k = 1, \ldots, m + 1$. Since $p$ has degree at most $m$ and has $m + 1$ distinct zeros, it must be the zero polynomial. Therefore, $T$ is injective, and hence bijective. This shows that for any $(w_1, \ldots, w_{m + 1}) \in \f^{m + 1}$, there exists a unique $p \in \pp_m(\f)$ such that $T(p) = (w_1, \ldots, w_{m + 1})$, which is exactly the desired polynomial.
+    Since $\dim \pp_m(\f) = m + 1$ and $\dim \f^{m + 1} = m + 1$, it suffices to show that $T$ is injective to conclude that it is also surjective.
+	Suppose $T(p) = 0$, i.e., $p(z_k) = 0$ for all $k = 1, \ldots, m + 1$.
+	Since $p$ has degree at most $m$ and has $m + 1$ distinct zeros, it must be the zero polynomial.
+	Therefore, $T$ is injective, and hence bijective.
+	This shows that for any $(w_1, \ldots, w_{m + 1}) \in \f^{m + 1}$, there exists a unique $p \in \pp_m(\f)$ such that $T(p) = (w_1, \ldots, w_{m + 1})$, which is exactly the desired polynomial.
 \end{sol}
 
 \begin{exercise}[4a8]
-    Suppose $p \in \pp(\c)$ has degree $m$. Prove that $p$ has $m$ distinct zeros if and only if $p$ and its derivative $p'$ have no zeros in common.
+    Suppose $p \in \pp(\c)$ has degree $m$.
+	Prove that $p$ has $m$ distinct zeros if and only if $p$ and its derivative $p'$ have no zeros in common.
 \end{exercise}
 
 \begin{sol}
-    Suppose $p$ has $m$ distinct zeros, say $z_1, \ldots, z_m$. If $p$ and $p'$ have a common zero $z_k$, then $z_k$ would be a multiple zero of $p$, contradicting the assumption that all zeros are distinct. Hence, $p$ and $p'$ have no zeros in common.
+    Suppose $p$ has $m$ distinct zeros, say $z_1, \ldots, z_m$.
+	If $p$ and $p'$ have a common zero $z_k$, then $z_k$ would be a multiple zero of $p$, contradicting the assumption that all zeros are distinct.
+	Hence, $p$ and $p'$ have no zeros in common.
 
-    Conversely, suppose $p$ and $p'$ have no zeros in common. If $p$ had a multiple zero $z$, then $p(z) = 0$ and $p'(z) = 0$, which would contradict the assumption. Therefore, all zeros of $p$ are distinct.
+    Conversely, suppose $p$ and $p'$ have no zeros in common.
+	If $p$ had a multiple zero $z$, then $p(z) = 0$ and $p'(z) = 0$, which would contradict the assumption.
+	Therefore, all zeros of $p$ are distinct.
 \end{sol}
 
 \begin{exercise}[4a9]
@@ -121,7 +149,9 @@
 \end{exercise}
 
 \begin{sol}
-    Let $p(x)$ be a polynomial of odd degree with real coefficients. Since complex zeros come in pairs, there are an even number of complex zeros. Therefore, there must be at least one real zero.
+    Let $p(x)$ be a polynomial of odd degree with real coefficients.
+	Since complex zeros come in pairs, there are an even number of complex zeros.
+	Therefore, there must be at least one real zero.
 \end{sol}
 
 \begin{exercise}[4a10]
@@ -130,21 +160,30 @@
         \frac{p(x) - p(3)}{x - 3} & \text{if } x \neq 3, \\
         p'(3) & \text{if } x = 3
     \end{cases}\]
-    for each $x \in \r$. Show that $Tp \in \pp(\r)$ for every polynomial $p \in \pp(\r)$ and also show that $T: \pp(\r) \to \pp(\r)$ is a linear map.
+    for each $x \in \r$.
+	Show that $Tp \in \pp(\r)$ for every polynomial $p \in \pp(\r)$ and also show that $T: \pp(\r) \to \pp(\r)$ is a linear map.
 \end{exercise}
 
 \begin{sol}
-    Let $p \in \pp(\r)$. Since $p(x) - p(3)$ has a zero at $x = 3$, we can factor it as $(x - 3)q(x)$ for some polynomial $q \in \pp(\r)$. Then for $x \neq 3$,
+    Let $p \in \pp(\r)$.
+	Since $p(x) - p(3)$ has a zero at $x = 3$, we can factor it as $(x - 3)q(x)$ for some polynomial $q \in \pp(\r)$.
+	Then for $x \neq 3$,
     \[(Tp)(x) = \frac{p(x) - p(3)}{x - 3} = q(x),\]
-    and differentiating $p$ gives $p'(3) = q(3)$. Since $Tp(3) = p'(3) = q(3)$, we have $Tp(x) = q(x)$ for all $x \in \r$. Therefore, $Tp \in \pp(\r)$.
+    and differentiating $p$ gives $p'(3) = q(3)$.
+	Since $Tp(3) = p'(3) = q(3)$, we have $Tp(x) = q(x)$ for all $x \in \r$.
+	Therefore, $Tp \in \pp(\r)$.
 
-    Let $p_1, p_2 \in \pp(\r)$ and $\alpha, \beta \in \r$. Let $p_1(x) - p_1(3) = (x - 3)q_1(x)$ and $p_2(x) - p_2(3) = (x - 3)q_2(x)$ for some $q_1, q_2 \in \pp(\r)$. Then
+    Let $p_1, p_2 \in \pp(\r)$ and $\alpha, \beta \in \r$.
+	Let $p_1(x) - p_1(3) = (x - 3)q_1(x)$ and $p_2(x) - p_2(3) = (x - 3)q_2(x)$ for some $q_1, q_2 \in \pp(\r)$.
+	Then
     \[(\alpha p_1 + \beta p_2)(x) = (\alpha p_1(3) + \beta p_2(3)) + (x - 3)(\alpha q_1(x) + \beta q_2(x)).\]
-    Hence, $T(\alpha p_1 + \beta p_2)(x) = \alpha q_1(x) + \beta q_2(x) = \alpha Tp_1(x) + \beta Tp_2(x)$ for all $x \in \r$. Therefore, $T$ is a linear map.
+    Hence, $T(\alpha p_1 + \beta p_2)(x) = \alpha q_1(x) + \beta q_2(x) = \alpha Tp_1(x) + \beta Tp_2(x)$ for all $x \in \r$.
+	Therefore, $T$ is a linear map.
 \end{sol}
 
 \begin{exercise}[4a11]
-    Suppose $p \in \pp(\c)$. Define $q: \c \to \c$ by
+    Suppose $p \in \pp(\c)$.
+	Define $q: \c \to \c$ by
     \[q(z) = p(z) \bar{p(\bar{z})}.\]
     Prove that $q$ is a polynomial with real coefficients.
 
@@ -152,25 +191,33 @@
 \end{exercise}
 
 \begin{sol}
-    Let $p \in \pp(\c)$ have the form $p(z) = a_0 + a_1 z + \cdots + a_n z^n$ with $a_k \in \c$. Then
+    Let $p \in \pp(\c)$ have the form $p(z) = a_0 + a_1 z + \cdots + a_n z^n$ with $a_k \in \c$.
+	Then
     \[\bar{p(\bar z)} = \bar{\sum_{i = 0}^n a_i \bar z^i} = \sum_{i = 0}^n \bar a_i z^i.\]
     Therefore,
     \[q(z) = p(z) \bar{p(\bar z)} = \left(\sum_{i = 0}^n a_i z^i\right)\left(\sum_{j = 0}^n \bar a_j z^j\right) = \sum_{k = 0}^{2n} \left(\sum_{i + j = k} a_i \bar a_j\right) z^k.\]
-    Let $b_m$ denote the coefficient of $z^m$ in $q(z)$. Then
+    Let $b_m$ denote the coefficient of $z^m$ in $q(z)$.
+	Then
     \[b_m = \sum_{i + j = m} a_i \bar a_j = \sum_{i + j = m} \bar a_j a_i = \bar{b_m}.\]
-    Hence, $b_m \in \r$ for each $m = 0, 1, \ldots, 2n$. Therefore, $q$ is a polynomial with real coefficients.
+    Hence, $b_m \in \r$ for each $m = 0, 1, \ldots, 2n$.
+	Therefore, $q$ is a polynomial with real coefficients.
 \end{sol}
 
 \begin{exercise}[4a12]
-    Suppose $m$ is a nonnegative integer and $p \in \pp_m(\c)$ is such that there are distinct real numbers $x_0, x_1, \ldots, x_m$ with $p(x_k) \in \r$ for each $k = 0, 1, \ldots, m$. Prove that all coefficients of $p$ are real.
+    Suppose $m$ is a nonnegative integer and $p \in \pp_m(\c)$ is such that there are distinct real numbers $x_0, x_1, \ldots, x_m$ with $p(x_k) \in \r$ for each $k = 0, 1, \ldots, m$.
+	Prove that all coefficients of $p$ are real.
 \end{exercise}
 
 \begin{sol}
-    Let $p(x_k) = y_k \in \r$ for each $k = 0, 1, \ldots, m$. By \autoref{ex:4a7} with $\f = \r$, there exists a polynomial $q \in \pp_m(\r)$ that satisfies $q(x_k) = y_k$ for each $k = 0, 1, \ldots, m$. Note that this polynomial must be the same as the original $p \in \pp_m(\c)$ because a polynomial of degree at most $m$ is uniquely determined by its values at $m+1$ distinct points. Therefore, all coefficients of $p$ are real.
+    Let $p(x_k) = y_k \in \r$ for each $k = 0, 1, \ldots, m$.
+	By \autoref{ex:4a7} with $\f = \r$, there exists a polynomial $q \in \pp_m(\r)$ that satisfies $q(x_k) = y_k$ for each $k = 0, 1, \ldots, m$.
+	Note that this polynomial must be the same as the original $p \in \pp_m(\c)$ because a polynomial of degree at most $m$ is uniquely determined by its values at $m+1$ distinct points.
+	Therefore, all coefficients of $p$ are real.
 \end{sol}
 
 \begin{exercise}[4a13]
-    Suppose $p \in \pp(\f)$ with $p \neq 0$. Let $U = \set{pq \mid q \in \pp(\f)}$.
+    Suppose $p \in \pp(\f)$ with $p \neq 0$.
+	Let $U = \set{pq \mid q \in \pp(\f)}$.
     \begin{subexercises}
         \item Show that $\dim \pp(\f) / U = \deg p$.
         \item Find a basis of $\pp(\f) / U$.
@@ -178,14 +225,26 @@
 \end{exercise}
 
 \begin{sole}
-    \item We first show that $U$ is a subspace of $\pp(\f)$. Clearly, $0 \in U$ since $0 = p \cdot 0$. If $u_1, u_2 \in U$, then $u_1 = pq_1$ and $u_2 = pq_2$ for some $q_1, q_2 \in \pp(\f)$. For any scalars $\alpha, \beta \in \f$, we have $\alpha u_1 + \beta u_2 = \alpha pq_1 + \beta pq_2 = p(\alpha q_1 + \beta q_2) \in U$. Therefore, $U$ is closed under addition and scalar multiplication, and hence $U$ is a subspace of $\pp(\f)$.
+    \item We first show that $U$ is a subspace of $\pp(\f)$.
+	Clearly, $0 \in U$ since $0 = p \cdot 0$.
+	If $u_1, u_2 \in U$, then $u_1 = pq_1$ and $u_2 = pq_2$ for some $q_1, q_2 \in \pp(\f)$.
+	For any scalars $\alpha, \beta \in \f$, we have $\alpha u_1 + \beta u_2 = \alpha pq_1 + \beta pq_2 = p(\alpha q_1 + \beta q_2) \in U$.
+	Therefore, $U$ is closed under addition and scalar multiplication, and hence $U$ is a subspace of $\pp(\f)$.
     
-    Now let $r \in \pp(\f)$. By the division algorithm for polynomials, there exist unique polynomials $q_0 \in \pp(\f)$ and $s \in \pp(\f)$ with $\deg s < \deg p$ such that $r = pq_0 + s$. This shows that every polynomial in $\pp(\f)$ can be written as an element of $U$ plus a polynomial of degree less than $\deg p$. Consider the map $T : \pp_{\deg p - 1}(\f) \to \pp(\f) / U$ defined by $T(s) = s + U$. This map is linear and surjective, and its kernel is trivial since if $s + U = U$, then $s \in U$, which implies $s = pq$ for some $q \in \pp(\f)$. But $\deg s < \deg p$, so $s$ must be zero. Therefore, $T$ is an isomorphism, and we conclude that $\dim \pp(\f) / U = \dim \pp_{\deg p - 1}(\f) = \deg p$.
+    Now let $r \in \pp(\f)$.
+	By the division algorithm for polynomials, there exist unique polynomials $q_0 \in \pp(\f)$ and $s \in \pp(\f)$ with $\deg s < \deg p$ such that $r = pq_0 + s$.
+	This shows that every polynomial in $\pp(\f)$ can be written as an element of $U$ plus a polynomial of degree less than $\deg p$.
+	Consider the map $T : \pp_{\deg p - 1}(\f) \to \pp(\f) / U$ defined by $T(s) = s + U$.
+	This map is linear and surjective, and its kernel is trivial since if $s + U = U$, then $s \in U$, which implies $s = pq$ for some $q \in \pp(\f)$.
+	But $\deg s < \deg p$, so $s$ must be zero.
+	Therefore, $T$ is an isomorphism, and we conclude that $\dim \pp(\f) / U = \dim \pp_{\deg p - 1}(\f) = \deg p$.
     \item A basis of $\pp(\f) / U$ is given by the images of the standard basis of $\pp_{\deg p - 1}(\f)$ under $T$, namely $\set{1 + U, x + U, \ldots, x^{\deg p - 1} + U}$.
 \end{sole}
 
 \begin{exercise}[4a14]
-    Suppose $p, q \in \pp(\c)$ are nonconstant polynomials with no zeros in common. Let $m = \deg p$ and $n = \deg q$. Use linear algebra as outlined below in (a)--(c) to prove that there exist $r \in \pp_{n-1}(\c)$ and $s \in \pp_{m-1}(\c)$ such that
+    Suppose $p, q \in \pp(\c)$ are nonconstant polynomials with no zeros in common.
+	Let $m = \deg p$ and $n = \deg q$.
+	Use linear algebra as outlined below in (a)--(c) to prove that there exist $r \in \pp_{n-1}(\c)$ and $s \in \pp_{m-1}(\c)$ such that
     \[rp + sq = 1.\]
     \begin{subexercises}
         \item Define $T: \pp_{n-1}(\c) \times \pp_{m-1}(\c) \to \pp_{m+n-1}(\c)$ by
@@ -198,7 +257,14 @@
 \end{exercise}
 
 \begin{sole}
-    \item To show that $T$ is injective, suppose that $T(r, s) = rp + sq = 0$ for some $(r, s) \in \pp_{n-1}(\c) \times \pp_{m-1}(\c)$. Then $rp = -sq$ so that $q$ divides $rp$. Since $p$ and $q$ have no zeros in common, $q$ must divide $r$. But $\deg r < \deg q$, so the only possibility is that $r = 0$. Then $-sq = 0$. Since $q$ is nonconstant, this implies that $s = 0$. Therefore, $\nul T = \set{(0, 0)}$, and hence $T$ is injective.
-    \item To show that $T$ is surjective, note that $\dim(\pp_{n-1}(\c) \times \pp_{m-1}(\c)) = n + m = \dim \pp_{m+n-1}(\c)$. Since $T$ is a linear map between vector spaces of the same finite dimension, and we have already shown that $T$ is injective, it follows that $T$ is also surjective.
-    \item The existence of such polynomials $r$ and $s$ demonstrates that $1$ lies in the image of $T$, which is precisely what we wanted to prove: there exist $r \in \pp_{n-1}(\c)$ and $s \in \pp_{m-1}(\c)$ such that $rp + sq = 1$.
+    \item To show that $T$ is injective, suppose that $T(r, s) = rp + sq = 0$ for some $(r, s) \in \pp_{n-1}(\c) \times \pp_{m-1}(\c)$.
+	Then $rp = -sq$ so that $q$ divides $rp$.
+	Since $p$ and $q$ have no zeros in common, $q$ must divide $r$.
+	But $\deg r < \deg q$, so the only possibility is that $r = 0$.
+	Then $-sq = 0$.
+	Since $q$ is nonconstant, this implies that $s = 0$.
+	Therefore, $\nul T = \set{(0, 0)}$, and hence $T$ is injective.
+    \item To show that $T$ is surjective, note that $\dim(\pp_{n-1}(\c) \times \pp_{m-1}(\c)) = n + m = \dim \pp_{m+n-1}(\c)$.
+	Since $T$ is a linear map between vector spaces of the same finite dimension, and we have already shown that $T$ is injective, it follows that $T$ is also surjective.
+    \item Since $T$ is surjective, for the polynomial $1 \in \pp_{m+n-1}(\c)$, there exist $r \in \pp_{n-1}(\c)$ and $s \in \pp_{m-1}(\c)$ such that $T(r, s) = rp + sq = 1$.
 \end{sole}

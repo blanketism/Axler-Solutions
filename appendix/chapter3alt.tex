@@ -1,17 +1,30 @@
 \subsection{Linear Maps}
 
 \begin{apex}[3b29]
-    Suppose $p \in \pp(\r)$. Prove that there exists a polynomial $q \in \pp(\r)$ such that $5q'' + 3q' = p$.
+    Suppose $p \in \pp(\r)$.
+	Prove that there exists a polynomial $q \in \pp(\r)$ such that $5q'' + 3q' = p$.
 \end{apex}
 
 \begin{coole}
-    Let $p(x) = a_0 + a_1x + \cdots + a_nx^n$ and consider the constraint $5q'' + 3q' = p$. If $q$ has degree $m$, then $q'$ has degree $m-1$ and $q''$ has degree $m-2$, so $5q'' + 3q'$ has degree $m-1$. To satisfy the constraint, we must have $m-1 = n$, and we may write $q(x) = b_0 + b_1x + \cdots + b_{n+1}x^{n+1}$. Evaluating, 
+    Let $p(x) = a_0 + a_1x + \cdots + a_nx^n$ and consider the constraint $5q'' + 3q' = p$.
+	If $q$ has degree $m$, then $q'$ has degree $m-1$ and $q''$ has degree $m-2$, so $5q'' + 3q'$ has degree $m-1$.
+	To satisfy the constraint, we must have $m-1 = n$, and we may write $q(x) = b_0 + b_1x + \cdots + b_{n+1}x^{n+1}$.
+	Evaluating, 
     \begin{align*}
         q'(x) &= b_1 + 2b_2x + \cdots + (n+1)b_{n+1}x^n \\
         q''(x) &= 2b_2 + 6b_3x + \cdots + n(n+1)b_{n+1}x^{n-1}
     \end{align*}
-    Equating with $p$, we obtain that the system $$\begin{cases}a_0 = 3b_1 + 10b_2 \\ a_1 = 6b_2 + 30b_3 \\ \vdots \\ a_n = 3(n+1)b_{n+1}\end{cases},$$
-    i.e., $a_i = 3(i+1)b_{i+1} + 5(i+1)(i+2)b_{i+2}$ for $0 \leq i < n$ and $a_n = 3(n+1)b_{n+1}$. Finally, we solve for the coefficients of $q$ by back-substitution. Noting that
+    Equating coefficients with $p$, we obtain that the system
+    \[
+    \begin{cases}
+        a_0 = 3b_1 + 10b_2 \\
+        a_1 = 6b_2 + 30b_3 \\
+        \vdots \\ 
+        a_n = 3(n+1)b_{n+1}
+    \end{cases},\]
+    i.e., $a_i = 3(i+1)b_{i+1} + 5(i+1)(i+2)b_{i+2}$ for $0 \leq i < n$ and $a_n = 3(n+1)b_{n+1}$.
+	Finally, we solve for the coefficients of $q$ by back-substitution.
+	Noting that
     \[b_{i+1} = \frac{a_i - 5(i+1)(i+2)b_{i+2}}{3(i+1)},\] we have 
     \[\begin{cases}
         b_{n+1} = \frac{a_n}{3(n+1)} \\
@@ -19,7 +32,8 @@
         \vdots \\
         b_1 = \frac{a_0 - 10b_2}{3}
     \end{cases}\]
-    which has a solution as no division by 0 occurs in the process. Finally, we note that $b_0$ is a free variable, so there is an infinite family of $q \in \pp(\r)$ with the given coefficients such that $5q'' + 3q' = p$.
+    which has a valid solution since no division by $0$ occurs.
+	Finally, we note that $b_0$ is a free variable, so there is an infinite family of $q \in \pp(\r)$ with the given coefficients such that $5q'' + 3q' = p$.
 \end{coole}
 
 \begin{apex}[3d19]
@@ -33,51 +47,51 @@ Each proof assumes the declaration of the matrix to be $A$ and that $\dim V \geq
 
 This method shows that we can swap two \emph{arbitrary} basis vectors to force the same value of all off-diagonal entries as well as the same value of all diagonal entries.
 Then, we can negate one basis vector to force all off-diagonal entries to be 0 via the linear independence of the basis vectors.
-        
+
 \begin{coole}
     Let $i,j$ be arbitrary with $1 \leq i,j \leq n$ and $i \neq j$.
     Consider the basis $w_1, \dots, w_n$ of $V$ defined by $w_i = v_j$, $w_j = v_i$ and $w_k = v_k$ otherwise.
     Then 
-        \begin{align*}
+    \begin{align*}
         T(w_j - v_i) &= Tw_j - Tv_i \\
         T(0) &= A_{1,j}w_1 + A_{2,j}w_2 + \cdots + A_{n,j}w_n - (A_{1,i}v_1 + A_{2,i}v_2 + \cdots + A_{n,i}v_n) \\
         0 &= (A_{j,j} - A_{i,i})v_i + (A_{i,j} - A_{j,i})v_j + \sum_{\substack{k \neq i \\ k \neq j}}(A_{k,j} - A_{k,i})v_k.
-        \end{align*}
-        By linear independence of $v_1, \dots, v_n$, we have $A_{i,i} = A_{j,j}$, $A_{i,j} = A_{j,i}$ and $A_{k,j} = A_{k,i}$ for all $k \neq i,j$.
-        Because $i$ and $j$ were arbitrary, we have $A_{1,1} = A_{2,2} = \cdots = A_{n,n} = \lambda$, as well as $A$ is symmetric, and all off-diagonal entries match across rows, so we can say $A_{i,j} = \gamma$ for all $i \neq j$.
+    \end{align*}
+    By linear independence of $v_1, \dots, v_n$, we have $A_{i,i} = A_{j,j}$, $A_{i,j} = A_{j,i}$ and $A_{k,j} = A_{k,i}$ for all $k \neq i,j$.
+    Because $i$ and $j$ were arbitrary, we have $A_{1,1} = A_{2,2} = \cdots = A_{n,n} = \lambda$, as well as $A$ is symmetric, and all off-diagonal entries match across rows, so we can say $A_{i,j} = \gamma$ for all $i \neq j$.
     To finish, consider the basis $u_1, \dots, u_n$ defined by $u_1 = -v_1$ and $u_k = v_k$ otherwise.
     Then 
-        \begin{align*}
+    \begin{align*}
         T(v_1 + u_1) &= Tv_1 + Tu_1 \\
         T(0) &= \lambda v_1 + \gamma(v_2 + \cdots + v_n) + (\lambda u_1 + \gamma(u_2 + \cdots + u_n)) \\
         0 &= 2\gamma(v_2 + \cdots + v_n).
-        \end{align*}
+    \end{align*}
     Again by linear independence of $v_1, \dots, v_n$, we have $2\gamma = 0$ and thus $\gamma = 0$.
     Therefore, $A = \lambda I$ and $T$ is a scalar multiple of the identity.
 \end{coole}
 
 This method shows that we can negate one \emph{arbitrary} basis vector to force all off-diagonal entries to be 0 via the linear independence of the basis vectors.
 Then, we can swap $v_1$ with any other basis vector to force all diagonal entries to be the same.
-        
+
 \begin{coole}
     Let $j$ be arbitrary and consider the basis $w_1, \dots, w_n$ of $V$ defined by $w_j = -v_j$ and $w_i = v_i$ otherwise.
 	Then
-        \begin{align*}
+    \begin{align*}
         T(w_j + v_j) &= Tw_j + Tv_j \\
         T(0) &= A_{1,j}w_1 + A_{2,j}w_2 + \cdots + A_{n,j}w_n + A_{1,j}v_1 + A_{2,j}v_2 + \cdots + A_{n,j}v_n \\
         0 &= 2\sum_{k \neq j}A_{k,j}v_k.
-        \end{align*}
+    \end{align*}
     By linear independence of $v_1, \dots, v_n$, we have $A_{k,j} = 0$ for all $k \neq j$.
 	Since $j$ was arbitrary, we have that all off-diagonal entries of $A$ are 0.
 
     We turn to one more basis to prove that all diagonal entries of $A$ must be the same.
 	Once again, let $j$ be arbitrary, and this time consider the basis $u_1, \dots, u_n$ defined by $u_1 = v_j$, $u_j = v_1$ and $u_i = v_i$ otherwise.
 	Then
-        \begin{align*}
+    \begin{align*}
         T(v_1 - u_j) &= Tv_1 - Tu_j \\
         T(0) &= A_{1,1}v_1 - A_{j,j}u_j \\
         0 &= (A_{1,1} - A_{j,j})v_1.
-        \end{align*}
+    \end{align*}
     As $v_1$ belongs to a basis for $V$, it is nonzero, and thus as $j$ was arbitrary, $A_{1,1} = A_{2,2} = \cdots = A_{n,n} = \lambda$ for some scalar $\lambda$, and we have $A = \lambda I$, i.e., $T$ is a multiple of the identity operator.
 \end{coole}
 
@@ -92,23 +106,36 @@ Then, we can swap $v_1$ with any other basis vector to force all diagonal entrie
 \begin{proof}
     \leavevmode
     \begin{subexercises}
-        \item Since $(0,0,\dots) \in U$, $U$ is nonempty. Suppose $x$, $y \in U$ and $c \in \mathbb{F}$. Let $S_x$ and $S_y$ be the sets of indices where $x$ and $y$ have nonzero terms, respectively. By definition, $S_x$ and $S_y$ are finite. $cx+y$ can only have nonzero terms at indices in $S_x \cup S_y$. Since the union of two finite sets is finite, $cx+y \in U$, which makes $U$ a subspace of $\mathbb{F}^{\infty}$. 
+        \item Since $(0,0,\dots) \in U$, $U$ is nonempty.
+	Suppose $x$, $y \in U$ and $c \in \mathbb{F}$.
+	Let $S_x$ and $S_y$ be the sets of indices where $x$ and $y$ have nonzero terms, respectively.
+	By definition, $S_x$ and $S_y$ are finite. $cx+y$ can only have nonzero terms at indices in $S_x \cup S_y$.
+	Since the union of two finite sets is finite, $cx+y \in U$, which makes $U$ a subspace of $\mathbb{F}^{\infty}$. 
 
-        \item Partition $\mathbb{Z}^{+}$ into a countably infinite family of disjoint infinite subsets $A_1$, $A_2$, $\dots$. For each $n$, define $v_n \in \mathbb{F}^{\infty}$ such that its $j$-th term is $1$ if $j \in A_n$ and $0$ otherwise.
+        \item Partition $\mathbb{Z}^{+}$ into a countably infinite family of disjoint infinite subsets $A_1$, $A_2$, $\dots$.
+	For each $n$, define $v_n \in \mathbb{F}^{\infty}$ such that its $j$-th term is $1$ if $j \in A_n$ and $0$ otherwise.
 
-        Suppose that $\sum^{m}_{i=1} c_i (v_i+U)=0+U$ for some positive integer $m$ and scalars $c_1$, $\dots$, $c_m \in \mathbb{F}$. Then, $w=\sum^{m}_{i=1} c_i v_i \in U$. By construction, for $i \in \{1, \dots, m\}$, the $j$-th term of $w$ is $c_i$ for all $j \in A_i$. Since $w \in U$, it only has a finite number of nonzero terms. But each $A_i$ is infinite, so this forces $c_i=0$ for all $i \in \{1, \dots, m\}$. Hence, $v_1+U$, $v_2+U$, $\dots$ are linearly independent in $\mathbb{F}^{\infty}/U$.
+        Suppose that $\sum^{m}_{i=1} c_i (v_i+U)=0+U$ for some positive integer $m$ and scalars $c_1$, $\dots$, $c_m \in \mathbb{F}$.
+	Then, $w=\sum^{m}_{i=1} c_i v_i \in U$.
+	By construction, for $i \in \{1, \dots, m\}$, the $j$-th term of $w$ is $c_i$ for all $j \in A_i$.
+	Since $w \in U$, it only has a finite number of nonzero terms.
+	But each $A_i$ is infinite, so this forces $c_i=0$ for all $i \in \{1, \dots, m\}$.
+	Hence, $v_1+U$, $v_2+U$, $\dots$ are linearly independent in $\mathbb{F}^{\infty}/U$.
 
         Because $\mathbb{F}^{\infty}/U$ contains an infinite sequence of linearly independent vectors, it is infinite-dimensional.
     \end{subexercises}
 \end{proof}
 
 \begin{apex}[3f11]
-    Suppose $v_1, \ldots, v_n$ is a basis of $V$ and $\varphi_1, \ldots, \varphi_n$ is the corresponding dual basis of $V'$. Suppose $\psi \in V'$. Prove that
+    Suppose $v_1, \ldots, v_n$ is a basis of $V$ and $\varphi_1, \ldots, \varphi_n$ is the corresponding dual basis of $V'$.
+	Suppose $\psi \in V'$.
+	Prove that
     \[\psi = \psi(v_1) \varphi_1 + \cdots + \psi(v_n) \varphi_n.\]
 \end{apex}
 
 \begin{csp}
-    Because $\varphi_1$, $\dots$, $\varphi_n$ is the dual basis, $\varphi_i (v_j)=\delta_{i,j}$. For each basis vector $v_j$,
+    Because $\varphi_1$, $\dots$, $\varphi_n$ is the dual basis, $\varphi_i (v_j)=\delta_{i,j}$.
+	For each basis vector $v_j$,
     $$\left(\sum^{n}_{i=1} \psi(v_i) \varphi_i \right)(v_j)=\sum^{n}_{i=1} \psi(v_i) \varphi_i (v_j)=\psi(v_j).$$
     Since the two linear functionals agree on a basis of $V$, they are equal on all of $V$.
 \end{csp}

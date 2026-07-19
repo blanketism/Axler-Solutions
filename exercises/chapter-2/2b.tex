@@ -3,22 +3,38 @@
 \begin{exercise}[2b1]
     Find all vector spaces that have exactly one basis.
 
-    \remark{The proof of this exercise fails if $\f$ contains only two elements. In this case, an additional vector space with exactly one basis is the vector space of dimension one over $\f$, since the only nonzero scalar is $1$, and any nonzero vector $v$ in the vector space is a basis.}
+    \remark{The proof of this exercise fails if $\f$ contains only two elements.
+	In this case, an additional vector space with exactly one basis is the vector space of dimension one over $\f$, since the only nonzero scalar is $1$, and any nonzero vector $v$ in the vector space is a basis.}
 \end{exercise}
 
 \begin{sol}
-    Since an infinite-dimensional vector space has infinitely many bases, we only need to consider finite-dimensional vector spaces. Let $V$ be a finite-dimensional vector space, and let $v_1, \ldots, v_n$ be a basis of $V$. Then any other basis of $V$ must have the same length as $v_1, \ldots, v_n$, which is $n$. If $n \geq 1$, consider $\alpha \in \f$ such that $\alpha \neq 0$ and $\alpha \neq 1$. Then the list $\alpha v_1, v_2, \ldots, v_n$ still spans $V$, since we may recover $v_1 = \alpha\inv(\alpha v_1)$. Moreover, the list $\alpha v_1, v_2, \ldots, v_n$ is linearly independent, since if
+    Since an infinite-dimensional vector space has infinitely many bases, we only need to consider finite-dimensional vector spaces.
+	Let $V$ be a finite-dimensional vector space, and let $v_1, \ldots, v_n$ be a basis of $V$.
+	Then any other basis of $V$ must have the same length as $v_1, \ldots, v_n$, which is $n$.
+	If $n \geq 1$, consider $\alpha \in \f$ such that $\alpha \neq 0$ and $\alpha \neq 1$.
+	Then the list $\alpha v_1, v_2, \ldots, v_n$ still spans $V$, since we may recover $v_1 = \alpha\inv(\alpha v_1)$.
+	Moreover, the list $\alpha v_1, v_2, \ldots, v_n$ is linearly independent, since if
     \[\beta_1(\alpha v_1) + \beta_2 v_2 + \cdots + \beta_n v_n = 0,\]
     then we may write
     \[(\alpha \beta_1) v_1 + \beta_2 v_2 + \cdots + \beta_n v_n = 0.\]
-    Since $v_1, \ldots, v_n$ is linearly independent, we must have $\alpha \beta_1 = 0$, which implies that $\beta_1 = 0$. Then we also have $\beta_2 = \cdots = \beta_n = 0$. Thus, the list $\alpha v_1, v_2, \ldots, v_n$ is linearly independent. Therefore, if $n \geq 1$, then $V$ has more than one basis. If $n = 0$, then $V = \set{0}$. The empty list spans $V$, and the empty list must be linearly independent, since there are no nonzero scalars to consider. Thus, the empty list is a basis of $V$. Moreover, this is the only basis of $V$, since $0$ is linearly dependent. Therefore, the only vector space that has exactly one basis is the zero vector space.
+    Since $v_1, \ldots, v_n$ is linearly independent, we must have $\alpha \beta_1 = 0$, which implies that $\beta_1 = 0$.
+	Then we also have $\beta_2 = \cdots = \beta_n = 0$.
+	Thus, the list $\alpha v_1, v_2, \ldots, v_n$ is linearly independent.
+	Therefore, if $n \geq 1$, then $V$ has more than one basis.
+	If $n = 0$, then $V = \set{0}$.
+	The empty list spans $V$, and the empty list must be linearly independent, since there are no nonzero scalars to consider.
+	Thus, the empty list is a basis of $V$.
+	Moreover, this is the only basis of $V$, since $0$ is linearly dependent.
+	Therefore, the only vector space that has exactly one basis is the zero vector space.
 \end{sol}
 
 \begin{exercise}[2b2]
     Verify all assertions in Example 2.27.
     \begin{subexercises}
         \item The list $(1, 0, \ldots, 0), (0, 1, 0, \ldots, 0), \ldots, (0, \ldots, 0, 1)$ is a basis of $\f^n$, called the \emph{standard basis} of $\f^n$.
-        \item The list $(1, 2), (3, 5)$ is a basis of $\f^2$. Note that this list has length two, which is the same as the length of the standard basis of $\f^2$. In the next section, we will see that this is not a coincidence.
+        \item The list $(1, 2), (3, 5)$ is a basis of $\f^2$.
+	Note that this list has length two, which is the same as the length of the standard basis of $\f^2$.
+	In the next section, we will see that this is not a coincidence.
         \item The list $(1, 2, -4), (7, -5, 6)$ is linearly independent in $\f^3$ but is not a basis of $\f^3$ because it does not span $\f^3$.
         \item The list $(1, 2), (3, 5), (4, 13)$ spans $\f^2$ but is not a basis of $\f^2$ because it is not linearly independent.
         \item The list $(1, 1, 0), (0, 0, 1)$ is a basis of $\set{(x, x, y) \in \f^3 \mid x, y \in \f}$.
@@ -31,34 +47,53 @@
 \begin{sole}
     \item Suppose $\alpha_1, \ldots, \alpha_n \in \f$ such that
     \[\alpha_1(1, 0, \ldots, 0) + \alpha_2(0, 1, 0, \ldots, 0) + \cdots + \alpha_n(0, \ldots, 0, 1) = 0.\]
-    Then each $\alpha_i = 0$, so the list is linearly independent. Moreover, any vector $(x_1, \ldots, x_n) \in \f^n$ can be written as
+    Then each $\alpha_i = 0$, so the list is linearly independent.
+	Moreover, any vector $(x_1, \ldots, x_n) \in \f^n$ can be written as
     \[(x_1, \ldots, x_n) = x_1(1, 0, \ldots, 0) + x_2(0, 1, 0, \ldots, 0) + \cdots + x_n(0, \ldots, 0, 1),\]
-    so the list spans $\f^n$. Thus, the list is a basis of $\f^n$.
-    \item If $(3, 5) = a(1, 2)$ for some $a \in \f$, then we must have $3 = a$ and $5 = 2a$, which is impossible. Thus, the list is linearly independent. Moreover, for any element $(x, y) \in \f^2$, we can solve the system of equations
+    so the list spans $\f^n$.
+	Thus, the list is a basis of $\f^n$.
+    \item If $(3, 5) = a(1, 2)$ for some $a \in \f$, then we must have $3 = a$ and $5 = 2a$, which is impossible.
+	Thus, the list is linearly independent.
+	Moreover, for any element $(x, y) \in \f^2$, we can solve the system of equations
     \begin{align*}
         x & = 3\alpha + \beta, \\
         y & = 5\alpha + 2\beta
     \end{align*}
-    for $\alpha, \beta \in \f$. Solving this system of equations, we find that
+    for $\alpha, \beta \in \f$.
+	Solving this system of equations, we find that
     \[\alpha = 2x - y, \quad \beta = -5x + 3y.\]
-    Since we can find $\alpha, \beta \in \f$ for any $(x, y) \in \f^2$, the list spans $\f^2$. Thus, the list is a basis of $\f^2$.
-    \item Note that $\f^3$ is spanned by the linearly independent list $(1, 0, 0), (0, 1, 0), (0, 0, 1)$. Since the length of a spanning list must be at least the length of a linearly independent list, the list $(1, 2, -4), (7, -5, 6)$ cannot span $\f^3$.
-    \item From part (b), we saw that $(1, 2), (3, 5)$ is a basis of $\f^2$. Since $(4, 13) = -5(3, 5) + 19(1, 2)$, the list $(1, 2), (3, 5), (4, 13)$ is linearly dependent. Moreover, since $(1, 2), (3, 5)$ is a basis of $\f^2$, the list $(1, 2), (3, 5), (4, 13)$ spans $\f^2$. Thus, the list is not a basis of $\f^2$.
-    \item Let $U$ be the subspace in question. If $\alpha, \beta \in \f$ such that
+    Since we can find $\alpha, \beta \in \f$ for any $(x, y) \in \f^2$, the list spans $\f^2$.
+	Thus, the list is a basis of $\f^2$.
+    \item Note that $\f^3$ is spanned by the linearly independent list $(1, 0, 0), (0, 1, 0), (0, 0, 1)$.
+	Since the length of a spanning list must be at least the length of a linearly independent list, the list $(1, 2, -4), (7, -5, 6)$ cannot span $\f^3$.
+    \item From part (b), we saw that $(1, 2), (3, 5)$ is a basis of $\f^2$.
+	Since $(4, 13) = -5(3, 5) + 19(1, 2)$, the list $(1, 2), (3, 5), (4, 13)$ is linearly dependent.
+	Moreover, since $(1, 2), (3, 5)$ is a basis of $\f^2$, the list $(1, 2), (3, 5), (4, 13)$ spans $\f^2$.
+	Thus, the list is not a basis of $\f^2$.
+    \item Let $U$ be the subspace in question.
+	If $\alpha, \beta \in \f$ such that
     \[\alpha(1, 1, 0) + \beta(0, 0, 1) = (0, 0, 0),\]
-    then we must have $\alpha = \beta = 0$, so the list is linearly independent. Moreover, for any $(x, x, y) \in U$, we can write
+    then we must have $\alpha = \beta = 0$, so the list is linearly independent.
+	Moreover, for any $(x, x, y) \in U$, we can write
     \[(x, x, y) = x(1, 1, 0) + y(0, 0, 1),\]
-    so the list spans $U$. Thus, the list is a basis of $U$.
-    \item Let $U$ be the subspace in question. If $\alpha, \beta \in \f$ such that
+    so the list spans $U$.
+	Thus, the list is a basis of $U$.
+    \item Let $U$ be the subspace in question.
+	If $\alpha, \beta \in \f$ such that
     \[\alpha(1, -1, 0) + \beta(1, 0, -1) = (0, 0, 0),\]
-    then we must have $\alpha = \beta = 0$, so the list is linearly independent. Moreover, for any $(x, y, z) \in U$, note that $x + y + z = 0$, implying that $x = -y - z$. Then we can write
+    then we must have $\alpha = \beta = 0$, so the list is linearly independent.
+	Moreover, for any $(x, y, z) \in U$, note that $x + y + z = 0$, implying that $x = -y - z$.
+	Then we can write
     \[(x, y, z) = (-y - z, y, z) = -y(1, -1, 0) - z(1, 0, -1),\]
-    so the list spans $U$. Thus, the list is a basis of $U$.
+    so the list spans $U$.
+	Thus, the list is a basis of $U$.
     \item If $\alpha_0, \ldots, \alpha_m \in \f$ such that
     \[\alpha_0 + \alpha_1 z + \cdots + \alpha_m z^m = 0,\]
-    then we must have $\alpha_0 = \cdots = \alpha_m = 0$, so the list is linearly independent. Moreover, any polynomial $p(z) \in \pp_m(\f)$ can be written as
+    then we must have $\alpha_0 = \cdots = \alpha_m = 0$, so the list is linearly independent.
+	Moreover, any polynomial $p(z) \in \pp_m(\f)$ can be written as
     \[p(z) = \alpha_0 + \alpha_1 z + \cdots + \alpha_m z^m,\]
-    so the list spans $\pp_m(\f)$. Thus, the list is a basis of $\pp_m(\f)$.
+    so the list spans $\pp_m(\f)$.
+	Thus, the list is a basis of $\pp_m(\f)$.
 \end{sole}
 
 \begin{exercise}[2b3]
@@ -76,11 +111,16 @@
     \[U = \set{(3x_2, x_2, 7x_4, x_4, x_5) \in \r^5 \mid x_2, x_4, x_5 \in \r}.\]
     Then we can write any vector in $U$ as a linear combination of the following three vectors:
     \[u_1 = (3, 1, 0, 0, 0), \quad u_2 = (0, 0, 7, 1, 0), \quad u_3 = (0, 0, 0, 0, 1).\]
-    Moreover, these three vectors are linearly independent, since the only way to write the zero vector as a linear combination of $u_1, u_2, u_3$ is to take all coefficients to be zero. Thus, $\set{u_1, u_2, u_3}$ is a basis of $U$.
-    \item We can extend the basis $\set{u_1, u_2, u_3}$ of $U$ to a basis of $\r^5$ by adding two more vectors that are linearly independent of $u_1, u_2, u_3$. For example, we can add the vectors
+    Moreover, these three vectors are linearly independent, since the only way to write the zero vector as a linear combination of $u_1, u_2, u_3$ is to take all coefficients to be zero.
+	Thus, $\set{u_1, u_2, u_3}$ is a basis of $U$.
+    \item We can extend the basis $\set{u_1, u_2, u_3}$ of $U$ to a basis of $\r^5$ by adding two more vectors that are linearly independent of $u_1, u_2, u_3$.
+	For example, we can add the vectors
     \[u_4 = (1, 0, 0, 0, 0), \quad u_5 = (0, 0, 1, 0, 0),\]
-    which are linearly independent of $u_1, u_2, u_3$: since $u_1$ is the only vector in the list with a nonzero first component, $u_4$ cannot be a linear combination of $u_1, u_2, u_3$. Similarly, since $u_2$ is the only vector in the list with a nonzero third component, $u_5$ cannot be a linear combination of $u_1, u_2, u_3, u_4$. Thus, $\set{u_1, u_2, u_3, u_4, u_5}$ is a basis of $\r^5$.
-    \item Let $W$ be the subspace of $\r^5$ spanned by the vectors $u_4$ and $u_5$. Then we have
+    which are linearly independent of $u_1, u_2, u_3$: since $u_1$ is the only vector in the list with a nonzero first component, $u_4$ cannot be a linear combination of $u_1, u_2, u_3$.
+	Similarly, since $u_2$ is the only vector in the list with a nonzero third component, $u_5$ cannot be a linear combination of $u_1, u_2, u_3, u_4$.
+	Thus, $\set{u_1, u_2, u_3, u_4, u_5}$ is a basis of $\r^5$.
+    \item Let $W$ be the subspace of $\r^5$ spanned by the vectors $u_4$ and $u_5$.
+	Then we have
     \[\r^5 = U \op W,\]
     since $U \cap W = \set{0}$ and every vector in $\r^5$ can be written as a sum of a vector in $U$ and a vector in $W$.
 \end{sole}
@@ -100,21 +140,30 @@
     \[U = \set{(z_1, 6z_1, -2z_4 - 3z_5, z_4, z_5) \in \c^5 \mid z_1, z_4, z_5 \in \c}.\]
     Then we can write any vector in $U$ as a linear combination of the following three vectors:
     \[u_1 = (1, 6, 0, 0, 0), \quad u_2 = (0, 0, -2, 1, 0), \quad u_3 = (0, 0, -3, 0, 1).\]
-    Moreover, these three vectors are linearly independent, since the only way to write the zero vector as a linear combination of $u_1, u_2, u_3$ is to take all coefficients to be zero. Thus, $\set{u_1, u_2, u_3}$ is a basis of $U$.
-    \item We can extend the basis $\set{u_1, u_2, u_3}$ of $U$ to a basis of $\c^5$ by adding two more vectors that are linearly independent of $u_1, u_2, u_3$. For example, we can add the vectors
+    Moreover, these three vectors are linearly independent, since the only way to write the zero vector as a linear combination of $u_1, u_2, u_3$ is to take all coefficients to be zero.
+	Thus, $\set{u_1, u_2, u_3}$ is a basis of $U$.
+    \item We can extend the basis $\set{u_1, u_2, u_3}$ of $U$ to a basis of $\c^5$ by adding two more vectors that are linearly independent of $u_1, u_2, u_3$.
+	For example, we can add the vectors
     \[u_4 = (1, 0, 0, 0, 0), \quad u_5 = (0, 0, 1, 0, 0),\]
-    which are linearly independent of $u_1, u_2, u_3$: since $u_1$ is the only vector in the list with a nonzero first component, $u_4$ cannot be a linear combination of $u_1, u_2, u_3$. Similarly, $u_2$ and $u_3$ have nonzero third components, but any linear combination of $u_2$ and $u_3$ will have nonzero fourth and fifth components, so $u_5$ cannot be a linear combination of $u_1, u_2, u_3, u_4$. Thus, $\set{u_1, u_2, u_3, u_4, u_5}$ is a basis of $\c^5$.
-    \item Let $W$ be the subspace of $\c^5$ spanned by the vectors $u_4$ and $u_5$. Then we have
+    which are linearly independent of $u_1, u_2, u_3$: since $u_1$ is the only vector in the list with a nonzero first component, $u_4$ cannot be a linear combination of $u_1, u_2, u_3$.
+	Similarly, $u_2$ and $u_3$ have nonzero third components, but any linear combination of $u_2$ and $u_3$ will have nonzero fourth and fifth components, so $u_5$ cannot be a linear combination of $u_1, u_2, u_3, u_4$.
+	Thus, $\set{u_1, u_2, u_3, u_4, u_5}$ is a basis of $\c^5$.
+    \item Let $W$ be the subspace of $\c^5$ spanned by the vectors $u_4$ and $u_5$.
+	Then we have
     \[\c^5 = U \op W,\]
     since $U \cap W = \set{0}$ and every vector in $\c^5$ can be written as a sum of a vector in $U$ and a vector in $W$.
 \end{sole}
 
 \begin{exercise}[2b5]
-    Suppose $V$ is finite-dimensional and $U, W$ are subspaces of $V$ such that $V = U + W$. Prove that there exists a basis of $V$ consisting of vectors in $U \cup W$.
+    Suppose $V$ is finite-dimensional and $U, W$ are subspaces of $V$ such that $V = U + W$.
+	Prove that there exists a basis of $V$ consisting of vectors in $U \cup W$.
 \end{exercise}
 
 \begin{sol}
-    Let $u_1, \ldots, u_m$ be a basis of $U$ and $w_1, \ldots, w_n$ a basis of $W$. Then the list $u_1, \ldots, u_m, w_1, \ldots, w_n$ spans $V$, since any vector in $V$ can be written as a sum of a vector in $U$ and a vector in $W$. We can extract a basis of $V$ from this list by removing any linearly dependent vectors. Thus, there exists a basis of $V$ consisting of vectors in $U \cup W$.
+    Let $u_1, \ldots, u_m$ be a basis of $U$ and $w_1, \ldots, w_n$ a basis of $W$.
+	Then the list $u_1, \ldots, u_m, w_1, \ldots, w_n$ spans $V$, since any vector in $V$ can be written as a sum of a vector in $U$ and a vector in $W$.
+	We can extract a basis of $V$ from this list by removing any linearly dependent vectors.
+	Thus, there exists a basis of $V$ consisting of vectors in $U \cup W$.
 \end{sol}
 
 \begin{exercise}[2b6]
@@ -122,17 +171,24 @@
 \end{exercise}
 
 \begin{sol}
-    This is not true. Let $p_0 = 1, p_1 = x, p_2 = x^3, p_3 = x^2 + x^3$. Then none of the polynomials $p_0, p_1, p_2, p_3$ has degree 2. Moreover, the list $p_0, p_1, p_2, p_3$ is linearly independent, since the only way to write the zero polynomial as a linear combination of $p_0, p_1, p_2, p_3$ is to take all coefficients to be zero. Finally, noting that $x^2 = p_3 - p_2$, then for any polynomial $p(x) = a_0 + a_1 x + a_2 x^2 + a_3 x^3 \in \pp_3(\f)$, we can write
+    This is not true.
+	Let $p_0 = 1, p_1 = x, p_2 = x^3, p_3 = x^2 + x^3$.
+	Then none of the polynomials $p_0, p_1, p_2, p_3$ has degree 2.
+	Moreover, the list $p_0, p_1, p_2, p_3$ is linearly independent, since the only way to write the zero polynomial as a linear combination of $p_0, p_1, p_2, p_3$ is to take all coefficients to be zero.
+	Finally, noting that $x^2 = p_3 - p_2$, then for any polynomial $p(x) = a_0 + a_1 x + a_2 x^2 + a_3 x^3 \in \pp_3(\f)$, we can write
     \[p(x) = a_0 p_0 + a_1 p_1 + a_2 (p_3 - p_2) + a_3 p_2 = a_0 p_0 + a_1 p_1 + (a_3 - a_2)p_2 + a_2 p_3,\]
-    which shows that the list spans $\pp_3(\f)$. Thus, the list $p_0, p_1, p_2, p_3$ is a basis of $\pp_3(\f)$.
+    which shows that the list spans $\pp_3(\f)$.
+	Thus, the list $p_0, p_1, p_2, p_3$ is a basis of $\pp_3(\f)$.
 \end{sol}
 
 \begin{exercise}[2b7]
-    Suppose $v_1, v_2, v_3, v_4$ is a basis of $V$. Prove that
+    Suppose $v_1, v_2, v_3, v_4$ is a basis of $V$.
+	Prove that
     \[v_1 + v_2, v_2 + v_3, v_3 + v_4, v_4\]
     is also a basis of $V$.
 
-    \remark{The technique of transforming the scalars $\beta_1, \beta_2, \beta_3, \beta_4$ into the scalars $\alpha_1, \alpha_2, \alpha_3, \alpha_4$ is good to remember. You will later learn that this is called a \emph{change of basis}.}
+    \remark{The technique of transforming the scalars $\beta_1, \beta_2, \beta_3, \beta_4$ into the scalars $\alpha_1, \alpha_2, \alpha_3, \alpha_4$ is good to remember.
+	You will later learn that this is called a \emph{change of basis}.}
 \end{exercise}
 
 \begin{sol}
@@ -142,9 +198,15 @@
     \[\alpha_1v_1 + (\alpha_1 + \alpha_2)v_2 + (\alpha_2 + \alpha_3)v_3 + (\alpha_3 + \alpha_4)v_4 = 0.\]
     Since $v_1, v_2, v_3, v_4$ is a basis of $V$, we must have
     \[\alpha_1 = 0, \quad \alpha_1 + \alpha_2 = 0, \quad \alpha_2 + \alpha_3 = 0, \quad \alpha_3 + \alpha_4 = 0.\]
-    From the first equation, we have $\alpha_1 = 0$. Substituting this into the second equation gives us $\alpha_2 = 0$. Substituting this into the third equation gives us $\alpha_3 = 0$. Finally, substituting this into the fourth equation gives us $\alpha_4 = 0$. Thus, the list is linearly independent. Moreover, since $v_1, v_2, v_3, v_4$ is a basis of $V$, then any vector $v \in V$ can be written as
+    From the first equation, we have $\alpha_1 = 0$.
+	Substituting this into the second equation gives us $\alpha_2 = 0$.
+	Substituting this into the third equation gives us $\alpha_3 = 0$.
+	Finally, substituting this into the fourth equation gives us $\alpha_4 = 0$.
+	Thus, the list is linearly independent.
+	Moreover, since $v_1, v_2, v_3, v_4$ is a basis of $V$, then any vector $v \in V$ can be written as
     \[v = \beta_1 v_1 + \beta_2 v_2 + \beta_3 v_3 + \beta_4 v_4\]
-    for some $\beta_1, \ldots, \beta_4 \in \f$. Using the expressions from proving the linear independence of the list, we may show that there exist $\alpha_1, \ldots, \alpha_4 \in \f$ such that
+    for some $\beta_1, \ldots, \beta_4 \in \f$.
+	Using the expressions from proving the linear independence of the list, we may show that there exist $\alpha_1, \ldots, \alpha_4 \in \f$ such that
     \[
     \begin{cases}
         \beta_1 = \alpha_1, \\
@@ -157,7 +219,8 @@
     \[v = \alpha_1(v_1 + v_2) + \alpha_2(v_2 + v_3) + \alpha_3(v_3 + v_4) + \alpha_4 v_4,\]
     where
     \[\alpha_1 = \beta_1, \quad \alpha_2 = \beta_2 - \beta_1, \quad \alpha_3 = \beta_3 - \beta_2 + \beta_1, \quad \alpha_4 = \beta_4 - \beta_3 + \beta_2 - \beta_1.\]
-    Thus, the list spans $V$. Therefore, the list is a basis of $V$.
+    Thus, the list spans $V$.
+	Therefore, the list is a basis of $V$.
 \end{sol}
 
 \begin{exercise}[2b8]
@@ -165,61 +228,88 @@
 \end{exercise}
 
 \begin{sol}
-    This is not true. Let $V = \r^4$ and $v_1, v_2, v_3, v_4$ be the standard basis of $\r^4$. Let $U$ be the subspace of $\r^4$ defined by
+    This is not true.
+	Let $V = \r^4$ and $v_1, v_2, v_3, v_4$ be the standard basis of $\r^4$.
+	Let $U$ be the subspace of $\r^4$ defined by
     \[U = \spn(v_1, v_2, v_3 + v_4) = \set{(x, y, z, z) \in \r^4 \mid x, y, z \in \r}.\]
-    Then $v_1, v_2 \in U$ and $v_3, v_4 \notin U$. However, $v_1, v_2$ does not span $U$, since $(0, 0, 1, 1) \in U$ but cannot be written as a linear combination of $v_1$ and $v_2$. Thus, $v_1, v_2$ is not a basis of $U$.
+    Then $v_1, v_2 \in U$ and $v_3, v_4 \notin U$.
+	However, $v_1, v_2$ does not span $U$, since $(0, 0, 1, 1) \in U$ but cannot be written as a linear combination of $v_1$ and $v_2$.
+	Thus, $v_1, v_2$ is not a basis of $U$.
 \end{sol}
 
 \begin{exercise}[2b9]
-    Suppose $v_1, \ldots, v_m$ is a list of vectors in $V$. For $k \in \set{1, \ldots, m}$, let
+    Suppose $v_1, \ldots, v_m$ is a list of vectors in $V$.
+	For $k \in \set{1, \ldots, m}$, let
     \[w_k = v_1 + \cdots + v_k.\]
     Show that $v_1, \ldots, v_m$ is a basis of $V$ if and only if $w_1, \ldots, w_m$ is a basis of $V$.
 \end{exercise}
 
 \begin{sol}
-    By \autoref{ex:2a14}, we know that $v_1, \ldots, v_m$ is linearly independent if and only if $w_1, \ldots, w_m$ is linearly independent. By \autoref{ex:2a3}, we know that $v_1, \ldots, v_m$ spans $V$ if and only if $w_1, \ldots, w_m$ spans $V$. Thus, $v_1, \ldots, v_m$ is a basis of $V$ if and only if $w_1, \ldots, w_m$ is a basis of $V$.
+    By \autoref{ex:2a14}, we know that $v_1, \ldots, v_m$ is linearly independent if and only if $w_1, \ldots, w_m$ is linearly independent.
+	By \autoref{ex:2a3}, we know that $v_1, \ldots, v_m$ spans $V$ if and only if $w_1, \ldots, w_m$ spans $V$.
+	Thus, $v_1, \ldots, v_m$ is a basis of $V$ if and only if $w_1, \ldots, w_m$ is a basis of $V$.
 \end{sol}
 
 \begin{exercise}[2b10]
-    Suppose $U$ and $W$ are subspaces of $V$ such that $V = U \op W$. Suppose also that $u_1, \ldots, u_m$ is a basis of $U$ and $w_1, \ldots, w_n$ is a basis of $W$. Prove that
+    Suppose $U$ and $W$ are subspaces of $V$ such that $V = U \op W$.
+	Suppose also that $u_1, \ldots, u_m$ is a basis of $U$ and $w_1, \ldots, w_n$ is a basis of $W$.
+	Prove that
     \[u_1, \ldots, u_m, w_1, \ldots, w_n\]
     is a basis of $V$.
 \end{exercise}
 
 \begin{sol}
-    Let $u_1, \ldots, u_m$ be a basis of $U$ and $w_1, \ldots, w_n$ be a basis of $W$. We claim that the list
+    Let $u_1, \ldots, u_m$ be a basis of $U$ and $w_1, \ldots, w_n$ be a basis of $W$.
+	We claim that the list
     \[u_1, \ldots, u_m, w_1, \ldots, w_n\]
-    is a basis of $V$. Let $\alpha_1, \ldots, \alpha_m, \beta_1, \ldots, \beta_n \in \f$ such that
+    is a basis of $V$.
+	Let $\alpha_1, \ldots, \alpha_m, \beta_1, \ldots, \beta_n \in \f$ such that
     \[\alpha_1 u_1 + \cdots + \alpha_m u_m + \beta_1 w_1 + \cdots + \beta_n w_n = 0.\]
     Then we may write
     \[\alpha_1 u_1 + \cdots + \alpha_m u_m = -\beta_1 w_1 - \cdots - \beta_n w_n.\]
     Since the left-hand side is in $U$ and the right-hand side is in $W$, and $U \cap W = \set{0}$, we must have
     \[\alpha_1 u_1 + \cdots + \alpha_m u_m = 0 \quad \text{and} \quad \beta_1 w_1 + \cdots + \beta_n w_n = 0.\]
-    Since $u_1, \ldots, u_m$ is a basis of $U$, we have $\alpha_1 = \cdots = \alpha_m = 0$. Similarly, since $w_1, \ldots, w_n$ is a basis of $W$, we have $\beta_1 = \cdots = \beta_n = 0$. Thus, the list is linearly independent. Moreover, since $V = U \op W$, then $v = u + w$ for some $u \in U$ and $w \in W$. Then we may write
+    Since $u_1, \ldots, u_m$ is a basis of $U$, we have $\alpha_1 = \cdots = \alpha_m = 0$.
+	Similarly, since $w_1, \ldots, w_n$ is a basis of $W$, we have $\beta_1 = \cdots = \beta_n = 0$.
+	Thus, the list is linearly independent.
+	Moreover, since $V = U \op W$, then $v = u + w$ for some $u \in U$ and $w \in W$.
+	Then we may write
     \[u = \gamma_1 u_1 + \cdots + \gamma_m u_m \quad \text{and} \quad w = \delta_1 w_1 + \cdots + \delta_n w_n\]
-    for some $\gamma_1, \ldots, \gamma_m, \delta_1, \ldots, \delta_n \in \f$. Hence,
+    for some $\gamma_1, \ldots, \gamma_m, \delta_1, \ldots, \delta_n \in \f$.
+	Hence,
     \[v = u + w = \gamma_1 u_1 + \cdots + \gamma_m u_m + \delta_1 w_1 + \cdots + \delta_n w_n,\]
-    which shows that the list spans $V$. Therefore, the list is a basis of $V$.
+    which shows that the list spans $V$.
+	Therefore, the list is a basis of $V$.
 \end{sol}
 
 \begin{exercise}[2b11]
-    Suppose $V$ is a real vector space. Show that if $v_1, \ldots, v_n$ is a basis of $V$ (as a real vector space), then $v_1, \ldots, v_n$ is also a basis of the complexification $V_\c$ (as a complex vector space).
+    Suppose $V$ is a real vector space.
+	Show that if $v_1, \ldots, v_n$ is a basis of $V$ (as a real vector space), then $v_1, \ldots, v_n$ is also a basis of the complexification $V_\c$ (as a complex vector space).
 
     \note{Please see \autoref{ex:1b8} for the definition of the complexification $V_\c$}.
 \end{exercise}
 
 \begin{sol}
-    Let $v_1, \ldots, v_n$ be a basis of $V$. We claim that $v_1, \ldots, v_n$ is also a basis of $V_\c$. Let $\alpha_1, \ldots, \alpha_n \in \c$ such that
+    Let $v_1, \ldots, v_n$ be a basis of $V$.
+	We claim that $v_1, \ldots, v_n$ is also a basis of $V_\c$.
+	Let $\alpha_1, \ldots, \alpha_n \in \c$ such that
     \[\alpha_1 v_1 + \cdots + \alpha_n v_n = 0.\]
-    Then we may write each $\alpha_k = a_k + b_k i$ for some $a_k, b_k \in \r$. Then we have
+    Then we may write each $\alpha_k = a_k + b_k i$ for some $a_k, b_k \in \r$.
+	Then we have
     \[(a_1 + b_1 i)v_1 + \cdots + (a_n + b_n i)v_n = 0.\]
     This implies that
     \[(a_1 v_1 + \cdots + a_n v_n) + i(b_1 v_1 + \cdots + b_n v_n) = 0.\]
     Since the left-hand side is a sum of two vectors in $V$, and $V$ is a real vector space, we must have
     \[a_1 v_1 + \cdots + a_n v_n = 0 \quad \text{and} \quad b_1 v_1 + \cdots + b_n v_n = 0.\]
-    Since $v_1, \ldots, v_n$ is a basis of $V$, we have $a_1 = \cdots = a_n = 0$ and $b_1 = \cdots = b_n = 0$. Thus, $\alpha_1 = \cdots = \alpha_n = 0$, which shows that the list is linearly independent. Moreover, let $v \in V_\c$. Then we may write $v = u + w i$ for some $u, w \in V$. Since $v_1, \ldots, v_n$ is a basis of $V$, we may write
+    Since $v_1, \ldots, v_n$ is a basis of $V$, we have $a_1 = \cdots = a_n = 0$ and $b_1 = \cdots = b_n = 0$.
+	Thus, $\alpha_1 = \cdots = \alpha_n = 0$, which shows that the list is linearly independent.
+	Moreover, let $v \in V_\c$.
+	Then we may write $v = u + w i$ for some $u, w \in V$.
+	Since $v_1, \ldots, v_n$ is a basis of $V$, we may write
     \[u = \gamma_1 v_1 + \cdots + \gamma_n v_n \quad \text{and} \quad w = \delta_1 v_1 + \cdots + \delta_n v_n\]
-    for some $\gamma_1, \ldots, \gamma_n, \delta_1, \ldots, \delta_n \in \r$. Hence,
+    for some $\gamma_1, \ldots, \gamma_n, \delta_1, \ldots, \delta_n \in \r$.
+	Hence,
     \[v = u + w i = (\gamma_1 + \delta_1 i)v_1 + \cdots + (\gamma_n + \delta_n i)v_n,\]
-    which shows that the list spans $V_\c$. Therefore, the list is a basis of $V_\c$.
+    which shows that the list spans $V_\c$.
+	Therefore, the list is a basis of $V_\c$.
 \end{sol}

@@ -1,13 +1,19 @@
 \subsection{Dimension}
 
-\remark{In \autoref{ex:2c3} through \autoref{ex:2c7}, each problem gives a set $U$ that satisfies some linear condition on the polynomials in $\pp_4(\f)$. In each case, the polynomials we exhibit span $U$, since expressing a general element of $U$ in terms of the free parameters allowed by the defining condition writes it directly as a linear combination of them. They are also linearly independent: since they have different degrees, a linear combination of them can equal the zero polynomial only if every coefficient is zero, as otherwise the highest-degree term present could not cancel. We will therefore omit this reasoning going forward and simply exhibit a basis for each such $U$.}
+\remark{In \autoref{ex:2c3} through \autoref{ex:2c7}, each problem gives a set $U$ that satisfies some linear condition on the polynomials in $\pp_4(\f)$.
+	In each case, the polynomials we exhibit span $U$, since expressing a general element of $U$ in terms of the free parameters allowed by the defining condition writes it directly as a linear combination of them.
+	They are also linearly independent: since they have different degrees, a linear combination of them can equal the zero polynomial only if every coefficient is zero, as otherwise the highest-degree term present could not cancel.
+	We will therefore omit this reasoning going forward and simply exhibit a basis for each such $U$.}
 
 \begin{exercise}[2c1]
     Show that the subspaces of $\r^2$ are precisely $\set{0}$, all lines in $\r^2$ containing the origin, and $\r^2$.
 \end{exercise}
 
 \begin{sol}
-    Since $\dim(\r^2) = 2$, any subspace of $\r^2$ must have dimension $0$, $1$, or $2$. The only subspace of dimension $0$ is $\set{0}$, and the only subspace of dimension $2$ is $\r^2$. Any subspace with dimension 1 consists of all scalar multiples of some nonzero $(x, y) \in \r^2$, which is precisely the line with direction $(x, y)$ containing the origin. Thus, the subspaces of $\r^2$ are precisely $\set{0}$, all lines in $\r^2$ containing the origin, and $\r^2$.
+    Since $\dim(\r^2) = 2$, any subspace of $\r^2$ must have dimension $0$, $1$, or $2$.
+	The only subspace of dimension $0$ is $\set{0}$, and the only subspace of dimension $2$ is $\r^2$.
+	Any subspace with dimension 1 consists of all scalar multiples of some nonzero $(x, y) \in \r^2$, which is precisely the line with direction $(x, y)$ containing the origin.
+	Thus, the subspaces of $\r^2$ are precisely $\set{0}$, all lines in $\r^2$ containing the origin, and $\r^2$.
 \end{sol}
 
 \begin{exercise}[2c2]
@@ -15,12 +21,17 @@
 \end{exercise}
 
 \begin{sol}
-    Since $\dim(\r^3) = 3$, any subspace of $\r^3$ must have dimension $0$, $1$, $2$, or $3$. The only subspace of dimension $0$ is $\set{0}$, and the only subspace of dimension $3$ is $\r^3$. Any subspace with dimension 1 consists of all scalar multiples of some nonzero $(x, y, z) \in \r^3$, which is precisely the line containing the origin in the direction of $(x, y, z)$. Any subspace with dimension 2 consists of all linear combinations of two linearly independent vectors in $\r^3$, which is precisely a plane containing the origin. Thus, the subspaces of $\r^3$ are precisely $\set{0}$, all lines in $\r^3$ containing the origin, all planes in $\r^3$ containing the origin, and $\r^3$.
+    Since $\dim(\r^3) = 3$, any subspace of $\r^3$ must have dimension $0$, $1$, $2$, or $3$.
+	The only subspace of dimension $0$ is $\set{0}$, and the only subspace of dimension $3$ is $\r^3$.
+	Any subspace with dimension 1 consists of all scalar multiples of some nonzero $(x, y, z) \in \r^3$, which is precisely the line containing the origin in the direction of $(x, y, z)$.
+	Any subspace with dimension 2 consists of all linear combinations of two linearly independent vectors in $\r^3$, which is precisely a plane containing the origin.
+	Thus, the subspaces of $\r^3$ are precisely $\set{0}$, all lines in $\r^3$ containing the origin, all planes in $\r^3$ containing the origin, and $\r^3$.
 \end{sol}
 
 \begin{exercise}[2c3]
     \begin{subexercises}
-        \item Let $U = \set{p \in \pp_4(\f) \mid p(6) = 0}$. Find a basis of $U$.
+        \item Let $U = \set{p \in \pp_4(\f) \mid p(6) = 0}$.
+	Find a basis of $U$.
         \item Extend the basis in (a) to a basis of $\pp_4(\f)$.
         \item Find a subspace $W$ of $\pp_4(\f)$ such that $\pp_4(\f) = U \op W$.
     \end{subexercises}
@@ -28,24 +39,32 @@
 \end{exercise}
 
 \begin{sole}
-    \item Let $p = a_0 + a_1 x + a_2 x^2 + a_3 x^3 + a_4 x^4 \in U$. Then we have $p(6) = 0$, which gives us the equation
+    \item Let $p = a_0 + a_1 x + a_2 x^2 + a_3 x^3 + a_4 x^4 \in U$.
+	Then we have $p(6) = 0$, which gives us the equation
     \[a_0 + 6a_1 + 36a_2 + 216a_3 + 1296a_4 = 0.\]
     We can solve this equation for $a_0$ in terms of $a_1, a_2, a_3, a_4$:
     \[a_0 = -6a_1 - 36a_2 - 216a_3 - 1296a_4.\]
     Then we can write any polynomial in $U$ as a linear combination of the following four polynomials:
     \[u_1 = -6 + x, \quad u_2 = -36 + x^2, \quad u_3 = -216 + x^3, \quad u_4 = -1296 + x^4.\]
-    \item We can extend the basis $\set{u_1, u_2, u_3, u_4}$ of $U$ to a basis of $\pp_4(\f)$ by adding one more polynomial that is linearly independent of $u_1, u_2, u_3, u_4$. For example, we can add the polynomial
+    \item We can extend the basis $\set{u_1, u_2, u_3, u_4}$ of $U$ to a basis of $\pp_4(\f)$ by adding one more polynomial that is linearly independent of $u_1, u_2, u_3, u_4$.
+	For example, we can add the polynomial
     \[u_5 = 1,\]
-    which is linearly independent of $u_1, u_2, u_3, u_4$: since $u_5$ has no higher-degree terms, it cannot be expressed as a linear combination of $u_1, u_2, u_3, u_4$. Thus, $\set{u_1, u_2, u_3, u_4, u_5}$ is a basis of $\pp_4(\f)$.
-    \item Let $W = \spn u_5 = \spn 1$. Then we have
+    which is linearly independent of $u_1, u_2, u_3, u_4$: since $u_5$ has no higher-degree terms, it cannot be expressed as a linear combination of $u_1, u_2, u_3, u_4$.
+	Thus, $\set{u_1, u_2, u_3, u_4, u_5}$ is a basis of $\pp_4(\f)$.
+    \item Let $W = \spn u_5 = \spn 1$.
+	Then we have
     \[\pp_4(\f) = U + W,\]
-    since every polynomial in $\pp_4(\f)$ can be written as a sum of a polynomial in $U$ and a polynomial in $W$. Moreover, if $p \in U \cap W$, then $p = \alpha$ for some $\alpha \in \f$. Since $p(6) = 0$, we have $\alpha = 0$. Thus, $U \cap W = \set{0}$, and so we have
+    since every polynomial in $\pp_4(\f)$ can be written as a sum of a polynomial in $U$ and a polynomial in $W$.
+	Moreover, if $p \in U \cap W$, then $p = \alpha$ for some $\alpha \in \f$.
+	Since $p(6) = 0$, we have $\alpha = 0$.
+	Thus, $U \cap W = \set{0}$, and so we have
     \[\pp_4(\f) = U \op W. \qh\]
 \end{sole}
 
 \begin{exercise}[2c4]
     \begin{subexercises}
-        \item Let $U = \set{p \in \pp_4(\r) \mid p''(6) = 0}$. Find a basis of $U$.
+        \item Let $U = \set{p \in \pp_4(\r) \mid p''(6) = 0}$.
+	Find a basis of $U$.
         \item Extend the basis in (a) to a basis of $\pp_4(\r)$.
         \item Find a subspace $W$ of $\pp_4(\r)$ such that $\pp_4(\r) = U \op W$.
     \end{subexercises}
@@ -53,7 +72,8 @@
 \end{exercise}
 
 \begin{sole}
-    \item Let $p = a_0 + a_1 x + a_2 x^2 + a_3 x^3 + a_4 x^4 \in U$. Then we have
+    \item Let $p = a_0 + a_1 x + a_2 x^2 + a_3 x^3 + a_4 x^4 \in U$.
+	Then we have
     \[p''(x) = 2a_2 + 6a_3 x + 12a_4 x^2,\]
     and so $p''(6) = 0$ gives us the equation
     \[2a_2 + 36a_3 + 432a_4 = 0.\]
@@ -61,18 +81,25 @@
     \[a_2 = -18a_3 - 216a_4.\]
     Then we can write any polynomial in $U$ as a linear combination of the following four polynomials:
     \[u_1 = 1, \quad u_2 = x, \quad u_3 = -18x^2 + x^3, \quad u_4 = -216x^2 + x^4.\]
-    \item We can extend the basis $\set{u_1, u_2, u_3, u_4}$ of $U$ to a basis of $\pp_4(\r)$ by adding one more polynomial that is linearly independent of $u_1, u_2, u_3, u_4$. For example, we can add the polynomial
+    \item We can extend the basis $\set{u_1, u_2, u_3, u_4}$ of $U$ to a basis of $\pp_4(\r)$ by adding one more polynomial that is linearly independent of $u_1, u_2, u_3, u_4$.
+	For example, we can add the polynomial
     \[u_5 = x^2,\]
-    which is linearly independent of $u_1, u_2, u_3, u_4$: since only $u_3$ and $u_4$ have $x^2$ terms but contain other higher-degree terms, $u_5$ cannot be expressed as a linear combination of $u_1, u_2, u_3, u_4$. Thus, $\set{u_1, u_2, u_3, u_4, u_5}$ is a basis of $\pp_4(\r)$.
-    \item Let $W = \spn u_5 = \spn x^2$. Then we have
+    which is linearly independent of $u_1, u_2, u_3, u_4$: since only $u_3$ and $u_4$ have $x^2$ terms but contain other higher-degree terms, $u_5$ cannot be expressed as a linear combination of $u_1, u_2, u_3, u_4$.
+	Thus, $\set{u_1, u_2, u_3, u_4, u_5}$ is a basis of $\pp_4(\r)$.
+    \item Let $W = \spn u_5 = \spn x^2$.
+	Then we have
     \[\pp_4(\r) = U + W,\]
-    since every polynomial in $\pp_4(\r)$ can be written as a sum of a polynomial in $U$ and a polynomial in $W$. Moreover, if $p \in U \cap W$, then $p = \alpha x^2$ for some $\alpha \in \r$. Since $p''(6) = 0$, we have $2\alpha = 0$, which implies that $\alpha = 0$. Thus, $U \cap W = \set{0}$, and so we have
+    since every polynomial in $\pp_4(\r)$ can be written as a sum of a polynomial in $U$ and a polynomial in $W$.
+	Moreover, if $p \in U \cap W$, then $p = \alpha x^2$ for some $\alpha \in \r$.
+	Since $p''(6) = 0$, we have $2\alpha = 0$, which implies that $\alpha = 0$.
+	Thus, $U \cap W = \set{0}$, and so we have
     \[\pp_4(\r) = U \op W. \qh\]
 \end{sole}
 
 \begin{exercise}[2c5]
     \begin{subexercises}
-        \item Let $U = \set{p \in \pp_4(\f) \mid p(2) = p(5)}$. Find a basis of $U$.
+        \item Let $U = \set{p \in \pp_4(\f) \mid p(2) = p(5)}$.
+	Find a basis of $U$.
         \item Extend the basis in (a) to a basis of $\pp_4(\f)$.
         \item Find a subspace $W$ of $\pp_4(\f)$ such that $\pp_4(\f) = U \op W$.
     \end{subexercises}
@@ -80,7 +107,8 @@
 \end{exercise}
 
 \begin{sole}
-    \item Let $p = a_0 + a_1 x + a_2 x^2 + a_3 x^3 + a_4 x^4 \in U$. Then we have $p(2) = p(5)$, which gives us the equation
+    \item Let $p = a_0 + a_1 x + a_2 x^2 + a_3 x^3 + a_4 x^4 \in U$.
+	Then we have $p(2) = p(5)$, which gives us the equation
     \[a_0 + 2a_1 + 4a_2 + 8a_3 + 16a_4 = a_0 + 5a_1 + 25a_2 + 125a_3 + 625a_4.\]
     We can simplify this equation to get
     \[-3a_1 - 21a_2 - 117a_3 - 609a_4 = 0.\]
@@ -88,18 +116,25 @@
     \[a_1 = -7a_2 - 39a_3 - 203a_4.\]
     Then we can write any polynomial in $U$ as a linear combination of the following four polynomials:
     \[u_1 = 1, \quad u_2 = -7x + x^2, \quad u_3 = -39x + x^3, \quad u_4 = -203x + x^4.\]
-    \item We can extend the basis $\set{u_1, u_2, u_3, u_4}$ of $U$ to a basis of $\pp_4(\f)$ by adding one more polynomial that is linearly independent of $u_1, u_2, u_3, u_4$. For example, we can add the polynomial
+    \item We can extend the basis $\set{u_1, u_2, u_3, u_4}$ of $U$ to a basis of $\pp_4(\f)$ by adding one more polynomial that is linearly independent of $u_1, u_2, u_3, u_4$.
+	For example, we can add the polynomial
     \[u_5 = x,\]
-    which is linearly independent of $u_1, u_2, u_3, u_4$: since only $u_2, u_3, u_4$ have $x$ terms but contain other higher-degree terms, $u_5$ cannot be expressed as a linear combination of $u_1, u_2, u_3, u_4$. Thus, $\set{u_1, u_2, u_3, u_4, u_5}$ is a basis of $\pp_4(\f)$.
-    \item Let $W = \spn u_5 = \spn x$. Then we have
+    which is linearly independent of $u_1, u_2, u_3, u_4$: since only $u_2, u_3, u_4$ have $x$ terms but contain other higher-degree terms, $u_5$ cannot be expressed as a linear combination of $u_1, u_2, u_3, u_4$.
+	Thus, $\set{u_1, u_2, u_3, u_4, u_5}$ is a basis of $\pp_4(\f)$.
+    \item Let $W = \spn u_5 = \spn x$.
+	Then we have
     \[\pp_4(\f) = U + W,\]
-    since every polynomial in $\pp_4(\f)$ can be written as a sum of a polynomial in $U$ and a polynomial in $W$. Moreover, if $p \in U \cap W$, then $p = \alpha x$ for some $\alpha \in \f$. Since $p(2) = p(5)$, we have $2\alpha = 5\alpha$, which implies that $\alpha = 0$. Thus, $U \cap W = \set{0}$, and so we have
+    since every polynomial in $\pp_4(\f)$ can be written as a sum of a polynomial in $U$ and a polynomial in $W$.
+	Moreover, if $p \in U \cap W$, then $p = \alpha x$ for some $\alpha \in \f$.
+	Since $p(2) = p(5)$, we have $2\alpha = 5\alpha$, which implies that $\alpha = 0$.
+	Thus, $U \cap W = \set{0}$, and so we have
     \[\pp_4(\f) = U \op W. \qh\]
 \end{sole}
 
 \begin{exercise}[2c6]
     \begin{subexercises}
-        \item Let $U = \set{p \in \pp_4(\f) \mid p(2) = p(5) = p(6)}$. Find a basis of $U$.
+        \item Let $U = \set{p \in \pp_4(\f) \mid p(2) = p(5) = p(6)}$.
+	Find a basis of $U$.
         \item Extend the basis in (a) to a basis of $\pp_4(\f)$.
         \item Find a subspace $W$ of $\pp_4(\f)$ such that $\pp_4(\f) = U \op W$.
     \end{subexercises}
@@ -107,7 +142,9 @@
 \end{exercise}
 
 \begin{sole}
-    \item Let $p = a_0 + a_1 x + a_2 x^2 + a_3 x^3 + a_4 x^4 \in U$. Then we have $p(2) = p(5) = p(6)$. We know from \autoref{ex:2c5} that the condition $p(2) = p(5)$ gives us the equation
+    \item Let $p = a_0 + a_1 x + a_2 x^2 + a_3 x^3 + a_4 x^4 \in U$.
+	Then we have $p(2) = p(5) = p(6)$.
+	We know from \autoref{ex:2c5} that the condition $p(2) = p(5)$ gives us the equation
     \[a_1 = -7a_2 - 39a_3 - 203a_4.\]
     The condition $p(5) = p(6)$ gives us the equation
     \[5a_1 + 25a_2 + 125a_3 + 625a_4 = 6a_1 + 36a_2 + 216a_3 + 1296a_4,\]
@@ -117,16 +154,24 @@
     \[4a_2 + 52a_3 + 468a_4 = 0.\]
     We can solve this equation for $a_2$ in terms of $a_3, a_4$:
     \[a_2 = -13a_3 - 117a_4.\]
-    Then $a_1 = 52a_3 + 616a_4$. Thus, we can write any polynomial in $U$ as a linear combination of the following three polynomials:
+    Then $a_1 = 52a_3 + 616a_4$.
+	Thus, we can write any polynomial in $U$ as a linear combination of the following three polynomials:
     \[u_1 = 1, \quad u_2 = 52x - 13x^2 + x^3, \quad u_3 = 616x - 117x^2 + x^4.\]
-    \item We can extend the basis $\set{u_1, u_2, u_3}$ of $U$ to a basis of $\pp_4(\f)$ by adding two more polynomials that are linearly independent of $u_1, u_2, u_3$. For example, we can add the polynomials
+    \item We can extend the basis $\set{u_1, u_2, u_3}$ of $U$ to a basis of $\pp_4(\f)$ by adding two more polynomials that are linearly independent of $u_1, u_2, u_3$.
+	For example, we can add the polynomials
     \[u_4 = x^2, \quad u_5 = x^3,\]
-    which are linearly independent of $u_1, u_2, u_3$: since only $u_2$ and $u_3$ have $x^2$ terms but contain other higher-degree terms, $u_4$ cannot be expressed as a linear combination of $u_1, u_2, u_3$. Similarly, $u_5$ has an $x^3$ term but no higher-degree terms, so it cannot be expressed as a linear combination of $u_1, u_2, u_3, u_4$. Thus, $\set{u_1, u_2, u_3, u_4, u_5}$ is a basis of $\pp_4(\f)$.
-    \item Let $W = \spn(u_4, u_5) = \spn(x^2, x^3)$. Then we have
+    which are linearly independent of $u_1, u_2, u_3$: since only $u_2$ and $u_3$ have $x^2$ terms but contain other higher-degree terms, $u_4$ cannot be expressed as a linear combination of $u_1, u_2, u_3$.
+	Similarly, $u_5$ has an $x^3$ term but no higher-degree terms, so it cannot be expressed as a linear combination of $u_1, u_2, u_3, u_4$.
+	Thus, $\set{u_1, u_2, u_3, u_4, u_5}$ is a basis of $\pp_4(\f)$.
+    \item Let $W = \spn(u_4, u_5) = \spn(x^2, x^3)$.
+	Then we have
     \[\pp_4(\f) = U + W,\]
-    since every polynomial in $\pp_4(\f)$ can be written as a sum of a polynomial in $U$ and a polynomial in $W$. Moreover, if $p \in U \cap W$, then $p = \alpha x^2 + \beta x^3$ for some $\alpha, \beta \in \f$. Since $p(2) = p(5) = p(6)$, we have
+    since every polynomial in $\pp_4(\f)$ can be written as a sum of a polynomial in $U$ and a polynomial in $W$.
+	Moreover, if $p \in U \cap W$, then $p = \alpha x^2 + \beta x^3$ for some $\alpha, \beta \in \f$.
+	Since $p(2) = p(5) = p(6)$, we have
     \[4\alpha + 8\beta = 25\alpha + 125\beta = 36\alpha + 216\beta.\]
-    Solving this system of equations, we find that $\alpha = \beta = 0$. Thus, $U \cap W = \set{0}$, and so we have
+    Solving this system of equations, we find that $\alpha = \beta = 0$.
+	Thus, $U \cap W = \set{0}$, and so we have
     \[\pp_4(\f) = U \op W. \qh\]
 \end{sole}
 
@@ -142,7 +187,8 @@
 \end{exercise}
 
 \begin{sole}
-    \item Let $p = a_0 + a_1 x + a_2 x^2 + a_3 x^3 + a_4 x^4 \in U$. Then we have
+    \item Let $p = a_0 + a_1 x + a_2 x^2 + a_3 x^3 + a_4 x^4 \in U$.
+	Then we have
     \begin{align*}
         \int_{-1}^1 p & = \int_{-1}^1 (a_0 + a_1 x + a_2 x^2 + a_3 x^3 + a_4 x^4) \dd x \\
         & = \int_{-1}^1 (a_0 + a_2 x^2 + a_4 x^4) \dd x \\
@@ -153,39 +199,59 @@
     \[a_0 = - \frac{a_2}{3} - \frac{a_4}{5}.\]
     Then we can write any polynomial in $U$ as a linear combination of the following four polynomials:
     \[u_1 = x, \quad u_2 = x^2 - \frac 13, \quad u_3 = x^3, \quad u_4 = x^4 - \frac 15.\]
-    \item We can extend the basis $\set{u_1, u_2, u_3, u_4}$ of $U$ to a basis of $\pp_4(\r)$ by adding one more polynomial that is linearly independent of $u_1, u_2, u_3, u_4$. For example, we can add the polynomial
+    \item We can extend the basis $\set{u_1, u_2, u_3, u_4}$ of $U$ to a basis of $\pp_4(\r)$ by adding one more polynomial that is linearly independent of $u_1, u_2, u_3, u_4$.
+	For example, we can add the polynomial
     \[u_5 = 1,\]
-    which is linearly independent of $u_1, u_2, u_3, u_4$: since $u_5$ has no higher-degree terms, it cannot be expressed as a linear combination of $u_1, u_2, u_3, u_4$. Thus, $\set{u_1, u_2, u_3, u_4, u_5}$ is a basis of $\pp_4(\r)$.
-    \item Let $W = \spn u_5 = \spn 1$. Then we have
+    which is linearly independent of $u_1, u_2, u_3, u_4$: since $u_5$ has no higher-degree terms, it cannot be expressed as a linear combination of $u_1, u_2, u_3, u_4$.
+	Thus, $\set{u_1, u_2, u_3, u_4, u_5}$ is a basis of $\pp_4(\r)$.
+    \item Let $W = \spn u_5 = \spn 1$.
+	Then we have
     \[\pp_4(\r) = U + W,\]
-    since every polynomial in $\pp_4(\r)$ can be written as a sum of a polynomial in $U$ and a polynomial in $W$. Moreover, if $p \in U \cap W$, then $p = \alpha$ for some $\alpha \in \r$. Since the integral of a constant over a symmetric interval is nonzero unless the function is identically zero, we have $\alpha = 0$. Thus, $U \cap W = \set{0}$, and so we have
+    since every polynomial in $\pp_4(\r)$ can be written as a sum of a polynomial in $U$ and a polynomial in $W$.
+	Moreover, if $p \in U \cap W$, then $p = \alpha$ for some $\alpha \in \r$.
+	Since the integral of a constant over a symmetric interval is nonzero unless the function is identically zero, we have $\alpha = 0$.
+	Thus, $U \cap W = \set{0}$, and so we have
     \[\pp_4(\r) = U \op W. \qh\]
 \end{sole}
 
 \begin{exercise}[2c8]
-    Suppose $v_1, \ldots, v_m$ is linearly independent in $V$ and $w \in V$. Prove that
+    Suppose $v_1, \ldots, v_m$ is linearly independent in $V$ and $w \in V$.
+	Prove that
     \[\dim \spn(v_1 + w, \ldots, v_m + w) \geq m - 1.\]
 \end{exercise}
 
 \begin{sol}
-    Observe that $(v_i + w) - (v_{i + 1} + w) = v_i - v_{i + 1}$ for $1 \leq i \leq m - 1$. Then the list of vectors
+    Observe that $(v_i + w) - (v_{i + 1} + w) = v_i - v_{i + 1}$ for $1 \leq i \leq m - 1$.
+	Then the list of vectors
     \[v_1 - v_2, v_2 - v_3, \ldots, v_{m-1} - v_m\]
-    is contained in $\spn(v_1 + w, \ldots, v_m + w)$. We claim that this list is linearly independent. Suppose that
+    is contained in $\spn(v_1 + w, \ldots, v_m + w)$.
+	We claim that this list is linearly independent.
+	Suppose that
     \[\alpha_1(v_1 - v_2) + \alpha_2(v_2 - v_3) + \cdots + \alpha_{m - 1}(v_{m - 1} - v_m) = 0\]
-    for some $\alpha_1, \ldots, \alpha_{m - 1} \in \f$. Then we can rewrite this equation as
+    for some $\alpha_1, \ldots, \alpha_{m - 1} \in \f$.
+	Then we can rewrite this equation as
     \[\alpha_1 v_1 + (\alpha_2 - \alpha_1)v_2 + \cdots + (\alpha_{m - 1} - \alpha_{m - 2})v_{m - 1} - \alpha_{m - 1} v_m = 0.\]
-    Since $v_1, \ldots, v_m$ is linearly independent, we must have $\alpha_1 = 0$, $\alpha_2 - \alpha_1 = 0$, $\ldots$, $\alpha_{m - 1} - \alpha_{m - 2} = 0$, and $-\alpha_{m - 1} = 0$. This implies that $\alpha_1 = \cdots = \alpha_{m - 1} = 0$. Thus, the list is linearly independent, and so we have
+    Since $v_1, \ldots, v_m$ is linearly independent, we must have $\alpha_1 = 0$, $\alpha_2 - \alpha_1 = 0$, $\ldots$, $\alpha_{m - 1} - \alpha_{m - 2} = 0$, and $-\alpha_{m - 1} = 0$.
+	This implies that $\alpha_1 = \cdots = \alpha_{m - 1} = 0$.
+	Thus, the list is linearly independent, and so we have
     \[\dim \spn(v_1 + w, \ldots, v_m + w) \geq m - 1. \qh\]
 \end{sol}
 
 \begin{exercise}[2c9]
-    Suppose $m$ is a positive integer and $p_0, p_1, \ldots, p_m \in \pp(\f)$ are such that each $p_k$ has degree $k$. Prove that $p_0, p_1, \ldots, p_m$ is a basis of $\pp_m(\f)$.
+    Suppose $m$ is a positive integer and $p_0, p_1, \ldots, p_m \in \pp(\f)$ are such that each $p_k$ has degree $k$.
+	Prove that $p_0, p_1, \ldots, p_m$ is a basis of $\pp_m(\f)$.
 \end{exercise}
 
 \begin{sol}
     Suppose that
     \[\alpha_0 p_0 + \alpha_1 p_1 + \cdots + \alpha_m p_m = 0\]
-    for some $\alpha_0, \ldots, \alpha_m \in \f$. Since $p_m$ is the only polynomial with nonzero coefficient of $x^m$, we must have $\alpha_m = 0$. Next, since $p_{m - 1}$ is the only polynomial with nonzero coefficient of $x^{m - 1}$, we must have $\alpha_{m - 1} = 0$. Continuing in this way, we find that $\alpha_0 = \cdots = \alpha_m = 0$. Thus, the list is linearly independent. Moreover, since $\dim \pp_m(\f) = m + 1$, any linearly independent list of $m + 1$ vectors in $\pp_m(\f)$ is a basis. Therefore, $p_0, p_1, \ldots, p_m$ is a basis of $\pp_m(\f)$.
+    for some $\alpha_0, \ldots, \alpha_m \in \f$.
+	Since $p_m$ is the only polynomial with nonzero coefficient of $x^m$, we must have $\alpha_m = 0$.
+	Next, since $p_{m - 1}$ is the only polynomial with nonzero coefficient of $x^{m - 1}$, we must have $\alpha_{m - 1} = 0$.
+	Continuing in this way, we find that $\alpha_0 = \cdots = \alpha_m = 0$.
+	Thus, the list is linearly independent.
+	Moreover, since $\dim \pp_m(\f) = m + 1$, any linearly independent list of $m + 1$ vectors in $\pp_m(\f)$ is a basis.
+	Therefore, $p_0, p_1, \ldots, p_m$ is a basis of $\pp_m(\f)$.
 \end{sol}
 
 \begin{exercise}[2c10]
@@ -209,115 +275,165 @@
 \end{sol}
 
 \begin{exercise}[2c11]
-    Suppose $U$ and $W$ are both four-dimensional subspaces of $\c^6$. Prove that there exist two vectors in $U \cap W$ such that neither of these vectors is a scalar multiple of the other.
+    Suppose $U$ and $W$ are both four-dimensional subspaces of $\c^6$.
+	Prove that there exist two vectors in $U \cap W$ such that neither of these vectors is a scalar multiple of the other.
 \end{exercise}
 
 \begin{sol}
-    Let $U$ and $W$ be four-dimensional subspaces of $\c^6$. By the dimension formula for the sum of two subspaces, we have
+    Let $U$ and $W$ be four-dimensional subspaces of $\c^6$.
+	By the dimension formula for the sum of two subspaces, we have
     \[\dim(U + W) = \dim U + \dim W - \dim(U \cap W) = 4 + 4 - \dim(U \cap W) = 8 - \dim(U \cap W).\]
-    Since $U + W$ is a subspace of $\c^6$, we have $\dim(U + W) \leq 6$. Thus, we have
+    Since $U + W$ is a subspace of $\c^6$, we have $\dim(U + W) \leq 6$.
+	Thus, we have
     \[8 - \dim(U \cap W) \leq 6,\]
-    which implies that $\dim(U \cap W) \geq 2$. Therefore, there exist at least two linearly independent vectors in $U \cap W$, and neither of these vectors is a scalar multiple of the other.
+    which implies that $\dim(U \cap W) \geq 2$.
+	Therefore, there exist at least two linearly independent vectors in $U \cap W$, and neither of these vectors is a scalar multiple of the other.
 \end{sol}
 
 \begin{exercise}[2c12]
-    Suppose that $U$ and $W$ are subspaces of $\r^8$ such that $\dim U = 3$, $\dim W = 5$, and $U + W = \r^8$. Prove that $\r^8 = U \op W$.
+    Suppose that $U$ and $W$ are subspaces of $\r^8$ such that $\dim U = 3$, $\dim W = 5$, and $U + W = \r^8$.
+	Prove that $\r^8 = U \op W$.
 \end{exercise}
 
 \begin{sol}
     By the dimension formula for the sum of two subspaces, we have
     \[\dim(U + W) = \dim U + \dim W - \dim(U \cap W) = 3 + 5 - \dim(U \cap W) = 8 - \dim(U \cap W).\]
-    Since $U + W = \r^8$, we have $\dim(U + W) = 8$. Thus, we have
+    Since $U + W = \r^8$, we have $\dim(U + W) = 8$.
+	Thus, we have
     \[8 - \dim(U \cap W) = 8,\]
-    which implies that $\dim(U \cap W) = 0$. Therefore, $U \cap W = \set{0}$, and so we have
+    which implies that $\dim(U \cap W) = 0$.
+	Therefore, $U \cap W = \set{0}$, and so we have
     \[\r^8 = U \op W. \qh\]
 \end{sol}
 
 \begin{exercise}[2c13]
-    Suppose $U$ and $W$ are both five-dimensional subspaces of $\r^8$. Prove that $U \cap W \neq \set{0}$.
+    Suppose $U$ and $W$ are both five-dimensional subspaces of $\r^8$.
+	Prove that $U \cap W \neq \set{0}$.
 \end{exercise}
 
 \begin{sol}
     By the dimension formula for the sum of two subspaces, we have
     \[\dim(U + W) = \dim U + \dim W - \dim(U \cap W) = 5 + 5 - \dim(U \cap W) = 10 - \dim(U \cap W).\]
-    Since $U + W$ is a subspace of $\r^8$, we have $\dim(U + W) \leq 8$. Thus, we have
+    Since $U + W$ is a subspace of $\r^8$, we have $\dim(U + W) \leq 8$.
+	Thus, we have
     \[10 - \dim(U \cap W) \leq 8,\]
-    which implies that $\dim(U \cap W) \geq 2$. Therefore, $U \cap W$ is nontrivial, and so we have $U \cap W \neq \set{0}$.
+    which implies that $\dim(U \cap W) \geq 2$.
+	Therefore, $U \cap W$ is nontrivial, and so we have $U \cap W \neq \set{0}$.
 \end{sol}
 
 \begin{exercise}[2c14]
-    Suppose $V$ is a ten-dimensional vector space and $V_1, V_2, V_3$ are subspaces of $V$ with $\dim V_1 = \dim V_2 = \dim V_3 = 7$. Prove that $V_1 \cap V_2 \cap V_3 \neq \set{0}$.
+    Suppose $V$ is a ten-dimensional vector space and $V_1, V_2, V_3$ are subspaces of $V$ with $\dim V_1 = \dim V_2 = \dim V_3 = 7$.
+	Prove that $V_1 \cap V_2 \cap V_3 \neq \set{0}$.
 \end{exercise}
 
 \begin{sol}
-    Let $W = V_1 \cap V_2$. By the dimension formula for the sum of two subspaces, we have
+    Let $W = V_1 \cap V_2$.
+	By the dimension formula for the sum of two subspaces, we have
     \[\dim(V_1 + V_2) = \dim V_1 + \dim V_2 - \dim W = 7 + 7 - \dim W = 14 - \dim W.\]
-    Since $V_1 + V_2$ is a subspace of $V$, we have $\dim(V_1 + V_2) \leq 10$. Thus, we have $14 - \dim W \leq 10$, which implies that $\dim W \geq 4$. Therefore, $V_1 \cap V_2$ is at least four-dimensional. Now, consider the subspace $W \cap V_3 = V_1 \cap V_2 \cap V_3$. By the dimension formula for the sum of two subspaces, we have
+    Since $V_1 + V_2$ is a subspace of $V$, we have $\dim(V_1 + V_2) \leq 10$.
+	Thus, we have $14 - \dim W \leq 10$, which implies that $\dim W \geq 4$.
+	Therefore, $V_1 \cap V_2$ is at least four-dimensional.
+	Now, consider the subspace $W \cap V_3 = V_1 \cap V_2 \cap V_3$.
+	By the dimension formula for the sum of two subspaces, we have
     \[\dim(W + V_3) = \dim W + \dim V_3 - \dim(W \cap V_3) = \dim W + 7 - \dim(W \cap V_3).\]
-    Since $W + V_3$ is a subspace of $V$, we have $\dim(W + V_3) \leq 10$. Thus, we have
+    Since $W + V_3$ is a subspace of $V$, we have $\dim(W + V_3) \leq 10$.
+	Thus, we have
     \[\dim W + 7 - \dim(W \cap V_3) \leq 10,\]
-    which implies that $\dim(W \cap V_3) \geq \dim W + 7 - 10 = \dim W - 3$. Since $\dim W \geq 4$, we have $\dim(W \cap V_3) \geq 1$. Therefore, $V_1 \cap V_2 \cap V_3$ is nontrivial, and so we have $V_1 \cap V_2 \cap V_3 \neq \set{0}$.
+    which implies that $\dim(W \cap V_3) \geq \dim W + 7 - 10 = \dim W - 3$.
+	Since $\dim W \geq 4$, we have $\dim(W \cap V_3) \geq 1$.
+	Therefore, $V_1 \cap V_2 \cap V_3$ is nontrivial, and so we have $V_1 \cap V_2 \cap V_3 \neq \set{0}$.
 \end{sol}
 
 \begin{exercise}[2c15]
-    Suppose $V$ is finite-dimensional and $V_1, V_2, V_3$ are subspaces of $V$ with $\dim V_1 + \dim V_2 + \dim V_3 > 2 \dim V$. Prove that $V_1 \cap V_2 \cap V_3 \neq \set{0}$.
+    Suppose $V$ is finite-dimensional and $V_1, V_2, V_3$ are subspaces of $V$ with $\dim V_1 + \dim V_2 + \dim V_3 > 2 \dim V$.
+	Prove that $V_1 \cap V_2 \cap V_3 \neq \set{0}$.
 \end{exercise}
 
 \begin{sol}
-    Let $W = V_1 \cap V_2$. By the dimension formula for the sum of two subspaces, we have
+    Let $W = V_1 \cap V_2$.
+	By the dimension formula for the sum of two subspaces, we have
     \[\dim(V_1 + V_2) = \dim V_1 + \dim V_2 - \dim W.\]
-    Since $V_1 + V_2$ is a subspace of $V$, we have $\dim(V_1 + V_2) \leq \dim V$. Thus, we have
+    Since $V_1 + V_2$ is a subspace of $V$, we have $\dim(V_1 + V_2) \leq \dim V$.
+	Thus, we have
     \[\dim V_1 + \dim V_2 - \dim W \leq \dim V,\]
-    which implies that $\dim W \geq \dim V_1 + \dim V_2 - \dim V$. Now, consider the subspace $W \cap V_3 = V_1 \cap V_2 \cap V_3$. By the dimension formula for the sum of two subspaces, we have
+    which implies that $\dim W \geq \dim V_1 + \dim V_2 - \dim V$.
+	Now, consider the subspace $W \cap V_3 = V_1 \cap V_2 \cap V_3$.
+	By the dimension formula for the sum of two subspaces, we have
     \[\dim(W + V_3) = \dim W + \dim V_3 - \dim(W \cap V_3).\]
-    Since $W + V_3$ is a subspace of $V$, we have $\dim(W + V_3) \leq \dim V$. Thus, we have
+    Since $W + V_3$ is a subspace of $V$, we have $\dim(W + V_3) \leq \dim V$.
+	Thus, we have
     \[\dim W + \dim V_3 - \dim(W \cap V_3) \leq \dim V,\]
-    which implies that $\dim(W \cap V_3) \geq \dim W + \dim V_3 - \dim V$. Since $\dim W \geq \dim V_1 + \dim V_2 - \dim V$, we have
+    which implies that $\dim(W \cap V_3) \geq \dim W + \dim V_3 - \dim V$.
+	Since $\dim W \geq \dim V_1 + \dim V_2 - \dim V$, we have
     \[\dim(W \cap V_3) \geq (\dim V_1 + \dim V_2 - \dim V) + \dim V_3 - \dim V = \dim V_1 + \dim V_2 + \dim V_3 - 2 \dim V.\]
-    Since $\dim V_1 + \dim V_2 + \dim V_3 > 2 \dim V$, we have $\dim(W \cap V_3) > 0$. Therefore, $V_1 \cap V_2 \cap V_3$ is nontrivial, and so we have $V_1 \cap V_2 \cap V_3 \neq \set{0}$.
+    Since $\dim V_1 + \dim V_2 + \dim V_3 > 2 \dim V$, we have $\dim(W \cap V_3) > 0$.
+	Therefore, $V_1 \cap V_2 \cap V_3$ is nontrivial, and so we have $V_1 \cap V_2 \cap V_3 \neq \set{0}$.
 \end{sol}
 
 \begin{exercise}[2c16]
-    Suppose $V$ is finite-dimensional and $U$ is a subspace of $V$ with $U \neq V$. Let $n = \dim V$ and $m = \dim U$. Prove that there exist $n - m$ subspaces of $V$, each of dimension $n - 1$, whose intersection equals $U$.
+    Suppose $V$ is finite-dimensional and $U$ is a subspace of $V$ with $U \neq V$.
+	Let $n = \dim V$ and $m = \dim U$.
+	Prove that there exist $n - m$ subspaces of $V$, each of dimension $n - 1$, whose intersection equals $U$.
 \end{exercise}
 
 \begin{sol}
-    Let $U$ be a subspace of $V$ with $\dim U = m < n = \dim V$. We can extend a basis of $U$ to a basis of $V$. Let $\set{u_1, \ldots, u_m}$ be a basis of $U$, and extend it to a basis of $V$ by adding vectors $v_1, \ldots, v_{n - m}$. Then $\set{u_1, \ldots, u_m, v_1, \ldots, v_{n - m}}$ is a basis of $V$. For each $i = 1, \ldots, n - m$, let
+    Let $U$ be a subspace of $V$ with $\dim U = m < n = \dim V$.
+	We can extend a basis of $U$ to a basis of $V$.
+	Let $\set{u_1, \ldots, u_m}$ be a basis of $U$, and extend it to a basis of $V$ by adding vectors $v_1, \ldots, v_{n - m}$.
+	Then $\set{u_1, \ldots, u_m, v_1, \ldots, v_{n - m}}$ is a basis of $V$.
+	For each $i = 1, \ldots, n - m$, let
     \[W_i = \spn(u_1, \ldots, u_m, v_1, \ldots, v_{i - 1}, v_{i + 1}, \ldots, v_{n - m}).\]
-    By construction, $W_i$ does not contain the extended basis vector $v_i$. Moreover, each $W_i$ is a subspace of $V$ with dimension $n - 1$, since it is spanned by $n - 1$ linearly independent vectors. Additionally, we have
+    By construction, $W_i$ does not contain the extended basis vector $v_i$.
+	Moreover, each $W_i$ is a subspace of $V$ with dimension $n - 1$, since it is spanned by $n - 1$ linearly independent vectors.
+	Additionally, we have
     \[U = W_1 \cap W_2 \cap \cdots \cap W_{n - m},\]
-    since any vector in the intersection containing nonzero $v_i$ would not be in $W_i$, leaving behind only the basis vectors in $U$. Therefore, there exist $n - m$ subspaces of $V$, each of dimension $n - 1$, whose intersection equals $U$.
+    since any vector in the intersection containing nonzero $v_i$ would not be in $W_i$, leaving behind only the basis vectors in $U$.
+	Therefore, there exist $n - m$ subspaces of $V$, each of dimension $n - 1$, whose intersection equals $U$.
 \end{sol}
 
 \begin{exercise}[2c17]
-    Suppose that $V_1, \ldots, V_m$ are finite-dimensional subspaces of $V$. Prove that $V_1 + \cdots + V_m$ is finite-dimensional and
+    Suppose that $V_1, \ldots, V_m$ are finite-dimensional subspaces of $V$.
+	Prove that $V_1 + \cdots + V_m$ is finite-dimensional and
     \[\dim(V_1 + \cdots + V_m) \leq \dim V_1 + \cdots + \dim V_m.\]
 \end{exercise}
 
 \begin{sol}
-    We will prove the statement by induction on $m$. For the base case, let $m = 2$. Then the sum $V_1 + V_2$ is finite-dimensional. By the dimension formula for the sum of two subspaces, we have
+    We will prove the statement by induction on $m$.
+	For the base case, let $m = 2$.
+	Then the sum $V_1 + V_2$ is finite-dimensional.
+	By the dimension formula for the sum of two subspaces, we have
     \[\dim(V_1 + V_2) = \dim V_1 + \dim V_2 - \dim(V_1 \cap V_2) \leq \dim V_1 + \dim V_2.\]
-    Hence, the statement holds for $m = 2$. Now, suppose that the statement holds for some positive integer $m$. That is, suppose that if $V_1, \ldots, V_m$ are finite-dimensional subspaces of $V$, then $V_1 + \cdots + V_m$ is finite-dimensional and
+    Hence, the statement holds for $m = 2$.
+	Now, suppose that the statement holds for some positive integer $m$.
+	That is, suppose that if $V_1, \ldots, V_m$ are finite-dimensional subspaces of $V$, then $V_1 + \cdots + V_m$ is finite-dimensional and
     \[\dim(V_1 + \cdots + V_m) \leq \dim V_1 + \cdots + \dim V_m.\]
-    We want to show that the statement holds for $m + 1$. Let $V_1, \ldots, V_{m + 1}$ be finite-dimensional subspaces of $V$. By the induction hypothesis, we know that $W = V_1 + \cdots + V_m$ is finite-dimensional and
+    We want to show that the statement holds for $m + 1$.
+	Let $V_1, \ldots, V_{m + 1}$ be finite-dimensional subspaces of $V$.
+	By the induction hypothesis, we know that $W = V_1 + \cdots + V_m$ is finite-dimensional and
     \[\dim W \leq \dim V_1 + \cdots + \dim V_m.\]
     Then we have
     \[\dim(W + V_{m + 1}) = \dim W + \dim V_{m + 1} - \dim(W \cap V_{m + 1}).\]
-    Since $W \cap V_{m + 1}$ is a subspace of $V$, we have $\dim(W \cap V_{m + 1}) \geq 0$. Thus, we have
+    Since $W \cap V_{m + 1}$ is a subspace of $V$, we have $\dim(W \cap V_{m + 1}) \geq 0$.
+	Thus, we have
     \[\dim(W + V_{m + 1}) \leq \dim W + \dim V_{m + 1} \leq \dim V_1 + \cdots + \dim V_m + \dim V_{m + 1}.\]
     Therefore, $V_1 + \cdots + V_{m + 1}$ is finite-dimensional and
     \[\dim(V_1 + \cdots + V_{m + 1}) \leq \dim V_1 + \cdots + \dim V_m + \dim V_{m + 1}. \qh\]
 \end{sol}
 
 \begin{exercise}[2c18]
-    Suppose $V$ is finite-dimensional, with $\dim V = n \geq 1$. Prove that there exist one-dimensional subspaces $V_1, \ldots, V_n$ of $V$ such that
+    Suppose $V$ is finite-dimensional, with $\dim V = n \geq 1$.
+	Prove that there exist one-dimensional subspaces $V_1, \ldots, V_n$ of $V$ such that
     \[V = V_1 \op \cdots \op V_n.\]
 \end{exercise}
 
 \begin{sol}
-    Let $v_1, \ldots, v_n$ be a basis of $V$. For each $i = 1, \ldots, n$, let $V_i = \spn v_i$. Then each $V_i$ is a one-dimensional subspace of $V$, since it is spanned by a single nonzero vector. Moreover, we have
+    Let $v_1, \ldots, v_n$ be a basis of $V$.
+	For each $i = 1, \ldots, n$, let $V_i = \spn v_i$.
+	Then each $V_i$ is a one-dimensional subspace of $V$, since it is spanned by a single nonzero vector.
+	Moreover, we have
     \[V = V_1 + \cdots + V_n,\]
-    and the sum is direct because the basis vectors are linearly independent. Therefore, we have
+    and the sum is direct because the basis vectors are linearly independent.
+	Therefore, we have
     \[V = V_1 \op \cdots \op V_n. \qh\]
 \end{sol}
 
@@ -332,11 +448,16 @@
 \end{exercise}
 
 \begin{sol}
-    One may guess that the given formula above is true by analogy with the formula for the number of elements in the union of three finite sets. However, this erroneously conflates the idea of subspace sums with the idea of set unions. In fact, the formula is not true in general. For example, let $V = \r^2$, and let
+    One may guess that the given formula above is true by analogy with the formula for the number of elements in the union of three finite sets.
+	However, this erroneously conflates the idea of subspace sums with the idea of set unions.
+	In fact, the formula is not true in general.
+	For example, let $V = \r^2$, and let
     \[V_1 = \spn((1, 0)), \quad V_2 = \spn((0, 1)), \quad V_3 = \spn((1, 1)).\]
-    It is easy to see that $\dim V_1 = \dim V_2 = \dim V_3 = 1$, but $\dim(V_1 \cap V_2) = \dim(V_1 \cap V_3) = \dim(V_2 \cap V_3) = 0$ and $\dim(V_1 \cap V_2 \cap V_3) = 0$. Thus, the right-hand side of the formula is
+    It is easy to see that $\dim V_1 = \dim V_2 = \dim V_3 = 1$, but $\dim(V_1 \cap V_2) = \dim(V_1 \cap V_3) = \dim(V_2 \cap V_3) = 0$ and $\dim(V_1 \cap V_2 \cap V_3) = 0$.
+	Thus, the right-hand side of the formula is
     \[1 + 1 + 1 - 0 - 0 - 0 + 0 = 3,\]
-    but the left-hand side is $\dim(V_1 + V_2 + V_3) = \dim \r^2 = 2$. Therefore, the formula is not true in general.
+    but the left-hand side is $\dim(V_1 + V_2 + V_3) = \dim \r^2 = 2$.
+	Therefore, the formula is not true in general.
 \end{sol}
 
 \begin{exercise}[2c20]
@@ -349,7 +470,9 @@
 \end{exercise}
 
 \begin{sol}
-    Note that we need to account for all pairs of subspaces and all pairs of sums of subspaces, since the sum of subspaces is not equivalent to the union of sets. We can use the dimension formula repeatedly to obtain the answer. To that end, define the following subspaces:
+    Note that we need to account for all pairs of subspaces and all pairs of sums of subspaces, since the sum of subspaces is not equivalent to the union of sets.
+	We can use the dimension formula repeatedly to obtain the answer.
+	To that end, define the following subspaces:
     \[W_1 = V_1 + V_2, \quad W_2 = V_1 + V_3, \quad W_3 = V_2 + V_3.\]
     Applying the dimension formula to each of $W_1, W_2, W_3$, we have
     \begin{align*}
@@ -366,7 +489,8 @@
         \dim(W_3 + V_1) & = \dim W_3 + \dim V_1 - \dim(W_3 \cap V_1), \\
         & = \dim V_2 + \dim V_3 - \dim(V_2 \cap V_3) + \dim V_1 - \dim(W_3 \cap V_1).
     \end{align*}
-    Note that $W_1 + V_3 = W_2 + V_2 = W_3 + V_1 = V_1 + V_2 + V_3$. Thus, we can add the three equations above and divide by $3$ to obtain the desired formula:
+    Note that $W_1 + V_3 = W_2 + V_2 = W_3 + V_1 = V_1 + V_2 + V_3$.
+	Thus, we can add the three equations above and divide by $3$ to obtain the desired formula:
     \begin{align*}
         \dim(V_1 + V_2 + V_3) = & \dim V_1 + \dim V_2 + \dim V_3 \\
         &- \frac{\dim(V_1 \cap V_2) + \dim(V_1 \cap V_3) + \dim(V_2 \cap V_3)}{3} \\

@@ -1,12 +1,14 @@
 \subsection{Finite-Dimensional Vector Spaces}
 
 \begin{apex}[2c8]
-    Suppose $v_1, \ldots, v_m$ is linearly independent in $V$ and $w \in V$. Prove that
+    Suppose $v_1, \ldots, v_m$ is linearly independent in $V$ and $w \in V$.
+	Prove that
     \[\dim \spn(v_1 + w, \ldots, v_m + w) \geq m - 1.\]
 \end{apex}
 
 \begin{csp}
-    Let $S=\operatorname{span}(v_1+w, \dots, v_m+w)$. Since each $v_i=(v_i+w)-w$, we have
+    Let $S=\operatorname{span}(v_1+w, \dots, v_m+w)$.
+	Since each $v_i=(v_i+w)-w$, we have
     \[S+\operatorname{span}(w)=\operatorname{span}(v_1, \dots, v_m,w).\]
     Since $v_1$, $\dots$, $v_m$ are linearly independent, we have
     \[m \leq \dim \left(S+\operatorname{span}(w) \right) \leq \dim S+\dim \operatorname{span}(w) \leq \dim S+1 \implies \dim S \geq m-1.\qh \]

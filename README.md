@@ -14,10 +14,14 @@ The goal is to support learning, not replace independent problem solving.
 
 ## How To Use This Guide Effectively
 
-1. Attempt each exercise on your own first.
-2. Compare your reasoning with the solution here.
-3. Focus on method and structure, not just final answers.
-4. Rework difficult problems after reading the solution.
+1.
+		Attempt each exercise on your own first.
+2.
+		Compare your reasoning with the solution here.
+3.
+		Focus on method and structure, not just final answers.
+4.
+		Rework difficult problems after reading the solution.
 
 ## Repository Structure
 

@@ -1,67 +1,98 @@
 \subsection{Products and Quotients of Vector Spaces}
 
 \begin{exercise}[3e1]
-    Suppose $T$ is a function from $V$ to $W$. The \textit{graph of $T$} is the subset of $V \times W$ defined by
+    Suppose $T$ is a function from $V$ to $W$.
+	The \textit{graph of $T$} is the subset of $V \times W$ defined by
     \[\text{graph of } T = \set{(v, Tv) \in V \times W \mid v \in V}.\]
     Prove that $T$ is a linear map if and only if the graph of $T$ is a subspace of $V \times W$.
 \end{exercise}
 
 \begin{sol}
-    Let $G(T)$ denote the graph of $T$. Now, suppose $T$ is a linear map. Then $G(T)$ is nonempty since $(0, T0) = (0, 0) \in G(T)$. Now, let $(v_1, Tv_1), (v_2, Tv_2) \in G(T)$. Then
+    Let $G(T)$ denote the graph of $T$.
+	Now, suppose $T$ is a linear map.
+	Then $G(T)$ is nonempty since $(0, T0) = (0, 0) \in G(T)$.
+	Now, let $(v_1, Tv_1), (v_2, Tv_2) \in G(T)$.
+	Then
     \[(v_1 - v_2, Tv_1 - Tv_2) = (v_1, Tv_1) - (v_2, Tv_2) \in G(T)\]
-    since $T$ is linear. Now, let $(v, Tv) \in G(T)$ and $\alpha \in \f$. Then
+    since $T$ is linear.
+	Now, let $(v, Tv) \in G(T)$ and $\alpha \in \f$.
+	Then
     \[(\alpha v, \alpha Tv) = \alpha (v, Tv) \in G(T)\]
-    since $T$ is linear. Thus, $G(T)$ is a subspace of $V \times W$.
+    since $T$ is linear.
+	Thus, $G(T)$ is a subspace of $V \times W$.
 
-    Conversely, suppose $G(T)$ is a subspace of $V \times W$. By definition, we have $(v_1, Tv_1), (v_2, Tv_2) \in G(T)$ for all $v_1, v_2 \in V$. Since $G(T)$ is a subspace of $V \times W$, for all $\alpha, \beta \in \f$, we have
+    Conversely, suppose $G(T)$ is a subspace of $V \times W$.
+	By definition, we have $(v_1, Tv_1), (v_2, Tv_2) \in G(T)$ for all $v_1, v_2 \in V$.
+	Since $G(T)$ is a subspace of $V \times W$, for all $\alpha, \beta \in \f$, we have
     \[(\alpha v_1 + \beta v_2, \alpha Tv_1 + \beta Tv_2) = \alpha (v_1, Tv_1) + \beta (v_2, Tv_2) \in G(T).\]
-    By definition of $G(T)$, we have $\alpha Tv_1 + \beta Tv_2 = T(\alpha v_1 + \beta v_2)$. Thus, $T$ is a linear map.
+    By definition of $G(T)$, we have $\alpha Tv_1 + \beta Tv_2 = T(\alpha v_1 + \beta v_2)$.
+	Thus, $T$ is a linear map.
 \end{sol}
 
 \begin{exercise}[3e2]
-    Suppose that $V_1, \ldots, V_m$ are vector spaces such that $V_1 \times \cdots \times V_m$ is finite-dimensional. Prove that $V_k$ is finite-dimensional for each $k = 1, \ldots, m$.
+    Suppose that $V_1, \ldots, V_m$ are vector spaces such that $V_1 \times \cdots \times V_m$ is finite-dimensional.
+	Prove that $V_k$ is finite-dimensional for each $k = 1, \ldots, m$.
 \end{exercise}
 
 \begin{sol}
-    Let $V = V_1 \times \cdots \times V_m$, and consider $T \in \lin{V, V_k}$ defined by $T(v_1, \ldots, v_m) = v_k$. Then $T$ is a linear map since for all $\alpha, \beta \in \f$ and all $(v_1, \ldots, v_m), (w_1, \ldots, w_m) \in V$, we have
+    Let $V = V_1 \times \cdots \times V_m$, and consider $T \in \lin{V, V_k}$ defined by $T(v_1, \ldots, v_m) = v_k$.
+	Then $T$ is a linear map since for all $\alpha, \beta \in \f$ and all $(v_1, \ldots, v_m), (w_1, \ldots, w_m) \in V$, we have
     \begin{align*}
         T(\alpha (v_1, \ldots, v_m) + \beta (w_1, \ldots, w_m)) &= T(\alpha v_1 + \beta w_1, \ldots, \alpha v_m + \beta w_m) \\
         &= \alpha v_k + \beta w_k \\
         &= \alpha T(v_1, \ldots, v_m) + \beta T(w_1, \ldots, w_m).
     \end{align*}
-    Moreover, $T$ is surjective since for any $v_k \in V_k$, we have $v_k = T(0, \ldots, 0, v_k, 0, \ldots, 0)$ where $v_k$ is in the $k$-th coordinate. Since $V$ is finite-dimensional and $T$ is a linear map that is surjective, it follows that $V_k$ is finite-dimensional.
+    Moreover, $T$ is surjective since for any $v_k \in V_k$, we have $v_k = T(0, \ldots, 0, v_k, 0, \ldots, 0)$ where $v_k$ is in the $k$-th coordinate.
+	Since $V$ is finite-dimensional and $T$ is a linear map that is surjective, it follows that $V_k$ is finite-dimensional.
 \end{sol}
 
 \begin{exercise}[3e3]
-    Suppose $V_1, \ldots, V_m$ are vector spaces. Prove that $\lin{V_1 \times \cdots \times V_m, W}$ and $\lin{V_1, W} \times \cdots \times \lin{V_m, W}$ are isomorphic vector spaces.
+    Suppose $V_1, \ldots, V_m$ are vector spaces.
+	Prove that $\lin{V_1 \times \cdots \times V_m, W}$ and $\lin{V_1, W} \times \cdots \times \lin{V_m, W}$ are isomorphic vector spaces.
 \end{exercise}
 
 \begin{sol}
-    Let $V = V_1 \times \cdots \times V_m$. Let $L = \lin{V_1, W} \times \cdots \times \lin{V_m, W}$. Define $T \in \lin{\lin{V, W}, L}$ by
+    Let $V = V_1 \times \cdots \times V_m$.
+	Let $L = \lin{V_1, W} \times \cdots \times \lin{V_m, W}$.
+	Define $T \in \lin{\lin{V, W}, L}$ by
     \[T(S) = (S \circ \iota_1, \ldots, S \circ \iota_m)\]
     where $\iota_k \in \lin{V_k, V}$ is the map defined as
     \[\iota_k(v_k) = (0, \ldots, 0, v_k, 0, \ldots, 0)\]
-    with $\iota_k(v_k)$ having $v_k$ in the $k$-th coordinate and 0 in all other coordinates. Then $T$ is linear since for all $\alpha, \beta \in \f$ and all $S_1, S_2 \in \lin{V, W}$, we have
+    with $\iota_k(v_k)$ having $v_k$ in the $k$-th coordinate and 0 in all other coordinates.
+	Then $T$ is linear since for all $\alpha, \beta \in \f$ and all $S_1, S_2 \in \lin{V, W}$, we have
     \begin{align*}
         T(\alpha S_1 + \beta S_2) & = ((\alpha S_1 + \beta S_2) \circ \iota_1, \ldots, (\alpha S_1 + \beta S_2) \circ \iota_m) \\
         & = (\alpha (S_1 \circ \iota_1) + \beta (S_2 \circ \iota_1), \ldots, \alpha (S_1 \circ \iota_m) + \beta (S_2 \circ \iota_m)) \\
         & = \alpha T(S_1) + \beta T(S_2),
     \end{align*}
-    hence $T$ is a linear map. Now suppose $T(S) = 0$. Then $S \circ \iota_k = 0$ for all $k = 1, \ldots, m$. Moreover, for all $(v_1, \ldots, v_m) \in V$, we have
+    hence $T$ is a linear map.
+	Now suppose $T(S) = 0$.
+	Then $S \circ \iota_k = 0$ for all $k = 1, \ldots, m$.
+	Moreover, for all $(v_1, \ldots, v_m) \in V$, we have
     \[S(v_1, \ldots, v_m) = S(\iota_1(v_1) + \cdots + \iota_m(v_m)) = S \circ \iota_1(v_1) + \cdots + S \circ \iota_m(v_m) = 0.\]
-    It follows that $S(v_1, \ldots, v_m) = 0$ for all $(v_1, \ldots, v_m) \in V$. Thus, $S = 0$, and hence $T$ is injective.
+    It follows that $S(v_1, \ldots, v_m) = 0$ for all $(v_1, \ldots, v_m) \in V$.
+	Thus, $S = 0$, and hence $T$ is injective.
     
-    Now, let $(S_1, \ldots, S_m) \in L$. Define $S \in \lin{V, W}$ by $S(v_1, \ldots, v_m) = S_1 v_1 + \cdots + S_m v_m$. Then $T(S) = (S_1, \ldots, S_m)$. Thus, $T$ is surjective. Therefore, $T$ is an isomorphism.
+    Now, let $(S_1, \ldots, S_m) \in L$.
+	Define $S \in \lin{V, W}$ by $S(v_1, \ldots, v_m) = S_1 v_1 + \cdots + S_m v_m$.
+	Then $T(S) = (S_1, \ldots, S_m)$.
+	Thus, $T$ is surjective.
+	Therefore, $T$ is an isomorphism.
 \end{sol}
 
 \begin{exercise}[3e4]
-    Suppose $W_1, \ldots, W_m$ are vector spaces. Prove that $\lin{V, W_1 \times \cdots \times W_m}$ and $\lin{V, W_1} \times \cdots \times \lin{V, W_m}$ are isomorphic vector spaces.
+    Suppose $W_1, \ldots, W_m$ are vector spaces.
+	Prove that $\lin{V, W_1 \times \cdots \times W_m}$ and $\lin{V, W_1} \times \cdots \times \lin{V, W_m}$ are isomorphic vector spaces.
 
-    \remark{Note the difference between this exercise and \autoref{ex:3e3}. Here, the domain is decomposed, while in \autoref{ex:3e3}, the codomain is decomposed. Hence, the use of the maps $\iota_k$ and $\pi_k$ in the solutions to these exercises are reversed.}
+    \remark{Note the difference between this exercise and \autoref{ex:3e3}.
+	Here, the domain is decomposed, while in \autoref{ex:3e3}, the codomain is decomposed.
+	Hence, the use of the maps $\iota_k$ and $\pi_k$ in the solutions to these exercises are reversed.}
 \end{exercise}
 
 \begin{sol}
-    Let $W = W_1 \times \cdots \times W_m$. Let $L = \lin{V, W_1} \times \cdots \times \lin{V, W_m}$. Define $T \in \lin{\lin{V, W}, L}$ by
+    Let $W = W_1 \times \cdots \times W_m$.
+	Let $L = \lin{V, W_1} \times \cdots \times \lin{V, W_m}$.
+	Define $T \in \lin{\lin{V, W}, L}$ by
     \[T(S) = (\pi_1 \circ S, \ldots, \pi_m \circ S)\]
     where $\pi_k \in \lin{W, W_k}$ is the map defined as
     \[\pi_k(w_1, \ldots, w_m) = w_k\]
@@ -71,11 +102,18 @@
         & = (\alpha (\pi_1 \circ S_1) + \beta (\pi_1 \circ S_2), \ldots, \alpha (\pi_m \circ S_1) + \beta (\pi_m \circ S_2))\\
         & = 	\alpha T(S_1) + \beta T(S_2),
     \end{align*}
-    hence $T$ is a linear map. Now suppose $T(S) = 0$. Then $\pi_k \circ S = 0$ for all $k = 1, \ldots, m$. Moreover, for all $v \in V$, we have
+    hence $T$ is a linear map.
+	Now suppose $T(S) = 0$.
+	Then $\pi_k \circ S = 0$ for all $k = 1, \ldots, m$.
+	Moreover, for all $v \in V$, we have
     \[S v = (\pi_1(Sv), \ldots, \pi_m(Sv)) = (0, \ldots, 0) = 0.\]
     It follows that $S v = 0$ for all $v$, hence $S = 0$, and thus $T$ is injective.
 
-    Now let $(S_1, \ldots, S_m) \in L$. Define $S \in \lin{V, W}$ by $S v = (S_1 v, \ldots, S_m v)$. Then $T(S) = (S_1, \ldots, S_m)$. Thus, $T$ is surjective. Therefore, $T$ is an isomorphism.
+    Now let $(S_1, \ldots, S_m) \in L$.
+	Define $S \in \lin{V, W}$ by $S v = (S_1 v, \ldots, S_m v)$.
+	Then $T(S) = (S_1, \ldots, S_m)$.
+	Thus, $T$ is surjective.
+	Therefore, $T$ is an isomorphism.
 \end{sol}
 
 \begin{exercise}[3e5]
@@ -85,7 +123,8 @@
 \end{exercise}
 
 \begin{sol}
-    Let $e_1, \ldots, e_m$ be the standard basis of $\f^m$. Define $T \in \lin{V^m, \lin{\f^m, V}}$ by
+    Let $e_1, \ldots, e_m$ be the standard basis of $\f^m$.
+	Define $T \in \lin{V^m, \lin{\f^m, V}}$ by
     \[T(v_1, \ldots, v_m)(\lambda_1, \ldots, \lambda_m) = \lambda_1 v_1 + \cdots + \lambda_m v_m.\]
     Then $T$ is linear since for all $\alpha, \beta \in \f$ and all $v = (v_1, \ldots, v_m), w = (w_1, \ldots, w_m) \in V^m$, we have
     \begin{align*}
@@ -94,26 +133,49 @@
         & = \alpha (\lambda_1 v_1 + \cdots + \lambda_m v_m) + \beta (\lambda_1 w_1 + \cdots + \lambda_m w_m)\\
         & = \alpha T(v)(\lambda_1, \ldots, \lambda_m) + \beta T(w)(\lambda_1, \ldots, \lambda_m),
     \end{align*}
-    hence $T$ is a linear map. Now suppose $T(v) = 0$. Then $T(v)(e_k) = 0$ for all $k = 1, \ldots, m$. It follows that $v_k = 0$ for all $k = 1, \ldots, m$, hence $v = 0$, and thus $T$ is injective.
+    hence $T$ is a linear map.
+	Now suppose $T(v) = 0$.
+	Then $T(v)(e_k) = 0$ for all $k = 1, \ldots, m$.
+	It follows that $v_k = 0$ for all $k = 1, \ldots, m$, hence $v = 0$, and thus $T$ is injective.
 
-    Now let $S \in \lin{\f^m, V}$. Define $v \in V^m$ by $v_k = S e_k$ for all $k = 1, \ldots, m$. Then $T(v) = S$. Thus, $T$ is surjective. Therefore, $T$ is an isomorphism.
+    Now let $S \in \lin{\f^m, V}$.
+	Define $v \in V^m$ by $v_k = S e_k$ for all $k = 1, \ldots, m$.
+	Then $T(v) = S$.
+	Thus, $T$ is surjective.
+	Therefore, $T$ is an isomorphism.
 \end{sol}
 
 \begin{exercise}[3e6]
-    Suppose that $v, x$ are vectors in $V$ and that $U, W$ are subspaces of $V$ such that $v + U = x + W$. Prove that $U = W$.
+    Suppose that $v, x$ are vectors in $V$ and that $U, W$ are subspaces of $V$ such that $v + U = x + W$.
+	Prove that $U = W$.
 \end{exercise}
 
 \begin{sol}
-    Let $u \in U$. Then $v + u \in v + U = x + W$. Thus, there exists $w \in W$ such that $v + u = x + w$. Note that $v \in x + W$ implies the existence of some $w' \in W$ such that $v = x + w'$, or $x - v = -w' \in W$. Similarly, $x \in v + U$ implies the existence of some $u' \in U$ such that $x = v + u'$, or $v - x = -u' \in U$. It follows that $u = (x - v) + w \in W$, hence $U \subseteq W$. Now let $w \in W$. Then $x + w \in x + W = v + U$. Thus, there exists $u \in U$ such that $x + w = v + u$. It follows that $w = (v - x) + u \in U$, hence $W \subseteq U$. Therefore, $U = W$.
+    Let $u \in U$.
+	Then $v + u \in v + U = x + W$.
+	Thus, there exists $w \in W$ such that $v + u = x + w$.
+	Note that $v \in x + W$ implies the existence of some $w' \in W$ such that $v = x + w'$, or $x - v = -w' \in W$.
+	Similarly, $x \in v + U$ implies the existence of some $u' \in U$ such that $x = v + u'$, or $v - x = -u' \in U$.
+	It follows that $u = (x - v) + w \in W$, hence $U \subseteq W$.
+	Now let $w \in W$.
+	Then $x + w \in x + W = v + U$.
+	Thus, there exists $u \in U$ such that $x + w = v + u$.
+	It follows that $w = (v - x) + u \in U$, hence $W \subseteq U$.
+	Therefore, $U = W$.
 \end{sol}
 
 \begin{exercise}[3e7]
-    Let $U = \set{(x, y, z) \in \r^3 \mid 2x + 3y + 5z = 0}$. Suppose $A \subseteq \r^3$. Prove that $A$ is a translate of $U$ if and only if there exists $c \in \r$ such that
+    Let $U = \set{(x, y, z) \in \r^3 \mid 2x + 3y + 5z = 0}$.
+	Suppose $A \subseteq \r^3$.
+	Prove that $A$ is a translate of $U$ if and only if there exists $c \in \r$ such that
     \[A = \set{(x, y, z) \in \r^3 \mid 2x + 3y + 5z = c}.\]
 \end{exercise}
 
 \begin{sol}
-    Suppose $A$ is a translate of $U$. Then there exists $v \in \r^3$ such that $A = v + U$. Let $v = (x_0, y_0, z_0)$. Then
+    Suppose $A$ is a translate of $U$.
+	Then there exists $v \in \r^3$ such that $A = v + U$.
+	Let $v = (x_0, y_0, z_0)$.
+	Then
     \begin{align*}
         A & = v + U \\
         & = \set{(x_0, y_0, z_0) + (x, y, z) \in \r^3 \mid 2x + 3y + 5z = 0} \\
@@ -122,7 +184,8 @@
     \end{align*}
     Conversely, suppose there exists $c \in \r$ such that
     \[A = \set{(x, y, z) \in \r^3 \mid 2x + 3y + 5z = c}.\]
-    Let $v = (x_0, y_0, z_0)$ where $x_0, y_0, z_0$ are any real numbers such that $2x_0 + 3y_0 + 5z_0 = c$. Then
+    Let $v = (x_0, y_0, z_0)$ where $x_0, y_0, z_0$ are any real numbers such that $2x_0 + 3y_0 + 5z_0 = c$.
+	Then
     \begin{align*}
         v + U & = (x_0, y_0, z_0) + U \\
         & = \set{(x_0, y_0, z_0) + (x, y, z) \in \r^3 \mid 2x + 3y + 5z = 0} \\
@@ -132,14 +195,26 @@
 
 \begin{exercise}[3e8]
     \begin{subexercises}
-        \item Suppose $T \in \lin{V, W}$ and $c \in W$. Prove that $\set{x \in V \mid Tx = c}$ is either the empty set or is a translate of $\nul T$.
+        \item Suppose $T \in \lin{V, W}$ and $c \in W$.
+	Prove that $\set{x \in V \mid Tx = c}$ is either the empty set or is a translate of $\nul T$.
         \item Explain why the set of solutions to a system of linear equations such as 3.27 is either the empty set or is a translate of some subspace of $\f^n$.
     \end{subexercises}
 \end{exercise}
 
 \begin{sole}
-    \item Suppose $T \in \lin{V, W}$ and $c \in W$. Let $A = \set{x \in V \mid Tx = c}$. If $A$ is nonempty, then there exists $v \in V$ such that $Tv = c$. We claim that $A = v + \nul T$. Let $x \in A$. Then $Tx = c = Tv$, hence $T(x - v) = 0$, and thus $x - v \in \nul T$. It follows that $x \in v + \nul T$, hence $A \subseteq v + \nul T$. Now let $y \in v + \nul T$. Then there exists $u \in \nul T$ such that $y = v + u$. It follows that $Ty = T(v + u) = Tv + Tu = c + 0 = c$, hence $y \in A$, and thus $v + \nul T \subseteq A$. Therefore, $A = v + \nul T$.
-    \item A system of linear equations such as 3.27 can be written in the form $Tx = c$ for some linear map $T$ and some vector $c$. By part (a), the set of solutions to this system of linear equations is either the empty set or is a translate of $\nul T$, which is a subspace of $\f^n$.
+    \item Suppose $T \in \lin{V, W}$ and $c \in W$.
+	Let $A = \set{x \in V \mid Tx = c}$.
+	If $A$ is nonempty, then there exists $v \in V$ such that $Tv = c$.
+	We claim that $A = v + \nul T$.
+	Let $x \in A$.
+	Then $Tx = c = Tv$, hence $T(x - v) = 0$, and thus $x - v \in \nul T$.
+	It follows that $x \in v + \nul T$, hence $A \subseteq v + \nul T$.
+	Now let $y \in v + \nul T$.
+	Then there exists $u \in \nul T$ such that $y = v + u$.
+	It follows that $Ty = T(v + u) = Tv + Tu = c + 0 = c$, hence $y \in A$, and thus $v + \nul T \subseteq A$.
+	Therefore, $A = v + \nul T$.
+    \item A system of linear equations such as 3.27 can be written in the form $Tx = c$ for some linear map $T$ and some vector $c$.
+	By part (a), the set of solutions to this system of linear equations is either the empty set or is a translate of $\nul T$, which is a subspace of $\f^n$.
 \end{sole}
 
 \begin{exercise}[3e9]
@@ -147,22 +222,45 @@
 \end{exercise}
 
 \begin{sol}
-    Suppose $A$ is a translate of some subspace of $V$. Then there exists $v \in V$ and a subspace $U$ of $V$ such that $A = v + U$. Let $v + u, v + u' \in A$. Then for any $\lambda \in \f$,
+    Suppose $A$ is a translate of some subspace of $V$.
+	Then there exists $v \in V$ and a subspace $U$ of $V$ such that $A = v + U$.
+	Let $v + u, v + u' \in A$.
+	Then for any $\lambda \in \f$,
     \[\lambda (v + u) + (1 - \lambda) (v + u') = v + \underbrace{(\lambda u + (1 - \lambda) u')}_{\in U} \in A.\]
-    Conversely, suppose $\lambda v + (1 - \lambda) w  \in A$ for all $v, w \in A$ and all $\lambda \in \f$. Fix some $v_0 \in A$, and let $U = \set{u \in V \mid v_0 + u \in A}$. We first claim that $U$ is a subspace of $V$. Since $v_0 = v_0 + 0 \in A$, we have $0 \in U$. Let $u_1, u_2 \in U$. Then $v_0 + u_1, v_0 + u_2 \in A$. Now let $\lambda \in \f$. Then
+    Conversely, suppose $\lambda v + (1 - \lambda) w  \in A$ for all $v, w \in A$ and all $\lambda \in \f$.
+	Fix some $v_0 \in A$, and let $U = \set{u \in V \mid v_0 + u \in A}$.
+	We first claim that $U$ is a subspace of $V$.
+	Since $v_0 = v_0 + 0 \in A$, we have $0 \in U$.
+	Let $u_1, u_2 \in U$.
+	Then $v_0 + u_1, v_0 + u_2 \in A$.
+	Now let $\lambda \in \f$.
+	Then
     \begin{align*}
         \lambda (v_0 + u_1) + (1 - \lambda)(v_0 + u_2) & = v_0 + \lambda u_1 + (1 - \lambda) u_2 \\
         & = v_0 + (\lambda u_1 + (1 - \lambda) u_2) \in A.
     \end{align*}
-    It follows that $\lambda u_1 + (1 - \lambda) u_2 \in U$, hence $U$ is a subspace of $V$. Now we claim that $A = v_0 + U$. Let $w \in A$. By definition, $v_0 + (w - v_0) = w \in A$, hence $w - v_0 \in U$, and thus $w \in v_0 + U$, so $A \subseteq v_0 + U$. Now let $v_0 + u \in v_0 + U$. Then $v_0 + u \in A$ by definition of $U$, hence $v_0 + U \subseteq A$. Therefore, $A = v_0 + U$.
+    It follows that $\lambda u_1 + (1 - \lambda) u_2 \in U$, hence $U$ is a subspace of $V$.
+	Now we claim that $A = v_0 + U$.
+	Let $w \in A$.
+	By definition, $v_0 + (w - v_0) = w \in A$, hence $w - v_0 \in U$, and thus $w \in v_0 + U$, so $A \subseteq v_0 + U$.
+	Now let $v_0 + u \in v_0 + U$.
+	Then $v_0 + u \in A$ by definition of $U$, hence $v_0 + U \subseteq A$.
+	Therefore, $A = v_0 + U$.
 \end{sol}
 
 \begin{exercise}[3e10]
-    Suppose $A_1 = v + U_1$ and $A_2 = w + U_2$ for some $v, w \in V$ and some subspaces $U_1, U_2$ of $V$. Prove that the intersection $A_1 \cap A_2$ is either a translate of some subspace of $V$ or is the empty set.
+    Suppose $A_1 = v + U_1$ and $A_2 = w + U_2$ for some $v, w \in V$ and some subspaces $U_1, U_2$ of $V$.
+	Prove that the intersection $A_1 \cap A_2$ is either a translate of some subspace of $V$ or is the empty set.
 \end{exercise}
 
 \begin{sol}
-    If $A_1 \cap A_2$ is the empty set, then we are done. Suppose that $A_1 \cap A_2$ is nonempty. Let $x, y \in A_1 \cap A_2$ and $\lambda \in \f$. Then $x, y \in A_1$, hence $\lambda x + (1 - \lambda) y \in A_1$. Moreover, $x, y \in A_2$, hence $\lambda x + (1 - \lambda) y \in A_2$. It follows that $\lambda x + (1 - \lambda) y \in A_1 \cap A_2$. Thus, by \autoref{ex:3e9}, $A_1 \cap A_2$ is a translate of some subspace of $V$.
+    If $A_1 \cap A_2$ is the empty set, then we are done.
+	Suppose that $A_1 \cap A_2$ is nonempty.
+	Let $x, y \in A_1 \cap A_2$ and $\lambda \in \f$.
+	Then $x, y \in A_1$, hence $\lambda x + (1 - \lambda) y \in A_1$.
+	Moreover, $x, y \in A_2$, hence $\lambda x + (1 - \lambda) y \in A_2$.
+	It follows that $\lambda x + (1 - \lambda) y \in A_1 \cap A_2$.
+	Thus, by \autoref{ex:3e9}, $A_1 \cap A_2$ is a translate of some subspace of $V$.
 \end{sol}
 
 \begin{exercise}[3e11]
@@ -216,7 +314,8 @@
 \end{sole}
 
 \begin{exercise}[3e12]
-    Suppose $v_1, \ldots, v_m \in V$. Let
+    Suppose $v_1, \ldots, v_m \in V$.
+	Let
     \[A = \set{\lambda_1 v_1 + \cdots + \lambda_m v_m \mid \lambda_1, \ldots, \lambda_m \in \f \text{ and } \lambda_1 + \cdots + \lambda_m = 1}.\]
     \begin{subexercises}
         \item Prove that $A$ is a translate of some subspace of $V$.
@@ -228,63 +327,120 @@
 \begin{sole}
     \item For any element $\lambda_1 v_1 + \cdots + \lambda_m v_m \in A$, we can write
     \[\lambda_1 v_1 + \cdots + \lambda_m v_m = v_1 + \lambda_2 (v_2 - v_1) + \cdots + \lambda_m (v_m - v_1) = v_1 + \sum_{i = 2}^m \lambda_i (v_i - v_1),\]
-    where $\lambda_1 = 1 - (\lambda_2 + \cdots + \lambda_m)$. Let $U = \spn(v_2 - v_1, \ldots, v_m - v_1)$. Then $A = v_1 + U$, hence $A$ is a translate of the subspace $U$ of $V$.
-    \item By \autoref{ex:3e9}, since $B$ is a translate of some subspace of $V$, we have $\lambda v + (1 - \lambda) w \in B$ for all $v, w \in B$ and all $\lambda \in \f$. Since $\set{v_1, \ldots, v_m} \subseteq B$, it follows that any linear combination of $v_1, \ldots, v_m$ with coefficients summing to 1 is in $B$. Hence, $A \subseteq B$.
-    \item The subspace $U = \spn(v_2 - v_1, \ldots, v_m - v_1)$ has dimension at most $m - 1$, since it is spanned by $m - 1$ vectors. Therefore, $A = v_1 + U$ is a translate of a subspace of $V$ of dimension less than $m$.
+    where $\lambda_1 = 1 - (\lambda_2 + \cdots + \lambda_m)$.
+	Let $U = \spn(v_2 - v_1, \ldots, v_m - v_1)$.
+	Then $A = v_1 + U$, hence $A$ is a translate of the subspace $U$ of $V$.
+    \item By \autoref{ex:3e9}, since $B$ is a translate of some subspace of $V$, we have $\lambda v + (1 - \lambda) w \in B$ for all $v, w \in B$ and all $\lambda \in \f$.
+	Since $\set{v_1, \ldots, v_m} \subseteq B$, it follows that any linear combination of $v_1, \ldots, v_m$ with coefficients summing to 1 is in $B$.
+	Hence, $A \subseteq B$.
+    \item The subspace $U = \spn(v_2 - v_1, \ldots, v_m - v_1)$ has dimension at most $m - 1$, since it is spanned by $m - 1$ vectors.
+	Therefore, $A = v_1 + U$ is a translate of a subspace of $V$ of dimension less than $m$.
 \end{sole}
 
 \begin{exercise}[3e13]
-    Suppose $U$ is a subspace of $V$ such that $V / U$ is finite-dimensional. Prove that $V$ is isomorphic to $U \times (V / U)$.
+    Suppose $U$ is a subspace of $V$ such that $V / U$ is finite-dimensional.
+	Prove that $V$ is isomorphic to $U \times (V / U)$.
 \end{exercise}
 
 \begin{sol}
-    Since $V / U$ is finite-dimensional, let $v_1 + U, \ldots, v_m + U$ be a basis of $V / U$. Let $W = \spn(v_1, \ldots, v_m)$. We show that $V = U \op W$. First, note that any $v \in V$ can be written as $v = u + w$ for some $u \in U$ and $w \in W$. Indeed, since $v + U \in V / U$, we can write
+    Since $V / U$ is finite-dimensional, let $v_1 + U, \ldots, v_m + U$ be a basis of $V / U$.
+	Let $W = \spn(v_1, \ldots, v_m)$.
+	We show that $V = U \op W$.
+	First, note that any $v \in V$ can be written as $v = u + w$ for some $u \in U$ and $w \in W$.
+	Indeed, since $v + U \in V / U$, we can write
     \[v + U = \lambda_1 (v_1 + U) + \cdots + \lambda_m (v_m + U)\]
-    for some scalars $\lambda_1, \ldots, \lambda_m$. This gives
+    for some scalars $\lambda_1, \ldots, \lambda_m$.
+	This gives
     \[v - (\lambda_1 v_1 + \cdots + \lambda_m v_m) \in U.\]
-    So setting $u = v - (\lambda_1 v_1 + \cdots + \lambda_m v_m) \in U$ and $w = \lambda_1 v_1 + \cdots + \lambda_m v_m \in W$, we have $v = u + w$. To see that the sum is direct, suppose $u + w = 0$ with $u \in U$ and $w \in W$. Then $w = -u \in W \cap U$. Since $w \in W$, we can write $w = \lambda_1 v_1 + \cdots + \lambda_m v_m$ for some scalars $\lambda_1, \ldots, \lambda_m$. Since we established that $w \in U$, we have $w + U = 0 + U$. But $v_1 + U, \ldots, v_m + U$ are linearly independent in $V / U$, hence $\lambda_1 = \cdots = \lambda_m = 0$, and thus $w = 0$. It follows that $u = 0$ as well, proving that the sum is direct. Therefore, $V = U \op W$.
+    So setting $u = v - (\lambda_1 v_1 + \cdots + \lambda_m v_m) \in U$ and $w = \lambda_1 v_1 + \cdots + \lambda_m v_m \in W$, we have $v = u + w$.
+	To see that the sum is direct, suppose $u + w = 0$ with $u \in U$ and $w \in W$.
+	Then $w = -u \in W \cap U$.
+	Since $w \in W$, we can write $w = \lambda_1 v_1 + \cdots + \lambda_m v_m$ for some scalars $\lambda_1, \ldots, \lambda_m$.
+	Since we established that $w \in U$, we have $w + U = 0 + U$.
+	But $v_1 + U, \ldots, v_m + U$ are linearly independent in $V / U$, hence $\lambda_1 = \cdots = \lambda_m = 0$, and thus $w = 0$.
+	It follows that $u = 0$ as well, proving that the sum is direct.
+	Therefore, $V = U \op W$.
 
-    Consider the map $T : V \to U \times V/U$ given by $Tv = (u, v + U)$, where $v = u + w$ with $u \in U$ and $w \in W$. This map is well-defined because the decomposition $v = u + w$ is unique. It is linear, injective, and surjective, hence an isomorphism. Therefore, $V \cong U \times V/U$.
+    Consider the map $T : V \to U \times (V/U)$ given by $Tv = (u, v + U)$, where $v = u + w$ with $u \in U$ and $w \in W$.
+	This map is well-defined because the decomposition $v = u + w$ is unique.
+	It is linear, injective, and surjective, hence an isomorphism.
+	Therefore, $V \cong U \times (V/U)$.
 \end{sol}
 
 \begin{exercise}[3e14]
-    Suppose $U$ and $W$ are subspaces of $V$ and $V = U \op W$. Suppose $w_1, \ldots, w_m$ is a basis of $W$. Prove that $w_1 + U, \ldots, w_m + U$ is a basis of $V / U$.
+    Suppose $U$ and $W$ are subspaces of $V$ and $V = U \op W$.
+	Suppose $w_1, \ldots, w_m$ is a basis of $W$.
+	Prove that $w_1 + U, \ldots, w_m + U$ is a basis of $V / U$.
 \end{exercise}
 
 \begin{sol}
-    Since $V = U \op W$, every $v \in V$ can be written uniquely as $v = u + w$ with $u \in U$ and $w \in W$. We claim that $w_1 + U, \ldots, w_m + U$ is a basis of $V / U$. First, we show that they span $V / U$. Let $v + U \in V / U$. Write $v = u + w$ with $u \in U$ and $w \in W$. Then $v + U = (u + w) + U = w + U$. Since $w \in W$, we can write $w = \lambda_1 w_1 + \cdots + \lambda_m w_m$ for some scalars $\lambda_1, \ldots, \lambda_m$. Hence, $v + U = \lambda_1 (w_1 + U) + \cdots + \lambda_m (w_m + U)$, showing that $w_1 + U, \ldots, w_m + U$ span $V / U$.
+    Since $V = U \op W$, every $v \in V$ can be written uniquely as $v = u + w$ with $u \in U$ and $w \in W$.
+	We claim that $w_1 + U, \ldots, w_m + U$ is a basis of $V / U$.
+	First, we show that they span $V / U$.
+	Let $v + U \in V / U$.
+	Write $v = u + w$ with $u \in U$ and $w \in W$.
+	Then $v + U = (u + w) + U = w + U$.
+	Since $w \in W$, we can write $w = \lambda_1 w_1 + \cdots + \lambda_m w_m$ for some scalars $\lambda_1, \ldots, \lambda_m$.
+	Hence, $v + U = \lambda_1 (w_1 + U) + \cdots + \lambda_m (w_m + U)$, showing that $w_1 + U, \ldots, w_m + U$ span $V / U$.
     
-    Next, we show linear independence. Suppose $\lambda_1 (w_1 + U) + \cdots + \lambda_m (w_m + U) = 0 + U$. Then $\lambda_1 w_1 + \cdots + \lambda_m w_m \in U$. But $\lambda_1 w_1 + \cdots + \lambda_m w_m \in W$ and $U \cap W = \{0\}$, so $\lambda_1 w_1 + \cdots + \lambda_m w_m = 0$. Since $w_1, \ldots, w_m$ are linearly independent, we have $\lambda_1 = \cdots = \lambda_m = 0$. Therefore, $w_1 + U, \ldots, w_m + U$ are linearly independent, and hence form a basis of $V / U$.
+    Next, we show linear independence.
+	Suppose $\lambda_1 (w_1 + U) + \cdots + \lambda_m (w_m + U) = 0 + U$.
+	Then $\lambda_1 w_1 + \cdots + \lambda_m w_m \in U$.
+	But $\lambda_1 w_1 + \cdots + \lambda_m w_m \in W$ and $U \cap W = \{0\}$, so $\lambda_1 w_1 + \cdots + \lambda_m w_m = 0$.
+	Since $w_1, \ldots, w_m$ are linearly independent, we have $\lambda_1 = \cdots = \lambda_m = 0$.
+	Therefore, $w_1 + U, \ldots, w_m + U$ are linearly independent, and hence form a basis of $V / U$.
 \end{sol}
 
 \begin{exercise}[3e15]
-    Suppose $U$ is a subspace of $V$ and $v_1 + U, \ldots, v_m + U$ is a basis of $V / U$ and $u_1, \ldots, u_n$ is a basis of $U$. Prove that $v_1, \ldots, v_m, u_1, \ldots, u_n$ is a basis of $V$.
+    Suppose $U$ is a subspace of $V$ and $v_1 + U, \ldots, v_m + U$ is a basis of $V / U$ and $u_1, \ldots, u_n$ is a basis of $U$.
+	Prove that $v_1, \ldots, v_m, u_1, \ldots, u_n$ is a basis of $V$.
 \end{exercise}
 
 \begin{sol}
-    First, we show that $v_1, \ldots, v_m, u_1, \ldots, u_n$ span $V$. Let $v \in V$. Then $v + U \in V / U$, so we can write
+    First, we show that $v_1, \ldots, v_m, u_1, \ldots, u_n$ span $V$.
+	Let $v \in V$.
+	Then $v + U \in V / U$, so we can write
     \[v + U = \lambda_1 (v_1 + U) + \cdots + \lambda_m (v_m + U)\]
-    for some scalars $\lambda_1, \ldots, \lambda_m$. This gives $v - (\lambda_1 v_1 + \cdots + \lambda_m v_m) \in U$. Since $u_1, \ldots, u_n$ is a basis of $U$, we can write $v - (\lambda_1 v_1 + \cdots + \lambda_m v_m) = \mu_1 u_1 + \cdots + \mu_n u_n$ for some scalars $\mu_1, \ldots, \mu_n$. Hence, $v = \lambda_1 v_1 + \cdots + \lambda_m v_m + \mu_1 u_1 + \cdots + \mu_n u_n$, showing that $v_1, \ldots, v_m, u_1, \ldots, u_n$ span $V$.
+    for some scalars $\lambda_1, \ldots, \lambda_m$.
+	This gives $v - (\lambda_1 v_1 + \cdots + \lambda_m v_m) \in U$.
+	Since $u_1, \ldots, u_n$ is a basis of $U$, we can write $v - (\lambda_1 v_1 + \cdots + \lambda_m v_m) = \mu_1 u_1 + \cdots + \mu_n u_n$ for some scalars $\mu_1, \ldots, \mu_n$.
+	Hence, $v = \lambda_1 v_1 + \cdots + \lambda_m v_m + \mu_1 u_1 + \cdots + \mu_n u_n$, showing that $v_1, \ldots, v_m, u_1, \ldots, u_n$ span $V$.
 
-    Next, we show linear independence. Suppose $\lambda_1 v_1 + \cdots + \lambda_m v_m + \mu_1 u_1 + \cdots + \mu_n u_n = 0$. Then $\lambda_1 v_1 + \cdots + \lambda_m v_m \in U$. Then
+    Next, we show linear independence.
+	Suppose $\lambda_1 v_1 + \cdots + \lambda_m v_m + \mu_1 u_1 + \cdots + \mu_n u_n = 0$.
+	Then $\lambda_1 v_1 + \cdots + \lambda_m v_m \in U$.
+	Then
     \[\lambda_1(v_1 + U) + \cdots + \lambda_m(v_m + U) = 0 + U.\]
-    Since $v_1 + U, \ldots, v_m + U$ are linearly independent in $V / U$, we must have $\lambda_1 = \cdots = \lambda_m = 0$. Then the original equation reduces to $\mu_1 u_1 + \cdots + \mu_n u_n = 0$, and since $u_1, \ldots, u_n$ are linearly independent, we have $\mu_1 = \cdots = \mu_n = 0$. Therefore, $v_1, \ldots, v_m, u_1, \ldots, u_n$ are linearly independent, and hence form a basis of $V$.
+    Since $v_1 + U, \ldots, v_m + U$ are linearly independent in $V / U$, we must have $\lambda_1 = \cdots = \lambda_m = 0$.
+	Then the original equation reduces to $\mu_1 u_1 + \cdots + \mu_n u_n = 0$, and since $u_1, \ldots, u_n$ are linearly independent, we have $\mu_1 = \cdots = \mu_n = 0$.
+	Therefore, $v_1, \ldots, v_m, u_1, \ldots, u_n$ are linearly independent, and hence form a basis of $V$.
 \end{sol}
 
 \begin{exercise}[3e16]
-    Suppose $\varphi \in \lin{V, \f}$ and $\varphi \neq 0$. Prove that $\dim V / (\nul \varphi) = 1$.
+    Suppose $\varphi \in \lin{V, \f}$ and $\varphi \neq 0$.
+	Prove that $\dim V / (\nul \varphi) = 1$.
 \end{exercise}
 
 \begin{sol}
-   From 3.107 in the text, we know that $V / \nul \varphi \cong \range \varphi$. Since $\varphi \neq 0$, we have $\range \varphi \neq \set 0$, and since $\range \varphi$ is a subspace of $\f$, it follows that $\dim \range \varphi = 1$. This implies $\range \varphi = \f$, and hence $\dim V / (\nul \varphi) = \dim \range \varphi = 1$.
+   From 3.107 in the text, we know that $V / \nul \varphi \cong \range \varphi$.
+	Since $\varphi \neq 0$, we have $\range \varphi \neq \set 0$, and since $\range \varphi$ is a subspace of $\f$, it follows that $\dim \range \varphi = 1$.
+	This implies $\range \varphi = \f$, and hence $\dim V / (\nul \varphi) = \dim \range \varphi = 1$.
 \end{sol}
 
 \begin{exercise}[3e17]
-    Suppose $U$ is a subspace of $V$ such that $\dim V / U = 1$. Prove that there exists $\varphi \in \lin{V, \f}$ such that $\nul \varphi = U$.
+    Suppose $U$ is a subspace of $V$ such that $\dim V / U = 1$.
+	Prove that there exists $\varphi \in \lin{V, \f}$ such that $\nul \varphi = U$.
 \end{exercise}
 
 \begin{sol}
-    Since $\dim V / U = \dim \f = 1$, there exists some isomorphism $\psi \in \lin{V /U, \f}$. Let $\pi: V \to V / U$ be the quotient map. Define $\varphi = \psi \circ \pi \in \lin{V, \f}$. Suppose $\varphi(v) = 0$. Then $\psi(\pi(v)) = 0$, which implies $\pi(v) = 0$ since $\psi$ is an isomorphism. Hence, $v \in U$, and we have $\nul \varphi \subseteq U$. Conversely, if $v \in U$, then $\pi(v) = 0$, so $\varphi(v) = \psi(\pi(v)) = 0$. Therefore, $\nul \varphi = U$.
+    Since $\dim V / U = \dim \f = 1$, there exists some isomorphism $\psi \in \lin{V /U, \f}$.
+	Let $\pi: V \to V / U$ be the quotient map.
+	Define $\varphi = \psi \circ \pi \in \lin{V, \f}$.
+	Suppose $\varphi(v) = 0$.
+	Then $\psi(\pi(v)) = 0$, which implies $\pi(v) = 0$ since $\psi$ is an isomorphism.
+	Hence, $v \in U$, and we have $\nul \varphi \subseteq U$.
+	Conversely, if $v \in U$, then $\pi(v) = 0$, so $\varphi(v) = \psi(\pi(v)) = 0$.
+	Therefore, $\nul \varphi = U$.
 \end{sol}
 
 \begin{exercise}[3e18]
@@ -296,27 +452,52 @@
 \end{exercise}
 
 \begin{sole}
-    \item Suppose $W$ is a finite-dimensional subspace of $V$ and $V = U + W$. Let $\pi: V \to V / U$ be the quotient map, and consider the restriction $\pi|_W : W \to V / U$. To see that $\range(\pi|_W) = V / U$, note that for any $v + U \in V / U$, we can write $v = u + w$ for some $u \in U$ and $w \in W$. Then $\pi(v) = \pi(u + w) = \pi(u) + \pi(w) = 0 + \pi(w) = \pi(w)$, so $v + U = \pi(w) \in \range(\pi|_W)$. Hence, $\range(\pi|_W) = V / U$. From the rank-nullity theorem, we have
+    \item Suppose $W$ is a finite-dimensional subspace of $V$ and $V = U + W$.
+	Let $\pi: V \to V / U$ be the quotient map, and consider the restriction $\pi|_W : W \to V / U$.
+	To see that $\range(\pi|_W) = V / U$, note that for any $v + U \in V / U$, we can write $v = u + w$ for some $u \in U$ and $w \in W$.
+	Then $\pi(v) = \pi(u + w) = \pi(u) + \pi(w) = 0 + \pi(w) = \pi(w)$, so $v + U = \pi(w) \in \range(\pi|_W)$.
+	Hence, $\range(\pi|_W) = V / U$.
+	From the fundamental theorem of linear maps, we have
     \[\dim W = \dim \nul \pi|_W + \dim \range(\pi|_W) = \dim \nul \pi|_W + \dim V / U \geq \dim V / U.\]
-    \item Let $v_1 + U, \ldots, v_m + U$ be a basis of $V / U$. We claim that $v_1, \ldots, v_m$ are linearly independent. Suppose $\lambda_1 v_1 + \cdots + \lambda_m v_m = 0$ for some scalars $\lambda_1, \ldots, \lambda_m$. Then
+    \item Let $v_1 + U, \ldots, v_m + U$ be a basis of $V / U$.
+	We claim that $v_1, \ldots, v_m$ are linearly independent.
+	Suppose $\lambda_1 v_1 + \cdots + \lambda_m v_m = 0$ for some scalars $\lambda_1, \ldots, \lambda_m$.
+	Then
     \[\lambda_1 v_1 + \cdots + \lambda_m v_m \in U.\]
-    But $\lambda_1 (v_1 + U) + \cdots + \lambda_m (v_m + U) = 0$ in $V / U$, and since $v_1 + U, \ldots, v_m + U$ are linearly independent, it follows that $\lambda_1 = \cdots = \lambda_m = 0$. Hence, $v_1, \ldots, v_m$ are linearly independent.
+    But $\lambda_1 (v_1 + U) + \cdots + \lambda_m (v_m + U) = 0$ in $V / U$, and since $v_1 + U, \ldots, v_m + U$ are linearly independent, it follows that $\lambda_1 = \cdots = \lambda_m = 0$.
+	Hence, $v_1, \ldots, v_m$ are linearly independent.
 
-    Let $W = \spn\{v_1, \ldots, v_m\}$. Then $\dim W = m = \dim V / U$. For any $v \in V$, we can write
+    Let $W = \spn\{v_1, \ldots, v_m\}$.
+	Then $\dim W = m = \dim V / U$.
+	For any $v \in V$, we can write
     \[v + U = \lambda_1(v_1 + U) + \cdots + \lambda_m(v_m + U).\]
     This implies that 
     \[v - (\lambda_1 v_1 + \cdots + \lambda_m v_m) \in U,\]
-    so $v \in U + W$. Hence, $V = U + W$. To see that $U \cap W = \set 0$, let $w \in U \cap W$. Then $w \in W$, so $w = \lambda_1 v_1 + \cdots + \lambda_m v_m$ for some scalars $\lambda_1, \ldots, \lambda_m$. But $w \in U$, so $w + U = 0$ in $V / U$. Hence,
+    so $v \in U + W$.
+	Hence, $V = U + W$.
+	To see that $U \cap W = \set 0$, let $w \in U \cap W$.
+	Then $w \in W$, so $w = \lambda_1 v_1 + \cdots + \lambda_m v_m$ for some scalars $\lambda_1, \ldots, \lambda_m$.
+	But $w \in U$, so $w + U = 0$ in $V / U$.
+	Hence,
     \[\lambda_1 (v_1 + U) + \cdots + \lambda_m (v_m + U) = 0\]
-    in $V / U$. Since $v_1 + U, \ldots, v_m + U$ are linearly independent, it follows that $\lambda_1 = \cdots = \lambda_m = 0$. Hence, $w = 0$, and we have $U \cap W = \set 0$. Therefore, $V = U \op W$.
+    in $V / U$.
+	Since $v_1 + U, \ldots, v_m + U$ are linearly independent, it follows that $\lambda_1 = \cdots = \lambda_m = 0$.
+	Hence, $w = 0$, and we have $U \cap W = \set 0$.
+	Therefore, $V = U \op W$.
 \end{sole}
 
 \begin{exercise}[3e19]
-    Suppose $T \in \lin{V, W}$ and $U$ is a subspace of $V$. Let $\pi$ denote the quotient map from $V$ onto $V / U$. Prove that there exists $S \in \lin{V / U, W}$ such that $T = S \circ \pi$ if and only if $U \subseteq \nul T$.
+    Suppose $T \in \lin{V, W}$ and $U$ is a subspace of $V$.
+	Let $\pi$ denote the quotient map from $V$ onto $V / U$.
+	Prove that there exists $S \in \lin{V / U, W}$ such that $T = S \circ \pi$ if and only if $U \subseteq \nul T$.
 \end{exercise}
 
 \begin{sol}
-    Suppose $S \in \lin{V / U, W}$ is such that $T = S \circ \pi$. Then for any $u \in U$, we have $T(u) = S(\pi(u)) = S(0) = 0$, so $U \subseteq \nul T$.
+    Suppose $S \in \lin{V / U, W}$ is such that $T = S \circ \pi$.
+	Then for any $u \in U$, we have $T(u) = S(\pi(u)) = S(0) = 0$, so $U \subseteq \nul T$.
 
-    Conversely, suppose $U \subseteq \nul T$. Define $S: V / U \to W$ by $S(v + U) = T(v)$. This is well-defined because if $v + U = v' + U$, then $v - v' \in U \subseteq \nul T$, so $T(v) = T(v')$. It is straightforward to check that $S$ is linear and that $T = S \circ \pi$.
+    Conversely, suppose $U \subseteq \nul T$.
+	Define $S: V / U \to W$ by $S(v + U) = T(v)$.
+	This is well-defined because if $v + U = v' + U$, then $v - v' \in U \subseteq \nul T$, so $T(v) = T(v')$.
+	It is straightforward to check that $S$ is linear and that $T = S \circ \pi$.
 \end{sol}

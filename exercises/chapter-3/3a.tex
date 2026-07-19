@@ -3,19 +3,25 @@
 \subsection{Vector Space of Linear Maps}
 
 \begin{exercise}[3a1]
-    Suppose $b, c \in \r$. Define $T: \r^3 \to \r^2$ by
+    Suppose $b, c \in \r$.
+	Define $T: \r^3 \to \r^2$ by
     \[T(x, y, z) = (2x - 4y + 3z + b, 6x + cxyz).\]
     Show that $T$ is linear if and only if $b = c = 0$.
 \end{exercise}
 
 \begin{sol}
-    Suppose $T$ is linear. Then
+    Suppose $T$ is linear.
+	Then
     \[T(0, 0, 0) = (b, 0),\]
-    which implies that $b = 0$. Now consider the vector $(1, 1, 1) \in \r^3$. Then
-    \[T(2, 2, 2) = (2, 12 + 8c) = (2, 12 + c), = 2T(1, 1, 1),\]
+    which implies that $b = 0$.
+	Now consider the vector $(1, 1, 1) \in \r^3$.
+	Then
+    \[T(2, 2, 2) = (2, 12 + 8c) = (2, 12 + 2c) = 2T(1, 1, 1),\]
     which implies that $c = 0$.
 
-    Conversely, if $b = c = 0$, then $T(x, y, z) = (2x - 4y + 3z, 6x)$. Let $(x_1, y_1, z_1), (x_2, y_2, z_2) \in \r^3$ and $\alpha \in \r$. Then
+    Conversely, if $b = c = 0$, then $T(x, y, z) = (2x - 4y + 3z, 6x)$.
+	Let $(x_1, y_1, z_1), (x_2, y_2, z_2) \in \r^3$ and $\alpha \in \r$.
+	Then
     \begin{align*}
         T(x_1 + x_2, y_1 + y_2, z_1 + z_2) & = (2(x_1 + x_2) - 4(y_1 + y_2) + 3(z_1 + z_2), 6(x_1 + x_2)) \\
         & = (2x_1 + 2x_2 - 4y_1 - 4y_2 + 3z_1 + 3z_2, 6x_1 + 6x_2) \\
@@ -33,23 +39,32 @@
 \end{sol}
 
 \begin{exercise}[3a2]
-    Suppose $b, c \in \r$. Define $T: \pp(\r) \to \r^2$ by
+    Suppose $b, c \in \r$.
+	Define $T: \pp(\r) \to \r^2$ by
     \[Tp = \left(3p(4) + 5p'(6) + bp(1)p(2), \int_{-1}^{2} x^3 p(x) \dd x + c \sin p(0)\right).\]
     Show that $T$ is linear if and only if $b = c = 0$.
 \end{exercise}
 
 \begin{sol}
-    Suppose $T$ is linear. Then for any $p \in \pp(\r)$, we have $T(2p) = 2Tp$. Looking at the first component of $T(2p)$, we have
+    Suppose $T$ is linear.
+	Then for any $p \in \pp(\r)$, we have $T(2p) = 2Tp$.
+	Looking at the first component of $T(2p)$, we have
     \[3(2p)(4) + 5(2p)'(6) + b(2p)(1)(2p)(2) = 6p(4) + 10p'(6) + 4bp(1)p(2).\]
     On the other hand, the first component of $2Tp$ is
     \[2(3p(4) + 5p'(6) + bp(1)p(2)) = 6p(4) + 10p'(6) + 2bp(1)p(2).\]
-    Comparing the two expressions, we get $4bp(1)p(2) = 2bp(1)p(2)$ for all $p \in \pp(\r)$. Since there exist polynomials $p$ such that $p(1)p(2) \neq 0$, we must have $b = 0$.
+    Comparing the two expressions, we get $4bp(1)p(2) = 2bp(1)p(2)$ for all $p \in \pp(\r)$.
+	Since there exist polynomials $p$ such that $p(1)p(2) \neq 0$, we must have $b = 0$.
 
-    The second component of $T(2p)$ must be equal to the second component of $2Tp$. We have
+    The second component of $T(2p)$ must be equal to the second component of $2Tp$.
+	We have
     \[\int_{-1}^{2} x^3 (2p)(x) \dd x + c \sin(2p(0)) = 2\int_{-1}^{2} x^3 p(x) \dd x + 2c \sin (p(0)).\]
-    The integral terms may be subtracted, so we get $c \sin(2p(0)) = 2c \sin(p(0))$ for all $p \in \pp(\r)$. Consider $p(x) = \pi/2$. Then $\sin(2p(0)) = \sin(\pi) = 0$ and $2\sin(p(0)) = 2\sin(\pi/2) = 2$. Therefore, $c = 0$.
+    The integral terms may be subtracted, so we get $c \sin(2p(0)) = 2c \sin(p(0))$ for all $p \in \pp(\r)$.
+	Consider $p(x) = \pi/2$.
+	Then $\sin(2p(0)) = \sin(\pi) = 0$ and $2\sin(p(0)) = 2\sin(\pi/2) = 2$.
+	Therefore, $c = 0$.
 
-    Conversely, if $b = c = 0$, let $p, q \in \pp(\r)$ and $\alpha \in \r$. Then
+    Conversely, if $b = c = 0$, let $p, q \in \pp(\r)$ and $\alpha \in \r$.
+	Then
     \begin{align*}
         T(p + q) & = \left(3(p + q)(4) + 5(p + q)'(6), \int_{-1}^{2} x^3 (p + q)(x) \dd x\right) \\
         & = \left(3p(4) + 3q(4) + 5p'(6) + 5q'(6), \int_{-1}^{2} x^3 p(x) \dd x + \int_{-1}^{2} x^3 q(x) \dd x\right) \\
@@ -67,15 +82,19 @@
 \end{sol}
 
 \begin{exercise}[3a3]
-    Suppose that $T \in \lin{\f^n, \f^m}$. Show that there exist scalars $A_{j, k} \in \f$ for $j = 1, \ldots, m$ and $k = 1, \ldots, n$ such that
+    Suppose that $T \in \lin{\f^n, \f^m}$.
+	Show that there exist scalars $A_{j, k} \in \f$ for $j = 1, \ldots, m$ and $k = 1, \ldots, n$ such that
     \[T(x_1, \ldots, x_n) = (A_{1,1} x_1 + \cdots + A_{1, n} x_n, \ldots, A_{m, 1} x_1 + \cdots + A_{m, n} x_n)\]
     for every $(x_1, \ldots, x_n) \in \f^n$.
 \end{exercise}
 
 \begin{sol}
-    Let $e_1, \ldots, e_n$ be the standard basis of $\f^n$. Then for each $k = 1, \ldots, n$, we have
+    Let $e_1, \ldots, e_n$ be the standard basis of $\f^n$.
+	Then for each $k = 1, \ldots, n$, we have
     \[T(e_k) = (A_{1, k}, A_{2, k}, \ldots, A_{m, k})\]
-    for some scalars $A_{j, k} \in \f$. Now let $(x_1, \ldots, x_n) \in \f^n$. Then
+    for some scalars $A_{j, k} \in \f$.
+	Now let $(x_1, \ldots, x_n) \in \f^n$.
+	Then
     \begin{align*}
         T(x_1, \ldots, x_n) & = T(x_1 e_1 + \cdots + x_n e_n) \\
         & = x_1 T(e_1) + \cdots + x_n T(e_n) \\
@@ -87,13 +106,16 @@
 \end{sol}
 
 \begin{exercise}[3a4]
-    Suppose $T \in \lin{V, W}$ and $v_1, \ldots, v_m$ is a list of vectors in $V$ such that $Tv_1, \ldots, Tv_m$ is a linearly independent list in $W$. Prove that $v_1, \ldots, v_m$ is linearly independent.
+    Suppose $T \in \lin{V, W}$ and $v_1, \ldots, v_m$ is a list of vectors in $V$ such that $Tv_1, \ldots, Tv_m$ is a linearly independent list in $W$.
+	Prove that $v_1, \ldots, v_m$ is linearly independent.
 \end{exercise}
 
 \begin{sol}
-    Suppose that $a_1 v_1 + \cdots + a_m v_m = 0$ for some scalars $a_1, \ldots, a_m \in \f$. Applying $T$ to both sides, we get
+    Suppose that $a_1 v_1 + \cdots + a_m v_m = 0$ for some scalars $a_1, \ldots, a_m \in \f$.
+	Applying $T$ to both sides, we get
     \[a_1 Tv_1 + \cdots + a_m Tv_m = T(0) = 0.\]
-    Since $Tv_1, \ldots, Tv_m$ is linearly independent, it follows that $a_1 = \cdots = a_m = 0$. Therefore, $v_1, \ldots, v_m$ is linearly independent.
+    Since $Tv_1, \ldots, Tv_m$ is linearly independent, it follows that $a_1 = \cdots = a_m = 0$.
+	Therefore, $v_1, \ldots, v_m$ is linearly independent.
 \end{sol}
 
 \begin{exercise}[3a5]
@@ -101,7 +123,10 @@
 \end{exercise}
 
 \begin{sol}
-    We must first ensure that the operations of addition and scalar multiplication are well-defined, i.e., if $S, T \in \lin{V, W}$ and $\alpha \in \f$, then $S + T \in \lin{V, W}$ and $\alpha T \in \lin{V, W}$. We first show that $S + T$ is linear. Let $v, u \in V$. Then
+    We must first ensure that the operations of addition and scalar multiplication are well-defined, i.e., if $S, T \in \lin{V, W}$ and $\alpha \in \f$, then $S + T \in \lin{V, W}$ and $\alpha T \in \lin{V, W}$.
+	We first show that $S + T$ is linear.
+	Let $v, u \in V$.
+	Then
     \begin{align*}
         (S + T)(v + u) & = S(v + u) + T(v + u) \\
         & = (Sv + Su) + (Tv + Tu) \\
@@ -115,7 +140,10 @@
         & = \alpha (Sv + Tv) \\
         & = \alpha (S + T)v.
     \end{align*}
-    This shows that $S + T$ is linear. Now we show that $\alpha T$ is linear. Let $v, u \in V$. Then
+    This shows that $S + T$ is linear.
+	Now we show that $\alpha T$ is linear.
+	Let $v, u \in V$.
+	Then
     \begin{align*}
         (\alpha T)(v + u) & = \alpha T(v + u) \\
         & = \alpha (Tv + Tu) \\
@@ -131,15 +159,18 @@
         & = \beta (\alpha Tv) \\
         & = \beta(\alpha T)v.
     \end{align*}
-    Therefore, $S + T \in \lin{V, W}$ and $\alpha T \in \lin{V, W}$. We now check the vector space axioms:
+    Therefore, $S + T \in \lin{V, W}$ and $\alpha T \in \lin{V, W}$.
+	We now check the vector space axioms:
     \begin{enumerate}
-        \item \textbf{Commutativity}: Let $S, T \in \lin{V, W}$. Then for any $v \in V$,
+        \item \textbf{Commutativity}: Let $S, T \in \lin{V, W}$.
+	Then for any $v \in V$,
         \begin{align*}
             (S + T)v & = Sv + Tv \\
             & = Tv + Sv \\
             & = (T + S)v.
         \end{align*}
-        \item \textbf{Associativity}: Let $R, S, T \in \lin{V, W}$. Then for any $v \in V$,
+        \item \textbf{Associativity}: Let $R, S, T \in \lin{V, W}$.
+	Then for any $v \in V$,
         \begin{align*}
             ((R + S) + T)v & = (R + S)v + Tv \\
             & = (Rv + Sv) + Tv \\
@@ -154,13 +185,18 @@
             & = \alpha((\beta T)v) \\
             & = (\alpha(\beta T))v.
         \end{align*}
-        \item \textbf{Additive identity}: Let $0 \in \lin{V, W}$ be the zero map defined by $0v = 0$ for all $v \in V$. Then for any $T \in \lin{V, W}$ and $v \in V$,
+        \item \textbf{Additive identity}: Let $0 \in \lin{V, W}$ be the zero map defined by $0v = 0$ for all $v \in V$.
+	Then for any $T \in \lin{V, W}$ and $v \in V$,
         \[(T + 0)v = Tv + 0v = Tv + 0 = Tv.\]
-        \item \textbf{Inverse}: Let $T \in \lin{V, W}$. Define $-T \in \lin{V, W}$ by $(-T)v = -Tv$ for all $v \in V$. Then for any $v \in V$,
+        \item \textbf{Inverse}: Let $T \in \lin{V, W}$.
+	Define $-T \in \lin{V, W}$ by $(-T)v = -Tv$ for all $v \in V$.
+	Then for any $v \in V$,
         \[(T + (-T))v = Tv + (-T)v = Tv - Tv = 0 = 0v.\]
-        \item \textbf{Multiplicative identity}: Let $1 \in \f$ be the multiplicative identity. Then for any $T \in \lin{V, W}$ and $v \in V$,
+        \item \textbf{Multiplicative identity}: Let $1 \in \f$ be the multiplicative identity.
+	Then for any $T \in \lin{V, W}$ and $v \in V$,
         \[(1T)v = 1(Tv) = Tv.\]
-        \item \textbf{Distributive properties}: Let $T, S \in \lin{V, W}$ and $\alpha, \beta \in \f$. Then for any $v \in V$,
+        \item \textbf{Distributive properties}: Let $T, S \in \lin{V, W}$ and $\alpha, \beta \in \f$.
+	Then for any $v \in V$,
         \begin{align*}
             (\alpha(T + S))v & = \alpha((T + S)v) \\
             & = \alpha(Tv + Sv) \\
@@ -188,16 +224,19 @@
 \end{exercise}
 
 \begin{sole}
-    \item Let $T_1 \in \lin{V, W}$, $T_2 \in \lin{U, V}$, and $T_3 \in \lin{X, U}$. Then for any $x \in X$,
+    \item Let $T_1 \in \lin{V, W}$, $T_2 \in \lin{U, V}$, and $T_3 \in \lin{X, U}$.
+	Then for any $x \in X$,
     \begin{align*}
         ((T_1T_2)T_3)x & = (T_1T_2)(T_3x) \\
         & = T_1(T_2(T_3x)) \\
         & = T_1((T_2T_3)x) \\
         & = (T_1(T_2T_3))x.
     \end{align*}
-    \item Let $T \in \lin{V, W}$. Then for any $v \in V$,
+    \item Let $T \in \lin{V, W}$.
+	Then for any $v \in V$,
     \[(TI)v = T(Iv) = Tv \quad \text{and} \quad (IT)v = I(Tv) = Tv.\]
-    \item Let $T, T_1, T_2 \in \lin{U, V}$ and $S, S_1, S_2 \in \lin{V, W}$. Then for any $u \in U$,
+    \item Let $T, T_1, T_2 \in \lin{U, V}$ and $S, S_1, S_2 \in \lin{V, W}$.
+	Then for any $u \in U$,
     \begin{align*}
         ((S_1 + S_2)T)u & = (S_1 + S_2)(Tu) \\
         & = S_1(Tu) + S_2(Tu) \\
@@ -215,11 +254,18 @@
 \end{sole}
 
 \begin{exercise}[3a7]
-    Show that every linear map from a one-dimensional vector space to itself is multiplication by some scalar. More precisely, prove that if $\dim V = 1$ and $T \in \lin{V}$, then there exists $\lambda \in \f$ such that $Tv = \lambda v$ for all $v \in V$.
+    Show that every linear map from a one-dimensional vector space to itself is multiplication by some scalar.
+	More precisely, prove that if $\dim V = 1$ and $T \in \lin{V}$, then there exists $\lambda \in \f$ such that $Tv = \lambda v$ for all $v \in V$.
 \end{exercise}
 
 \begin{sol}
-    Suppose $\dim V = 1$ and let $v \in V$ be a nonzero vector. Then $\set{v}$ is a basis of $V$. Let $T \in \lin{V}$. Since $Tv \in V$, there exists $\lambda \in \f$ such that $Tv = \lambda v$. Now let $u \in V$. Then there exists $\alpha \in \f$ such that $u = \alpha v$. Therefore,
+    Suppose $\dim V = 1$ and let $v \in V$ be a nonzero vector.
+	Then $\set{v}$ is a basis of $V$.
+	Let $T \in \lin{V}$.
+	Since $Tv \in V$, there exists $\lambda \in \f$ such that $Tv = \lambda v$.
+	Now let $u \in V$.
+	Then there exists $\alpha \in \f$ such that $u = \alpha v$.
+	Therefore,
     \[Tu = T(\alpha v) = \alpha Tv = \alpha (\lambda v) = \lambda (\alpha v) = \lambda u. \qh\]
 \end{sol}
 
@@ -228,7 +274,8 @@
     \[\varphi(av) = a\varphi(v)\]
     for all $a \in \r$ and all $v \in \r^2$ but $\varphi$ is not linear.
 
-    \remark{This was a particularly difficult exercise because all obvious examples of functions that are homogeneous are also additive. The key idea is to utilize composition of functions.}
+    \remark{This was a particularly difficult exercise because all obvious examples of functions that are homogeneous are also additive.
+	The key idea is to utilize composition of functions.}
 \end{exercise}
 
 \begin{sol}
@@ -236,7 +283,9 @@
     \[\varphi(x, y) = \sqrt[3]{x^3 + y^3}.\]
     Then for any $a \in \r$ and $(x, y) \in \r^2$,
     \[\varphi(a(x, y)) = \varphi(ax, ay) = \sqrt[3]{(ax)^3 + (ay)^3} = \sqrt[3]{a^3(x^3 + y^3)} = a\sqrt[3]{x^3 + y^3} = a\varphi(x, y).\]
-    However, $\varphi$ is not additive. For example, let $v = (1, 0)$ and $w = (0, 1)$. Then
+    However, $\varphi$ is not additive.
+	For example, let $v = (1, 0)$ and $w = (0, 1)$.
+	Then
     \[\varphi(v + w) = \varphi(1, 1) = \sqrt[3]{1^3 + 1^3} = \sqrt[3]{2},\]
     but
     \[\varphi(v) + \varphi(w) = \varphi(1, 0) + \varphi(0, 1) = \sqrt[3]{1^3 + 0^3} + \sqrt[3]{0^3 + 1^3} = 1 + 1 = 2.\]
@@ -254,7 +303,9 @@
     \[\varphi(x + iy) = x.\]
     Then for any $w = x_1 + iy_1$ and $z = x_2 + iy_2$ in $\c$,
     \[\varphi(w + z) = \varphi((x_1 + x_2) + i(y_1 + y_2)) = x_1 + x_2 = \varphi(w) + \varphi(z).\]
-    However, $\varphi$ is not homogeneous. For example, let $a = i$ and $z = 1$. Then
+    However, $\varphi$ is not homogeneous.
+	For example, let $a = i$ and $z = 1$.
+	Then
     \[\varphi(iz) = \varphi(i) = 0,\]
     but
     \[i\varphi(z) = i\varphi(1) = i(1) = i.\]
@@ -266,36 +317,55 @@
 \end{exercise}
 
 \begin{sol}
-    This is false. Let $q(x) = x^2$ and define $T: \pp(\r) \to \pp(\r)$ by $Tp = q \circ p$. Then for any $p_1, p_2 \in \pp(\r)$,
+    This is false.
+	Let $q(x) = x^2$ and define $T: \pp(\r) \to \pp(\r)$ by $Tp = q \circ p$.
+	Then for any $p_1, p_2 \in \pp(\r)$,
     \[T(p_1 + p_2) = q \circ (p_1 + p_2) = (p_1 + p_2)^2 = p_1^2 + 2p_1p_2 + p_2^2 \neq p_1^2 + p_2^2 = Tp_1 + Tp_2. \qh\]
 \end{sol}
 
 \begin{exercise}[3a11]
-    Suppose $V$ is finite-dimensional and $T \in \lin{V}$. Prove that $T$ is a scalar multiple of the identity if and only if $ST = TS$ for every $S \in \lin{V}$.
+    Suppose $V$ is finite-dimensional and $T \in \lin{V}$.
+	Prove that $T$ is a scalar multiple of the identity if and only if $ST = TS$ for every $S \in \lin{V}$.
 \end{exercise}
 
 \begin{sol}
-    Suppose $T$ is a scalar multiple of the identity, i.e., $T = \lambda I$ for some $\lambda \in \f$. Then for any $S \in \lin{V}$,
+    Suppose $T$ is a scalar multiple of the identity, i.e., $T = \lambda I$ for some $\lambda \in \f$.
+	Then for any $S \in \lin{V}$,
     \[ST = S(\lambda I) = \lambda S = (\lambda I)S = TS.\]
 
-    Conversely, suppose $ST = TS$ for every $S \in \lin{V}$. We claim that $v$ and $Tv$ are linearly dependent for every $v \in V$. Suppose not. Then there exists $v \in V$ such that $v$ and $Tv$ are linearly independent. Extend $\set{v, Tv}$ to a basis of $V$. Define $S \in \lin{V}$ by sending $v$ to itself and sending $Tv, v_3, \ldots, v_n$ to $0$. Then
+    Conversely, suppose $ST = TS$ for every $S \in \lin{V}$.
+	We claim that $v$ and $Tv$ are linearly dependent for every $v \in V$.
+	Suppose not.
+	Then there exists $v \in V$ such that $v$ and $Tv$ are linearly independent.
+	Extend $\set{v, Tv}$ to a basis of $V$.
+	Define $S \in \lin{V}$ by sending $v$ to itself and sending $Tv, v_3, \ldots, v_n$ to $0$.
+	Then
     \[STv = S(Tv) = 0, \quad TSv = Tv \neq 0,\]
-    which contradicts the assumption that $ST = TS$. Therefore, $v$ and $Tv$ are linearly dependent for every $v \in V$.
+    which contradicts the assumption that $ST = TS$.
+	Therefore, $v$ and $Tv$ are linearly dependent for every $v \in V$.
 
-    Now let $v \in V$ be nonzero. Then there exists $\lambda \in \f$ such that $Tv = \lambda_v v$. We claim that $\lambda_v$ is independent of the choice of $v$. Let $v_1, \ldots, v_n$ be a basis of $V$.
+    Now let $v \in V$ be nonzero.
+	Then there exists $\lambda_v \in \f$ such that $Tv = \lambda_v v$.
+	We claim that $\lambda_v$ is independent of the choice of $v$.
+	Let $v_1, \ldots, v_n$ be a basis of $V$.
     \begin{itemize}
         \item If $n = 1$, then the claim is immediate, since $Tv_1 = \lambda_{v_1} v_1$.
-        \item If $n \geq 2$, let $v_i, v_j$ be two distinct basis vectors. Then their linear independence implies
+        \item If $n \geq 2$, let $v_i, v_j$ be two distinct basis vectors.
+	Then their linear independence implies
         \[\lambda_{v_i + v_j} v_i + \lambda_{v_i + v_j} v_j = T(v_i + v_j) = Tv_i + Tv_j = \lambda_{v_i} v_i + \lambda_{v_j} v_j.\]
-        Since $v_i$ and $v_j$ are linearly independent, it follows that $\lambda_{v_i + v_j} = \lambda_{v_i} = \lambda_{v_j}$. Therefore, $\lambda_v$ is independent of the choice of $v$, and we may denote it by $\lambda$.
+        Since $v_i$ and $v_j$ are linearly independent, it follows that $\lambda_{v_i + v_j} = \lambda_{v_i} = \lambda_{v_j}$.
+	Therefore, $\lambda_v$ is independent of the choice of $v$, and we may denote it by $\lambda$.
     \end{itemize}
-    Let $v = \alpha_1 v_1 + \cdots + \alpha_n v_n$ be any vector in $V$. Then
+    Let $v = \alpha_1 v_1 + \cdots + \alpha_n v_n$ be any vector in $V$.
+	Then
     \[Tv = T(\alpha_1 v_1 + \cdots + \alpha_n v_n) = \alpha_1 Tv_1 + \cdots + \alpha_n Tv_n = \alpha_1 \lambda v_1 + \cdots + \alpha_n \lambda v_n = \lambda (\alpha_1 v_1 + \cdots + \alpha_n v_n) = \lambda v.\]
     Therefore, $T$ is a scalar multiple of the identity.
 \end{sol}
 
 \begin{exercise}[3a12]
-    Suppose $U$ is a subspace of $V$ with $U \neq V$. Suppose $S \in \lin{U, W}$ and $S \neq 0$ (which means that $Su \neq 0$ for some $u \in U$). Define $T: V \to W$ by
+    Suppose $U$ is a subspace of $V$ with $U \neq V$.
+	Suppose $S \in \lin{U, W}$ and $S \neq 0$ (which means that $Su \neq 0$ for some $u \in U$).
+	Define $T: V \to W$ by
     \[Tv = 
     \begin{cases}
         Sv & \text{if } v \in U, \\
@@ -306,73 +376,100 @@
 \end{exercise}
 
 \begin{sol}
-    Since $U \neq V$, there exists $v \in V$ such that $v \notin U$. Let $u \in U$ be such that $Su \neq 0$. Then
+    Since $U \neq V$, there exists $v \in V$ such that $v \notin U$.
+	Let $u \in U$ be such that $Su \neq 0$.
+	Then
     \[T(u + v) = 0,\]
-    since $u + v \in U$ would imply $v = (v + u) - u \in U$, which is a contradiction. However,
+    since $u + v \in U$ would imply $v = (v + u) - u \in U$, which is a contradiction.
+	However,
     \[Tu + Tv = Su + 0 = Su \neq 0.\]
     Therefore, $T$ is not linear.
 \end{sol}
 
 \begin{exercise}[3a13]
-    Suppose $V$ is finite-dimensional. Prove that every linear map on a subspace of $V$ can be extended to a linear map on $V$. In other words, show that if $U$ is a subspace of $V$ and $S \in \lin{U, W}$, then there exists $T \in \lin{V, W}$ such that $Tu = Su$ for all $u \in U$.
+    Suppose $V$ is finite-dimensional.
+	Prove that every linear map on a subspace of $V$ can be extended to a linear map on $V$.
+	In other words, show that if $U$ is a subspace of $V$ and $S \in \lin{U, W}$, then there exists $T \in \lin{V, W}$ such that $Tu = Su$ for all $u \in U$.
 \end{exercise}
 
 \begin{sol}
-    Let $u_1, \ldots, u_m$ be a basis of $U$. Since $U$ is a subspace of $V$, we can extend this basis to a basis of $V$, say $u_1, \ldots, u_m, v_1, \ldots, v_n$. Define $T: V \to W$ by
+    Let $u_1, \ldots, u_m$ be a basis of $U$.
+	Since $U$ is a subspace of $V$, we can extend this basis to a basis of $V$, say $u_1, \ldots, u_m, v_1, \ldots, v_n$.
+	Define $T: V \to W$ by
     \[Tu_i = Su_i \quad \text{for all } i = 1, \ldots, m,\]
     and
     \[Tv_k = 0 \quad \text{for all } k = 1, \ldots, n.\]
-    Then $T$ is well-defined on the basis of $V$, and we can extend it linearly to all of $V$. For any $u \in U$, we may write
+    Then $T$ is well-defined on the basis of $V$, and we can extend it linearly to all of $V$.
+	For any $u \in U$, we may write
     \[u = \alpha_1 u_1 + \cdots + \alpha_m u_m\]
-    for some scalars $\alpha_1, \ldots, \alpha_m \in \f$, and 0 as the coefficients for $v_1, \ldots, v_n$. Then
+    for some scalars $\alpha_1, \ldots, \alpha_m \in \f$, and 0 as the coefficients for $v_1, \ldots, v_n$.
+	Then
     \[Tu = \alpha_1 Tu_1 + \cdots + \alpha_m Tu_m + 0 \cdot Tv_1 + \cdots + 0 \cdot Tv_n = \alpha_1 Su_1 + \cdots + \alpha_m Su_m = Su.\]
     Therefore, $T$ extends $S$ to all of $V$.
 \end{sol}
 
 \begin{exercise}[3a14]
-    Suppose $V$ is finite-dimensional with $\dim V > 0$, and suppose $W$ is infinite-dimensional. Prove that $\lin{V, W}$ is infinite-dimensional.
+    Suppose $V$ is finite-dimensional with $\dim V > 0$, and suppose $W$ is infinite-dimensional.
+	Prove that $\lin{V, W}$ is infinite-dimensional.
 \end{exercise}
 
 \begin{sol}
-    Let $v_1, \ldots, v_n$ be a basis of $V$. Since $W$ is infinite-dimensional, there exists an infinite linearly independent list of vectors $w_1, w_2, \ldots$ in $W$. For each $k \in \n$, define $T_k \in \lin{V, W}$ by
+    Let $v_1, \ldots, v_n$ be a basis of $V$.
+	Since $W$ is infinite-dimensional, there exists an infinite linearly independent list of vectors $w_1, w_2, \ldots$ in $W$.
+	For each $k \in \n$, define $T_k \in \lin{V, W}$ by
     \[T_k v_j =
     \begin{cases}
         w_k & \text{if } j = 1, \\
         0 & \text{if } j \neq 1.
     \end{cases}\]
-    In other words, $T_k$ sends the first basis vector $v_1$ to $w_k$ and all other basis vectors to $0$. We claim that the list $T_1, T_2, \ldots$ is linearly independent in $\lin{V, W}$. Suppose that
+    In other words, $T_k$ sends the first basis vector $v_1$ to $w_k$ and all other basis vectors to $0$.
+	We claim that the list $T_1, T_2, \ldots$ is linearly independent in $\lin{V, W}$.
+	Suppose that
     \[a_1 T_1 + a_2 T_2 + \cdots + a_m T_m = 0\]
-    for some scalars $a_1, \ldots, a_m \in \f$. Evaluating both sides at $v_1$, we get
+    for some scalars $a_1, \ldots, a_m \in \f$.
+	Evaluating both sides at $v_1$, we get
     \[a_1 T_1 v_1 + a_2 T_2 v_1 + \cdots + a_m T_m v_1 = a_1 w_1 + a_2 w_2 + \cdots + a_m w_m = 0.\]
-    Since $w_1, \ldots, w_m$ is linearly independent in $W$, it follows that $a_1 = \cdots = a_m = 0$. Therefore, $T_1, T_2, \ldots$ is linearly independent in $\lin{V, W}$, and hence $\lin{V, W}$ is infinite-dimensional.
+    Since $w_1, \ldots, w_m$ is linearly independent in $W$, it follows that $a_1 = \cdots = a_m = 0$.
+	Therefore, $T_1, T_2, \ldots$ is linearly independent in $\lin{V, W}$, and hence $\lin{V, W}$ is infinite-dimensional.
 \end{sol}
 
 \begin{exercise}[3a15]
-    Suppose $v_1, \ldots, v_m$ is a linearly dependent list of vectors in $V$. Suppose also that $W \neq \set{0}$. Prove that there exist $w_1, \ldots, w_m \in W$ such that no $T \in \lin{V, W}$ satisfies $Tv_k = w_k$ for each $k = 1, \ldots, m$.
+    Suppose $v_1, \ldots, v_m$ is a linearly dependent list of vectors in $V$.
+	Suppose also that $W \neq \set{0}$.
+	Prove that there exist $w_1, \ldots, w_m \in W$ such that no $T \in \lin{V, W}$ satisfies $Tv_k = w_k$ for each $k = 1, \ldots, m$.
 \end{exercise}
 
 \begin{sol}
     Since $v_1, \ldots, v_m$ is linearly dependent, there exist scalars $a_1, \ldots, a_m \in \f$, not all zero, such that
     \[a_1 v_1 + \cdots + a_m v_m = 0.\]
-    Fix some nonzero $a_i$ among $a_1, \ldots, a_m$. Let $w_1, \ldots, w_m \in W$ be defined by
+    Fix some nonzero $a_i$ among $a_1, \ldots, a_m$.
+	Let $w_1, \ldots, w_m \in W$ be defined by
     \[w_k =
     \begin{cases}
         0 & \text{if } k \neq i, \\
         w & \text{if } k = i,
     \end{cases}\]
-    where $w$ is any nonzero vector in $W$. Suppose for contradiction that there exists $T \in \lin{V, W}$ such that $Tv_k = w_k$ for each $k = 1, \ldots, m$. Then
+    where $w$ is any nonzero vector in $W$.
+	Suppose for contradiction that there exists $T \in \lin{V, W}$ such that $Tv_k = w_k$ for each $k = 1, \ldots, m$.
+	Then
     \[T(a_1 v_1 + \cdots + a_m v_m) = a_1 Tv_1 + \cdots + a_m Tv_m = a_1 w_1 + \cdots + a_m w_m.\]
     Since $a_1 v_1 + \cdots + a_m v_m = 0$, we have $T(0) = 0$, so
     \[0 = a_1 w_1 + \cdots + a_m w_m.\]
-    However, by definition of $w_k$, we have $a_kw_k = a_i w$ if $k = i$ and $a_kw_k = 0$ if $k \neq i$. Therefore, the sum $a_1 w_1 + \cdots + a_m w_m$ is a nonzero scalar multiple of $w$, which is nonzero since $w \neq 0$. This is a contradiction. Therefore, no such $T \in \lin{V, W}$ exists.
+    However, by definition of $w_k$, we have $a_kw_k = a_i w$ if $k = i$ and $a_kw_k = 0$ if $k \neq i$.
+	Therefore, the sum $a_1 w_1 + \cdots + a_m w_m$ is a nonzero scalar multiple of $w$, which is nonzero since $w \neq 0$.
+	This is a contradiction.
+	Therefore, no such $T \in \lin{V, W}$ exists.
 \end{sol}
 
 \begin{exercise}[3a16]
-    Suppose $V$ is finite-dimensional with $\dim V > 1$. Prove that there exist $S, T \in \lin{V}$ such that $ST \neq TS$.
+    Suppose $V$ is finite-dimensional with $\dim V > 1$.
+	Prove that there exist $S, T \in \lin{V}$ such that $ST \neq TS$.
 \end{exercise}
 
 \begin{sol}
-    Let $v_1, v_2$ be linearly independent vectors in $V$. We may extend this list to a basis of $V$, say $v_1, v_2, \ldots, v_n$. Define $S, T \in \lin{V}$ by
+    Let $v_1, v_2$ be linearly independent vectors in $V$.
+	We may extend this list to a basis of $V$, say $v_1, v_2, \ldots, v_n$.
+	Define $S, T \in \lin{V}$ by
     \[Sv_1 = v_2, \quad Sv_2 = v_1, \quad Sv_k = 0 \text{ for } k > 2,\]
     and
     \[Tv_1 = v_1, \quad Tv_2 = 0, \quad Tv_k = 0 \text{ for } k > 2.\]
@@ -384,27 +481,46 @@
 \end{sol}
 
 \begin{exercise}[3a17]
-    Suppose $V$ is finite-dimensional. Show that the only two-sided ideals of $\lin{V}$ are $\set{0}$ and $\lin{V}$.
+    Suppose $V$ is finite-dimensional.
+	Show that the only two-sided ideals of $\lin{V}$ are $\set{0}$ and $\lin{V}$.
     
     \note{A subspace $\ee$ of $\lin{V}$ is called a two-sided ideal of $\lin{V}$ if $TE \in \ee$ and $ET \in \ee$ for all $E \in \ee$ and all $T \in \lin{V}$.}
 \end{exercise}
 
 \begin{sol}
-    Let $\ee$ be a two-sided ideal of $\lin V$. If $\ee = \set 0$, then we are done. Otherwise, there exists $E \in \ee$ such that $E \neq 0$. Then there exists $v_1 \in V$ such that $Ev_1 \neq 0$. Since $V$ is finite-dimensional, we may extend the list $\set v_1$ to a basis of $V$, say $v_1, v_2, \ldots, v_n$. Let $w_1 = Ev_1 \neq 0$. We may also extend the list $\set w_1$ to a basis of $V$, say $w_1, w_2, \ldots, w_n$. Define $T_1 \in \lin V$ by
+    Let $\ee$ be a two-sided ideal of $\lin V$.
+	If $\ee = \set 0$, then we are done.
+	Otherwise, there exists $E \in \ee$ such that $E \neq 0$.
+	Then there exists $v_1 \in V$ such that $Ev_1 \neq 0$.
+	Since $V$ is finite-dimensional, we may extend the list $\set v_1$ to a basis of $V$, say $v_1, v_2, \ldots, v_n$.
+	Let $w_1 = Ev_1 \neq 0$.
+	We may also extend the list $\set w_1$ to a basis of $V$, say $w_1, w_2, \ldots, w_n$.
+	Define $T_1 \in \lin V$ by
     \[T_1w_1 = v_1, \quad T_1w_k = 0 \text{ for } k > 1.\]
-    Then $T_1E \in \ee$ since $\ee$ is a two-sided ideal. Observe that $T_1Ev_1 = T_1(Ev_1) = T_1w_1 = v_1 \neq 0$. Therefore, $T_1E \neq 0$. Consider $S_1 \in \lin V$ defined by
+    Then $T_1E \in \ee$ since $\ee$ is a two-sided ideal.
+	Observe that $T_1Ev_1 = T_1(Ev_1) = T_1w_1 = v_1 \neq 0$.
+	Therefore, $T_1E \neq 0$.
+	Consider $S_1 \in \lin V$ defined by
     \[S_1v_1 = v_1, \quad S_1v_k = 0 \text{ for } k > 1.\]
-    Then $T_1ES_1 \in \ee$ since $\ee$ is a two-sided ideal. Observe that $T_1ES_1v_1 = T_1Ev_1 = T_1w_1 = v_1 \neq 0$. Therefore, $T_1ES_1 \neq 0$. We now discuss the construction of the identity map $I \in \lin V$.
+    Then $T_1ES_1 \in \ee$ since $\ee$ is a two-sided ideal.
+	Observe that $T_1ES_1v_1 = T_1Ev_1 = T_1w_1 = v_1 \neq 0$.
+	Therefore, $T_1ES_1 \neq 0$.
+	We now discuss the construction of the identity map $I \in \lin V$.
     
     Construct $T_i, S_i \in \lin V$ for each $i = 1, \ldots, n$ as follows:
     \[T_i w_1 = v_i, \quad T_i w_k = 0 \text{ for } k \neq 1,\]
     and
     \[S_i v_i = v_1, \quad S_i v_k = 0 \text{ for } k \neq i.\]
-    Then $T_iES_i \in \ee$ and $T_iES_i v_i = v_i \neq 0$. Since $\ee$ is a subspace, it contains all linear combinations of these maps. In particular, for any $v \in V$, we can write $v = \alpha_1 v_1 + \alpha_2 v_2 + \cdots + \alpha_n v_n$ for some scalars $\alpha_1, \alpha_2, \ldots, \alpha_n \in \f$. Observe that
+    Then $T_iES_i \in \ee$ and $T_iES_i v_i = v_i \neq 0$.
+	Since $\ee$ is a subspace, it contains all linear combinations of these maps.
+	In particular, for any $v \in V$, we can write $v = \alpha_1 v_1 + \alpha_2 v_2 + \cdots + \alpha_n v_n$ for some scalars $\alpha_1, \alpha_2, \ldots, \alpha_n \in \f$.
+	Observe that
     \[T_iES_iv = T_iES_i(\alpha_1 v_1) + \cdots + T_iES_i(\alpha_i v_i) + \cdots + T_iES_i(\alpha_n v_n) = \alpha_i v_i.\]
     Consider the map
     \[E^* = T_1ES_1 + T_2ES_2 + \cdots + T_nES_n \in \ee,\]
     Then for any $v = \alpha_1 v_1 + \cdots + \alpha_n v_n \in V$,
     \[E^*v = T_1ES_1 v + T_2ES_2 v + \cdots + T_nES_n v = \alpha_1 v_1 + \alpha_2 v_2 + \cdots + \alpha_n v_n = v.\]
-    Hence, $E^* = I \in \ee$. Since $\ee$ is a two-sided ideal, $I = E^* \in \ee$ implies that for any $T \in \lin V$, we have $TI = T \in \ee$. Therefore, $\ee = \lin V$.
+    Hence, $E^* = I \in \ee$.
+	Since $\ee$ is a two-sided ideal, $I = E^* \in \ee$ implies that for any $T \in \lin V$, we have $TI = T \in \ee$.
+	Therefore, $\ee = \lin V$.
 \end{sol}

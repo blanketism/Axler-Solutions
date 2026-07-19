@@ -7,7 +7,8 @@
 \end{exercise}
 
 \begin{sol}
-    Let $\alpha = a + bi$ and $\beta = c + di$ for some $a, b, c, d \in \r$. Then
+    Let $\alpha = a + bi$ and $\beta = c + di$ for some $a, b, c, d \in \r$.
+	Then
     \begin{align*}
         \alpha + \beta & = (a + bi) + (c + di) \\
         & = (a + c) + (b + d)i \\
@@ -21,7 +22,8 @@
 \end{exercise}
 
 \begin{sol}
-    Let $\alpha = a + bi$, $\beta = c + di$, and $\gamma = e + fi$ for some $a, b, c, d, e, f \in \r$. Then
+    Let $\alpha = a + bi$, $\beta = c + di$, and $\gamma = e + fi$ for some $a, b, c, d, e, f \in \r$.
+	Then
     \begin{align*}
         (\alpha + \beta) + \gamma & = ((a + bi) + (c + di)) + (e + fi) \\
         & = ((a + c) + (b + d)i) + (e + fi) \\
@@ -36,7 +38,8 @@
 \end{exercise}
 
 \begin{sol}
-    Let $\alpha = a + bi$, $\beta = c + di$, and $\gamma = e + fi$ for some $a, b, c, d, e, f \in \r$. Then
+    Let $\alpha = a + bi$, $\beta = c + di$, and $\gamma = e + fi$ for some $a, b, c, d, e, f \in \r$.
+	Then
     \begin{align*}
         (\alpha\beta)\gamma & = ((a + bi)(c + di))(e + fi) \\
         & = ((ac - bd) + (ad + bc)i)(e + fi) \\
@@ -52,7 +55,8 @@
 \end{exercise}
 
 \begin{sol}
-    Let $\alpha = a + bi$, $\beta = c + di$, and $\gamma = e + fi$ for some $a, b, c, d, e, f \in \r$. Then
+    Let $\alpha = a + bi$, $\beta = c + di$, and $\gamma = e + fi$ for some $a, b, c, d, e, f \in \r$.
+	Then
     \begin{align*}
         \gamma(\alpha + \beta) & = (e + fi)((a + bi) + (c + di)) \\
         & = (e + fi)((a + c) + (b + d)i) \\
@@ -68,11 +72,15 @@
 \end{exercise}
 
 \begin{sol}
-    Let $\alpha = a + bi$ for some $a, b \in \r$. We want to find $\beta = c + di$ such that $\alpha + \beta = 0$. This gives
+    Let $\alpha = a + bi$ for some $a, b \in \r$.
+	We want to find $\beta = c + di$ such that $\alpha + \beta = 0$.
+	This gives
     \[(a + bi) + (c + di) = (a + c) + (b + d)i = 0 + 0i.\]
-    Solving for $c$ and $d$, we get $c = -a$ and $d = -b$. Hence, $\beta = c + di = -a - bi = -\alpha$.
+    Solving for $c$ and $d$, we get $c = -a$ and $d = -b$.
+	Hence, $\beta = c + di = -a - bi = -\alpha$.
 
-    To see that $\beta$ is unique, suppose there is another $\gamma \in \c$ such that $\alpha + \gamma = 0$. Then
+    To see that $\beta$ is unique, suppose there is another $\gamma \in \c$ such that $\alpha + \gamma = 0$.
+	Then
     \[\beta = \beta + 0 = \beta + (\alpha + \gamma) = (\beta + \alpha) + \gamma = 0 + \gamma = \gamma.\]
     Hence, $\beta$ is unique.
 \end{sol}
@@ -82,7 +90,13 @@
 \end{exercise}
 
 \begin{sol}
-    Let $\alpha = a + bi$ for some $a, b \in \r$ with $\alpha \neq 0$. Then at least one of $a$ or $b$ is nonzero. We want to find $\beta = c + di$ such that $\alpha\beta = 1$. If $a = 0$, then $b \neq 0$, and $\beta = 1/(bi) = -i/b$. If $b = 0$, then $a \neq 0$, and $\beta = 1/a$. Otherwise, both $a$ and $b$ are nonzero. We then have
+    Let $\alpha = a + bi$ for some $a, b \in \r$ with $\alpha \neq 0$.
+	Then at least one of $a$ or $b$ is nonzero.
+	We want to find $\beta = c + di$ such that $\alpha\beta = 1$.
+	If $a = 0$, then $b \neq 0$, and $\beta = 1/(bi) = -i/b$.
+	If $b = 0$, then $a \neq 0$, and $\beta = 1/a$.
+	Otherwise, both $a$ and $b$ are nonzero.
+	We then have
     \[(a + bi)(c + di) = (ac - bd) + (ad + bc)i = 1 + 0i.\]
     Solving for $c$ and $d$, we get the system of equations
     \[\begin{cases}
@@ -129,16 +143,20 @@
 \end{exercise}
 
 \begin{sol}
-    Let $z = a + bi$ for some $a, b \in \r$. We want to find $z$ such that $z^2 = i$. This gives
+    Let $z = a + bi$ for some $a, b \in \r$.
+	We want to find $z$ such that $z^2 = i$.
+	This gives
     \[(a + bi)^2 = a^2 - b^2 + 2abi = 0 + 1i.\]
     Solving for $a$ and $b$, we get the system of equations
     \[\begin{cases}
         a^2 - b^2 = 0 \\
         2ab = 1
     \end{cases}\]
-    The first equation yields $a = b$ or $a = -b$. If $a = b$, then the second equation gives
+    The first equation yields $a = b$ or $a = -b$.
+	If $a = b$, then the second equation gives
     \[2b^2 = 1 \implies b = \pm\frac{1}{\sqrt{2}} \implies a = \pm\frac{1}{\sqrt{2}}.\]
-    If $a = -b$, this results in $-2b^2 = 1$ which has no solution when $b \in \r$. Hence, the two distinct square roots of $i$ are
+    If $a = -b$, this results in $-2b^2 = 1$ which has no solution when $b \in \r$.
+	Hence, the two distinct square roots of $i$ are
     \[\frac{1}{\sqrt{2}} + \frac{1}{\sqrt{2}}i \quad \text{and} \quad -\frac{1}{\sqrt{2}} - \frac{1}{\sqrt{2}}i. \qh\]
 \end{sol}
 
@@ -148,7 +166,8 @@
 \end{exercise}
 
 \begin{sol}
-    Let $x = (x_1, x_2, x_3, x_4) \in \r^4$. The equation becomes
+    Let $x = (x_1, x_2, x_3, x_4) \in \r^4$.
+	The equation becomes
     \[(4, -3, 1, 7) + 2(x_1, x_2, x_3, x_4) = (5, 9, -6, 8),\]
     which simplifies to the system of equations
     \[\begin{cases}
@@ -193,7 +212,8 @@
 \end{exercise}
 
 \begin{sol}
-    Let $x = (x_1, x_2, \ldots, x_n)$, $y = (y_1, y_2, \ldots, y_n)$, and $z = (z_1, z_2, \ldots, z_n)$. Then
+    Let $x = (x_1, x_2, \ldots, x_n)$, $y = (y_1, y_2, \ldots, y_n)$, and $z = (z_1, z_2, \ldots, z_n)$.
+	Then
     \begin{align*}
         (x + y) + z & = ((x_1, x_2, \ldots, x_n) + (y_1, y_2, \ldots, y_n)) + (z_1, z_2, \ldots, z_n) \\
         & = (x_1 + y_1, x_2 + y_2, \ldots, x_n + y_n) + (z_1, z_2, \ldots, z_n) \\
@@ -209,7 +229,8 @@
 \end{exercise}
 
 \begin{sol}
-    Let $x = (x_1, x_2, \ldots, x_n) \in \f^n$ and $a, b \in \f$. Then
+    Let $x = (x_1, x_2, \ldots, x_n) \in \f^n$ and $a, b \in \f$.
+	Then
     \begin{align*}
         (ab)x & = (ab)(x_1, x_2, \ldots, x_n) \\
         & = ((ab)x_1, (ab)x_2, \ldots, (ab)x_n) \\
@@ -225,7 +246,8 @@
 \end{exercise}
 
 \begin{sol}
-    Let $x = (x_1, x_2, \ldots, x_n) \in \f^n$. Then
+    Let $x = (x_1, x_2, \ldots, x_n) \in \f^n$.
+	Then
     \begin{align*}
         1x & = 1(x_1, x_2, \ldots, x_n) \\
         & = (1x_1, 1x_2, \ldots, 1x_n) \\
@@ -239,7 +261,8 @@
 \end{exercise}
 
 \begin{sol}
-    Let $x = (x_1, x_2, \ldots, x_n)$ and $y = (y_1, y_2, \ldots, y_n)$ be elements of $\f^n$ and $\lambda \in \f$. Then
+    Let $x = (x_1, x_2, \ldots, x_n)$ and $y = (y_1, y_2, \ldots, y_n)$ be elements of $\f^n$ and $\lambda \in \f$.
+	Then
     \begin{align*}
         \lambda(x + y) & = \lambda((x_1, x_2, \ldots, x_n) + (y_1, y_2, \ldots, y_n)) \\
         & = \lambda(x_1 + y_1, x_2 + y_2, \ldots, x_n + y_n) \\
@@ -255,7 +278,8 @@
 \end{exercise}
 
 \begin{sol}
-    Let $x = (x_1, x_2, \ldots, x_n) \in \f^n$ and $a, b \in \f$. Then
+    Let $x = (x_1, x_2, \ldots, x_n) \in \f^n$ and $a, b \in \f$.
+	Then
     \begin{align*}
         (a + b)x & = (a + b)(x_1, x_2, \ldots, x_n) \\
         & = ((a + b)x_1, (a + b)x_2, \ldots, (a + b)x_n) \\

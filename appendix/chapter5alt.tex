@@ -10,15 +10,21 @@
     \end{subexercises}
 \end{apex}
 
-\begin{proof}[Civil Service Pigeon]
-    This proof is a generalization to any diagonalizable operator as well as not having to deal with Lagrange interpolation by hand.
+\begin{csp}
+    Let $e_1$, $\dots$, $e_n$ be the standard basis of $\mathbb{F}^n$.
+    \begin{subexercises}
+        \item For each $k \in \{1, \dots, n\}$, we have $Te_k=ke_k$.
+		Hence, the eigenvalues of $T$ are $1$, $2$, $\dots$, $n$ and the eigenvectors corresponding to $k$ are the nonzero scalar multiples of $e_k$.
+		Note that this list of eigenvalues (and eigenvectors) is exhaustive because $\dim \left(\mathbb{F}^n \right)=n$.
+        \item Let $U \subseteq \mathbb{F}^n$ be an invariant subspace under $T$.
+		Take any $u=\sum^{n}_{i=1} \alpha_i e_i \in U$ and suppose $\alpha_k \neq 0$ for some $k$.
+		By Lagrange interpolation, there exists a polynomial $p$ such that $p(i)=\delta_{i,k}$ for all $i \in \{1, \dots, n\}$.
+		Since $U$ is invariant under $T$, it is also invariant under $p(T)$, and so
+        \[p(T)u=\sum^{n}_{i=1} \alpha_i p(T) e_i=\sum^{n}_{i=1} \alpha_i p(i) e_i=\alpha_k e_k \in U \implies e_k \in U.\]
+        Repeating this argument for every index with a nonzero coefficient in some element of $U$ shows that $U$ contains each of the basis vectors $e_1$, $\dots$, $e_n$.
+		Hence, $U=\operatorname{span} \{e_i: i \in S\}$ for some $S \subseteq \{1, \dots, n\}$.
 
-    Let $U \subseteq \mathbb{F}^n$ be invariant under $T$. Let $u=\sum^{n}_{i=1} \alpha_i e_i \in U$ and suppose $\alpha_k \neq 0$ for some $k$. Since $Te_i=ie_i$, we have distinct eigenvalues $1$, $2$, $\dots$, $n$. There exists a unique polynomial $p \in \mathcal{P}(\mathbb{F})$ such that $p(i)=\delta_{i,k}$ for $k=1$, $\dots$, $n$. 
-
-    Since $U$ is invariant under $T$, it is also invariant under $p(T)$ by 5A41:
-    $$p(T)u=\sum^{n}_{i=1} \alpha_i p(T)e_i=\alpha_k e_k.$$
-
-    Thus, $e_k \in U$ whenever $u \in U$ has a nonzero $k$th coordinate. By applying this to every index with nonzero coefficient in $u$, we see that $e_i \in U$ for every $i$ such that some element in $U$ has nonzero $i$th coordinate. Hence, $U$ is the span of $\{e_i: i \in S\}$ for some $S \subseteq \{1,\dots,n\}$. 
-
-    Conversely, any such span is invariant under $T$ since $Te_i=ie_i$. Therefore, the invariant subspaces of $T$ are precisely the spans of subsets of $\{e_1, \dots, e_n\}$.
-\end{proof}
+        Conversely, any such span is invariant because $Te_i=ie_i$ belongs to that span.
+		There are $2^n$ such subspaces, and they exhaust all invariant subspaces of $T$. \qh
+    \end{subexercises}
+\end{csp}
