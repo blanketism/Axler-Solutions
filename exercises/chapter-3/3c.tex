@@ -7,7 +7,7 @@
 \begin{sol}
     Let $v_1, \ldots, v_n$ be a basis of $V$ and $w_1, \ldots, w_m$ be a basis of $W$. Let $A = \mm(T)$ be the matrix with respect to these bases. Then the $j$-th column of $A$ is the coordinate vector of $Tv_j$ with respect to the basis for $W$. Moreover, the span of the columns of $A$ is equal to $\range T$.
 
-    Suppose $A$ had fewer than $\dim \range T$ nonzero columns. Since zero columns do not contribute to the span, the span of the columns of $A$ would then have a span a space of dimension less than $\dim \range T$. This is a contradiction, since the span of the columns of $A$ is equal to $\range T$. Therefore, $A$ must have at least $\dim \range T$ nonzero columns, and hence at least $\dim \range T$ nonzero entries.
+    Suppose $A$ had fewer than $\dim \range T$ nonzero columns. Since zero columns do not contribute to the span, the span of the columns of $A$ would then span a space of dimension less than $\dim \range T$. This is a contradiction, since the span of the columns of $A$ is equal to $\range T$. Therefore, $A$ must have at least $\dim \range T$ nonzero columns, and hence at least $\dim \range T$ nonzero entries.
 \end{sol}
 
 \begin{exercise}[3c2]
@@ -118,9 +118,7 @@
     \[T(\alpha_1 v_1 + \cdots + \alpha_r v_r) = 0,\]
     which implies that $\alpha_1 v_1 + \cdots + \alpha_r v_r \in \nul T$. Since $u_1, \ldots, u_{n - r}, v_1, \ldots, v_r$ is a basis of $V$, it follows that $\alpha_1 = \cdots = \alpha_r = 0$. Therefore, $Tv_1, \ldots, Tv_r$ are linearly independent and form a basis of $\range T$. Extend this to a basis $Tv_1, \ldots, Tv_r, w_1, \ldots, w_{m - r}$ of $W$.
 
-    If needed, reorder the basis of $V$ so that $v_1, \ldots, v_r$ are the first $r$ basis vectors, and reorder the basis of $W$ so that $Tv_1, \ldots, Tv_r$ are the first $r$ basis vectors. Then with respect to these bases, we have
-    \[Tv_k = Tv_k \quad \text{for } k = 1, \ldots, r,\]
-    and
+    If needed, reorder the basis of $V$ so that $v_1, \ldots, v_r$ are the first $r$ basis vectors, and reorder the basis of $W$ so that $Tv_1, \ldots, Tv_r$ are the first $r$ basis vectors. Then with respect to these bases, $Tv_k$ is the $k$-th basis vector of $W$ for each $k = 1, \ldots, r$, and
     \[Tu_j = 0 \quad \text{for } j = 1, \ldots, n - r.\]
     Therefore, the matrix of $T$ with respect to these bases has $1$'s in the diagonal entries corresponding to $Tv_k$ and $0$'s elsewhere, as desired.
 \end{sol}

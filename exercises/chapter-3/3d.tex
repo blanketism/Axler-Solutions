@@ -71,7 +71,7 @@
 \end{exercise}
 
 \begin{sol}
-    Suppose $\nul S = \nul T$. Then $\dim \range S = \dim \range T$. Define a linear map $E_0$ from $\range T$ to $\range S$ by setting $E_0(Tv) = Sv$ for all $v \in V$. This is well-defined because if $Tv = Tv'$ for some $v, v' \in V$, then $T(v - v') = 0$, so $v - v' \in \nul T = \nul S$, and thus $S(v - v') = 0$, which implies $Sv = Sv'$. Moreover, $E_0$ is injective in that if $E_0(Tv) = 0$ for some $v \in V$, then $Sv = 0$, which implies $v \in \nul S = \nul T$, and thus $Tv = 0$. Hence, $E_0$ is injective. By \autoref{ex:3d5}, we can extend $E_0$ to an invertible linear map $E$ on all of $W$, and then we have $S = ET$.
+    Suppose $\nul S = \nul T$. Define a linear map $E_0$ from $\range T$ to $\range S$ by setting $E_0(Tv) = Sv$ for all $v \in V$. This is well-defined because if $Tv = Tv'$ for some $v, v' \in V$, then $T(v - v') = 0$, so $v - v' \in \nul T = \nul S$, and thus $S(v - v') = 0$, which implies $Sv = Sv'$. Moreover, $E_0$ is injective in that if $E_0(Tv) = 0$ for some $v \in V$, then $Sv = 0$, which implies $v \in \nul S = \nul T$, and thus $Tv = 0$. Hence, $E_0$ is injective. By \autoref{ex:3d5}, we can extend $E_0$ to an invertible linear map $E$ on all of $W$, and then we have $S = ET$.
 
     Conversely, suppose there exists an invertible $E \in \lin{W}$ such that $S = ET$. If $v \in \nul S$, then $Sv = 0$, and since $S = ET$, we have $ETv = 0$. Since $E$ is invertible, then $Tv = 0$, and thus $v \in \nul T$. Hence, $\nul S \subseteq \nul T$. Similarly, if $v \in \nul T$, then $Tv = 0$, and since $S = ET$, we have $Sv = ETv = E0 = 0$. Thus, $v \in \nul S$, and $\nul T \subseteq \nul S$. Therefore, $\nul S = \nul T$.
 \end{sol}

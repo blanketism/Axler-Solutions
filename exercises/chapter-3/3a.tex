@@ -47,7 +47,7 @@
 
     The second component of $T(2p)$ must be equal to the second component of $2Tp$. We have
     \[\int_{-1}^{2} x^3 (2p)(x) \dd x + c \sin(2p(0)) = 2\int_{-1}^{2} x^3 p(x) \dd x + 2c \sin (p(0)).\]
-    The integral terms may be subtracted, so we get $c \sin(2p(0)) = 2c \sin(p(0))$ for all $p \in \pp(\r)$. If $c \neq 0$, then we can divide both sides by $c$ to get $\sin(2p(0)) = 2\sin(p(0))$, which implies $\sin(2x) = 2\sin(x)$ for all $x \in \r$. Then $\cos(x) = 1$ for all $x \in \r$, which is a contradiction. Therefore, $c = 0$.
+    The integral terms may be subtracted, so we get $c \sin(2p(0)) = 2c \sin(p(0))$ for all $p \in \pp(\r)$. Consider $p(x) = \pi/2$. Then $\sin(2p(0)) = \sin(\pi) = 0$ and $2\sin(p(0)) = 2\sin(\pi/2) = 2$. Therefore, $c = 0$.
 
     Conversely, if $b = c = 0$, let $p, q \in \pp(\r)$ and $\alpha \in \r$. Then
     \begin{align*}
@@ -166,7 +166,7 @@
             & = \alpha(Tv + Sv) \\
             & = \alpha Tv + \alpha Sv \\
             & = (\alpha T)v + (\alpha S)v \\
-            & = ((\alpha T) + (\alpha S))v.
+            & = ((\alpha T) + (\alpha S))v,
         \end{align*}
         and
         \begin{align*}
@@ -307,7 +307,7 @@
 \begin{sol}
     Since $U \neq V$, there exists $v \in V$ such that $v \notin U$. Let $u \in U$ be such that $Su \neq 0$. Then
     \[T(u + v) = 0,\]
-    but
+    since $u + v \in U$ would imply $v = (v + u) - u \in U$, which is a contradiction. However,
     \[Tu + Tv = Su + 0 = Su \neq 0.\]
     Therefore, $T$ is not linear.
 \end{sol}
