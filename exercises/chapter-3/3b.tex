@@ -476,19 +476,32 @@
 \end{sol}
 
 \begin{exercise}[3b28]
-    Suppose $D \in \lin{\pp(\r)}$ is such that $\deg Dp = (\deg p) - 1$ for every nonconstant polynomial $p \in \pp(\r)$. Prove that $D$ is surjective.
+    Suppose $D \in \lin{\pp(\r)}$ is such that $\deg Dp = (\deg p) - 1$ for every nonconstant polynomial $p \in \pp(\r)$.
+	Prove that $D$ is surjective.
     
-    \remark{Note that $\pp(\r)$ is infinite-dimensional, so we cannot use the rank-nullity theorem directly. Instead, one should consider finite-dimensional subspaces of $\pp(\r)$.}
+    \remark{Note that $\pp(\r)$ is infinite-dimensional, so we cannot use the fundamental theorem of linear maps directly.
+	Instead, one should consider finite-dimensional subspaces of $\pp(\r)$.}
 \end{exercise}
 
 \begin{sol}
-    Let $p \in \pp(\r)$ be an arbitrary polynomial. Consider the subspace $\pp_{n + 1}(\r)$ of polynomials of degree at most $n + 1$, where $n = \deg p$. Since $\deg Dq = (\deg q) - 1$, we have $D: \pp_{n + 1}(\r) \to \pp_n(\r)$. The dimension of $\pp_{n + 1}(\r)$ is $n + 2$, and the dimension of $\pp_n(\r)$ is $n + 1$. By the rank-nullity theorem, we have
-    \[\dim \nul D + \dim \range D = \dim \pp_{n + 1}(\r) = n + 2.\]
-    Observe that no nonconstant polynomial can be in the null space of $D$, since nonconstant $q$ implies $\deg Dq = (\deg q) - 1 \geq 0$, hence $Dq \neq 0$. We now claim that $D1 = 0$. If it weren't, then let $\deg D1 = m$. Consider $D$ acting on $\pp_{m + 1}(\r)$. By the previous discussion and assumption, we have $\nul D = \set 0$, which implies that $\dim \nul D = 0$. By the rank-nullity theorem and the fact that $\dim \range D \leq \dim \pp_m(\r)$, we have
+    Let $p \in \pp(\r)$ be an arbitrary polynomial.
+	Consider the subspace $\pp_{n + 1}(\r)$ of polynomials of degree at most $n + 1$, where $n = \deg p$.
+    Observe that no nonconstant polynomial can be in the null space of $D$, since nonconstant $q$ implies $\deg Dq = (\deg q) - 1 \geq 0$, hence $Dq \neq 0$.
+	We now claim that $D1 = 0$.
+	If it weren't, then let $\deg D1 = m$.
+	Consider $D$ acting on $\pp_{m + 1}(\r)$.
+	Since no nonconstant polynomial can be in $\nul D$, and $D1 \neq 0$ by assumption, we have $\nul D = \set 0$, which implies that $\dim \nul D = 0$.
+	By the fundamental theorem of linear maps and the fact that $\dim \range D \leq \dim \pp_m(\r)$, we have
     \[\dim \nul D = \dim \pp_{m + 1}(\r) - \dim \range D \geq 1,\]
-    which is a contradiction. Therefore, $D1 = 0$. By linearity, we have $Dc = cD1 = 0$ for all $c \in \r$. Hence, $\nul D = \spn\set 1$, which has dimension $1$. By the rank-nullity theorem, we have
+    which is a contradiction.
+	Therefore, $D1 = 0$.
+	By linearity, we have $Dc = cD1 = 0$ for all $c \in \r$.
+	Hence, $\nul D = \spn\set 1$, which has dimension $1$.
+	By the fundamental theorem of linear maps, we have
     \[\dim \range D = \dim \pp_{n + 1}(\r) - \dim \nul D = (n + 2) - 1 = n + 1 = \dim \pp_n(\r).\]
-    Since $\dim \range D = \dim \pp_n(\r)$, it follows that $\range D = \pp_n(\r)$. Therefore, for any polynomial $p \in \pp_n(\r)$, there exists a polynomial $q \in \pp_{n + 1}(\r)$ such that $Dq = p$. Since $p$ was arbitrary, we conclude that $D$ is surjective.
+    Since $\dim \range D = \dim \pp_n(\r)$, it follows that $\range D = \pp_n(\r)$.
+	Therefore, for any polynomial $p \in \pp_n(\r)$, there exists a polynomial $q \in \pp_{n + 1}(\r)$ such that $Dq = p$.
+	Since $p$ was arbitrary, we conclude that $D$ is surjective.
 \end{sol}
 
 \begin{exercise}[3b29]

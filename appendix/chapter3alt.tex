@@ -23,15 +23,21 @@
 \end{coole}
 
 \begin{apex}[3d19]
-    Suppose $V$ is finite-dimensional and $T \in \lin{V}$. Prove that $T$ has the same matrix with respect to every basis of $V$ if and only if $T$ is a scalar multiple of the identity operator.
+    Suppose $V$ is finite-dimensional and $T \in \lin{V}$.
+	Prove that $T$ has the same matrix with respect to every basis of $V$ if and only if $T$ is a scalar multiple of the identity operator.
 \end{apex}
 
-\begin{proof}[Coolempire93]
-    The manual solution provides a constructive proof utilizing sums of the form $v_1 + v_k$ to eliminate the $k$-th column, along with $v_2 + v_1$ to eliminate the 1st column. Here, we present different constructions. Each proof assumes the declaration of the matrix to be $A$.
-    \begin{enumerate}
-        \item This method shows that we can swap two \emph{arbitrary} basis vectors to force the same value of all off-diagonal entries as well as the same value of all diagonal entries. Then, we can negate one basis vector to force all off-diagonal entries to be 0 via the linear independence of the basis vectors.
+The manual solution provides a constructive proof utilizing sums of the form $v_1 + v_k$ to eliminate the $k$-th column, along with $v_2 + v_1$ to eliminate the 1st column.
+Here, we present different constructions.
+Each proof assumes the declaration of the matrix to be $A$ and that $\dim V \geq 2$.
+
+This method shows that we can swap two \emph{arbitrary} basis vectors to force the same value of all off-diagonal entries as well as the same value of all diagonal entries.
+Then, we can negate one basis vector to force all off-diagonal entries to be 0 via the linear independence of the basis vectors.
         
-        Let $i,j$ be arbitrary with $1 \leq i,j \leq n$ and $i \neq j$. Consider the basis $w_1, \dots, w_n$ of $V$ defined by $w_i = v_j$, $w_j = v_i$ and $w_k = v_k$ otherwise. Then 
+\begin{coole}
+    Let $i,j$ be arbitrary with $1 \leq i,j \leq n$ and $i \neq j$.
+    Consider the basis $w_1, \dots, w_n$ of $V$ defined by $w_i = v_j$, $w_j = v_i$ and $w_k = v_k$ otherwise.
+    Then 
         \begin{align*}
         T(w_j - v_i) &= Tw_j - Tv_i \\
         T(0) &= A_{1,j}w_1 + A_{2,j}w_2 + \cdots + A_{n,j}w_n - (A_{1,i}v_1 + A_{2,i}v_2 + \cdots + A_{n,i}v_n) \\
@@ -39,32 +45,41 @@
         \end{align*}
         By linear independence of $v_1, \dots, v_n$, we have $A_{i,i} = A_{j,j}$, $A_{i,j} = A_{j,i}$ and $A_{k,j} = A_{k,i}$ for all $k \neq i,j$.
         Because $i$ and $j$ were arbitrary, we have $A_{1,1} = A_{2,2} = \cdots = A_{n,n} = \lambda$, as well as $A$ is symmetric, and all off-diagonal entries match across rows, so we can say $A_{i,j} = \gamma$ for all $i \neq j$.
-        To finish, consider the basis $u_1, \dots, u_n$ defined by $u_1 = -v_1$ and $u_k = v_k$ otherwise. Then 
+    To finish, consider the basis $u_1, \dots, u_n$ defined by $u_1 = -v_1$ and $u_k = v_k$ otherwise.
+    Then 
         \begin{align*}
         T(v_1 + u_1) &= Tv_1 + Tu_1 \\
         T(0) &= \lambda v_1 + \gamma(v_2 + \cdots + v_n) + (\lambda u_1 + \gamma(u_2 + \cdots + u_n)) \\
         0 &= 2\gamma(v_2 + \cdots + v_n).
         \end{align*}
-        Again by linear independence of $v_1, \dots, v_n$, we have $2\gamma = 0$ and thus $\gamma = 0$. Therefore, $A = \lambda I$ and $T$ is a scalar multiple of the identity.
-        \item This method shows that we can negate one \emph{arbitrary} basis vector to force all off-diagonal entries to be 0 via the linear independence of the basis vectors. Then, we can swap $v_1$ with any other basis vector to force all diagonal entries to be the same.
+    Again by linear independence of $v_1, \dots, v_n$, we have $2\gamma = 0$ and thus $\gamma = 0$.
+    Therefore, $A = \lambda I$ and $T$ is a scalar multiple of the identity.
+\end{coole}
+
+This method shows that we can negate one \emph{arbitrary} basis vector to force all off-diagonal entries to be 0 via the linear independence of the basis vectors.
+Then, we can swap $v_1$ with any other basis vector to force all diagonal entries to be the same.
         
-        Let $j$ be arbitrary and consider the basis $w_1, \dots, w_n$ of $V$ defined by $w_j = -v_j$ and $w_i = v_i$ otherwise. Then
+\begin{coole}
+    Let $j$ be arbitrary and consider the basis $w_1, \dots, w_n$ of $V$ defined by $w_j = -v_j$ and $w_i = v_i$ otherwise.
+	Then
         \begin{align*}
         T(w_j + v_j) &= Tw_j + Tv_j \\
         T(0) &= A_{1,j}w_1 + A_{2,j}w_2 + \cdots + A_{n,j}w_n + A_{1,j}v_1 + A_{2,j}v_2 + \cdots + A_{n,j}v_n \\
         0 &= 2\sum_{k \neq j}A_{k,j}v_k.
         \end{align*}
-        By linear independence of $v_1, \dots, v_n$, we have $A_{k,j} = 0$ for all $k \neq j$. Since $j$ was arbitrary, we have that all off-diagonal entries of $A$ are 0.
+    By linear independence of $v_1, \dots, v_n$, we have $A_{k,j} = 0$ for all $k \neq j$.
+	Since $j$ was arbitrary, we have that all off-diagonal entries of $A$ are 0.
 
-        We turn to one more basis to prove that all diagonal entries of $A$ must be the same. Once again, let $j$ be arbitrary, and this time consider the basis $u_1, \dots, u_n$ defined by $u_1 = v_j$, $u_j = v_1$ and $u_i = v_i$ otherwise. Then
+    We turn to one more basis to prove that all diagonal entries of $A$ must be the same.
+	Once again, let $j$ be arbitrary, and this time consider the basis $u_1, \dots, u_n$ defined by $u_1 = v_j$, $u_j = v_1$ and $u_i = v_i$ otherwise.
+	Then
         \begin{align*}
-        T(v_1 - u_j) &= Tv_1 - u_j \\
+        T(v_1 - u_j) &= Tv_1 - Tu_j \\
         T(0) &= A_{1,1}v_1 - A_{j,j}u_j \\
         0 &= (A_{1,1} - A_{j,j})v_1.
         \end{align*}
-        As $v_1$ belongs to a basis for $V$, it is nonzero, and thus as $j$ was arbitrary, $A_{1,1} = A_{2,2} = \cdots = A_{n,n} = \lambda$ for some scalar $\lambda$, and we have $A = \lambda I$, i.e., $T$ is a multiple of the identity operator. \qh
-    \end{enumerate}
-\end{proof}
+    As $v_1$ belongs to a basis for $V$, it is nonzero, and thus as $j$ was arbitrary, $A_{1,1} = A_{2,2} = \cdots = A_{n,n} = \lambda$ for some scalar $\lambda$, and we have $A = \lambda I$, i.e., $T$ is a multiple of the identity operator.
+\end{coole}
 
 \begin{apex}[3e11]
     Suppose $U = \set{(x_1, x_2, \ldots) \in \f^\infty \mid x_k \neq 0 \text{ for only finitely many } k}$.
