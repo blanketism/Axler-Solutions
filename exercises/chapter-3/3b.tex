@@ -482,23 +482,26 @@
 \end{exercise}
 
 \begin{sol}
-    Let $p \in \pp(\r)$ be an arbitrary polynomial. We want to show that there exists a polynomial $q \in \pp(\r)$ such that $Dq = p$. Consider the subspace $\pp_{n + 1}(\r)$ of polynomials of degree at most $n + 1$, where $n = \deg p$. Since $\deg Dq = (\deg q) - 1$, we have $D: \pp_{n + 1}(\r) \to \pp_n(\r)$. The dimension of $\pp_{n + 1}(\r)$ is $n + 2$, and the dimension of $\pp_n(\r)$ is $n + 1$. By the rank-nullity theorem, we have
+    Let $p \in \pp(\r)$ be an arbitrary polynomial. Consider the subspace $\pp_{n + 1}(\r)$ of polynomials of degree at most $n + 1$, where $n = \deg p$. Since $\deg Dq = (\deg q) - 1$, we have $D: \pp_{n + 1}(\r) \to \pp_n(\r)$. The dimension of $\pp_{n + 1}(\r)$ is $n + 2$, and the dimension of $\pp_n(\r)$ is $n + 1$. By the rank-nullity theorem, we have
     \[\dim \nul D + \dim \range D = \dim \pp_{n + 1}(\r) = n + 2.\]
-    Since $\deg Dp = (\deg p) - 1$ for every nonconstant polynomial $p$, the kernel of $D$ consists of constant polynomials, which has dimension $1$. Therefore, $\dim \nul D = 1$, and we have
-    \[\dim \range D = n + 2 - 1 = n + 1 = \dim \pp_n(\r).\]
+    Observe that no nonconstant polynomial can be in the null space of $D$, since nonconstant $q$ implies $\deg Dq = (\deg q) - 1 \geq 0$, hence $Dq \neq 0$. We now claim that $D1 = 0$. If it weren't, then let $\deg D1 = m$. Consider $D$ acting on $\pp_{m + 1}(\r)$. By the previous discussion and assumption, we have $\nul D = \set 0$, which implies that $\dim \nul D = 0$. By the rank-nullity theorem and the fact that $\dim \range D \leq \dim \pp_m(\r)$, we have
+    \[\dim \nul D = \dim \pp_{m + 1}(\r) - \dim \range D \geq 1,\]
+    which is a contradiction. Therefore, $D1 = 0$. By linearity, we have $Dc = cD1 = 0$ for all $c \in \r$. Hence, $\nul D = \spn\set 1$, which has dimension $1$. By the rank-nullity theorem, we have
+    \[\dim \range D = \dim \pp_{n + 1}(\r) - \dim \nul D = (n + 2) - 1 = n + 1 = \dim \pp_n(\r).\]
     Since $\dim \range D = \dim \pp_n(\r)$, it follows that $\range D = \pp_n(\r)$. Therefore, for any polynomial $p \in \pp_n(\r)$, there exists a polynomial $q \in \pp_{n + 1}(\r)$ such that $Dq = p$. Since $p$ was arbitrary, we conclude that $D$ is surjective.
 \end{sol}
 
 \begin{exercise}[3b29]
     Suppose $p \in \pp(\r)$. Prove that there exists a polynomial $q \in \pp(\r)$ such that $5q'' + 3q' = p$.
+
 \end{exercise}
 
 \begin{sol}
-    Let $p \in \pp(\r)$ be an arbitrary polynomial. We want to show that there exists a polynomial $q \in \pp(\r)$ such that $5q'' + 3q' = p$. Consider the subspace $\pp_{n + 2}(\r)$ of polynomials of degree at most $n + 2$, where $n = \deg p$. Define the linear map $D: \pp_{n + 2}(\r) \to \pp_{n + 1}(\r)$ by $Dq = 5q'' + 3q'$. The dimension of $\pp_{n + 2}(\r)$ is $n + 3$, and the dimension of $\pp_{n + 1}(\r)$ is $n + 2$. By the rank-nullity theorem, we have
-    \[\dim \nul D + \dim \range D = \dim \pp_{n + 2}(\r) = n + 3.\]
-    The kernel of $D$ consists of polynomials $q$ such that $5q'' + 3q' = 0$, or $5q'' = -3q'$. Note that if $\deg q = m$, then $\deg q' = m - 1$ and $\deg q'' = m - 2$. Therefore, the degree of $5q'' + 3q'$ is at most $m - 1$. For this to be zero, we must have $q' = 0$, which implies that $q$ is a constant polynomial. Therefore, $\dim \nul D = 1$, and we have
-    \[\dim \range D = n + 3 - 1 = n + 2 = \dim \pp_{n + 1}(\r).\]
-    Since $\dim \range D = \dim \pp_{n + 1}(\r)$, it follows that $\range D = \pp_{n + 1}(\r)$. Therefore, for any polynomial $p \in \pp_{n + 1}(\r)$, there exists a polynomial $q \in \pp_{n + 2}(\r)$ such that $Dq = p$. Since $p$ was arbitrary, we conclude that $D$ is surjective.
+    Let $p \in \pp(\r)$ be an arbitrary polynomial. Define $D \in \lin{\pp_{n + 1}(\r), \pp_n(\r)}$ by $Dq = 5q'' + 3q'$, where $n = \deg p$. We want to show that $D$ is surjective. Observe that $D$ is well-defined since the degree of $5q'' + 3q'$ is at most $n$ for any polynomial $q \in \pp_{n + 1}(\r)$.
+
+    Now suppose $q \in \nul D$ with $\deg q = m$. Then $\deg 3q' = m - 1$ and $\deg 5q'' = m - 2$. Therefore, $\deg Dq = \max(m - 1, m - 2) = m - 1$. Since $Dq = 0$, we must have $m - 1 < 0$, which implies that $m < 1$. Therefore, $q$ must be a constant polynomial. Hence, $\nul D$ consists of constant polynomials, which has dimension $1$. By the fundamental theorem of linear maps, we have
+    \[\dim \range D = \dim \pp_{n + 1}(\r) - \dim \nul D = (n + 2) - 1 = n + 1 = \dim \pp_n(\r).\]
+    Since $\dim \range D = \dim \pp_n(\r)$, it follows that $\range D = \pp_n(\r)$ so that $D$ is surjective. Since $p \in \range D$, there exists a polynomial $q \in \pp_{n + 1}(\r)$ such that $Dq = 5q'' + 3q' = p$.
 \end{sol}
 
 \begin{exercise}[3b30]
@@ -582,11 +585,11 @@
         & = (a + bi)T_\c(u + vi) + T_\c(w + xi).
     \end{align*}
     Therefore, $T_\c$ is a complex linear map from $V_\c$ to $W_\c$.
-    \item Suppose $T_\c$ is injective. Let $v \in V$ such that $Tv = 0$. Then
+    \item Suppose $T_\c$ is injective. Let $v \in V$ be such that $Tv = 0$. Then
     \[T_\c(v + i0) = Tv + iT0 = 0 + i0 = 0.\]
     Since $T_\c$ is injective, we have $v + i0 = 0$, which implies that $v = 0$. Therefore, $T$ is injective.
 
-    Conversely, suppose $T$ is injective. Let $u + iv \in V_\c$ such that $T_\c(u + iv) = 0$. Then
+    Conversely, suppose $T$ is injective. Let $u + iv \in V_\c$ be such that $T_\c(u + iv) = 0$. Then
     \[Tu + iTv = 0.\]
     This implies that $Tu = 0$ and $Tv = 0$. Since $T$ is injective, we have $u = 0$ and $v = 0$. Therefore, $u + iv = 0$, and hence $T_\c$ is injective.
     \item Suppose $\range T_\c = W_\c$. Let $w \in W$. Then $w + i0 \in W_\c$, and since $\range T_\c = W_\c$, there exists $u + iv \in V_\c$ such that

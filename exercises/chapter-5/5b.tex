@@ -147,16 +147,18 @@
 \end{exercise}
 
 \begin{sol}
-    Let $n = \dim V$, and let $p$ be the minimal polynomial of $T$ with $\deg p = d \leq n$. Then $p(T) = 0$, and we can write
-    \[p(z) = z^d + a_{d-1} z^{d-1} + \cdots + a_1 z + a_0.\]
-    Since $p(T) = 0$, we have for any vector $v \in V$ and $k \geq d$,
-    \[T^k v = -a_{d-1} T^{k-1} v - \cdots - a_1 T^{k-d+1} v - a_0 T^{k-d} v.\]
-    We now induct on $k$ to show that $T^k v \in \spn(v, Tv, \ldots, T^{d-1} v)$ for all $k \geq d$. The base case $k = d$ holds by the equation above. Suppose that $T^j v \in \spn(v, \ldots, T^{d-1} v)$ for all $d \leq j \leq k - 1$. Then
-    \[T^k v = -a_{d-1} T^{k-1} v - \cdots - a_1 T^{k-d+1} v - a_0 T^{k-d} v.\]
-    Observe that $T^{k - i}$ satisfies $k - i \geq k - d$, and $k - i \leq k - 1$ for $i = 1, \ldots, d$. By the induction hypothesis, each $T^{k - i} v$ is in $\spn(v, \ldots, T^{d-1} v)$. Therefore, $T^k v$ is a linear combination of vectors in $\spn(v, \ldots, T^{d-1} v)$, and hence $T^k v \in \spn(v, \ldots, T^{d-1} v)$. By induction, this holds for all $k \geq d$.
+    Let $n=\dim V$ and let $p(z)=z^d+a_{d-1}z^{d-1}+\cdots+a_0$ be the minimal polynomial of $T$. Then $d \leq n$ and $p(T)=0$. For any $v \in V$,
+    \[p(T)v=0 \implies T^d v=-a_{d-1} T^{d-1} v-\cdots-a_1 Tv-a_0 v \implies T^d v \in \operatorname{span}\left(v, Tv, \dots, T^{d-1} v \right).\]
+    Let $U=\operatorname{span}\left(v, Tv, \dots, T^{d-1} v\right)$.
 
-    Since $d \leq n$, we have for any $m \geq n - 1 \geq d - 1$, that the vector $T^k v$ for $k = d, d+1, \ldots, m$ is in $\spn(v, Tv, \ldots, T^{d-1} v)$. Therefore,
-    \[\spn(v, Tv, \ldots, T^m v) = \spn(v, Tv, \ldots, T^{d-1} v) = \spn(v, Tv, \ldots, T^{n-1} v). \qh\]
+    We claim that $U$ is invariant under $T$. Take any $u=c_0 v+c_1 Tv+\cdots+c_{d-1} T^{d-1} v \in U$. Then,
+    \[Tu=c_0 Tv+c_1 T^2 v+\cdots+c_{d-2} T^{d-1} v+c_{d-1} T^d v.\]
+    Every term on the right-hand side except $T^d v$ is automatically in the spanning set of $U$. We also showed that $T^d v \in U$ earlier, so $Tu \in U$. Hence, $T(U) \subseteq U$.
+
+    Because $v \in U$ and $U$ is invariant under $T$, we see that $T^m v \in U$ for every $m \geq 0$ (this is immediate by induction). So, for any $m \geq n-1$, we have that
+    \[\operatorname{span}(v, Tv, \dots, T^m v) \subseteq U \subseteq \operatorname{span}(v, Tv, \dots, T^{n-1}v)\]
+    by using $d-1 \leq n-1$ to obtain the second inclusion. Since $\{v, Tv, \dots, T^{n-1} v\} \subseteq \{v, Tv, \dots, T^m v\}$, the reverse inclusion is immediate, and so
+    \[\operatorname{span}(v, Tv, \dots, T^m v)=\operatorname{span}(v, Tv, \dots, T^{n-1}v). \qh\]
 \end{sol}
 
 \begin{exercise}[5b11]

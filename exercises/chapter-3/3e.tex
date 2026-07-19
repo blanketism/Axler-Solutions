@@ -196,31 +196,11 @@
 \end{exercise}
 
 \begin{sole}
-    \item Consider any element of $A$, say $\lambda_1 v_1 + \cdots + \lambda_m v_m$ with $\lambda_1 + \cdots + \lambda_m = 1$. Since the $\lambda_i$'s sum to 1, a natural choice for scalars are
-    \[\lambda_i = \mu_i + \frac 1m, \quad i = 1, \ldots, m, \text{ with } \mu_1 + \cdots + \mu_m = 0.\]
-    We claim that the set of all elements
-    \[A' = \set{\mu_1 v_1 + \cdots + \mu_m v_m \mid \mu_1 + \cdots + \mu_m = 0}\]
-    form a subspace of $V$. To see this, note that $0 \in A'$ since we can take $\mu_1 = \cdots = \mu_m = 0$. Moreover, if $x, y \in A'$, say $x = \mu_1 v_1 + \cdots + \mu_m v_m$ and $y = \nu_1 v_1 + \cdots + \nu_m v_m$ with $\mu_1 + \cdots + \mu_m = 0$ and $\nu_1 + \cdots + \nu_m = 0$, then for any scalar $\alpha \in \f$, we have
-    \[\alpha x + y = (\alpha \mu_1 + \nu_1) v_1 + \cdots + (\alpha \mu_m + \nu_m) v_m,\]
-    and $\alpha \mu_1 + \nu_1 + \cdots + \alpha \mu_m + \nu_m = \alpha (\mu_1 + \cdots + \mu_m) + (\nu_1 + \cdots + \nu_m) = 0$. Hence, $\alpha x + y \in A'$, proving that $A'$ is indeed a subspace of $V$.
-    
-    Finally, note that any element of $A$ can be written as
-    \[\lambda_1 v_1 + \cdots + \lambda_m v_m = \left(\frac{1}{m}(v_1 + \cdots + v_m)\right) + (\mu_1 v_1 + \cdots + \mu_m v_m).\]
-    This shows that $A \subseteq \frac{1}{m}(v_1 + \cdots + v_m) + A'$. To see the reverse inclusion, note that any element of $\frac{1}{m}(v_1 + \cdots + v_m) + A'$ is of the form
-    \[\frac{1}{m}(v_1 + \cdots + v_m) + (\mu_1 v_1 + \cdots + \mu_m v_m) = (\mu_1 + \frac{1}{m})v_1 + \cdots + (\mu_m + \frac{1}{m})v_m,\]
-    with $\mu_1 + \cdots + \mu_m = 0$. Setting $\lambda_i = \mu_i + \frac{1}{m}$, we have $\lambda_1 + \cdots + \lambda_m = 1$, and hence this element belongs to $A$. Therefore, $A = \frac{1}{m}(v_1 + \cdots + v_m) + A'$, proving that $A$ is indeed a translate of the subspace $A'$.
-    \item Suppose $B$ is a translate of some subspace of $V$, say $B = v + U$ for some $v \in V$ and subspace $U \subseteq V$, and $\set{v_1, \ldots, v_m} \subseteq B$. Then for each $i$, we can write $v_i = v + u_i$ with $u_i \in U$. Consider any element of $A$, say $\lambda_1 v_1 + \cdots + \lambda_m v_m$ with $\lambda_1 + \cdots + \lambda_m = 1$. We have
-    \begin{align*}
-        \lambda_1 v_1 + \cdots + \lambda_m v_m &= \lambda_1 (v + u_1) + \cdots + \lambda_m (v + u_m) \\
-        &= (\lambda_1 + \cdots + \lambda_m) v + (\lambda_1 u_1 + \cdots + \lambda_m u_m) \\
-        &= v + (\lambda_1 u_1 + \cdots + \lambda_m u_m).
-    \end{align*}
-    Since $U$ is a subspace, $\lambda_1 u_1 + \cdots + \lambda_m u_m \in U$, and hence $\lambda_1 v_1 + \cdots + \lambda_m v_m \in v + U = B$. Therefore, $A \subseteq B$.
-    \item To see that $\dim A' < m$, observe that $\mu_1 + \cdots + \mu_m = 0$ imposes a linear constraint on the $\mu_i$'s. In particular, observe that
-    \[\mu_1 = -(\mu_2 + \cdots + \mu_m).\]
-    Hence, any element of $A'$ can be written as
-    \[\mu_1 v_1 + \cdots + \mu_m v_m = -(\mu_2 + \cdots + \mu_m)v_1 + \mu_2 v_2 + \cdots + \mu_m v_m = \mu_2 (v_2 - v_1) + \cdots + \mu_m (v_m - v_1),\]
-    which shows that $A'$ is spanned by $v_2 - v_1, \ldots, v_m - v_1$. Therefore, $\dim A' \leq m - 1 < m$.
+    \item For any element $\lambda_1 v_1 + \cdots + \lambda_m v_m \in A$, we can write
+    \[\lambda_1 v_1 + \cdots + \lambda_m v_m = v_1 + \lambda_2 (v_2 - v_1) + \cdots + \lambda_m (v_m - v_1) = v_1 + \sum_{i = 2}^m \lambda_i (v_i - v_1),\]
+    where $\lambda_1 = 1 - (\lambda_2 + \cdots + \lambda_m)$. Let $U = \spn(v_2 - v_1, \ldots, v_m - v_1)$. Then $A = v_1 + U$, hence $A$ is a translate of the subspace $U$ of $V$.
+    \item By \autoref{ex:3e9}, since $B$ is a translate of some subspace of $V$, we have $\lambda v + (1 - \lambda) w \in B$ for all $v, w \in B$ and all $\lambda \in \f$. Since $\set{v_1, \ldots, v_m} \subseteq B$, it follows that any linear combination of $v_1, \ldots, v_m$ with coefficients summing to 1 is in $B$. Hence, $A \subseteq B$.
+    \item The subspace $U = \spn(v_2 - v_1, \ldots, v_m - v_1)$ has dimension at most $m - 1$, since it is spanned by $m - 1$ vectors. Therefore, $A = v_1 + U$ is a translate of a subspace of $V$ of dimension less than $m$.
 \end{sole}
 
 \begin{exercise}[3e13]
@@ -266,7 +246,7 @@
 \end{exercise}
 
 \begin{sol}
-   From 3.107 in the text, we know that $V / \nul \varphi \cong \f$. Since $\dim \f = 1$, it follows that $\dim V / (\nul \varphi) = 1$.
+   From 3.107 in the text, we know that $V / \nul \varphi \cong \range \varphi$. Since $\varphi \neq 0$, we have $\range \varphi \neq \set 0$, and since $\range \varphi$ is a subspace of $\f$, it follows that $\dim \range \varphi = 1$. This implies $\range \varphi = \f$, and hence $\dim V / (\nul \varphi) = \dim \range \varphi = 1$.
 \end{sol}
 
 \begin{exercise}[3e17]

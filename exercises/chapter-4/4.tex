@@ -116,10 +116,11 @@
 
 \begin{exercise}[4a9]
     Prove that every polynomial of odd degree with real coefficients has a real zero.
+
 \end{exercise}
 
 \begin{sol}
-    Let $p(x)$ be a polynomial of odd degree with real coefficients. As $x \to \infty$, $p(x) \to \infty$ or $p(x) \to -\infty$ depending on the leading coefficient. Similarly, as $x \to -\infty$, $p(x) \to -\infty$ or $p(x) \to \infty$. By the intermediate value theorem, since $p(x)$ is continuous and takes on both positive and negative values, there must exist some $x \in \r$ such that $p(x) = 0$. Therefore, $p$ has a real zero.
+    Let $p(x)$ be a polynomial of odd degree with real coefficients. Since complex zeros come in pairs, there are an even number of complex zeros. Therefore, there must be at least one real zero.
 \end{sol}
 
 \begin{exercise}[4a10]
@@ -132,25 +133,13 @@
 \end{exercise}
 
 \begin{sol}
-    Let $p(x) = a_0 + a_1 x + \cdots + a_n x^n$. For $x \neq 3$, we have
-    \[(Tp)(x) = \frac{p(x) - p(3)}{x - 3} = \frac{1}{x - 3} \sum_{k = 0}^n a_k (x^k - 3^k).\]
-    We claim that
-    \[x^k - 3^k = (x - 3)(x^{k-1} + x^{k-2} \cdot 3 + \cdots + x \cdot 3^{k-2} + 3^{k-1}).\]
-    By induction, we check the base case $k = 1$. Since $x^1 - 3^1 = x - 3$, the formula holds for $k = 1$. Assuming it holds for some $k$, then for $k + 1$, we have
-    \begin{align*}
-        x^{k+1} - 3^{k+1} &= x \cdot x^k - 3 \cdot 3^k \\
-        &= x(x^k - 3^k) + 3^k (x - 3) \\
-        &= x(x - 3)(x^{k-1} + x^{k-2} \cdot 3 + \cdots + x \cdot 3^{k-2} + 3^{k-1}) + 3^k (x - 3) \\
-        &= (x - 3)(x(x^{k-1} + x^{k-2} \cdot 3 + \cdots + x \cdot 3^{k-2} + 3^{k-1}) + 3^k) \\
-        &= (x - 3)(x^k + x^{k-1} \cdot 3 + \cdots + x \cdot 3^{k-1} + 3^k),
-    \end{align*}
-    which completes the induction step. Therefore, when we divide by $x - 3$, we obtain a polynomial of degree $k - 1$, and hence $(Tp)(x)$ is a polynomial of degree $n - 1$. This shows that $Tp \in \pp(\r)$.
+    Let $p \in \pp(\r)$. Since $p(x) - p(3)$ has a zero at $x = 3$, we can factor it as $(x - 3)q(x)$ for some polynomial $q \in \pp(\r)$. Then for $x \neq 3$,
+    \[(Tp)(x) = \frac{p(x) - p(3)}{x - 3} = q(x),\]
+    and differentiating $p$ gives $p'(3) = q(3)$. Since $Tp(3) = p'(3) = q(3)$, we have $Tp(x) = q(x)$ for all $x \in \r$. Therefore, $Tp \in \pp(\r)$.
 
-    Now let $p, q \in \pp(\r)$ and let $a, b \in \r$. If $x = 3$, then
-    \[T(ap + bq)(3) = (ap + bq)'(3) = a p'(3) + b q'(3) = a Tp(3) + b Tq(3).\]
-    If $x \neq 3$, then
-    \[T(ap + bq)(x) = \frac{(ap + bq)(x) - (ap + bq)(3)}{x - 3} = \frac{a(p(x) - p(3)) + b(q(x) - q(3))}{x - 3} = a Tp(x) + b Tq(x).\]
-    Hence, $T(ap + bq) = a Tp + b Tq$, which shows that $T$ is linear.
+    Let $p_1, p_2 \in \pp(\r)$ and $\alpha, \beta \in \r$. Let $p_1(x) - p_1(3) = (x - 3)q_1(x)$ and $p_2(x) - p_2(3) = (x - 3)q_2(x)$ for some $q_1, q_2 \in \pp(\r)$. Then
+    \[(\alpha p_1 + \beta p_2)(x) = (\alpha p_1(3) + \beta p_2(3)) + (x - 3)(\alpha q_1(x) + \beta q_2(x)).\]
+    Hence, $T(\alpha p_1 + \beta p_2)(x) = \alpha q_1(x) + \beta q_2(x) = \alpha Tp_1(x) + \beta Tp_2(x)$ for all $x \in \r$. Therefore, $T$ is a linear map.
 \end{sol}
 
 \begin{exercise}[4a11]

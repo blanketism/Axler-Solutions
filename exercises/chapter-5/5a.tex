@@ -110,7 +110,11 @@
 \end{exercise}
 
 \begin{sol}
-    Let $p$ have degree $n$ and be an eigenvector of $T$ with eigenvalue $\lambda$. If $\deg \lambda p = 0$, then $\deg p = 0$, so $p$ is a constant polynomial. Otherwise, $\deg p \geq 1$. Since $\deg p' = n - 1 \neq \deg \lambda p = n$, then $p$ must have degree 0, i.e., $p$ is a constant polynomial. In this case, $Tp = p' = 0 = 0 \cdot p$, so the only eigenvalue is $\lambda = 0$, and the corresponding eigenvectors are the nonzero constant polynomials.
+    Let $p \in \pp(\r)$ such that $p' = \lambda p$ for some $\lambda \in \r$.
+    \begin{itemize}
+        \item If $\lambda \neq 0$, then $\deg p' = \deg p$, which is a contradiction since $\deg p' = \deg p - 1$. Therefore, there are no eigenvectors corresponding to nonzero eigenvalues.
+        \item If $\lambda = 0$, then $p' = 0$, which implies that $p$ is a constant polynomial. Therefore, the eigenvectors corresponding to the eigenvalue $\lambda = 0$ are all nonzero constant polynomials. \qh
+    \end{itemize}
 \end{sol}
 
 \begin{exercise}[5a10]
@@ -120,17 +124,7 @@
 \begin{sol}
     Let $p(x) = a_0 + a_1x + a_2x^2 + a_3x^3 + a_4x^4$ be an eigenvector of $T$ with eigenvalue $\lambda$. Then
     \[(Tp)(x) = xp'(x) = x(a_1 + 2a_2x + 3a_3x^2 + 4a_4x^3) = a_1x + 2a_2x^2 + 3a_3x^3 + 4a_4x^4.\]
-    Equating coefficients with $\lambda p(x) = \lambda a_0 + \lambda a_1x + \lambda a_2x^2 + \lambda a_3x^3 + \lambda a_4x^4$, we get the system
-    \[
-    \begin{cases}
-        0 = \lambda a_0,\\
-        a_1 = \lambda a_1,\\
-        2a_2 = \lambda a_2,\\
-        3a_3 = \lambda a_3,\\
-        4a_4 = \lambda a_4.
-    \end{cases}
-    \]
-    Because $p$ is an eigenvector, it is nonzero, so at least one of the coefficients $a_1, a_2, a_3, a_4$ must be nonzero. For equality to occur, it must be that $\lambda = k$ for some $k = 0, 1, 2, 3, 4$. Fixing some $k$, then $ka_k = \lambda a_k$ implies that $a_k$ can be a nonzero scalar. Otherwise, for $j \neq k$, then $ja_j = \lambda a_j$ implies $(j - \lambda)a_j = 0$. Since $k = \lambda \neq j$, then $a_j = 0$. Therefore, the eigenvalues of $T$ are $\lambda = 0, 1, 2, 3, 4$, and the corresponding eigenvectors are the nonzero scalar multiples of $x^\lambda$ for each $\lambda = 0, 1, 2, 3, 4$.
+    Equating coefficients with $\lambda p(x) = \lambda a_0 + \lambda a_1x + \lambda a_2x^2 + \lambda a_3x^3 + \lambda a_4x^4$, we get that $T(x^n) = nx^n$ for $n = 0, 1, 2, 3, 4$. Therefore, the eigenvalues of $T$ are $\lambda = 0, 1, 2, 3, 4$. Since $\dim \pp_4(\r) = 5$, and we have found 5 distinct eigenvalues, the corresponding eigenvectors are the scalar multiples of $1, x, x^2, x^3, x^4$.
 \end{sol}
 
 \begin{exercise}[5a11]
@@ -192,9 +186,12 @@
 \end{exercise}
 
 \begin{sol}
-    Suppose $\lambda$ is an eigenvalue of $T$ with eigenvector $v \in V$, so $Tv = \lambda v$. Then the operator $(T - \lambda I)$ is not injective, since $(T - \lambda I)v = 0$. Taking the dual, we have that $(T - \lambda I)' = T' - \lambda I$ is not surjective. Since $V$ is finite-dimensional, this implies $T' - \lambda I$ is not injective, hence $\lambda$ is an eigenvalue of $T'$.
-    
-    Conversely, suppose $\lambda$ is an eigenvalue of $T'$ with eigenvector $\phi \in V'$, so $T'\phi = \lambda \phi$. Then $(T' - \lambda I)\phi = 0$, which implies that $T - \lambda I$ is not surjective. Since $V$ is finite-dimensional, not surjective implies not injective, so there exists a nonzero $v \in V$ such that $(T - \lambda I)v = 0$, i.e., $Tv = \lambda v$. Therefore, $\lambda$ is an eigenvalue of $T$.
+    \begin{align*}
+        \lambda \text{ is an eigenvalue of } T & \iff T-\lambda I \text{ is not invertible} \\ 
+        & \iff (T-\lambda I)' \text{ is not invertible} \\ 
+        & \iff T'-\lambda I \text{ is not invertible} \\ 
+        & \iff \lambda \text{ is an eigenvalue of } T' \qh
+    \end{align*}
 \end{sol}
 
 \begin{exercise}[5a16]

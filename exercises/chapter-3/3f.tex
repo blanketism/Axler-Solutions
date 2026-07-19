@@ -290,13 +290,11 @@
 \end{exercise}
 
 \begin{sol}
-    Suppose $T$ is invertible. Then there exists $S \in \lin{W, V}$ such that $ST = I_V$ and $TS = I_W$. Taking the dual of both sides, we get $(ST)' = (I_V)'$ and $(TS)' = (I_W)'$. But $(ST)' = T'S'$ and $(TS)' = S'T'$, and $(I_V)' = I_{V'}$ and $(I_W)' = I_{W'}$. Hence, $T'S' = I_{V'}$ and $S'T' = I_{W'}$, which shows that $T'$ is invertible with inverse $S'$.
+    Suppose $T$ is invertible. Then there exists $S \in \lin{W, V}$ such that $ST = I_V$ and $TS = I_W$. Taking the dual of both sides, we get $T'S' = I_{W'}$ and $S'T' = I_{V'}$, which shows that $T'$ is invertible with inverse $S'$.
 
-    Conversely, we prove the contrapositive. Suppose $T$ is not invertible. Then it is either not injective or not surjective.
-
-    If $T$ is not injective, then there exists nonzero $v \in V$ such that $T(v) = 0$. By \autoref{ex:3f3}, there exists $\psi \in V'$ such that $\psi(v) = 1$. Since $\range T'$ contains all functionals of the form $T'(\varphi) = \varphi \circ T$ for $\varphi \in W'$, we have $(T'(\varphi))(v) = (\varphi \circ T)(v) = \varphi(T(v)) = \varphi(0) = 0$, which contradicts $\psi(v) = 1$. Hence, $T'$ cannot be surjective, and therefore not invertible.
-
-    If $T$ is not surjective, then there exists $w \in W$ such that $w \notin \range T$. Since $W$ is finite-dimensional, by \autoref{ex:3f4}, there exists $\varphi \in W'$ such that $\varphi(w) \neq 0$ and $\varphi$ vanishes on $\range T$. Then $T'(\varphi) = \varphi \circ T = 0$, which shows that $T'$ is not injective, and therefore not invertible. It follows that $T'$ is not invertible whenever $T$ is not invertible, which proves the contrapositive of the statement. Hence, if $T'$ is invertible, then $T$ must be invertible.
+    Conversely, suppose $T'$ is invertible. Then $T'$ is an isomorphism. Then
+    \[\dim V = \dim V' = \dim W' = \dim W.\]
+    By injectivity of $T'$, we have $\nul T' = \set 0$. Since $\nul T' = (\range T)^0$, we have $(\range T)^0 = \set 0$ so that $\range T = W$. Hence, $T$ is surjective. Since $\dim V = \dim W$, we conclude that $T$ is injective as well. Therefore, $T$ is invertible.
 \end{sol}
 
 \begin{exercise}[3f18]
@@ -512,22 +510,10 @@
 \end{exercise}
 
 \begin{sole}
-    \item If $\varphi = 0$, then $\nul T' = \set 0$, hence $T'$ is injective. Then $\dim \range T' = \dim W' = \dim W$. Then $\dim \range T = \dim \range T' = \dim W$. In this case, $\range T = W$ and $\nul \varphi = W$, so $\range T = \nul \varphi$. Otherwise, we proceed as follows.
-    
-    Note that if $w \in \range T$, then there exists $v \in V$ such that $T(v) = w$. Since $\varphi \in \nul T'$, we have
-    \[\varphi(w) = \varphi(T(v)) = (T'(\varphi))(v) = 0.\]
-    Hence, $\range T \subseteq \nul \varphi$.
-    
-    Observe that $\dim \null T' = 1$ since $\nul T' = \spn(\varphi)$. By the rank-nullity theorem, we have
-    \[\dim \range T' = \dim W' - \dim \nul T' = \dim W - 1.\]
-    Since $\dim \range T' = \dim \range T$, we have $\dim \range T = \dim W - 1$. This is also $\dim \null \varphi$ since $\varphi \neq 0$ is surjective by \autoref{ex:3f1}. Hence, $\range T$ and $\nul \varphi$ are subspaces of $W$ with the same dimension, and $\range T \subseteq \nul \varphi$. We conclude that $\range T = \nul \varphi$, as desired.
-    \item If $\psi = 0$, then $\range T' = \set 0$, hence $T' = 0$. Then $\nul T = V$ since $T = 0$. In this case, $\nul \psi = V$ as well, so $\nul T = \nul \psi = V$. Otherwise, we proceed as follows.
-    
-    Note that if $v \in \nul T$, then $T(v) = 0$. Since $\psi \in \range T'$, there exists $\varphi \in W'$ such that $T'(\varphi) = \psi$. Then
-    \[\psi(v) = (T'(\varphi))(v) = \varphi(T(v)) = \varphi(0) = 0.\]
-    Hence, $\nul T \subseteq \nul \psi$.
-
-    Observe that $\dim \range T' = 1$. Since $\dim \range T' = \dim \range T$, it follows that $\dim \range T = 1$ as well. Rank-nullity then gives $\dim \nul T = \dim V - 1$. This is also $\dim \nul \psi$ since $\psi \neq 0$ is surjective by \autoref{ex:3f1}. Hence, $\nul T$ and $\nul \psi$ are subspaces of $V$ with the same dimension, and $\nul T \subseteq \nul \psi$. We conclude that $\nul T = \nul \psi$, as desired.
+    \item Since $(\operatorname{range} T)^0=\operatorname{null} T'$ and $\operatorname{null} T'=\operatorname{span}(\varphi)$, we have $(\operatorname{range} T)^0=\operatorname{span}(\varphi)$. Since $(U^0)^0=U$ in finite dimensions, taking annihilators yields
+    \[\operatorname{range} T=\left(\operatorname{span}(\varphi) \right)^0=\operatorname{null} \varphi.\]
+    \item Using $\operatorname{null} T=(\operatorname{range} T')^0$ and $\operatorname{range} T'=\operatorname{span}(\psi)$ immediately yields
+    \[\operatorname{null} T=\left(\operatorname{span}(\psi) \right)^0=\operatorname{null} \psi. \qh\]
 \end{sole}
 
 \begin{exercise}[3f30]

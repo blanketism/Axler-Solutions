@@ -144,9 +144,7 @@
 \end{exercise}
 
 \begin{sol}
-    Suppose $ST$ is invertible. Then it is injective. By \autoref{ex:3b19}, there exists $U \in \lin V$ such that $U(ST)$ is the identity operator. Since this is equal to $(US)T$, this implies that $T$ is injective. Since $T$ is injective on $V$, it is also surjective, hence invertible.
-    
-    Note that $ST$ is also surjective. By \autoref{ex:3b20}, there exists $W \in \lin V$ such that $STW$ is the identity operator. Then $S(TW)$ implies that $S$ is surjective. Since it is surjective on $V$, then $S$ is also injective, hence invertible.
+    Suppose $ST$ is invertible. Then $\nul ST = \set 0$. If $v \in \nul T$, then $STv = S0 = 0$, and thus $v \in \nul ST$. Since $\nul ST = \set 0$, we have $v = 0$, and thus $\nul T = \set 0$. Hence, $T$ is injective, and since $V$ is finite-dimensional, $T$ is invertible. Then $S = (ST)T\inv$ is a product of invertible linear maps, and thus $S$ is invertible by \autoref{ex:3d2}.
 
     Conversely, suppose $S$ and $T$ are invertible. This follows from \autoref{ex:3d2}.
 \end{sol}
