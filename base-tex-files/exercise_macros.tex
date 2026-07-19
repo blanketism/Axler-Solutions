@@ -35,7 +35,7 @@
     }%
 {ex}
 
-\newtcolorbox{appendixexercise}[1][]{%
+\newtcolorbox{apex}[1][]{%
     enhanced,
     title={Exercise \MakeUppercase{#1}},
     label=apex:#1,
@@ -69,3 +69,17 @@
     \leavevmode%
     \begin{itemize}%
 }{\qh\end{itemize}\end{proof}}
+
+% Appendix Commands
+
+\newenvironment{csp}{%
+\begin{proof}[Civil Service Pigeon]}%
+{\end{proof}}
+
+\newenvironment{coole}{%
+\begin{proof}[Coolempire93]}%
+{\end{proof}}
+
+\newenvironment{me}{%
+\begin{proof}[blanketism]}%
+{\end{proof}}
