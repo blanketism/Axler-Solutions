@@ -6,9 +6,9 @@
 
 \subsection{Vector Spaces}
 
-\begin{appendixexercise}[1c13]
+\begin{apex}[1c13]
     Prove that the union of three subspaces of $V$ is a subspace of $V$ if and only if one of the subspaces contains the other two.
-\end{appendixexercise}
+\end{apex}
 
 \begin{proof}[Coolempire93]
     Conversely, suppose that $U_1 \cup U_2 \cup U_3$ is a subspace of $V$ but none of the subspaces contains the other two. Let $W_1 = U_2 \cup U_3$ and $W_2 = U_1 \cup U_3$. By the assumption, we cannot have $W_1 \subseteq U_1$ or $W_2 \subseteq U_2$, so there exist $x \in U_1 \setminus W_1$ and $y \in U_2 \setminus W_2$. Now, since $U_1 \cup U_2 \cup U_3$ is a vector space, we have $x + \alpha y \in U_1 \cup U_2 \cup U_3$ for any nonzero $\alpha \in \mathbb{F}$. But if $x + \alpha y \in U_1$, then $(x + \alpha  y) - x = \alpha y \in U_1$, and as $\alpha$ is nonzero, this means that $y \in U_1$, a contradiction. Similarly, if $x + \alpha  y \in U_2$, then $(x + \alpha y) - \alpha y = x \in U_2$, a contradiction. Therefore, we must have $x + \alpha y \in U_3$ for all nonzero $\alpha$ to satisfy the closure of the vector space.

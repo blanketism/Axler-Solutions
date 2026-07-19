@@ -1,31 +1,30 @@
-\setcounter{subsection}{2}
-
 \subsection{Linear Maps}
 
-\begin{appendixexercise}[3e11]
-    Suppose $U = \set{(x_1, x_2, \ldots) \in \f^\infty \mid x_k \neq 0 \text{ for only finitely many } k}$.
-    \begin{subexercises}
-        \item Show that $U$ is a subspace of $\f^\infty$.
-        \item Prove that $\f^\infty / U$ is infinite-dimensional.
-    \end{subexercises}
-\end{appendixexercise}
+\begin{apex}[3b29]
+    Suppose $p \in \pp(\r)$. Prove that there exists a polynomial $q \in \pp(\r)$ such that $5q'' + 3q' = p$.
+\end{apex}
 
-\begin{proof}
-    \leavevmode
-    \begin{subexercises}
-        \item Since $(0,0,\dots) \in U$, $U$ is nonempty. Suppose $x$, $y \in U$ and $c \in \mathbb{F}$. Let $S_x$ and $S_y$ be the sets of indices where $x$ and $y$ have nonzero terms, respectively. By definition, $S_x$ and $S_y$ are finite. $cx+y$ can only have nonzero terms at indices in $S_x \cup S_y$. Since the union of two finite sets is finite, $cx+y \in U$, which makes $U$ a subspace of $\mathbb{F}^{\infty}$. 
+\begin{coole}
+    Let $p(x) = a_0 + a_1x + \cdots + a_nx^n$ and consider the constraint $5q'' + 3q' = p$. If $q$ has degree $m$, then $q'$ has degree $m-1$ and $q''$ has degree $m-2$, so $5q'' + 3q'$ has degree $m-1$. To satisfy the constraint, we must have $m-1 = n$, and we may write $q(x) = b_0 + b_1x + \cdots + b_{n+1}x^{n+1}$. Evaluating, 
+    \begin{align*}
+        q'(x) &= b_1 + 2b_2x + \cdots + (n+1)b_{n+1}x^n \\
+        q''(x) &= 2b_2 + 6b_3x + \cdots + n(n+1)b_{n+1}x^{n-1}
+    \end{align*}
+    Equating with $p$, we obtain that the system $$\begin{cases}a_0 = 3b_1 + 10b_2 \\ a_1 = 6b_2 + 30b_3 \\ \vdots \\ a_n = 3(n+1)b_{n+1}\end{cases},$$
+    i.e., $a_i = 3(i+1)b_{i+1} + 5(i+1)(i+2)b_{i+2}$ for $0 \leq i < n$ and $a_n = 3(n+1)b_{n+1}$. Finally, we solve for the coefficients of $q$ by back-substitution. Noting that
+    \[b_{i+1} = \frac{a_i - 5(i+1)(i+2)b_{i+2}}{3(i+1)},\] we have 
+    \[\begin{cases}
+        b_{n+1} = \frac{a_n}{3(n+1)} \\
+        b_n = \frac{a_{n-1} - 5(n+1)(n+2)b_{n+1}}{3n} = \frac{a_{n-1} - \frac{5}{3}(n+2)a_n}{3n} \\
+        \vdots \\
+        b_1 = \frac{a_0 - 10b_2}{3}
+    \end{cases}\]
+    which has a solution as no division by 0 occurs in the process. Finally, we note that $b_0$ is a free variable, so there is an infinite family of $q \in \pp(\r)$ with the given coefficients such that $5q'' + 3q' = p$.
+\end{coole}
 
-        \item Partition $\mathbb{Z}^{+}$ into a countably infinite family of disjoint infinite subsets $A_1$, $A_2$, $\dots$. For each $n$, define $v_n \in \mathbb{F}^{\infty}$ such that its $j$th term is $1$ if $j \in A_n$ and $0$ otherwise. \\ 
-
-        Suppose that $\sum^{m}_{i=1} c_i (v_i+U)=0+U$ for some positive integer $m$ and scalars $c_1$, $\dots$, $c_m \in \mathbb{F}$. Then, $w=\sum^{m}_{i=1} c_i v_i \in U$. By construction, for $i \in \{1, \dots, m\}$, the $j$-th term of $w$ is $c_i$ for all $j \in A_i$. Since $w \in U$, it only has a finite number of nonzero terms. But each $A_i$ is infinite, so this forces $c_i=0$ for all $i \in \{1, \dots, m\}$. Hence, $v_1+U$, $v_2+U$, $\dots$ are linearly independent in $\mathbb{F}^{\infty}/U$. \\ 
-
-        Because $\mathbb{F}^{\infty}/U$ contains an infinite sequence of linearly independent vectors, it is infinite-dimensional.
-    \end{subexercises}
-\end{proof}
-
-\begin{appendixexercise}[3d19]
+\begin{apex}[3d19]
     Suppose $V$ is finite-dimensional and $T \in \lin{V}$. Prove that $T$ has the same matrix with respect to every basis of $V$ if and only if $T$ is a scalar multiple of the identity operator.
-\end{appendixexercise}
+\end{apex}
 
 \begin{proof}[Coolempire93]
     The manual solution provides a constructive proof utilizing sums of the form $v_1 + v_k$ to eliminate the $k$-th column, along with $v_2 + v_1$ to eliminate the 1st column. Here, we present different constructions. Each proof assumes the declaration of the matrix to be $A$.
@@ -66,3 +65,35 @@
         As $v_1$ belongs to a basis for $V$, it is nonzero, and thus as $j$ was arbitrary, $A_{1,1} = A_{2,2} = \cdots = A_{n,n} = \lambda$ for some scalar $\lambda$, and we have $A = \lambda I$, i.e., $T$ is a multiple of the identity operator. \qh
     \end{enumerate}
 \end{proof}
+
+\begin{apex}[3e11]
+    Suppose $U = \set{(x_1, x_2, \ldots) \in \f^\infty \mid x_k \neq 0 \text{ for only finitely many } k}$.
+    \begin{subexercises}
+        \item Show that $U$ is a subspace of $\f^\infty$.
+        \item Prove that $\f^\infty / U$ is infinite-dimensional.
+    \end{subexercises}
+\end{apex}
+
+\begin{proof}
+    \leavevmode
+    \begin{subexercises}
+        \item Since $(0,0,\dots) \in U$, $U$ is nonempty. Suppose $x$, $y \in U$ and $c \in \mathbb{F}$. Let $S_x$ and $S_y$ be the sets of indices where $x$ and $y$ have nonzero terms, respectively. By definition, $S_x$ and $S_y$ are finite. $cx+y$ can only have nonzero terms at indices in $S_x \cup S_y$. Since the union of two finite sets is finite, $cx+y \in U$, which makes $U$ a subspace of $\mathbb{F}^{\infty}$. 
+
+        \item Partition $\mathbb{Z}^{+}$ into a countably infinite family of disjoint infinite subsets $A_1$, $A_2$, $\dots$. For each $n$, define $v_n \in \mathbb{F}^{\infty}$ such that its $j$-th term is $1$ if $j \in A_n$ and $0$ otherwise.
+
+        Suppose that $\sum^{m}_{i=1} c_i (v_i+U)=0+U$ for some positive integer $m$ and scalars $c_1$, $\dots$, $c_m \in \mathbb{F}$. Then, $w=\sum^{m}_{i=1} c_i v_i \in U$. By construction, for $i \in \{1, \dots, m\}$, the $j$-th term of $w$ is $c_i$ for all $j \in A_i$. Since $w \in U$, it only has a finite number of nonzero terms. But each $A_i$ is infinite, so this forces $c_i=0$ for all $i \in \{1, \dots, m\}$. Hence, $v_1+U$, $v_2+U$, $\dots$ are linearly independent in $\mathbb{F}^{\infty}/U$.
+
+        Because $\mathbb{F}^{\infty}/U$ contains an infinite sequence of linearly independent vectors, it is infinite-dimensional.
+    \end{subexercises}
+\end{proof}
+
+\begin{apex}[3f11]
+    Suppose $v_1, \ldots, v_n$ is a basis of $V$ and $\varphi_1, \ldots, \varphi_n$ is the corresponding dual basis of $V'$. Suppose $\psi \in V'$. Prove that
+    \[\psi = \psi(v_1) \varphi_1 + \cdots + \psi(v_n) \varphi_n.\]
+\end{apex}
+
+\begin{csp}
+    Because $\varphi_1$, $\dots$, $\varphi_n$ is the dual basis, $\varphi_i (v_j)=\delta_{i,j}$. For each basis vector $v_j$,
+    $$\left(\sum^{n}_{i=1} \psi(v_i) \varphi_i \right)(v_j)=\sum^{n}_{i=1} \psi(v_i) \varphi_i (v_j)=\psi(v_j).$$
+    Since the two linear functionals agree on a basis of $V$, they are equal on all of $V$.
+\end{csp}

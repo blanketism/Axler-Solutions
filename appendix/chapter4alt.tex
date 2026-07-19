@@ -1,10 +1,18 @@
 \subsection{Polynomials}
 
-\begin{appendixexercise}[4a11]
+\begin{apex}[4a9]
+    Prove that every polynomial of odd degree with real coefficients has a real zero.
+\end{apex}
+
+\begin{proof}[blanketism]
+    Let $p(x)$ be a polynomial of odd degree with real coefficients. As $x \to \infty$, $p(x) \to \infty$ or $p(x) \to -\infty$ depending on the leading coefficient. Similarly, as $x \to -\infty$, $p(x) \to -\infty$ or $p(x) \to \infty$. By the intermediate value theorem, since $p(x)$ is continuous and takes on both positive and negative values, there must exist some $x \in \r$ such that $p(x) = 0$. Therefore, $p$ has a real zero.
+\end{proof}
+
+\begin{apex}[4a11]
     Suppose $p \in \pp(\c)$. Define $q: \c \to \c$ by
     \[q(z) = p(z) \bar{p(\bar{z})}.\]
     Prove that $q$ is a polynomial with real coefficients.
-\end{appendixexercise}
+\end{apex}
 
 \begin{proof}[blanketism]
     If $p = 0$, then $q = 0$ is a polynomial with real coefficients. Otherwise, let $n = \deg p$. Then we may write
