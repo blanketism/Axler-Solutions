@@ -7,7 +7,7 @@
 
 \begin{sol}
     Let $v_1, \ldots, v_n$ be a basis of $V$ and $w_1, \ldots, w_m$ be a basis of $W$.
-	Let $A = \mm(T)$ be the matrix with respect to these bases.
+	Let $A = \mcal(T)$ be the matrix with respect to these bases.
 	Then the $j$-th column of $A$ is the coordinate vector of $Tv_j$ with respect to the basis for $W$.
 
     Suppose $A$ had fewer than $\dim \range T$ nonzero columns.
@@ -18,7 +18,7 @@
 
 \begin{exercise}[3c2]
     Suppose $V$ and $W$ are finite-dimensional and $T \in \lin{V, W}$.
-	Prove that $\dim \range T = 1$ if and only if there exist a basis of $V$ and a basis of $W$ such that with respect to these bases, all entries of $\mm(T)$ equal $1$.
+	Prove that $\dim \range T = 1$ if and only if there exist a basis of $V$ and a basis of $W$ such that with respect to these bases, all entries of $\mcal(T)$ equal $1$.
 \end{exercise}
 
 \begin{sol}
@@ -28,7 +28,7 @@
 	Extend $y_1$ to a basis $y_1, \ldots, y_m$ of $W$, and define the following vectors in $W$:
     \[w_1 = y_1 - (y_2 + \cdots + y_m), \quad w_k = y_k \text{ for } k = 2, \ldots, m.\]
     It is clear that $w_1 + w_2 + \cdots + w_m = y_1$, and hence $w_1, \ldots, w_m$ spans $W$.
-	Now suppose for scalars $\alpha_1, \ldots, \alpha_m \in \f$, we have
+	Now suppose for scalars $\alpha_1, \ldots, \alpha_m \in \fbb$, we have
     \[\alpha_1 w_1 + \alpha_2 w_2 + \cdots + \alpha_m w_m = 0.\]
     Then we can express this as
     \[\alpha_1(y_1 - (y_2 + \cdots + y_m)) + \alpha_2 y_2 + \cdots + \alpha_m y_m = 0.\]
@@ -38,19 +38,19 @@
 	Therefore, $w_1, \ldots, w_m$ are linearly independent and hence form a basis of $W$.
 
     We now construct a basis of $V$.
-	By the rank nullity theorem, we have
+	By the fundamental theorem of linear maps, we have
     \[\dim V = \dim \null T + \dim \range T = \dim \null T + 1.\]
     Let $u_2, \ldots, u_n$ be a basis of $\null T$.
 	Then we can extend this to a basis $u_1, u_2, \ldots, u_n$ of $V$, where $u_1 \notin \null T$.
 	Since $\range T = \spn y_1$, we have
     \[Tu_1 = \beta y_1\]
-    for some nonzero scalar $\beta \in \f$.
+    for some nonzero scalar $\beta \in \fbb$.
 	If $\beta \neq 1$, we may replace $u_1$ with $\beta\inv u_1$ to ensure that $Tu_1 = y_1$.
 	We construct the following vectors in $V$:
     \[v_1 = u_1, \quad v_k = u_1 + u_k \text{ for } k = 2, \ldots, n.\]
     Note that for every $j = 1, \ldots, n$, we have $Tv_j = Tu_1 + Tu_j = y_1 + 0 = y_1$.
 	We claim that $v_1, \ldots, v_n$ form a basis of $V$.
-	Suppose for scalars $\alpha_1, \ldots, \alpha_n \in \f$, we have
+	Suppose for scalars $\alpha_1, \ldots, \alpha_n \in \fbb$, we have
     \[\alpha_1 v_1 + \alpha_2 v_2 + \cdots + \alpha_n v_n = 0.\]
     Then we can express this as
     \[(\alpha_1 + \alpha_2 + \cdots + \alpha_n) u_1 + \alpha_2 u_2 + \cdots + \alpha_n u_n = 0.\]
@@ -59,7 +59,7 @@
 	Then with respect to the bases $v_1, \ldots, v_n$ of $V$ and $w_1, \ldots, w_m$ of $W$, we have that $Tv_j = y_1 = w_1 + w_2 + \cdots + w_m$ for each $j = 1, \ldots, n$.
 	Therefore, the matrix of $T$ with respect to these bases has all entries equal to $1$.
 
-    Conversely, suppose there exist a basis of $V$ and a basis of $W$ such that with respect to these bases, all entries of $\mm(T)$ equal $1$.
+    Conversely, suppose there exist a basis of $V$ and a basis of $W$ such that with respect to these bases, all entries of $\mcal(T)$ equal $1$.
 	Then for each basis vector $v_j$ of $V$, we have
     \[Tv_j = w\]
     for some fixed nonzero vector $w \in W$, where $w = w_1 + \cdots + w_m$ is the sum of the basis vectors of $W$.
@@ -70,8 +70,8 @@
 \begin{exercise}[3c3]
     Suppose $v_1, \ldots, v_n$ is a basis of $V$ and $w_1, \ldots, w_m$ is a basis of $W$.
     \begin{subexercises}
-        \item Show that if $S, T \in \lin{V, W}$, then $\mm(S + T) = \mm(S) + \mm(T)$.
-        \item Show that if $\lambda \in \f$ and $T \in \lin{V, W}$, then $\mm(\lambda T) = \lambda \mm(T)$.
+        \item Show that if $S, T \in \lin{V, W}$, then $\mcal(S + T) = \mcal(S) + \mcal(T)$.
+        \item Show that if $\lambda \in \fbb$ and $T \in \lin{V, W}$, then $\mcal(\lambda T) = \lambda \mcal(T)$.
     \end{subexercises}
 \end{exercise}
 
@@ -79,7 +79,7 @@
     \item Let $v_1, \ldots, v_n$ be a basis of $V$ and $w_1, \ldots, w_m$ be a basis of $W$.
 	Then the matrix of $S + T$ with respect to these bases is given by
     \begin{align*}
-        \mm(S + T) & = 
+        \mcal(S + T) & = 
         \begin{pmatrix}
             (S + T)v_1 & (S + T)v_2 & \cdots & (S + T)v_n
         \end{pmatrix} \\
@@ -94,12 +94,12 @@
         \begin{pmatrix}
             Tv_1 & Tv_2 & \cdots & Tv_n
         \end{pmatrix} \\
-        & = \mm(S) + \mm(T).
+        & = \mcal(S) + \mcal(T).
     \end{align*}
     \item Let $v_1, \ldots, v_n$ be a basis of $V$ and $w_1, \ldots, w_m$ be a basis of $W$.
 	Then the matrix of $\lambda T$ with respect to these bases is given by
     \begin{align*}
-        \mm(\lambda T) & = 
+        \mcal(\lambda T) & = 
         \begin{pmatrix}
             (\lambda T)v_1 & (\lambda T)v_2 & \cdots & (\lambda T)v_n
         \end{pmatrix} \\
@@ -111,13 +111,13 @@
         \begin{pmatrix}
             Tv_1 & Tv_2 & \cdots & Tv_n
         \end{pmatrix} \\
-        & = \lambda \mm(T). \qh
+        & = \lambda \mcal(T). \qh
     \end{align*}
 \end{sole}
 
 \begin{exercise}[3c4]
-    Suppose that $D \in \lin{\pp_3(\r), \pp_2(\r)}$ is the differentiation map defined by $Dp = p'$.
-	Find a basis of $\pp_3(\r)$ and a basis of $\pp_2(\r)$ such that the matrix of $D$ with respect to these bases is
+    Suppose that $D \in \lin{\pcal_3(\rbb), \pcal_2(\rbb)}$ is the differentiation map defined by $Dp = p'$.
+	Find a basis of $\pcal_3(\rbb)$ and a basis of $\pcal_2(\rbb)$ such that the matrix of $D$ with respect to these bases is
     \[\begin{pmatrix}
         1 & 0 & 0 & 0 \\
         0 & 1 & 0 & 0 \\
@@ -126,16 +126,16 @@
 \end{exercise}
 
 \begin{sol}
-    Consider the standard basis of $\pp_3(\r)$.
+    Consider the standard basis of $\pcal_3(\rbb)$.
 	Reorder it to obtain the basis $x^3, x^2, x, 1$.
-	Consider the standard basis of $\pp_2(\r)$.
+	Consider the standard basis of $\pcal_2(\rbb)$.
 	Reorder it to obtain the basis $x^2, x, 1$.
 	Observe that $D(x^3) = 3x^2$, $D(x^2) = 2x$, $D(x) = 1$, and $D(1) = 0$.
 	However, we need the matrix of $D$ to have the desired form.
-	To achieve this, we can scale the basis vectors of $\pp_3(\r)$ and $\pp_2(\r)$ appropriately.
-	Then we may define the basis for $\pp_3(\r)$ as
+	To achieve this, we can scale the basis vectors of $\pcal_3(\rbb)$ and $\pcal_2(\rbb)$ appropriately.
+	Then we may define the basis for $\pcal_3(\rbb)$ as
     \[\frac 13 x^3, \frac 12 x^2, x, 1\]
-    while maintaining the standard basis for $\pp_2(\r)$ as $x^2, x, 1$.
+    while maintaining the standard basis for $\pcal_2(\rbb)$ as $x^2, x, 1$.
 	Then we have
     \[D\left(\frac 13 x^3\right) = x^2, \quad D\left(\frac 12 x^2\right) = x, \quad D(x) = 1, \quad D(1) = 0.\]
     Therefore, with respect to the bases, we get the desired matrix representation of $D$.
@@ -143,7 +143,7 @@
 
 \begin{exercise}[3c5]
     Suppose $V$ and $W$ are finite-dimensional and $T \in \lin{V, W}$.
-	Prove that there exist a basis of $V$ and a basis of $W$ such that with respect to these bases, all entries of $\mm(T)$ are $0$ except that the entries in row $k$, column $k$, equal $1$ if $1 \leq k \leq \dim \range T$.
+	Prove that there exist a basis of $V$ and a basis of $W$ such that with respect to these bases, all entries of $\mcal(T)$ are $0$ except that the entries in row $k$, column $k$, equal $1$ if $1 \leq k \leq \dim \range T$.
 \end{exercise}
 
 \begin{sol}
@@ -154,7 +154,7 @@
 	Let $u_1, \ldots, u_{n - r}$ be a basis of $\nul T$.
 	Extend this to a basis $v_1, \ldots, v_r, u_1, \ldots, u_{n - r}$ of $V$.
 	We claim that $Tv_1, \ldots, Tv_r$ are linearly independent.
-	Suppose for scalars $\alpha_1, \ldots, \alpha_r \in \f$, we have
+	Suppose for scalars $\alpha_1, \ldots, \alpha_r \in \fbb$, we have
     \[\alpha_1 Tv_1 + \cdots + \alpha_r Tv_r = 0.\]
     Then
     \[T(\alpha_1 v_1 + \cdots + \alpha_r v_r) = 0,\]
@@ -170,45 +170,45 @@
 \begin{exercise}[3c6]
     Suppose $v_1, \ldots, v_m$ is a basis of $V$ and $W$ is finite-dimensional.
 	Suppose $T \in \lin{V, W}$.
-	Prove that there exists a basis $w_1, \ldots, w_n$ of $W$ such that all entries in the first column of $\mm(T)$ [with respect to the bases $v_1, \ldots, v_m$ and $w_1, \ldots, w_n$] are $0$ except for possibly a $1$ in the first row, first column.
+	Prove that there exists a basis $w_1, \ldots, w_n$ of $W$ such that all entries in the first column of $\mcal(T)$ [with respect to the bases $v_1, \ldots, v_m$ and $w_1, \ldots, w_n$] are $0$ except for possibly a $1$ in the first row, first column.
 \end{exercise}
 
 \begin{sol}
     Let $n = \dim W$.
-	If $Tv_1 = 0$, then we can choose any basis of $W$ and the first column of $\mm(T)$ will be all zeros.
+	If $Tv_1 = 0$, then we can choose any basis of $W$ and the first column of $\mcal(T)$ will be all zeros.
 	If $Tv_1 \neq 0$, then we can extend $Tv_1$ to a basis of $W$.
 	Let $w_1 = Tv_1$ and extend it to a basis $w_1, w_2, \ldots, w_n$ of $W$.
 	Then with respect to the bases $v_1, \ldots, v_m$ of $V$ and $w_1, \ldots, w_n$ of $W$, we have
     \[Tv_1 = w_1\]
     and for each $j = 2, \ldots, m$, we can express
     \[Tv_j = \alpha_{j1} w_1 + \alpha_{j2} w_2 + \cdots + \alpha_{jn} w_n\]
-    for some scalars $\alpha_{j1}, \alpha_{j2}, \ldots, \alpha_{jn} \in \f$.
-	Therefore, the first column of $\mm(T)$ has a $1$ in the first row and zeros in all other rows, as desired.
+    for some scalars $\alpha_{j1}, \alpha_{j2}, \ldots, \alpha_{jn} \in \fbb$.
+	Therefore, the first column of $\mcal(T)$ has a $1$ in the first row and zeros in all other rows, as desired.
 \end{sol}
 
 \begin{exercise}[3c7]
     Suppose $w_1, \ldots, w_n$ is a basis of $W$ and $V$ is finite-dimensional.
 	Suppose $T \in \lin{V, W}$.
-	Prove that there exists a basis $v_1, \ldots, v_m$ of $V$ such that all entries in the first row of $\mm(T)$ [with respect to the bases $v_1, \ldots, v_m$ and $w_1, \ldots, w_n$] are $0$ except for possibly a $1$ in the first row, first column.
+	Prove that there exists a basis $v_1, \ldots, v_m$ of $V$ such that all entries in the first row of $\mcal(T)$ [with respect to the bases $v_1, \ldots, v_m$ and $w_1, \ldots, w_n$] are $0$ except for possibly a $1$ in the first row, first column.
 \end{exercise}
 
 \begin{sol}
     Let $m = \dim V$ and $u_1, \ldots, u_m$ be a basis for $V$.
-	If $T$ has trivial $w_1$ component, meaning that the coefficient of $w_1$ in $Tv$ is zero for all $v \in V$, then choose any basis of $V$ and the first row of $\mm(T)$ will be all zeros.
+	If $T$ has trivial $w_1$ component, meaning that the coefficient of $w_1$ in $Tv$ is zero for all $v \in V$, then choose any basis of $V$ and the first row of $\mcal(T)$ will be all zeros.
 	Otherwise, reorder the basis so that $Tu_1$ has non-trivial $w_1$ component.
 	Then we can express
     \[Tu_1 = \alpha w_1 + \beta_2 w_2 + \cdots + \beta_n w_n\]
-    for some scalars $\alpha, \beta_2, \ldots, \beta_n \in \f$ such that $\alpha \neq 0$.
+    for some scalars $\alpha, \beta_2, \ldots, \beta_n \in \fbb$ such that $\alpha \neq 0$.
 	We can scale $u_1$ by $\alpha\inv$ to obtain a new vector $v_1 = \alpha\inv u_1$ such that
     \[Tv_1 = w_1 + \frac{\beta_2}{\alpha} w_2 + \cdots + \frac{\beta_n}{\alpha} w_n.\]
     With the remaining $u_2, \ldots, u_m$ basis vectors of $V$, note that they can be expressed as
     \[Tu_j = \alpha_{j1} w_1 + \alpha_{j2} w_2 + \cdots + \alpha_{jn} w_n\]
-    for some scalars $\alpha_{j1}, \alpha_{j2}, \ldots, \alpha_{jn} \in \f$.
+    for some scalars $\alpha_{j1}, \alpha_{j2}, \ldots, \alpha_{jn} \in \fbb$.
 	Consider the set of vectors of $V$ given by
     \[v_1 = \alpha\inv u_1, \quad v_j = u_j - \alpha_{j1} v_1 \text{ for } j = 2, \ldots, m.\]
     Note that $Tv_j = Tu_j - \alpha_{j1} Tv_1$ is just a combination of $w_2, \ldots, w_n$.
 	We now claim that $v_1, v_2, \ldots, v_m$ are linearly independent.
-	Suppose for scalars $\gamma_1, \ldots, \gamma_m \in \f$, we have
+	Suppose for scalars $\gamma_1, \ldots, \gamma_m \in \fbb$, we have
     \[\gamma_1 v_1 + \gamma_2 v_2 + \cdots + \gamma_m v_m = 0.\]
     Then we can express this as
     \[\gamma_1 v_1 + \gamma_2 (u_2 - \alpha_{21} v_1) + \cdots + \gamma_m (u_m - \alpha_{m1} v_1) = 0.\]
@@ -337,7 +337,7 @@
 	Then $B + C$ is an $n$-by-$p$ matrix, and hence $A(B + C)$ is an $m$-by-$p$ matrix.
 	The products $AB$ and $AC$ are also defined, and both are $m$-by-$p$ matrices.
 	Therefore, the sum $AB + AC$ is defined and is also an $m$-by-$p$ matrix.
-	By \autoref{ex:3c8} and \autoref{ex:3c9}, we have
+	By \exref{3c8} and \exref{3c9}, we have
     \[A(B + C)_{j, \cdot} = A_{j, \cdot} (B + C) = A_{j, \cdot} B + A_{j, \cdot} C = (AB)_{j, \cdot} + (AC)_{j, \cdot} = (AB + AC)_{j, \cdot}\]
     for all $j = 1, \ldots, m$.
 	Therefore, $A(B + C) = AB + AC$.
@@ -347,7 +347,7 @@
 	The products $DF$ and $EF$ are also defined, and both are $m$-by-$p$ matrices.
 	Therefore, the sum $DF + EF$ is defined and is also an $m$-by-$p$ matrix.
 	Then the product $(D + E)F$ is defined.
-	By \autoref{ex:3c8} and \autoref{ex:3c9}, we have
+	By \exref{3c8} and \exref{3c9}, we have
     \[(D + E)F_{j, \cdot} = (D + E)_{j, \cdot} F = D_{j, \cdot} F + E_{j, \cdot} F = (DF)_{j, \cdot} + (EF)_{j, \cdot} = (DF + EF)_{j, \cdot}\]
     for all $j = 1, \ldots, m$.
 	Therefore, $(D + E)F = DF + EF$.
@@ -358,7 +358,7 @@
 	In other words, suppose $A$, $B$, and $C$ are matrices whose sizes are such that $(AB)C$ makes sense.
 	Explain why $A(BC)$ makes sense and prove that
     \[(AB)C = A(BC).\]
-    \remark{Unfortunately, we cannot use the same trick as in \autoref{ex:3c11} to prove this result.}
+    \remark{Unfortunately, we cannot use the same trick as in \exref{3c11} to prove this result.}
 \end{exercise}
 
 \begin{sol}
@@ -398,11 +398,11 @@
 
 \begin{exercise}[3c14]
     Suppose $m$ and $n$ are positive integers.
-	Prove that the function $A \mapsto A^t$ is a linear map from $\f^{m, n}$ to $\f^{n, m}$.
+	Prove that the function $A \mapsto A^t$ is a linear map from $\fbb^{m, n}$ to $\fbb^{n, m}$.
 \end{exercise}
 
 \begin{sol}
-    Let $A, B \in \f^{m, n}$ and let $\lambda \in \f$.
+    Let $A, B \in \fbb^{m, n}$ and let $\lambda \in \fbb$.
 	We need to show that $(A + B)^t = A^t + B^t$ and $(\lambda A)^t = \lambda A^t$.
 
     First, consider the sum $A + B$.
@@ -419,7 +419,7 @@
     \[((\lambda A)^t)_{k, j} = (\lambda A)_{j, k} = \lambda A_{j, k} = \lambda (A^t)_{k, j} = (\lambda A^t)_{k, j}.\]
     Therefore, $(\lambda A)^t = \lambda A^t$.
 
-    Since both properties hold, we conclude that the function $A \mapsto A^t$ is a linear map from $\f^{m, n}$ to $\f^{n, m}$.
+    Since both properties hold, we conclude that the function $A \mapsto A^t$ is a linear map from $\fbb^{m, n}$ to $\fbb^{n, m}$.
 \end{sol}
 
 \begin{exercise}[3c15]
@@ -438,7 +438,7 @@
 	The entry in row $k$, column $j$, of this product is given by
     \[(C^t A^t)_{k, j} = \sum_{r = 1}^{n} (C^t)_{k, r} (A^t)_{r, j} = \sum_{r = 1}^{n} C_{r, k} A_{j, r}.\]
 
-    Since multiplication in the field $\f$ is commutative, we can rewrite this as
+    Since multiplication in the field $\fbb$ is commutative, we can rewrite this as
     \[(C^t A^t)_{k, j} = \sum_{r = 1}^{n} A_{j, r} C_{r, k},\]
     which is exactly the same as the expression for $((AC)^t)_{k, j}$.
 
@@ -448,19 +448,19 @@
 
 \begin{exercise}[3c16]
     Suppose $A$ is an $m$-by-$n$ matrix with $A \neq 0$.
-	Prove that the rank of $A$ is $1$ if and only if there exist $(c_1, \ldots, c_m) \in \f^m$ and $(d_1, \ldots, d_n) \in \f^n$ such that $A_{j, k} = c_j d_k$ for every $j = 1, \ldots, m$ and every $k = 1, \ldots, n$.
+	Prove that the rank of $A$ is $1$ if and only if there exist $(c_1, \ldots, c_m) \in \fbb^m$ and $(d_1, \ldots, d_n) \in \fbb^n$ such that $A_{j, k} = c_j d_k$ for every $j = 1, \ldots, m$ and every $k = 1, \ldots, n$.
 \end{exercise}
 
 \begin{sol}
     Suppose the rank of $A$ is 1.
 	Then the column rank of $A$ is 1, which means that all columns of $A$ are scalar multiples of a single non-zero column vector.
 	Let $c = (c_1, \ldots, c_m)^t$ be this non-zero column vector.
-	Then for each column $k$ of $A$, there exists a scalar $d_k \in \f$ such that the $k$-th column of $A$ is given by $d_k c$.
+	Then for each column $k$ of $A$, there exists a scalar $d_k \in \fbb$ such that the $k$-th column of $A$ is given by $d_k c$.
 	Therefore, we can express the entries of $A$ as
     \[A_{j, k} = c_j d_k\]
     for all $j = 1, \ldots, m$ and $k = 1, \ldots, n$.
 
-    Conversely, suppose there exist $(c_1, \ldots, c_m) \in \f^m$ and $(d_1, \ldots, d_n) \in \f^n$ such that $A_{j, k} = c_j d_k$ for all $j$ and $k$.
+    Conversely, suppose there exist $(c_1, \ldots, c_m) \in \fbb^m$ and $(d_1, \ldots, d_n) \in \fbb^n$ such that $A_{j, k} = c_j d_k$ for all $j$ and $k$.
 	Since $A \neq 0$, then $(c_1, \ldots, c_m) \neq 0$ and $(d_1, \ldots, d_n) \neq 0$.
 	This means that all columns of $A$ are scalar multiples of the column vector $c$, and hence the column rank of $A$ is 1.
 	Therefore, the rank of $A$ is 1.
@@ -471,18 +471,18 @@
 	Prove that the following are equivalent.
     \begin{subexercises}
         \item $T$ is injective.
-        \item The columns of $\mm(T)$ are linearly independent in $\f^{n, 1}$.
-        \item The columns of $\mm(T)$ span $\f^{n, 1}$.
-        \item The rows of $\mm(T)$ span $\f^{1, n}$.
-        \item The rows of $\mm(T)$ are linearly independent in $\f^{1, n}$.
+        \item The columns of $\mcal(T)$ are linearly independent in $\fbb^{n, 1}$.
+        \item The columns of $\mcal(T)$ span $\fbb^{n, 1}$.
+        \item The rows of $\mcal(T)$ span $\fbb^{1, n}$.
+        \item The rows of $\mcal(T)$ are linearly independent in $\fbb^{1, n}$.
     \end{subexercises}
 \end{exercise}
 
 \begin{solitem}
-    \item (a) $\iff$ (b): (a) $\iff \dim \nul T = 0 \iff \dim \range T = n \iff \colrank \mm(T) = n$.
+    \item (a) $\iff$ (b): (a) $\iff \dim \nul T = 0 \iff \dim \range T = n \iff \colrank \mcal(T) = n$.
 	For $n$ column vectors, $\rank n$ implies linear independence $\iff$ (b).
-    \item (b) $\iff$ (c): $n$ columns of $\mm(T)$ are linearly independent in $\f^{n, 1} \iff n$ columns of $\mm(T)$ span $\f^{n, 1}$.
-    \item (c) $\iff$ (d): columns span $\f^{n, 1} \iff \rank \mm(T) = n$ by (b) $\iff$ (c).
-	By Theorem 3.57, $\rank \mm(T) = \rowrank \mm(T) \iff$ rows span $\f^{1, n}$.
-    \item (d) $\iff$ (e): $n$ rows of $\mm(T)$ span $\f^{1, n} \iff n$ rows of $\mm(T)$ are linearly independent in $\f^{1, n}$.
+    \item (b) $\iff$ (c): $n$ columns of $\mcal(T)$ are linearly independent in $\fbb^{n, 1} \iff n$ columns of $\mcal(T)$ span $\fbb^{n, 1}$.
+    \item (c) $\iff$ (d): columns span $\fbb^{n, 1} \iff \rank \mcal(T) = n$ by (b) $\iff$ (c).
+	By Theorem 3.57, $\rank \mcal(T) = \rowrank \mcal(T) \iff$ rows span $\fbb^{1, n}$.
+    \item (d) $\iff$ (e): $n$ rows of $\mcal(T)$ span $\fbb^{1, n} \iff n$ rows of $\mcal(T)$ are linearly independent in $\fbb^{1, n}$.
 \end{solitem}

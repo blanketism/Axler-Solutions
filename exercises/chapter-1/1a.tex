@@ -1,13 +1,13 @@
 \section{Vector Spaces}
 
-\subsection{\texorpdfstring{$\r^n$ and $\c^n$}{Rn and Cn}}
+\subsection{\texorpdfstring{$\rbb^n$ and $\cbb^n$}{Rn and Cn}}
 
 \begin{exercise}[1a1]
-    Show that $\alpha + \beta = \beta + \alpha$ for all $\alpha, \beta \in \c$.
+    Show that $\alpha + \beta = \beta + \alpha$ for all $\alpha, \beta \in \cbb$.
 \end{exercise}
 
 \begin{sol}
-    Let $\alpha = a + bi$ and $\beta = c + di$ for some $a, b, c, d \in \r$.
+    Let $\alpha = a + bi$ and $\beta = c + di$ for some $a, b, c, d \in \rbb$.
 	Then
     \begin{align*}
         \alpha + \beta & = (a + bi) + (c + di) \\
@@ -18,11 +18,11 @@
 \end{sol}
 
 \begin{exercise}[1a2]
-    Show that $(\alpha + \beta) + \gamma = \alpha + (\beta + \gamma)$ for all $\alpha, \beta, \gamma \in \c$.
+    Show that $(\alpha + \beta) + \gamma = \alpha + (\beta + \gamma)$ for all $\alpha, \beta, \gamma \in \cbb$.
 \end{exercise}
 
 \begin{sol}
-    Let $\alpha = a + bi$, $\beta = c + di$, and $\gamma = e + fi$ for some $a, b, c, d, e, f \in \r$.
+    Let $\alpha = a + bi$, $\beta = c + di$, and $\gamma = e + fi$ for some $a, b, c, d, e, f \in \rbb$.
 	Then
     \begin{align*}
         (\alpha + \beta) + \gamma & = ((a + bi) + (c + di)) + (e + fi) \\
@@ -34,11 +34,11 @@
 \end{sol}
 
 \begin{exercise}[1a3]
-    Show that $(\alpha\beta)\gamma = \alpha(\beta\gamma)$ for all $\alpha, \beta, \gamma \in \c$.
+    Show that $(\alpha\beta)\gamma = \alpha(\beta\gamma)$ for all $\alpha, \beta, \gamma \in \cbb$.
 \end{exercise}
 
 \begin{sol}
-    Let $\alpha = a + bi$, $\beta = c + di$, and $\gamma = e + fi$ for some $a, b, c, d, e, f \in \r$.
+    Let $\alpha = a + bi$, $\beta = c + di$, and $\gamma = e + fi$ for some $a, b, c, d, e, f \in \rbb$.
 	Then
     \begin{align*}
         (\alpha\beta)\gamma & = ((a + bi)(c + di))(e + fi) \\
@@ -51,11 +51,11 @@
 \end{sol}
 
 \begin{exercise}[1a4]
-    Show that $\gamma(\alpha + \beta) = \gamma\alpha + \gamma\beta$ for all $\alpha, \beta, \gamma \in \c$.
+    Show that $\gamma(\alpha + \beta) = \gamma\alpha + \gamma\beta$ for all $\alpha, \beta, \gamma \in \cbb$.
 \end{exercise}
 
 \begin{sol}
-    Let $\alpha = a + bi$, $\beta = c + di$, and $\gamma = e + fi$ for some $a, b, c, d, e, f \in \r$.
+    Let $\alpha = a + bi$, $\beta = c + di$, and $\gamma = e + fi$ for some $a, b, c, d, e, f \in \rbb$.
 	Then
     \begin{align*}
         \gamma(\alpha + \beta) & = (e + fi)((a + bi) + (c + di)) \\
@@ -68,29 +68,29 @@
 \end{sol}
 
 \begin{exercise}[1a5]
-    Show that for every $\alpha \in \c$, there exists a unique $\beta \in \c$ such that $\alpha + \beta = 0$.
+    Show that for every $\alpha \in \cbb$, there exists a unique $\beta \in \cbb$ such that $\alpha + \beta = 0$.
 \end{exercise}
 
 \begin{sol}
-    Let $\alpha = a + bi$ for some $a, b \in \r$.
+    Let $\alpha = a + bi$ for some $a, b \in \rbb$.
 	We want to find $\beta = c + di$ such that $\alpha + \beta = 0$.
 	This gives
     \[(a + bi) + (c + di) = (a + c) + (b + d)i = 0 + 0i.\]
     Solving for $c$ and $d$, we get $c = -a$ and $d = -b$.
 	Hence, $\beta = c + di = -a - bi = -\alpha$.
 
-    To see that $\beta$ is unique, suppose there is another $\gamma \in \c$ such that $\alpha + \gamma = 0$.
+    To see that $\beta$ is unique, suppose there is another $\gamma \in \cbb$ such that $\alpha + \gamma = 0$.
 	Then
     \[\beta = \beta + 0 = \beta + (\alpha + \gamma) = (\beta + \alpha) + \gamma = 0 + \gamma = \gamma.\]
     Hence, $\beta$ is unique.
 \end{sol}
 
 \begin{exercise}[1a6]
-    Show that for every $\alpha \in \c$ with $\alpha \neq 0$, there exists a unique $\beta \in \c$ such that $\alpha\beta = 1$.
+    Show that for every $\alpha \in \cbb$ with $\alpha \neq 0$, there exists a unique $\beta \in \cbb$ such that $\alpha\beta = 1$.
 \end{exercise}
 
 \begin{sol}
-    Let $\alpha = a + bi$ for some $a, b \in \r$ with $\alpha \neq 0$.
+    Let $\alpha = a + bi$ for some $a, b \in \rbb$ with $\alpha \neq 0$.
 	Then at least one of $a$ or $b$ is nonzero.
 	We want to find $\beta = c + di$ such that $\alpha\beta = 1$.
 	If $a = 0$, then $b \neq 0$, and $\beta = 1/(bi) = -i/b$.
@@ -113,7 +113,7 @@
     \[abd + b^2\frac{a}{a^2 + b^2} = 0 \implies d = \frac{-b}{a^2 + b^2}.\]
     Hence,
     \[\beta = c + di = \frac{a}{a^2 + b^2} + \frac{-b}{a^2 + b^2}i.\]
-    If $\gamma \in \c$ is another complex number such that $\alpha\gamma = 1$, then
+    If $\gamma \in \cbb$ is another complex number such that $\alpha\gamma = 1$, then
     \[\gamma = \gamma 1 = \gamma (\alpha\beta) = (\gamma\alpha) \beta = 1\beta = \beta.\]
     Hence, $\beta$ is unique.
 \end{sol}
@@ -143,7 +143,7 @@
 \end{exercise}
 
 \begin{sol}
-    Let $z = a + bi$ for some $a, b \in \r$.
+    Let $z = a + bi$ for some $a, b \in \rbb$.
 	We want to find $z$ such that $z^2 = i$.
 	This gives
     \[(a + bi)^2 = a^2 - b^2 + 2abi = 0 + 1i.\]
@@ -155,18 +155,18 @@
     The first equation yields $a = b$ or $a = -b$.
 	If $a = b$, then the second equation gives
     \[2b^2 = 1 \implies b = \pm\frac{1}{\sqrt{2}} \implies a = \pm\frac{1}{\sqrt{2}}.\]
-    If $a = -b$, this results in $-2b^2 = 1$ which has no solution when $b \in \r$.
+    If $a = -b$, this results in $-2b^2 = 1$ which has no solution when $b \in \rbb$.
 	Hence, the two distinct square roots of $i$ are
     \[\frac{1}{\sqrt{2}} + \frac{1}{\sqrt{2}}i \quad \text{and} \quad -\frac{1}{\sqrt{2}} - \frac{1}{\sqrt{2}}i. \qh\]
 \end{sol}
 
 \begin{exercise}[1a9]
-    Find $x \in \r^4$ such that
+    Find $x \in \rbb^4$ such that
     \[(4, -3, 1, 7) + 2x = (5, 9, -6, 8).\]
 \end{exercise}
 
 \begin{sol}
-    Let $x = (x_1, x_2, x_3, x_4) \in \r^4$.
+    Let $x = (x_1, x_2, x_3, x_4) \in \rbb^4$.
 	The equation becomes
     \[(4, -3, 1, 7) + 2(x_1, x_2, x_3, x_4) = (5, 9, -6, 8),\]
     which simplifies to the system of equations
@@ -187,12 +187,12 @@
 \end{sol}
 
 \begin{exercise}[1a10]
-    Explain why there does not exist $\lambda \in \c$ such that
+    Explain why there does not exist $\lambda \in \cbb$ such that
     \[\lambda(2 - 3i, 5 + 4i, -6 + 7i) = (12 - 5i, 7 + 22i, -32 - 9i).\]
 \end{exercise}
 
 \begin{sol}
-    Suppose there exists $\lambda \in \c$ such that
+    Suppose there exists $\lambda \in \cbb$ such that
     \[\lambda(2 - 3i, 5 + 4i, -6 + 7i) = (12 - 5i, 7 + 22i, -32 - 9i).\]
     This gives the system of equations
     \[\begin{cases}
@@ -208,7 +208,7 @@
 \end{sol}
 
 \begin{exercise}[1a11]
-    Show that $(x + y) + z = x + (y + z)$ for all $x, y, z \in \f^n$.
+    Show that $(x + y) + z = x + (y + z)$ for all $x, y, z \in \fbb^n$.
 \end{exercise}
 
 \begin{sol}
@@ -225,11 +225,11 @@
 \end{sol}
 
 \begin{exercise}[1a12]
-    Show that $(ab)x = a(bx)$ for all $a, b \in \f$ and $x \in \f^n$.
+    Show that $(ab)x = a(bx)$ for all $a, b \in \fbb$ and $x \in \fbb^n$.
 \end{exercise}
 
 \begin{sol}
-    Let $x = (x_1, x_2, \ldots, x_n) \in \f^n$ and $a, b \in \f$.
+    Let $x = (x_1, x_2, \ldots, x_n) \in \fbb^n$ and $a, b \in \fbb$.
 	Then
     \begin{align*}
         (ab)x & = (ab)(x_1, x_2, \ldots, x_n) \\
@@ -241,12 +241,12 @@
 \end{sol}
 
 \begin{exercise}[1a13]
-    Show that $1x = x$ for all $x \in \f^n$.
+    Show that $1x = x$ for all $x \in \fbb^n$.
 
 \end{exercise}
 
 \begin{sol}
-    Let $x = (x_1, x_2, \ldots, x_n) \in \f^n$.
+    Let $x = (x_1, x_2, \ldots, x_n) \in \fbb^n$.
 	Then
     \begin{align*}
         1x & = 1(x_1, x_2, \ldots, x_n) \\
@@ -257,11 +257,11 @@
 \end{sol}
 
 \begin{exercise}[1a14]
-    Show that $\lambda(x + y) = \lambda x + \lambda y$ for all $\lambda \in \f$ and $x, y \in \f^n$.
+    Show that $\lambda(x + y) = \lambda x + \lambda y$ for all $\lambda \in \fbb$ and $x, y \in \fbb^n$.
 \end{exercise}
 
 \begin{sol}
-    Let $x = (x_1, x_2, \ldots, x_n)$ and $y = (y_1, y_2, \ldots, y_n)$ be elements of $\f^n$ and $\lambda \in \f$.
+    Let $x = (x_1, x_2, \ldots, x_n)$ and $y = (y_1, y_2, \ldots, y_n)$ be elements of $\fbb^n$ and $\lambda \in \fbb$.
 	Then
     \begin{align*}
         \lambda(x + y) & = \lambda((x_1, x_2, \ldots, x_n) + (y_1, y_2, \ldots, y_n)) \\
@@ -274,11 +274,11 @@
 \end{sol}
 
 \begin{exercise}[1a15]
-    Show that $(a + b)x = ax + bx$ for all $a, b \in \f$ and $x \in \f^n$.
+    Show that $(a + b)x = ax + bx$ for all $a, b \in \fbb$ and $x \in \fbb^n$.
 \end{exercise}
 
 \begin{sol}
-    Let $x = (x_1, x_2, \ldots, x_n) \in \f^n$ and $a, b \in \f$.
+    Let $x = (x_1, x_2, \ldots, x_n) \in \fbb^n$ and $a, b \in \fbb$.
 	Then
     \begin{align*}
         (a + b)x & = (a + b)(x_1, x_2, \ldots, x_n) \\

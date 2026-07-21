@@ -58,7 +58,7 @@
 \end{sol}
 
 \begin{exercise}[5a5]
-    Suppose $T \in \lin{\r^2}$ is defined by $T(x, y) = (-3y, x)$.
+    Suppose $T \in \lin{\rbb^2}$ is defined by $T(x, y) = (-3y, x)$.
 	Find the eigenvalues of $T$.
 \end{exercise}
 
@@ -75,7 +75,7 @@
 \end{sol}
 
 \begin{exercise}[5a6]
-    Define $T \in \lin{\f^2}$ by $T(w, z) = (z, w)$.
+    Define $T \in \lin{\fbb^2}$ by $T(w, z) = (z, w)$.
 	Find all eigenvalues and eigenvectors of $T$.
 \end{exercise}
 
@@ -97,7 +97,7 @@
 \end{sol}
 
 \begin{exercise}[5a7]
-    Define $T \in \lin{\f^3}$ by $T(z_1, z_2, z_3) = (2z_2, 0, 5z_3)$.
+    Define $T \in \lin{\fbb^3}$ by $T(z_1, z_2, z_3) = (2z_2, 0, 5z_3)$.
 	Find all eigenvalues and eigenvectors of $T$.
 \end{exercise}
 
@@ -134,12 +134,12 @@
 \end{sol}
 
 \begin{exercise}[5a9]
-    Define $T: \pp(\r) \to \pp(\r)$ by $Tp = p'$.
+    Define $T: \pcal(\rbb) \to \pcal(\rbb)$ by $Tp = p'$.
 	Find all eigenvalues and eigenvectors of $T$.
 \end{exercise}
 
 \begin{sol}
-    Let $p \in \pp(\r)$ such that $p' = \lambda p$ for some $\lambda \in \r$.
+    Let $p \in \pcal(\rbb)$ such that $p' = \lambda p$ for some $\lambda \in \rbb$.
     \begin{itemize}
         \item If $\lambda \neq 0$, then $\deg p' = \deg p$, which is a contradiction since $\deg p' = \deg p - 1$.
 	Therefore, there are no eigenvectors corresponding to nonzero eigenvalues.
@@ -149,32 +149,34 @@
 \end{sol}
 
 \begin{exercise}[5a10]
-    Define $T \in \lin{\pp_4(\r)}$ by $(Tp)(x) = xp'(x)$ for all $x \in \r$.
+    Define $T \in \lin{\pcal_4(\rbb)}$ by $(Tp)(x) = xp'(x)$ for all $x \in \rbb$.
 	Find all eigenvalues and eigenvectors of $T$.
 \end{exercise}
 
 \begin{sol}
     Let $p(x) = a_0 + a_1x + a_2x^2 + a_3x^3 + a_4x^4$ be an eigenvector of $T$ with eigenvalue $\lambda$.
-	Then
+    Then
     \[(Tp)(x) = xp'(x) = x(a_1 + 2a_2x + 3a_3x^2 + 4a_4x^3) = a_1x + 2a_2x^2 + 3a_3x^3 + 4a_4x^4.\]
-    Equating coefficients with $\lambda p(x) = \lambda a_0 + \lambda a_1x + \lambda a_2x^2 + \lambda a_3x^3 + \lambda a_4x^4$, we get that $T(x^n) = nx^n$ for $n = 0, 1, 2, 3, 4$.
-	Therefore, the eigenvalues of $T$ are $\lambda = 0, 1, 2, 3, 4$.
-	Since $\dim \pp_4(\r) = 5$, and we have found 5 distinct eigenvalues, the corresponding eigenvectors are the nonzero scalar multiples of $1, x, x^2, x^3, x^4$.
+    Equating coefficients with $\lambda p(x) = \lambda a_0 + \lambda a_1x + \lambda a_2x^2 + \lambda a_3x^3 + \lambda a_4x^4$ yields the system:
+    \[\lambda a_0 = 0, \quad \lambda a_1 = a_1, \quad \lambda a_2 = 2a_2, \quad \lambda a_3 = 3a_3, \quad \lambda a_4 = 4a_4.\]
+    For each $n \in \set{0, 1, 2, 3, 4}$, the equation $\lambda a_n = n a_n$ is satisfied with $a_n \neq 0$ if and only if $\lambda = n$.
+    When $\lambda = n$, all other coefficients must be zero, so the eigenvector is a nonzero scalar multiple of $x^n$.
+    Therefore, the eigenvalues of $T$ are $0, 1, 2, 3, 4$, with corresponding eigenvectors being nonzero scalar multiples of $1, x, x^2, x^3, x^4$, respectively.
 \end{sol}
 
 \begin{exercise}[5a11]
-    Suppose $V$ is finite-dimensional, $T \in \lin{V}$, and $\alpha \in \f$.
-	Prove that there exists $\delta > 0$ such that $T - \lambda I$ is invertible for all $\lambda \in \f$ such that $0 < |\alpha - \lambda| < \delta$.
+    Suppose $V$ is finite-dimensional, $T \in \lin{V}$, and $\alpha \in \fbb$.
+	Prove that there exists $\delta > 0$ such that $T - \lambda I$ is invertible for all $\lambda \in \fbb$ such that $0 < |\alpha - \lambda| < \delta$.
 \end{exercise}
 
 \begin{sol}
     Since $V$ is finite-dimensional, the set of eigenvalues of $T$ is finite.
-	If $T$ has no eigenvalues, then $T - \lambda I$ is invertible for all $\lambda \in \f$, and we can choose any $\delta > 0$.
+	If $T$ has no eigenvalues, then $T - \lambda I$ is invertible for all $\lambda \in \fbb$, and we can choose any $\delta > 0$.
 	Otherwise, let $\lambda_1, \ldots, \lambda_m$ be the eigenvalues of $T$.
 	Define
     \[\delta = \min_{\lambda_j \neq \alpha} |\alpha - \lambda_j|.\]
     If $\alpha$ is the only eigenvalue, then we can select any $\delta > 0$ since any $\lambda$ satisfying $0 < |\alpha - \lambda| < \delta$ will not be equal to $\alpha$, and hence $T - \lambda I$ will be invertible.
-	Otherwise, we have for any $\lambda \in \f$ such that $0 < |\alpha - \lambda| < \delta$, we have $\lambda \neq \lambda_j$ for all $j = 1, \ldots, m$, so $\lambda$ is not an eigenvalue of $T$.
+	Otherwise, we have for any $\lambda \in \fbb$ such that $0 < |\alpha - \lambda| < \delta$, we have $\lambda \neq \lambda_j$ for all $j = 1, \ldots, m$, so $\lambda$ is not an eigenvalue of $T$.
 	Hence, $T - \lambda I$ is invertible for all such $\lambda$.
 \end{sol}
 
@@ -216,11 +218,11 @@
 \end{sole}
 
 \begin{exercise}[5a14]
-    Give an example of an operator on $\r^4$ that has no (real) eigenvalues.
+    Give an example of an operator on $\rbb^4$ that has no (real) eigenvalues.
 \end{exercise}
 
 \begin{sol}
-    Consider the linear operator on $\r^4$ given by the matrix
+    Consider the linear operator on $\rbb^4$ given by the matrix
     \[T = 
     \begin{pmatrix}
         0 & -1 & 0 & 0 \\
@@ -229,15 +231,15 @@
         0 & 0 & 1 & 0
     \end{pmatrix}.
     \]
-    Letting $T$ act on $(x_1, x_2, x_3, x_4) \in \r^4$, we have
+    Letting $T$ act on $(x_1, x_2, x_3, x_4) \in \rbb^4$, we have
     \[T(x_1, x_2, x_3, x_4) = (-x_2, x_1, -x_4, x_3).\]
-    Then any eigenvector $(x_1, x_2, x_3, x_4) \in \r^4$ with eigenvalue $\lambda$ must satisfy
+    Then any eigenvector $(x_1, x_2, x_3, x_4) \in \rbb^4$ with eigenvalue $\lambda$ must satisfy
     \[(-x_2, x_1, -x_4, x_3) = \lambda (x_1, x_2, x_3, x_4).\]
-    This yields $\lambda^2 + 1 = 0$, which has no solution in $\r$.
+    This yields $\lambda^2 + 1 = 0$, which has no solution in $\rbb$.
 \end{sol}
 
 \begin{exercise}[5a15]
-    Suppose $V$ is finite-dimensional, $T \in \lin{V}$, and $\lambda \in \f$.
+    Suppose $V$ is finite-dimensional, $T \in \lin{V}$, and $\lambda \in \fbb$.
 	Show that $\lambda$ is an eigenvalue of $T$ if and only if $\lambda$ is an eigenvalue of the dual operator $T' \in \lin{V'}$.
 \end{exercise}
 
@@ -253,82 +255,82 @@
 \begin{exercise}[5a16]
     Suppose $v_1, \ldots, v_n$ is a basis of $V$ and $T \in \lin{V}$.
 	Prove that if $\lambda$ is an eigenvalue of $T$, then
-    \[|\lambda| \leq n \max\{|\mm(T)_{j, k}| : 1 \leq j, k \leq n\},\]
-    where $\mm(T)_{j, k}$ denotes the entry in row $j$, column $k$ of the matrix of $T$ with respect to the basis $v_1, \ldots, v_n$.
+    \[|\lambda| \leq n \max\{|\mcal(T)_{j, k}| : 1 \leq j, k \leq n\},\]
+    where $\mcal(T)_{j, k}$ denotes the entry in row $j$, column $k$ of the matrix of $T$ with respect to the basis $v_1, \ldots, v_n$.
     
-    \note{See \autoref{ex:6a19} for a different bound on $|\lambda|$.}
+    \note{See \exref{6a19} for a different bound on $|\lambda|$.}
 \end{exercise}
 
 \begin{sol}
     Let $\lambda$ be an eigenvalue of $T$ with eigenvector $u \in V$, so $Tu = \lambda u$.
-	Let $\mm(T)$ be the matrix of $T$ with respect to the basis $v_1, \ldots, v_n$.
+	Let $\mcal(T)$ be the matrix of $T$ with respect to the basis $v_1, \ldots, v_n$.
 	Then
-    \[\lambda u_j = (\mm(T)u)_j = \sum_{k=1}^n \mm(T)_{j, k} u_k \quad \text{for each } j = 1, \ldots, n.\]
+    \[\lambda u_j = (\mcal(T)u)_j = \sum_{k=1}^n \mcal(T)_{j, k} u_k \quad \text{for each } j = 1, \ldots, n.\]
     Taking absolute values, we get
-    \[|\lambda||u_j| = \left|\sum_{k=1}^n \mm(T)_{j, k} u_k\right| \leq \sum_{k=1}^n |\mm(T)_{j, k}| |u_k| \leq n \max\{|\mm(T)_{j, k}| : 1 \leq j, k \leq n\} \max\{|u_k| : 1 \leq k \leq n\}.\]
+    \[|\lambda||u_j| = \left|\sum_{k=1}^n \mcal(T)_{j, k} u_k\right| \leq \sum_{k=1}^n |\mcal(T)_{j, k}| |u_k| \leq n \max\{|\mcal(T)_{j, k}| : 1 \leq j, k \leq n\} \max\{|u_k| : 1 \leq k \leq n\}.\]
     Choosing $j$ such that $|u_j| = \max\{|u_k| : 1 \leq k \leq n\}$, we obtain
-    \[|\lambda| \leq n \max\{|\mm(T)_{j, k}| : 1 \leq j, k \leq n\}. \qh\]
+    \[|\lambda| \leq n \max\{|\mcal(T)_{j, k}| : 1 \leq j, k \leq n\}. \qh\]
 \end{sol}
 
 \begin{exercise}[5a17]
-    Suppose $\f = \r$, $T \in \lin{V}$, and $\lambda \in \r$.
-	Prove that $\lambda$ is an eigenvalue of $T$ if and only if $\lambda$ is an eigenvalue of the complexification $T_\c$.
+    Suppose $\fbb = \rbb$, $T \in \lin{V}$, and $\lambda \in \rbb$.
+	Prove that $\lambda$ is an eigenvalue of $T$ if and only if $\lambda$ is an eigenvalue of the complexification $T_\cbb$.
     
-    \note{See \emph{\autoref{ex:3b33}} for the definition of $T_\c$.}
+    \note{See \emph{\exref{3b33}} for the definition of $T_\cbb$.}
 \end{exercise}
 
 \begin{sol}
     Suppose $\lambda$ is an eigenvalue of $T$ with eigenvector $v \in V$, so $Tv = \lambda v$.
-	Then in the complexification, we have $T_\c(v + i0) = Tv + iT0 = \lambda v + i0 = \lambda (v + i0)$, showing that $\lambda$ is an eigenvalue of $T_\c$ with eigenvector $v + i0$.
+	Then in the complexification, we have $T_\cbb(v + i0) = Tv + iT0 = \lambda v + i0 = \lambda (v + i0)$, showing that $\lambda$ is an eigenvalue of $T_\cbb$ with eigenvector $v + i0$.
 
-    Conversely, suppose $\lambda$ is an eigenvalue of $T_\c$ with eigenvector $v + iw \in V_\c$, where $v, w \in V$.
+    Conversely, suppose $\lambda$ is an eigenvalue of $T_\cbb$ with eigenvector $v + iw \in V_\cbb$, where $v, w \in V$.
 	Then
-    \[T_\c(v + iw) = Tv + iTw = \lambda (v + iw) = \lambda v + i\lambda w.\]
+    \[T_\cbb(v + iw) = Tv + iTw = \lambda (v + iw) = \lambda v + i\lambda w.\]
     Equating real and imaginary parts, we get
     \[Tv = \lambda v \quad \text{and} \quad Tw = \lambda w.\]
-    Since $\lambda \in \r$, if $v \neq 0$, then $v$ is an eigenvector of $T$ corresponding to $\lambda$.
+    Since $\lambda \in \rbb$, if $v \neq 0$, then $v$ is an eigenvector of $T$ corresponding to $\lambda$.
 	If $v = 0$, then $w \neq 0$ and $Tw = \lambda w$, so $w$ is an eigenvector of $T$ corresponding to $\lambda$.
 	This shows that $\lambda$ is an eigenvalue of $T$.
 \end{sol}
 
 \begin{exercise}[5a18]
-    Suppose $\f = \r$, $T \in \lin{V}$, and $\lambda \in \c$.
-	Prove that $\lambda$ is an eigenvalue of the complexification $T_\c$ if and only if $\bar{\lambda}$ is an eigenvalue of $T_\c$.
+    Suppose $\fbb = \rbb$, $T \in \lin{V}$, and $\lambda \in \cbb$.
+	Prove that $\lambda$ is an eigenvalue of the complexification $T_\cbb$ if and only if $\bar{\lambda}$ is an eigenvalue of $T_\cbb$.
 \end{exercise}
 
 \begin{sol}
-    Suppose $\lambda$ is an eigenvalue of $T_\c$ with eigenvector $v + iw \in V_\c$, where $v, w \in V$.
+    Suppose $\lambda$ is an eigenvalue of $T_\cbb$ with eigenvector $v + iw \in V_\cbb$, where $v, w \in V$.
 	Then
-    \[T_\c(v + iw) = Tv + iTw = \lambda (v + iw) = \lambda v + i\lambda w.\]
+    \[T_\cbb(v + iw) = Tv + iTw = \lambda (v + iw) = \lambda v + i\lambda w.\]
     Moreover, we have
-    \[T_\c(v - iw) = Tv - iTw.\]
+    \[T_\cbb(v - iw) = Tv - iTw.\]
     Note that $v + iw = 0$ if and only if both $v = w = 0$.
 	Then $v + iw \neq 0$ implies $v -i w \neq 0$.
-	Let $\lambda = a + bi$ with $a, b \in \r$.
+	Let $\lambda = a + bi$ with $a, b \in \rbb$.
 	Then equating real and imaginary parts, we have
     \[Tv = av - bw \quad \text{and} \quad Tw = bv + aw.\]
     Then
     \begin{align*}
-        T_\c(v - iw) &= Tv - iTw \\
+        T_\cbb(v - iw) &= Tv - iTw \\
         &= (av - bw) - i(bv + aw) \\
         &= av - ibv - bw - iaw \\
         &= (a - ib)(v - iw) \\
         &= \bar{\lambda} (v - iw).
     \end{align*}
-    Since $v - iw \neq 0$, this shows that $\bar{\lambda}$ is an eigenvalue of $T_\c$ with eigenvector $v - iw$.
+    Since $v - iw \neq 0$, this shows that $\bar{\lambda}$ is an eigenvalue of $T_\cbb$ with eigenvector $v - iw$.
 
-    Conversely, if $\bar{\lambda}$ is an eigenvalue of $T_\c$, then by the same argument, $\lambda$ is an eigenvalue of $T_\c$.
+    Conversely, if $\bar{\lambda}$ is an eigenvalue of $T_\cbb$, then by the same argument, $\lambda$ is an eigenvalue of $T_\cbb$.
 	This completes the proof.
 \end{sol}
 
 \begin{exercise}[5a19]
-    Show that the forward shift operator $T \in \lin{\f^\infty}$ defined by
+    Show that the forward shift operator $T \in \lin{\fbb^\infty}$ defined by
     \[T(z_1, z_2, \ldots) = (0, z_1, z_2, \ldots)\]
     has no eigenvalues.
 \end{exercise}
 
 \begin{sol}
-    Suppose $\lambda \in \f$ is an eigenvalue of $T$ with eigenvector $(z_1, z_2, \ldots) \in \f^\infty$.
+    Suppose $\lambda \in \fbb$ is an eigenvalue of $T$ with eigenvector $(z_1, z_2, \ldots) \in \fbb^\infty$.
 	Then
     \[T(z_1, z_2, \ldots) = (0, z_1, z_2, \ldots) = \lambda (z_1, z_2, \ldots).\]
     Equating the first component, we get $0 = \lambda z_1$, so either $\lambda = 0$ or $z_1 = 0$.
@@ -340,22 +342,22 @@
 \end{sol}
 
 \begin{exercise}[5a20]
-    Define the backward shift operator $S \in \lin{\f^\infty}$ by
+    Define the backward shift operator $S \in \lin{\fbb^\infty}$ by
     \[S(z_1, z_2, z_3, \ldots) = (z_2, z_3, \ldots).\]
     \begin{subexercises}
-        \item Show that every element of $\f$ is an eigenvalue of $S$.
+        \item Show that every element of $\fbb$ is an eigenvalue of $S$.
         \item Find all eigenvectors of $S$.
     \end{subexercises}
 \end{exercise}
 
 \begin{sole}
-    \item Let $\alpha \in \f$.
-	Consider the vector $(1, \alpha, \alpha^2, \ldots) \in \f^\infty$.
+    \item Let $\alpha \in \fbb$.
+	Consider the vector $(1, \alpha, \alpha^2, \ldots) \in \fbb^\infty$.
 	Then
     \[S(1, \alpha, \alpha^2, \ldots) = (\alpha, \alpha^2, \alpha^3, \ldots) = \alpha (1, \alpha, \alpha^2, \ldots),\]
     showing that $\alpha$ is an eigenvalue of $S$ with eigenvector $(1, \alpha, \alpha^2, \ldots)$.
-	Since $\alpha \in \f$ was arbitrary, every element of $\f$ is an eigenvalue of $S$.
-    \item Let $\alpha \in \f$ and consider the eigenvalue $\alpha$ of $S$.
+	Since $\alpha \in \fbb$ was arbitrary, every element of $\fbb$ is an eigenvalue of $S$.
+    \item Let $\alpha \in \fbb$ and consider the eigenvalue $\alpha$ of $S$.
 	Any eigenvector corresponding to $\alpha$ must satisfy
     \[S(z_1, z_2, z_3, \ldots) = \alpha (z_1, z_2, z_3, \ldots),\]
     which gives
@@ -367,14 +369,14 @@
 \begin{exercise}[5a21]
     Suppose $T \in \lin{V}$ is invertible.
     \begin{subexercises}
-        \item Suppose $\lambda \in \f$ with $\lambda \neq 0$.
+        \item Suppose $\lambda \in \fbb$ with $\lambda \neq 0$.
 	Prove that $\lambda$ is an eigenvalue of $T$ if and only if $\frac{1}{\lambda}$ is an eigenvalue of $T\inv$.
         \item Prove that $T$ and $T\inv$ have the same eigenvectors.
     \end{subexercises}
 \end{exercise}
 
 \begin{sole}
-    \item Suppose $\lambda \in \f$ with $\lambda \neq 0$ is an eigenvalue of $T$ with eigenvector $v \in V$.
+    \item Suppose $\lambda \in \fbb$ with $\lambda \neq 0$ is an eigenvalue of $T$ with eigenvector $v \in V$.
 	Then
     \[Tv = \lambda v.\]
     Since $T$ is invertible, we can apply $T\inv$ to both sides to get
@@ -383,7 +385,7 @@
     \[T\inv v = \frac{1}{\lambda} v.\]
     This shows that $\frac{1}{\lambda}$ is an eigenvalue of $T\inv$ with the same eigenvector $v$.
     
-    Conversely, suppose $\mu \in \f$ with $\mu \neq 0$ is an eigenvalue of $T\inv$ with eigenvector $v \in V$.
+    Conversely, suppose $\mu \in \fbb$ with $\mu \neq 0$ is an eigenvalue of $T\inv$ with eigenvector $v \in V$.
 	Then
     \[T\inv v = \mu v.\]
     Applying $T$ to both sides gives
@@ -433,8 +435,8 @@
 \end{sol}
 
 \begin{exercise}[5a24]
-    Suppose $A$ is an $n$-by-$n$ matrix with entries in $\f$.
-	Define $T \in \lin{\f^n}$ by $Tx = Ax$, where elements of $\f^n$ are thought of as $n$-by-$1$ column vectors.
+    Suppose $A$ is an $n$-by-$n$ matrix with entries in $\fbb$.
+	Define $T \in \lin{\fbb^n}$ by $Tx = Ax$, where elements of $\fbb^n$ are thought of as $n$-by-$1$ column vectors.
     \begin{subexercises}
         \item Suppose the sum of the entries in each row of $A$ equals $1$.
 	Prove that $1$ is an eigenvalue of $T$.
@@ -445,7 +447,7 @@
 
 \begin{sole}
     \item Suppose the sum of the entries in each row of $A$ equals $1$.
-	Let $v = (1, 1, \ldots, 1)^t \in \f^n$.
+	Let $v = (1, 1, \ldots, 1)^t \in \fbb^n$.
 	Then
     \[Tv = Av = v,\]
     showing that $v$ is an eigenvector of $T$ corresponding to the eigenvalue $1$.
@@ -461,12 +463,12 @@
 \end{exercise}
 
 \begin{sol}
-    Let $Tu = \lambda u$ and $Tw = \mu w$ for some scalars $\lambda, \mu \in \f$.
-	Since $u + w$ is also an eigenvector of $T$, we have $T(u + w) = \nu (u + w)$ for some scalar $\nu \in \f$.
+    Let $Tu = \lambda u$ and $Tw = \mu w$ for some scalars $\lambda, \mu \in \fbb$.
+	Since $u + w$ is also an eigenvector of $T$, we have $T(u + w) = \nu (u + w)$ for some scalar $\nu \in \fbb$.
 	Then
     \[\lambda u + \mu w = Tu + Tw = T(u + w) = \nu (u + w) = \nu u + \nu w.\]
     Since $u$ and $w$ are eigenvectors, they are nonzero.
-	If $u$ and $w$ were linearly dependent, let $u = \alpha w$ for some scalar $\alpha \in \f$.
+	If $u$ and $w$ were linearly dependent, let $u = \alpha w$ for some scalar $\alpha \in \fbb$.
 	Then $Tu = \lambda u = \lambda \alpha w$, and $Tu = T(\alpha w) = \alpha Tw = \alpha \mu w$.
 	Equating these, we get $\lambda \alpha w = \alpha \mu w$, and since $\alpha \neq 0$ and $w \neq 0$, it follows that $\lambda = \mu$.
 	Hence, $u$ and $w$ correspond to the same eigenvalue.
@@ -482,20 +484,20 @@
 
 \begin{sol}
     Let $v \in V$ be any nonzero vector.
-	By assumption, $v$ is an eigenvector of $T$, so $Tv = \lambda_v v$ for some scalar $\lambda_v \in \f$.
+	By assumption, $v$ is an eigenvector of $T$, so $Tv = \lambda_v v$ for some scalar $\lambda_v \in \fbb$.
 	Now, let $u \in V$ be another nonzero vector.
 	Consider the vector $u + v$.
-	If $u$ and $v$ are linearly dependent, then without loss of generality, let $u = \alpha v$ for some scalar $\alpha \in \f$.
+	If $u$ and $v$ are linearly dependent, then without loss of generality, let $u = \alpha v$ for some scalar $\alpha \in \fbb$.
 	Then $Tu = \lambda_u u = \lambda_u \alpha v$, and $Tu = T(\alpha v) = \alpha Tv = \alpha \lambda_v v$.
 	Equating these, we get $\lambda_u \alpha v = \alpha \lambda_v v$, and since $\alpha \neq 0$ and $v \neq 0$, it follows that $\lambda_u = \lambda_v$.
 
     The remaining case is when $u + v$ is nonzero such that they are linearly independent.
-	In this case, $u + v$ is an eigenvector of $T$, so $T(u + v) = \lambda_{u+v} (u + v)$ for some scalar $\lambda_{u+v} \in \f$.
+	In this case, $u + v$ is an eigenvector of $T$, so $T(u + v) = \lambda_{u+v} (u + v)$ for some scalar $\lambda_{u+v} \in \fbb$.
 	On the other hand, $T(u + v) = Tu + Tv = \lambda_u u + \lambda_v v$.
 	Equating these, we get $\lambda_{u+v} u + \lambda_{u+v} v = \lambda_u u + \lambda_v v$.
 	Since $u$ and $v$ are linearly independent, we can equate coefficients to get $\lambda_{u+v} = \lambda_u = \lambda_v$.
     
-    Since $u$ and $v$ were arbitrary nonzero vectors, it follows that there exists a scalar $\lambda \in \f$ such that $Tv = \lambda v$ for all nonzero $v \in V$.
+    Since $u$ and $v$ were arbitrary nonzero vectors, it follows that there exists a scalar $\lambda \in \fbb$ such that $Tv = \lambda v$ for all nonzero $v \in V$.
 	Hence, $T = \lambda I$.
 \end{sol}
 
@@ -536,15 +538,15 @@
 \end{sol}
 
 \begin{exercise}[5a29]
-    Suppose $T \in \lin{\r^3}$ and $-4, 5$, and $\sqrt{7}$ are eigenvalues of $T$.
-	Prove that there exists $x \in \r^3$ such that $Tx - 9x = (-4, 5, \sqrt{7})$.
+    Suppose $T \in \lin{\rbb^3}$ and $-4, 5$, and $\sqrt{7}$ are eigenvalues of $T$.
+	Prove that there exists $x \in \rbb^3$ such that $Tx - 9x = (-4, 5, \sqrt{7})$.
 \end{exercise}
 
 \begin{sol}
-    Since $\dim \r^3 = 3$, the eigenvalues of $T$ are exactly $-4, 5$, and $\sqrt 7$.
+    Since $\dim \rbb^3 = 3$, the eigenvalues of $T$ are exactly $-4, 5$, and $\sqrt 7$.
 	It follows that 9 is not an eigenvalue of $T$, and $\nul(T - 9I) = \set 0$.
-	Then $T - 9I$ is injective, and since $\r^3$ is finite-dimensional, $T - 9I$ is also surjective.
-	Therefore, for any vector in $\r^3$, there exists $x \in \r^3$ such that $(T - 9I)x = (-4, 5, \sqrt{7})$.
+	Then $T - 9I$ is injective, and since $\rbb^3$ is finite-dimensional, $T - 9I$ is also surjective.
+	Therefore, for any vector in $\rbb^3$, there exists $x \in \rbb^3$ such that $(T - 9I)x = (-4, 5, \sqrt{7})$.
 \end{sol}
 
 \begin{exercise}[5a30]
@@ -562,7 +564,7 @@
 \end{sol}
 
 \begin{exercise}[5a31]
-    Give an example of $T \in \lin{\r^2}$ such that $T^4 = -I$.
+    Give an example of $T \in \lin{\rbb^2}$ such that $T^4 = -I$.
 \end{exercise}
 
 \begin{sol}
@@ -659,7 +661,7 @@
 
 \begin{exercise}[5a35]
     Suppose that $\lambda_1, \ldots, \lambda_n$ is a list of distinct real numbers.
-	Prove that the list $e^{\lambda_1 x}, \ldots, e^{\lambda_n x}$ is linearly independent in the vector space of real-valued functions on $\r$.
+	Prove that the list $e^{\lambda_1 x}, \ldots, e^{\lambda_n x}$ is linearly independent in the vector space of real-valued functions on $\rbb$.
     
     \hint{Let $V = \spn(e^{\lambda_1 x}, \ldots, e^{\lambda_n x})$, and define an operator $D \in \lin{V}$ by $Df = f'$.
 	Find eigenvalues and eigenvectors of $D$.}
@@ -668,7 +670,7 @@
 \begin{sol}
     Suppose there exists a linear combination
     \[a_1 e^{\lambda_1 x} + \cdots + a_n e^{\lambda_n x} = 0\]
-    for all $x \in \r$.
+    for all $x \in \rbb$.
 	Let $V = \spn(e^{\lambda_1 x}, \ldots, e^{\lambda_n x})$ and define $D \in \lin{V}$ by $Df = f'$.
 	Then $De^{\lambda_i x} = \lambda_i e^{\lambda_i x}$, so $e^{\lambda_i x}$ is an eigenvector of $D$ corresponding to the eigenvalue $\lambda_i$.
 	Since the $\lambda_i$ are distinct, by 5.11, the eigenvectors corresponding to distinct eigenvalues are linearly independent.
@@ -677,13 +679,13 @@
 
 \begin{exercise}[5a36]
     Suppose that $\lambda_1, \ldots, \lambda_n$ is a list of distinct positive numbers.
-	Prove that the list $\cos(\lambda_1 x), \ldots, \\ \cos(\lambda_n x)$ is linearly independent in the vector space of real-valued functions on $\r$.
+	Prove that the list $\cos(\lambda_1 x), \ldots, \\ \cos(\lambda_n x)$ is linearly independent in the vector space of real-valued functions on $\rbb$.
 \end{exercise}
 
 \begin{sol}
     Suppose there exists a linear combination
     \[a_1 \cos(\lambda_1 x) + \cdots + a_n \cos(\lambda_n x) = 0\]
-    for all $x \in \r$.
+    for all $x \in \rbb$.
 	Let $V = \spn(\cos(\lambda_1 x), \sin(\lambda_1 x), \ldots, \cos(\lambda_n x), \sin(\lambda_n x))$ and define $D \in \lin{V}$ by $Df = f'$.
 	Then $D^2 \cos(\lambda_i x) = -\lambda_i^2 \cos(\lambda_i x)$, so $\cos(\lambda_i x)$ is an eigenvector of $D^2$ corresponding to the eigenvalue $-\lambda_i^2$.
 	Since the $\lambda_i$ are distinct and positive, the $-\lambda_i^2$ are distinct, and by 5.11, the eigenvectors corresponding to distinct eigenvalues are linearly independent.
@@ -700,9 +702,9 @@
 
 \begin{sol}
     Suppose $\lambda$ is an eigenvalue of $T$ with corresponding eigenvector $v \in V$, so $Tv = \lambda v$.
-	Consider a nonzero $\varphi \in V'$ and consider $S \in \lin{V}$ defined by $Sw = \varphi(w)v$ for all $w \in V$.
+	Consider a nonzero $\phi \in V'$ and consider $S \in \lin{V}$ defined by $Sw = \phi(w)v$ for all $w \in V$.
 	Then $S \neq 0$ and for all $w \in V$,
-    \[TSw = T(\varphi(w)v) = \varphi(w)Tv = \varphi(w)\lambda v = \lambda \varphi(w)v = \lambda Sw.\]
+    \[TSw = T(\phi(w)v) = \phi(w)Tv = \phi(w)\lambda v = \lambda \phi(w)v = \lambda Sw.\]
     Hence, $\lambda$ is an eigenvalue of $\mathcal{A}$.
     
     Conversely, if $\lambda$ is an eigenvalue of $\mathcal{A}$ with corresponding eigenvector $S \in \lin{V}$, then $\mathcal{A}(S) = TS = \lambda S$.
@@ -728,7 +730,7 @@
 	Hence, the definition of $T / U$ is well-defined.
 
     To show that $T / U$ is an operator on $V / U$, note that for any $v + U \in V / U$, $(T / U)(v + U) = Tv + U \in V / U$.
-	Linearity follows from the linearity of $T$: for any $\alpha, \beta \in \f$ and $v + U, w + U \in V / U$,
+	Linearity follows from the linearity of $T$: for any $\alpha, \beta \in \fbb$ and $v + U, w + U \in V / U$,
     \begin{align*}
         (T / U)(\alpha(v + U) + \beta(w + U)) &= (T / U)(\alpha v + \beta w + U) \\
         &= T(\alpha v + \beta w) + U \\
@@ -761,13 +763,13 @@
 
     Conversely, suppose there exists a subspace $U$ of $V$ of dimension $\dim V - 1$ that is invariant under $T$.
 	Then $V / U$ is one-dimensional, and the induced operator $T / U$ on $V / U$ must have an eigenvalue $\lambda$.
-	By \autoref{ex:5a38} (b), any eigenvalue of $T / U$ is also an eigenvalue of $T$.
+	By \exref{5a38} (b), any eigenvalue of $T / U$ is also an eigenvalue of $T$.
 	Hence, $T$ has an eigenvalue.
 \end{sol}
 
 \begin{exercise}[5a40]
     Suppose $S, T \in \lin{V}$ and $S$ is invertible.
-	Suppose $p \in \pp(\f)$ is a polynomial.
+	Suppose $p \in \pcal(\fbb)$ is a polynomial.
 	Prove that
     \[p(STS\inv) = Sp(T)S\inv.\]
 \end{exercise}
@@ -799,7 +801,7 @@
 
 \begin{exercise}[5a41]
     Suppose $T \in \lin{V}$ and $U$ is a subspace of $V$ invariant under $T$.
-	Prove that $U$ is invariant under $p(T)$ for every polynomial $p \in \pp(\f)$.
+	Prove that $U$ is invariant under $p(T)$ for every polynomial $p \in \pcal(\fbb)$.
 \end{exercise}
 
 \begin{sol}
@@ -812,30 +814,30 @@
 	Then
     \[p(T)(u) = a_0 u + a_1 T(u) + \cdots + a_m T^m(u) \in U,\]
     since each term is in $U$.
-	Therefore, $U$ is invariant under $p(T)$ for every polynomial $p \in \pp(\f)$.
+	Therefore, $U$ is invariant under $p(T)$ for every polynomial $p \in \pcal(\fbb)$.
 \end{sol}
 
 \begin{exercise}[5a42]
-    Define $T \in \lin{\f^n}$ by $T(x_1, x_2, x_3, \ldots, x_n) = (x_1, 2x_2, 3x_3, \ldots, nx_n)$.
+    Define $T \in \lin{\fbb^n}$ by $T(x_1, x_2, x_3, \ldots, x_n) = (x_1, 2x_2, 3x_3, \ldots, nx_n)$.
     \begin{subexercises}
         \item Find all eigenvalues and eigenvectors of $T$.
-        \item Find all subspaces of $\f^n$ that are invariant under $T$.
+        \item Find all subspaces of $\fbb^n$ that are invariant under $T$.
     \end{subexercises}
     \apnote{5a42}{ for a generalization to any diagonal operator.
 	The solution here remains as to show the student the mechanism.}
 \end{exercise}
 
 \begin{sole}
-    \item Let $\lambda$ be an eigenvalue of $T$ with corresponding eigenvector $v = (x_1, x_2, \ldots, x_n) \in \f^n$.
+    \item Let $\lambda$ be an eigenvalue of $T$ with corresponding eigenvector $v = (x_1, x_2, \ldots, x_n) \in \fbb^n$.
 	Then $T(v) = \lambda v$, which means
     \[(x_1, 2x_2, 3x_3, \ldots, nx_n) = (\lambda x_1, \lambda x_2, \ldots, \lambda x_n).\]
     Comparing components, we get $\lambda x_i = i x_i$ for each $i = 1, 2, \ldots, n$.
 	Hence, if $x_i \neq 0$, then $\lambda = i$.
 	Therefore, the eigenvalues of $T$ are $1, 2, \ldots, n$, and the corresponding eigenvectors are nonzero multiples of the standard basis vectors $e_1, e_2, \ldots, e_n$.
-    \item Let $U$ be an invariant subspace of $\f^n$ under $T$.
+    \item Let $U$ be an invariant subspace of $\fbb^n$ under $T$.
 	Let
     \[u = \sum_{i = 1}^n \alpha_i e_i \in U,\]
-    where $e_i$ are the standard basis vectors of $\f^n$ and $\alpha_i \in \f$.
+    where $e_i$ are the standard basis vectors of $\fbb^n$ and $\alpha_i \in \fbb$.
 	Since $U$ is invariant under $T$, we have
     \[Tu = \sum_{i = 1}^n \alpha_i T(e_i) = \sum_{i = 1}^n \alpha_i i e_i \in U.\]
     Consider some index $i$ such that $\alpha_i \neq 0$.
@@ -852,7 +854,7 @@
 
 \begin{exercise}[5a43]
     Suppose that $V$ is finite-dimensional, $\dim V > 1$, and $T \in \lin{V}$.
-	Prove that $\set{p(T) \mid p \in \pp(\f)} \neq \lin{V}$.
+	Prove that $\set{p(T) \mid p \in \pcal(\fbb)} \neq \lin{V}$.
 \end{exercise}
 
 \begin{sol}
@@ -864,10 +866,10 @@
     \[T_2v_1 = v_1, \quad T_2v_i = 0~\text{for}~i = 2, \ldots, n.\]
     Then $T_2T_1v_1 = T_2(T_1v_1) = T_2v_2 = 0$, and $T_1T_2v_1 = T_1(T_2v_1) = T_1v_1 = v_2$.
 	Hence, $T_2T_1 \neq T_1T_2$, so $T_1$ and $T_2$ do not commute.
-	Now let $S$ be the set in question, and let $p, q \in \pp(\f)$ where
+	Now let $S$ be the set in question, and let $p, q \in \pcal(\fbb)$ where
     \[p(T) = a_0 I + a_1 T + \dots + a_m T^m, \quad q(T) = b_0 I + b_1 T + \dots + b_n T^n.\]
     Observe that $p(T)q(T)$ consists of linear combinations of powers of $T$ with coefficients $a_i b_j$.
-	By commutativity of $\f$, we see that $q(T)p(T) = p(T)q(T)$, so elements of $S$ commute.
+	By commutativity of $\fbb$, we see that $q(T)p(T) = p(T)q(T)$, so elements of $S$ commute.
 	Since $T_1$ and $T_2$ do not commute, they cannot both be in $S$.
 	Hence, $S \neq \lin V$.
 \end{sol}

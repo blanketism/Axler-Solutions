@@ -1,113 +1,113 @@
 \subsection{Subspaces}
 
 \begin{exercise}[1c1]
-    For each of the following subsets of $\f^3$, determine whether it is a subspace of $\f^3$.
+    For each of the following subsets of $\fbb^3$, determine whether it is a subspace of $\fbb^3$.
     \begin{subexercises}
-        \item $\set{(x_1, x_2, x_3) \in \f^3 \mid x_1 + 2x_2 + 3x_3 = 0}$
-        \item $\set{(x_1, x_2, x_3) \in \f^3 \mid x_1 + 2x_2 + 3x_3 = 4}$
-        \item $\set{(x_1, x_2, x_3) \in \f^3 \mid x_1x_2x_3 = 0}$
-        \item $\set{(x_1, x_2, x_3) \in \f^3 \mid x_1 = 5x_3}$
+        \item $\set{(x_1, x_2, x_3) \in \fbb^3 \mid x_1 + 2x_2 + 3x_3 = 0}$
+        \item $\set{(x_1, x_2, x_3) \in \fbb^3 \mid x_1 + 2x_2 + 3x_3 = 4}$
+        \item $\set{(x_1, x_2, x_3) \in \fbb^3 \mid x_1x_2x_3 = 0}$
+        \item $\set{(x_1, x_2, x_3) \in \fbb^3 \mid x_1 = 5x_3}$
     \end{subexercises}
 \end{exercise}
 
 \begin{sol}
-    Let $U$ be the subset of $\f^3$ in question.
+    Let $U$ be the subset of $\fbb^3$ in question.
     \begin{subexercises}
         \item Since the zero vector $(0, 0, 0)$ satisfies $0 + 2(0) + 3(0) = 0$, $U$ is nonempty.
 	Let $u = (u_1, u_2, u_3)$ and $v = (v_1, v_2, v_3)$ be elements of $U$.
 	Then
         \[(u_1 + v_1) + 2(u_2 + v_2) + 3(u_3 + v_3) = (u_1 + 2u_2 + 3u_3) + (v_1 + 2v_2 + 3v_3) = 0 + 0 = 0.\]
         Hence, $u + v$ is in $U$.
-	Let $a \in \f$.
+	Let $a \in \fbb$.
 	Then
         \[a u_1 + 2(a u_2) + 3(a u_3) = a(u_1 + 2u_2 + 3u_3) = a \cdot 0 = 0.\]
         Hence, $au$ is in $U$.
-	Therefore, $U$ is a subspace of $\f^3$.
+	Therefore, $U$ is a subspace of $\fbb^3$.
         \item The zero vector $(0, 0, 0)$ does not satisfy $0 + 2(0) + 3(0) = 4$, so $U$ does not contain the zero vector.
-	Hence, it is not a subspace of $\f^3$.
+	Hence, it is not a subspace of $\fbb^3$.
         \item Suppose $u = (1, 0, 0)$ and $v = (0, 1, 1)$.
 	Then $u$ and $v$ are in $U$ since $1 \cdot 0 \cdot 0 = 0$ and $0 \cdot 1 \cdot 1 = 0$.
 	However, $u + v = (1, 1, 1)$ is not in $U$ since $1 \cdot 1 \cdot 1 = 1 \neq 0$.
-	Hence, $U$ is not closed under addition and is not a subspace of $\f^3$.
+	Hence, $U$ is not closed under addition and is not a subspace of $\fbb^3$.
         \item Since the zero vector $(0, 0, 0)$ satisfies $0 = 5(0)$, $U$ is nonempty.
 	Let $u = (u_1, u_2, u_3)$ and $v = (v_1, v_2, v_3)$ be elements of $U$.
 	Then
         \[u_1 + v_1 = 5u_3 + 5v_3 = 5(u_3 + v_3).\]
         Hence, $u + v$ is in $U$.
-	Let $a \in \f$.
+	Let $a \in \fbb$.
 	Then
         \[a u_1 = a(5u_3) = 5(a u_3).\]
         Hence, $au$ is in $U$.
-	Therefore, $U$ is a subspace of $\f^3$. \qh
+	Therefore, $U$ is a subspace of $\fbb^3$. \qh
     \end{subexercises}
 \end{sol}
 
 \begin{exercise}[1c2]
     Verify all assertions about subspaces in Example 1.35.
     \begin{subexercises}
-        \item If $b \in \f$, then
-        \[\set{(x_1, x_2, x_3, x_4) \in \f^4 \mid x_3 = 5x_4 + b}\]
-        is a subspace of $\f^4$ if and only if $b = 0$.
-        \item The set of continuous, real-valued functions on the interval $[0, 1]$ is a subspace of $\r^{[0, 1]}$.
-        \item The set of differentiable real-valued functions on $\r$ is a subspace of $\r^{\r}$.
-        \item The set of differentiable real-valued functions $f$ on the interval $(0, 3)$ such that $f'(2) = b$ is a subspace of $\r^{(0, 3)}$ if and only if $b = 0$.
-        \item The set of all sequences of complex numbers with limit 0 is a subspace of $\c^\infty$.
+        \item If $b \in \fbb$, then
+        \[\set{(x_1, x_2, x_3, x_4) \in \fbb^4 \mid x_3 = 5x_4 + b}\]
+        is a subspace of $\fbb^4$ if and only if $b = 0$.
+        \item The set of continuous, real-valued functions on the interval $[0, 1]$ is a subspace of $\rbb^{[0, 1]}$.
+        \item The set of differentiable real-valued functions on $\rbb$ is a subspace of $\rbb^{\rbb}$.
+        \item The set of differentiable real-valued functions $f$ on the interval $(0, 3)$ such that $f'(2) = b$ is a subspace of $\rbb^{(0, 3)}$ if and only if $b = 0$.
+        \item The set of all sequences of complex numbers with limit 0 is a subspace of $\cbb^\infty$.
     \end{subexercises}
 \end{exercise}
 
 \begin{sol}
-    Let $U$ be the subset of $\f^4$ in question.
+    Let $U$ be the subset of $\fbb^4$ in question.
     \begin{subexercises}
-        \item Suppose $U$ is a subspace of $\f^4$.
+        \item Suppose $U$ is a subspace of $\fbb^4$.
 	Then it must contain the zero vector $(0, 0, 0, 0)$.
 	Then $0 = 5(0) + b$, which implies $b = 0$.
         
         Conversely, suppose $b = 0$.
-	Then $U = \set{(x_1, x_2, x_3, x_4) \in \f^4 \mid x_3 = 5x_4}$.
-	The proof is similar to that of \autoref{ex:1c1} (d), hence $U$ is a subspace of $\f^4$.
+	Then $U = \set{(x_1, x_2, x_3, x_4) \in \fbb^4 \mid x_3 = 5x_4}$.
+	The proof is similar to that of \exref{1c1} (d), hence $U$ is a subspace of $\fbb^4$.
         \item Note that the 0 function on $[0, 1]$ is continuous, so $0 \in U$.
 	Let $f, g \in U$ be continuous functions.
 	Then $f + g$ is continuous, so $f + g \in U$.
-	Let $a \in \r$.
+	Let $a \in \rbb$.
 	Then $af$ is continuous, so $af \in U$.
-	Therefore, $U$ is a subspace of $\r^{[0, 1]}$.
+	Therefore, $U$ is a subspace of $\rbb^{[0, 1]}$.
         \item Since the derivative of the 0 function is the 0 function, $0 \in U$.
 	Let $f, g \in U$ be differentiable functions.
 	Then $f + g$ is differentiable, so $f + g \in U$.
-	Let $a \in \r$.
+	Let $a \in \rbb$.
 	Then $af$ is differentiable, so $af \in U$.
-	Therefore, $U$ is a subspace of $\r^{\r}$.
-        \item Suppose $U$ is a subspace of $\r^{(0, 3)}$.
+	Therefore, $U$ is a subspace of $\rbb^{\rbb}$.
+        \item Suppose $U$ is a subspace of $\rbb^{(0, 3)}$.
 	Then it must contain the 0 function on $(0, 3)$.
 	Then $0' = 0 = b$, which implies $b = 0$.
         
         Conversely, suppose $b = 0$.
-	Then $U = \set{f \in \r^{(0, 3)} \mid f'(2) = 0}$.
+	Then $U = \set{f \in \rbb^{(0, 3)} \mid f'(2) = 0}$.
 	Let $f, g \in U$ be differentiable functions such that $f'(2) = g'(2) = 0$.
 	Then
         \[(f + g)'(2) = f'(2) + g'(2) = 0 + 0 = 0,\]
         so $f + g \in U$.
-	Let $a \in \r$.
+	Let $a \in \rbb$.
 	Then
         \[(af)'(2) = a f'(2) = a \cdot 0 = 0,\]
         so $af \in U$.
-	Therefore, $U$ is a subspace of $\r^{(0, 3)}$.
+	Therefore, $U$ is a subspace of $\rbb^{(0, 3)}$.
         \item Let $U$ be the set of all sequences of complex numbers with limit 0.
 	Then the zero sequence is in $U$.
 	Let $(z_n), (w_n) \in U$ be sequences with limit 0.
 	Then
         \[\lim_{n \to \infty} (z_n + w_n) = \lim_{n \to \infty} z_n + \lim_{n \to \infty} w_n = 0 + 0 = 0,\]
         so $(z_n) + (w_n) \in U$.
-	Let $a \in \c$.
+	Let $a \in \cbb$.
 	Then
         \[\lim_{n \to \infty} (a z_n) = a \lim_{n \to \infty} z_n = a \cdot 0 = 0,\]
         so $a(z_n) \in U$.
-	Therefore, $U$ is a subspace of $\c^\infty$. \qh
+	Therefore, $U$ is a subspace of $\cbb^\infty$. \qh
     \end{subexercises}
 \end{sol}
 
 \begin{exercise}[1c3]
-    Show that the set of differentiable real-valued functions $f$ on the interval $(-4, 4)$ such that $f'(-1) = 3f(2)$ is a subspace of $\r^{(-4, 4)}$.
+    Show that the set of differentiable real-valued functions $f$ on the interval $(-4, 4)$ such that $f'(-1) = 3f(2)$ is a subspace of $\rbb^{(-4, 4)}$.
 \end{exercise}
 
 \begin{sol}
@@ -117,23 +117,23 @@
 	Then
     \[(f + g)'(-1) = f'(-1) + g'(-1) = 3f(2) + 3g(2) = 3(f(2) + g(2)) = 3(f + g)(2),\]
     so $f + g \in U$.
-	Let $a \in \r$.
+	Let $a \in \rbb$.
 	Then
     \[(af)'(-1) = a f'(-1) = a \cdot 3f(2) = 3(af)(2),\]
     so $af \in U$.
-	Therefore, $U$ is a subspace of $\r^{(-4, 4)}$.
+	Therefore, $U$ is a subspace of $\rbb^{(-4, 4)}$.
 \end{sol}
 
 \begin{exercise}[1c4]
-    Suppose $b \in \r$.
+    Suppose $b \in \rbb$.
 	Show that the set of continuous real-valued functions $f$ on the interval $[0, 1]$ such that
     \[\int_0^1 f = b\]
-    is a subspace of $\r^{[0, 1]}$ if and only if $b = 0$.
+    is a subspace of $\rbb^{[0, 1]}$ if and only if $b = 0$.
 \end{exercise}
 
 \begin{sol}
     Let $U$ be the set in question.
-	Suppose $U$ is a subspace of $\r^{[0, 1]}$.
+	Suppose $U$ is a subspace of $\rbb^{[0, 1]}$.
 	Then it must contain the zero function on $[0, 1]$.
 	Then
     \[\int_0^1 0 = 0 = b,\]
@@ -141,33 +141,33 @@
 
     Conversely, suppose $b = 0$.
 	Then
-    \[U = \set*{f \in \r^{[0, 1]}\left|~\int_0^1 f = 0\right.}.\]
+    \[U = \set*{f \in \rbb^{[0, 1]}\left|~\int_0^1 f = 0\right.}.\]
     The zero function is in $U$ since $\int_0^1 0 = 0$.
 	Let $f, g \in U$ be continuous functions such that $\int_0^1 f = \int_0^1 g = 0$.
 	Then
     \[\int_0^1 (f + g) = \int_0^1 f + \int_0^1 g = 0 + 0 = 0,\]
     so $f + g \in U$.
-	Let $a \in \r$.
+	Let $a \in \rbb$.
 	Then
     \[\int_0^1 (af) = a \int_0^1 f = a \cdot 0 = 0,\]
     so $af \in U$.
-	Therefore, $U$ is a subspace of $\r^{[0, 1]}$.
+	Therefore, $U$ is a subspace of $\rbb^{[0, 1]}$.
 \end{sol}
 
 \begin{exercise}[1c5]
-    Is $\r^2$ a subspace of the complex vector space $\c^2$?
+    Is $\rbb^2$ a subspace of the complex vector space $\cbb^2$?
 \end{exercise}
 
 \begin{sol}
-    No, $\r^2$ is not a subspace of $\c^2$.
-	Let $u = (1, 0) \in \r^2$ and $a = i \in \c$.
-	Then $au = (i, 0) \notin \r^2$, so $\r^2$ is not closed under scalar multiplication and is not a subspace of $\c^2$.
+    No, $\rbb^2$ is not a subspace of $\cbb^2$.
+	Let $u = (1, 0) \in \rbb^2$ and $a = i \in \cbb$.
+	Then $au = (i, 0) \notin \rbb^2$, so $\rbb^2$ is not closed under scalar multiplication and is not a subspace of $\cbb^2$.
 \end{sol}
 
 \begin{exercise}[1c6]
     \begin{subexercises}
-        \item Is $\set{(a, b, c) \in \r^3 \mid a^3 = b^3}$ a subspace of $\r^3$?
-        \item Is $\set{(a, b, c) \in \c^3 \mid a^3 = b^3}$ a subspace of $\c^3$?
+        \item Is $\set{(a, b, c) \in \rbb^3 \mid a^3 = b^3}$ a subspace of $\rbb^3$?
+        \item Is $\set{(a, b, c) \in \cbb^3 \mid a^3 = b^3}$ a subspace of $\cbb^3$?
     \end{subexercises}
     \remark{Here, I present an elementary argument that does not require the use of De Moivre's Theorem; rather, I arrive at the conclusion directly.
 	However, readers who are familiar with it may find it easier to note that the complex number 1 has three cube roots of unity.
@@ -183,14 +183,14 @@
 	Hence,
         \[(x_1 + y_1)^3 = (x_2 + y_2)^3,\]
         so $x + y \in U$.
-	Let $a \in \r$.
+	Let $a \in \rbb$.
 	Then
         \[(ax_1)^3 = a^3 x_1^3 = a^3 x_2^3 = (ax_2)^3,\]
         so $ax \in U$.
-	Therefore, $U$ is a subspace of $\r^3$.
-        \item No, $U$ is not a subspace of $\c^3$.
+	Therefore, $U$ is a subspace of $\rbb^3$.
+        \item No, $U$ is not a subspace of $\cbb^3$.
 	To see this, consider the cubic polynomial $x^3 - 1 = 0$.
-	This polynomial has three distinct roots in $\c$ as follows:
+	This polynomial has three distinct roots in $\cbb$ as follows:
         \[x^3 - 1 = (x - 1)(x^2 + x + 1) = 0\]
         Applying the quadratic formula to $x^2 + x + 1 = 0$, we get
         \[x = \frac{-1 \pm \sqrt{(-1)^2 - 4(1)(1)}}{2(1)} = \frac{-1 \pm i\sqrt{3}}{2}.\]
@@ -204,42 +204,42 @@
 	Then $u + v = (1 + \omega, 2, 0)$.
 	However,
         \[(1 + \omega)^3 = 1 + 3\omega + 3\omega^2 + \omega^3 = 1 + 3(-1) + 1 = -1 \neq 2^3 = 8.\]
-        Hence, $u + v \notin U$, so $U$ is not closed under addition and is not a subspace of $\c^3$. \qh
+        Hence, $u + v \notin U$, so $U$ is not closed under addition and is not a subspace of $\cbb^3$. \qh
     \end{subexercises}
 \end{sol}
 
 \begin{exercise}[1c7]
-    Prove or give a counterexample: If $U$ is a nonempty subset of $\r^2$ such that $U$ is closed under addition and under taking additive inverses (meaning $-u \in U$ whenever $u \in U$), then $U$ is a subspace of $\r^2$.
+    Prove or give a counterexample: If $U$ is a nonempty subset of $\rbb^2$ such that $U$ is closed under addition and under taking additive inverses (meaning $-u \in U$ whenever $u \in U$), then $U$ is a subspace of $\rbb^2$.
 \end{exercise}
 
 \begin{sol}
-    Consider the subset $\q^2$ of $\r^2$.
-	Then $\q^2$ is nonempty because $(0, 0) \in \q^2$, closed under addition since the sum of any two rational numbers is rational, and closed under taking additive inverses since the additive inverse of a rational number is rational.
-	However, for any irrational number $r \in \r$, the vector $(r, 0) = r(1, 0) \in \r^2$ is not in $\q^2$.
-	Hence, $\q^2$ is not closed under scalar multiplication and is not a subspace of $\r^2$.
+    Consider the subset $\qbb^2$ of $\rbb^2$.
+	Then $\qbb^2$ is nonempty because $(0, 0) \in \qbb^2$, closed under addition since the sum of any two rational numbers is rational, and closed under taking additive inverses since the additive inverse of a rational number is rational.
+	However, for any irrational number $r \in \rbb$, the vector $(r, 0) = r(1, 0) \in \rbb^2$ is not in $\qbb^2$.
+	Hence, $\qbb^2$ is not closed under scalar multiplication and is not a subspace of $\rbb^2$.
 	Therefore, the statement is false.
 \end{sol}
 
 \begin{exercise}[1c8]
-    Give an example of a nonempty subset $U$ of $\r^2$ such that $U$ is closed under scalar multiplication, but $U$ is not a subspace of $\r^2$.
+    Give an example of a nonempty subset $U$ of $\rbb^2$ such that $U$ is closed under scalar multiplication, but $U$ is not a subspace of $\rbb^2$.
 \end{exercise}
 
 \begin{sol}
     Consider the subset
-    \[U = \{(x, 0) \mid x \in \r\} \cup \{(0, y) \mid y \in \r\}.\]
+    \[U = \{(x, 0) \mid x \in \rbb\} \cup \{(0, y) \mid y \in \rbb\}.\]
     Then $U$ is nonempty since $(1, 0) \in U$, and it is closed under scalar multiplication since any scalar multiple of $(1, 0)$ or $(0, 1)$ is still in $U$.
 	However, $U$ is not closed under addition since $(1, 0) + (0, 1) = (1, 1) \notin U$.
-	Hence, $U$ is not a subspace of $\r^2$.
+	Hence, $U$ is not a subspace of $\rbb^2$.
 \end{sol}
 
 \begin{exercise}[1c9]
-    A function $f : \r \to \r$ is called \textbf{periodic} if there exists a positive number $p$ such that $f(x + p) = f(x)$ for all $x \in \r$.
-	Is the set of periodic functions from $\r$ to $\r$ a subspace of $\r^{\r}$.
+    A function $f : \rbb \to \rbb$ is called \textbf{periodic} if there exists a positive number $p$ such that $f(x + p) = f(x)$ for all $x \in \rbb$.
+	Is the set of periodic functions from $\rbb$ to $\rbb$ a subspace of $\rbb^{\rbb}$.
 	Explain.
 \end{exercise}
 
 \begin{sol}
-    It is not a subspace of $\r^{\r}$.
+    It is not a subspace of $\rbb^{\rbb}$.
 	Consider the periodic functions $f(x) = \cos x$ and $g(x) = \cos \sqrt 2x$.
 	Then the sum $f + g$ attains a maximum value of 2 at 0.
 	If $f + g$ were periodic with period $p$, then $(f + g)(p) = (f + g)(0) = 2$.
@@ -264,7 +264,7 @@
 	Then $u, v \in V_1$ and $u, v \in V_2$.
 	Since both $V_1$ and $V_2$ are subspaces, they are closed under addition.
 	Therefore, $u + v \in V_1$ and $u + v \in V_2$, which implies that $u + v \in U$.
-	Let $a \in \f$.
+	Let $a \in \fbb$.
 	Then since both $V_1$ and $V_2$ are closed under scalar multiplication, we have that $au \in V_1$ and $au \in V_2$, which implies that $au \in U$.
 	Therefore, $U$ is a subspace of $V$.
 \end{sol}
@@ -274,14 +274,14 @@
 \end{exercise}
 
 \begin{sol}
-    Let $\cc$ be a collection of subspaces of $V$, and let
-    \[U = \bigcap_{W \in \cc} W.\]
-    Since each subspace in $\cc$ contains the zero vector, $0 \in U$, so $U$ is nonempty.
+    Let $\ccal$ be a collection of subspaces of $V$, and let
+    \[U = \bigcap_{W \in \ccal} W.\]
+    Since each subspace in $\ccal$ contains the zero vector, $0 \in U$, so $U$ is nonempty.
 	Let $u, v \in U$.
-	Then $u, v \in W$ for all $W \in \cc$.
-	Since each $W$ is a subspace, they are closed under addition, so $u + v \in W$ for all $W \in \cc$, which implies $u + v \in U$.
-	Let $a \in \f$.
-	Then $au \in W$ for all $W \in \cc$, which implies $au \in U$.
+	Then $u, v \in W$ for all $W \in \ccal$.
+	Since each $W$ is a subspace, they are closed under addition, so $u + v \in W$ for all $W \in \ccal$, which implies $u + v \in U$.
+	Let $a \in \fbb$.
+	Then $au \in W$ for all $W \in \ccal$, which implies $au \in U$.
 	Therefore, $U$ is a subspace of $V$.
 \end{sol}
 
@@ -310,9 +310,9 @@
 
     \note{This result fails when the field has only two elements.}
 
-    \remark{The proof of this exercise is more involved than the proof of \emph{\autoref{ex:1c12}} in that it requires a more careful analysis of the possible relationships between the three subspaces.}
+    \remark{The proof of this exercise is more involved than the proof of \emph{\exref{1c12}} in that it requires a more careful analysis of the possible relationships between the three subspaces.}
 
-    \apnote{1c13}{ for a more elegant proof of this result, which implicitly uses the result that $\cha(\f) \neq 2$.}
+    \apnote{1c13}{ for a more elegant proof of this result, which implicitly uses the result that $\cha(\fbb) \neq 2$.}
 \end{exercise}
 
 \begin{sol}
@@ -324,7 +324,7 @@
 	Suppose that some pair satisfies containment, say $U_3 \subseteq U_2$.
 	Let $W = U_2 \cup U_3 = U_2$.
 	Then $U_1 \cup W = U_1 \cup U_2 \cup U_3$.
-	By \autoref{ex:1c12}, either $U_1 \subseteq U_2$ or $U_2 \subseteq U_1$.
+	By \exref{1c12}, either $U_1 \subseteq U_2$ or $U_2 \subseteq U_1$.
 	If the former occurs, then $U_1 \cup U_2 = U_2$, which contains $U_3$.
 	If the latter occurs, then $U_1 \cup U_2 = U_1$.
 	Since $U_3 \subseteq U_2$, then $U_3 \subseteq U_1$.
@@ -332,11 +332,11 @@
 
     Now suppose no subspace is contained in another.
 	Then there exist $u \in U_2 \setminus U_3$ and $v \in U_3 \setminus U_2$.
-	Since $U_1 \cup U_2 \cup U_3$ is a subspace, $u + \alpha v \in U_1 \cup U_2 \cup U_3$ for any nonzero $\alpha \in \f$.
+	Since $U_1 \cup U_2 \cup U_3$ is a subspace, $u + \alpha v \in U_1 \cup U_2 \cup U_3$ for any nonzero $\alpha \in \fbb$.
 	If $u + \alpha v \in U_2$, then $\alpha v = (u + \alpha v) - u \in U_2$, which implies $v \in U_2$, a contradiction.
 	If $u + \alpha v \in U_3$, then $u = (u + \alpha v) - \alpha v \in U_3$, a contradiction.
-	Then $u + \alpha v \in U_1$ for all nonzero $\alpha \in \f$.
-	Now choose nonzero $\beta, \gamma \in \f$ with $\beta \neq \gamma$.
+	Then $u + \alpha v \in U_1$ for all nonzero $\alpha \in \fbb$.
+	Now choose nonzero $\beta, \gamma \in \fbb$ with $\beta \neq \gamma$.
 	Then $u + \beta v, u + \gamma v \in U_1$, so
     \[(u + \beta v) - (u + \gamma v) = (\beta - \gamma)v \in U_1.\]
     Since $\beta - \gamma \neq 0$, we have $v \in U_1$.
@@ -354,7 +354,7 @@
 
 \begin{exercise}[1c14]
     Suppose
-    \[U = \set{(x, -x, 2x) \in \f^3 \mid x \in \f} \quad \text{and} \quad W = \set{(x, x, 2x) \in \f^3 \mid x \in \f}.\]
+    \[U = \set{(x, -x, 2x) \in \fbb^3 \mid x \in \fbb} \quad \text{and} \quad W = \set{(x, x, 2x) \in \fbb^3 \mid x \in \fbb}.\]
     Describe $U + W$ using symbols, and also give a description of $U + W$ that uses no symbols.
 \end{exercise}
 
@@ -362,10 +362,10 @@
     Let $u = (x, -x, 2x) \in U$ and $w = (y, y, 2y) \in W$.
 	Then
     \[u + w = (x + y, -x + y, 2x + 2y) = (x + y, y - x, 2(x + y)).\]
-    Observe that $x + y$ can take any value in $\f$, and $y - x$ can also take any value in $\f$.
+    Observe that $x + y$ can take any value in $\fbb$, and $y - x$ can also take any value in $\fbb$.
 	Hence, we can write
-    \[U + W = \set{(a, b, 2a) \in \f^3 \mid a, b \in \f}.\]
-    In words, $U + W$ is the set of all vectors in $\f^3$ whose third component is twice the first component, and whose second component can be any value in $\f$.
+    \[U + W = \set{(a, b, 2a) \in \fbb^3 \mid a, b \in \fbb}.\]
+    In words, $U + W$ is the set of all vectors in $\fbb^3$ whose third component is twice the first component, and whose second component can be any value in $\fbb$.
 \end{sol}
 
 \begin{exercise}[1c15]
@@ -441,43 +441,43 @@
 
 \begin{sol}
     The statement is false.
-	Consider the vector space $\r^2$ and let
-    \[V_1 = \set{(x, 0) \in \r^2 \mid x \in \r}, \quad V_2 = \set{(0, y) \in \r^2 \mid y \in \r}, \quad U = \set{(x, x) \in \r^2 \mid x \in \r}.\]
-    Then $V_1 + U = \r^2$ and $V_2 + U = \r^2$, but $V_1 \neq V_2$.
+	Consider the vector space $\rbb^2$ and let
+    \[V_1 = \set{(x, 0) \in \rbb^2 \mid x \in \rbb}, \quad V_2 = \set{(0, y) \in \rbb^2 \mid y \in \rbb}, \quad U = \set{(x, x) \in \rbb^2 \mid x \in \rbb}.\]
+    Then $V_1 + U = \rbb^2$ and $V_2 + U = \rbb^2$, but $V_1 \neq V_2$.
 	Therefore, the statement is false.
 \end{sol}
 
 \begin{exercise}[1c20]
     Suppose
-    \[U = \set{(x, x, y, y) \in \f^4 \mid x, y \in \f}.\]
-    Find a subspace $W$ of $\f^4$ such that $\f^4 = U \op W$.
+    \[U = \set{(x, x, y, y) \in \fbb^4 \mid x, y \in \fbb}.\]
+    Find a subspace $W$ of $\fbb^4$ such that $\fbb^4 = U \op W$.
 \end{exercise}
 
 \begin{sol}
     Let
-    \[W = \set{(0, z, 0, w) \in \f^4 \mid z, w \in \f}.\]
+    \[W = \set{(0, z, 0, w) \in \fbb^4 \mid z, w \in \fbb}.\]
     If $(x, x, y, y) \in U$ and $(0, z, 0, w) \in W$, then $(x, x, y, y) = (0, z, 0, w)$ if and only if $x = 0$, $y = 0$, $z = 0$, and $w = 0$.
 	Hence, $U \cap W = \{0\}$.
-	Moreover, for any $(a, b, c, d) \in \f^4$, we can write
+	Moreover, for any $(a, b, c, d) \in \fbb^4$, we can write
     \[(a, b, c, d) = (x, x, y, y) + (0, z, 0, w),\]
     where
     \[x = a, \quad y = c, \quad z = b - x = b - a, \quad w = d - y = d - c.\]
-    Hence, every vector in $\f^4$ can be written as a sum of a vector in $U$ and a vector in $W$.
-	Therefore, $\f^4 = U \op W$.
+    Hence, every vector in $\fbb^4$ can be written as a sum of a vector in $U$ and a vector in $W$.
+	Therefore, $\fbb^4 = U \op W$.
 \end{sol}
 
 \begin{exercise}[1c21]
     Suppose
-    \[U = \set{(x, y, x + y, x - y, 2x) \in \f^5 \mid x, y \in \f}.\]
-    Find a subspace $W$ of $\f^5$ such that $\f^5 = U \op W$.
+    \[U = \set{(x, y, x + y, x - y, 2x) \in \fbb^5 \mid x, y \in \fbb}.\]
+    Find a subspace $W$ of $\fbb^5$ such that $\fbb^5 = U \op W$.
 \end{exercise}
 
 \begin{sol}
     Let
-    \[W = \set{(0, 0, z, w, v) \in \f^5 \mid z, w, v \in \f}.\]
+    \[W = \set{(0, 0, z, w, v) \in \fbb^5 \mid z, w, v \in \fbb}.\]
     If $(x, y, x + y, x - y, 2x) \in U$ and $(0, 0, z, w, v) \in W$, then $(x, y, x + y, x - y, 2x) = (0, 0, z, w, v)$ if and only if $x = 0$, $y = 0$, $z = 0$, $w = 0$, and $v = 0$.
 	Hence, $U \cap W = \{0\}$.
-	Moreover, for any $(a, b, c, d, e) \in \f^5$, we can write
+	Moreover, for any $(a, b, c, d, e) \in \fbb^5$, we can write
     \[(a, b, c, d, e) = (x, y, x + y, x - y, 2x) + (0, 0, z, w, v),\]
     which implies
     \[
@@ -495,28 +495,28 @@
         w = d - (x - y) = d - (a - b) \\
         v = e - 2x = e - 2a
     \end{cases}\]
-    Hence, every vector in $\f^5$ can be written as a sum of a vector in $U$ and a vector in $W$.
-	Therefore, $\f^5 = U \op W$.
+    Hence, every vector in $\fbb^5$ can be written as a sum of a vector in $U$ and a vector in $W$.
+	Therefore, $\fbb^5 = U \op W$.
 \end{sol}
 
 \begin{exercise}[1c22]
     Suppose
-    \[U = \set{(x, y, x + y, x - y, 2x) \in \f^5 \mid x, y \in \f}.\]
-    Find three subspaces $W_1, W_2, W_3$ of $\f^5$, none of which equals $\set 0$, such that $\f^5 = U \op W_1 \op W_2 \op W_3$.
+    \[U = \set{(x, y, x + y, x - y, 2x) \in \fbb^5 \mid x, y \in \fbb}.\]
+    Find three subspaces $W_1, W_2, W_3$ of $\fbb^5$, none of which equals $\set 0$, such that $\fbb^5 = U \op W_1 \op W_2 \op W_3$.
 
-    \remark{The derivation of $z, w, e$ is from \emph{\autoref{ex:1c21}}.}
+    \remark{The derivation of $z, w, e$ is from \emph{\exref{1c21}}.}
 \end{exercise}
 
 \begin{sol}
     Observe that $U$ can be expressed as
-    \[U = \set{(x, 0, x, x, 2x) \in \f^5 \mid x \in \f} + \set{(0, y, y, -y, 0) \in \f^5 \mid y \in \f}.\]
+    \[U = \set{(x, 0, x, x, 2x) \in \fbb^5 \mid x \in \fbb} + \set{(0, y, y, -y, 0) \in \fbb^5 \mid y \in \fbb}.\]
     Define the subspaces
     \begin{align*}
-        W_1 &= \set{(0, 0, z, 0, 0) \in \f^5 \mid z \in \f}, \\
-        W_2 &= \set{(0, 0, 0, w, 0) \in \f^5 \mid w \in \f}, \\
-        W_3 &= \set{(0, 0, 0, 0, v) \in \f^5 \mid v \in \f}.
+        W_1 &= \set{(0, 0, z, 0, 0) \in \fbb^5 \mid z \in \fbb}, \\
+        W_2 &= \set{(0, 0, 0, w, 0) \in \fbb^5 \mid w \in \fbb}, \\
+        W_3 &= \set{(0, 0, 0, 0, v) \in \fbb^5 \mid v \in \fbb}.
     \end{align*}
-    Consider $(a, b, c, d, e) \in \f^5$.
+    Consider $(a, b, c, d, e) \in \fbb^5$.
 	We can write
     \[(a, b, c, d, e) = (x, 0, x, x, 2x) + (0, y, y, -y, 0) + (0, 0, z, 0, 0) + (0, 0, 0, w, 0) + (0, 0, 0, 0, v),\]
     where
@@ -527,9 +527,9 @@
         w &= d - a + b, \\
         v &= e - 2a.
     \end{align*}
-    Hence, every vector in $\f^5$ can be written as a sum of a vector in $U$ and vectors in $W_1, W_2, W_3$.
+    Hence, every vector in $\fbb^5$ can be written as a sum of a vector in $U$ and vectors in $W_1, W_2, W_3$.
 	Moreover, if $a = b = c = d = e = 0$, then $x = y = z = w = v = 0$ so that the only way to write the zero vector as a sum of vectors in $U, W_1, W_2, W_3$ is to take all of them to be the zero vector.
-	Therefore, $\f^5 = U \op W_1 \op W_2 \op W_3$.
+	Therefore, $\fbb^5 = U \op W_1 \op W_2 \op W_3$.
 \end{sol}
 
 \begin{exercise}[1c23]
@@ -539,9 +539,9 @@
 \end{exercise}
 
 \begin{sol}
-    See \autoref{ex:1c19} for a counterexample.
+    See \exref{1c19} for a counterexample.
 	For $V_1 \op U$, observe that $V_1 \cap U = \set 0$.
-	Moreover, for any $(a, b) \in \r^2$, we can write
+	Moreover, for any $(a, b) \in \rbb^2$, we can write
     \[(a, b) = (a - b, 0) + (b, b) \in V_1 \op U.\]
     The proof for $V_2 \op U$ is similar.
 	Hence, $V = V_1 \op U = V_2 \op U$, but $V_1 \neq V_2$.
@@ -549,18 +549,18 @@
 \end{sol}
 
 \begin{exercise}[1c24]
-    A function $f : \r \to \r$ is called \textbf{even} if
+    A function $f : \rbb \to \rbb$ is called \textbf{even} if
     \[f(-x) = f(x)\]
-    for all $x \in \r$.
-	A function $f : \r \to \r$ is called \textbf{odd} if
+    for all $x \in \rbb$.
+	A function $f : \rbb \to \rbb$ is called \textbf{odd} if
     \[f(-x) = -f(x)\]
-    for all $x \in \r$.
-	Let $V_e$ denote the set of real-valued even functions on $\r$, and let $V_o$ denote the set of real-valued odd functions on $\r$.
-	Show that $\r^{\r} = V_e \op V_o$.
+    for all $x \in \rbb$.
+	Let $V_e$ denote the set of real-valued even functions on $\rbb$, and let $V_o$ denote the set of real-valued odd functions on $\rbb$.
+	Show that $\rbb^{\rbb} = V_e \op V_o$.
 \end{exercise}
 
 \begin{sol}
-    Let $f \in \r^{\r}$.
+    Let $f \in \rbb^{\rbb}$.
 	Define
     \[f_e(x) = \frac{f(x) + f(-x)}{2} \quad \text{and} \quad f_o(x) = \frac{f(x) - f(-x)}{2}.\]
     Then $f_e$ is even since
@@ -569,13 +569,13 @@
     \[f_o(-x) = \frac{f(-x) - f(x)}{2} = -\frac{f(x) - f(-x)}{2} = -f_o(x).\]
     Moreover, we have that
     \[f(x) = f_e(x) + f_o(x).\]
-    Hence, every function in $\r^{\r}$ can be written as a sum of an even function and an odd function. 
+    Hence, every function in $\rbb^{\rbb}$ can be written as a sum of an even function and an odd function. 
 
     Now, suppose $g \in V_e \cap V_o$.
 	Then $g$ is both even and odd.
-	Then for any $x \in \r$, we have
+	Then for any $x \in \rbb$, we have
     \[g(x) = g(-(-x)) = -g(-x) = -g(x),\]
     which implies that $2g(x) = 0$, or $g(x) = 0$.
 	Hence, the only function in the intersection of $V_e$ and $V_o$ is the zero function.
-	Therefore, $\r^{\r} = V_e \op V_o$.
+	Therefore, $\rbb^{\rbb} = V_e \op V_o$.
 \end{sol}

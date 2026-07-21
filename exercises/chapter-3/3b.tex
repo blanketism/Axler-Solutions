@@ -5,9 +5,9 @@
 \end{exercise}
 
 \begin{sol}
-    Let $T \in \lin{\r^5, \r^2}$ be defined by
+    Let $T \in \lin{\rbb^5, \rbb^2}$ be defined by
     \[T(x_1, x_2, x_3, x_4, x_5) = (x_1, x_2).\]
-    Then $\nul T = \set{(0, 0, x_3, x_4, x_5) \mid x_3, x_4, x_5 \in \r}$, which has dimension $3$, and $\range T = \r^2$, which has dimension $2$.
+    Then $\nul T = \set{(0, 0, x_3, x_4, x_5) \mid x_3, x_4, x_5 \in \rbb}$, which has dimension $3$, and $\range T = \rbb^2$, which has dimension $2$.
 \end{sol}
 
 \begin{exercise}[3b2]
@@ -27,7 +27,7 @@
 
 \begin{exercise}[3b3]
     Suppose $v_1, \ldots, v_m$ is a list of vectors in $V$.
-	Define $T \in \lin{\f^m, V}$ by
+	Define $T \in \lin{\fbb^m, V}$ by
     \[T(z_1, \ldots, z_m) = z_1 v_1 + \cdots + z_m v_m.\]
     \begin{subexercises}
         \item What property of $T$ corresponds to $v_1, \ldots, v_m$ spanning $V$?
@@ -41,48 +41,48 @@
 \end{sole}
 
 \begin{exercise}[3b4]
-    Show that $\set{T \in \lin{\r^5, \r^4} \mid \dim \nul T > 2}$ is not a subspace of $\lin{\r^5, \r^4}$.
+    Show that $\set{T \in \lin{\rbb^5, \rbb^4} \mid \dim \nul T > 2}$ is not a subspace of $\lin{\rbb^5, \rbb^4}$.
 \end{exercise}
 
 \begin{sol}
-    Let $T_1, T_2 \in \lin{\r^5, \r^4}$ be defined by
+    Let $T_1, T_2 \in \lin{\rbb^5, \rbb^4}$ be defined by
     \[T_1(x_1, x_2, x_3, x_4, x_5) = (x_1, x_2, 0, 0)\]
     and
     \[T_2(x_1, x_2, x_3, x_4, x_5) = (0, 0, x_3, x_4).\]
-    Then $\nul T_1 = \set{(0, 0, x_3, x_4, x_5) \mid x_3, x_4, x_5 \in \r}$ and $\nul T_2 = \set{(x_1, x_2, 0, 0, x_5) \mid x_1, x_2, x_5 \in \r}$ both have dimension $3$, so $T_1$ and $T_2$ are in the set $\set{T \in \lin{\r^5, \r^4} \mid \dim \nul T > 2}$.
+    Then $\nul T_1 = \set{(0, 0, x_3, x_4, x_5) \mid x_3, x_4, x_5 \in \rbb}$ and $\nul T_2 = \set{(x_1, x_2, 0, 0, x_5) \mid x_1, x_2, x_5 \in \rbb}$ both have dimension $3$, so $T_1$ and $T_2$ are in the set $\set{T \in \lin{\rbb^5, \rbb^4} \mid \dim \nul T > 2}$.
 	However,
     \[(T_1 + T_2)(x_1, x_2, x_3, x_4, x_5) = (x_1, x_2, x_3, x_4),\]
-    which has null space $\nul(T_1 + T_2) = \set{(0, 0, 0, 0, x_5) \mid x_5 \in \r}$ of dimension $1$.
+    which has null space $\nul(T_1 + T_2) = \set{(0, 0, 0, 0, x_5) \mid x_5 \in \rbb}$ of dimension $1$.
 	Therefore,
     \[\dim \nul(T_1 + T_2) = 1 < 2,\]
     so $T_1 + T_2$ is not in the set.
-	Hence, the set is not closed under addition and is not a subspace of $\lin{\r^5, \r^4}$.
+	Hence, the set is not closed under addition and is not a subspace of $\lin{\rbb^5, \rbb^4}$.
 \end{sol}
 
 \begin{exercise}[3b5]
-    Give an example of $T \in \lin{\r^4}$ such that $\range T = \nul T$.
+    Give an example of $T \in \lin{\rbb^4}$ such that $\range T = \nul T$.
 \end{exercise}
 
 \begin{sol}
-    Let $v_1, v_2, v_3, v_4$ be the standard basis of $\r^4$.
-	Define $T \in \lin{\r^4}$ by
+    Let $v_1, v_2, v_3, v_4$ be the standard basis of $\rbb^4$.
+	Define $T \in \lin{\rbb^4}$ by
     \[Tv_1 = v_3, \quad Tv_2 = v_4, \quad Tv_3 = 0, \quad Tv_4 = 0.\]
-    Then for any $x = (x_1, x_2, x_3, x_4) \in \r^4$,
+    Then for any $x = (x_1, x_2, x_3, x_4) \in \rbb^4$,
     \[Tx = x_1 Tv_1 + x_2 Tv_2 + x_3 Tv_3 + x_4 Tv_4 = x_1 v_3 + x_2 v_4.\]
     Then $\range T = \spn{v_3, v_4}$.
 	If $Tx = 0$, then $x_1 v_3 + x_2 v_4 = 0$, which implies $x_1 = x_2 = 0$.
-	Therefore, $\nul T = \set{(0, 0, x_3, x_4) \mid x_3, x_4 \in \r} = \spn{v_3, v_4}$.
+	Therefore, $\nul T = \set{(0, 0, x_3, x_4) \mid x_3, x_4 \in \rbb} = \spn{v_3, v_4}$.
 	Hence, $\range T = \nul T$.
 \end{sol}
 
 \begin{exercise}[3b6]
-    Prove that there does not exist $T \in \lin{\r^5}$ such that $\range T = \nul T$.
+    Prove that there does not exist $T \in \lin{\rbb^5}$ such that $\range T = \nul T$.
 \end{exercise}
 
 \begin{sol}
-    Suppose for contradiction that there exists $T \in \lin{\r^5}$ such that $\range T = \nul T$.
+    Suppose for contradiction that there exists $T \in \lin{\rbb^5}$ such that $\range T = \nul T$.
 	Then by the fundamental theorem of linear maps,
-    \[\dim \r^5 = \dim \nul T + \dim \range T = 2\dim \range T.\]
+    \[\dim \rbb^5 = \dim \nul T + \dim \range T = 2\dim \range T.\]
     Therefore, $5 = 2\dim \range T$, which is impossible since $5$ is odd and $2\dim \range T$ is even.
 	Hence, no such $T$ exists.
 \end{sol}
@@ -142,7 +142,7 @@
 \end{exercise}
 
 \begin{sol}
-    Suppose $a_1, \ldots, a_n \in \f$ are such that
+    Suppose $a_1, \ldots, a_n \in \fbb$ are such that
     \[a_1 Tv_1 + \cdots + a_n Tv_n = 0.\]
     By linearity of $T$, we have
     \[T(a_1 v_1 + \cdots + a_n v_n) = 0.\]
@@ -162,7 +162,7 @@
 	Then there exists $v \in V$ such that $Tv = w$.
 	Since $v_1, \ldots, v_n$ spans $V$, we can write
     \[v = a_1 v_1 + \cdots + a_n v_n\]
-    for some scalars $a_1, \ldots, a_n \in \f$.
+    for some scalars $a_1, \ldots, a_n \in \fbb$.
 	By linearity of $T$, we have
     \[w = Tv = T(a_1 v_1 + \cdots + a_n v_n) = a_1 Tv_1 + \cdots + a_n Tv_n.\]
     Therefore, $w$ is a linear combination of $Tv_1, \ldots, Tv_n$.
@@ -208,49 +208,49 @@
 \end{sol}
 
 \begin{exercise}[3b12]
-    Suppose $T$ is a linear map from $\f^4$ to $\f^2$ such that
-    \[\nul T = \set{(x_1, x_2, x_3, x_4) \in \f^4 \mid x_1 = 5x_2 \text{ and } x_3 = 7x_4}.\]
+    Suppose $T$ is a linear map from $\fbb^4$ to $\fbb^2$ such that
+    \[\nul T = \set{(x_1, x_2, x_3, x_4) \in \fbb^4 \mid x_1 = 5x_2 \text{ and } x_3 = 7x_4}.\]
     Prove that $T$ is surjective.
 \end{exercise}
 
 \begin{sol}
     We may write the null space of $T$ as
-    \[\nul T = \set{(5x_2, x_2, 7x_4, x_4) \mid x_2, x_4 \in \f}.\]
+    \[\nul T = \set{(5x_2, x_2, 7x_4, x_4) \mid x_2, x_4 \in \fbb}.\]
     From this, we can see that $\nul T$ is spanned by the vectors $(5, 1, 0, 0)$ and $(0, 0, 7, 1)$.
 	Therefore, $\dim \nul T = 2$.
 	By the fundamental theorem of linear maps, we have
-    \[\dim \f^4 = \dim \nul T + \dim \range T \implies 4 = 2 + \dim \range T.\]
+    \[\dim \fbb^4 = \dim \nul T + \dim \range T \implies 4 = 2 + \dim \range T.\]
     Solving for $\dim \range T$, we find that $\dim \range T = 2$.
-	Since $\dim \f^2 = 2$, it follows that $\range T = \f^2$.
+	Since $\dim \fbb^2 = 2$, it follows that $\range T = \fbb^2$.
 	Therefore, $T$ is surjective.
 \end{sol}
 
 \begin{exercise}[3b13]
-    Suppose $U$ is a three-dimensional subspace of $\r^8$ and that $T$ is a linear map from $\r^8$ to $\r^5$ such that $\nul T = U$.
+    Suppose $U$ is a three-dimensional subspace of $\rbb^8$ and that $T$ is a linear map from $\rbb^8$ to $\rbb^5$ such that $\nul T = U$.
 	Prove that $T$ is surjective.
 \end{exercise}
 
 \begin{sol}
     By the fundamental theorem of linear maps, we have
-    \[\dim \r^8 = \dim \nul T + \dim \range T \implies 8 = 3 + \dim \range T.\]
+    \[\dim \rbb^8 = \dim \nul T + \dim \range T \implies 8 = 3 + \dim \range T.\]
     Solving for $\dim \range T$, we find that $\dim \range T = 5$.
-	Since $\dim \r^5 = 5$, it follows that $\range T = \r^5$.
+	Since $\dim \rbb^5 = 5$, it follows that $\range T = \rbb^5$.
 	Therefore, $T$ is surjective.
 \end{sol}
 
 \begin{exercise}[3b14]
-    Prove that there does not exist a linear map from $\f^5$ to $\f^2$ whose null space equals $\set{(x_1, x_2, x_3, x_4, x_5) \in \f^5 \mid x_1 = 3x_2 \text{ and } x_3 = x_4 = x_5}$.
+    Prove that there does not exist a linear map from $\fbb^5$ to $\fbb^2$ whose null space equals $\set{(x_1, x_2, x_3, x_4, x_5) \in \fbb^5 \mid x_1 = 3x_2 \text{ and } x_3 = x_4 = x_5}$.
 \end{exercise}
 
 \begin{sol}
     We can express the null space as
-    \[\nul T = \set{(3x_2, x_2, x_4, x_4, x_4) \mid x_2, x_4 \in \f}.\]
+    \[\nul T = \set{(3x_2, x_2, x_4, x_4, x_4) \mid x_2, x_4 \in \fbb}.\]
     From this, we can see that $\nul T$ is spanned by the vectors $(3, 1, 0, 0, 0)$ and $(0, 0, 1, 1, 1)$.
 	Therefore, $\dim \nul T = 2$.
 	By the fundamental theorem of linear maps, we have
-    \[\dim \f^5 = \dim \nul T + \dim \range T \implies 5 = 2 + \dim \range T.\]
+    \[\dim \fbb^5 = \dim \nul T + \dim \range T \implies 5 = 2 + \dim \range T.\]
     Solving for $\dim \range T$, we find that $\dim \range T = 3$.
-	However, $\dim \f^2 = 2$, which is less than $3$.
+	However, $\dim \fbb^2 = 2$, which is less than $3$.
 	This is a contradiction, as the dimension of the range cannot exceed the dimension of the target space.
 	Therefore, no such linear map exists.
 \end{sol}
@@ -271,14 +271,14 @@
     Let $v \in V$.
 	Then $Tv \in \range T$, so we may write
     \[Tv = \alpha_1 w_1 + \cdots + \alpha_n w_n\]
-    for some scalars $\alpha_1, \ldots, \alpha_n \in \f$.
+    for some scalars $\alpha_1, \ldots, \alpha_n \in \fbb$.
 	Consider the vector
     \[u = v - (\alpha_1 v_1 + \cdots + \alpha_n v_n).\]
     Then
     \[Tu = Tv - (\alpha_1 Tv_1 + \cdots + \alpha_n Tv_n) = Tv - (\alpha_1 w_1 + \cdots + \alpha_n w_n) = 0.\]
     Therefore, $u \in \nul T$, and we can write
     \[u = \beta_1 u_1 + \cdots + \beta_m u_m\]
-    for some scalars $\beta_1, \ldots, \beta_m \in \f$.
+    for some scalars $\beta_1, \ldots, \beta_m \in \fbb$.
 	Thus,
     \[v = u + (\alpha_1 v_1 + \cdots + \alpha_n v_n) = \beta_1 u_1 + \cdots + \beta_m u_m + \alpha_1 v_1 + \cdots + \alpha_n v_n,\]
     which shows that the list spans $V$.
@@ -459,7 +459,7 @@
 \begin{sol}
     Let $X = \set{v \in V \mid Tv \in U}$.
 	We first show that $X$ is a subspace of $V$.
-	Let $v_1, v_2 \in X$ and $\alpha, \beta \in \f$.
+	Let $v_1, v_2 \in X$ and $\alpha, \beta \in \fbb$.
 	Then
     \[T(\alpha v_1 + \beta v_2) = \alpha Tv_1 + \beta Tv_2.\]
     Since $Tv_1, Tv_2 \in U$ and $U$ is a subspace of $W$, it follows that $\alpha Tv_1 + \beta Tv_2 \in U$.
@@ -475,14 +475,14 @@
     First, we show that this set spans $X$.
 	Let $v \in X$.
 	Then $Tv \in U$, and since $Tv \in \range T$, we have $Tv \in Y$.
-	Therefore, there exist scalars $\alpha_1, \ldots, \alpha_m \in \f$ such that
+	Therefore, there exist scalars $\alpha_1, \ldots, \alpha_m \in \fbb$ such that
     \[Tv = \alpha_1 y_1 + \cdots + \alpha_m y_m = \alpha_1 Tv_1 + \cdots + \alpha_m Tv_m.\]
     Let $v' = v - (\alpha_1 v_1 + \cdots + \alpha_m v_m)$.
 	Then
     \[Tv' = Tv - T(\alpha_1 v_1 + \cdots + \alpha_m v_m) = Tv - (\alpha_1 Tv_1 + \cdots + \alpha_m Tv_m) = 0.\]
     Therefore, $v' \in \nul T$, and we can express $v'$ as a linear combination of the basis vectors of $\nul T$:
     \[v' = \beta_1 n_1 + \cdots + \beta_k n_k\]
-    for some scalars $\beta_1, \ldots, \beta_k \in \f$.
+    for some scalars $\beta_1, \ldots, \beta_k \in \fbb$.
 	Thus,
     \[v = v' + (\alpha_1 v_1 + \cdots + \alpha_m v_m) = \beta_1 n_1 + \cdots + \beta_k n_k + \alpha_1 v_1 + \cdots + \alpha_m v_m.\]
     This shows that $v$ is a linear combination of the vectors in $\set{n_1, \ldots, n_k, v_1, \ldots, v_m}$, and hence this set spans $X$.
@@ -490,7 +490,7 @@
     Next, we show that this set is linearly independent.
 	Suppose
     \[\gamma_1 n_1 + \cdots + \gamma_k n_k + \delta_1 v_1 + \cdots + \delta_m v_m = 0\]
-    for some scalars $\gamma_1, \ldots, \gamma_k, \delta_1, \ldots, \delta_m \in \f$.
+    for some scalars $\gamma_1, \ldots, \gamma_k, \delta_1, \ldots, \delta_m \in \fbb$.
 	Observe that $Tn_i = 0$ for all $i = 1, \ldots, k$, and $Tv_j = y_j$ for all $j = 1, \ldots, m$.
 	Therefore,
     \[0 = T(\gamma_1 n_1 + \cdots + \gamma_k n_k + \delta_1 v_1 + \cdots + \delta_m v_m) = \delta_1 y_1 + \cdots + \delta_m y_m.\]
@@ -541,7 +541,7 @@
     Now let $v_1, \ldots, v_m$ be a basis of $\range T$.
 	Then for any $u \in U$, we can express $Tu$ as a linear combination of the basis vectors:
     \[Tu = \alpha_1 v_1 + \cdots + \alpha_m v_m\]
-    for some scalars $\alpha_1, \ldots, \alpha_m \in \f$.
+    for some scalars $\alpha_1, \ldots, \alpha_m \in \fbb$.
 	Applying $S$ to both sides, we have
     \[STu = S(Tu) = S(\alpha_1 v_1 + \cdots + \alpha_m v_m) = \alpha_1 Sv_1 + \cdots + \alpha_m Sv_m.\]
     This shows that $\range ST$ is spanned by the vectors $Sv_1, \ldots, Sv_m$.
@@ -555,7 +555,7 @@
     \begin{subexercises}
         \item Suppose $\dim V = 5$ and $S, T \in \lin{V}$ are such that $ST = 0$.
 	Prove that $\dim \range TS \leq 2$.
-        \item Give an example of $S, T \in \lin{\f^5}$ with $ST = 0$ and $\dim \range TS = 2$.
+        \item Give an example of $S, T \in \lin{\fbb^5}$ with $ST = 0$ and $\dim \range TS = 2$.
     \end{subexercises}
 \end{exercise}
 
@@ -564,7 +564,7 @@
 	This implies that $\range T \subseteq \nul S$.
 	By the fundamental theorem of linear maps, we have
     \[5 = \dim \nul S + \dim \range S \geq \dim \range T + \dim \range S.\]
-    Now, by \autoref{ex:3b23}, we have
+    Now, by \exref{3b23}, we have
     \[\dim \range TS \leq \min(\dim \range T, \dim \range S).\]
     Suppose that $\dim \range TS > 2$.
 	Then both $\dim \range T$ and $\dim \range S$ must be greater than $2$, or equivalently, $\dim \range T \geq 3$ and $\dim \range S \geq 3$.
@@ -572,8 +572,8 @@
     \[\dim \range T + \dim \range S \geq 3 + 3 = 6 > 5,\]
     which is a contradiction.
 	Therefore, $\dim \range TS \leq 2$.
-    \item Let $v_1, v_2, v_3, v_4, v_5$ be a basis of $\f^5$.
-	Define $S, T \in \lin{\f^5}$ by
+    \item Let $v_1, v_2, v_3, v_4, v_5$ be a basis of $\fbb^5$.
+	Define $S, T \in \lin{\fbb^5}$ by
     \[Sv_1 = v_1, \quad Sv_2 = v_2, \quad Sv_3 = Sv_4 = Sv_5 = 0,\]
     and
     \[Tv_1 = v_3, \quad Tv_2 = v_4, \quad Tv_3 = Tv_4 = Tv_5 = 0.\]
@@ -582,7 +582,7 @@
 	We have
     \[TSv_1 = T(Sv_1) = Tv_1 = v_3, \quad TSv_2 = T(Sv_2) = Tv_2 = v_4, \quad TSv_3 = TSv_4 = TSv_5 = 0.\]
     Therefore, $\range TS = \spn(v_3, v_4)$, which has dimension $2$.
-	Thus, we have constructed an example of $S, T \in \lin{\f^5}$ with $ST = 0$ and $\dim \range TS = 2$.
+	Thus, we have constructed an example of $S, T \in \lin{\fbb^5}$ with $ST = 0$ and $\dim \range TS = 2$.
 \end{sole}
 
 \begin{exercise}[3b25]
@@ -604,7 +604,7 @@
 	Therefore, $Tv_1 = Tv_2$, and hence $R(Sv_1) = R(Sv_2)$.
 	Thus, $R$ is well-defined.
 
-    By \autoref{ex:3a13}, we can extend $R$ to some $E \in \lin{W}$.
+    By \exref{3a13}, we can extend $R$ to some $E \in \lin{W}$.
 	Then for any $v \in V$, we have
     \[Tv = R(Sv) = E(Sv),\]
     and hence $T = ES$.
@@ -632,7 +632,7 @@
     \[Ev_i = u_i \quad \text{for } i = 1, \ldots, n.\]
     Then for any $v \in V$, we can express $v$ as a linear combination of the basis vectors:
     \[v = \alpha_1 v_1 + \cdots + \alpha_n v_n\]
-    for some scalars $\alpha_1, \ldots, \alpha_n \in \f$.
+    for some scalars $\alpha_1, \ldots, \alpha_n \in \fbb$.
 	Applying $S$ and $TE$ to both sides, we have
     \[Sv = \alpha_1 Sv_1 + \cdots + \alpha_n Sv_n = \alpha_1 Tu_1 + \cdots + \alpha_n Tu_n = T(\alpha_1 u_1 + \cdots + \alpha_n u_n) = TEv.\]
     Therefore, $S = TE$.
@@ -707,37 +707,37 @@
 \end{sol}
 
 \begin{exercise}[3b30]
-    Suppose $\varphi \in \lin{V, \f}$ and $\varphi \neq 0$.
-	Suppose $u \in V$ is not in $\nul \varphi$.
+    Suppose $\phi \in \lin{V, \fbb}$ and $\phi \neq 0$.
+	Suppose $u \in V$ is not in $\nul \phi$.
 	Prove that
-    \[V = \nul \varphi \op \set{au \mid a \in \f}.\]
+    \[V = \nul \phi \op \set{au \mid a \in \fbb}.\]
 \end{exercise}
 
 \begin{sol}
     Let $v \in V$.
-	We want to show that $v$ can be expressed as a sum of a vector in $\nul \varphi$ and a scalar multiple of $u$.
-	Since $\varphi(u) \neq 0$, we can define a scalar
-    \[a = \frac{\varphi(v)}{\varphi(u)}.\]
+	We want to show that $v$ can be expressed as a sum of a vector in $\nul \phi$ and a scalar multiple of $u$.
+	Since $\phi(u) \neq 0$, we can define a scalar
+    \[a = \frac{\phi(v)}{\phi(u)}.\]
     Then consider the vector
     \[w = v - au.\]
     We have
-    \[\varphi(w) = \varphi(v - au) = \varphi(v) - a\varphi(u) = \varphi(v) - \frac{\varphi(v)}{\varphi(u)}\varphi(u) = 0.\]
-    Therefore, $w \in \nul \varphi$.
+    \[\phi(w) = \phi(v - au) = \phi(v) - a\phi(u) = \phi(v) - \frac{\phi(v)}{\phi(u)}\phi(u) = 0.\]
+    Therefore, $w \in \nul \phi$.
 	Thus, we can express $v$ as
     \[v = w + au,\]
-    where $w \in \nul \varphi$ and $au$ is a scalar multiple of $u$.
-	This shows that every vector in $V$ can be expressed as a sum of a vector in $\nul \varphi$ and a scalar multiple of $u$, which implies that
-    \[V = \nul \varphi + \set{au \mid a \in \f}.\]
+    where $w \in \nul \phi$ and $au$ is a scalar multiple of $u$.
+	This shows that every vector in $V$ can be expressed as a sum of a vector in $\nul \phi$ and a scalar multiple of $u$, which implies that
+    \[V = \nul \phi + \set{au \mid a \in \fbb}.\]
 
     Next, we need to show that the sum is direct.
-	Suppose $w \in \nul \varphi \cap \set{au \mid a \in \f}$.
-	Then there exists a scalar $a \in \f$ such that $w = au$.
-	Since $w \in \nul \varphi$, we have
-    \[0 = \varphi(w) = \varphi(au) = a\varphi(u).\]
-    Since $\varphi(u) \neq 0$, it follows that $a = 0$.
-	Therefore, $w = 0$, which shows that the intersection of $\nul \varphi$ and $\set{au \mid a \in \f}$ is trivial.
+	Suppose $w \in \nul \phi \cap \set{au \mid a \in \fbb}$.
+	Then there exists a scalar $a \in \fbb$ such that $w = au$.
+	Since $w \in \nul \phi$, we have
+    \[0 = \phi(w) = \phi(au) = a\phi(u).\]
+    Since $\phi(u) \neq 0$, it follows that $a = 0$.
+	Therefore, $w = 0$, which shows that the intersection of $\nul \phi$ and $\set{au \mid a \in \fbb}$ is trivial.
 	Hence, the sum is direct, and we conclude that
-    \[V = \nul \varphi \oplus \set{au \mid a \in \f}. \qh\]
+    \[V = \nul \phi \oplus \set{au \mid a \in \fbb}. \qh\]
 \end{sol}
 
 \begin{exercise}[3b31]
@@ -761,7 +761,7 @@
     \[Tv_j = y_j \quad \text{for } j = 1, \ldots, m.\]
     Then for any $v \in V$, we can express $v$ as a linear combination of the basis vectors:
     \[v = \alpha_1 x_1 + \cdots + \alpha_k x_k + \beta_1 v_1 + \cdots + \beta_m v_m\]
-    for some scalars $\alpha_1, \ldots, \alpha_k, \beta_1, \ldots, \beta_m \in \f$.
+    for some scalars $\alpha_1, \ldots, \alpha_k, \beta_1, \ldots, \beta_m \in \fbb$.
 	Applying $T$ to both sides gives
     \[Tv = \alpha_1 Tx_1 + \cdots + \alpha_k Tx_k + \beta_1 Tv_1 + \cdots + \beta_m Tv_m = 0 + \beta_1 y_1 + \cdots + \beta_m y_m.\]
     Therefore, $Tv \in Y$.
@@ -772,80 +772,80 @@
 	Moreover, if $Tv = 0$, then $\beta_1 y_1 + \cdots + \beta_m y_m = 0$.
 	Since $y_1, \ldots, y_m$ are linearly independent, it follows that $\beta_1 = \cdots = \beta_m = 0$.
 	Thus, $v \in X$.
-	Additionally, if $v \in X$, then $v = \alpha_1 x_1 + \cdots + \alpha_k x_k$ for some scalars $\alpha_1, \ldots, \alpha_k \in \f$, and hence $Tv = 0$.
+	Additionally, if $v \in X$, then $v = \alpha_1 x_1 + \cdots + \alpha_k x_k$ for some scalars $\alpha_1, \ldots, \alpha_k \in \fbb$, and hence $Tv = 0$.
 	Therefore, $\nul T = X$.
 	This shows that there exists a linear map $T \in \lin{V, W}$ such that $\nul T = X$ and $\range T = Y$.
 \end{sol}
 
 \begin{exercise}[3b32]
     Suppose $V$ is finite-dimensional with $\dim V > 1$.
-	Show that if $\varphi: \lin{V} \to \f$ is a linear map such that $\varphi(ST) = \varphi(S)\varphi(T)$ for all $S, T \in \lin{V}$, then $\varphi = 0$.
+	Show that if $\phi: \lin{V} \to \fbb$ is a linear map such that $\phi(ST) = \phi(S)\phi(T)$ for all $S, T \in \lin{V}$, then $\phi = 0$.
     
-    \note{The description of the two-sided ideals of $\lin{V}$ given by \autoref{ex:3a17} might be useful.}
+    \note{The description of the two-sided ideals of $\lin{V}$ given by \exref{3a17} might be useful.}
 \end{exercise}
 
 \begin{sol}
-    Observe that $\nul \varphi$ is a two-sided ideal of $\lin V$ as follows: if $X \in \nul \varphi$ and $Y \in \lin V$, then
-    \[\varphi(XY) = \varphi(X)\varphi(Y) = 0 \cdot \varphi(Y) = 0, \quad \varphi(YX) = \varphi(Y)\varphi(X) = \varphi(Y) \cdot 0 = 0.\]
-    Since $\dim V > 1$, then \autoref{ex:3a16} gives the existence of $S, T \in \lin V$ such that $ST \neq TS$.
+    Observe that $\nul \phi$ is a two-sided ideal of $\lin V$ as follows: if $X \in \nul \phi$ and $Y \in \lin V$, then
+    \[\phi(XY) = \phi(X)\phi(Y) = 0 \cdot \phi(Y) = 0, \quad \phi(YX) = \phi(Y)\phi(X) = \phi(Y) \cdot 0 = 0.\]
+    Since $\dim V > 1$, then \exref{3a16} gives the existence of $S, T \in \lin V$ such that $ST \neq TS$.
 	Then we have
-    \[\varphi(ST - TS) = \varphi(S) \varphi(T) - \varphi(T) \varphi(S) = 0.\]
-    Therefore, $ST - TS \in \nul \varphi$.
-	Since $\nul \varphi$ is a two-sided ideal of $\lin V$, then by \autoref{ex:3a17}, we have $\nul \varphi = \lin V$.
-	Hence, $\varphi = 0$.
+    \[\phi(ST - TS) = \phi(S) \phi(T) - \phi(T) \phi(S) = 0.\]
+    Therefore, $ST - TS \in \nul \phi$.
+	Since $\nul \phi$ is a two-sided ideal of $\lin V$, then by \exref{3a17}, we have $\nul \phi = \lin V$.
+	Hence, $\phi = 0$.
 \end{sol}
 
 \begin{exercise}[3b33]
     Suppose that $V$ and $W$ are real vector spaces and $T \in \lin{V, W}$.
-	Define $T_\c: V_\c \to W_\c$ by
-    \[T_\c(u + iv) = Tu + iTv\]
+	Define $T_\cbb: V_\cbb \to W_\cbb$ by
+    \[T_\cbb(u + iv) = Tu + iTv\]
     for all $u, v \in V$.
     \begin{subexercises}
-        \item Show that $T_\c$ is a (complex) linear map from $V_\c$ to $W_\c$.
-        \item Show that $T_\c$ is injective if and only if $T$ is injective.
-        \item Show that $\range T_\c = W_\c$ if and only if $\range T = W$.
+        \item Show that $T_\cbb$ is a (complex) linear map from $V_\cbb$ to $W_\cbb$.
+        \item Show that $T_\cbb$ is injective if and only if $T$ is injective.
+        \item Show that $\range T_\cbb = W_\cbb$ if and only if $\range T = W$.
     \end{subexercises}
     
-    \note{See Exercise 8 in Section 1B for the definition of the complexification $V_\c$.
-	The linear map $T_\c$ is called the \textbf{complexification} of the linear map $T$.}
+    \note{See Exercise 8 in Section 1B for the definition of the complexification $V_\cbb$.
+	The linear map $T_\cbb$ is called the \textbf{complexification} of the linear map $T$.}
 \end{exercise}
 
 \begin{sole}
-    \item Let $u + vi$ and $w + xi \in V_\c$.
-	Then for any $a + bi \in \c$, we have
+    \item Let $u + vi$ and $w + xi \in V_\cbb$.
+	Then for any $a + bi \in \cbb$, we have
     \begin{align*}
-        T_\c((a + bi)(u + vi) + (w + xi)) & = T_\c((au - bv + (av + bu)i) + (w + xi)) \\
+        T_\cbb((a + bi)(u + vi) + (w + xi)) & = T_\cbb((au - bv + (av + bu)i) + (w + xi)) \\
         & = T(au - bv + w) + iT(av + bu + x) \\
         & = aTu - bTv + Tw + i(aTv + bTu + Tx) \\
         & = (a + bi)(Tu + iTv) + (Tw + iTx) \\
-        & = (a + bi)T_\c(u + vi) + T_\c(w + xi).
+        & = (a + bi)T_\cbb(u + vi) + T_\cbb(w + xi).
     \end{align*}
-    Therefore, $T_\c$ is a complex linear map from $V_\c$ to $W_\c$.
-    \item Suppose $T_\c$ is injective.
+    Therefore, $T_\cbb$ is a complex linear map from $V_\cbb$ to $W_\cbb$.
+    \item Suppose $T_\cbb$ is injective.
 	Let $v \in V$ be such that $Tv = 0$.
 	Then
-    \[T_\c(v + i0) = Tv + iT0 = 0 + i0 = 0.\]
-    Since $T_\c$ is injective, we have $v + i0 = 0$, which implies that $v = 0$.
+    \[T_\cbb(v + i0) = Tv + iT0 = 0 + i0 = 0.\]
+    Since $T_\cbb$ is injective, we have $v + i0 = 0$, which implies that $v = 0$.
 	Therefore, $T$ is injective.
 
     Conversely, suppose $T$ is injective.
-	Let $u + iv \in V_\c$ be such that $T_\c(u + iv) = 0$.
+	Let $u + iv \in V_\cbb$ be such that $T_\cbb(u + iv) = 0$.
 	Then
     \[Tu + iTv = 0.\]
     This implies that $Tu = 0$ and $Tv = 0$.
 	Since $T$ is injective, we have $u = 0$ and $v = 0$.
-	Therefore, $u + iv = 0$, and hence $T_\c$ is injective.
-    \item Suppose $\range T_\c = W_\c$.
+	Therefore, $u + iv = 0$, and hence $T_\cbb$ is injective.
+    \item Suppose $\range T_\cbb = W_\cbb$.
 	Let $w \in W$.
-	Then $w + i0 \in W_\c$, and since $\range T_\c = W_\c$, there exists $u + iv \in V_\c$ such that
-    \[T_\c(u + iv) = Tu + iTv = w + i0.\]
+	Then $w + i0 \in W_\cbb$, and since $\range T_\cbb = W_\cbb$, there exists $u + iv \in V_\cbb$ such that
+    \[T_\cbb(u + iv) = Tu + iTv = w + i0.\]
     This implies that $Tu = w$ and $Tv = 0$.
 	Therefore, $w \in \range T$, and hence $\range T = W$.
 
     Conversely, suppose $\range T = W$.
-	Let $w_1 + iw_2 \in W_\c$.
+	Let $w_1 + iw_2 \in W_\cbb$.
 	Since $\range T = W$, there exist $u, v \in V$ such that $Tu = w_1$ and $Tv = w_2$.
 	Then
-    \[T_\c(u + iv) = Tu + iTv = w_1 + iw_2.\]
-    Therefore, $w_1 + iw_2 \in \range T_\c$, and hence $\range T_\c = W_\c$.
+    \[T_\cbb(u + iv) = Tu + iTv = w_1 + iw_2.\]
+    Therefore, $w_1 + iw_2 \in \range T_\cbb$, and hence $\range T_\cbb = W_\cbb$.
 \end{sole}

@@ -30,8 +30,8 @@
         a_n = 3(n+1)b_{n+1}
     \end{cases}.\]
     That is, $a_i = 3(i+1)b_{i+1} + 5(i+1)(i+2)b_{i+2}$ for $0 \leq i < n$ and $a_n = 3(n+1)b_{n+1}$.
-	Finally, we solve for the coefficients of $q$ by back-substitution.
-	Noting that
+    Finally, we solve for the coefficients of $q$ by back-substitution.
+    Noting that
     \[b_j = \frac{a_{j-1} - 5j(j+1)b_{j+1}}{3j} = \frac{a_{j-1}}{3j} - \frac{5}{3}(j+1)b_{j+1},\] we have 
     \[\begin{cases}
         b_{n+1} = \frac{a_n}{3(n+1)} \\
@@ -109,10 +109,10 @@ Then, we can swap $v_1$ with any other basis vector to force all diagonal entrie
 \end{coole}
 
 \begin{apex}[3e11]
-    Suppose $U = \set{(x_1, x_2, \ldots) \in \f^\infty \mid x_k \neq 0 \text{ for only finitely many } k}$.
+    Suppose $U = \set{(x_1, x_2, \ldots) \in \fbb^\infty \mid x_k \neq 0 \text{ for only finitely many } k}$.
     \begin{subexercises}
-        \item Show that $U$ is a subspace of $\f^\infty$.
-        \item Prove that $\f^\infty / U$ is infinite-dimensional.
+        \item Show that $U$ is a subspace of $\fbb^\infty$.
+        \item Prove that $\fbb^\infty / U$ is infinite-dimensional.
     \end{subexercises}
 \end{apex}
 
@@ -140,15 +140,15 @@ Then, we can swap $v_1$ with any other basis vector to force all diagonal entrie
 \end{proof}
 
 \begin{apex}[3f11]
-    Suppose $v_1, \ldots, v_n$ is a basis of $V$ and $\varphi_1, \ldots, \varphi_n$ is the corresponding dual basis of $V'$.
+    Suppose $v_1, \ldots, v_n$ is a basis of $V$ and $\phi_1, \ldots, \phi_n$ is the corresponding dual basis of $V'$.
 	Suppose $\psi \in V'$.
 	Prove that
-    \[\psi = \psi(v_1) \varphi_1 + \cdots + \psi(v_n) \varphi_n.\]
+    \[\psi = \psi(v_1) \phi_1 + \cdots + \psi(v_n) \phi_n.\]
 \end{apex}
 
 \begin{csp}
-    Because $\varphi_1$, $\dots$, $\varphi_n$ is the dual basis, $\varphi_i (v_j)=\delta_{i,j}$.
+    Because $\phi_1$, $\dots$, $\phi_n$ is the dual basis, $\phi_i (v_j)=\delta_{i,j}$.
 	For each basis vector $v_j$,
-    $$\left(\sum^{n}_{i=1} \psi(v_i) \varphi_i \right)(v_j)=\sum^{n}_{i=1} \psi(v_i) \varphi_i (v_j)=\psi(v_j).$$
+    $$\left(\sum^{n}_{i=1} \psi(v_i) \phi_i \right)(v_j)=\sum^{n}_{i=1} \psi(v_i) \phi_i (v_j)=\psi(v_j).$$
     Since the two linear functionals agree on a basis of $V$, they are equal on all of $V$.
 \end{csp}

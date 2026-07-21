@@ -1,39 +1,39 @@
 \subsection{Dimension}
 
-\remark{In \autoref{ex:2c3} through \autoref{ex:2c7}, each problem gives a set $U$ that satisfies some linear condition on the polynomials in $\pp_4(\f)$.
+\remark{In \exref{2c3} through \exref{2c7}, each problem gives a set $U$ that satisfies some linear condition on the polynomials in $\pcal_4(\fbb)$.
 	In each case, the polynomials we exhibit span $U$, since expressing a general element of $U$ in terms of the free parameters allowed by the defining condition writes it directly as a linear combination of them.
 	They are also linearly independent: since they have different degrees, a linear combination of them can equal the zero polynomial only if every coefficient is zero, as otherwise the highest-degree term present could not cancel.
 	We will therefore omit this reasoning going forward and simply exhibit a basis for each such $U$.}
 
 \begin{exercise}[2c1]
-    Show that the subspaces of $\r^2$ are precisely $\set{0}$, all lines in $\r^2$ containing the origin, and $\r^2$.
+    Show that the subspaces of $\rbb^2$ are precisely $\set{0}$, all lines in $\rbb^2$ containing the origin, and $\rbb^2$.
 \end{exercise}
 
 \begin{sol}
-    Since $\dim(\r^2) = 2$, any subspace of $\r^2$ must have dimension $0$, $1$, or $2$.
-	The only subspace of dimension $0$ is $\set{0}$, and the only subspace of dimension $2$ is $\r^2$.
-	Any subspace with dimension 1 consists of all scalar multiples of some nonzero $(x, y) \in \r^2$, which is precisely the line with direction $(x, y)$ containing the origin.
-	Thus, the subspaces of $\r^2$ are precisely $\set{0}$, all lines in $\r^2$ containing the origin, and $\r^2$.
+    Since $\dim(\rbb^2) = 2$, any subspace of $\rbb^2$ must have dimension $0$, $1$, or $2$.
+	The only subspace of dimension $0$ is $\set{0}$, and the only subspace of dimension $2$ is $\rbb^2$.
+	Any subspace with dimension 1 consists of all scalar multiples of some nonzero $(x, y) \in \rbb^2$, which is precisely the line with direction $(x, y)$ containing the origin.
+	Thus, the subspaces of $\rbb^2$ are precisely $\set{0}$, all lines in $\rbb^2$ containing the origin, and $\rbb^2$.
 \end{sol}
 
 \begin{exercise}[2c2]
-    Show that the subspaces of $\r^3$ are precisely $\set{0}$, all lines in $\r^3$ containing the origin, all planes in $\r^3$ containing the origin, and $\r^3$.
+    Show that the subspaces of $\rbb^3$ are precisely $\set{0}$, all lines in $\rbb^3$ containing the origin, all planes in $\rbb^3$ containing the origin, and $\rbb^3$.
 \end{exercise}
 
 \begin{sol}
-    Since $\dim(\r^3) = 3$, any subspace of $\r^3$ must have dimension $0$, $1$, $2$, or $3$.
-	The only subspace of dimension $0$ is $\set{0}$, and the only subspace of dimension $3$ is $\r^3$.
-	Any subspace with dimension 1 consists of all scalar multiples of some nonzero $(x, y, z) \in \r^3$, which is precisely the line containing the origin in the direction of $(x, y, z)$.
-	Any subspace with dimension 2 consists of all linear combinations of two linearly independent vectors in $\r^3$, which is precisely a plane containing the origin.
-	Thus, the subspaces of $\r^3$ are precisely $\set{0}$, all lines in $\r^3$ containing the origin, all planes in $\r^3$ containing the origin, and $\r^3$.
+    Since $\dim(\rbb^3) = 3$, any subspace of $\rbb^3$ must have dimension $0$, $1$, $2$, or $3$.
+	The only subspace of dimension $0$ is $\set{0}$, and the only subspace of dimension $3$ is $\rbb^3$.
+	Any subspace with dimension 1 consists of all scalar multiples of some nonzero $(x, y, z) \in \rbb^3$, which is precisely the line containing the origin in the direction of $(x, y, z)$.
+	Any subspace with dimension 2 consists of all linear combinations of two linearly independent vectors in $\rbb^3$, which is precisely a plane containing the origin.
+	Thus, the subspaces of $\rbb^3$ are precisely $\set{0}$, all lines in $\rbb^3$ containing the origin, all planes in $\rbb^3$ containing the origin, and $\rbb^3$.
 \end{sol}
 
 \begin{exercise}[2c3]
     \begin{subexercises}
-        \item Let $U = \set{p \in \pp_4(\f) \mid p(6) = 0}$.
+        \item Let $U = \set{p \in \pcal_4(\fbb) \mid p(6) = 0}$.
 	Find a basis of $U$.
-        \item Extend the basis in (a) to a basis of $\pp_4(\f)$.
-        \item Find a subspace $W$ of $\pp_4(\f)$ such that $\pp_4(\f) = U \op W$.
+        \item Extend the basis in (a) to a basis of $\pcal_4(\fbb)$.
+        \item Find a subspace $W$ of $\pcal_4(\fbb)$ such that $\pcal_4(\fbb) = U \op W$.
     \end{subexercises}
     \remark{Please see remark at the beginning of this section regarding the basis of $U$.}
 \end{exercise}
@@ -46,27 +46,27 @@
     \[a_0 = -6a_1 - 36a_2 - 216a_3 - 1296a_4.\]
     Then we can write any polynomial in $U$ as a linear combination of the following four polynomials:
     \[u_1 = -6 + x, \quad u_2 = -36 + x^2, \quad u_3 = -216 + x^3, \quad u_4 = -1296 + x^4.\]
-    \item We can extend the basis $\set{u_1, u_2, u_3, u_4}$ of $U$ to a basis of $\pp_4(\f)$ by adding one more polynomial that is linearly independent of $u_1, u_2, u_3, u_4$.
+    \item We can extend the basis $\set{u_1, u_2, u_3, u_4}$ of $U$ to a basis of $\pcal_4(\fbb)$ by adding one more polynomial that is linearly independent of $u_1, u_2, u_3, u_4$.
 	For example, we can add the polynomial
     \[u_5 = 1,\]
     which is linearly independent of $u_1, u_2, u_3, u_4$: since $u_5$ has no higher-degree terms, it cannot be expressed as a linear combination of $u_1, u_2, u_3, u_4$.
-	Thus, $\set{u_1, u_2, u_3, u_4, u_5}$ is a basis of $\pp_4(\f)$.
+	Thus, $\set{u_1, u_2, u_3, u_4, u_5}$ is a basis of $\pcal_4(\fbb)$.
     \item Let $W = \spn u_5 = \spn 1$.
 	Then we have
-    \[\pp_4(\f) = U + W,\]
-    since every polynomial in $\pp_4(\f)$ can be written as a sum of a polynomial in $U$ and a polynomial in $W$.
-	Moreover, if $p \in U \cap W$, then $p = \alpha$ for some $\alpha \in \f$.
+    \[\pcal_4(\fbb) = U + W,\]
+    since every polynomial in $\pcal_4(\fbb)$ can be written as a sum of a polynomial in $U$ and a polynomial in $W$.
+	Moreover, if $p \in U \cap W$, then $p = \alpha$ for some $\alpha \in \fbb$.
 	Since $p(6) = 0$, we have $\alpha = 0$.
 	Thus, $U \cap W = \set{0}$, and so we have
-    \[\pp_4(\f) = U \op W. \qh\]
+    \[\pcal_4(\fbb) = U \op W. \qh\]
 \end{sole}
 
 \begin{exercise}[2c4]
     \begin{subexercises}
-        \item Let $U = \set{p \in \pp_4(\r) \mid p''(6) = 0}$.
+        \item Let $U = \set{p \in \pcal_4(\rbb) \mid p''(6) = 0}$.
 	Find a basis of $U$.
-        \item Extend the basis in (a) to a basis of $\pp_4(\r)$.
-        \item Find a subspace $W$ of $\pp_4(\r)$ such that $\pp_4(\r) = U \op W$.
+        \item Extend the basis in (a) to a basis of $\pcal_4(\rbb)$.
+        \item Find a subspace $W$ of $\pcal_4(\rbb)$ such that $\pcal_4(\rbb) = U \op W$.
     \end{subexercises}
     \remark{Please see remark at the beginning of this section regarding the basis of $U$.}
 \end{exercise}
@@ -81,27 +81,27 @@
     \[a_2 = -18a_3 - 216a_4.\]
     Then we can write any polynomial in $U$ as a linear combination of the following four polynomials:
     \[u_1 = 1, \quad u_2 = x, \quad u_3 = -18x^2 + x^3, \quad u_4 = -216x^2 + x^4.\]
-    \item We can extend the basis $\set{u_1, u_2, u_3, u_4}$ of $U$ to a basis of $\pp_4(\r)$ by adding one more polynomial that is linearly independent of $u_1, u_2, u_3, u_4$.
+    \item We can extend the basis $\set{u_1, u_2, u_3, u_4}$ of $U$ to a basis of $\pcal_4(\rbb)$ by adding one more polynomial that is linearly independent of $u_1, u_2, u_3, u_4$.
 	For example, we can add the polynomial
     \[u_5 = x^2,\]
     which is linearly independent of $u_1, u_2, u_3, u_4$: since only $u_3$ and $u_4$ have $x^2$ terms but contain other higher-degree terms, $u_5$ cannot be expressed as a linear combination of $u_1, u_2, u_3, u_4$.
-	Thus, $\set{u_1, u_2, u_3, u_4, u_5}$ is a basis of $\pp_4(\r)$.
+	Thus, $\set{u_1, u_2, u_3, u_4, u_5}$ is a basis of $\pcal_4(\rbb)$.
     \item Let $W = \spn u_5 = \spn x^2$.
 	Then we have
-    \[\pp_4(\r) = U + W,\]
-    since every polynomial in $\pp_4(\r)$ can be written as a sum of a polynomial in $U$ and a polynomial in $W$.
-	Moreover, if $p \in U \cap W$, then $p = \alpha x^2$ for some $\alpha \in \r$.
+    \[\pcal_4(\rbb) = U + W,\]
+    since every polynomial in $\pcal_4(\rbb)$ can be written as a sum of a polynomial in $U$ and a polynomial in $W$.
+	Moreover, if $p \in U \cap W$, then $p = \alpha x^2$ for some $\alpha \in \rbb$.
 	Since $p''(6) = 0$, we have $2\alpha = 0$, which implies that $\alpha = 0$.
 	Thus, $U \cap W = \set{0}$, and so we have
-    \[\pp_4(\r) = U \op W. \qh\]
+    \[\pcal_4(\rbb) = U \op W. \qh\]
 \end{sole}
 
 \begin{exercise}[2c5]
     \begin{subexercises}
-        \item Let $U = \set{p \in \pp_4(\f) \mid p(2) = p(5)}$.
+        \item Let $U = \set{p \in \pcal_4(\fbb) \mid p(2) = p(5)}$.
 	Find a basis of $U$.
-        \item Extend the basis in (a) to a basis of $\pp_4(\f)$.
-        \item Find a subspace $W$ of $\pp_4(\f)$ such that $\pp_4(\f) = U \op W$.
+        \item Extend the basis in (a) to a basis of $\pcal_4(\fbb)$.
+        \item Find a subspace $W$ of $\pcal_4(\fbb)$ such that $\pcal_4(\fbb) = U \op W$.
     \end{subexercises}
     \remark{Please see remark at the beginning of this section regarding the basis of $U$.}
 \end{exercise}
@@ -116,27 +116,27 @@
     \[a_1 = -7a_2 - 39a_3 - 203a_4.\]
     Then we can write any polynomial in $U$ as a linear combination of the following four polynomials:
     \[u_1 = 1, \quad u_2 = -7x + x^2, \quad u_3 = -39x + x^3, \quad u_4 = -203x + x^4.\]
-    \item We can extend the basis $\set{u_1, u_2, u_3, u_4}$ of $U$ to a basis of $\pp_4(\f)$ by adding one more polynomial that is linearly independent of $u_1, u_2, u_3, u_4$.
+    \item We can extend the basis $\set{u_1, u_2, u_3, u_4}$ of $U$ to a basis of $\pcal_4(\fbb)$ by adding one more polynomial that is linearly independent of $u_1, u_2, u_3, u_4$.
 	For example, we can add the polynomial
     \[u_5 = x,\]
     which is linearly independent of $u_1, u_2, u_3, u_4$: since only $u_2, u_3, u_4$ have $x$ terms but contain other higher-degree terms, $u_5$ cannot be expressed as a linear combination of $u_1, u_2, u_3, u_4$.
-	Thus, $\set{u_1, u_2, u_3, u_4, u_5}$ is a basis of $\pp_4(\f)$.
+	Thus, $\set{u_1, u_2, u_3, u_4, u_5}$ is a basis of $\pcal_4(\fbb)$.
     \item Let $W = \spn u_5 = \spn x$.
 	Then we have
-    \[\pp_4(\f) = U + W,\]
-    since every polynomial in $\pp_4(\f)$ can be written as a sum of a polynomial in $U$ and a polynomial in $W$.
-	Moreover, if $p \in U \cap W$, then $p = \alpha x$ for some $\alpha \in \f$.
+    \[\pcal_4(\fbb) = U + W,\]
+    since every polynomial in $\pcal_4(\fbb)$ can be written as a sum of a polynomial in $U$ and a polynomial in $W$.
+	Moreover, if $p \in U \cap W$, then $p = \alpha x$ for some $\alpha \in \fbb$.
 	Since $p(2) = p(5)$, we have $2\alpha = 5\alpha$, which implies that $\alpha = 0$.
 	Thus, $U \cap W = \set{0}$, and so we have
-    \[\pp_4(\f) = U \op W. \qh\]
+    \[\pcal_4(\fbb) = U \op W. \qh\]
 \end{sole}
 
 \begin{exercise}[2c6]
     \begin{subexercises}
-        \item Let $U = \set{p \in \pp_4(\f) \mid p(2) = p(5) = p(6)}$.
+        \item Let $U = \set{p \in \pcal_4(\fbb) \mid p(2) = p(5) = p(6)}$.
 	Find a basis of $U$.
-        \item Extend the basis in (a) to a basis of $\pp_4(\f)$.
-        \item Find a subspace $W$ of $\pp_4(\f)$ such that $\pp_4(\f) = U \op W$.
+        \item Extend the basis in (a) to a basis of $\pcal_4(\fbb)$.
+        \item Find a subspace $W$ of $\pcal_4(\fbb)$ such that $\pcal_4(\fbb) = U \op W$.
     \end{subexercises}
     \remark{Please see remark at the beginning of this section regarding the basis of $U$.}
 \end{exercise}
@@ -144,7 +144,7 @@
 \begin{sole}
     \item Let $p = a_0 + a_1 x + a_2 x^2 + a_3 x^3 + a_4 x^4 \in U$.
 	Then we have $p(2) = p(5) = p(6)$.
-	We know from \autoref{ex:2c5} that the condition $p(2) = p(5)$ gives us the equation
+	We know from \exref{2c5} that the condition $p(2) = p(5)$ gives us the equation
     \[a_1 = -7a_2 - 39a_3 - 203a_4.\]
     The condition $p(5) = p(6)$ gives us the equation
     \[5a_1 + 25a_2 + 125a_3 + 625a_4 = 6a_1 + 36a_2 + 216a_3 + 1296a_4,\]
@@ -157,31 +157,31 @@
     Then $a_1 = 52a_3 + 616a_4$.
 	Thus, we can write any polynomial in $U$ as a linear combination of the following three polynomials:
     \[u_1 = 1, \quad u_2 = 52x - 13x^2 + x^3, \quad u_3 = 616x - 117x^2 + x^4.\]
-    \item We can extend the basis $\set{u_1, u_2, u_3}$ of $U$ to a basis of $\pp_4(\f)$ by adding two more polynomials that are linearly independent of $u_1, u_2, u_3$.
+    \item We can extend the basis $\set{u_1, u_2, u_3}$ of $U$ to a basis of $\pcal_4(\fbb)$ by adding two more polynomials that are linearly independent of $u_1, u_2, u_3$.
 	For example, we can add the polynomials
     \[u_4 = x^2, \quad u_5 = x^3,\]
     which are linearly independent of $u_1, u_2, u_3$: since only $u_2$ and $u_3$ have $x^2$ terms but contain other higher-degree terms, $u_4$ cannot be expressed as a linear combination of $u_1, u_2, u_3$.
 	Similarly, $u_5$ has an $x^3$ term but no higher-degree terms, so it cannot be expressed as a linear combination of $u_1, u_2, u_3, u_4$.
-	Thus, $\set{u_1, u_2, u_3, u_4, u_5}$ is a basis of $\pp_4(\f)$.
+	Thus, $\set{u_1, u_2, u_3, u_4, u_5}$ is a basis of $\pcal_4(\fbb)$.
     \item Let $W = \spn(u_4, u_5) = \spn(x^2, x^3)$.
 	Then we have
-    \[\pp_4(\f) = U + W,\]
-    since every polynomial in $\pp_4(\f)$ can be written as a sum of a polynomial in $U$ and a polynomial in $W$.
-	Moreover, if $p \in U \cap W$, then $p = \alpha x^2 + \beta x^3$ for some $\alpha, \beta \in \f$.
+    \[\pcal_4(\fbb) = U + W,\]
+    since every polynomial in $\pcal_4(\fbb)$ can be written as a sum of a polynomial in $U$ and a polynomial in $W$.
+	Moreover, if $p \in U \cap W$, then $p = \alpha x^2 + \beta x^3$ for some $\alpha, \beta \in \fbb$.
 	Since $p(2) = p(5) = p(6)$, we have
     \[4\alpha + 8\beta = 25\alpha + 125\beta = 36\alpha + 216\beta.\]
     Solving this system of equations, we find that $\alpha = \beta = 0$.
 	Thus, $U \cap W = \set{0}$, and so we have
-    \[\pp_4(\f) = U \op W. \qh\]
+    \[\pcal_4(\fbb) = U \op W. \qh\]
 \end{sole}
 
 \begin{exercise}[2c7]
     \begin{subexercises}
         \item Let
-        \[U = \set*{p \in \pp_4(\r) \left|~\int_{-1}^{1} p = 0 \right.}.\]
+        \[U = \set*{p \in \pcal_4(\rbb) \left|~\int_{-1}^{1} p = 0 \right.}.\]
         Find a basis of $U$.
-        \item Extend the basis in (a) to a basis of $\pp_4(\r)$.
-        \item Find a subspace $W$ of $\pp_4(\r)$ such that $\pp_4(\r) = U \op W$.
+        \item Extend the basis in (a) to a basis of $\pcal_4(\rbb)$.
+        \item Find a subspace $W$ of $\pcal_4(\rbb)$ such that $\pcal_4(\rbb) = U \op W$.
     \end{subexercises}
     \remark{Please see remark at the beginning of this section regarding the basis of $U$.}
 \end{exercise}
@@ -199,19 +199,19 @@
     \[a_0 = - \frac{a_2}{3} - \frac{a_4}{5}.\]
     Then we can write any polynomial in $U$ as a linear combination of the following four polynomials:
     \[u_1 = x, \quad u_2 = x^2 - \frac 13, \quad u_3 = x^3, \quad u_4 = x^4 - \frac 15.\]
-    \item We can extend the basis $\set{u_1, u_2, u_3, u_4}$ of $U$ to a basis of $\pp_4(\r)$ by adding one more polynomial that is linearly independent of $u_1, u_2, u_3, u_4$.
+    \item We can extend the basis $\set{u_1, u_2, u_3, u_4}$ of $U$ to a basis of $\pcal_4(\rbb)$ by adding one more polynomial that is linearly independent of $u_1, u_2, u_3, u_4$.
 	For example, we can add the polynomial
     \[u_5 = 1,\]
     which is linearly independent of $u_1, u_2, u_3, u_4$: since $u_5$ has no higher-degree terms, it cannot be expressed as a linear combination of $u_1, u_2, u_3, u_4$.
-	Thus, $\set{u_1, u_2, u_3, u_4, u_5}$ is a basis of $\pp_4(\r)$.
+	Thus, $\set{u_1, u_2, u_3, u_4, u_5}$ is a basis of $\pcal_4(\rbb)$.
     \item Let $W = \spn u_5 = \spn 1$.
 	Then we have
-    \[\pp_4(\r) = U + W,\]
-    since every polynomial in $\pp_4(\r)$ can be written as a sum of a polynomial in $U$ and a polynomial in $W$.
-	Moreover, if $p \in U \cap W$, then $p = \alpha$ for some $\alpha \in \r$.
+    \[\pcal_4(\rbb) = U + W,\]
+    since every polynomial in $\pcal_4(\rbb)$ can be written as a sum of a polynomial in $U$ and a polynomial in $W$.
+	Moreover, if $p \in U \cap W$, then $p = \alpha$ for some $\alpha \in \rbb$.
 	Since the integral of a constant over a symmetric interval is nonzero unless the function is identically zero, we have $\alpha = 0$.
 	Thus, $U \cap W = \set{0}$, and so we have
-    \[\pp_4(\r) = U \op W. \qh\]
+    \[\pcal_4(\rbb) = U \op W. \qh\]
 \end{sole}
 
 \begin{exercise}[2c8]
@@ -228,7 +228,7 @@
 	We claim that this list is linearly independent.
 	Suppose that
     \[\alpha_1(v_1 - v_2) + \alpha_2(v_2 - v_3) + \cdots + \alpha_{m - 1}(v_{m - 1} - v_m) = 0\]
-    for some $\alpha_1, \ldots, \alpha_{m - 1} \in \f$.
+    for some $\alpha_1, \ldots, \alpha_{m - 1} \in \fbb$.
 	Then we can rewrite this equation as
     \[\alpha_1 v_1 + (\alpha_2 - \alpha_1)v_2 + \cdots + (\alpha_{m - 1} - \alpha_{m - 2})v_{m - 1} - \alpha_{m - 1} v_m = 0.\]
     Since $v_1, \ldots, v_m$ is linearly independent, we must have $\alpha_1 = 0$, $\alpha_2 - \alpha_1 = 0$, $\ldots$, $\alpha_{m - 1} - \alpha_{m - 2} = 0$, and $-\alpha_{m - 1} = 0$.
@@ -238,52 +238,52 @@
 \end{sol}
 
 \begin{exercise}[2c9]
-    Suppose $m$ is a positive integer and $p_0, p_1, \ldots, p_m \in \pp(\f)$ are such that each $p_k$ has degree $k$.
-	Prove that $p_0, p_1, \ldots, p_m$ is a basis of $\pp_m(\f)$.
+    Suppose $m$ is a positive integer and $p_0, p_1, \ldots, p_m \in \pcal(\fbb)$ are such that each $p_k$ has degree $k$.
+	Prove that $p_0, p_1, \ldots, p_m$ is a basis of $\pcal_m(\fbb)$.
 \end{exercise}
 
 \begin{sol}
     Suppose that
     \[\alpha_0 p_0 + \alpha_1 p_1 + \cdots + \alpha_m p_m = 0\]
-    for some $\alpha_0, \ldots, \alpha_m \in \f$.
+    for some $\alpha_0, \ldots, \alpha_m \in \fbb$.
 	Since $p_m$ is the only polynomial with nonzero coefficient of $x^m$, we must have $\alpha_m = 0$.
 	Next, since $p_{m - 1}$ is the only polynomial with nonzero coefficient of $x^{m - 1}$, we must have $\alpha_{m - 1} = 0$.
 	Continuing in this way, we find that $\alpha_0 = \cdots = \alpha_m = 0$.
 	Thus, the list is linearly independent.
-	Moreover, since $\dim \pp_m(\f) = m + 1$, any linearly independent list of $m + 1$ vectors in $\pp_m(\f)$ is a basis.
-	Therefore, $p_0, p_1, \ldots, p_m$ is a basis of $\pp_m(\f)$.
+	Moreover, since $\dim \pcal_m(\fbb) = m + 1$, any linearly independent list of $m + 1$ vectors in $\pcal_m(\fbb)$ is a basis.
+	Therefore, $p_0, p_1, \ldots, p_m$ is a basis of $\pcal_m(\fbb)$.
 \end{sol}
 
 \begin{exercise}[2c10]
     Suppose $m$ is a positive integer.
 	For $0 \leq k \leq m$, let
     \[p_k(x) = x^k(1 - x)^{m - k}.\]
-    Show that $p_0, \ldots, p_m$ is a basis of $\pp_m(\f)$.
+    Show that $p_0, \ldots, p_m$ is a basis of $\pcal_m(\fbb)$.
 \end{exercise}
 
 \begin{sol}
     Suppose that
     \[\alpha_0 p_0 + \alpha_1 p_1 + \cdots + \alpha_m p_m = 0\]
-    for some $\alpha_0, \ldots, \alpha_m \in \f$.
+    for some $\alpha_0, \ldots, \alpha_m \in \fbb$.
 	Since $p_0$ is the only polynomial with nonzero constant term, we must have $\alpha_0 = 0$, hence the sum above becomes
     \[\alpha_1 p_1 + \cdots + \alpha_m p_m = 0.\]
     Next, since $p_1$ is the only polynomial with nonzero coefficient of $x$ in the sum above, we must have $\alpha_1 = 0$.
 	Continuing in this way, we find that $\alpha_0 = \cdots = \alpha_m = 0$.
 	Thus, the list is linearly independent.
-	Moreover, since $\dim \pp_m(\f) = m + 1$, any linearly independent list of $m + 1$ vectors in $\pp_m(\f)$ is a basis.
-	Therefore, $p_0, \ldots, p_m$ is a basis of $\pp_m(\f)$.
+	Moreover, since $\dim \pcal_m(\fbb) = m + 1$, any linearly independent list of $m + 1$ vectors in $\pcal_m(\fbb)$ is a basis.
+	Therefore, $p_0, \ldots, p_m$ is a basis of $\pcal_m(\fbb)$.
 \end{sol}
 
 \begin{exercise}[2c11]
-    Suppose $U$ and $W$ are both four-dimensional subspaces of $\c^6$.
+    Suppose $U$ and $W$ are both four-dimensional subspaces of $\cbb^6$.
 	Prove that there exist two vectors in $U \cap W$ such that neither of these vectors is a scalar multiple of the other.
 \end{exercise}
 
 \begin{sol}
-    Let $U$ and $W$ be four-dimensional subspaces of $\c^6$.
+    Let $U$ and $W$ be four-dimensional subspaces of $\cbb^6$.
 	By the dimension formula for the sum of two subspaces, we have
     \[\dim(U + W) = \dim U + \dim W - \dim(U \cap W) = 4 + 4 - \dim(U \cap W) = 8 - \dim(U \cap W).\]
-    Since $U + W$ is a subspace of $\c^6$, we have $\dim(U + W) \leq 6$.
+    Since $U + W$ is a subspace of $\cbb^6$, we have $\dim(U + W) \leq 6$.
 	Thus, we have
     \[8 - \dim(U \cap W) \leq 6,\]
     which implies that $\dim(U \cap W) \geq 2$.
@@ -291,30 +291,30 @@
 \end{sol}
 
 \begin{exercise}[2c12]
-    Suppose that $U$ and $W$ are subspaces of $\r^8$ such that $\dim U = 3$, $\dim W = 5$, and $U + W = \r^8$.
-	Prove that $\r^8 = U \op W$.
+    Suppose that $U$ and $W$ are subspaces of $\rbb^8$ such that $\dim U = 3$, $\dim W = 5$, and $U + W = \rbb^8$.
+	Prove that $\rbb^8 = U \op W$.
 \end{exercise}
 
 \begin{sol}
     By the dimension formula for the sum of two subspaces, we have
     \[\dim(U + W) = \dim U + \dim W - \dim(U \cap W) = 3 + 5 - \dim(U \cap W) = 8 - \dim(U \cap W).\]
-    Since $U + W = \r^8$, we have $\dim(U + W) = 8$.
+    Since $U + W = \rbb^8$, we have $\dim(U + W) = 8$.
 	Thus, we have
     \[8 - \dim(U \cap W) = 8,\]
     which implies that $\dim(U \cap W) = 0$.
 	Therefore, $U \cap W = \set{0}$, and so we have
-    \[\r^8 = U \op W. \qh\]
+    \[\rbb^8 = U \op W. \qh\]
 \end{sol}
 
 \begin{exercise}[2c13]
-    Suppose $U$ and $W$ are both five-dimensional subspaces of $\r^8$.
+    Suppose $U$ and $W$ are both five-dimensional subspaces of $\rbb^8$.
 	Prove that $U \cap W \neq \set{0}$.
 \end{exercise}
 
 \begin{sol}
     By the dimension formula for the sum of two subspaces, we have
     \[\dim(U + W) = \dim U + \dim W - \dim(U \cap W) = 5 + 5 - \dim(U \cap W) = 10 - \dim(U \cap W).\]
-    Since $U + W$ is a subspace of $\r^8$, we have $\dim(U + W) \leq 8$.
+    Since $U + W$ is a subspace of $\rbb^8$, we have $\dim(U + W) \leq 8$.
 	Thus, we have
     \[10 - \dim(U \cap W) \leq 8,\]
     which implies that $\dim(U \cap W) \geq 2$.
@@ -451,12 +451,12 @@
     One may guess that the given formula above is true by analogy with the formula for the number of elements in the union of three finite sets.
 	However, this erroneously conflates the idea of subspace sums with the idea of set unions.
 	In fact, the formula is not true in general.
-	For example, let $V = \r^2$, and let
+	For example, let $V = \rbb^2$, and let
     \[V_1 = \spn((1, 0)), \quad V_2 = \spn((0, 1)), \quad V_3 = \spn((1, 1)).\]
     It is easy to see that $\dim V_1 = \dim V_2 = \dim V_3 = 1$, but $\dim(V_1 \cap V_2) = \dim(V_1 \cap V_3) = \dim(V_2 \cap V_3) = 0$ and $\dim(V_1 \cap V_2 \cap V_3) = 0$.
 	Thus, the right-hand side of the formula is
     \[1 + 1 + 1 - 0 - 0 - 0 + 0 = 3,\]
-    but the left-hand side is $\dim(V_1 + V_2 + V_3) = \dim \r^2 = 2$.
+    but the left-hand side is $\dim(V_1 + V_2 + V_3) = \dim \rbb^2 = 2$.
 	Therefore, the formula is not true in general.
 \end{sol}
 

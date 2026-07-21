@@ -8,13 +8,13 @@
     Let $p(x)$ be a polynomial of odd degree with real coefficients.
 	As $x \to \infty$, $p(x) \to \infty$ or $p(x) \to -\infty$ depending on the leading coefficient.
 	Similarly, as $x \to -\infty$, $p(x) \to -\infty$ or $p(x) \to \infty$.
-	By the intermediate value theorem, since $p(x)$ is continuous and takes on both positive and negative values, there must exist some $x \in \r$ such that $p(x) = 0$.
+	By the intermediate value theorem, since $p(x)$ is continuous and takes on both positive and negative values, there must exist some $x \in \rbb$ such that $p(x) = 0$.
 	Therefore, $p$ has a real zero.
 \end{proof}
 
 \begin{apex}[4a11]
-    Suppose $p \in \pp(\c)$.
-	Define $q: \c \to \c$ by
+    Suppose $p \in \pcal(\cbb)$.
+	Define $q: \cbb \to \cbb$ by
     \[q(z) = p(z) \bar{p(\bar{z})}.\]
     Prove that $q$ is a polynomial with real coefficients.
 \end{apex}
@@ -24,10 +24,10 @@
 	Otherwise, let $n = \deg p$.
 	Then we may write
     \[p(z) = \alpha(z - \lambda_1)(z - \lambda_2) \cdots (z - \lambda_n),\]
-    where $\alpha \in \c$ and $\lambda_1, \lambda_2, \ldots, \lambda_n \in \c$ are the roots of $p$.
+    where $\alpha \in \cbb$ and $\lambda_1, \lambda_2, \ldots, \lambda_n \in \cbb$ are the roots of $p$.
 	Then
     \[q(z) = p(z) \bar{p(\bar{z})} = \alpha(z - \lambda_1)(z - \lambda_2) \cdots (z - \lambda_n) \cdot \bar{\alpha} (z - \bar{\lambda_1}) (z - \bar{\lambda_2}) \cdots (z - \bar{\lambda_n}).\]
-    Note that the product contains the term $\alpha\bar\alpha = |\alpha|^2 \in \r$, as well as the pairs
+    Note that the product contains the term $\alpha\bar\alpha = |\alpha|^2 \in \rbb$, as well as the pairs
     \[(z - \lambda_i)(z - \bar{\lambda_i}) = z^2 - 2\Re(\lambda_i) z + |\lambda_i|^2.\]
     Each such pair contributes a quadratic polynomial with real coefficients.
 	Since the product of polynomials with real coefficients also has real coefficients, it follows that $q(z)$ is a polynomial with real coefficients.

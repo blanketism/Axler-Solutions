@@ -3,8 +3,8 @@
 \subsection{Vector Space of Linear Maps}
 
 \begin{exercise}[3a1]
-    Suppose $b, c \in \r$.
-	Define $T: \r^3 \to \r^2$ by
+    Suppose $b, c \in \rbb$.
+	Define $T: \rbb^3 \to \rbb^2$ by
     \[T(x, y, z) = (2x - 4y + 3z + b, 6x + cxyz).\]
     Show that $T$ is linear if and only if $b = c = 0$.
 \end{exercise}
@@ -14,13 +14,13 @@
 	Then
     \[T(0, 0, 0) = (b, 0),\]
     which implies that $b = 0$.
-	Now consider the vector $(1, 1, 1) \in \r^3$.
+	Now consider the vector $(1, 1, 1) \in \rbb^3$.
 	Then
-    \[T(2, 2, 2) = (2, 12 + 8c) = (2, 12 + 2c) = 2T(1, 1, 1),\]
-    which implies that $c = 0$.
+    \[T(2, 2, 2) = 2T(1, 1, 1) \implies (2, 12 + 8c) = (2, 12 + 2c).\]
+    Then $12 + 8c = 12 + 2c$, or $c = 0$.
 
     Conversely, if $b = c = 0$, then $T(x, y, z) = (2x - 4y + 3z, 6x)$.
-	Let $(x_1, y_1, z_1), (x_2, y_2, z_2) \in \r^3$ and $\alpha \in \r$.
+	Let $(x_1, y_1, z_1), (x_2, y_2, z_2) \in \rbb^3$ and $\alpha \in \rbb$.
 	Then
     \begin{align*}
         T(x_1 + x_2, y_1 + y_2, z_1 + z_2) & = (2(x_1 + x_2) - 4(y_1 + y_2) + 3(z_1 + z_2), 6(x_1 + x_2)) \\
@@ -39,31 +39,31 @@
 \end{sol}
 
 \begin{exercise}[3a2]
-    Suppose $b, c \in \r$.
-	Define $T: \pp(\r) \to \r^2$ by
+    Suppose $b, c \in \rbb$.
+	Define $T: \pcal(\rbb) \to \rbb^2$ by
     \[Tp = \left(3p(4) + 5p'(6) + bp(1)p(2), \int_{-1}^{2} x^3 p(x) \dd x + c \sin p(0)\right).\]
     Show that $T$ is linear if and only if $b = c = 0$.
 \end{exercise}
 
 \begin{sol}
     Suppose $T$ is linear.
-	Then for any $p \in \pp(\r)$, we have $T(2p) = 2Tp$.
+	Then for any $p \in \pcal(\rbb)$, we have $T(2p) = 2Tp$.
 	Looking at the first component of $T(2p)$, we have
     \[3(2p)(4) + 5(2p)'(6) + b(2p)(1)(2p)(2) = 6p(4) + 10p'(6) + 4bp(1)p(2).\]
     On the other hand, the first component of $2Tp$ is
     \[2(3p(4) + 5p'(6) + bp(1)p(2)) = 6p(4) + 10p'(6) + 2bp(1)p(2).\]
-    Comparing the two expressions, we get $4bp(1)p(2) = 2bp(1)p(2)$ for all $p \in \pp(\r)$.
+    Comparing the two expressions, we get $4bp(1)p(2) = 2bp(1)p(2)$ for all $p \in \pcal(\rbb)$.
 	Since there exist polynomials $p$ such that $p(1)p(2) \neq 0$, we must have $b = 0$.
 
     The second component of $T(2p)$ must be equal to the second component of $2Tp$.
 	We have
     \[\int_{-1}^{2} x^3 (2p)(x) \dd x + c \sin(2p(0)) = 2\int_{-1}^{2} x^3 p(x) \dd x + 2c \sin (p(0)).\]
-    The integral terms may be subtracted, so we get $c \sin(2p(0)) = 2c \sin(p(0))$ for all $p \in \pp(\r)$.
+    The integral terms may be subtracted, so we get $c \sin(2p(0)) = 2c \sin(p(0))$ for all $p \in \pcal(\rbb)$.
 	Consider $p(x) = \pi/2$.
 	Then $\sin(2p(0)) = \sin(\pi) = 0$ and $2\sin(p(0)) = 2\sin(\pi/2) = 2$.
 	Therefore, $c = 0$.
 
-    Conversely, if $b = c = 0$, let $p, q \in \pp(\r)$ and $\alpha \in \r$.
+    Conversely, if $b = c = 0$, let $p, q \in \pcal(\rbb)$ and $\alpha \in \rbb$.
 	Then
     \begin{align*}
         T(p + q) & = \left(3(p + q)(4) + 5(p + q)'(6), \int_{-1}^{2} x^3 (p + q)(x) \dd x\right) \\
@@ -82,18 +82,18 @@
 \end{sol}
 
 \begin{exercise}[3a3]
-    Suppose that $T \in \lin{\f^n, \f^m}$.
-	Show that there exist scalars $A_{j, k} \in \f$ for $j = 1, \ldots, m$ and $k = 1, \ldots, n$ such that
+    Suppose that $T \in \lin{\fbb^n, \fbb^m}$.
+	Show that there exist scalars $A_{j, k} \in \fbb$ for $j = 1, \ldots, m$ and $k = 1, \ldots, n$ such that
     \[T(x_1, \ldots, x_n) = (A_{1,1} x_1 + \cdots + A_{1, n} x_n, \ldots, A_{m, 1} x_1 + \cdots + A_{m, n} x_n)\]
-    for every $(x_1, \ldots, x_n) \in \f^n$.
+    for every $(x_1, \ldots, x_n) \in \fbb^n$.
 \end{exercise}
 
 \begin{sol}
-    Let $e_1, \ldots, e_n$ be the standard basis of $\f^n$.
+    Let $e_1, \ldots, e_n$ be the standard basis of $\fbb^n$.
 	Then for each $k = 1, \ldots, n$, we have
     \[T(e_k) = (A_{1, k}, A_{2, k}, \ldots, A_{m, k})\]
-    for some scalars $A_{j, k} \in \f$.
-	Now let $(x_1, \ldots, x_n) \in \f^n$.
+    for some scalars $A_{j, k} \in \fbb$.
+	Now let $(x_1, \ldots, x_n) \in \fbb^n$.
 	Then
     \begin{align*}
         T(x_1, \ldots, x_n) & = T(x_1 e_1 + \cdots + x_n e_n) \\
@@ -111,7 +111,7 @@
 \end{exercise}
 
 \begin{sol}
-    Suppose that $a_1 v_1 + \cdots + a_m v_m = 0$ for some scalars $a_1, \ldots, a_m \in \f$.
+    Suppose that $a_1 v_1 + \cdots + a_m v_m = 0$ for some scalars $a_1, \ldots, a_m \in \fbb$.
 	Applying $T$ to both sides, we get
     \[a_1 Tv_1 + \cdots + a_m Tv_m = T(0) = 0.\]
     Since $Tv_1, \ldots, Tv_m$ is linearly independent, it follows that $a_1 = \cdots = a_m = 0$.
@@ -123,7 +123,7 @@
 \end{exercise}
 
 \begin{sol}
-    We must first ensure that the operations of addition and scalar multiplication are well-defined, i.e., if $S, T \in \lin{V, W}$ and $\alpha \in \f$, then $S + T \in \lin{V, W}$ and $\alpha T \in \lin{V, W}$.
+    We must first ensure that the operations of addition and scalar multiplication are well-defined, i.e., if $S, T \in \lin{V, W}$ and $\alpha \in \fbb$, then $S + T \in \lin{V, W}$ and $\alpha T \in \lin{V, W}$.
 	We first show that $S + T$ is linear.
 	Let $v, u \in V$.
 	Then
@@ -133,7 +133,7 @@
         & = (Sv + Tv) + (Su + Tu) \\
         & = (S + T)v + (S + T)u.
     \end{align*}
-    Moreover, for any $v \in V$ and $\alpha \in \f$,
+    Moreover, for any $v \in V$ and $\alpha \in \fbb$,
     \begin{align*}
         (S + T)(\alpha v) & = S(\alpha v) + T(\alpha v) \\
         & = \alpha Sv + \alpha Tv \\
@@ -150,7 +150,7 @@
         & = \alpha Tv + \alpha Tu \\
         & = (\alpha T)v + (\alpha T)u.
     \end{align*}
-    Also, for any $v \in V$ and $\beta \in \f$,
+    Also, for any $v \in V$ and $\beta \in \fbb$,
     \begin{align*}
         (\alpha T)(\beta v) & = \alpha T(\beta v) \\
         & = \alpha (\beta Tv) \\
@@ -178,7 +178,7 @@
             & = Rv + (S + T)v \\
             & = (R + (S + T))v.
         \end{align*}
-        Similarly, for any $\alpha, \beta \in \f$ and $T \in \lin{V, W}$,
+        Similarly, for any $\alpha, \beta \in \fbb$ and $T \in \lin{V, W}$,
         \begin{align*}
             ((\alpha\beta)T)v & = (\alpha\beta)(Tv) \\
             & = \alpha(\beta Tv) \\
@@ -192,10 +192,10 @@
 	Define $-T \in \lin{V, W}$ by $(-T)v = -Tv$ for all $v \in V$.
 	Then for any $v \in V$,
         \[(T + (-T))v = Tv + (-T)v = Tv - Tv = 0 = 0v.\]
-        \item \textbf{Multiplicative identity}: Let $1 \in \f$ be the multiplicative identity.
+        \item \textbf{Multiplicative identity}: Let $1 \in \fbb$ be the multiplicative identity.
 	Then for any $T \in \lin{V, W}$ and $v \in V$,
         \[(1T)v = 1(Tv) = Tv.\]
-        \item \textbf{Distributive properties}: Let $T, S \in \lin{V, W}$ and $\alpha, \beta \in \f$.
+        \item \textbf{Distributive properties}: Let $T, S \in \lin{V, W}$ and $\alpha, \beta \in \fbb$.
 	Then for any $v \in V$,
         \begin{align*}
             (\alpha(T + S))v & = \alpha((T + S)v) \\
@@ -255,71 +255,71 @@
 
 \begin{exercise}[3a7]
     Show that every linear map from a one-dimensional vector space to itself is multiplication by some scalar.
-	More precisely, prove that if $\dim V = 1$ and $T \in \lin{V}$, then there exists $\lambda \in \f$ such that $Tv = \lambda v$ for all $v \in V$.
+	More precisely, prove that if $\dim V = 1$ and $T \in \lin{V}$, then there exists $\lambda \in \fbb$ such that $Tv = \lambda v$ for all $v \in V$.
 \end{exercise}
 
 \begin{sol}
     Suppose $\dim V = 1$ and let $v \in V$ be a nonzero vector.
 	Then $\set{v}$ is a basis of $V$.
 	Let $T \in \lin{V}$.
-	Since $Tv \in V$, there exists $\lambda \in \f$ such that $Tv = \lambda v$.
+	Since $Tv \in V$, there exists $\lambda \in \fbb$ such that $Tv = \lambda v$.
 	Now let $u \in V$.
-	Then there exists $\alpha \in \f$ such that $u = \alpha v$.
+	Then there exists $\alpha \in \fbb$ such that $u = \alpha v$.
 	Therefore,
     \[Tu = T(\alpha v) = \alpha Tv = \alpha (\lambda v) = \lambda (\alpha v) = \lambda u. \qh\]
 \end{sol}
 
 \begin{exercise}[3a8]
-    Give an example of a function $\varphi: \r^2 \to \r$ such that
-    \[\varphi(av) = a\varphi(v)\]
-    for all $a \in \r$ and all $v \in \r^2$ but $\varphi$ is not linear.
+    Give an example of a function $\phi: \rbb^2 \to \rbb$ such that
+    \[\phi(av) = a\phi(v)\]
+    for all $a \in \rbb$ and all $v \in \rbb^2$ but $\phi$ is not linear.
 
     \remark{This was a particularly difficult exercise because all obvious examples of functions that are homogeneous are also additive.
 	The key idea is to utilize composition of functions.}
 \end{exercise}
 
 \begin{sol}
-    Let $\varphi: \r^2 \to \r$ be defined by
-    \[\varphi(x, y) = \sqrt[3]{x^3 + y^3}.\]
-    Then for any $a \in \r$ and $(x, y) \in \r^2$,
-    \[\varphi(a(x, y)) = \varphi(ax, ay) = \sqrt[3]{(ax)^3 + (ay)^3} = \sqrt[3]{a^3(x^3 + y^3)} = a\sqrt[3]{x^3 + y^3} = a\varphi(x, y).\]
-    However, $\varphi$ is not additive.
+    Let $\phi: \rbb^2 \to \rbb$ be defined by
+    \[\phi(x, y) = \sqrt[3]{x^3 + y^3}.\]
+    Then for any $a \in \rbb$ and $(x, y) \in \rbb^2$,
+    \[\phi(a(x, y)) = \phi(ax, ay) = \sqrt[3]{(ax)^3 + (ay)^3} = \sqrt[3]{a^3(x^3 + y^3)} = a\sqrt[3]{x^3 + y^3} = a\phi(x, y).\]
+    However, $\phi$ is not additive.
 	For example, let $v = (1, 0)$ and $w = (0, 1)$.
 	Then
-    \[\varphi(v + w) = \varphi(1, 1) = \sqrt[3]{1^3 + 1^3} = \sqrt[3]{2},\]
+    \[\phi(v + w) = \phi(1, 1) = \sqrt[3]{1^3 + 1^3} = \sqrt[3]{2},\]
     but
-    \[\varphi(v) + \varphi(w) = \varphi(1, 0) + \varphi(0, 1) = \sqrt[3]{1^3 + 0^3} + \sqrt[3]{0^3 + 1^3} = 1 + 1 = 2.\]
-    Therefore, $\varphi$ is not linear.
+    \[\phi(v) + \phi(w) = \phi(1, 0) + \phi(0, 1) = \sqrt[3]{1^3 + 0^3} + \sqrt[3]{0^3 + 1^3} = 1 + 1 = 2.\]
+    Therefore, $\phi$ is not linear.
 \end{sol}
 
 \begin{exercise}[3a9]
-    Give an example of a function $\varphi: \c \to \c$ such that
-    \[\varphi(w + z) = \varphi(w) + \varphi(z)\]
-    for all $w, z \in \c$ but $\varphi$ is not linear. (Here $\c$ is thought of as a complex vector space.)
+    Give an example of a function $\phi: \cbb \to \cbb$ such that
+    \[\phi(w + z) = \phi(w) + \phi(z)\]
+    for all $w, z \in \cbb$ but $\phi$ is not linear. (Here $\cbb$ is thought of as a complex vector space.)
 \end{exercise}
 
 \begin{sol}
-    Let $\varphi: \c \to \c$ be defined by
-    \[\varphi(x + iy) = x.\]
-    Then for any $w = x_1 + iy_1$ and $z = x_2 + iy_2$ in $\c$,
-    \[\varphi(w + z) = \varphi((x_1 + x_2) + i(y_1 + y_2)) = x_1 + x_2 = \varphi(w) + \varphi(z).\]
-    However, $\varphi$ is not homogeneous.
+    Let $\phi: \cbb \to \cbb$ be defined by
+    \[\phi(x + iy) = x.\]
+    Then for any $w = x_1 + iy_1$ and $z = x_2 + iy_2$ in $\cbb$,
+    \[\phi(w + z) = \phi((x_1 + x_2) + i(y_1 + y_2)) = x_1 + x_2 = \phi(w) + \phi(z).\]
+    However, $\phi$ is not homogeneous.
 	For example, let $a = i$ and $z = 1$.
 	Then
-    \[\varphi(iz) = \varphi(i) = 0,\]
+    \[\phi(iz) = \phi(i) = 0,\]
     but
-    \[i\varphi(z) = i\varphi(1) = i(1) = i.\]
-    Therefore, $\varphi$ is not linear.
+    \[i\phi(z) = i\phi(1) = i(1) = i.\]
+    Therefore, $\phi$ is not linear.
 \end{sol}
 
 \begin{exercise}[3a10]
-    Prove or give a counterexample: If $q \in \pp(\r)$ and $T: \pp(\r) \to \pp(\r)$ is defined by $Tp = q \circ p$, then $T$ is a linear map.
+    Prove or give a counterexample: If $q \in \pcal(\rbb)$ and $T: \pcal(\rbb) \to \pcal(\rbb)$ is defined by $Tp = q \circ p$, then $T$ is a linear map.
 \end{exercise}
 
 \begin{sol}
     This is false.
-	Let $q(x) = x^2$ and define $T: \pp(\r) \to \pp(\r)$ by $Tp = q \circ p$.
-	Then for any $p_1, p_2 \in \pp(\r)$,
+	Let $q(x) = x^2$ and define $T: \pcal(\rbb) \to \pcal(\rbb)$ by $Tp = q \circ p$.
+	Then for any $p_1, p_2 \in \pcal(\rbb)$,
     \[T(p_1 + p_2) = q \circ (p_1 + p_2) = (p_1 + p_2)^2 = p_1^2 + 2p_1p_2 + p_2^2 \neq p_1^2 + p_2^2 = Tp_1 + Tp_2. \qh\]
 \end{sol}
 
@@ -329,7 +329,7 @@
 \end{exercise}
 
 \begin{sol}
-    Suppose $T$ is a scalar multiple of the identity, i.e., $T = \lambda I$ for some $\lambda \in \f$.
+    Suppose $T$ is a scalar multiple of the identity, i.e., $T = \lambda I$ for some $\lambda \in \fbb$.
 	Then for any $S \in \lin{V}$,
     \[ST = S(\lambda I) = \lambda S = (\lambda I)S = TS.\]
 
@@ -345,7 +345,7 @@
 	Therefore, $v$ and $Tv$ are linearly dependent for every $v \in V$.
 
     Now let $v \in V$ be nonzero.
-	Then there exists $\lambda_v \in \f$ such that $Tv = \lambda_v v$.
+	Then there exists $\lambda_v \in \fbb$ such that $Tv = \lambda_v v$.
 	We claim that $\lambda_v$ is independent of the choice of $v$.
 	Let $v_1, \ldots, v_n$ be a basis of $V$.
     \begin{itemize}
@@ -402,7 +402,7 @@
     Then $T$ is well-defined on the basis of $V$, and we can extend it linearly to all of $V$.
 	For any $u \in U$, we may write
     \[u = \alpha_1 u_1 + \cdots + \alpha_m u_m\]
-    for some scalars $\alpha_1, \ldots, \alpha_m \in \f$, and 0 as the coefficients for $v_1, \ldots, v_n$.
+    for some scalars $\alpha_1, \ldots, \alpha_m \in \fbb$, and 0 as the coefficients for $v_1, \ldots, v_n$.
 	Then
     \[Tu = \alpha_1 Tu_1 + \cdots + \alpha_m Tu_m + 0 \cdot Tv_1 + \cdots + 0 \cdot Tv_n = \alpha_1 Su_1 + \cdots + \alpha_m Su_m = Su.\]
     Therefore, $T$ extends $S$ to all of $V$.
@@ -416,7 +416,7 @@
 \begin{sol}
     Let $v_1, \ldots, v_n$ be a basis of $V$.
 	Since $W$ is infinite-dimensional, there exists an infinite linearly independent list of vectors $w_1, w_2, \ldots$ in $W$.
-	For each $k \in \n$, define $T_k \in \lin{V, W}$ by
+	For each $k \in \nbb$, define $T_k \in \lin{V, W}$ by
     \[T_k v_j =
     \begin{cases}
         w_k & \text{if } j = 1, \\
@@ -426,7 +426,7 @@
 	We claim that the list $T_1, T_2, \ldots$ is linearly independent in $\lin{V, W}$.
 	Suppose that
     \[a_1 T_1 + a_2 T_2 + \cdots + a_m T_m = 0\]
-    for some scalars $a_1, \ldots, a_m \in \f$.
+    for some scalars $a_1, \ldots, a_m \in \fbb$.
 	Evaluating both sides at $v_1$, we get
     \[a_1 T_1 v_1 + a_2 T_2 v_1 + \cdots + a_m T_m v_1 = a_1 w_1 + a_2 w_2 + \cdots + a_m w_m = 0.\]
     Since $w_1, \ldots, w_m$ is linearly independent in $W$, it follows that $a_1 = \cdots = a_m = 0$.
@@ -440,7 +440,7 @@
 \end{exercise}
 
 \begin{sol}
-    Since $v_1, \ldots, v_m$ is linearly dependent, there exist scalars $a_1, \ldots, a_m \in \f$, not all zero, such that
+    Since $v_1, \ldots, v_m$ is linearly dependent, there exist scalars $a_1, \ldots, a_m \in \fbb$, not all zero, such that
     \[a_1 v_1 + \cdots + a_m v_m = 0.\]
     Fix some nonzero $a_i$ among $a_1, \ldots, a_m$.
 	Let $w_1, \ldots, w_m \in W$ be defined by
@@ -484,25 +484,25 @@
     Suppose $V$ is finite-dimensional.
 	Show that the only two-sided ideals of $\lin{V}$ are $\set{0}$ and $\lin{V}$.
     
-    \note{A subspace $\ee$ of $\lin{V}$ is called a two-sided ideal of $\lin{V}$ if $TE \in \ee$ and $ET \in \ee$ for all $E \in \ee$ and all $T \in \lin{V}$.}
+    \note{A subspace $\ecal$ of $\lin{V}$ is called a two-sided ideal of $\lin{V}$ if $TE \in \ecal$ and $ET \in \ecal$ for all $E \in \ecal$ and all $T \in \lin{V}$.}
 \end{exercise}
 
 \begin{sol}
-    Let $\ee$ be a two-sided ideal of $\lin V$.
-	If $\ee = \set 0$, then we are done.
-	Otherwise, there exists $E \in \ee$ such that $E \neq 0$.
+    Let $\ecal$ be a two-sided ideal of $\lin V$.
+	If $\ecal = \set 0$, then we are done.
+	Otherwise, there exists $E \in \ecal$ such that $E \neq 0$.
 	Then there exists $v_1 \in V$ such that $Ev_1 \neq 0$.
 	Since $V$ is finite-dimensional, we may extend the list $\set v_1$ to a basis of $V$, say $v_1, v_2, \ldots, v_n$.
 	Let $w_1 = Ev_1 \neq 0$.
 	We may also extend the list $\set w_1$ to a basis of $V$, say $w_1, w_2, \ldots, w_n$.
 	Define $T_1 \in \lin V$ by
     \[T_1w_1 = v_1, \quad T_1w_k = 0 \text{ for } k > 1.\]
-    Then $T_1E \in \ee$ since $\ee$ is a two-sided ideal.
+    Then $T_1E \in \ecal$ since $\ecal$ is a two-sided ideal.
 	Observe that $T_1Ev_1 = T_1(Ev_1) = T_1w_1 = v_1 \neq 0$.
 	Therefore, $T_1E \neq 0$.
 	Consider $S_1 \in \lin V$ defined by
     \[S_1v_1 = v_1, \quad S_1v_k = 0 \text{ for } k > 1.\]
-    Then $T_1ES_1 \in \ee$ since $\ee$ is a two-sided ideal.
+    Then $T_1ES_1 \in \ecal$ since $\ecal$ is a two-sided ideal.
 	Observe that $T_1ES_1v_1 = T_1Ev_1 = T_1w_1 = v_1 \neq 0$.
 	Therefore, $T_1ES_1 \neq 0$.
 	We now discuss the construction of the identity map $I \in \lin V$.
@@ -511,16 +511,16 @@
     \[T_i w_1 = v_i, \quad T_i w_k = 0 \text{ for } k \neq 1,\]
     and
     \[S_i v_i = v_1, \quad S_i v_k = 0 \text{ for } k \neq i.\]
-    Then $T_iES_i \in \ee$ and $T_iES_i v_i = v_i \neq 0$.
-	Since $\ee$ is a subspace, it contains all linear combinations of these maps.
-	In particular, for any $v \in V$, we can write $v = \alpha_1 v_1 + \alpha_2 v_2 + \cdots + \alpha_n v_n$ for some scalars $\alpha_1, \alpha_2, \ldots, \alpha_n \in \f$.
+    Then $T_iES_i \in \ecal$ and $T_iES_i v_i = v_i \neq 0$.
+	Since $\ecal$ is a subspace, it contains all linear combinations of these maps.
+	In particular, for any $v \in V$, we can write $v = \alpha_1 v_1 + \alpha_2 v_2 + \cdots + \alpha_n v_n$ for some scalars $\alpha_1, \alpha_2, \ldots, \alpha_n \in \fbb$.
 	Observe that
     \[T_iES_iv = T_iES_i(\alpha_1 v_1) + \cdots + T_iES_i(\alpha_i v_i) + \cdots + T_iES_i(\alpha_n v_n) = \alpha_i v_i.\]
     Consider the map
-    \[E^* = T_1ES_1 + T_2ES_2 + \cdots + T_nES_n \in \ee,\]
+    \[E^* = T_1ES_1 + T_2ES_2 + \cdots + T_nES_n \in \ecal,\]
     Then for any $v = \alpha_1 v_1 + \cdots + \alpha_n v_n \in V$,
     \[E^*v = T_1ES_1 v + T_2ES_2 v + \cdots + T_nES_n v = \alpha_1 v_1 + \alpha_2 v_2 + \cdots + \alpha_n v_n = v.\]
-    Hence, $E^* = I \in \ee$.
-	Since $\ee$ is a two-sided ideal, $I = E^* \in \ee$ implies that for any $T \in \lin V$, we have $TI = T \in \ee$.
-	Therefore, $\ee = \lin V$.
+    Hence, $E^* = I \in \ecal$.
+	Since $\ecal$ is a two-sided ideal, $I = E^* \in \ecal$ implies that for any $T \in \lin V$, we have $TI = T \in \ecal$.
+	Therefore, $\ecal = \lin V$.
 \end{sol}
