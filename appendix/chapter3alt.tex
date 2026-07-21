@@ -1,40 +1,53 @@
 \subsection{Linear Maps}
 
 \begin{apex}[3b29]
-    Suppose $p \in \pp(\r)$.
-	Prove that there exists a polynomial $q \in \pp(\r)$ such that $5q'' + 3q' = p$.
+    Suppose $p \in \pcal(\rbb)$.
+	Prove that there exists a polynomial $q \in \pcal(\rbb)$ such that $5q'' + 3q' = p$.
 \end{apex}
 
 \begin{coole}
-    Let $p(x) = a_0 + a_1x + \cdots + a_nx^n$ and consider the constraint $5q'' + 3q' = p$.
-	If $q$ has degree $m$, then $q'$ has degree $m-1$ and $q''$ has degree $m-2$, so $5q'' + 3q'$ has degree $m-1$.
-	To satisfy the constraint, we must have $m-1 = n$, and we may write $q(x) = b_0 + b_1x + \cdots + b_{n+1}x^{n+1}$.
-	Evaluating, 
+    Let $p(x) = a_0 + a_1x + \cdots + a_nx^n$ and suppose there exists a polynomial $q(x) = b_0 + b_1x + \cdots + b_mx^m$ satisfying $5q'' + 3q' = p$. 
+    If $\deg q = m \geq 2$, we can say $q'$ has degree $m-1$ and $q''$ has degree $m-2$, so $5q'' + 3q'$ has degree $m-1$.
+    To satisfy the given equation, then, we must have $m-1 = n = \deg p$, and we may write $q(x) = b_0 + b_1x + \cdots + b_{n+1}x^{n+1}$.
+    Before we deal with the general case, we will quickly consider when $n = 0$ (which would force $m < 2$):
+
+    If $p(x) = a_0$, then let $q(x) = b_0 + b_1x$. Because $5q'' + 3q' = p$, we have $5q'' + 3q' = 5(0) + 3b_1 = a_0$, so we set $b_1 = \frac{a_0}{3}$ and we have a polynomial $q$ such that $5q'' + 3q' = p$ for any value of $b_0$.
+    As we will see below, the constant term of $q$ never depends on $p$.
+    
+    For the remainder of this proof, we take $m = n+1$ and suppose $n \geq 1$.
+    We have
     \begin{align*}
         q'(x) &= b_1 + 2b_2x + \cdots + (n+1)b_{n+1}x^n \\
         q''(x) &= 2b_2 + 6b_3x + \cdots + n(n+1)b_{n+1}x^{n-1}
     \end{align*}
-    Equating coefficients with $p$, we obtain that the system
+    Equating coefficients of $5q'' + 3q'$ with those of $p$, we obtain the system
     \[
     \begin{cases}
         a_0 = 3b_1 + 10b_2 \\
         a_1 = 6b_2 + 30b_3 \\
         \vdots \\ 
+        a_{n-1} = 3nb_n + 5n(n+1)b_{n+1} \\
         a_n = 3(n+1)b_{n+1}
-    \end{cases},\]
-    i.e., $a_i = 3(i+1)b_{i+1} + 5(i+1)(i+2)b_{i+2}$ for $0 \leq i < n$ and $a_n = 3(n+1)b_{n+1}$.
+    \end{cases}.\]
+    That is, $a_i = 3(i+1)b_{i+1} + 5(i+1)(i+2)b_{i+2}$ for $0 \leq i < n$ and $a_n = 3(n+1)b_{n+1}$.
 	Finally, we solve for the coefficients of $q$ by back-substitution.
 	Noting that
-    \[b_{i+1} = \frac{a_i - 5(i+1)(i+2)b_{i+2}}{3(i+1)},\] we have 
+    \[b_j = \frac{a_{j-1} - 5j(j+1)b_{j+1}}{3j} = \frac{a_{j-1}}{3j} - \frac{5}{3}(j+1)b_{j+1},\] we have 
     \[\begin{cases}
         b_{n+1} = \frac{a_n}{3(n+1)} \\
-        b_n = \frac{a_{n-1} - 5(n+1)(n+2)b_{n+1}}{3n} = \frac{a_{n-1} - \frac{5}{3}(n+2)a_n}{3n} \\
+        b_n = \frac{a_{n-1}}{3n} - \frac{5}{3}(n+1)b_{n+1} = \frac{a_{n-1}}{3n} - \frac{5}{9}a_n \\
+        b_{n-1} = \frac{a_{n-2}}{3(n-1)} - \frac{5}{3}nb_n = \frac{a_{n-2}}{3(n-1)} - \frac{5}{9}a_{n-1} + \frac{25}{27}na_n \\
         \vdots \\
         b_1 = \frac{a_0 - 10b_2}{3}
     \end{cases}\]
-    which has a valid solution since no division by $0$ occurs.
-	Finally, we note that $b_0$ is a free variable, so there is an infinite family of $q \in \pp(\r)$ with the given coefficients such that $5q'' + 3q' = p$.
+    which has a valid solution$^\dagger$ since no division by $0$ occurs.
+    Finally, we note that $b_0$ is a free variable, so there is an infinite family of polynomials $q \in \pcal(\rbb)$ with the given coefficients such that $5q'' + 3q' = p$. 
 \end{coole}
+$^\dagger$ Solving this recurrence is outside the scope of this course, but, specifically, the coefficients of $q$ are 
+\begin{align*}
+    b_j &= \frac{a_{j-1}}{3j} - \frac{5}{9}a_j + \frac{25}{27}(j+1)a_{j+1} - \frac{125}{81}(j+1)(j+2)a_{j+2} + \cdots + (-1)^{n-j+1}\frac{5^{n-j+1}}{3^{n-j+2}}(j+1)(j+2)\cdots na_n \\
+    &= \frac{1}{3}\left(\frac{a_{j-1}}{j} + \sum_{i=j}^n\left(-\frac{5}{3}\right)^{i-j+1}\frac{i!}{j!}a_{i}\right).
+\end{align*}
 
 \begin{apex}[3d19]
     Suppose $V$ is finite-dimensional and $T \in \lin{V}$.

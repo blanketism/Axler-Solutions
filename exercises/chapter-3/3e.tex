@@ -264,45 +264,45 @@
 \end{sol}
 
 \begin{exercise}[3e11]
-    Suppose $U = \set{(x_1, x_2, \ldots) \in \f^\infty \mid x_k \neq 0 \text{ for only finitely many } k}$.
+    Suppose $U = \set{(x_1, x_2, \ldots) \in \fbb^\infty \mid x_k \neq 0 \text{ for only finitely many } k}$.
     \begin{subexercises}
-        \item Show that $U$ is a subspace of $\f^\infty$.
-        \item Prove that $\f^\infty / U$ is infinite-dimensional.
+        \item Show that $U$ is a subspace of $\fbb^\infty$.
+        \item Prove that $\fbb^\infty / U$ is infinite-dimensional.
     \end{subexercises}
-    \apnote{3e11}{ for a generalization of this treatment, so long as you are comfortable with the idea $\n$ can be partitioned into infinitely many disjoint infinite sets.}
+    \apnote{3e11}{ for a generalization of this treatment, so long as you are comfortable with the idea $\nbb$ can be partitioned into infinitely many disjoint infinite sets.}
 \end{exercise}
 
 \begin{sole}
-    \item We claim that $U$ can be reformulated as the set of vectors $(x_1, x_2, \ldots) \in \f^\infty$ such that there exists an index $N$ such that $x_k = 0$ for all $k > N$.
+    \item We claim that $U$ can be reformulated as the set of vectors $(x_1, x_2, \ldots) \in \fbb^\infty$ such that there exists an index $N$ such that $x_k = 0$ for all $k > N$.
 	To see this, suppose $(x_1, x_2, \ldots) \in U$.
 	Then there exists a finite set of indices $K$ such that $x_k = 0$ for all $k \notin K$.
-	Let $N = \max K$.
-	If $K$ is empty, then $N = 0$ and $x_k = 0$ for all $k > 0$.
-		Otherwise,
+	If $K$ is empty, let $N = 0$.
+	Otherwise, let $N = \max K$.
 	Then $x_k = 0$ for all $k > N$.
+	
 	Conversely, suppose there exists an index $N$ such that $x_k = 0$ for all $k > N$.
 	Then the set of indices $\set{1, 2, \ldots, N}$ is finite and contains all indices where $x_k \neq 0$, hence $(x_1, x_2, \ldots) \in U$.
 	Thus, the two formulations of $U$ are equivalent.
     
-    We now show that $U$ is a subspace of $\f^\infty$.
+    We now show that $U$ is a subspace of $\fbb^\infty$.
 	First, note that the zero vector $(0, 0, \ldots) \in U$ since it has no nonzero coordinates.
 	Now let $u = (u_1, u_2, \ldots), v = (v_1, v_2, \ldots) \in U$.
 	Then there exist indices $N_u$ and $N_v$ such that $u_k = 0$ for all $k > N_u$ and $v_k = 0$ for all $k > N_v$.
 	Let $N = \max(N_u, N_v)$.
 	Then for all $k > N$, we have $u_k = 0$ and $v_k = 0$, hence $(u + v)_k = u_k + v_k = 0 + 0 = 0$.
 	Thus, $u + v \in U$.
-	Now let $\alpha \in \f$.
+	Now let $\alpha \in \fbb$.
 	Then for all $k > N_u$, we have $(\alpha u)_k = \alpha u_k = \alpha \cdot 0 = 0$, hence $\alpha u \in U$.
-	Therefore, $U$ is a subspace of $\f^\infty$.
+	Therefore, $U$ is a subspace of $\fbb^\infty$.
     \item For any given positive integer $m$, define the sets $B_i$ for $1 \leq i \leq m$ as follows:
-    \[B_i = \set{i + km \mid k \in \n} = \set{i, i + m, i + 2m, \ldots}.\]
-    Then $B_1, \ldots, B_m$ are pairwise disjoint subsets of $\n$.
+    \[B_i = \set{i + km \mid k \in \nbb} = \set{i, i + m, i + 2m, \ldots}.\]
+    Then $B_1, \ldots, B_m$ are pairwise disjoint subsets of $\nbb$.
 	For each $i = 1, \ldots, m$, define
-	\[v_i = (v_{i, 1}, v_{i, 2}, \ldots) \in \f^\infty\]
+	\[v_i = (v_{i, 1}, v_{i, 2}, \ldots) \in \fbb^\infty\]
 	such that $v_{i, j} = 1$ if $j \in B_i$ and $v_{i, j} = 0$ otherwise.
-	We claim that $v_1 + U, \ldots, v_m + U$ are linearly independent in $\f^\infty / U$.
+	We claim that $v_1 + U, \ldots, v_m + U$ are linearly independent in $\fbb^\infty / U$.
     
-    Let $\lambda_1, \ldots, \lambda_m \in \f$ such that $\lambda_1 (v_1 + U) + \cdots + \lambda_m (v_m + U) = U$.
+    Let $\lambda_1, \ldots, \lambda_m \in \fbb$ such that $\lambda_1 (v_1 + U) + \cdots + \lambda_m (v_m + U) = U$.
 	Then $\lambda_1 v_1 + \cdots + \lambda_m v_m \in U$.
 	Then we can show that $\lambda_i = 0$ for all $i = 1, \ldots, m$ as follows.
 	For each $i$, consider the $j$-th coordinate of $v_i$ for $j \in B_i$.
@@ -310,7 +310,7 @@
 	But this sum is in $U$, which means it has only finitely many nonzero coordinates.
 	Since $B_i$ is infinite, it follows that $\lambda_i = 0$.
 	Hence, all $\lambda_i = 0$, proving that $v_1 + U, \ldots, v_m + U$ are linearly independent.
-	Since $m$ was arbitrary, $\f^\infty / U$ is infinite-dimensional.
+	Since $m$ was arbitrary, $\fbb^\infty / U$ is infinite-dimensional.
 \end{sole}
 
 \begin{exercise}[3e12]

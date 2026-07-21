@@ -676,57 +676,34 @@
 \end{sol}
 
 \begin{exercise}[3b28]
-    Suppose $D \in \lin{\pp(\r)}$ is such that $\deg Dp = (\deg p) - 1$ for every nonconstant polynomial $p \in \pp(\r)$.
+    Suppose $D \in \lin{\pcal(\rbb)}$ is such that $\deg Dp = (\deg p) - 1$ for every nonconstant polynomial $p \in \pcal(\rbb)$.
 	Prove that $D$ is surjective.
     
-    \remark{Note that $\pp(\r)$ is infinite-dimensional, so we cannot use the fundamental theorem of linear maps directly.
-	Instead, one should consider finite-dimensional subspaces of $\pp(\r)$.}
+    \remark{Note that $\pcal(\rbb)$ is infinite-dimensional, so we cannot use the fundamental theorem of linear maps directly.
+	Instead, one should consider finite-dimensional subspaces of $\pcal(\rbb)$.}
 \end{exercise}
 
 \begin{sol}
-    Let $p \in \pp(\r)$ be an arbitrary polynomial.
-	Consider the subspace $\pp_{n + 1}(\r)$ of polynomials of degree at most $n + 1$, where $n = \deg p$.
-    Observe that no nonconstant polynomial can be in the null space of $D$, since nonconstant $q$ implies $\deg Dq = (\deg q) - 1 \geq 0$, hence $Dq \neq 0$.
-	We now claim that $D1 = 0$.
-	If it weren't, then let $\deg D1 = m$.
-	Consider $D$ acting on $\pp_{m + 1}(\r)$.
-	Since no nonconstant polynomial can be in $\nul D$, and $D1 \neq 0$ by assumption, we have $\nul D = \set 0$, which implies that $\dim \nul D = 0$.
-	By the fundamental theorem of linear maps and the fact that $\dim \range D \leq \dim \pp_m(\r)$, we have
-    \[\dim \nul D = \dim \pp_{m + 1}(\r) - \dim \range D \geq 1,\]
-    which is a contradiction.
-	Therefore, $D1 = 0$.
-	By linearity, we have $Dc = cD1 = 0$ for all $c \in \r$.
-	Hence, $\nul D = \spn\set 1$, which has dimension $1$.
-	By the fundamental theorem of linear maps, we have
-    \[\dim \range D = \dim \pp_{n + 1}(\r) - \dim \nul D = (n + 2) - 1 = n + 1 = \dim \pp_n(\r).\]
-    Since $\dim \range D = \dim \pp_n(\r)$, it follows that $\range D = \pp_n(\r)$.
-	Therefore, for any polynomial $p \in \pp_n(\r)$, there exists a polynomial $q \in \pp_{n + 1}(\r)$ such that $Dq = p$.
-	Since $p$ was arbitrary, we conclude that $D$ is surjective.
+    If $p = 0$, then $p = D(0) \in \range D$ by linearity.
+    Suppose $p \neq 0$ and let $n = \deg p$.
+    Consider the list $D(x), D(x^2), \ldots, D(x^{n+1})$.
+    Since $x^k$ is nonconstant for each $k \in \set{1, \ldots, n+1}$, we have $\deg D(x^k) = k - 1$.
+    Thus, $D(x), D(x^2), \ldots, D(x^{n+1})$ is a list of $n + 1$ polynomials with pairwise distinct degrees, which implies linear independence.
+    Since $\dim \pcal_n(\rbb) = n + 1$, this list is a basis for $\pcal_n(\rbb)$.
+    In particular, $p \in \pcal_n(\rbb)$, so there exist scalars $c_1, \ldots, c_{n+1} \in \rbb$ such that
+    \[p = \sum_{k=1}^{n+1} c_k D(x^k) = D\!\left(\sum_{k=1}^{n+1} c_k x^k\right) \in \range D.\]
+    Since $p$ was arbitrary, $D$ is surjective.
 \end{sol}
 
 \begin{exercise}[3b29]
-    Suppose $p \in \pp(\r)$.
-	Prove that there exists a polynomial $q \in \pp(\r)$ such that $5q'' + 3q' = p$.
+    Suppose $p \in \pcal(\rbb)$.
+	Prove that there exists a polynomial $q \in \pcal(\rbb)$ such that $5q'' + 3q' = p$.
 
     \apnote{3b29}{ for an explicit method of determining $q$ given a system of equations.}
 \end{exercise}
 
 \begin{sol}
-    Let $p \in \pp(\r)$ be an arbitrary polynomial.
-	Define $D \in \lin{\pp_{n + 1}(\r), \pp_n(\r)}$ by $Dq = 5q'' + 3q'$, where $n = \deg p$.
-	We want to show that $D$ is surjective.
-	Observe that $D$ is well-defined since the degree of $5q'' + 3q'$ is at most $n$ for any polynomial $q \in \pp_{n + 1}(\r)$.
-
-    Now suppose $q \in \nul D$ with $\deg q = m$.
-	Then $\deg 3q' = m - 1$ and $\deg 5q'' = m - 2$.
-	Therefore, $\deg Dq = \max(m - 1, m - 2) = m - 1$.
-	Since $Dq = 0$, we must have $m - 1 < 0$, which implies that $m < 1$.
-	Therefore, $q$ must be a constant polynomial.
-	Hence, $\nul D$ consists of constant polynomials, which has dimension $1$.
-	By the fundamental theorem of linear maps, we have
-    \[\dim \range D = \dim \pp_{n + 1}(\r) - \dim \nul D = (n + 2) - 1 = n + 1 = \dim \pp_n(\r).\]
-    Since $\dim \range D = \dim \pp_n(\r)$, it follows that $\range D = \pp_n(\r)$ so that $D$ is surjective.
-	Since $p \in \range D$, there exists a polynomial $q \in \pp_{n + 1}(\r)$ such that $Dq = 5q'' + 3q' = p$.
+    Define $D \in \lin{\pcal(\rbb)}$ by $Dq = 5q'' + 3q'$ for all $q \in \pcal(\rbb)$. For nonconstant $q$, we have $\deg Dq = \deg q - 1$. By \exref{3b28}, $D$ is surjective. Therefore, for any polynomial $p \in \pcal(\rbb)$, there exists a polynomial $q \in \pcal(\rbb)$ such that $Dq = p$, which means that $5q'' + 3q' = p$.
 \end{sol}
 
 \begin{exercise}[3b30]
