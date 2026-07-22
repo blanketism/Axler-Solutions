@@ -1,0 +1,95 @@
+\subsection{Upper-Triangular Matrices}
+
+\begin{exercise}[5c1]
+    Prove or give a counterexample: If $T \in \lin{V}$ and $T^2$ has an upper-triangular matrix with respect to some basis of $V$, then $T$ has an upper-triangular matrix with respect to some basis of $V$.
+\end{exercise}
+
+\begin{exercise}[5c2]
+    Suppose $A$ and $B$ are upper-triangular matrices of the same size, with $\alpha_1, \ldots, \alpha_n$ on the diagonal of $A$ and $\beta_1, \ldots, \beta_n$ on the diagonal of $B$.
+    \begin{subexercises}
+        \item Show that $A + B$ is an upper-triangular matrix with $\alpha_1 + \beta_1, \ldots, \alpha_n + \beta_n$ on the diagonal.
+        \item Show that $AB$ is an upper-triangular matrix with $\alpha_1\beta_1, \ldots, \alpha_n\beta_n$ on the diagonal.
+    \end{subexercises}
+    \note{The results in this exercise are used in the proof of 5.81.}
+\end{exercise}
+
+\begin{exercise}[5c3]
+    Suppose $T \in \lin{V}$ is invertible and $v_1, \ldots, v_n$ is a basis of $V$ with respect to which the matrix of $T$ is upper triangular, with $\lambda_1, \ldots, \lambda_n$ on the diagonal.
+    Show that the matrix of $T\inv$ is also upper triangular with respect to the basis $v_1, \ldots, v_n$, with
+    \[
+        \frac{1}{\lambda_1}, \ldots, \frac{1}{\lambda_n}
+    \]
+    on the diagonal.
+\end{exercise}
+
+\begin{exercise}[5c4]
+    Give an example of an operator whose matrix with respect to some basis contains only $0$'s on the diagonal, but the operator is invertible.
+    
+    \note{This exercise and the exercise below show that 5.41 fails without the hypothesis that an upper-triangular matrix is under consideration.}
+\end{exercise}
+
+\begin{exercise}[5c5]
+    Give an example of an operator whose matrix with respect to some basis contains only nonzero numbers on the diagonal, but the operator is not invertible.
+\end{exercise}
+
+\begin{exercise}[5c6]
+    Suppose $\fbb = \cbb$, $V$ is finite-dimensional, and $T \in \lin{V}$.
+    Prove that if $k \in \{1, \ldots, \dim V\}$, then $V$ has a $k$-dimensional subspace invariant under $T$.
+\end{exercise}
+
+\begin{exercise}[5c7]
+    Suppose $V$ is finite-dimensional, $T \in \lin{V}$, and $v \in V$.
+    \begin{subexercises}
+        \item Prove that there exists a unique monic polynomial $p_v$ of smallest degree such that $p_v(T)v = 0$.
+        \item Prove that the minimal polynomial of $T$ is a polynomial multiple of $p_v$.
+    \end{subexercises}
+\end{exercise}
+
+\begin{exercise}[5c8]
+    Suppose $V$ is finite-dimensional, $T \in \lin{V}$, and there exists a nonzero vector $v \in V$ such that $T^2v + 2Tv = -2v$.
+    \begin{subexercises}
+        \item Prove that if $\fbb = \rbb$, then there does not exist a basis of $V$ with respect to which $T$ has an upper-triangular matrix.
+        \item Prove that if $\fbb = \cbb$ and $A$ is an upper-triangular matrix that equals the matrix of $T$ with respect to some basis of $V$, then $-1 + i$ or $-1 - i$ appears on the diagonal of $A$.
+    \end{subexercises}
+\end{exercise}
+
+\begin{exercise}[5c9]
+    Suppose $B$ is a square matrix with complex entries.
+    Prove that there exists an invertible square matrix $A$ with complex entries such that $A\inv BA$ is an upper-triangular matrix.
+\end{exercise}
+
+\begin{exercise}[5c10]
+    Suppose $T \in \lin{V}$ and $v_1, \ldots, v_n$ is a basis of $V$.
+    Show that the following are equivalent.
+    \begin{subexercises}
+        \item The matrix of $T$ with respect to $v_1, \ldots, v_n$ is lower triangular.
+        \item $\spn(v_k, \ldots, v_n)$ is invariant under $T$ for each $k = 1, \ldots, n$.
+        \item $Tv_k \in \spn(v_k, \ldots, v_n)$ for each $k = 1, \ldots, n$.
+    \end{subexercises}
+    \note{A square matrix is called \textbf{lower triangular} if all entries above the diagonal are $0$.}
+\end{exercise}
+
+\begin{exercise}[5c11]
+    Suppose $\fbb = \cbb$ and $V$ is finite-dimensional.
+    Prove that if $T \in \lin{V}$, then there exists a basis of $V$ with respect to which $T$ has a lower-triangular matrix.
+\end{exercise}
+
+\begin{exercise}[5c12]
+    Suppose $V$ is finite-dimensional, $T \in \lin{V}$ has an upper-triangular matrix with respect to some basis of $V$, and $U$ is a subspace of $V$ that is invariant under $T$.
+    \begin{subexercises}
+        \item Prove that $T|_U$ has an upper-triangular matrix with respect to some basis of $U$.
+        \item Prove that the quotient operator $T/U$ has an upper-triangular matrix with respect to some basis of $V/U$.
+    \end{subexercises}
+    \note{The quotient operator $T/U$ was defined in Exercise 38 in Section 5A.}
+\end{exercise}
+
+\begin{exercise}[5c13]
+    Suppose $V$ is finite-dimensional and $T \in \lin{V}$.
+    Suppose there exists a subspace $U$ of $V$ that is invariant under $T$ such that $T|_U$ has an upper-triangular matrix with respect to some basis of $U$ and also $T/U$ has an upper-triangular matrix with respect to some basis of $V/U$.
+    Prove that $T$ has an upper-triangular matrix with respect to some basis of $V$.
+\end{exercise}
+
+\begin{exercise}[5c14]
+    Suppose $V$ is finite-dimensional and $T \in \lin{V}$.
+    Prove that $T$ has an upper-triangular matrix with respect to some basis of $V$ if and only if the dual operator $T'$ has an upper-triangular matrix with respect to some basis of the dual space $V'$.
+\end{exercise}
