@@ -141,8 +141,8 @@
 \begin{sol}
     Let $p \in \pcal(\rbb)$ such that $p' = \lambda p$ for some $\lambda \in \rbb$.
     \begin{itemize}
-        \item If $\lambda \neq 0$, then $\deg p' = \deg p$, which is a contradiction since $\deg p' = \deg p - 1$.
-	Therefore, there are no eigenvectors corresponding to nonzero eigenvalues.
+        \item If $\lambda \neq 0$, suppose $\deg p = 0$. Then $p$ is a constant polynomial, and $p' = 0 \neq \lambda p$, so $\deg p \geq 1$.
+        If $\deg p = n \geq 1$, then $\deg p' = n - 1$, so $\deg p' \neq \deg p$, which contradicts $p' = \lambda p$.
         \item If $\lambda = 0$, then $p' = 0$, which implies that $p$ is a constant polynomial.
 	Therefore, the eigenvectors corresponding to the eigenvalue $\lambda = 0$ are all nonzero constant polynomials. \qh
     \end{itemize}
@@ -531,10 +531,10 @@
     Let $\lambda_1, \ldots, \lambda_m$ be distinct eigenvalues of $T$ with corresponding eigenvectors $v_1, \ldots, v_m$.
 	Since the eigenvalues are distinct, at most one eigenvalue must be 0.
 	Without loss of generality, assume $\lambda_1 = 0$ if 0 is an eigenvalue.
-	Then $v_2, \ldots, v_m$ are $m - 1$ eigenvectors corresponding to nonzero eigenvalues.
-	Since $Tv_i = \lambda_i v_i \neq 0$ for $i = 2, \ldots, m$, it follows that $v_i \in \range T$.
-	Therefore, $v_2, \ldots, v_m$ are linearly independent vectors in $\range T$, which implies that $m - 1 \leq \dim \range T$.
-	Hence, the total number of distinct eigenvalues is at most $1 + \dim \range T$.
+    Then $\lambda_2, \ldots, \lambda_m$ are nonzero eigenvalues of $T$.
+    From $Tv_j = \lambda_j v_j$ for $j = 2, \ldots, m$, then $T({\lambda_j}\inv v_j) = v_j$ implies that $v_j \in \range T$ for $j = 2, \ldots, m$.
+    Therefore, $v_2, \ldots, v_m$ are linearly independent vectors in $\range T$, so $m - 1 \leq \dim \range T$.
+    Hence, $m \leq 1 + \dim \range T$.
 \end{sol}
 
 \begin{exercise}[5a29]
@@ -738,14 +738,14 @@
         &= \alpha(T / U)(v + U) + \beta(T / U)(w + U)
     \end{align*}
     \item Suppose $\lambda$ is an eigenvalue of $T / U$ with corresponding eigenvector $v + U \in V / U$, so $(T / U)(v + U) = Tv + U = \lambda(v + U) = \lambda v + U$.
-	This means $Tv - \lambda v \in U$.
-	Suppose now that $T - \lambda I$ has no eigenvector in $V$ corresponding to $\lambda$.
-	Since $U$ is invariant under $T - \lambda I$, then its restriction $(T - \lambda I)|_U$ is an operator on $U$.
-	By the fundamental theorem of linear maps, we have
-    \[\dim U = \dim \nul(T - \lambda I)|_U + \dim \range(T - \lambda I)|_U.\]
-    Now for any $v + U \neq U$ with $(T - \lambda I)v \in U$, then surjectivity of $(T - \lambda I)|_U$ would imply that there exists $u \in U$ such that $(T - \lambda I)u = (T - \lambda I)v$.
-	By injectivity, we get that $u = v$, which is a contradiction since $v \notin U$.
-	Therefore, our assumption that $T - \lambda I$ has no eigenvector corresponding to $\lambda$ must be false, and $\lambda$ is indeed an eigenvalue of $T$.
+	This means $Tv - \lambda v = (T - \lambda I)v \in U$.
+    Suppose $\lambda$ is not an eigenvalue of $T$, hence $(T - \lambda I)$ is injective.
+    
+    Consider the restriction $(T - \lambda I)|_U$, which is injective since $T - \lambda I$ is injective.
+    Since $U$ is finite-dimensional, the injectivity of $(T - \lambda I)|_U$ implies that it is also surjective onto $U$.
+    This implies that there exists $u \in U$ such that $(T - \lambda I)u = (T - \lambda I)v$, which means $(T - \lambda I)(v - u) = 0$.
+    Since $v - u \neq 0$ (otherwise $v \in U$, which would contradict $v + U$ being an eigenvector of $T / U$), this contradicts the injectivity of $T - \lambda I$.
+    Hence, $\lambda$ must be an eigenvalue of $T$.
 \end{sole}
 
 \begin{exercise}[5a39]
@@ -843,12 +843,13 @@
     Consider some index $i$ such that $\alpha_i \neq 0$.
 	Then
     \[u_1 = Tu - i u = \sum_{j = 1}^n \alpha_j j e_j - i \sum_{j = 1}^n \alpha_j e_j = \sum_{j = 1}^n \alpha_j (j - i) e_j \in U.\]
-    The $i$-th term in this sum is $\alpha_i (i - i) e_i = 0$, and $u_1$ now has all terms except the $i$-th term.
+    The $i$-th term in this sum is $\alpha_i (i - i) e_i = 0$, hence the $e_i$ term is eliminated from $u_1$.
 	Consider another index $j$ of $u_1$ such that $\alpha_j \neq 0$.
 	Then we can form
     \[u_2 = Tu_1 - j u_1 = \sum_{k = 1}^n \alpha_k (k - i) k e_k - j \sum_{k = 1}^n \alpha_k (k - i) e_k = \sum_{k = 1}^n \alpha_k (k - i) (k - j) e_k \in U.\]
     The $j$-th term in this sum is $\alpha_j (j - i) (j - j) e_j = 0$, and $u_2$ now has all terms except the $i$-th and $j$-th terms.
 	By repeating this process for each index with a nonzero coefficient, we can isolate each $\alpha_i e_i$ in $U$ whenever $\alpha_i \neq 0$.
+    This shows that for any $u \in U$, all the standard basis vectors $e_i$ corresponding to nonzero coefficients in $u$ must also be in $U$.
 	Therefore, $U$ must be the span of some subset of the standard basis vectors $\{e_1, e_2, \ldots, e_n\}$.
 \end{sole}
 
@@ -858,18 +859,16 @@
 \end{exercise}
 
 \begin{sol}
-    Note that $\dim \lin V \geq 4$.
-	Let $v_1, \ldots, v_n$ be a basis for $V$.
+	Let $v_1, \ldots, v_n$ be a basis for $V$, with $n = \dim V$.
 	Consider the operators $T_1, T_2 \in \lin V$ defined by
     \[T_1v_1 = v_2, \quad T_1v_i = 0~\text{for}~i = 2, \ldots, n,\]
     and
     \[T_2v_1 = v_1, \quad T_2v_i = 0~\text{for}~i = 2, \ldots, n.\]
     Then $T_2T_1v_1 = T_2(T_1v_1) = T_2v_2 = 0$, and $T_1T_2v_1 = T_1(T_2v_1) = T_1v_1 = v_2$.
 	Hence, $T_2T_1 \neq T_1T_2$, so $T_1$ and $T_2$ do not commute.
-	Now let $S$ be the set in question, and let $p, q \in \pcal(\fbb)$ where
-    \[p(T) = a_0 I + a_1 T + \dots + a_m T^m, \quad q(T) = b_0 I + b_1 T + \dots + b_n T^n.\]
-    Observe that $p(T)q(T)$ consists of linear combinations of powers of $T$ with coefficients $a_i b_j$.
-	By commutativity of $\fbb$, we see that $q(T)p(T) = p(T)q(T)$, so elements of $S$ commute.
-	Since $T_1$ and $T_2$ do not commute, they cannot both be in $S$.
-	Hence, $S \neq \lin V$.
+	Let $S = \set{p(T) \mid p \in \pcal(\fbb)}$. Let $p, q \in \pcal$ be defined as
+    \[p(z) = a_0 + a_1 z + \dots + a_m z^m, \quad q(z) = b_0 + b_1 z + \dots + b_k z^k.\]
+    Since $p(T)q(T) = q(T)p(T)$, it follows that $S$ is a commutative set of operators.
+    However, if $T_1 = r(T)$ and $T_2 = s(T)$ for some polynomials $r, s \in \pcal$, then $T_1$ and $T_2$ would commute, which is a contradiction.
+    Hence, $T_1$ and $T_2$ cannot both be in $S$, so $S \neq \lin{V}$.
 \end{sol}

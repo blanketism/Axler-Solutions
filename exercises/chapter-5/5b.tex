@@ -45,7 +45,8 @@
 \end{exercise}
 
 \begin{sole}
-    \item Suppose $T(x_1, \ldots, x_n) = \lambda (x_1, \ldots, x_n)$ for some $\lambda \in \fbb$ and $(x_1, \ldots, x_n) \neq 0$.
+    \item If $n = 1$, then $T(x_1) = (x_1)$, and the only eigenvalue is $1$ with corresponding eigenvectors being all nonzero vectors in $\fbb^1$.
+    Otherwise, suppose $T(x_1, \ldots, x_n) = \lambda (x_1, \ldots, x_n)$ for some $\lambda \in \fbb$ and $(x_1, \ldots, x_n) \neq 0$.
 	Then
     \[\lambda x_j = x_1 + \cdots + x_n \quad \text{for all } j = 1, \ldots, n.\]
     This implies that $\lambda x_1 = \lambda x_2 = \cdots = \lambda x_n$.
@@ -55,7 +56,8 @@
     which implies $\lambda = n$.
 	If $\lambda = 0$, then $x_1 + \cdots + x_n = 0$, and the eigenvectors are all nonzero vectors $(x_1, \ldots, x_n)$ such that $x_1 + \cdots + x_n = 0$.
 	Hence, the eigenvalues of $T$ are $0$ and $n$, with corresponding eigenvectors as described.
-    \item The minimal polynomial of $T$ must have roots at the eigenvalues of $T$, which are $0$ and $n$.
+    \item Following the $n = 1$ case, the minimal polynomial of $T$ is $p(z) = z - 1$.
+    The minimal polynomial of $T$ must have roots at the eigenvalues of $T$, which are $0$ and $n$.
 	Therefore, the minimal polynomial is of the form $p(z) = z(z - n)$.
 	We claim that $p(T) = 0$.
 	To verify this, let $x = x_1 + \cdots + x_n$.
@@ -81,6 +83,9 @@
     Suppose $\alpha$ is an eigenvalue of $p(T)$.
 	Then there exists a nonzero vector $v \in V$ such that $p(T)v = \alpha v$.
 	Then $p(T) - \alpha I$ is not injective.
+    If $p(z) - \alpha = 0$, then $\alpha = p(\lambda)$ for any $\lambda \in \cbb$, and we are done.
+    If $p(z) - \alpha = \beta$ for some constant $\beta \in \fbb$, then $p(T) - \alpha I = \beta I$ is injective, which contradicts the fact that $p(T) - \alpha I$ is not injective.
+    We may now assume that $p(z) - \alpha$ is a nonconstant polynomial.
 	By the Fundamental Theorem of Algebra, we can factor $p(z) - \alpha$ as
     \[p(z) - \alpha = c(z - \lambda_1)(z - \lambda_2) \cdots (z - \lambda_m)\]
     for some $c \in \cbb \setminus \set{0}$ and $\lambda_1, \ldots, \lambda_m \in \cbb$.
@@ -90,7 +95,7 @@
 	Therefore, $T - \lambda_j I$ is not injective for some $j$, which means $\lambda_j$ is an eigenvalue of $T$.
 	Then $p(\lambda_j) - \alpha = 0$, so $\alpha = p(\lambda_j)$ for some eigenvalue $\lambda_j$ of $T$.
     
-    Conversely, if $\alpha = p(\lambda)$ for some eigenvalue $\lambda$ of $T$ with corresponding eigenvector $v$, then by $T^m v = \lambda^m v$ for any polynomial $p(z) = a_m z^m + \cdots + a_1 z + a_0$, we have
+    Conversely, suppose $\alpha = p(\lambda)$ for some eigenvalue $\lambda$ of $T$ with corresponding eigenvector $v$. Let $p(z) = a_m z^m + \cdots + a_1 z + a_0$. Since $T^m v = \lambda^m v$, we have
     \[p(T)v = a_m T^m v + \cdots + a_1 T v + a_0 v = a_m \lambda^m v + \cdots + a_1 \lambda v + a_0 v = p(\lambda)v = \alpha v.\]
     Hence, $\alpha$ is an eigenvalue of $p(T)$.
 \end{sol}
@@ -143,8 +148,9 @@
     \[ST(w, z) = S(w, 0) = (0, w) \quad \text{and} \quad TS(w, z) = T(0, w) = (0, 0).\]
     The minimal polynomial of $ST$ is $p(z) = z^2$, since $ST \neq 0$ but $(ST)^2 = 0$, while the minimal polynomial of $TS$ is $q(z) = z$.
 	Hence, the minimal polynomials of $ST$ and $TS$ are not equal.
-    \item Suppose $S$ is invertible.
+    \item Without loss of generality, suppose $S$ is invertible.
 	We claim that $(TS)^n = S\inv (ST)^n S$ for all positive integers $n$.
+
 	We prove this by induction on $n$.
 	For the base case $n = 1$, we have $(TS)^1 = TS = S\inv (ST) S$.
 	Now suppose the claim holds for some positive integer $k$, i.e., $(TS)^k = S\inv (ST)^k S$.
@@ -174,7 +180,7 @@
 \end{exercise}
 
 \begin{sol}
-    Since $T \neq 0$, the minimal polynomial of $T$ is not linear.
+    Since $T$ is not a scalar multiple of the identity operator, the minimal polynomial of $T$ cannot have degree 1.
 	Moreover, $\dim \rbb^2 = 2$ implies that the degree of the minimal polynomial of $T$ must be 2.
 	Therefore, the minimal polynomial of $T$ is of the form
     \[p(z) = z^2 + bz + c.\]
@@ -335,7 +341,7 @@
     Since $\{e_1, e_2, \ldots, e_n\}$ establishes a basis for $\fbb^n$, it follows that $p(T) = 0$.
     Therefore, the minimal polynomial of $T$ is divisible by $(z - 1)(z - 2) \cdots (z - n)$ and has degree $n$.
     
-    To see that this is minimal, note that if we remove any factor $(z - k)$ from $p(z)$, the resulting polynomial would not annihilate $T$ and would result in $(k - 1)(k - 2) \cdots (k - (k-1))(k - (k+1)) \cdots (k - n) \neq 0$ when applied to $e_k$.
+    To see that this is minimal, note that if we remove any factor $(z - k)$ from $p(z)$, the resulting polynomial would not annihilate $T$ and would result in $(k - 1)(k - 2) \cdots (k - (k-1))(k - (k+1)) \cdots (k - n)e_k \neq 0$ when applied to $e_k$.
     Therefore, the minimal polynomial of $T$ is $p(z) = (z - 1)(z - 2) \cdots (z - n)$.
 \end{sol}
 
@@ -563,7 +569,7 @@
     Then
     \[q(T)w = q(T|_{\range T})w = 0.\]
     Therefore, for any $v \in V$, we have
-    \[zq(z)(T)v = T q(T)v = q(T) Tv = T \cdot 0 = 0,\]
+    \[zq(z)(T)v = T q(T)v = q(T) Tv = 0,\]
     where we used the fact that $T$ commutes with $q(T)$ since $q(T)$ is a polynomial in $T$.
     This shows that $zq(z)$ annihilates $T$, and hence the minimal polynomial $p(z)$ of $T$ divides $zq(z)$.
     Since $\deg q \leq r$, we have $\deg p \leq 1 + r = 1 + \dim \range T$.
@@ -753,7 +759,7 @@
     \[p(T) = 0.\]
     Consider the dual map $T' \in \lin{V'}$ defined by $T'(\phi) = \phi \circ T$ for all $\phi \in V'$.
     By induction, we can extend the polynomial $p(z)$ to act on $V'$ by defining
-    \[p(T')(\phi) = p(T')(\phi) = \phi \circ p(T).\]
+    \[p(T'\phi) = p(T')(\phi) = \phi \circ p(T).\]
     Since $p(T) = 0$, it follows that
     \[p(T')(\phi) = \phi \circ 0 = 0\]
     for all $\phi \in V'$.
