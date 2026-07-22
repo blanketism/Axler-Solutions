@@ -108,6 +108,62 @@ Then, we can swap $v_1$ with any other basis vector to force all diagonal entrie
     As $v_1$ belongs to a basis for $V$, it is nonzero, and thus as $j$ was arbitrary, $A_{1,1} = A_{2,2} = \cdots = A_{n,n} = \lambda$ for some scalar $\lambda$, and we have $A = \lambda I$, i.e., $T$ is a multiple of the identity operator.
 \end{coole}
 
+\begin{apex}[3d20]
+    Suppose $q \in \pcal(\rbb)$.
+	Prove that there exists a polynomial $p \in \pcal(\rbb)$ such that
+    \[q(x) = (x^2 + x) p''(x) + 2x p'(x) + p(3)\]
+    for all $x \in \rbb$.
+\end{apex}
+
+\begin{coole}
+    We go by the same technique as in \apexref{3d19}.
+
+    Let $q(x) = a_0 + a_1x + \cdots + a_nx^n$ and suppose that there exists a polynomial $p(x) = b_0 + b_1x + \cdots + b_mx^m$ satisfying the constraint $q(x) = (x^2 + x)p''(x) + 2xp'(x) + p(3)$. 
+    If $q$ is constant, then let $p = q = a_0$. We have $(x^2 + x)p''(x) + 2xp'(x) + p(3) = (x^2 + x)0 + 2x(0) + a_0 = a_0 = q(x)$.
+    If $q$ is linear, say $q(x) = a_0 + a_1x$, then let $p(x) = b_0 + b_1x$. We want $$q(x) = (x^2 + x)p''(x) + 2xp'(x) + p(3) = (x^2 + x)0 + 2x(b_1) + b_0 + 3b_1 = 2b_1x + 3b_1 + b_0,$$ so letting $b_1 = \frac{a_1}{2}$ and $b_0 = a_0 - \frac{3a_1}{2}$ yields a polynomial $p$ satisfying the given equation.
+    Otherwise, consider when $n \geq 2$.
+    If $p$ has degree $m \geq 2$, then $p'$ has degree $m-1$ and $p''$ has degree $m-2$, so $(x^2 + x)p'' + 2xp'$ has degree $m$.
+    To satisfy the constraint, we must have $m =n \geq 2$, so we may write $p(x) = b_0 + b_1x + \cdots + b_nx^n$.
+    Evaluating, we obtain
+    \begin{align*}
+        p'(x) &= b_1 + 2b_2x + \cdots + nb_nx^{n-1} \implies 2xp'(x) = 2b_1x + 4b_2x^2 + \cdots + 2nb_nx^n\\
+        p''(x) &= 2b_2 + 6b_3x + \cdots + n(n-1)b_nx^{n-2} \implies
+        \begin{cases}
+            x^2p''(x) = 2b_2x^2 + 6b_3x^3 + \cdots + n(n-1)b_nx^n \\
+            xp''(x) = 2b_2x + 6b_3x^2 + \cdots + n(n-1)b_nx^{n-1}
+        \end{cases}.
+    \end{align*}
+    Equating coefficients of $(x^2 + x)p'' + 2xp' + p(3)$ with those of $q$, we have that 
+    \[
+    \begin{cases}
+        a_0 = p(3) = b_0 + 3b_1 + 9b_2 + \cdots + 3^nb_n \\
+        a_i = i(i+1)(b_i + b_{i+1}) \qquad\text{for } 1 \leq i \leq n-1 \\
+        a_n = n(n-1)b_n + 2nb_n = n(n+1)b_n
+    \end{cases},
+    \]
+    with the formula for $a_i$ coming from the fact that the coefficient of $x^i$ in $(x^2 + x)p''(x) + 2xp'(x)$ is
+    \[(i(i-1)b_i + i(i+1)b_{i+1}) + 2ib_i = (i^2-i+2i)b_i + i(i+1)b_{i+1} = i(i+1)(b_i + b_{i+1}).\]
+    As before, we solve for the coefficients of $p$ by back-substitution.
+    Noting that for $1 \leq i \leq n$, we have
+    \[b_i = \frac{a_i}{i(i+1)} - b_{i+1},\]
+    we obtain the system
+    \[
+    \begin{cases}
+        b_n = \frac{a_n}{n(n+1)} \\
+        b_{n-1} = \frac{a_{n-1}}{n(n-1)} - b_n = \frac{a_{n-1}}{n(n-1)} - \frac{a_n}{n(n+1)} \\
+        b_{n-2} = \frac{a_{n-2}}{(n-1)(n-2)} - b_{n-1} = \frac{a_{n-2}}{(n-1)(n-2)} - \frac{a_{n-1}}{n(n-1)} + \frac{a_n}{n(n+1)} \\
+        \vdots \\
+        b_1 = \frac{a_1}{2} - b_2 \\
+        b_0 = a_0 - 3b_1 - 9b_2 - \cdots - 3^nb_n
+    \end{cases}
+    \]
+    which has a valid solution$^\dagger$ since no division by $0$ occurs.
+\end{coole}
+
+$^\dagger$ As before, solving this recurrence is outside the scope of this course, but, specifically, the coefficients of $p$ are
+\[b_i = \frac{a_i}{i(i+1)} - \frac{a_{i+1}}{(i+1)(i+2)} + \cdots + (-1)^{n-i}\frac{a_n}{n(n+1)} = \sum_{j=i}^n(-1)^{j-i}\frac{a_j}{j(j+1)}\]
+for $1 \leq i \leq n$ and $b_0 = a_0 - \sum_{j=1}^n3^jb_j$.
+
 \begin{apex}[3e11]
     Suppose $U = \set{(x_1, x_2, \ldots) \in \fbb^\infty \mid x_k \neq 0 \text{ for only finitely many } k}$.
     \begin{subexercises}
