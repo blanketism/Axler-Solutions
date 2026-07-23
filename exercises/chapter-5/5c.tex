@@ -4,6 +4,32 @@
     Prove or give a counterexample: If $T \in \lin{V}$ and $T^2$ has an upper-triangular matrix with respect to some basis of $V$, then $T$ has an upper-triangular matrix with respect to some basis of $V$.
 \end{exercise}
 
+\begin{sol}
+    We claim that the statement is false. 
+    Consider the linear operator $T \in \lin{\rbb^2}$ defined by
+    \[
+        \begin{pmatrix}
+            0 & 1 \\
+            -1 & 0
+        \end{pmatrix}
+    \]
+    which represents a $90^\circ$ rotation in the plane. 
+    Then $T^2$ is given by
+    \[
+        T^2 = 
+        \begin{pmatrix}
+            0 & 1 \\
+            -1 & 0
+        \end{pmatrix}^2 = 
+        \begin{pmatrix}
+            -1 & 0 \\
+            0 & -1
+        \end{pmatrix},
+    \]
+    which is an upper-triangular matrix with respect to the standard basis of $\rbb^2$. 
+    However, $T$ does not have an upper-triangular matrix with respect to any basis of $\rbb^2$, since it has no real eigenvalues and thus cannot be represented in upper-triangular form over $\rbb$.
+\end{sol}
+
 \begin{exercise}[5c2]
     Suppose $A$ and $B$ are upper-triangular matrices of the same size, with $\alpha_1, \ldots, \alpha_n$ on the diagonal of $A$ and $\beta_1, \ldots, \beta_n$ on the diagonal of $B$.
     \begin{subexercises}
@@ -12,6 +38,38 @@
     \end{subexercises}
     \note{The results in this exercise are used in the proof of 5.81.}
 \end{exercise}
+
+\begin{sole}
+    \item Let $C = A + B$.
+    Since $A$ and $B$ are upper-triangular, for any entry $c_{ij}$ of $C$ where $i > j$, we have
+    \[
+        c_{ij} = a_{ij} + b_{ij} = 0 + 0 = 0,
+    \]
+    which shows that $C$ is upper-triangular.
+    The diagonal entries of $C$ are given by
+    \[
+        c_{ii} = a_{ii} + b_{ii} = \alpha_i + \beta_i,
+    \]
+    for $i = 1, \ldots, n$.
+    \item Let $D = AB$. 
+    Since $A$ and $B$ are upper-triangular, for any entry $d_{ij}$ of $D$ where $i > j$, we have the following sum for the $(i,j)$-th entry of $D$:
+    \[
+        d_{ij} = \sum_{k=1}^n a_{ik}b_{kj}.
+    \]
+    Consider $a_{ik}$ when $k < i$. Since $A$ is upper-triangular, $a_{ik} = 0$.
+    Now consider $b_{kj}$ when $k > j$. Since $B$ is upper-triangular, $b_{kj} = 0$.
+    Therefore, for $i > j$, all terms in the sum are zero, and we have $d_{ij} = 0$ for $i > j$, showing that $D$ is upper-triangular.
+
+    To see that the diagonal entries of $D$ are $\alpha_1\beta_1, \ldots, \alpha_n\beta_n$, we compute the diagonal entries:
+    \[
+        d_{ii} = \sum_{k=1}^n a_{ik}b_{ki},
+    \]
+    for the $i$-th diagonal entry. Since $A$ and $B$ are upper-triangular, then $k > i$ implies $a_{ik} = 0$ and $k < i$ implies $b_{ki} = 0$. Therefore, the only non-zero term in the sum occurs when $k = i$, giving us
+    \[
+        d_{ii} = a_{ii}b_{ii} = \alpha_i\beta_i,
+    \]
+    for $i = 1, \ldots, n$.
+\end{sole}
 
 \begin{exercise}[5c3]
     Suppose $T \in \lin{V}$ is invertible and $v_1, \ldots, v_n$ is a basis of $V$ with respect to which the matrix of $T$ is upper triangular, with $\lambda_1, \ldots, \lambda_n$ on the diagonal.
@@ -22,20 +80,86 @@
     on the diagonal.
 \end{exercise}
 
+\begin{sol}
+    Let $A$ be the matrix of $T$ with respect to the basis $v_1, \ldots, v_n$. 
+    Since $T$ is invertible, $A$ is also invertible.
+    Let $A = (a_{ij})$ be the upper-triangular matrix with $\lambda_1, \ldots, \lambda_n$ on the diagonal, and let $B = (b_{ij})$ be the matrix of $T\inv$ with respect to the same basis.
+    Denote $b_j$ as the $j$-th column of $B$.
+    Then we have
+    \[
+        Ab_j = e_j,
+    \]
+    where $e_j$ is the $j$-th column of the identity matrix. 
+    In the $n$th row, we have $\lambda_n b_{nj} = \delta_{nj}$, hence $b_{nj} = 0$ for $j < n$ and $b_{nn} = \lambda_n\inv$.
+    Now, consider the $(n-1)$-th row. We have
+    \[
+        a_{n-1,n-1}b_{n-1,j} + a_{n-1,n}b_{n,j} = \delta_{n-1,j}.
+    \]
+    For $j < n-1$, we have $b_{n,j} = 0$ and $\delta_{n-1,j} = 0$, so $b_{n-1,j} = 0$.
+    For $j = n-1$, we have $b_{n,n-1} = 0$ and $\delta_{n-1,n-1} = 1$, so $b_{n-1,n-1} = a_{n-1,n-1}\inv = \lambda_{n-1}\inv$.
+    Assume inductively that for some $k \in \{1, \ldots, n-1\}$, we have $b_{ij} = 0$ for all $i > j$ and $b_{ii} = \lambda_i\inv$ for all $i \geq k+1$.
+    Now, consider the $k$-th row. We have
+    \[
+        a_{kk}b_{kj} + a_{k,k+1}b_{k+1,j} + \cdots + a_{kn}b_{nj} = \delta_{kj}.
+    \]
+    For $j < k$, we have $b_{ij} = 0$ for all $i > j \geq k$, so the left-hand side reduces to $a_{kk}b_{kj} = 0$, hence $b_{kj} = 0$.
+    For $j = k$, we have $b_{ij} = 0$ for all $i > k$, so the left-hand side reduces to $a_{kk}b_{kk} = 1$, hence $b_{kk} = a_{kk}\inv = \lambda_k\inv$.
+    By induction, we conclude that $B$ is upper-triangular with $\lambda_1\inv, \ldots, \lambda_n\inv$ on the diagonal.
+\end{sol}
+
 \begin{exercise}[5c4]
     Give an example of an operator whose matrix with respect to some basis contains only $0$'s on the diagonal, but the operator is invertible.
-    
+
     \note{This exercise and the exercise below show that 5.41 fails without the hypothesis that an upper-triangular matrix is under consideration.}
 \end{exercise}
+
+\begin{sol}
+    Consider the linear operator $T \in \lin{\rbb^2}$ defined by
+    \[
+        T = 
+        \begin{pmatrix}
+            0 & 1 \\
+            -1 & 0
+        \end{pmatrix}.
+    \]
+    The matrix of $T$ with respect to the standard basis has only $0$'s on the diagonal, but $T$ is invertible with inverse
+    \[
+        T\inv = 
+        \begin{pmatrix}
+            0 & -1 \\
+            1 & 0
+        \end{pmatrix}. \qh
+    \]
+\end{sol}
 
 \begin{exercise}[5c5]
     Give an example of an operator whose matrix with respect to some basis contains only nonzero numbers on the diagonal, but the operator is not invertible.
 \end{exercise}
 
+\begin{sol}
+    Consider the linear operator $T \in \lin{\rbb^2}$ defined by
+    \[
+        T = 
+        \begin{pmatrix}
+            1 & 1 \\
+            -1 & -1
+        \end{pmatrix}.
+    \]
+    Since $T(1, -1) = (0, 0)$, $T$ is not invertible.
+\end{sol}
+
 \begin{exercise}[5c6]
     Suppose $\fbb = \cbb$, $V$ is finite-dimensional, and $T \in \lin{V}$.
     Prove that if $k \in \{1, \ldots, \dim V\}$, then $V$ has a $k$-dimensional subspace invariant under $T$.
 \end{exercise}
+
+\begin{sol}
+    The minimal polynomial of $T$ has degree at most $\dim V$, and since $\fbb = \cbb$, then the minimal polynomial factors completely into $\dim V$ linear factors.
+    Then $T$ has an upper-triangular matrix with respect to some basis of $V$ by 5.44.
+    Let $v_1, \ldots, v_n$ be that basis.
+    By 5.39, $Tv_k \in \spn(v_1, \ldots, v_k)$ for each $k = 1, \ldots, \dim V$.
+    Therefore, $\spn(v_1, \ldots, v_k)$ is a $k$-dimensional subspace of $V$ that is invariant under $T$.
+\end{sol}
 
 \begin{exercise}[5c7]
     Suppose $V$ is finite-dimensional, $T \in \lin{V}$, and $v \in V$.
@@ -44,6 +168,37 @@
         \item Prove that the minimal polynomial of $T$ is a polynomial multiple of $p_v$.
     \end{subexercises}
 \end{exercise}
+
+\begin{sole}
+    \item Consider the list $v, Tv, T^2v, \ldots, T^{\dim V}v$.
+    Since $V$ is finite-dimensional, this list is linearly dependent.
+    Then there exist scalars $a_0, \ldots, a_m$ not all zero such that
+    \[
+        a_0v + a_1Tv + \cdots + a_mT^mv = 0.
+    \]
+    Here, $m$ denotes the smallest integer such that there exist scalars $a_0, \ldots, a_m$ not all zero satisfying the above equation.
+    Let $p_v(x)$ be the monic polynomial after dividing by $a_m$:
+    \[
+        p_v(x) = x^m + \frac{a_{m-1}}{a_m}x^{m-1} + \cdots + \frac{a_0}{a_m}.
+    \]
+    Then $p_v(T)v = 0$.
+    Suppose $q$ is another monic polynomial of smallest degree such that $q(T)v = 0$.
+    Then $p_v - q$ is a polynomial of smaller degree than $p_v$ such that $(p_v - q)(T)v = 0$, which contradicts the minimality of $p_v$.
+    \item Let $m_T$ be the minimal polynomial of $T$.
+    Then $m_T(T) = 0$, so $m_T(T)v = 0$.
+    By the division algorithm for polynomials, there exist unique polynomials $q$ and $r$ such that
+    \[
+        m_T = p_vq + r,
+    \]
+    where $r = 0$ or $\deg r < \deg p_v$.
+    Then
+    \[
+        0 = m_T(T)v = (p_vq + r)(T)v = p_v(T)q(T)v + r(T)v = r(T)v,
+    \]
+    since $p_v(T)v = 0$.
+    If $r \neq 0$, then $r$ is a polynomial of smaller degree than $p_v$ such that $r(T)v = 0$, which contradicts the minimality of $p_v$.
+    Therefore, $r = 0$, and we have $m_T = p_vq$, which shows that $m_T$ is a polynomial multiple of $p_v$.
+\end{sole}
 
 \begin{exercise}[5c8]
     Suppose $V$ is finite-dimensional, $T \in \lin{V}$, and there exists a nonzero vector $v \in V$ such that $T^2v + 2Tv = -2v$.
