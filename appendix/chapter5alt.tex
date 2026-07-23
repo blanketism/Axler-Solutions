@@ -2,6 +2,18 @@
 
 \subsection{Eigenvalues and Eigenvectors}
 
+\begin{exercise}[5a27]
+    Suppose that $V$ is finite-dimensional and $k \in \{1, \ldots, \dim V - 1\}$.
+	Suppose $T \in \lin{V}$ is such that every subspace of $V$ of dimension $k$ is invariant under $T$.
+	Prove that $T$ is a scalar multiple of the identity operator.
+\end{exercise}
+
+\begin{csp}
+    Let $v \in V$ be nonzero. For any $u \notin \operatorname{span}(v)$, we can extend $v$, $u$ to a basis and construct a $k$-dimensional subspace that contains $v$ but not $u$ since $k \in \{1, \dots, \dim V-1\}$. So, the intersection of all $k$-dimensional subspaces containing $v$ is precisely $\operatorname{span}(v)$. \\ 
+
+    The intersection of invariant subspaces is invariant, so $\operatorname{span}(v)$ is invariant. This means that every nonzero vector is an eigenvector of $T$, meaning that $T$ is a scalar multiple of the identity by \exref{5a26}.
+\end{csp}
+
 \begin{apex}[5a42]
     Define $T \in \lin{\fbb^n}$ by $T(x_1, x_2, x_3, \ldots, x_n) = (x_1, 2x_2, 3x_3, \ldots, nx_n)$.
     \begin{subexercises}
@@ -27,4 +39,42 @@
         Conversely, any such span is invariant because $Te_i=ie_i$ belongs to that span.
 		There are $2^n$ such subspaces, and they exhaust all invariant subspaces of $T$. \qh
     \end{subexercises}
+\end{csp}
+
+\begin{apex}[5a43]
+    Suppose that $V$ is finite-dimensional, $\dim V > 1$, and $T \in \lin{V}$.
+	Prove that $\set{p(T) \mid p \in \pcal(\fbb)} \neq \lin{V}$.
+\end{apex}
+
+\begin{me}
+	Let $v_1, \ldots, v_n$ be a basis for $V$, with $n = \dim V$.
+	Consider the operators $T_1, T_2 \in \lin V$ defined by
+    \[T_1v_1 = v_2, \quad T_1v_i = 0~\text{for}~i = 2, \ldots, n,\]
+    and
+    \[T_2v_1 = v_1, \quad T_2v_i = 0~\text{for}~i = 2, \ldots, n.\]
+    Then $T_2T_1v_1 = T_2(T_1v_1) = T_2v_2 = 0$, and $T_1T_2v_1 = T_1(T_2v_1) = T_1v_1 = v_2$.
+	Hence, $T_2T_1 \neq T_1T_2$, so $T_1$ and $T_2$ do not commute.
+	Let $S = \set{p(T) \mid p \in \pcal(\fbb)}$. Let $p, q \in \pcal$ be defined as
+    \[p(z) = a_0 + a_1 z + \dots + a_m z^m, \quad q(z) = b_0 + b_1 z + \dots + b_k z^k.\]
+    Since $p(T)q(T) = q(T)p(T)$, it follows that all operators in $S$ commute.
+    However, if $T_1 = r(T)$ and $T_2 = s(T)$ for some polynomials $r, s \in \pcal$, then $T_1$ and $T_2$ would commute, which is a contradiction.
+    Hence, $T_1$ and $T_2$ cannot both be in $S$, so $S \neq \lin{V}$.
+\end{me}
+
+\begin{apex}[5b29]
+    Show that every operator on a finite-dimensional vector space of dimension at least two has an invariant subspace of dimension two.
+
+    \note{\emph{\exref{5c6}} will give an improvement of this result when $\fbb = \cbb$.}
+\end{apex}
+
+\begin{csp}
+    If $\mathbb{F}=\mathbb{C}$, the result is immediate: every operator on a finite-dimensional complex vector space has an upper-triangular matrix with respect to some basis $v_1$, $\dots$, $v_n$. Then $\operatorname{span}(v_1,v_2)$ is a $2$-dimensional invariant subspace. Hence, we restrict to $\mathbb{F}=\mathbb{R}$ from now on. \\
+
+    Assume $\dim V \geq 2$ and let $T \in \mathcal{L}(V)$ have minimal polynomial $p$. Over $\mathbb{R}$, $p$ factors into linear and irreducible quadratic factors. \\
+
+    \textbf{Case 1}: $p$ has an irreducible quadratic factor. Write $p(z)=(z^2+az+b)m(z)$. Pick $v \in V$ such that $x=m(T)v \neq 0$; then $(T^2+aT+bI)x=0$. Set $U=\operatorname{span}(x,Tx)$. Clearly, $T$ maps $U$ to itself since $T(Tx)=-bx-aTx \in U$. If $x$ and $Tx$ were linearly dependent, $x$ would be an eigenvector and its eigenvalue would be a real root of $z^2+az+b$, contradicting irreducibility. Hence $\dim U=2$. \\
+
+    \textbf{Case 2}: $p$ splits completely into linear factors. Then $T$ is upper-triangularizable over $\mathbb{R}$. Let $v_1$, $\dots$, $v_n$ be a basis with respect to which the matrix of $T$ is upper-triangular. Then, $Tv_1 \in \operatorname{span}(v_1)$ and $Tv_2 \in \operatorname{span}(v_1, v_2)$. Therefore $\operatorname{span}(v_1,v_2)$ is a $2$-dimensional invariant subspace. \\
+
+    These two cases cover all possibilities over $\mathbb{R}$, and so combining with trivial complex case finishes the proof.
 \end{csp}
