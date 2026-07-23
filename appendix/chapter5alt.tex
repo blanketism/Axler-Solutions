@@ -2,14 +2,14 @@
 
 \subsection{Eigenvalues and Eigenvectors}
 
-\begin{exercise}[5a27]
+\begin{apex}[5a27]
     Suppose that $V$ is finite-dimensional and $k \in \{1, \ldots, \dim V - 1\}$.
 	Suppose $T \in \lin{V}$ is such that every subspace of $V$ of dimension $k$ is invariant under $T$.
 	Prove that $T$ is a scalar multiple of the identity operator.
-\end{exercise}
+\end{apex}
 
 \begin{csp}
-    Let $v \in V$ be nonzero. For any $u \notin \operatorname{span}(v)$, we can extend $v$, $u$ to a basis and construct a $k$-dimensional subspace that contains $v$ but not $u$ since $k \in \{1, \dots, \dim V-1\}$. So, the intersection of all $k$-dimensional subspaces containing $v$ is precisely $\operatorname{span}(v)$. \\ 
+    Let $v \in V$ be nonzero. For any $u \notin \operatorname{span}(v)$, we can extend $v$, $u$ to a basis and construct a $k$-dimensional subspace that contains $v$ but not $u$ since $k \in \{1, \dots, \dim V-1\}$. So, the intersection of all $k$-dimensional subspaces containing $v$ is precisely $\operatorname{span}(v)$.
 
     The intersection of invariant subspaces is invariant, so $\operatorname{span}(v)$ is invariant. This means that every nonzero vector is an eigenvector of $T$, meaning that $T$ is a scalar multiple of the identity by \exref{5a26}.
 \end{csp}
@@ -68,13 +68,13 @@
 \end{apex}
 
 \begin{csp}
-    If $\mathbb{F}=\mathbb{C}$, the result is immediate: every operator on a finite-dimensional complex vector space has an upper-triangular matrix with respect to some basis $v_1$, $\dots$, $v_n$. Then $\operatorname{span}(v_1,v_2)$ is a $2$-dimensional invariant subspace. Hence, we restrict to $\mathbb{F}=\mathbb{R}$ from now on. \\
+    If $\mathbb{F}=\mathbb{C}$, the result is immediate: every operator on a finite-dimensional complex vector space has an upper-triangular matrix with respect to some basis $v_1$, $\dots$, $v_n$. Then $\operatorname{span}(v_1,v_2)$ is a $2$-dimensional invariant subspace. Hence, we restrict to $\mathbb{F}=\mathbb{R}$ from now on.
 
-    Assume $\dim V \geq 2$ and let $T \in \mathcal{L}(V)$ have minimal polynomial $p$. Over $\mathbb{R}$, $p$ factors into linear and irreducible quadratic factors. \\
+    Assume $\dim V \geq 2$ and let $T \in \mathcal{L}(V)$ have minimal polynomial $p$. Over $\mathbb{R}$, $p$ factors into linear and irreducible quadratic factors.
 
-    \textbf{Case 1}: $p$ has an irreducible quadratic factor. Write $p(z)=(z^2+az+b)m(z)$. Pick $v \in V$ such that $x=m(T)v \neq 0$; then $(T^2+aT+bI)x=0$. Set $U=\operatorname{span}(x,Tx)$. Clearly, $T$ maps $U$ to itself since $T(Tx)=-bx-aTx \in U$. If $x$ and $Tx$ were linearly dependent, $x$ would be an eigenvector and its eigenvalue would be a real root of $z^2+az+b$, contradicting irreducibility. Hence $\dim U=2$. \\
+    \textbf{Case 1}: $p$ has an irreducible quadratic factor. Write $p(z)=(z^2+az+b)m(z)$. Pick $v \in V$ such that $x=m(T)v \neq 0$; then $(T^2+aT+bI)x=0$. Set $U=\operatorname{span}(x,Tx)$. Clearly, $T$ maps $U$ to itself since $T(Tx)=-bx-aTx \in U$. If $x$ and $Tx$ were linearly dependent, $x$ would be an eigenvector and its eigenvalue would be a real root of $z^2+az+b$, contradicting irreducibility. Hence $\dim U=2$.
 
-    \textbf{Case 2}: $p$ splits completely into linear factors. Then $T$ is upper-triangularizable over $\mathbb{R}$. Let $v_1$, $\dots$, $v_n$ be a basis with respect to which the matrix of $T$ is upper-triangular. Then, $Tv_1 \in \operatorname{span}(v_1)$ and $Tv_2 \in \operatorname{span}(v_1, v_2)$. Therefore $\operatorname{span}(v_1,v_2)$ is a $2$-dimensional invariant subspace. \\
+    \textbf{Case 2}: $p$ splits completely into linear factors. Then $T$ is upper-triangularizable over $\mathbb{R}$. Let $v_1$, $\dots$, $v_n$ be a basis with respect to which the matrix of $T$ is upper-triangular. Then, $Tv_1 \in \operatorname{span}(v_1)$ and $Tv_2 \in \operatorname{span}(v_1, v_2)$. Therefore $\operatorname{span}(v_1,v_2)$ is a $2$-dimensional invariant subspace.
 
     These two cases cover all possibilities over $\mathbb{R}$, and so combining with trivial complex case finishes the proof.
 \end{csp}
