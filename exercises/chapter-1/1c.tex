@@ -14,28 +14,28 @@
     Let $U$ be the subset of $\fbb^3$ in question.
     \begin{subexercises}
         \item Since the zero vector $(0, 0, 0)$ satisfies $0 + 2(0) + 3(0) = 0$, $U$ is nonempty.
-	Let $u = (u_1, u_2, u_3)$ and $v = (v_1, v_2, v_3)$ be elements of $U$.
-	Then
+	    Let $u = (u_1, u_2, u_3)$ and $v = (v_1, v_2, v_3)$ be elements of $U$.
+	    Then
         \[(u_1 + v_1) + 2(u_2 + v_2) + 3(u_3 + v_3) = (u_1 + 2u_2 + 3u_3) + (v_1 + 2v_2 + 3v_3) = 0 + 0 = 0.\]
         Hence, $u + v$ is in $U$.
-	Let $a \in \fbb$.
-	Then
+	    Let $a \in \fbb$.
+	    Then
         \[a u_1 + 2(a u_2) + 3(a u_3) = a(u_1 + 2u_2 + 3u_3) = a \cdot 0 = 0.\]
         Hence, $au$ is in $U$.
-	Therefore, $U$ is a subspace of $\fbb^3$.
+	    Therefore, $U$ is a subspace of $\fbb^3$.
         \item The zero vector $(0, 0, 0)$ does not satisfy $0 + 2(0) + 3(0) = 4$, so $U$ does not contain the zero vector.
-	Hence, it is not a subspace of $\fbb^3$.
+	    Hence, it is not a subspace of $\fbb^3$.
         \item Suppose $u = (1, 0, 0)$ and $v = (0, 1, 1)$.
-	Then $u$ and $v$ are in $U$ since $1 \cdot 0 \cdot 0 = 0$ and $0 \cdot 1 \cdot 1 = 0$.
-	However, $u + v = (1, 1, 1)$ is not in $U$ since $1 \cdot 1 \cdot 1 = 1 \neq 0$.
-	Hence, $U$ is not closed under addition and is not a subspace of $\fbb^3$.
+	    Then $u$ and $v$ are in $U$ since $1 \cdot 0 \cdot 0 = 0$ and $0 \cdot 1 \cdot 1 = 0$.
+	    However, $u + v = (1, 1, 1)$ is not in $U$ since $1 \cdot 1 \cdot 1 = 1 \neq 0$.
+	    Hence, $U$ is not closed under addition and is not a subspace of $\fbb^3$.
         \item Since the zero vector $(0, 0, 0)$ satisfies $0 = 5(0)$, $U$ is nonempty.
-	Let $u = (u_1, u_2, u_3)$ and $v = (v_1, v_2, v_3)$ be elements of $U$.
-	Then
+	    Let $u = (u_1, u_2, u_3)$ and $v = (v_1, v_2, v_3)$ be elements of $U$.
+	    Then
         \[u_1 + v_1 = 5u_3 + 5v_3 = 5(u_3 + v_3).\]
         Hence, $u + v$ is in $U$.
-	Let $a \in \fbb$.
-	Then
+	    Let $a \in \fbb$.
+	    Then
         \[a u_1 = a(5u_3) = 5(a u_3).\]
         Hence, $au$ is in $U$.
 	Therefore, $U$ is a subspace of $\fbb^3$. \qh
@@ -59,50 +59,50 @@
     Let $U$ be the subset of $\fbb^4$ in question.
     \begin{subexercises}
         \item Suppose $U$ is a subspace of $\fbb^4$.
-	Then it must contain the zero vector $(0, 0, 0, 0)$.
-	Then $0 = 5(0) + b$, which implies $b = 0$.
+	    Then it must contain the zero vector $(0, 0, 0, 0)$.
+	    Then $0 = 5(0) + b$, which implies $b = 0$.
         
         Conversely, suppose $b = 0$.
-	Then $U = \set{(x_1, x_2, x_3, x_4) \in \fbb^4 \mid x_3 = 5x_4}$.
-	The proof is similar to that of \exref{1c1} (d), hence $U$ is a subspace of $\fbb^4$.
+        Then $U = \set{(x_1, x_2, x_3, x_4) \in \fbb^4 \mid x_3 = 5x_4}$.
+        The proof is similar to that of \exref{1c1} (d), hence $U$ is a subspace of $\fbb^4$.
         \item Note that the 0 function on $[0, 1]$ is continuous, so $0 \in U$.
-	Let $f, g \in U$ be continuous functions.
-	Then $f + g$ is continuous, so $f + g \in U$.
-	Let $a \in \rbb$.
-	Then $af$ is continuous, so $af \in U$.
-	Therefore, $U$ is a subspace of $\rbb^{[0, 1]}$.
+    	Let $f, g \in U$ be continuous functions.
+	    Then $f + g$ is continuous, so $f + g \in U$.
+        Let $a \in \rbb$.
+        Then $af$ is continuous, so $af \in U$.
+        Therefore, $U$ is a subspace of $\rbb^{[0, 1]}$.
         \item Since the derivative of the 0 function is the 0 function, $0 \in U$.
-	Let $f, g \in U$ be differentiable functions.
-	Then $f + g$ is differentiable, so $f + g \in U$.
-	Let $a \in \rbb$.
-	Then $af$ is differentiable, so $af \in U$.
-	Therefore, $U$ is a subspace of $\rbb^{\rbb}$.
+        Let $f, g \in U$ be differentiable functions.
+        Then $f + g$ is differentiable, so $f + g \in U$.
+        Let $a \in \rbb$.
+        Then $af$ is differentiable, so $af \in U$.
+        Therefore, $U$ is a subspace of $\rbb^{\rbb}$.
         \item Suppose $U$ is a subspace of $\rbb^{(0, 3)}$.
-	Then it must contain the 0 function on $(0, 3)$.
-	Then $0' = 0 = b$, which implies $b = 0$.
+        Then it must contain the 0 function on $(0, 3)$.
+        Then $0' = 0 = b$, which implies $b = 0$.
         
         Conversely, suppose $b = 0$.
-	Then $U = \set{f \in \rbb^{(0, 3)} \mid f'(2) = 0}$.
-	Let $f, g \in U$ be differentiable functions such that $f'(2) = g'(2) = 0$.
-	Then
+        Then $U = \set{f \in \rbb^{(0, 3)} \mid f'(2) = 0}$.
+        Let $f, g \in U$ be differentiable functions such that $f'(2) = g'(2) = 0$.
+        Then
         \[(f + g)'(2) = f'(2) + g'(2) = 0 + 0 = 0,\]
         so $f + g \in U$.
-	Let $a \in \rbb$.
-	Then
+        Let $a \in \rbb$.
+        Then
         \[(af)'(2) = a f'(2) = a \cdot 0 = 0,\]
         so $af \in U$.
-	Therefore, $U$ is a subspace of $\rbb^{(0, 3)}$.
+        Therefore, $U$ is a subspace of $\rbb^{(0, 3)}$.
         \item Let $U$ be the set of all sequences of complex numbers with limit 0.
-	Then the zero sequence is in $U$.
-	Let $(z_n), (w_n) \in U$ be sequences with limit 0.
-	Then
+        Then the zero sequence is in $U$.
+        Let $(z_n), (w_n) \in U$ be sequences with limit 0.
+        Then
         \[\lim_{n \to \infty} (z_n + w_n) = \lim_{n \to \infty} z_n + \lim_{n \to \infty} w_n = 0 + 0 = 0,\]
         so $(z_n) + (w_n) \in U$.
-	Let $a \in \cbb$.
-	Then
+        Let $a \in \cbb$.
+        Then
         \[\lim_{n \to \infty} (a z_n) = a \lim_{n \to \infty} z_n = a \cdot 0 = 0,\]
         so $a(z_n) \in U$.
-	Therefore, $U$ is a subspace of $\cbb^\infty$. \qh
+        Therefore, $U$ is a subspace of $\cbb^\infty$. \qh
     \end{subexercises}
 \end{sol}
 
@@ -178,19 +178,19 @@
     Let $U$ be the subset in question.
     \begin{subexercises}
         \item Since the zero vector $(0, 0, 0)$ satisfies $0^3 = 0^3$, $U$ is nonempty.
-	Let $x = (x_1, x_2, x_3)$ and $y = (y_1, y_2, y_3)$ be elements of $U$.
-	Then $x_1^3 = x_2^3$ and $y_1^3 = y_2^3$ both imply that $x_1 = x_2$ and $y_1 = y_2$.
-	Hence,
+        Let $x = (x_1, x_2, x_3)$ and $y = (y_1, y_2, y_3)$ be elements of $U$.
+        Then $x_1^3 = x_2^3$ and $y_1^3 = y_2^3$ both imply that $x_1 = x_2$ and $y_1 = y_2$.
+        Hence,
         \[(x_1 + y_1)^3 = (x_2 + y_2)^3,\]
         so $x + y \in U$.
-	Let $a \in \rbb$.
-	Then
+        Let $a \in \rbb$.
+        Then
         \[(ax_1)^3 = a^3 x_1^3 = a^3 x_2^3 = (ax_2)^3,\]
         so $ax \in U$.
-	Therefore, $U$ is a subspace of $\rbb^3$.
+        Therefore, $U$ is a subspace of $\rbb^3$.
         \item No, $U$ is not a subspace of $\cbb^3$.
-	To see this, consider the cubic polynomial $x^3 - 1 = 0$.
-	This polynomial has three distinct roots in $\cbb$ as follows:
+        To see this, consider the cubic polynomial $x^3 - 1 = 0$.
+        This polynomial has three distinct roots in $\cbb$ as follows:
         \[x^3 - 1 = (x - 1)(x^2 + x + 1) = 0\]
         Applying the quadratic formula to $x^2 + x + 1 = 0$, we get
         \[x = \frac{-1 \pm \sqrt{(-1)^2 - 4(1)(1)}}{2(1)} = \frac{-1 \pm i\sqrt{3}}{2}.\]
@@ -199,10 +199,10 @@
         Then $\omega^3 = 1$, and
         \[\omega^2 = \frac{-1 - i\sqrt{3}}{2}.\]
         Moreover, it is not hard to see that $\omega + \omega^2 = -1$.
-	Let $u = (1, 1, 0)$ and $v = (\omega, 1, 0)$.
-	Then $u, v \in U$ since $1^3 = 1^3$ and $\omega^3 = 1^3$.
-	Then $u + v = (1 + \omega, 2, 0)$.
-	However,
+        Let $u = (1, 1, 0)$ and $v = (\omega, 1, 0)$.
+        Then $u, v \in U$ since $1^3 = 1^3$ and $\omega^3 = 1^3$.
+        Then $u + v = (1 + \omega, 2, 0)$.
+        However,
         \[(1 + \omega)^3 = 1 + 3\omega + 3\omega^2 + \omega^3 = 1 + 3(-1) + 1 = -1 \neq 2^3 = 8.\]
         Hence, $u + v \notin U$, so $U$ is not closed under addition and is not a subspace of $\cbb^3$. \qh
     \end{subexercises}
