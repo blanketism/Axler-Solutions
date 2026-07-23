@@ -422,16 +422,16 @@
 \begin{sol}
     Let $\lambda$ be an eigenvalue of $ST$ with eigenvector $v \in V$, so that
     \[STv = \lambda v.\]
-    Let $w = Tv$.
-	Then
+    If $\lambda = 0$, then $ST$ is not invertible. Since $V$ is finite-dimensional, $TS$ is also not invertible, so $0$ is an eigenvalue of $TS$.
+    Otherwise, if $\lambda \neq 0$, let $w = Tv$.
+    Then
+    \[Sw = S(Tv) = STv = \lambda v \neq 0 \implies w \neq 0.\]
+    Now, we have
     \[TSw = T(STv) = T(\lambda v) = \lambda Tv = \lambda w.\]
-    If $\lambda w = 0$, then either $\lambda = 0$ or $w = 0$.
-	If $w = 0$, then $Tv = 0$, which implies $STv = S(Tv) = S0 = 0$.
-	But $STv = \lambda v$, so $\lambda v = 0$.
-	Since $v \neq 0$, we must have $\lambda = 0$.
-	Then this implies $ST$ is not invertible so that $TS$ is also not invertible, meaning $0$ is an eigenvalue of $TS$.
-	Therefore, every eigenvalue of $ST$ is an eigenvalue of $TS$.
-	By symmetry, the converse also holds, so $ST$ and $TS$ have the same eigenvalues.
+    Therefore, $w$ is an eigenvector of $TS$ with eigenvalue $\lambda$.
+    Then every eigenvalue of $ST$ is also an eigenvalue of $TS$.
+    By symmetry, the same argument shows that if $\lambda$ is an eigenvalue of $TS$, then it is also an eigenvalue of $ST$.
+    Hence, $ST$ and $TS$ have the same eigenvalues.
 \end{sol}
 
 \begin{exercise}[5a24]
@@ -467,14 +467,9 @@
 	Since $u + w$ is also an eigenvector of $T$, we have $T(u + w) = \nu (u + w)$ for some scalar $\nu \in \fbb$.
 	Then
     \[\lambda u + \mu w = Tu + Tw = T(u + w) = \nu (u + w) = \nu u + \nu w.\]
-    Since $u$ and $w$ are eigenvectors, they are nonzero.
-	If $u$ and $w$ were linearly dependent, let $u = \alpha w$ for some scalar $\alpha \in \fbb$.
-	Then $Tu = \lambda u = \lambda \alpha w$, and $Tu = T(\alpha w) = \alpha Tw = \alpha \mu w$.
-	Equating these, we get $\lambda \alpha w = \alpha \mu w$, and since $\alpha \neq 0$ and $w \neq 0$, it follows that $\lambda = \mu$.
-	Hence, $u$ and $w$ correspond to the same eigenvalue.
-    
-    If $u$ and $w$ are linearly independent, we can equate coefficients of $u$ and $w$ in \(\lambda u + \mu w = \nu u + \nu w\) to get $\lambda = \nu = \mu$.
-	Therefore, in either case, $u$ and $w$ are eigenvectors corresponding to the same eigenvalue.
+    Suppose $u$ and $w$ correspond to different eigenvalues.
+    Then the list $u, w$ is linearly independent, and we can equate coefficients of $u$ and $w$ above to obtain $\lambda = \nu = \mu$, which is a contradiction.
+    Therefore, $u$ and $w$ must correspond to the same eigenvalue.
 \end{sol}
 
 \begin{exercise}[5a26]
@@ -491,7 +486,7 @@
 	Then $Tu = \lambda_u u = \lambda_u \alpha v$, and $Tu = T(\alpha v) = \alpha Tv = \alpha \lambda_v v$.
 	Equating these, we get $\lambda_u \alpha v = \alpha \lambda_v v$, and since $\alpha \neq 0$ and $v \neq 0$, it follows that $\lambda_u = \lambda_v$.
 
-    The remaining case is when $u + v$ is nonzero such that they are linearly independent.
+    The remaining case is when $u + v$ are linearly independent.
 	In this case, $u + v$ is an eigenvector of $T$, so $T(u + v) = \lambda_{u+v} (u + v)$ for some scalar $\lambda_{u+v} \in \fbb$.
 	On the other hand, $T(u + v) = Tu + Tv = \lambda_u u + \lambda_v v$.
 	Equating these, we get $\lambda_{u+v} u + \lambda_{u+v} v = \lambda_u u + \lambda_v v$.
@@ -532,7 +527,7 @@
 	Since the eigenvalues are distinct, at most one eigenvalue must be 0.
 	Without loss of generality, assume $\lambda_1 = 0$ if 0 is an eigenvalue.
     Then $\lambda_2, \ldots, \lambda_m$ are nonzero eigenvalues of $T$.
-    From $Tv_j = \lambda_j v_j$ for $j = 2, \ldots, m$, then $T({\lambda_j}\inv v_j) = v_j$ implies that $v_j \in \range T$ for $j = 2, \ldots, m$.
+    For $j = 2, \ldots, m$, we have $Tv_j = \lambda_j v_j$, so $T(\lambda_j\inv v_j) = v_j$, which implies $v_j \in \range T$.
     Therefore, $v_2, \ldots, v_m$ are linearly independent vectors in $\range T$, so $m - 1 \leq \dim \range T$.
     Hence, $m \leq 1 + \dim \range T$.
 \end{sol}
@@ -757,7 +752,7 @@
     Suppose $T$ has an eigenvalue $\lambda$ with corresponding eigenvector $v \in V$.
 	Consider $\range(T - \lambda I)$.
 	Then $\dim \range(T - \lambda I) \leq \dim V - 1$.
-	Extend to a subspace $U$ of $V$ of dimension $\dim V - 1$ that contains $\range(T - \lambda I)$.
+	Extend $\range(T - \lambda I)$ to a subspace $U$ of $V$ of dimension $\dim V - 1$.
 	Then $U$ is invariant under $T$ because for any $u \in U$, $Tu = (T - \lambda I)u + \lambda u \in U$.
 	Hence, there exists a subspace of $V$ of dimension $\dim V - 1$ that is invariant under $T$.
 
@@ -868,7 +863,7 @@
 	Hence, $T_2T_1 \neq T_1T_2$, so $T_1$ and $T_2$ do not commute.
 	Let $S = \set{p(T) \mid p \in \pcal(\fbb)}$. Let $p, q \in \pcal$ be defined as
     \[p(z) = a_0 + a_1 z + \dots + a_m z^m, \quad q(z) = b_0 + b_1 z + \dots + b_k z^k.\]
-    Since $p(T)q(T) = q(T)p(T)$, it follows that $S$ is a commutative set of operators.
+    Since $p(T)q(T) = q(T)p(T)$, it follows that all operators in $S$ commute.
     However, if $T_1 = r(T)$ and $T_2 = s(T)$ for some polynomials $r, s \in \pcal$, then $T_1$ and $T_2$ would commute, which is a contradiction.
     Hence, $T_1$ and $T_2$ cannot both be in $S$, so $S \neq \lin{V}$.
 \end{sol}

@@ -462,10 +462,10 @@
 
     To show that $q$ is the minimal polynomial, suppose there exists a polynomial $r(z)$ of degree less than $\deg q$ such that $r(T - \lambda I) = 0$.
     Then we can write
-    \[r(z) = s(z + \lambda)\]
+    \[s(z) = r(z - \lambda)\]
     for some polynomial $s(z)$ of degree less than $\deg p$.
     Then we have
-    \[r(T - \lambda I) = s((T - \lambda I) + \lambda I) = s(T) = 0.\]
+    \[s(T) = r(T - \lambda I) = 0.\]
     However, this contradicts the minimality of $p$, since $\deg s < \deg p$ and $s(T) = 0$.
     Therefore, no polynomial of degree less than $\deg q$ annihilates $T - \lambda I$, and the minimal polynomial of $T - \lambda I$ is indeed $q(z) = p(z + \lambda)$.
 \end{sol}

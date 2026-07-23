@@ -2,21 +2,24 @@
 
 \begin{exercise}[5c1]
     Prove or give a counterexample: If $T \in \lin{V}$ and $T^2$ has an upper-triangular matrix with respect to some basis of $V$, then $T$ has an upper-triangular matrix with respect to some basis of $V$.
+
+    \remark{The matrix in this exercise represents the $90^\circ$ counterclockwise rotation of $\rbb^2$.}
 \end{exercise}
 
 \begin{sol}
     We claim that the statement is false. 
-    Consider the linear operator $T \in \lin{\rbb^2}$ defined by
+    Consider the linear operator $T \in \lin{\rbb^2}$ with matrix representation
     \[
+        A = 
         \begin{pmatrix}
             0 & 1 \\
             -1 & 0
         \end{pmatrix}
     \]
-    which represents a $90^\circ$ rotation in the plane. 
+    with respect to the standard basis. 
     Then $T^2$ is given by
     \[
-        T^2 = 
+        A^2 = 
         \begin{pmatrix}
             0 & 1 \\
             -1 & 0
@@ -64,7 +67,7 @@
     \[
         d_{ii} = \sum_{k=1}^n a_{ik}b_{ki},
     \]
-    for the $i$-th diagonal entry. Since $A$ and $B$ are upper-triangular, then $k > i$ implies $a_{ik} = 0$ and $k < i$ implies $b_{ki} = 0$. Therefore, the only non-zero term in the sum occurs when $k = i$, giving us
+    for the $i$-th diagonal entry. Since $A$ and $B$ are upper-triangular, then $k < i$ implies $a_{ik} = 0$ and $k > i$ implies $b_{ki} = 0$. Therefore, the only nonzero term in the sum occurs when $k = i$, giving
     \[
         d_{ii} = a_{ii}b_{ii} = \alpha_i\beta_i,
     \]
@@ -114,17 +117,18 @@
 \end{exercise}
 
 \begin{sol}
-    Consider the linear operator $T \in \lin{\rbb^2}$ defined by
+    Consider the linear operator $T \in \lin{\rbb^2}$ with matrix representation
     \[
-        T = 
+        A = 
         \begin{pmatrix}
             0 & 1 \\
             -1 & 0
-        \end{pmatrix}.
+        \end{pmatrix}
     \]
-    The matrix of $T$ with respect to the standard basis has only $0$'s on the diagonal, but $T$ is invertible with inverse
+    with respect to the standard basis.
+    $A$ is invertible with inverse
     \[
-        T\inv = 
+        A\inv = 
         \begin{pmatrix}
             0 & -1 \\
             1 & 0
@@ -137,14 +141,15 @@
 \end{exercise}
 
 \begin{sol}
-    Consider the linear operator $T \in \lin{\rbb^2}$ defined by
+    Consider the linear operator $T \in \lin{\rbb^2}$ with matrix representation
     \[
-        T = 
+        A = 
         \begin{pmatrix}
             1 & 1 \\
             -1 & -1
-        \end{pmatrix}.
+        \end{pmatrix}
     \]
+    with respect to the standard basis.
     Since $T(1, -1) = (0, 0)$, $T$ is not invertible.
 \end{sol}
 
@@ -170,13 +175,16 @@
 \end{exercise}
 
 \begin{sole}
-    \item Consider the list $v, Tv, T^2v, \ldots, T^{\dim V}v$.
+    \item If $v = 0$, then $p(T)v = 0$ for any polynomial $p$, so we can take $p_v(x) = 1$.
+    Otherwise, suppose $v \neq 0$.
+    Consider the list $v, Tv, T^2v, \ldots, T^{\dim V}v$.
     Since $V$ is finite-dimensional, this list is linearly dependent.
     Then there exist scalars $a_0, \ldots, a_m$ not all zero such that
     \[
         a_0v + a_1Tv + \cdots + a_mT^mv = 0.
     \]
     Here, $m$ denotes the smallest integer such that there exist scalars $a_0, \ldots, a_m$ not all zero satisfying the above equation.
+    Since $m$ is minimal, we have $a_m \neq 0$.
     Let $p_v(x)$ be the monic polynomial after dividing by $a_m$:
     \[
         p_v(x) = x^m + \frac{a_{m-1}}{a_m}x^{m-1} + \cdots + \frac{a_0}{a_m}.
