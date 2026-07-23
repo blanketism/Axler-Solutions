@@ -11,7 +11,9 @@
 	This implies $(T - 3I)(T + 3I)v = 0$.
 	Let $w = (T + 3I)v$, and suppose $w \neq 0$.
 	Then
-    \[(T - 3I)w = Tw - 3w = 0 \implies Tw = 3w,\]
+    \[
+    	(T - 3I)w = Tw - 3w = 0 \implies Tw = 3w,
+    \]
     showing that 3 is an eigenvalue of $T$.
 	If $w = 0$, then $(T + 3I)v = 0$, which implies $Tv = -3v$, showing that $-3$ is an eigenvalue of $T$.
 
@@ -37,7 +39,9 @@
 
 \begin{exercise}[5b3]
     Suppose $n$ is a positive integer and $T \in \lin{\fbb^n}$ is defined by
-    \[T(x_1, \ldots, x_n) = (x_1 + \cdots + x_n, \ldots, x_1 + \cdots + x_n).\]
+    \[
+    	T(x_1, \ldots, x_n) = (x_1 + \cdots + x_n, \ldots, x_1 + \cdots + x_n).
+    \]
     \begin{subexercises}
         \item Find all eigenvalues and eigenvectors of $T$.
         \item Find the minimal polynomial of $T$.
@@ -48,21 +52,29 @@
     \item If $n = 1$, then $T(x_1) = (x_1)$, and the only eigenvalue is $1$ with corresponding eigenvectors being all nonzero vectors in $\fbb^1$.
     Otherwise, suppose $T(x_1, \ldots, x_n) = \lambda (x_1, \ldots, x_n)$ for some $\lambda \in \fbb$ and $(x_1, \ldots, x_n) \neq 0$.
 	Then
-    \[\lambda x_j = x_1 + \cdots + x_n \quad \text{for all } j = 1, \ldots, n.\]
+    \[
+    	\lambda x_j = x_1 + \cdots + x_n \quad \text{for all } j = 1, \ldots, n.
+    \]
     This implies that $\lambda x_1 = \lambda x_2 = \cdots = \lambda x_n$.
 	If $\lambda \neq 0$, then $x_1 = x_2 = \cdots = x_n$, and we can write $(x_1, \ldots, x_n) = (x_1, \ldots, x_1) = x_1(1, \ldots, 1)$.
 	Substituting this into the eigenvalue equation gives
-    \[\lambda (x_1, \ldots, x_1) = T(x_1, \ldots, x_1) = (nx_1, \ldots, nx_1),\]
+    \[
+    	\lambda (x_1, \ldots, x_1) = T(x_1, \ldots, x_1) = (nx_1, \ldots, nx_1),
+    \]
     which implies $\lambda = n$.
 	If $\lambda = 0$, then $x_1 + \cdots + x_n = 0$, and the eigenvectors are all nonzero vectors $(x_1, \ldots, x_n)$ such that $x_1 + \cdots + x_n = 0$.
 	Hence, the eigenvalues of $T$ are $0$ and $n$, with corresponding eigenvectors as described.
     \item If $n=1$, the minimal polynomial is $z-1$.
 
     For $n>1$, we know from (a) that the eigenvalues are $0$ and $n$. Then the minimal polynomial is a polynomial multiple of $z(z - n)$. Letting $x = x_1 + \cdots + x_n$, then
-    \[T(x_1, \ldots, x_n) = (x, \ldots, x), \quad (T - nI)(x_1, \ldots, x_n) = (x - nx_1, \ldots, x - nx_n).\]
+    \[
+    	T(x_1, \ldots, x_n) = (x, \ldots, x), \quad (T - nI)(x_1, \ldots, x_n) = (x - nx_1, \ldots, x - nx_n).
+    \]
     Observe that $(x - nx_1) + \cdots + (x - nx_n) = nx - n(x_1 + \cdots + x_n) = 0$.
 	Therefore, $(T - nI)(x_1, \ldots, x_n)$ lies in $\nul T$, and applying $T$ again gives
-    \[T(T - nI)(x_1, \ldots, x_n) = 0.\]
+    \[
+    	T(T - nI)(x_1, \ldots, x_n) = 0.
+    \]
     Hence, $z(z - n)$ is a polynomial multiple of the minimal polynomial, and since it must be monic, the minimal polynomial of $T$ is $z(z-n)$.
 \end{sole}
 
@@ -79,16 +91,22 @@
     If $p(z) - \alpha = \beta$ for some constant $\beta \in \fbb$, then $p(T) - \alpha I = \beta I$ is injective, which contradicts the fact that $p(T) - \alpha I$ is not injective.
     We may now assume that $p(z) - \alpha$ is a nonconstant polynomial.
 	By the Fundamental Theorem of Algebra, we can factor $p(z) - \alpha$ as
-    \[p(z) - \alpha = c(z - \lambda_1)(z - \lambda_2) \cdots (z - \lambda_m)\]
+    \[
+    	p(z) - \alpha = c(z - \lambda_1)(z - \lambda_2) \cdots (z - \lambda_m)
+    \]
     for some $c \in \cbb \setminus \set{0}$ and $\lambda_1, \ldots, \lambda_m \in \cbb$.
 	Then
-    \[p(T) - \alpha I = c(T - \lambda_1 I)(T - \lambda_2 I) \cdots (T - \lambda_m I).\]
+    \[
+    	p(T) - \alpha I = c(T - \lambda_1 I)(T - \lambda_2 I) \cdots (T - \lambda_m I).
+    \]
     Since $p(T) - \alpha I$ is not injective, at least one of the factors on the right-hand side is not injective.
 	Therefore, $T - \lambda_j I$ is not injective for some $j$, which means $\lambda_j$ is an eigenvalue of $T$.
 	Then $p(\lambda_j) - \alpha = 0$, so $\alpha = p(\lambda_j)$ for some eigenvalue $\lambda_j$ of $T$.
     
     Conversely, suppose $\alpha = p(\lambda)$ for some eigenvalue $\lambda$ of $T$ with corresponding eigenvector $v$. Let $p(z) = a_m z^m + \cdots + a_1 z + a_0$. Since $T^m v = \lambda^m v$, we have
-    \[p(T)v = a_m T^m v + \cdots + a_1 T v + a_0 v = a_m \lambda^m v + \cdots + a_1 \lambda v + a_0 v = p(\lambda)v = \alpha v.\]
+    \[
+    	p(T)v = a_m T^m v + \cdots + a_1 T v + a_0 v = a_m \lambda^m v + \cdots + a_1 \lambda v + a_0 v = p(\lambda)v = \alpha v.
+    \]
     Hence, $\alpha$ is an eigenvalue of $p(T)$.
 \end{sol}
 
@@ -100,12 +118,16 @@
     Consider the operator $T \in \lin{\rbb^2}$ defined by $T(x, y) = (-y, x)$, which represents a counterclockwise rotation by $90^\circ$.
 	Observe that $T$ has no real eigenvalues as follows: If $(x, y)$ is an eigenvector of $T$ with eigenvalue $\lambda \in \rbb$, then $T(x, y) = \lambda (x, y)$ implies $(-y, x) = (\lambda x, \lambda y)$.
 	This gives the system of equations:
-    \[-y = \lambda x \quad \text{and} \quad x = \lambda y.\]
+    \[
+    	-y = \lambda x \quad \text{and} \quad x = \lambda y.
+    \]
     Since $x$ and $y$ cannot both be zero, one can work out that $\lambda^2 = -1$, which has no real solutions.
 	Therefore, $T$ has no real eigenvalues.
 	Now consider the polynomial $p(z) = z^2 + 1$.
 	Then
-    \[p(T)(x, y) = T^2(x, y) + (x, y) = (-x, -y) + (x, y) = (0, 0).\]
+    \[
+    	p(T)(x, y) = T^2(x, y) + (x, y) = (-x, -y) + (x, y) = (0, 0).
+    \]
     Thus, $0$ is an eigenvalue of $p(T)$ with corresponding eigenvector $(1, 0)$ (or any nonzero vector in $\rbb^2$).
 	However, there is no real eigenvalue $\lambda$ of $T$ such that $p(\lambda) = 0$, since the eigenvalues of $T$ are complex.
 	This example demonstrates that the result in \exref{5b4} does not hold when $\cbb$ is replaced with $\rbb$.
@@ -137,7 +159,9 @@
 \begin{sole}
     \item Consider the operators $S, T \in \lin{\fbb^2}$ defined by $S(w, z) = (0, w)$ and $T(w, z) = (w, 0)$.
 	Then
-    \[ST(w, z) = S(w, 0) = (0, w) \quad \text{and} \quad TS(w, z) = T(0, w) = (0, 0).\]
+    \[
+    	ST(w, z) = S(w, 0) = (0, w) \quad \text{and} \quad TS(w, z) = T(0, w) = (0, 0).
+    \]
     The minimal polynomial of $ST$ is $p(z) = z^2$, since $ST \neq 0$ but $(ST)^2 = 0$, while the minimal polynomial of $TS$ is $q(z) = z$.
 	Hence, the minimal polynomials of $ST$ and $TS$ are not equal.
     \item Without loss of generality, suppose $S$ is invertible.
@@ -147,7 +171,9 @@
 	For the base case $n = 1$, we have $(TS)^1 = TS = S\inv (ST) S$.
 	Now suppose the claim holds for some positive integer $k$, i.e., $(TS)^k = S\inv (ST)^k S$.
 	Then
-    \[(TS)^{k+1} = (TS)^k (TS) = S\inv (ST)^k S (TS) = S\inv (ST)^k (ST) S = S\inv (ST)^{k+1} S.\]
+    \[
+    	(TS)^{k+1} = (TS)^k (TS) = S\inv (ST)^k S (TS) = S\inv (ST)^k (ST) S = S\inv (ST)^{k+1} S.
+    \]
     By induction, the claim holds for all positive integers $n$.
 	Let $p = z^m + a_{m-1} z^{m-1} + \cdots + a_1 z + a_0$ be the minimal polynomial of $ST$.
 	Then
@@ -175,22 +201,30 @@
     Since $T$ is not a scalar multiple of the identity operator, the minimal polynomial of $T$ cannot have degree 1.
 	Moreover, $\dim \rbb^2 = 2$ implies that the degree of the minimal polynomial of $T$ must be 2.
 	Therefore, the minimal polynomial of $T$ is of the form
-    \[p(z) = z^2 + bz + c.\]
+    \[
+    	p(z) = z^2 + bz + c.
+    \]
     Consider the point $(1, 0) \in \rbb^2$.
 	Note that $T(x, y) = (x \cos 1^\circ - y \sin 1^\circ, x \sin 1^\circ + y \cos 1^\circ)$.
 	Then
-    \[T(1, 0) = (\cos 1^\circ, \sin 1^\circ), \quad T^2(1, 0) = (\cos 2^\circ, \sin 2^\circ).\]
+    \[
+    	T(1, 0) = (\cos 1^\circ, \sin 1^\circ), \quad T^2(1, 0) = (\cos 2^\circ, \sin 2^\circ).
+    \]
     Since $p(T) = 0$, we have
-    \[p(T)(1, 0) = T^2(1, 0) + bT(1, 0) + c(1, 0) = (\cos 2^\circ + b \cos 1^\circ + c, \sin 2^\circ + b \sin 1^\circ) = (0, 0).\]
+    \[
+    	p(T)(1, 0) = T^2(1, 0) + bT(1, 0) + c(1, 0) = (\cos 2^\circ + b \cos 1^\circ + c, \sin 2^\circ + b \sin 1^\circ) = (0, 0).
+    \]
     This gives the system of equations:
     \[
-    \begin{cases}
-        \cos 2^\circ + b \cos 1^\circ + c = 0, \\
-        \sin 2^\circ + b \sin 1^\circ = 0.
-    \end{cases}
+        \begin{cases}
+            \cos 2^\circ + b \cos 1^\circ + c = 0, \\
+            \sin 2^\circ + b \sin 1^\circ = 0.
+        \end{cases}
     \]
     From this, we get the values of $b$ and $c$:
-    \[b = -\frac{\sin 2^\circ}{\sin 1^\circ} = -2 \cos 1^\circ, \quad c = -\cos 2^\circ - b \cos 1^\circ = 1.\]
+    \[
+    	b = -\frac{\sin 2^\circ}{\sin 1^\circ} = -2 \cos 1^\circ, \quad c = -\cos 2^\circ - b \cos 1^\circ = 1.
+    \]
     Therefore, the minimal polynomial of $T$ is $p(z) = z^2 - 2 \cos 1^\circ z + 1$.
 \end{sol}
 
@@ -203,7 +237,9 @@
     Let $A$ be the matrix of $T$ with respect to some basis of $V$.
 	Since all entries of $A$ are rational numbers, $A^k$ also has rational entries for any positive integer $k$.
 	Then the minimal polynomial $p(z) = z^m + a_{m-1} z^{m-1} + \cdots + a_1 z + a_0$ of $T$ in terms of the matrix $A$ satisfies
-    \[p(A) = A^m + a_{m-1} A^{m-1} + \cdots + a_1 A + a_0 I = 0.\]
+    \[
+    	p(A) = A^m + a_{m-1} A^{m-1} + \cdots + a_1 A + a_0 I = 0.
+    \]
     Then this gives a system of $(\dim V)^2$ linear equations in the coefficients $a_0, a_1, \ldots, a_{m-1}$ with rational coefficients.
 	By uniqueness of the minimal polynomial, this system has a unique solution.
 	Since the system has rational coefficients and a unique solution, the solution must also be rational.
@@ -213,7 +249,9 @@
 \begin{exercise}[5b10]
     Suppose $V$ is finite-dimensional, $T \in \lin{V}$, and $v \in V$.
 	Prove that
-    \[\spn(v, Tv, \ldots, T^m v) = \spn(v, Tv, \ldots, T^{\dim V - 1} v)\]
+    \[
+    	\spn(v, Tv, \ldots, T^m v) = \spn(v, Tv, \ldots, T^{\dim V - 1} v)
+    \]
     for all integers $m \geq \dim V - 1$.
 \end{exercise}
 
@@ -221,23 +259,31 @@
     Let $n=\dim V$ and let $p(z)=z^d+a_{d-1}z^{d-1}+\cdots+a_0$ be the minimal polynomial of $T$.
 	Then $d \leq n$ and $p(T)=0$.
 	For any $v \in V$,
-    \[p(T)v=0 \implies T^d v=-a_{d-1} T^{d-1} v-\cdots-a_1 Tv-a_0 v \implies T^d v \in \operatorname{span}\left(v, Tv, \dots, T^{d-1} v \right).\]
+    \[
+    	p(T)v=0 \implies T^d v=-a_{d-1} T^{d-1} v-\cdots-a_1 Tv-a_0 v \implies T^d v \in \operatorname{span}\left(v, Tv, \dots, T^{d-1} v \right).
+    \]
     Let $U=\operatorname{span}\left(v, Tv, \dots, T^{d-1} v\right)$.
 
     We claim that $U$ is invariant under $T$.
 	Take any $u=c_0 v+c_1 Tv+\cdots+c_{d-1} T^{d-1} v \in U$.
 	Then,
-    \[Tu=c_0 Tv+c_1 T^2 v+\cdots+c_{d-2} T^{d-1} v+c_{d-1} T^d v.\]
+    \[
+    	Tu=c_0 Tv+c_1 T^2 v+\cdots+c_{d-2} T^{d-1} v+c_{d-1} T^d v.
+    \]
     Every term on the right-hand side except $T^d v$ is automatically in the spanning set of $U$.
 	We also showed that $T^d v \in U$ earlier, so $Tu \in U$.
 	Hence, $T(U) \subseteq U$.
 
     Because $v \in U$ and $U$ is invariant under $T$, we see that $T^m v \in U$ for every $m \geq 0$ (this is immediate by induction).
 	So, for any $m \geq n-1$, we have that
-    \[\operatorname{span}(v, Tv, \dots, T^m v) \subseteq U \subseteq \operatorname{span}(v, Tv, \dots, T^{n-1}v)\]
+    \[
+    	\operatorname{span}(v, Tv, \dots, T^m v) \subseteq U \subseteq \operatorname{span}(v, Tv, \dots, T^{n-1}v)
+    \]
     by using $d-1 \leq n-1$ to obtain the second inclusion.
 	Since $\{v, Tv, \dots, T^{n-1} v\} \subseteq \{v, Tv, \dots, T^m v\}$, the reverse inclusion is immediate, and so
-    \[\operatorname{span}(v, Tv, \dots, T^m v)=\operatorname{span}(v, Tv, \dots, T^{n-1}v). \qh\]
+    \[
+    	\operatorname{span}(v, Tv, \dots, T^m v)=\operatorname{span}(v, Tv, \dots, T^{n-1}v). \qh
+    \]
 \end{sol}
 
 \begin{exercise}[5b11]
@@ -245,30 +291,32 @@
     \begin{subexercises}
         \item Show that $T^2 - (a + d)T + (ad - bc)I = 0$.
         \item Show that the minimal polynomial of $T$ equals
-        \[\begin{cases}
-            z - a & \text{if } b = c = 0 \text{ and } a = d, \\
-            z^2 - (a + d)z + (ad - bc) & \text{otherwise.}
-        \end{cases}\]
+        \[
+            \begin{cases}
+                z - a & \text{if } b = c = 0 \text{ and } a = d, \\
+                z^2 - (a + d)z + (ad - bc) & \text{otherwise.}
+            \end{cases}
+        \]
     \end{subexercises}
 \end{exercise}
 
 \begin{sole}
     \item We compute $T^2$:
     \[
-    T^2 = 
-    \begin{pmatrix}
-        a & c \\
-        b & d
-    \end{pmatrix}
-    \begin{pmatrix}
-        a & c \\
-        b & d
-    \end{pmatrix}
-    =
-    \begin{pmatrix}
-        a^2 + bc & ac + cd \\
-        ab + bd & bc + d^2
-    \end{pmatrix}.
+        T^2 = 
+        \begin{pmatrix}
+            a & c \\
+            b & d
+        \end{pmatrix}
+        \begin{pmatrix}
+            a & c \\
+            b & d
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            a^2 + bc & ac + cd \\
+            ab + bd & bc + d^2
+        \end{pmatrix}.
     \]
     Then 
     \begin{align*}
@@ -305,10 +353,10 @@
     \end{align*}
     \item If $b = c = 0$ and $a = d$, then the matrix of $T$ is
     \[
-    \begin{pmatrix}
-        a & 0 \\ 
-        0 & a 
-    \end{pmatrix},
+        \begin{pmatrix}
+            a & 0 \\ 
+            0 & a 
+        \end{pmatrix},
     \]
     which is a scalar multiple of the identity matrix.
     In this case, the minimal polynomial of $T$ is $z - a$.
@@ -326,11 +374,15 @@
 
 \begin{sol}
     For each $k \in \{1, \dots, n\}$, the standard basis vector $e_k$ satisfies $Te_k=ke_k$, so each $k$ is an eigenvalue. Let $p(z)=(z-1)(z-2) \cdots (z-n)$. So,
-    \[p(T) e_k=p(k) e_k=0 \cdot e_k=0 \text{ for all } k \in \{1, \dots, n\},\]
+    \[
+    	p(T) e_k=p(k) e_k=0 \cdot e_k=0 \text{ for all } k \in \{1, \dots, n\},
+    \]
     and since the $e_k$ form a basis of $V$, $p(T)=0$. Therefore, the minimal polynomial $m_T (z)$ divides $p(z)$.
 
     Now suppose $m_T (z)$ is the minimal polynomial of $T$. For each eigenvalue $k$,
-    \[0=m_T (T) e_k=m_T (k) e_k \implies m_T (k)=0.\]
+    \[
+    	0=m_T (T) e_k=m_T (k) e_k \implies m_T (k)=0.
+    \]
     Thus, $(z-k)$ divides $m_T (z)$ for every $k \in \{1, \dots, n\}$. Because the factors are distinct, $p(z)$ divides $m_T (z)$.
 
     Since both $p(z)$ and $m_T (z)$ are monic, $p(z)=m_T (z)$. Hence, the minimal polynomial is $p(z)=(z-1) \cdots (z-n)$.
@@ -344,17 +396,25 @@
 \begin{sol}
     Let $m$ be the minimal polynomial of $T$ with degree $d$.
     By the Division Algorithm for polynomials, we can write
-    \[p(z) = q(z)m(z) + r(z),\]
+    \[
+    	p(z) = q(z)m(z) + r(z),
+    \]
     where $q, r \in \pcal(\fbb)$ and $\deg r < d$.
     Applying this to $T$, we have
-    \[p(T) = q(T)m(T) + r(T).\]
+    \[
+    	p(T) = q(T)m(T) + r(T).
+    \]
     Since $m(T) = 0$, it follows that
-    \[p(T) = r(T).\]
+    \[
+    	p(T) = r(T).
+    \]
     Thus, there exists a polynomial $r$ such that $p(T) = r(T)$ and $\deg r < d$.
 
     To show uniqueness, suppose there exists another polynomial $s \in \pcal(\fbb)$ such that $p(T) = s(T)$ and $\deg s < d$.
     Then we have
-    \[r(T) = p(T) = s(T).\]
+    \[
+    	r(T) = p(T) = s(T).
+    \]
     This implies that $(r - s)(T) = 0$.
     Since $\deg(r - s) < d$, it follows that $r - s$ must be the zero polynomial (otherwise, it would contradict the minimality of $m$).
     Hence, $r = s$, proving uniqueness.
@@ -369,12 +429,18 @@
     Let $p(z) = 4 + 5z - 6z^2 - 7z^3 + 2z^4 + z^5$ be the minimal polynomial of $T$.
     We want to find the minimal polynomial of $T\inv$.
     Since $p(z)$ is the minimal polynomial of $T$, we have
-    \[p(T) = 4I + 5T - 6T^2 - 7T^3 + 2T^4 + T^5 = 0.\]
+    \[
+    	p(T) = 4I + 5T - 6T^2 - 7T^3 + 2T^4 + T^5 = 0.
+    \]
     To find the minimal polynomial of $T\inv$, apply $T\inv$ to both sides of the equation until we express it in terms of $T\inv$:
-    \[4T^{-5} + 5T^{-4} - 6T^{-3} - 7T^{-2} + 2T^{-1} + I = 0.\]
+    \[
+    	4T^{-5} + 5T^{-4} - 6T^{-3} - 7T^{-2} + 2T^{-1} + I = 0.
+    \]
     Then the polynomial $q(z) = 4z^5 + 5z^4 - 6z^3 - 7z^2 + 2z + 1$ annihilates $T\inv$.
     To make it monic, we can divide by the leading coefficient:
-    \[q(z) = z^5 + \frac{5}{4}z^4 - \frac{3}{2}z^3 - \frac{7}{4}z^2 + \frac{1}{2}z + \frac{1}{4}.\]
+    \[
+    	q(z) = z^5 + \frac{5}{4}z^4 - \frac{3}{2}z^3 - \frac{7}{4}z^2 + \frac{1}{2}z + \frac{1}{4}.
+    \]
     Suppose $T\inv$ has a minimal polynomial $m(z)$ with $\deg m < 5$, hence $m(T\inv) = 0$.
     Applying $T^{\deg m}$ to both sides gives $n(T) = 0$ for some polynomial $n(z)$ of degree less than 5, which contradicts the minimality of $p(z)$.
     Therefore, the minimal polynomial of $T\inv$ is $q(z)$.
@@ -383,7 +449,9 @@
 \begin{exercise}[5b15]
     Suppose $V$ is a finite-dimensional complex vector space with $\dim V > 0$ and $T \in \lin{V}$.
 	Define $f: \cbb \to \rbb$ by
-    \[f(\lambda) = \dim \range(T - \lambda I).\]
+    \[
+    	f(\lambda) = \dim \range(T - \lambda I).
+    \]
     Prove that $f$ is not a continuous function.
 \end{exercise}
 
@@ -393,24 +461,30 @@
     This implies that for all such $\lambda$, we have $\dim \range(T - \lambda I) = \dim V$.
     However, at the eigenvalue $\lambda_0$, we have $\dim \range(T - \lambda_0 I) < \dim V$ since $\dim \nul(T - \lambda_0 I) > 0$.
     Therefore,
-    \[\lim_{\lambda \to \lambda_0} f(\lambda) \neq f(\lambda_0),\]
+    \[
+    	\lim_{\lambda \to \lambda_0} f(\lambda) \neq f(\lambda_0),
+    \]
     which shows that $f$ is not continuous at $\lambda_0$.
 \end{sol}
 
 \begin{exercise}[5b16]
     Suppose $a_0, \ldots, a_{n-1} \in \fbb$.
 	Let $T$ be the operator on $\fbb^n$ whose matrix (with respect to the standard basis) is
-    \[\begin{pmatrix}
-        0 & & & & & -a_0 \\
-        1 & 0 & & & & -a_1 \\
-        & 1 & \ddots & & & -a_2 \\
-        & & \ddots & & & \vdots \\
-        & & & & 0 & -a_{n-2} \\
-        & & & & 1 & -a_{n-1}
-    \end{pmatrix}.\]
+    \[
+        \begin{pmatrix}
+            0 & & & & & -a_0 \\
+            1 & 0 & & & & -a_1 \\
+            & 1 & \ddots & & & -a_2 \\
+            & & \ddots & & & \vdots \\
+            & & & & 0 & -a_{n-2} \\
+            & & & & 1 & -a_{n-1}
+        \end{pmatrix}.
+    \]
     Here all entries of the matrix are $0$ except for all $1$'s on the line under the diagonal and the entries in the last column (some of which might also be $0$).
 	Show that the minimal polynomial of $T$ is the polynomial
-    \[a_0 + a_1 z + \cdots + a_{n-1} z^{n-1} + z^n.\]
+    \[
+    	a_0 + a_1 z + \cdots + a_{n-1} z^{n-1} + z^n.
+    \]
 \end{exercise}
 
 \begin{sol}
@@ -418,7 +492,9 @@
     Let $e_1, \ldots, e_n$ be the standard basis of $\fbb^n$.
     We will show that $p(T) = 0$ and that no polynomial of lower degree annihilates $T$.
     First, we compute $T^k e_1$ for $k = 0, 1, \ldots, n$:
-    \[T^0 e_1 = e_1, \quad T^1 e_1 = e_2, \quad T^2 e_1 = e_3, \quad \ldots, \quad T^{n-1} e_1 = e_n, \quad T^n e_1 = -a_0 e_1 - a_1 e_2 - \cdots - a_{n-1} e_n.\]
+    \[
+    	T^0 e_1 = e_1, \quad T^1 e_1 = e_2, \quad T^2 e_1 = e_3, \quad \ldots, \quad T^{n-1} e_1 = e_n, \quad T^n e_1 = -a_0 e_1 - a_1 e_2 - \cdots - a_{n-1} e_n.
+    \]
     Then we have
     \begin{align*}
         p(T)e_1 &= a_0 T^0 e_1 + a_1 T^1 e_1 + \cdots + a_{n-1} T^{n-1} e_1 + T^n e_1 \\
@@ -426,13 +502,17 @@
         &= 0.
     \end{align*}
     Since $T^{j-1} e_1 = e_j$ for $j = 1, 2, \ldots, n$, and $p(T)$ commutes with $T$, we have
-    \[p(T)e_j = p(T)T^{j-1} e_1 = T^{j-1} p(T) e_1 = T^{j-1} 0 = 0\]
+    \[
+    	p(T)e_j = p(T)T^{j-1} e_1 = T^{j-1} p(T) e_1 = T^{j-1} 0 = 0
+    \]
     for all $j = 1, 2, \ldots, n$.
     Since $\{e_1, e_2, \ldots, e_n\}$ is a basis for $\fbb^n$, it follows that $p(T) = 0$.
 
     To show that $p$ is the minimal polynomial, suppose there exists a polynomial $q(z) = b_0 + b_1 z + \cdots + b_{m-1} z^{m-1} + z^m$ of degree $m < n$ such that $q(T) = 0$.
     Then we would have
-    \[q(T)e_1 = b_0 e_1 + b_1 e_2 + \cdots + b_{m-1} e_m + T^m e_1 = 0.\]
+    \[
+    	q(T)e_1 = b_0 e_1 + b_1 e_2 + \cdots + b_{m-1} e_m + T^m e_1 = 0.
+    \]
     However, $T^m e_1 = e_{m+1}$, which is not in the span of $\{e_1, e_2, \ldots, e_m\}$ since $m < n$.
     This leads to a contradiction, as $e_{m+1}$ cannot be expressed as a linear combination of $e_1, e_2, \ldots, e_m$.
     Therefore, no polynomial of degree less than $n$ annihilates $T$, and the minimal polynomial of $T$ is indeed $p(z) = a_0 + a_1 z + \cdots + a_{n-1} z^{n-1} + z^n$.
@@ -447,18 +527,26 @@
 \begin{sol}
     Let $p(z)$ be the minimal polynomial of $T$.
     Then we have
-    \[p(T) = 0.\]
+    \[
+    	p(T) = 0.
+    \]
     Consider the polynomial $q(z) = p(z + \lambda)$.
     Then we have
-    \[q(T - \lambda I) = p((T - \lambda I) + \lambda I) = p(T) = 0.\]
+    \[
+    	q(T - \lambda I) = p((T - \lambda I) + \lambda I) = p(T) = 0.
+    \]
     Thus, $q$ annihilates $T - \lambda I$.
 
     To show that $q$ is the minimal polynomial, suppose there exists a polynomial $r(z)$ of degree less than $\deg q$ such that $r(T - \lambda I) = 0$.
     Then we can write
-    \[s(z) = r(z - \lambda)\]
+    \[
+    	s(z) = r(z - \lambda)
+    \]
     for some polynomial $s(z)$ of degree less than $\deg p$.
     Then we have
-    \[s(T) = r(T - \lambda I) = 0.\]
+    \[
+    	s(T) = r(T - \lambda I) = 0.
+    \]
     However, this contradicts the minimality of $p$, since $\deg s < \deg p$ and $s(T) = 0$.
     Therefore, no polynomial of degree less than $\deg q$ annihilates $T - \lambda I$, and the minimal polynomial of $T - \lambda I$ is indeed $q(z) = p(z + \lambda)$.
 \end{sol}
@@ -472,15 +560,21 @@
 \begin{sol}
     Let $p(z)$ be the minimal polynomial of $T$.
     Then we have
-    \[p(T) = 0.\]
+    \[
+    	p(T) = 0.
+    \]
     Consider the polynomial $q(z) = \lambda^{\deg p} p(\frac{z}{\lambda})$.
     Then we have
-    \[q(\lambda T) = \lambda^{\deg p} p\left(\frac{\lambda T}{\lambda}\right) = \lambda^{\deg p} p(T) = 0.\]
+    \[
+    	q(\lambda T) = \lambda^{\deg p} p\left(\frac{\lambda T}{\lambda}\right) = \lambda^{\deg p} p(T) = 0.
+    \]
     Moreover, $q$ has leading term $\lambda^{\deg p}(\frac z{\lambda})^{\deg p} = z^{\deg p}$, so $q$ is monic and has the same degree as $p$.
     To show that $q$ is the minimal polynomial, suppose there exists a polynomial $r(z)$ of degree less than $\deg q$ such that $r(\lambda T) = 0$.
     Define $s(z) = r(\lambda z)$.
     Then we have
-    \[s(T) = r(\lambda T) = 0.\]
+    \[
+    	s(T) = r(\lambda T) = 0.
+    \]
     However, $\deg s = \deg r < \deg q = \deg p$, which contradicts the minimality of $p$.
     Therefore, no polynomial of degree less than $\deg q$ annihilates $\lambda T$, and the minimal polynomial of $\lambda T$ is indeed $q(z) = \lambda^{\deg p} p(\frac{z}{\lambda})$.
 \end{sol}
@@ -488,7 +582,9 @@
 \begin{exercise}[5b19]
     Suppose $V$ is finite-dimensional and $T \in \lin{V}$.
 	Let $\ecal$ be the subspace of $\lin{V}$ defined by
-    \[\ecal = \set{q(T) \mid q \in \pcal(\fbb)}.\]
+    \[
+    	\ecal = \set{q(T) \mid q \in \pcal(\fbb)}.
+    \]
     Prove that $\dim \ecal$ equals the degree of the minimal polynomial of $T$.
 \end{exercise}
 
@@ -498,18 +594,26 @@
 
     First, we show that $\dim \ecal \leq d$.
     By the Division Algorithm for polynomials, for any polynomial $q \in \pcal(\fbb)$, we can write
-    \[q(z) = s(z)p(z) + r(z),\]
+    \[
+    	q(z) = s(z)p(z) + r(z),
+    \]
     where $s, r \in \pcal(\fbb)$ and $\deg r < d$.
     Then we have
-    \[q(T) = s(T)p(T) + r(T) = 0 + r(T) = r(T).\]
+    \[
+    	q(T) = s(T)p(T) + r(T) = 0 + r(T) = r(T).
+    \]
     Since $\deg r < d$, the set $\{I, T, T^2, \ldots, T^{d-1}\}$ spans $\ecal$.
     Hence, $\dim \ecal \leq d$.
 
     Next, we show that $\dim \ecal \geq d$.
     Suppose there exists a nontrivial linear combination of $\{I, T, T^2, \ldots, T^{d-1}\}$ that equals zero:
-    \[a_0 I + a_1 T + a_2 T^2 + \cdots + a_{d-1} T^{d-1} = 0.\]
+    \[
+    	a_0 I + a_1 T + a_2 T^2 + \cdots + a_{d-1} T^{d-1} = 0.
+    \]
     This would imply that the polynomial
-    \[q(z) = a_0 + a_1 z + a_2 z^2 + \cdots + a_{d-1} z^{d-1}\]
+    \[
+    	q(z) = a_0 + a_1 z + a_2 z^2 + \cdots + a_{d-1} z^{d-1}
+    \]
     annihilates $T$, contradicting the minimality of $p(z)$ since $\deg q < d$.
     Therefore, the set $\{I, T, T^2, \ldots, T^{d-1}\}$ is linearly independent in $\ecal$, which implies that $\dim \ecal \geq d$.
 
@@ -525,14 +629,18 @@
     Let $p$ be the minimal polynomial of $T$.
     The eigenvalues of $T$ are $3$, $5$, and $8$, so each is a root of $p$.
     Hence,
-    \[p(z)=(z-3)^{m_1} (z-5)^{m_2} (z-8)^{m_3}\]
+    \[
+    	p(z)=(z-3)^{m_1} (z-5)^{m_2} (z-8)^{m_3}
+    \]
     where $m_1$, $m_2$, $m_3 \geq 1$.
     Because $T$ acts on a $4$-dimensional space, $\deg p \leq 4$, and so $m_1+m_2+m_3 \leq 4$.
     Since $m_2$, $m_3 \geq 1$, we have $m_1 \leq 4-1-1=2$.
     By similar logic, $m_1$, $m_2$, $m_3 \leq 2$.
     This means $p(z)$ divides $(z-3)^2 (z-5)^2 (z-8)^2$.
     Applying this polynomial to $T$ yields
-    \[(T-3I)^2 (T-5I)^2 (T-8I)^2=0. \qh\]
+    \[
+    	(T-3I)^2 (T-5I)^2 (T-8I)^2=0. \qh
+    \]
 \end{sol}
 
 \begin{exercise}[5b21]
@@ -552,9 +660,13 @@
     For any $v \in V$, we know that $Tv \in \range T$.
     By invariance, we know that $w \in \range T$ implies $(T|_{\range T})^k w \in \range T$ for any $k \geq 0$.
     Then
-    \[q(T)w = q(T|_{\range T})w = 0.\]
+    \[
+    	q(T)w = q(T|_{\range T})w = 0.
+    \]
     Therefore, for any $v \in V$, we have
-    \[zq(z)(T)v = T q(T)v = q(T) Tv = 0,\]
+    \[
+    	zq(z)(T)v = T q(T)v = q(T) Tv = 0,
+    \]
     where we used the fact that $T$ commutes with $q(T)$ since $q(T)$ is a polynomial in $T$.
     This shows that $zq(z)$ annihilates $T$, and hence the minimal polynomial $p(z)$ of $T$ divides $zq(z)$.
     Since $\deg q \leq r$, we have $\deg p \leq 1 + r = 1 + \dim \range T$.
@@ -570,19 +682,29 @@
     Let $q(z)$ be the minimal polynomial of $T$.
     Since $T$ is invertible, $0$ is not an eigenvalue of $T$, and thus $q(0) \neq 0$.
     We may write $q(z)$ as
-    \[q(z) = z^m + a_{m-1} z^{m-1} + \cdots + a_1 z + a_0,\]
+    \[
+    	q(z) = z^m + a_{m-1} z^{m-1} + \cdots + a_1 z + a_0,
+    \]
     where $a_0 \neq 0$ and $m \leq \dim V$.
     Then we have
-    \[0 = q(T) = T^m + a_{m-1} T^{m-1} + \cdots + a_1 T + a_0 I.\]
+    \[
+    	0 = q(T) = T^m + a_{m-1} T^{m-1} + \cdots + a_1 T + a_0 I.
+    \]
     Rearranging gives
-    \[I = -\frac{1}{a_0} (T^m + a_{m-1} T^{m-1} + \cdots + a_1 T) \in \spn(T, T^2, \ldots, T^m) \subseteq \spn(T, T^2, \ldots, T^{\dim V}).\]
+    \[
+    	I = -\frac{1}{a_0} (T^m + a_{m-1} T^{m-1} + \cdots + a_1 T) \in \spn(T, T^2, \ldots, T^m) \subseteq \spn(T, T^2, \ldots, T^{\dim V}).
+    \]
     Hence, if $T$ is invertible, then $I \in \spn(T, T^2, \ldots, T^{\dim V})$.
 
     Conversely, suppose $I \in \spn(T, T^2, \ldots, T^{\dim V})$.
     Then there exist scalars $a_1, a_2, \ldots, a_{\dim V}$ such that
-    \[I = a_1 T + a_2 T^2 + \cdots + a_{\dim V} T^{\dim V}.\]
+    \[
+    	I = a_1 T + a_2 T^2 + \cdots + a_{\dim V} T^{\dim V}.
+    \]
     Rearranging gives
-    \[0 = -I + a_1 T + a_2 T^2 + \cdots + a_{\dim V} T^{\dim V} = p(T),\]
+    \[
+    	0 = -I + a_1 T + a_2 T^2 + \cdots + a_{\dim V} T^{\dim V} = p(T),
+    \]
     where $p(z) = -1 + a_1 z + a_2 z^2 + \cdots + a_{\dim V} z^{\dim V}$.
     Since the minimal polynomial of $T$ divides any polynomial that annihilates $T$, the minimal polynomial of $T$ must also have a nonzero constant term.
     Therefore, $0$ is not an eigenvalue of $T$, and hence $T$ is invertible.
@@ -603,12 +725,18 @@
     Let $p(z)$ be the minimal polynomial of $T$.
     Let $m = \deg p$.
     Since $m \leq n$, we have
-    \[p(T)v = T^m v + a_{m-1} T^{m-1} v + \cdots + a_1 Tv + a_0 v = 0.\]
+    \[
+    	p(T)v = T^m v + a_{m-1} T^{m-1} v + \cdots + a_1 Tv + a_0 v = 0.
+    \]
     Rearranging gives
-    \[T^m v = -a_{m-1} T^{m-1} v - \cdots - a_1 Tv - a_0 v \in W.\]
+    \[
+    	T^m v = -a_{m-1} T^{m-1} v - \cdots - a_1 Tv - a_0 v \in W.
+    \]
     If $m = n$, then we are done.
     If $m < n$, then we can apply $T^{n-m}$ to both sides to get
-    \[T^n v = -a_{m-1} T^{n-1} v - \cdots - a_1 T^{n-m+1} v - a_0 T^{n-m} v \in W,\]
+    \[
+    	T^n v = -a_{m-1} T^{n-1} v - \cdots - a_1 T^{n-m+1} v - a_0 T^{n-m} v \in W,
+    \]
     where we used the fact that $T^{n-m}v, T^{n-m+1}v, \ldots, T^{n-1}v \in W$ since $n-m < n$.
     Therefore, $T^nv \in W$, and hence $W$ is invariant under $T$.
 \end{sol}
@@ -622,12 +750,16 @@
 \begin{sol}
     Let $p$ be the minimal polynomial of $T$. The eigenvalues of $T$ are $5$ and $6$, so each is a root of $p$.
     Hence,
-    \[p(z) = (z - 5)^{m_1}(z - 6)^{m_2}\]
+    \[
+    	p(z) = (z - 5)^{m_1}(z - 6)^{m_2}
+    \]
     where $m_1, m_2 \geq 1$.
     Because $\deg p \leq \dim V$, we have $m_1 + m_2 \leq \dim V$.
     Since $m_2 \geq 1$, we get $m_1 \leq \dim V - 1$, and similarly $m_2 \leq \dim V - 1$.
     This means $p(z)$ divides $(z - 5)^{\dim V - 1}(z - 6)^{\dim V - 1}$, so
-    \[(T - 5I)^{\dim V - 1}(T - 6I)^{\dim V - 1} = 0. \qh\]
+    \[
+    	(T - 5I)^{\dim V - 1}(T - 6I)^{\dim V - 1} = 0. \qh
+    \]
 \end{sol}
 
 \begin{exercise}[5b25]
@@ -635,7 +767,9 @@
     \begin{subexercises}
         \item Prove that the minimal polynomial of $T$ is a polynomial multiple of the minimal polynomial of the quotient operator $T / U$.
         \item Prove that
-        \[(\text{minimal polynomial of } T|_U) \times (\text{minimal polynomial of } T / U)\]
+        \[
+        	(\text{minimal polynomial of } T|_U) \times (\text{minimal polynomial of } T / U)
+        \]
         is a polynomial multiple of the minimal polynomial of $T$.
     \end{subexercises}
     \note{The quotient operator $T / U$ was defined \emph{\exref{5a38}}.}
@@ -646,18 +780,24 @@
     Recall that $T / U$ is defined by $(T / U)(v + U) = Tv + U$ for all $v \in V$.
     Inductively, we have $(T / U)^k(v + U) = T^k v + U$ for all $k \geq 0$.
     Then we have
-    \[p(T / U)(v + U) = p(T)v + U = 0 + U = U,\]
+    \[
+    	p(T / U)(v + U) = p(T)v + U = 0 + U = U,
+    \]
     where we used the fact that $p(T) = 0$.
     Therefore, $p(T / U) = 0$, which implies that $q(z)$ divides $p(z)$.
     Hence, the minimal polynomial of $T$ is a polynomial multiple of the minimal polynomial of the quotient operator $T / U$.
     \item Let $p(z)$ be the minimal polynomial of $T$, let $q(z)$ be the minimal polynomial of $T|_U$, and let $r(z)$ be the minimal polynomial of $T / U$.
     By definition,
-    \[r(T / U)(v + U) = r(T)v + U = U,\]
+    \[
+    	r(T / U)(v + U) = r(T)v + U = U,
+    \]
     where we used the fact that $r(T / U) = 0$.
     Then $r(T)v \in U$ for all $v \in V$.
     Moreover, invariance of $U$ under $T$ implies that $q(T)u = q(T|_U)u = 0$ for all $u \in U$.
     Since $r(T)v \in U$, and $q(T) = q(T|_U)$ on $U$, we have
-    \[q(T)r(T)v = q(T|_U)r(T)v = 0\]
+    \[
+    	q(T)r(T)v = q(T|_U)r(T)v = 0
+    \]
     for all $v \in V$.
     Therefore, $q(T)r(T) = 0$, which implies $p(z)$ divides $q(z)r(z)$.
     Hence, the product of the minimal polynomials of $T|_U$ and $T / U$ is a polynomial multiple of the minimal polynomial of $T$.
@@ -671,16 +811,22 @@
 \begin{sol}
     Let $\lambda$ be an eigenvalue of $T$ with corresponding eigenvector $v \in V \setminus \{0\}$.
     Then we have
-    \[Tv = \lambda v.\]
+    \[
+    	Tv = \lambda v.
+    \]
     If $v \in U$, then $\lambda$ is an eigenvalue of $T|_U$.
     If $v \notin U$, then consider the coset $v + U \in V / U$.
     We have
-    \[(T / U)(v + U) = Tv + U = \lambda v + U = \lambda (v + U),\]
+    \[
+    	(T / U)(v + U) = Tv + U = \lambda v + U = \lambda (v + U),
+    \]
     which shows that $\lambda$ is an eigenvalue of $T / U$.
 
     Conversely, suppose $\lambda$ is an eigenvalue of $T|_U$ with corresponding eigenvector $u \in U \setminus \{0\}$.
     Then we have
-    \[T|_U u = Tu = \lambda u,\]
+    \[
+    	T|_U u = Tu = \lambda u,
+    \]
     which shows that $\lambda$ is also an eigenvalue of $T$.
 
     Now suppose $\lambda$ is an eigenvalue of $T / U$ with corresponding eigenvector $v + U \in V / U \setminus \{0\}$.
@@ -699,21 +845,31 @@
 \begin{sol}
     Let $p(z)$ be the minimal polynomial of $T$.
     Then we have
-    \[p(T) = 0.\]
+    \[
+    	p(T) = 0.
+    \]
     Consider the complexification $T_\cbb$ of $T$.
     By definition, $T_\cbb$ applied on $v + iw \in V_\cbb$ is given by
-    \[T_\cbb(v + iw) = T(v) + iT(w)\]
+    \[
+    	T_\cbb(v + iw) = T(v) + iT(w)
+    \]
     for all $v, w \in V$. By induction, we can extend the polynomial $p(z)$ to act on $V_\cbb$ by defining
-    \[p(T_\cbb)(v + iw) = p(T)v + ip(T)w.\]
+    \[
+    	p(T_\cbb)(v + iw) = p(T)v + ip(T)w.
+    \]
     Since $p(T) = 0$, it follows that
-    \[p(T_\cbb)(v + iw) = 0 + i0 = 0\]
+    \[
+    	p(T_\cbb)(v + iw) = 0 + i0 = 0
+    \]
     for all $v, w \in V$.
     Therefore, $p(T_\cbb) = 0$, which shows that the minimal polynomial of $T_\cbb$ divides $p(z)$.
 
     Conversely, let $q(z)$ be the minimal polynomial of $T_\cbb$.
     We can split $q(z)$ into its real and imaginary parts, say $q(z) = r(z) + is(z)$, where $r(z), s(z) \in \pcal(\rbb)$.
     Then for any $v \in V$ which can be viewed as $v + i0 \in V_\cbb$, we have
-    \[q(T_\cbb)(v + i0) = r(T)(v + i0) + is(T)(v + i0) = r(T)v + i s(T)v.\]
+    \[
+    	q(T_\cbb)(v + i0) = r(T)(v + i0) + is(T)(v + i0) = r(T)v + i s(T)v.
+    \]
     Since $q(T_\cbb) = 0$, it follows that $r(T)v = 0$ and $s(T)v = 0$ for all $v \in V$.
     Therefore, both $r(T)$ and $s(T)$ must be $0$, which implies that the minimal polynomial of $T$ divides $r(z)$ and $s(z)$.
     Since $q(z) = r(z) + is(z)$, it follows that the minimal polynomial of $T$ divides $q(z)$.
@@ -729,11 +885,15 @@
 
 \begin{sol}
     Let $p$ be the minimal polynomial of $T$. For any $\phi \in V'$, we have
-    \[p(T')(\phi)=\phi \circ p(T)=\phi \circ 0=0 \implies p(T')=0.\]
+    \[
+    	p(T')(\phi)=\phi \circ p(T)=\phi \circ 0=0 \implies p(T')=0.
+    \]
     Hence, the minimal polynomial of $T'$ divides $p$.
 
     Conversely, let $q$ be the minimal polynomial of $T'$, so $q(T')=0$. Then for all $\phi \in V'$ and all $v \in V$,
-    \[0=\left(q(T') \phi \right)(v)=\phi \left(q(T) v \right).\]
+    \[
+    	0=\left(q(T') \phi \right)(v)=\phi \left(q(T) v \right).
+    \]
     Thus, for each fixed $v$, the functional $\phi$ is applied to $q(T)v$ gives zero for every $\phi \in V'$.
     Since $\phi(w) = 0$ for all $\phi \in V'$ implies $w = 0$, this forces $q(T)v=0$ for all $v$; i.e., $q(T)=0$. Therefore, $p$ divides $q$.
 
@@ -780,7 +940,9 @@
         
         Let $u_1 = q(T)x$.
         Evaluating the minimal polynomial identity gives:
-        \[0 = p(T)x = (T^2 + aT + bI)q(T)x = (T^2 + aT + bI)u_1.\]
+        \[
+        	0 = p(T)x = (T^2 + aT + bI)q(T)x = (T^2 + aT + bI)u_1.
+        \]
         Rearranging this provides the operator relation $T^2 u_1 = -b u_1 - a u_2$, where we define $u_2 = Tu_1$.
         
         The vectors $u_1$ and $u_2$ must be linearly independent.

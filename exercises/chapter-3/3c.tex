@@ -26,34 +26,52 @@
 	Then there exists a nonzero vector $y_1 \in W$ such that $\range T = \spn y_1$.
 	Let $\dim V = n$ and $\dim W = m$.
 	Extend $y_1$ to a basis $y_1, \ldots, y_m$ of $W$, and define the following vectors in $W$:
-    \[w_1 = y_1 - (y_2 + \cdots + y_m), \quad w_k = y_k \text{ for } k = 2, \ldots, m.\]
+    \[
+    	w_1 = y_1 - (y_2 + \cdots + y_m), \quad w_k = y_k \text{ for } k = 2, \ldots, m.
+    \]
     It is clear that $w_1 + w_2 + \cdots + w_m = y_1$, and hence $w_1, \ldots, w_m$ spans $W$.
 	Now suppose for scalars $\alpha_1, \ldots, \alpha_m \in \fbb$, we have
-    \[\alpha_1 w_1 + \alpha_2 w_2 + \cdots + \alpha_m w_m = 0.\]
+    \[
+    	\alpha_1 w_1 + \alpha_2 w_2 + \cdots + \alpha_m w_m = 0.
+    \]
     Then we can express this as
-    \[\alpha_1(y_1 - (y_2 + \cdots + y_m)) + \alpha_2 y_2 + \cdots + \alpha_m y_m = 0.\]
+    \[
+    	\alpha_1(y_1 - (y_2 + \cdots + y_m)) + \alpha_2 y_2 + \cdots + \alpha_m y_m = 0.
+    \]
     Simplifying, we get
-    \[(\alpha_1) y_1 + (-\alpha_1 + \alpha_2) y_2 + \cdots + (-\alpha_1 + \alpha_m) y_m = 0.\]
+    \[
+    	(\alpha_1) y_1 + (-\alpha_1 + \alpha_2) y_2 + \cdots + (-\alpha_1 + \alpha_m) y_m = 0.
+    \]
     Since $y_1, \ldots, y_m$ are linearly independent, we must have $\alpha_1 = \alpha_2 = \cdots = \alpha_m = 0$.
 	Therefore, $w_1, \ldots, w_m$ are linearly independent and hence form a basis of $W$.
 
     We now construct a basis of $V$.
 	By the fundamental theorem of linear maps, we have
-    \[\dim V = \dim \null T + \dim \range T = \dim \null T + 1.\]
+    \[
+    	\dim V = \dim \null T + \dim \range T = \dim \null T + 1.
+    \]
     Let $u_2, \ldots, u_n$ be a basis of $\null T$.
 	Then we can extend this to a basis $u_1, u_2, \ldots, u_n$ of $V$, where $u_1 \notin \null T$.
 	Since $\range T = \spn y_1$, we have
-    \[Tu_1 = \beta y_1\]
+    \[
+    	Tu_1 = \beta y_1
+    \]
     for some nonzero scalar $\beta \in \fbb$.
 	If $\beta \neq 1$, we may replace $u_1$ with $\beta\inv u_1$ to ensure that $Tu_1 = y_1$.
 	We construct the following vectors in $V$:
-    \[v_1 = u_1, \quad v_k = u_1 + u_k \text{ for } k = 2, \ldots, n.\]
+    \[
+    	v_1 = u_1, \quad v_k = u_1 + u_k \text{ for } k = 2, \ldots, n.
+    \]
     Note that for every $j = 1, \ldots, n$, we have $Tv_j = Tu_1 + Tu_j = y_1 + 0 = y_1$.
 	We claim that $v_1, \ldots, v_n$ form a basis of $V$.
 	Suppose for scalars $\alpha_1, \ldots, \alpha_n \in \fbb$, we have
-    \[\alpha_1 v_1 + \alpha_2 v_2 + \cdots + \alpha_n v_n = 0.\]
+    \[
+    	\alpha_1 v_1 + \alpha_2 v_2 + \cdots + \alpha_n v_n = 0.
+    \]
     Then we can express this as
-    \[(\alpha_1 + \alpha_2 + \cdots + \alpha_n) u_1 + \alpha_2 u_2 + \cdots + \alpha_n u_n = 0.\]
+    \[
+    	(\alpha_1 + \alpha_2 + \cdots + \alpha_n) u_1 + \alpha_2 u_2 + \cdots + \alpha_n u_n = 0.
+    \]
     Since $u_1, \ldots, u_n$ are linearly independent, we must have $\alpha_1 + \alpha_2 + \cdots + \alpha_n = 0$ and $\alpha_2 = \cdots = \alpha_n = 0$.
 	This implies that $\alpha_1 = 0$, and hence $v_1, \ldots, v_n$ are linearly independent and form a basis of $V$.
 	Then with respect to the bases $v_1, \ldots, v_n$ of $V$ and $w_1, \ldots, w_m$ of $W$, we have that $Tv_j = y_1 = w_1 + w_2 + \cdots + w_m$ for each $j = 1, \ldots, n$.
@@ -61,7 +79,9 @@
 
     Conversely, suppose there exist a basis of $V$ and a basis of $W$ such that with respect to these bases, all entries of $\mcal(T)$ equal $1$.
 	Then for each basis vector $v_j$ of $V$, we have
-    \[Tv_j = w\]
+    \[
+    	Tv_j = w
+    \]
     for some fixed nonzero vector $w \in W$, where $w = w_1 + \cdots + w_m$ is the sum of the basis vectors of $W$.
 	Since $\range T$ is spanned by the images of the basis vectors of $V$, then any sum of $Tv_j$ is a scalar multiple of $w$.
 	Therefore, $\range T = \spn w$, and hence $\dim \range T = 1$.
@@ -118,11 +138,13 @@
 \begin{exercise}[3c4]
     Suppose that $D \in \lin{\pcal_3(\rbb), \pcal_2(\rbb)}$ is the differentiation map defined by $Dp = p'$.
 	Find a basis of $\pcal_3(\rbb)$ and a basis of $\pcal_2(\rbb)$ such that the matrix of $D$ with respect to these bases is
-    \[\begin{pmatrix}
-        1 & 0 & 0 & 0 \\
-        0 & 1 & 0 & 0 \\
-        0 & 0 & 1 & 0
-    \end{pmatrix}.\]
+    \[
+        \begin{pmatrix}
+            1 & 0 & 0 & 0 \\
+            0 & 1 & 0 & 0 \\
+            0 & 0 & 1 & 0
+        \end{pmatrix}
+    \]
 \end{exercise}
 
 \begin{sol}
@@ -134,10 +156,14 @@
 	However, we need the matrix of $D$ to have the desired form.
 	To achieve this, we can scale the basis vectors of $\pcal_3(\rbb)$ and $\pcal_2(\rbb)$ appropriately.
 	Then we may define the basis for $\pcal_3(\rbb)$ as
-    \[\frac 13 x^3, \frac 12 x^2, x, 1\]
+    \[
+    	\frac 13 x^3, \frac 12 x^2, x, 1
+    \]
     while maintaining the standard basis for $\pcal_2(\rbb)$ as $x^2, x, 1$.
 	Then we have
-    \[D\left(\frac 13 x^3\right) = x^2, \quad D\left(\frac 12 x^2\right) = x, \quad D(x) = 1, \quad D(1) = 0.\]
+    \[
+    	D\left(\frac 13 x^3\right) = x^2, \quad D\left(\frac 12 x^2\right) = x, \quad D(x) = 1, \quad D(1) = 0.
+    \]
     Therefore, with respect to the bases, we get the desired matrix representation of $D$.
 \end{sol}
 
@@ -149,21 +175,29 @@
 \begin{sol}
     Let $n = \dim V$ and $m = \dim W$.
 	By the fundamental theorem of linear maps, we have
-    \[\dim V = \dim \nul T + \dim \range T.\]
+    \[
+    	\dim V = \dim \nul T + \dim \range T.
+    \]
     Let $r = \dim \range T$.
 	Let $u_1, \ldots, u_{n - r}$ be a basis of $\nul T$.
 	Extend this to a basis $v_1, \ldots, v_r, u_1, \ldots, u_{n - r}$ of $V$.
 	We claim that $Tv_1, \ldots, Tv_r$ are linearly independent.
 	Suppose for scalars $\alpha_1, \ldots, \alpha_r \in \fbb$, we have
-    \[\alpha_1 Tv_1 + \cdots + \alpha_r Tv_r = 0.\]
+    \[
+    	\alpha_1 Tv_1 + \cdots + \alpha_r Tv_r = 0.
+    \]
     Then
-    \[T(\alpha_1 v_1 + \cdots + \alpha_r v_r) = 0,\]
+    \[
+    	T(\alpha_1 v_1 + \cdots + \alpha_r v_r) = 0,
+    \]
     which implies that $\alpha_1 v_1 + \cdots + \alpha_r v_r \in \nul T$.
 	Since $v_1, \ldots, v_r, u_1, \ldots, u_{n - r}$ is a basis of $V$, it follows that $\alpha_1 = \cdots = \alpha_r = 0$.
 	Therefore, $Tv_1, \ldots, Tv_r$ are linearly independent and form a basis of $\range T$.
 	Extend this to a basis $Tv_1, \ldots, Tv_r, w_1, \ldots, w_{m - r}$ of $W$.
 	Then with respect to these bases, $Tv_k$ is the $k$-th basis vector of $W$ for each $k = 1, \ldots, r$, and
-    \[Tu_j = 0, \quad \text{for } j = 1, \ldots, n - r.\]
+    \[
+    	Tu_j = 0, \quad \text{for } j = 1, \ldots, n - r.
+    \]
     Therefore, the matrix of $T$ with respect to these bases has $1$'s in the diagonal entries corresponding to $Tv_k$ and $0$'s elsewhere, as desired.
 \end{sol}
 
@@ -179,9 +213,13 @@
 	If $Tv_1 \neq 0$, then we can extend $Tv_1$ to a basis of $W$.
 	Let $w_1 = Tv_1$ and extend it to a basis $w_1, w_2, \ldots, w_n$ of $W$.
 	Then with respect to the bases $v_1, \ldots, v_m$ of $V$ and $w_1, \ldots, w_n$ of $W$, we have
-    \[Tv_1 = w_1\]
+    \[
+    	Tv_1 = w_1
+    \]
     and for each $j = 2, \ldots, m$, we can express
-    \[Tv_j = \alpha_{j1} w_1 + \alpha_{j2} w_2 + \cdots + \alpha_{jn} w_n\]
+    \[
+    	Tv_j = \alpha_{j1} w_1 + \alpha_{j2} w_2 + \cdots + \alpha_{jn} w_n
+    \]
     for some scalars $\alpha_{j1}, \alpha_{j2}, \ldots, \alpha_{jn} \in \fbb$.
 	Therefore, the first column of $\mcal(T)$ has a $1$ in the first row and zeros in all other rows, as desired.
 \end{sol}
@@ -197,23 +235,37 @@
 	If $T$ has trivial $w_1$ component, meaning that the coefficient of $w_1$ in $Tv$ is zero for all $v \in V$, then choose any basis of $V$ and the first row of $\mcal(T)$ will be all zeros.
 	Otherwise, reorder the basis so that $Tu_1$ has non-trivial $w_1$ component.
 	Then we can express
-    \[Tu_1 = \alpha w_1 + \beta_2 w_2 + \cdots + \beta_n w_n\]
+    \[
+    	Tu_1 = \alpha w_1 + \beta_2 w_2 + \cdots + \beta_n w_n
+    \]
     for some scalars $\alpha, \beta_2, \ldots, \beta_n \in \fbb$ such that $\alpha \neq 0$.
 	We can scale $u_1$ by $\alpha\inv$ to obtain a new vector $v_1 = \alpha\inv u_1$ such that
-    \[Tv_1 = w_1 + \frac{\beta_2}{\alpha} w_2 + \cdots + \frac{\beta_n}{\alpha} w_n.\]
+    \[
+    	Tv_1 = w_1 + \frac{\beta_2}{\alpha} w_2 + \cdots + \frac{\beta_n}{\alpha} w_n.
+    \]
     With the remaining $u_2, \ldots, u_m$ basis vectors of $V$, note that they can be expressed as
-    \[Tu_j = \alpha_{j1} w_1 + \alpha_{j2} w_2 + \cdots + \alpha_{jn} w_n\]
+    \[
+    	Tu_j = \alpha_{j1} w_1 + \alpha_{j2} w_2 + \cdots + \alpha_{jn} w_n
+    \]
     for some scalars $\alpha_{j1}, \alpha_{j2}, \ldots, \alpha_{jn} \in \fbb$.
 	Consider the set of vectors of $V$ given by
-    \[v_1 = \alpha\inv u_1, \quad v_j = u_j - \alpha_{j1} v_1 \text{ for } j = 2, \ldots, m.\]
+    \[
+    	v_1 = \alpha\inv u_1, \quad v_j = u_j - \alpha_{j1} v_1 \text{ for } j = 2, \ldots, m.
+    \]
     Note that $Tv_j = Tu_j - \alpha_{j1} Tv_1$ is just a combination of $w_2, \ldots, w_n$.
 	We now claim that $v_1, v_2, \ldots, v_m$ are linearly independent.
 	Suppose for scalars $\gamma_1, \ldots, \gamma_m \in \fbb$, we have
-    \[\gamma_1 v_1 + \gamma_2 v_2 + \cdots + \gamma_m v_m = 0.\]
+    \[
+    	\gamma_1 v_1 + \gamma_2 v_2 + \cdots + \gamma_m v_m = 0.
+    \]
     Then we can express this as
-    \[\gamma_1 v_1 + \gamma_2 (u_2 - \alpha_{21} v_1) + \cdots + \gamma_m (u_m - \alpha_{m1} v_1) = 0.\]
+    \[
+    	\gamma_1 v_1 + \gamma_2 (u_2 - \alpha_{21} v_1) + \cdots + \gamma_m (u_m - \alpha_{m1} v_1) = 0.
+    \]
     Simplifying, we get
-    \[(\gamma_1 - \gamma_2 \alpha_{21} - \cdots - \gamma_m \alpha_{m1}) v_1 + \gamma_2 u_2 + \cdots + \gamma_m u_m = 0.\]
+    \[
+    	(\gamma_1 - \gamma_2 \alpha_{21} - \cdots - \gamma_m \alpha_{m1}) v_1 + \gamma_2 u_2 + \cdots + \gamma_m u_m = 0.
+    \]
     Since $v_1, u_2, \ldots, u_m$ are linearly independent, we must have $\gamma_1 - \gamma_2 \alpha_{21} - \cdots - \gamma_m \alpha_{m1} = 0$ and $\gamma_2 = \cdots = \gamma_m = 0$.
 	This implies that $\gamma_1 = 0$, and hence $v_1, v_2, \ldots, v_m$ are linearly independent.
 	Then $v_1, v_2, \ldots, v_m$ form a basis of $V$.
@@ -229,13 +281,21 @@
 \begin{sol}
     Let $A$ be an $m$-by-$n$ matrix and $B$ be an $n$-by-$p$ matrix.
 	The entry in row $j$, column $k$, of the product $AB$ is given by
-    \[(AB)_{j, k} = \sum_{r = 1}^{n} A_{j, r} B_{r, k}.\]
+    \[
+    	(AB)_{j, k} = \sum_{r = 1}^{n} A_{j, r} B_{r, k}.
+    \]
     The row vector $A_{j, \cdot}$ is the $j$-th row of $A$, which can be expressed as
-    \[A_{j, \cdot} = (A_{j, 1}, A_{j, 2}, \ldots, A_{j, n}).\]
+    \[
+    	A_{j, \cdot} = (A_{j, 1}, A_{j, 2}, \ldots, A_{j, n}).
+    \]
     When we multiply this row vector by the matrix $B$, we get a new row vector whose entries are given by
-    \[(A_{j, \cdot} B)_k = \sum_{r = 1}^{n} A_{j, r} B_{r, k}.\]
+    \[
+    	(A_{j, \cdot} B)_k = \sum_{r = 1}^{n} A_{j, r} B_{r, k}.
+    \]
     Comparing this with the expression for $(AB)_{j, k}$, we see that
-    \[(AB)_{j, k} = (A_{j, \cdot} B)_k\]
+    \[
+    	(AB)_{j, k} = (A_{j, \cdot} B)_k
+    \]
     for each column index $k$.
 	Therefore, the entire row vector $(AB)_{j, \cdot}$ is equal to the row vector $A_{j, \cdot} B$.
 	This proves that row $j$ of $AB$ equals (row $j$ of $A$) times $B$.
@@ -244,26 +304,38 @@
 \begin{exercise}[3c9]
     Suppose $a = (a_1 \quad \cdots \quad a_n)$ is a $1$-by-$n$ matrix and $B$ is an $n$-by-$p$ matrix.
 	Prove that
-    \[aB = a_1 B_{1, \cdot} + \cdots + a_n B_{n, \cdot}.\]
+    \[
+    	aB = a_1 B_{1, \cdot} + \cdots + a_n B_{n, \cdot}.
+    \]
     In other words, show that $aB$ is a linear combination of the rows of $B$, with the scalars that multiply the rows coming from $a$.
 \end{exercise}
 
 \begin{sol}
     Let $a = (a_1 \quad \cdots \quad a_n)$ be a $1$-by-$n$ matrix and $B$ be an $n$-by-$p$ matrix.
 	The product $aB$ is a $1$-by-$p$ matrix, and its entries are given by
-    \[(aB)_{1, k} = \sum_{j = 1}^{n} a_j B_{j, k}\]
+    \[
+    	(aB)_{1, k} = \sum_{j = 1}^{n} a_j B_{j, k}
+    \]
     for each column index $k$. 
 
     Now, consider the linear combination of the rows of $B$ given by
-    \[a_1 B_{1, \cdot} + a_2 B_{2, \cdot} + \cdots + a_n B_{n, \cdot}.\]
+    \[
+    	a_1 B_{1, \cdot} + a_2 B_{2, \cdot} + \cdots + a_n B_{n, \cdot}.
+    \]
     The entry in row $1$, column $k$, of this linear combination is
-    \[(a_1 B_{1, \cdot} + a_2 B_{2, \cdot} + \cdots + a_n B_{n, \cdot})_k = a_1 B_{1, k} + a_2 B_{2, k} + \cdots + a_n B_{n, k} = \sum_{j = 1}^{n} a_j B_{j, k}.\]
+    \[
+    	(a_1 B_{1, \cdot} + a_2 B_{2, \cdot} + \cdots + a_n B_{n, \cdot})_k = a_1 B_{1, k} + a_2 B_{2, k} + \cdots + a_n B_{n, k} = \sum_{j = 1}^{n} a_j B_{j, k}.
+    \]
 
     Comparing this with the expression for $(aB)_{1, k}$, we see that
-    \[(aB)_{1, k} = (a_1 B_{1, \cdot} + a_2 B_{2, \cdot} + \cdots + a_n B_{n, \cdot})_k\]
+    \[
+    	(aB)_{1, k} = (a_1 B_{1, \cdot} + a_2 B_{2, \cdot} + \cdots + a_n B_{n, \cdot})_k
+    \]
     for each column index $k$.
 	Therefore, we conclude that
-    \[aB = a_1 B_{1, \cdot} + a_2 B_{2, \cdot} + \cdots + a_n B_{n, \cdot},\]
+    \[
+    	aB = a_1 B_{1, \cdot} + a_2 B_{2, \cdot} + \cdots + a_n B_{n, \cdot},
+    \]
     which shows that $aB$ is indeed a linear combination of the rows of $B$, with the scalars coming from the entries of $a$.
 \end{sol}
 
@@ -273,55 +345,61 @@
 
 \begin{sol}
     Let 
-    \[A =
-    \begin{pmatrix}
-        1 & 2 \\
-        3 & 4
-    \end{pmatrix} \quad \text{and} \quad B = 
-    \begin{pmatrix}
-        0 & 1 \\
-        1 & 0
-    \end{pmatrix}.\]
+    \[
+        A =
+        \begin{pmatrix}
+            1 & 2 \\
+            3 & 4
+        \end{pmatrix} \quad \text{and} \quad B = 
+        \begin{pmatrix}
+            0 & 1 \\
+            1 & 0
+        \end{pmatrix}.
+    \]
     Then we compute the products $AB$ and $BA$:
-    \[AB = 
-    \begin{pmatrix}
-        1 & 2 \\
-        3 & 4
-    \end{pmatrix} 
-    \begin{pmatrix}
-        0 & 1 \\
-        1 & 0
-    \end{pmatrix} 
-    = 
-    \begin{pmatrix}
-        1 \cdot 0 + 2 \cdot 1 & 1 \cdot 1 + 2 \cdot 0 \\
-        3 \cdot 0 + 4 \cdot 1 & 3 \cdot 1 + 4 \cdot 0
-    \end{pmatrix} 
-    = 
-    \begin{pmatrix}
-        2 & 1 \\
-        4 & 3
-    \end{pmatrix},\]
+    \[
+        AB = 
+        \begin{pmatrix}
+            1 & 2 \\
+            3 & 4
+        \end{pmatrix} 
+        \begin{pmatrix}
+            0 & 1 \\
+            1 & 0
+        \end{pmatrix} 
+        = 
+        \begin{pmatrix}
+            1 \cdot 0 + 2 \cdot 1 & 1 \cdot 1 + 2 \cdot 0 \\
+            3 \cdot 0 + 4 \cdot 1 & 3 \cdot 1 + 4 \cdot 0
+        \end{pmatrix} 
+        = 
+        \begin{pmatrix}
+            2 & 1 \\
+            4 & 3
+        \end{pmatrix},
+    \]
     and
-    \[BA = 
-    \begin{pmatrix}
-        0 & 1 \\
-        1 & 0
-    \end{pmatrix} 
-    \begin{pmatrix}
-        1 & 2 \\
-        3 & 4
-    \end{pmatrix} 
-    = 
-    \begin{pmatrix}
-        0 \cdot 1 + 1 \cdot 3 & 0 \cdot 2 + 1 \cdot 4 \\
-        1 \cdot 1 + 0 \cdot 3 & 1 \cdot 2 + 0 \cdot 4
-    \end{pmatrix} 
-    = 
-    \begin{pmatrix}
-        3 & 4 \\
-        1 & 2
-    \end{pmatrix}.\]
+    \[
+        BA = 
+        \begin{pmatrix}
+            0 & 1 \\
+            1 & 0
+        \end{pmatrix} 
+        \begin{pmatrix}
+            1 & 2 \\
+            3 & 4
+        \end{pmatrix} 
+        = 
+        \begin{pmatrix}
+            0 \cdot 1 + 1 \cdot 3 & 0 \cdot 2 + 1 \cdot 4 \\
+            1 \cdot 1 + 0 \cdot 3 & 1 \cdot 2 + 0 \cdot 4
+        \end{pmatrix} 
+        = 
+        \begin{pmatrix}
+            3 & 4 \\
+            1 & 2
+        \end{pmatrix}.
+    \]
     By comparing the two products, we see that $AB \neq BA$.
 \end{sol}
 
@@ -329,7 +407,9 @@
     Prove that the distributive property holds for matrix addition and matrix multiplication.
 	In other words, suppose $A, B, C, D, E$, and $F$ are matrices whose sizes are such that $A(B + C)$ and $(D + E)F$ make sense.
 	Explain why $AB + AC$ and $DF + EF$ both make sense and prove that
-    \[A(B + C) = AB + AC \quad \text{and} \quad (D + E)F = DF + EF.\]
+    \[
+    	A(B + C) = AB + AC \quad \text{and} \quad (D + E)F = DF + EF.
+    \]
 \end{exercise}
 
 \begin{sol}
@@ -338,7 +418,9 @@
 	The products $AB$ and $AC$ are also defined, and both are $m$-by-$p$ matrices.
 	Therefore, the sum $AB + AC$ is defined and is also an $m$-by-$p$ matrix.
 	By \exref{3c8} and \exref{3c9}, we have
-    \[A(B + C)_{j, \cdot} = A_{j, \cdot} (B + C) = A_{j, \cdot} B + A_{j, \cdot} C = (AB)_{j, \cdot} + (AC)_{j, \cdot} = (AB + AC)_{j, \cdot}\]
+    \[
+    	A(B + C)_{j, \cdot} = A_{j, \cdot} (B + C) = A_{j, \cdot} B + A_{j, \cdot} C = (AB)_{j, \cdot} + (AC)_{j, \cdot} = (AB + AC)_{j, \cdot}
+    \]
     for all $j = 1, \ldots, m$.
 	Therefore, $A(B + C) = AB + AC$.
 
@@ -348,7 +430,9 @@
 	Therefore, the sum $DF + EF$ is defined and is also an $m$-by-$p$ matrix.
 	Then the product $(D + E)F$ is defined.
 	By \exref{3c8} and \exref{3c9}, we have
-    \[(D + E)F_{j, \cdot} = (D + E)_{j, \cdot} F = D_{j, \cdot} F + E_{j, \cdot} F = (DF)_{j, \cdot} + (EF)_{j, \cdot} = (DF + EF)_{j, \cdot}\]
+    \[
+    	(D + E)F_{j, \cdot} = (D + E)_{j, \cdot} F = D_{j, \cdot} F + E_{j, \cdot} F = (DF)_{j, \cdot} + (EF)_{j, \cdot} = (DF + EF)_{j, \cdot}
+    \]
     for all $j = 1, \ldots, m$.
 	Therefore, $(D + E)F = DF + EF$.
 \end{sol}
@@ -357,7 +441,9 @@
     Prove that matrix multiplication is associative.
 	In other words, suppose $A$, $B$, and $C$ are matrices whose sizes are such that $(AB)C$ makes sense.
 	Explain why $A(BC)$ makes sense and prove that
-    \[(AB)C = A(BC).\]
+    \[
+    	(AB)C = A(BC).
+    \]
     \remark{Unfortunately, we cannot use the same trick as in \exref{3c11} to prove this result.}
 \end{exercise}
 
@@ -366,13 +452,19 @@
 	Then the product $AB$ is defined and is an $m$-by-$p$ matrix.
 	Therefore, the product $(AB)C$ is also defined and is an $m$-by-$q$ matrix.
 	Going by the definition of matrix multiplication, we have
-    \[((AB)C)_{j, k} = \sum_{r = 1}^{p} (AB)_{j, r} C_{r, k} = \sum_{r = 1}^{p} \left( \sum_{s = 1}^{n} A_{j, s} B_{s, r} \right) C_{r, k} = \sum_{r = 1}^{p} \sum_{s = 1}^{n} A_{j, s} B_{s, r} C_{r, k}.\]
+    \[
+    	((AB)C)_{j, k} = \sum_{r = 1}^{p} (AB)_{j, r} C_{r, k} = \sum_{r = 1}^{p} \left( \sum_{s = 1}^{n} A_{j, s} B_{s, r} \right) C_{r, k} = \sum_{r = 1}^{p} \sum_{s = 1}^{n} A_{j, s} B_{s, r} C_{r, k}.
+    \]
     On the other hand, the product $BC$ is defined and is an $n$-by-$q$ matrix.
 	Therefore, the product $A(BC)$ is also defined and is an $m$-by-$q$ matrix.
 	Again, by the definition of matrix multiplication, we have
-    \[(A(BC))_{j, k} = \sum_{s = 1}^{n} A_{j, s} (BC)_{s, k} = \sum_{s = 1}^{n} A_{j, s} \left( \sum_{r = 1}^{p} B_{s, r} C_{r, k} \right) = \sum_{s = 1}^{n} \sum_{r = 1}^{p} A_{j, s} B_{s, r} C_{r, k}.\]
+    \[
+    	(A(BC))_{j, k} = \sum_{s = 1}^{n} A_{j, s} (BC)_{s, k} = \sum_{s = 1}^{n} A_{j, s} \left( \sum_{r = 1}^{p} B_{s, r} C_{r, k} \right) = \sum_{s = 1}^{n} \sum_{r = 1}^{p} A_{j, s} B_{s, r} C_{r, k}.
+    \]
     Since the order of summation does not matter, we can interchange the order of the sums in the last expression to get
-    \[(A(BC))_{j, k} = \sum_{r = 1}^{p} \sum_{s = 1}^{n} A_{j, s} B_{s, r} C_{r, k}.\]
+    \[
+    	(A(BC))_{j, k} = \sum_{r = 1}^{p} \sum_{s = 1}^{n} A_{j, s} B_{s, r} C_{r, k}.
+    \]
     Comparing the expressions for $((AB)C)_{j, k}$ and $(A(BC))_{j, k}$, we see that they are equal for all $j$ and $k$.
 	Therefore, $(AB)C = A(BC)$.
 \end{sol}
@@ -380,19 +472,29 @@
 \begin{exercise}[3c13]
     Suppose $A$ is an $n$-by-$n$ matrix and $1 \leq j, k \leq n$.
 	Show that the entry in row $j$, column $k$, of $A^3$ (which is defined to mean $AAA$) is
-    \[\sum_{p = 1}^{n} \sum_{r = 1}^{n} A_{j, p} A_{p, r} A_{r, k}.\]
+    \[
+    	\sum_{p = 1}^{n} \sum_{r = 1}^{n} A_{j, p} A_{p, r} A_{r, k}.
+    \]
 \end{exercise}
 
 \begin{sol}
     Note that $A^3 = (AA)A = A^2 A$.
 	By the definition of matrix multiplication, we have
-    \[(A^3)_{j, k} = (A^2 A)_{j, k} = \sum_{p = 1}^{n} (A^2)_{j, p} A_{p, k}.\]
+    \[
+    	(A^3)_{j, k} = (A^2 A)_{j, k} = \sum_{p = 1}^{n} (A^2)_{j, p} A_{p, k}.
+    \]
     Now, we can express $(A^2)_{j, p}$ as
-    \[(A^2)_{j, p} = (AA)_{j, p} = \sum_{r = 1}^{n} A_{j, r} A_{r, p}.\]
+    \[
+    	(A^2)_{j, p} = (AA)_{j, p} = \sum_{r = 1}^{n} A_{j, r} A_{r, p}.
+    \]
     Substituting this back into the expression for $(A^3)_{j, k}$, we get
-    \[(A^3)_{j, k} = \sum_{p = 1}^{n} \left( \sum_{r = 1}^{n} A_{j, r} A_{r, p} \right) A_{p, k} = \sum_{p = 1}^{n} \sum_{r = 1}^{n} A_{j, r} A_{r, p} A_{p, k}.\]
+    \[
+    	(A^3)_{j, k} = \sum_{p = 1}^{n} \left( \sum_{r = 1}^{n} A_{j, r} A_{r, p} \right) A_{p, k} = \sum_{p = 1}^{n} \sum_{r = 1}^{n} A_{j, r} A_{r, p} A_{p, k}.
+    \]
     By renaming the indices $r$ and $p$, we can rewrite this as
-    \[(A^3)_{j, k} = \sum_{p = 1}^{n} \sum_{r = 1}^{n} A_{j, p} A_{p, r} A_{r, k},\]
+    \[
+    	(A^3)_{j, k} = \sum_{p = 1}^{n} \sum_{r = 1}^{n} A_{j, p} A_{p, r} A_{r, k},
+    \]
     which is the desired expression.
 \end{sol}
 
@@ -407,16 +509,24 @@
 
     First, consider the sum $A + B$.
 	The entry in row $j$, column $k$, of $A + B$ is given by
-    \[(A + B)_{j, k} = A_{j, k} + B_{j, k}.\]
+    \[
+    	(A + B)_{j, k} = A_{j, k} + B_{j, k}.
+    \]
     Taking the transpose, we have
-    \[((A + B)^t)_{k, j} = (A + B)_{j, k} = A_{j, k} + B_{j, k} = (A^t)_{k, j} + (B^t)_{k, j} = (A^t + B^t)_{k, j}.\]
+    \[
+    	((A + B)^t)_{k, j} = (A + B)_{j, k} = A_{j, k} + B_{j, k} = (A^t)_{k, j} + (B^t)_{k, j} = (A^t + B^t)_{k, j}.
+    \]
     Therefore, $(A + B)^t = A^t + B^t$.
 
     Next, consider the scalar multiplication $\lambda A$.
 	The entry in row $j$, column $k$, of $\lambda A$ is given by
-    \[(\lambda A)_{j, k} = \lambda A_{j, k}.\]
+    \[
+    	(\lambda A)_{j, k} = \lambda A_{j, k}.
+    \]
     Taking the transpose, we have
-    \[((\lambda A)^t)_{k, j} = (\lambda A)_{j, k} = \lambda A_{j, k} = \lambda (A^t)_{k, j} = (\lambda A^t)_{k, j}.\]
+    \[
+    	((\lambda A)^t)_{k, j} = (\lambda A)_{j, k} = \lambda A_{j, k} = \lambda (A^t)_{k, j} = (\lambda A^t)_{k, j}.
+    \]
     Therefore, $(\lambda A)^t = \lambda A^t$.
 
     Since both properties hold, we conclude that the function $A \mapsto A^t$ is a linear map from $\fbb^{m, n}$ to $\fbb^{n, m}$.
@@ -424,26 +534,38 @@
 
 \begin{exercise}[3c15]
     Prove that if $A$ is an $m$-by-$n$ matrix and $C$ is an $n$-by-$p$ matrix, then
-    \[(AC)^t = C^t A^t.\]
+    \[
+    	(AC)^t = C^t A^t.
+    \]
 \end{exercise}
 
 \begin{sol}
     Let $A$ be an $m$-by-$n$ matrix and $C$ be an $n$-by-$p$ matrix.
 	The entry in row $j$, column $k$, of the product $AC$ is given by
-    \[(AC)_{j, k} = \sum_{r = 1}^{n} A_{j, r} C_{r, k}.\]
+    \[
+    	(AC)_{j, k} = \sum_{r = 1}^{n} A_{j, r} C_{r, k}.
+    \]
     Taking the transpose, we have
-    \[((AC)^t)_{k, j} = (AC)_{j, k} = \sum_{r = 1}^{n} A_{j, r} C_{r, k}.\]
+    \[
+    	((AC)^t)_{k, j} = (AC)_{j, k} = \sum_{r = 1}^{n} A_{j, r} C_{r, k}.
+    \]
 
     Now, consider the product $C^t A^t$.
 	The entry in row $k$, column $j$, of this product is given by
-    \[(C^t A^t)_{k, j} = \sum_{r = 1}^{n} (C^t)_{k, r} (A^t)_{r, j} = \sum_{r = 1}^{n} C_{r, k} A_{j, r}.\]
+    \[
+    	(C^t A^t)_{k, j} = \sum_{r = 1}^{n} (C^t)_{k, r} (A^t)_{r, j} = \sum_{r = 1}^{n} C_{r, k} A_{j, r}.
+    \]
 
     Since multiplication in the field $\fbb$ is commutative, we can rewrite this as
-    \[(C^t A^t)_{k, j} = \sum_{r = 1}^{n} A_{j, r} C_{r, k},\]
+    \[
+    	(C^t A^t)_{k, j} = \sum_{r = 1}^{n} A_{j, r} C_{r, k},
+    \]
     which is exactly the same as the expression for $((AC)^t)_{k, j}$.
 
     Therefore, we conclude that
-    \[(AC)^t = C^t A^t.\]
+    \[
+    	(AC)^t = C^t A^t.
+    \]
 \end{sol}
 
 \begin{exercise}[3c16]
@@ -457,7 +579,9 @@
 	Let $c = (c_1, \ldots, c_m)^t$ be this non-zero column vector.
 	Then for each column $k$ of $A$, there exists a scalar $d_k \in \fbb$ such that the $k$-th column of $A$ is given by $d_k c$.
 	Therefore, we can express the entries of $A$ as
-    \[A_{j, k} = c_j d_k\]
+    \[
+    	A_{j, k} = c_j d_k
+    \]
     for all $j = 1, \ldots, m$ and $k = 1, \ldots, n$.
 
     Conversely, suppose there exist $(c_1, \ldots, c_m) \in \fbb^m$ and $(d_1, \ldots, d_n) \in \fbb^n$ such that $A_{j, k} = c_j d_k$ for all $j$ and $k$.

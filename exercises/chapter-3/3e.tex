@@ -3,7 +3,9 @@
 \begin{exercise}[3e1]
     Suppose $T$ is a function from $V$ to $W$.
 	The \textit{graph of $T$} is the subset of $V \times W$ defined by
-    \[\text{graph of } T = \set{(v, Tv) \in V \times W \mid v \in V}.\]
+    \[
+    	\text{graph of } T = \set{(v, Tv) \in V \times W \mid v \in V}.
+    \]
     Prove that $T$ is a linear map if and only if the graph of $T$ is a subspace of $V \times W$.
 \end{exercise}
 
@@ -13,18 +15,24 @@
 	Then $G(T)$ is nonempty since $(0, T0) = (0, 0) \in G(T)$.
 	Now, let $(v_1, Tv_1), (v_2, Tv_2) \in G(T)$.
 	Then
-    \[(v_1 - v_2, Tv_1 - Tv_2) = (v_1, Tv_1) - (v_2, Tv_2) \in G(T)\]
+    \[
+    	(v_1 - v_2, Tv_1 - Tv_2) = (v_1, Tv_1) - (v_2, Tv_2) \in G(T)
+    \]
     since $T$ is linear.
 	Now, let $(v, Tv) \in G(T)$ and $\alpha \in \fbb$.
 	Then
-    \[(\alpha v, \alpha Tv) = \alpha (v, Tv) \in G(T)\]
+    \[
+    	(\alpha v, \alpha Tv) = \alpha (v, Tv) \in G(T)
+    \]
     since $T$ is linear.
 	Thus, $G(T)$ is a subspace of $V \times W$.
 
     Conversely, suppose $G(T)$ is a subspace of $V \times W$.
 	By definition, we have $(v_1, Tv_1), (v_2, Tv_2) \in G(T)$ for all $v_1, v_2 \in V$.
 	Since $G(T)$ is a subspace of $V \times W$, for all $\alpha, \beta \in \fbb$, we have
-    \[(\alpha v_1 + \beta v_2, \alpha Tv_1 + \beta Tv_2) = \alpha (v_1, Tv_1) + \beta (v_2, Tv_2) \in G(T).\]
+    \[
+    	(\alpha v_1 + \beta v_2, \alpha Tv_1 + \beta Tv_2) = \alpha (v_1, Tv_1) + \beta (v_2, Tv_2) \in G(T).
+    \]
     By definition of $G(T)$, we have $\alpha Tv_1 + \beta Tv_2 = T(\alpha v_1 + \beta v_2)$.
 	Thus, $T$ is a linear map.
 \end{sol}
@@ -55,9 +63,13 @@
     Let $V = V_1 \times \cdots \times V_m$.
 	Let $L = \lin{V_1, W} \times \cdots \times \lin{V_m, W}$.
 	Define $T \in \lin{\lin{V, W}, L}$ by
-    \[T(S) = (S \circ \iota_1, \ldots, S \circ \iota_m)\]
+    \[
+    	T(S) = (S \circ \iota_1, \ldots, S \circ \iota_m)
+    \]
     where $\iota_k \in \lin{V_k, V}$ is the map defined as
-    \[\iota_k(v_k) = (0, \ldots, 0, v_k, 0, \ldots, 0)\]
+    \[
+    	\iota_k(v_k) = (0, \ldots, 0, v_k, 0, \ldots, 0)
+    \]
     with $\iota_k(v_k)$ having $v_k$ in the $k$-th coordinate and 0 in all other coordinates.
 	Then $T$ is linear since for all $\alpha, \beta \in \fbb$ and all $S_1, S_2 \in \lin{V, W}$, we have
     \begin{align*}
@@ -69,7 +81,9 @@
 	Now suppose $T(S) = 0$.
 	Then $S \circ \iota_k = 0$ for all $k = 1, \ldots, m$.
 	Moreover, for all $(v_1, \ldots, v_m) \in V$, we have
-    \[S(v_1, \ldots, v_m) = S(\iota_1(v_1) + \cdots + \iota_m(v_m)) = S \circ \iota_1(v_1) + \cdots + S \circ \iota_m(v_m) = 0.\]
+    \[
+    	S(v_1, \ldots, v_m) = S(\iota_1(v_1) + \cdots + \iota_m(v_m)) = S \circ \iota_1(v_1) + \cdots + S \circ \iota_m(v_m) = 0.
+    \]
     It follows that $S(v_1, \ldots, v_m) = 0$ for all $(v_1, \ldots, v_m) \in V$.
 	Thus, $S = 0$, and hence $T$ is injective.
     
@@ -93,9 +107,13 @@
     Let $W = W_1 \times \cdots \times W_m$.
 	Let $L = \lin{V, W_1} \times \cdots \times \lin{V, W_m}$.
 	Define $T \in \lin{\lin{V, W}, L}$ by
-    \[T(S) = (\pi_1 \circ S, \ldots, \pi_m \circ S)\]
+    \[
+    	T(S) = (\pi_1 \circ S, \ldots, \pi_m \circ S)
+    \]
     where $\pi_k \in \lin{W, W_k}$ is the map defined as
-    \[\pi_k(w_1, \ldots, w_m) = w_k\]
+    \[
+    	\pi_k(w_1, \ldots, w_m) = w_k
+    \]
     Then $T$ is linear since for all $\alpha, \beta \in \fbb$ and all $S_1, S_2 \in \lin{V, W}$, we have
     \begin{align*}
         T(\alpha S_1 + \beta S_2) & = (\pi_1 \circ (\alpha S_1 + \beta S_2), \ldots, \pi_m \circ (\alpha S_1 + \beta S_2)) \\
@@ -106,7 +124,9 @@
 	Now suppose $T(S) = 0$.
 	Then $\pi_k \circ S = 0$ for all $k = 1, \ldots, m$.
 	Moreover, for all $v \in V$, we have
-    \[S v = (\pi_1(Sv), \ldots, \pi_m(Sv)) = (0, \ldots, 0) = 0.\]
+    \[
+    	S v = (\pi_1(Sv), \ldots, \pi_m(Sv)) = (0, \ldots, 0) = 0.
+    \]
     It follows that $S v = 0$ for all $v$, hence $S = 0$, and thus $T$ is injective.
 
     Now let $(S_1, \ldots, S_m) \in L$.
@@ -118,14 +138,18 @@
 
 \begin{exercise}[3e5]
     For $m$ a positive integer, define $V^m$ by
-    \[V^m = \underbrace{V \times \cdots \times V}_{m \text{ times}}.\]
+    \[
+    	V^m = \underbrace{V \times \cdots \times V}_{m \text{ times}}.
+    \]
     Prove that $V^m$ and $\lin{\fbb^m, V}$ are isomorphic vector spaces.
 \end{exercise}
 
 \begin{sol}
     Let $e_1, \ldots, e_m$ be the standard basis of $\fbb^m$.
 	Define $T \in \lin{V^m, \lin{\fbb^m, V}}$ by
-    \[T(v_1, \ldots, v_m)(\lambda_1, \ldots, \lambda_m) = \lambda_1 v_1 + \cdots + \lambda_m v_m.\]
+    \[
+    	T(v_1, \ldots, v_m)(\lambda_1, \ldots, \lambda_m) = \lambda_1 v_1 + \cdots + \lambda_m v_m.
+    \]
     Then $T$ is linear since for all $\alpha, \beta \in \fbb$ and all $v = (v_1, \ldots, v_m), w = (w_1, \ldots, w_m) \in V^m$, we have
     \begin{align*}
         T(\alpha v + \beta w)(\lambda_1, \ldots, \lambda_m) & = T(\alpha v_1 + \beta w_1, \ldots, \alpha v_m + \beta w_m)(\lambda_1, \ldots, \lambda_m) \\
@@ -168,7 +192,9 @@
     Let $U = \set{(x, y, z) \in \rbb^3 \mid 2x + 3y + 5z = 0}$.
 	Suppose $A \subseteq \rbb^3$.
 	Prove that $A$ is a translate of $U$ if and only if there exists $c \in \rbb$ such that
-    \[A = \set{(x, y, z) \in \rbb^3 \mid 2x + 3y + 5z = c}.\]
+    \[
+    	A = \set{(x, y, z) \in \rbb^3 \mid 2x + 3y + 5z = c}.
+    \]
 \end{exercise}
 
 \begin{sol}
@@ -183,7 +209,9 @@
         & = \set{(x', y', z') \in \rbb^3 \mid 2x' + 3y' + 5z' = 2x_0 + 3y_0 + 5z_0}.
     \end{align*}
     Conversely, suppose there exists $c \in \rbb$ such that
-    \[A = \set{(x, y, z) \in \rbb^3 \mid 2x + 3y + 5z = c}.\]
+    \[
+    	A = \set{(x, y, z) \in \rbb^3 \mid 2x + 3y + 5z = c}.
+    \]
     Let $v = (x_0, y_0, z_0)$ where $x_0, y_0, z_0$ are any real numbers such that $2x_0 + 3y_0 + 5z_0 = c$.
 	Then
     \begin{align*}
@@ -226,7 +254,9 @@
 	Then there exists $v \in V$ and a subspace $U$ of $V$ such that $A = v + U$.
 	Let $v + u, v + u' \in A$.
 	Then for any $\lambda \in \fbb$,
-    \[\lambda (v + u) + (1 - \lambda) (v + u') = v + \underbrace{(\lambda u + (1 - \lambda) u')}_{\in U} \in A.\]
+    \[
+    	\lambda (v + u) + (1 - \lambda) (v + u') = v + \underbrace{(\lambda u + (1 - \lambda) u')}_{\in U} \in A.
+    \]
     Conversely, suppose $\lambda v + (1 - \lambda) w  \in A$ for all $v, w \in A$ and all $\lambda \in \fbb$.
 	Fix some $v_0 \in A$, and let $U = \set{u \in V \mid v_0 + u \in A}$.
 	We first claim that $U$ is a subspace of $V$.
@@ -295,10 +325,14 @@
 	Then for all $k > N_u$, we have $(\alpha u)_k = \alpha u_k = \alpha \cdot 0 = 0$, hence $\alpha u \in U$.
 	Therefore, $U$ is a subspace of $\fbb^\infty$.
     \item For any given positive integer $m$, define the sets $B_i$ for $1 \leq i \leq m$ as follows:
-    \[B_i = \set{i + km \mid k \in \nbb} = \set{i, i + m, i + 2m, \ldots}.\]
+    \[
+    	B_i = \set{i + km \mid k \in \nbb} = \set{i, i + m, i + 2m, \ldots}.
+    \]
     Then $B_1, \ldots, B_m$ are pairwise disjoint subsets of $\nbb$.
 	For each $i = 1, \ldots, m$, define
-	\[v_i = (v_{i, 1}, v_{i, 2}, \ldots) \in \fbb^\infty\]
+	\[
+		v_i = (v_{i, 1}, v_{i, 2}, \ldots) \in \fbb^\infty
+	\]
 	such that $v_{i, j} = 1$ if $j \in B_i$ and $v_{i, j} = 0$ otherwise.
 	We claim that $v_1 + U, \ldots, v_m + U$ are linearly independent in $\fbb^\infty / U$.
     
@@ -316,7 +350,9 @@
 \begin{exercise}[3e12]
     Suppose $v_1, \ldots, v_m \in V$.
 	Let
-    \[A = \set{\lambda_1 v_1 + \cdots + \lambda_m v_m \mid \lambda_1, \ldots, \lambda_m \in \fbb \text{ and } \lambda_1 + \cdots + \lambda_m = 1}.\]
+    \[
+    	A = \set{\lambda_1 v_1 + \cdots + \lambda_m v_m \mid \lambda_1, \ldots, \lambda_m \in \fbb \text{ and } \lambda_1 + \cdots + \lambda_m = 1}.
+    \]
     \begin{subexercises}
         \item Prove that $A$ is a translate of some subspace of $V$.
         \item Prove that if $B$ is a translate of some subspace of $V$ and $\set{v_1, \ldots, v_m} \subseteq B$, then $A \subseteq B$.
@@ -326,7 +362,9 @@
 
 \begin{sole}
     \item For any element $\lambda_1 v_1 + \cdots + \lambda_m v_m \in A$, we can write
-    \[\lambda_1 v_1 + \cdots + \lambda_m v_m = v_1 + \lambda_2 (v_2 - v_1) + \cdots + \lambda_m (v_m - v_1) = v_1 + \sum_{i = 2}^m \lambda_i (v_i - v_1),\]
+    \[
+    	\lambda_1 v_1 + \cdots + \lambda_m v_m = v_1 + \lambda_2 (v_2 - v_1) + \cdots + \lambda_m (v_m - v_1) = v_1 + \sum_{i = 2}^m \lambda_i (v_i - v_1),
+    \]
     where $\lambda_1 = 1 - (\lambda_2 + \cdots + \lambda_m)$.
 	Let $U = \spn(v_2 - v_1, \ldots, v_m - v_1)$.
 	Then $A = v_1 + U$, hence $A$ is a translate of the subspace $U$ of $V$.
@@ -348,10 +386,14 @@
 	We show that $V = U \op W$.
 	First, note that any $v \in V$ can be written as $v = u + w$ for some $u \in U$ and $w \in W$.
 	Indeed, since $v + U \in V / U$, we can write
-    \[v + U = \lambda_1 (v_1 + U) + \cdots + \lambda_m (v_m + U)\]
+    \[
+    	v + U = \lambda_1 (v_1 + U) + \cdots + \lambda_m (v_m + U)
+    \]
     for some scalars $\lambda_1, \ldots, \lambda_m$.
 	This gives
-    \[v - (\lambda_1 v_1 + \cdots + \lambda_m v_m) \in U.\]
+    \[
+    	v - (\lambda_1 v_1 + \cdots + \lambda_m v_m) \in U.
+    \]
     So setting $u = v - (\lambda_1 v_1 + \cdots + \lambda_m v_m) \in U$ and $w = \lambda_1 v_1 + \cdots + \lambda_m v_m \in W$, we have $v = u + w$.
 	To see that the sum is direct, suppose $u + w = 0$ with $u \in U$ and $w \in W$.
 	Then $w = -u \in W \cap U$.
@@ -400,7 +442,9 @@
     First, we show that $v_1, \ldots, v_m, u_1, \ldots, u_n$ span $V$.
 	Let $v \in V$.
 	Then $v + U \in V / U$, so we can write
-    \[v + U = \lambda_1 (v_1 + U) + \cdots + \lambda_m (v_m + U)\]
+    \[
+    	v + U = \lambda_1 (v_1 + U) + \cdots + \lambda_m (v_m + U)
+    \]
     for some scalars $\lambda_1, \ldots, \lambda_m$.
 	This gives $v - (\lambda_1 v_1 + \cdots + \lambda_m v_m) \in U$.
 	Since $u_1, \ldots, u_n$ is a basis of $U$, we can write $v - (\lambda_1 v_1 + \cdots + \lambda_m v_m) = \mu_1 u_1 + \cdots + \mu_n u_n$ for some scalars $\mu_1, \ldots, \mu_n$.
@@ -410,7 +454,9 @@
 	Suppose $\lambda_1 v_1 + \cdots + \lambda_m v_m + \mu_1 u_1 + \cdots + \mu_n u_n = 0$.
 	Then $\lambda_1 v_1 + \cdots + \lambda_m v_m \in U$.
 	Then
-    \[\lambda_1(v_1 + U) + \cdots + \lambda_m(v_m + U) = 0 + U.\]
+    \[
+    	\lambda_1(v_1 + U) + \cdots + \lambda_m(v_m + U) = 0 + U.
+    \]
     Since $v_1 + U, \ldots, v_m + U$ are linearly independent in $V / U$, we must have $\lambda_1 = \cdots = \lambda_m = 0$.
 	Then the original equation reduces to $\mu_1 u_1 + \cdots + \mu_n u_n = 0$, and since $u_1, \ldots, u_n$ are linearly independent, we have $\mu_1 = \cdots = \mu_n = 0$.
 	Therefore, $v_1, \ldots, v_m, u_1, \ldots, u_n$ are linearly independent, and hence form a basis of $V$.
@@ -458,28 +504,38 @@
 	Then $\pi(v) = \pi(u + w) = \pi(u) + \pi(w) = 0 + \pi(w) = \pi(w)$, so $v + U = \pi(w) \in \range(\pi|_W)$.
 	Hence, $\range(\pi|_W) = V / U$.
 	From the fundamental theorem of linear maps, we have
-    \[\dim W = \dim \nul \pi|_W + \dim \range(\pi|_W) = \dim \nul \pi|_W + \dim V / U \geq \dim V / U.\]
+    \[
+    	\dim W = \dim \nul \pi|_W + \dim \range(\pi|_W) = \dim \nul \pi|_W + \dim V / U \geq \dim V / U.
+    \]
     \item Let $v_1 + U, \ldots, v_m + U$ be a basis of $V / U$.
 	We claim that $v_1, \ldots, v_m$ are linearly independent.
 	Suppose $\lambda_1 v_1 + \cdots + \lambda_m v_m = 0$ for some scalars $\lambda_1, \ldots, \lambda_m$.
 	Then
-    \[\lambda_1 v_1 + \cdots + \lambda_m v_m \in U.\]
+    \[
+    	\lambda_1 v_1 + \cdots + \lambda_m v_m \in U.
+    \]
     But $\lambda_1 (v_1 + U) + \cdots + \lambda_m (v_m + U) = 0$ in $V / U$, and since $v_1 + U, \ldots, v_m + U$ are linearly independent, it follows that $\lambda_1 = \cdots = \lambda_m = 0$.
 	Hence, $v_1, \ldots, v_m$ are linearly independent.
 
     Let $W = \spn\{v_1, \ldots, v_m\}$.
 	Then $\dim W = m = \dim V / U$.
 	For any $v \in V$, we can write
-    \[v + U = \lambda_1(v_1 + U) + \cdots + \lambda_m(v_m + U).\]
+    \[
+    	v + U = \lambda_1(v_1 + U) + \cdots + \lambda_m(v_m + U).
+    \]
     This implies that 
-    \[v - (\lambda_1 v_1 + \cdots + \lambda_m v_m) \in U,\]
+    \[
+    	v - (\lambda_1 v_1 + \cdots + \lambda_m v_m) \in U,
+    \]
     so $v \in U + W$.
 	Hence, $V = U + W$.
 	To see that $U \cap W = \set 0$, let $w \in U \cap W$.
 	Then $w \in W$, so $w = \lambda_1 v_1 + \cdots + \lambda_m v_m$ for some scalars $\lambda_1, \ldots, \lambda_m$.
 	But $w \in U$, so $w + U = 0$ in $V / U$.
 	Hence,
-    \[\lambda_1 (v_1 + U) + \cdots + \lambda_m (v_m + U) = 0\]
+    \[
+    	\lambda_1 (v_1 + U) + \cdots + \lambda_m (v_m + U) = 0
+    \]
     in $V / U$.
 	Since $v_1 + U, \ldots, v_m + U$ are linearly independent, it follows that $\lambda_1 = \cdots = \lambda_m = 0$.
 	Hence, $w = 0$, and we have $U \cap W = \set 0$.

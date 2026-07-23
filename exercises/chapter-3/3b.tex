@@ -6,7 +6,9 @@
 
 \begin{sol}
     Let $T \in \lin{\rbb^5, \rbb^2}$ be defined by
-    \[T(x_1, x_2, x_3, x_4, x_5) = (x_1, x_2).\]
+    \[
+    	T(x_1, x_2, x_3, x_4, x_5) = (x_1, x_2).
+    \]
     Then $\nul T = \set{(0, 0, x_3, x_4, x_5) \mid x_3, x_4, x_5 \in \rbb}$, which has dimension $3$, and $\range T = \rbb^2$, which has dimension $2$.
 \end{sol}
 
@@ -18,17 +20,23 @@
 \begin{sol}
     Let $v \in V$.
 	Then
-    \[(ST)^2 v = ST(STv) = S(T(STv)).\]
+    \[
+    	(ST)^2 v = ST(STv) = S(T(STv)).
+    \]
     Since $STv \in \range S$ and $\range S \subseteq \nul T$, we have $T(STv) = 0$.
 	Therefore,
-    \[(ST)^2 v = S(0) = 0.\]
+    \[
+    	(ST)^2 v = S(0) = 0.
+    \]
     Since $v$ was arbitrary, it follows that $(ST)^2 = 0$.
 \end{sol}
 
 \begin{exercise}[3b3]
     Suppose $v_1, \ldots, v_m$ is a list of vectors in $V$.
 	Define $T \in \lin{\fbb^m, V}$ by
-    \[T(z_1, \ldots, z_m) = z_1 v_1 + \cdots + z_m v_m.\]
+    \[
+    	T(z_1, \ldots, z_m) = z_1 v_1 + \cdots + z_m v_m.
+    \]
     \begin{subexercises}
         \item What property of $T$ corresponds to $v_1, \ldots, v_m$ spanning $V$?
         \item What property of $T$ corresponds to the list $v_1, \ldots, v_m$ being linearly independent?
@@ -46,15 +54,23 @@
 
 \begin{sol}
     Let $T_1, T_2 \in \lin{\rbb^5, \rbb^4}$ be defined by
-    \[T_1(x_1, x_2, x_3, x_4, x_5) = (x_1, x_2, 0, 0)\]
+    \[
+    	T_1(x_1, x_2, x_3, x_4, x_5) = (x_1, x_2, 0, 0)
+    \]
     and
-    \[T_2(x_1, x_2, x_3, x_4, x_5) = (0, 0, x_3, x_4).\]
+    \[
+    	T_2(x_1, x_2, x_3, x_4, x_5) = (0, 0, x_3, x_4).
+    \]
     Then $\nul T_1 = \set{(0, 0, x_3, x_4, x_5) \mid x_3, x_4, x_5 \in \rbb}$ and $\nul T_2 = \set{(x_1, x_2, 0, 0, x_5) \mid x_1, x_2, x_5 \in \rbb}$ both have dimension $3$, so $T_1$ and $T_2$ are in the set $\set{T \in \lin{\rbb^5, \rbb^4} \mid \dim \nul T > 2}$.
 	However,
-    \[(T_1 + T_2)(x_1, x_2, x_3, x_4, x_5) = (x_1, x_2, x_3, x_4),\]
+    \[
+    	(T_1 + T_2)(x_1, x_2, x_3, x_4, x_5) = (x_1, x_2, x_3, x_4),
+    \]
     which has null space $\nul(T_1 + T_2) = \set{(0, 0, 0, 0, x_5) \mid x_5 \in \rbb}$ of dimension $1$.
 	Therefore,
-    \[\dim \nul(T_1 + T_2) = 1 < 2,\]
+    \[
+    	\dim \nul(T_1 + T_2) = 1 < 2,
+    \]
     so $T_1 + T_2$ is not in the set.
 	Hence, the set is not closed under addition and is not a subspace of $\lin{\rbb^5, \rbb^4}$.
 \end{sol}
@@ -66,9 +82,13 @@
 \begin{sol}
     Let $v_1, v_2, v_3, v_4$ be the standard basis of $\rbb^4$.
 	Define $T \in \lin{\rbb^4}$ by
-    \[Tv_1 = v_3, \quad Tv_2 = v_4, \quad Tv_3 = 0, \quad Tv_4 = 0.\]
+    \[
+    	Tv_1 = v_3, \quad Tv_2 = v_4, \quad Tv_3 = 0, \quad Tv_4 = 0.
+    \]
     Then for any $x = (x_1, x_2, x_3, x_4) \in \rbb^4$,
-    \[Tx = x_1 Tv_1 + x_2 Tv_2 + x_3 Tv_3 + x_4 Tv_4 = x_1 v_3 + x_2 v_4.\]
+    \[
+    	Tx = x_1 Tv_1 + x_2 Tv_2 + x_3 Tv_3 + x_4 Tv_4 = x_1 v_3 + x_2 v_4.
+    \]
     Then $\range T = \spn{v_3, v_4}$.
 	If $Tx = 0$, then $x_1 v_3 + x_2 v_4 = 0$, which implies $x_1 = x_2 = 0$.
 	Therefore, $\nul T = \set{(0, 0, x_3, x_4) \mid x_3, x_4 \in \rbb} = \spn{v_3, v_4}$.
@@ -82,7 +102,9 @@
 \begin{sol}
     Suppose for contradiction that there exists $T \in \lin{\rbb^5}$ such that $\range T = \nul T$.
 	Then by the fundamental theorem of linear maps,
-    \[\dim \rbb^5 = \dim \nul T + \dim \range T = 2\dim \range T.\]
+    \[
+    	\dim \rbb^5 = \dim \nul T + \dim \range T = 2\dim \range T.
+    \]
     Therefore, $5 = 2\dim \range T$, which is impossible since $5$ is odd and $2\dim \range T$ is even.
 	Hence, no such $T$ exists.
 \end{sol}
@@ -96,19 +118,31 @@
     Let $\dim V = n$ and $\dim W = m$ with $2 \leq n \leq m$.
 	Let $v_1, v_2, \ldots, v_n$ be a basis of $V$, and let $w_1, w_2, \ldots, w_m$ be a basis of $W$.
 	Define $T_1, T_2 \in \lin{V, W}$ by
-    \[T_1 v_1 = w_1, \quad T_1 v_k = 0 \text{ for } k \geq 2,\]
+    \[
+    	T_1 v_1 = w_1, \quad T_1 v_k = 0 \text{ for } k \geq 2,
+    \]
     and
-    \[T_2 v_1 = 0, \quad T_2 v_k = w_k \text{ for } k \geq 2.\]
+    \[
+    	T_2 v_1 = 0, \quad T_2 v_k = w_k \text{ for } k \geq 2.
+    \]
     Then $v_2 \in \nul T_1$ and $v_1 \in \nul T_2$, so both $T_1$ and $T_2$ are not injective.
 	However,
-    \[(T_1 + T_2)v_1 = T_1 v_1 + T_2 v_1 = w_1 + 0 = w_1 \neq 0,\]
+    \[
+    	(T_1 + T_2)v_1 = T_1 v_1 + T_2 v_1 = w_1 + 0 = w_1 \neq 0,
+    \]
     and for $k \geq 2$,
-    \[(T_1 + T_2)v_k = T_1 v_k + T_2 v_k = 0 + w_k = w_k \neq 0.\]
+    \[
+    	(T_1 + T_2)v_k = T_1 v_k + T_2 v_k = 0 + w_k = w_k \neq 0.
+    \]
     Suppose $v \in V$ is such that $(T_1 + T_2)v = 0$.
 	Then $v$ can be expressed as a linear combination of the basis vectors:
-    \[v = \alpha_1 v_1 + \alpha_2 v_2 + \cdots + \alpha_n v_n.\]
+    \[
+    	v = \alpha_1 v_1 + \alpha_2 v_2 + \cdots + \alpha_n v_n.
+    \]
     Then
-    \[(T_1 + T_2)v = \alpha_1 w_1 + \alpha_2 w_2 + \cdots + \alpha_n w_n = 0.\]
+    \[
+    	(T_1 + T_2)v = \alpha_1 w_1 + \alpha_2 w_2 + \cdots + \alpha_n w_n = 0.
+    \]
     Since $w_1, w_2, \ldots, w_m$ are linearly independent, it follows that $\alpha_1 = \alpha_2 = \cdots = \alpha_n = 0$, hence $v = 0$.
 	Therefore, $T_1 + T_2$ is injective.
 	Since $T_1$ and $T_2$ are not injective, but their sum is injective, the set $\set{T \in \lin{V, W} \mid T \text{ is not injective}}$ is not closed under addition and thus is not a subspace of $\lin{V, W}$.
@@ -124,14 +158,22 @@
 	Let $\dim V = n$ and $\dim W = m$ with $n \geq m \geq 2$.
 	Let $v_1, v_2, \ldots, v_n$ be a basis of $V$, and let $w_1, w_2, \ldots, w_m$ be a basis of $W$.
 	Define $T_1, T_2 \in \lin{V, W}$ by
-    \[T_1 v_1 = w_1, \quad T_1 v_k = 0 \text{ for } k \geq 2,\]
+    \[
+    	T_1 v_1 = w_1, \quad T_1 v_k = 0 \text{ for } k \geq 2,
+    \]
     and
-    \[T_2 v_1 = 0, \quad T_2 v_k = w_k \text{ for } k = 2, \ldots, m, \quad T_2 v_k = 0 \text{ for } k > m.\]
+    \[
+    	T_2 v_1 = 0, \quad T_2 v_k = w_k \text{ for } k = 2, \ldots, m, \quad T_2 v_k = 0 \text{ for } k > m.
+    \]
     Then $\range T_1 = \spn{w_1}$ and $\range T_2 = \spn{w_2, \ldots, w_m}$, both of which are proper subspaces of $W$, so $T_1$ and $T_2$ are not surjective.
 	However,
-    \[(T_1 + T_2)v_1 = T_1 v_1 + T_2 v_1 = w_1 + 0 = w_1,\]
+    \[
+    	(T_1 + T_2)v_1 = T_1 v_1 + T_2 v_1 = w_1 + 0 = w_1,
+    \]
     and for $k = 2, \ldots, m$,
-    \[(T_1 + T_2)v_k = T_1 v_k + T_2 v_k = 0 + w_k = w_k.\]
+    \[
+    	(T_1 + T_2)v_k = T_1 v_k + T_2 v_k = 0 + w_k = w_k.
+    \]
     Therefore, $\range(T_1 + T_2) = \spn{w_1, w_2, \ldots, w_m} = W$, so $T_1 + T_2$ is surjective.
 	Since $T_1$ and $T_2$ are not surjective, but their sum is surjective, the set $\set{T \in \lin{V, W} \mid T \text{ is not surjective}}$ is not closed under addition and thus is not a subspace of $\lin{V, W}$.
 \end{sol}
@@ -143,11 +185,17 @@
 
 \begin{sol}
     Suppose $a_1, \ldots, a_n \in \fbb$ are such that
-    \[a_1 Tv_1 + \cdots + a_n Tv_n = 0.\]
+    \[
+    	a_1 Tv_1 + \cdots + a_n Tv_n = 0.
+    \]
     By linearity of $T$, we have
-    \[T(a_1 v_1 + \cdots + a_n v_n) = 0.\]
+    \[
+    	T(a_1 v_1 + \cdots + a_n v_n) = 0.
+    \]
     Injectivity of $T$ implies that $\nul T = \set{0}$, so
-    \[a_1 v_1 + \cdots + a_n v_n = 0.\]
+    \[
+    	a_1 v_1 + \cdots + a_n v_n = 0.
+    \]
     Since $v_1, \ldots, v_n$ is linearly independent, it follows that $a_1 = \cdots = a_n = 0$.
 	Therefore, $Tv_1, \ldots, Tv_n$ is linearly independent in $W$.
 \end{sol}
@@ -161,10 +209,14 @@
     Let $w \in \range T$.
 	Then there exists $v \in V$ such that $Tv = w$.
 	Since $v_1, \ldots, v_n$ spans $V$, we can write
-    \[v = a_1 v_1 + \cdots + a_n v_n\]
+    \[
+    	v = a_1 v_1 + \cdots + a_n v_n
+    \]
     for some scalars $a_1, \ldots, a_n \in \fbb$.
 	By linearity of $T$, we have
-    \[w = Tv = T(a_1 v_1 + \cdots + a_n v_n) = a_1 Tv_1 + \cdots + a_n Tv_n.\]
+    \[
+    	w = Tv = T(a_1 v_1 + \cdots + a_n v_n) = a_1 Tv_1 + \cdots + a_n Tv_n.
+    \]
     Therefore, $w$ is a linear combination of $Tv_1, \ldots, Tv_n$.
 	Since $w$ was arbitrary in $\range T$, it follows that $Tv_1, \ldots, Tv_n$ spans $\range T$.
 \end{sol}
@@ -172,7 +224,9 @@
 \begin{exercise}[3b11]
     Suppose that $V$ is finite-dimensional and that $T \in \lin{V, W}$.
 	Prove that there exists a subspace $U$ of $V$ such that
-    \[U \cap \nul T = \set{0} \quad \text{and} \quad \range T = \set{Tu \mid u \in U}.\]
+    \[
+    	U \cap \nul T = \set{0} \quad \text{and} \quad \range T = \set{Tu \mid u \in U}.
+    \]
     \remark{Note that this exercise proves the existence of a subspace $U$ of $V$ such that $V = U \op \nul T$.}
 \end{exercise}
 
@@ -180,27 +234,41 @@
     Since $\nul T$ is a subspace of $V$, we can extend a basis of $\nul T$ to a basis of $V$.
 	Let $n_1, \ldots, n_k$ be a basis of $\nul T$, and extend this to a basis of $V$ by adding vectors $u_1, \ldots, u_m$.
 	Hence, a basis for $V$ is given by
-    \[n_1, \ldots, n_k, u_1, \ldots, u_m.\]
+    \[
+    	n_1, \ldots, n_k, u_1, \ldots, u_m.
+    \]
     Define $U = \spn(u_1, \ldots, u_m)$.
 	Suppose $v \in U \cap \nul T$.
 	Then $v$ can be expressed as a linear combination of the basis vectors of $U$:
-    \[v = \alpha_1 u_1 + \cdots + \alpha_m u_m.\]
+    \[
+    	v = \alpha_1 u_1 + \cdots + \alpha_m u_m.
+    \]
     Since $v \in \nul T$ as well, we can also express $v$ as a linear combination of the basis vectors of $\nul T$:
-    \[v = \beta_1 n_1 + \cdots + \beta_k n_k.\]
+    \[
+    	v = \beta_1 n_1 + \cdots + \beta_k n_k.
+    \]
     Equating the two expressions for $v$, we have
-    \[\alpha_1 u_1 + \cdots + \alpha_m u_m = \beta_1 n_1 + \cdots + \beta_k n_k.\]
+    \[
+    	\alpha_1 u_1 + \cdots + \alpha_m u_m = \beta_1 n_1 + \cdots + \beta_k n_k.
+    \]
     Since $n_1, \ldots, n_k, u_1, \ldots, u_m$ is a basis for $V$, the only way this equality can hold is if all coefficients are zero, i.e., $\alpha_1 = \cdots = \alpha_m = 0$ and $\beta_1 = \cdots = \beta_k = 0$.
 	Therefore, $v = 0$, and we conclude that $U \cap \nul T = \set{0}$.
 
     Now, let $w \in \range T$.
 	Then there exists $v \in V$ such that $Tv = w$.
 	We can express $v$ as a linear combination of the basis vectors of $V$:
-    \[v = \gamma_1 n_1 + \cdots + \gamma_k n_k + \delta_1 u_1 + \cdots + \delta_m u_m.\]
+    \[
+    	v = \gamma_1 n_1 + \cdots + \gamma_k n_k + \delta_1 u_1 + \cdots + \delta_m u_m.
+    \]
     Applying $T$ to both sides, we have
-    \[Tv = T(\gamma_1 n_1 + \cdots + \gamma_k n_k + \delta_1 u_1 + \cdots + \delta_m u_m) = \gamma_1 Tn_1 + \cdots + \gamma_k Tn_k + \delta_1 Tu_1 + \cdots + \delta_m Tu_m.\]
+    \[
+    	Tv = T(\gamma_1 n_1 + \cdots + \gamma_k n_k + \delta_1 u_1 + \cdots + \delta_m u_m) = \gamma_1 Tn_1 + \cdots + \gamma_k Tn_k + \delta_1 Tu_1 + \cdots + \delta_m Tu_m.
+    \]
     Since $n_1, \ldots, n_k \in \nul T$, we have $Tn_i = 0$ for all $i = 1, \ldots, k$.
 	Therefore,
-    \[Tv = \delta_1 Tu_1 + \cdots + \delta_m Tu_m.\]
+    \[
+    	Tv = \delta_1 Tu_1 + \cdots + \delta_m Tu_m.
+    \]
     Let $u = \delta_1 u_1 + \cdots + \delta_m u_m \in U$.
 	Then $Tu = w$.
 	Since $w$ was arbitrary in $\range T$, it follows that $\range T = \set{Tu \mid u \in U}$.
@@ -209,17 +277,23 @@
 
 \begin{exercise}[3b12]
     Suppose $T$ is a linear map from $\fbb^4$ to $\fbb^2$ such that
-    \[\nul T = \set{(x_1, x_2, x_3, x_4) \in \fbb^4 \mid x_1 = 5x_2 \text{ and } x_3 = 7x_4}.\]
+    \[
+    	\nul T = \set{(x_1, x_2, x_3, x_4) \in \fbb^4 \mid x_1 = 5x_2 \text{ and } x_3 = 7x_4}.
+    \]
     Prove that $T$ is surjective.
 \end{exercise}
 
 \begin{sol}
     We may write the null space of $T$ as
-    \[\nul T = \set{(5x_2, x_2, 7x_4, x_4) \mid x_2, x_4 \in \fbb}.\]
+    \[
+    	\nul T = \set{(5x_2, x_2, 7x_4, x_4) \mid x_2, x_4 \in \fbb}.
+    \]
     From this, we can see that $\nul T$ is spanned by the vectors $(5, 1, 0, 0)$ and $(0, 0, 7, 1)$.
 	Therefore, $\dim \nul T = 2$.
 	By the fundamental theorem of linear maps, we have
-    \[\dim \fbb^4 = \dim \nul T + \dim \range T \implies 4 = 2 + \dim \range T.\]
+    \[
+    	\dim \fbb^4 = \dim \nul T + \dim \range T \implies 4 = 2 + \dim \range T.
+    \]
     Solving for $\dim \range T$, we find that $\dim \range T = 2$.
 	Since $\dim \fbb^2 = 2$, it follows that $\range T = \fbb^2$.
 	Therefore, $T$ is surjective.
@@ -232,7 +306,9 @@
 
 \begin{sol}
     By the fundamental theorem of linear maps, we have
-    \[\dim \rbb^8 = \dim \nul T + \dim \range T \implies 8 = 3 + \dim \range T.\]
+    \[
+    	\dim \rbb^8 = \dim \nul T + \dim \range T \implies 8 = 3 + \dim \range T.
+    \]
     Solving for $\dim \range T$, we find that $\dim \range T = 5$.
 	Since $\dim \rbb^5 = 5$, it follows that $\range T = \rbb^5$.
 	Therefore, $T$ is surjective.
@@ -244,11 +320,15 @@
 
 \begin{sol}
     We can express the null space as
-    \[\nul T = \set{(3x_2, x_2, x_4, x_4, x_4) \mid x_2, x_4 \in \fbb}.\]
+    \[
+    	\nul T = \set{(3x_2, x_2, x_4, x_4, x_4) \mid x_2, x_4 \in \fbb}.
+    \]
     From this, we can see that $\nul T$ is spanned by the vectors $(3, 1, 0, 0, 0)$ and $(0, 0, 1, 1, 1)$.
 	Therefore, $\dim \nul T = 2$.
 	By the fundamental theorem of linear maps, we have
-    \[\dim \fbb^5 = \dim \nul T + \dim \range T \implies 5 = 2 + \dim \range T.\]
+    \[
+    	\dim \fbb^5 = \dim \nul T + \dim \range T \implies 5 = 2 + \dim \range T.
+    \]
     Solving for $\dim \range T$, we find that $\dim \range T = 3$.
 	However, $\dim \fbb^2 = 2$, which is less than $3$.
 	This is a contradiction, as the dimension of the range cannot exceed the dimension of the target space.
@@ -270,17 +350,27 @@
     
     Let $v \in V$.
 	Then $Tv \in \range T$, so we may write
-    \[Tv = \alpha_1 w_1 + \cdots + \alpha_n w_n\]
+    \[
+    	Tv = \alpha_1 w_1 + \cdots + \alpha_n w_n
+    \]
     for some scalars $\alpha_1, \ldots, \alpha_n \in \fbb$.
 	Consider the vector
-    \[u = v - (\alpha_1 v_1 + \cdots + \alpha_n v_n).\]
+    \[
+    	u = v - (\alpha_1 v_1 + \cdots + \alpha_n v_n).
+    \]
     Then
-    \[Tu = Tv - (\alpha_1 Tv_1 + \cdots + \alpha_n Tv_n) = Tv - (\alpha_1 w_1 + \cdots + \alpha_n w_n) = 0.\]
+    \[
+    	Tu = Tv - (\alpha_1 Tv_1 + \cdots + \alpha_n Tv_n) = Tv - (\alpha_1 w_1 + \cdots + \alpha_n w_n) = 0.
+    \]
     Therefore, $u \in \nul T$, and we can write
-    \[u = \beta_1 u_1 + \cdots + \beta_m u_m\]
+    \[
+    	u = \beta_1 u_1 + \cdots + \beta_m u_m
+    \]
     for some scalars $\beta_1, \ldots, \beta_m \in \fbb$.
 	Thus,
-    \[v = u + (\alpha_1 v_1 + \cdots + \alpha_n v_n) = \beta_1 u_1 + \cdots + \beta_m u_m + \alpha_1 v_1 + \cdots + \alpha_n v_n,\]
+    \[
+    	v = u + (\alpha_1 v_1 + \cdots + \alpha_n v_n) = \beta_1 u_1 + \cdots + \beta_m u_m + \alpha_1 v_1 + \cdots + \alpha_n v_n,
+    \]
     which shows that the list spans $V$.
 	Hence, $V$ is finite-dimensional.
 \end{sol}
@@ -293,24 +383,34 @@
 \begin{sol}
     Suppose there exists an injective linear map $T \in \lin{V, W}$.
 	By the fundamental theorem of linear maps, we have
-    \[\dim V = \dim \nul T + \dim \range T.\]
+    \[
+    	\dim V = \dim \nul T + \dim \range T.
+    \]
     Since $T$ is injective, $\nul T = \set{0}$, so $\dim \nul T = 0$.
 	Therefore,
-    \[\dim V = 0 + \dim \range T = \dim \range T.\]
+    \[
+    	\dim V = 0 + \dim \range T = \dim \range T.
+    \]
     Since $\range T$ is a subspace of $W$, we have $\dim \range T \leq \dim W$.
 	Thus,
-    \[\dim V = \dim \range T \leq \dim W.\]
+    \[
+    	\dim V = \dim \range T \leq \dim W.
+    \]
 
     Conversely, suppose $\dim V \leq \dim W$.
 	Let $n = \dim V$ and $m = \dim W$.
 	Choose a basis $\set{v_1, \ldots, v_n}$ of $V$.
 	Let $\set{w_1, \ldots, w_m}$ be a basis of $W$.
 	Define a linear map $T \in \lin{V, W}$ by
-    \[Tv_i = w_i \quad \text{for } i = 1, \ldots, n.\]
+    \[
+    	Tv_i = w_i \quad \text{for } i = 1, \ldots, n.
+    \]
     Since $n \leq m$, we can assign each basis vector of $V$ to a distinct basis vector of $W$.
 	To show that $T$ is injective, let $v = \alpha_1 v_1 + \cdots + \alpha_n v_n \in V$ such that $Tv = 0$.
 	Then
-    \[Tv = \alpha_1 Tv_1 + \cdots + \alpha_n Tv_n = \alpha_1 w_1 + \cdots + \alpha_n w_n = 0.\]
+    \[
+    	Tv = \alpha_1 Tv_1 + \cdots + \alpha_n Tv_n = \alpha_1 w_1 + \cdots + \alpha_n w_n = 0.
+    \]
     Since $w_1, \ldots, w_n$ are linearly independent, it follows that $\alpha_1 = \cdots = \alpha_n = 0$.
 	Therefore, $v = 0$, and $T$ is injective.
 	Hence, there exists an injective linear map from $V$ to $W$ if and only if $\dim V \leq \dim W$.
@@ -324,25 +424,37 @@
 \begin{sol}
     Suppose there exists a surjective linear map $T \in \lin{V, W}$.
 	By the fundamental theorem of linear maps, we have
-    \[\dim V = \dim \nul T + \dim \range T.\]
+    \[
+    	\dim V = \dim \nul T + \dim \range T.
+    \]
     Since $T$ is surjective, $\range T = W$, so $\dim \range T = \dim W$.
 	Therefore,
-    \[\dim V = \dim \nul T + \dim W.\]
+    \[
+    	\dim V = \dim \nul T + \dim W.
+    \]
     Since $\dim \nul T \geq 0$, it follows that
-    \[\dim V \geq \dim W.\]
+    \[
+    	\dim V \geq \dim W.
+    \]
 
     Conversely, suppose $\dim V \geq \dim W$.
 	Let $n = \dim V$ and $m = \dim W$.
 	Choose a basis $\set{v_1, \ldots, v_n}$ of $V$.
 	Let $\set{w_1, \ldots, w_m}$ be a basis of $W$.
 	Define a linear map $T \in \lin{V, W}$ by
-    \[Tv_i = w_i \quad \text{for } i = 1, \ldots, m, \quad Tv_i = 0 \quad \text{for } i = m + 1, \ldots, n.\]
+    \[
+    	Tv_i = w_i \quad \text{for } i = 1, \ldots, m, \quad Tv_i = 0 \quad \text{for } i = m + 1, \ldots, n.
+    \]
     To show that $T$ is surjective, let $w \in W$.
 	Then $w$ can be expressed as a linear combination of the basis vectors of $W$:
-    \[w = \beta_1 w_1 + \cdots + \beta_m w_m.\]
+    \[
+    	w = \beta_1 w_1 + \cdots + \beta_m w_m.
+    \]
     Consider the vector $v = \beta_1 v_1 + \cdots + \beta_m v_m \in V$.
 	Then
-    \[Tv = \beta_1 Tv_1 + \cdots + \beta_m Tv_m = \beta_1 w_1 + \cdots + \beta_m w_m = w.\]
+    \[
+    	Tv = \beta_1 Tv_1 + \cdots + \beta_m Tv_m = \beta_1 w_1 + \cdots + \beta_m w_m = w.
+    \]
     Since $w$ was arbitrary in $W$, it follows that $\range T = W$.
 	Therefore, $T$ is surjective.
 	Hence, there exists a surjective linear map from $V$ onto $W$ if and only if $\dim V \geq \dim W$.
@@ -356,31 +468,45 @@
 \begin{sol}
     Suppose there exists $T \in \lin{V, W}$ such that $\nul T = U$.
 	By the fundamental theorem of linear maps, we have
-    \[\dim V = \dim \nul T + \dim \range T = \dim U + \dim \range T.\]
+    \[
+    	\dim V = \dim \nul T + \dim \range T = \dim U + \dim \range T.
+    \]
     Since $\range T$ is a subspace of $W$, we have $\dim \range T \leq \dim W$.
 	Therefore,
-    \[\dim V = \dim U + \dim \range T \leq \dim U + \dim W.\]
+    \[
+    	\dim V = \dim U + \dim \range T \leq \dim U + \dim W.
+    \]
     Rearranging this inequality gives
-    \[\dim U \geq \dim V - \dim W.\]
+    \[
+    	\dim U \geq \dim V - \dim W.
+    \]
 
     Conversely, suppose $\dim U \geq \dim V - \dim W$.
 	Let $n = \dim V$, $m = \dim W$, and $k = \dim U$.
 	Let $u_1, \ldots, u_k$ be a basis of $U$.
 	Extend this basis to a basis of $V$ by adding vectors $v_1, \ldots, v_{n - k}$.
 	Define a linear map $T \in \lin{V, W}$ by
-    \[Tu_i = 0 \quad \text{for } i = 1, \ldots, k, \quad Tv_j = w_j \quad \text{for } j = 1, \ldots, n - k,\]
+    \[
+    	Tu_i = 0 \quad \text{for } i = 1, \ldots, k, \quad Tv_j = w_j \quad \text{for } j = 1, \ldots, n - k,
+    \]
     where $w_1, \ldots, w_{n - k}$ are linearly independent vectors in $W$.
 	Since $\dim U = k$ and $\dim V - \dim W = n - m$, we have $k \geq n - m$, which implies that $n - k \leq m$.
 	Therefore, we can choose $w_1, \ldots, w_{n - k}$ to be linearly independent in $W$.
 	To show that $\nul T = U$, let $v \in \nul T$.
 	Then $Tv = 0$.
 	Express $v$ as a linear combination of the basis vectors of $V$:
-    \[v = \alpha_1 u_1 + \cdots + \alpha_k u_k + \beta_1 v_1 + \cdots + \beta_{n - k} v_{n - k}.\]
+    \[
+    	v = \alpha_1 u_1 + \cdots + \alpha_k u_k + \beta_1 v_1 + \cdots + \beta_{n - k} v_{n - k}.
+    \]
     Applying $T$ to both sides, we have
-    \[Tv = \alpha_1 Tu_1 + \cdots + \alpha_k Tu_k + \beta_1 Tv_1 + \cdots + \beta_{n - k} Tv_{n - k} = 0 + \beta_1 w_1 + \cdots + \beta_{n - k} w_{n - k} = 0.\]
+    \[
+    	Tv = \alpha_1 Tu_1 + \cdots + \alpha_k Tu_k + \beta_1 Tv_1 + \cdots + \beta_{n - k} Tv_{n - k} = 0 + \beta_1 w_1 + \cdots + \beta_{n - k} w_{n - k} = 0.
+    \]
     Since $w_1, \ldots, w_{n - k}$ are linearly independent, it follows that $\beta_1 = \cdots = \beta_{n - k} = 0$.
 	Therefore,
-    \[v = \alpha_1 u_1 + \cdots + \alpha_k u_k \in U.\]
+    \[
+    	v = \alpha_1 u_1 + \cdots + \alpha_k u_k \in U.
+    \]
     Hence, $\nul T \subseteq U$.
 	Conversely, if $v \in U$, then $Tv = 0$ by the definition of $T$.
 	Therefore, $U \subseteq \nul T$.
@@ -405,19 +531,29 @@
 	Then $\set{Tv_1, \ldots, Tv_n}$ is linearly independent in $W$.
 	Extend this set to a basis of $W$ by adding vectors $w_1, \ldots, w_{m - n}$.
 	Define a linear map $S \in \lin{W, V}$ by
-    \[S(Tv_i) = v_i \quad \text{for } i = 1, \ldots, n, \quad S(w_j) = 0 \quad \text{for } j = 1, \ldots, m - n.\]
+    \[
+    	S(Tv_i) = v_i \quad \text{for } i = 1, \ldots, n, \quad S(w_j) = 0 \quad \text{for } j = 1, \ldots, m - n.
+    \]
     Then for any $v \in V$, we can express $v$ as a linear combination of the basis vectors:
-    \[v = \alpha_1 v_1 + \cdots + \alpha_n v_n.\]
+    \[
+    	v = \alpha_1 v_1 + \cdots + \alpha_n v_n.
+    \]
     Applying $T$ to both sides, we have
-    \[Tv = \alpha_1 Tv_1 + \cdots + \alpha_n Tv_n.\]
+    \[
+    	Tv = \alpha_1 Tv_1 + \cdots + \alpha_n Tv_n.
+    \]
     Now, applying $S$ to $Tv$, we get
-    \[STv = S(\alpha_1 Tv_1 + \cdots + \alpha_n Tv_n) = \alpha_1 S(Tv_1) + \cdots + \alpha_n S(Tv_n) = \alpha_1 v_1 + \cdots + \alpha_n v_n = v.\]
+    \[
+    	STv = S(\alpha_1 Tv_1 + \cdots + \alpha_n Tv_n) = \alpha_1 S(Tv_1) + \cdots + \alpha_n S(Tv_n) = \alpha_1 v_1 + \cdots + \alpha_n v_n = v.
+    \]
     Therefore, $ST$ is the identity operator on $V$.
 
     Conversely, suppose there exists $S \in \lin{W, V}$ such that $ST$ is the identity operator on $V$.
 	Let $v \in \nul T$.
 	Then $Tv = 0$, and applying $S$ gives
-    \[STv = S(0) = 0.\]
+    \[
+    	STv = S(0) = 0.
+    \]
     Since $ST$ is the identity operator on $V$, we have $v = STv = 0$.
 	Therefore, $\nul T = \set{0}$, which means $T$ is injective.
 \end{sol}
@@ -433,19 +569,29 @@
 	Let $m = \dim W$ and choose a basis $\set{w_1, \ldots, w_m}$ of $W$.
 	Since $T$ is surjective, for each $w_i$, there exists $v_i \in V$ such that $Tv_i = w_i$.
 	Define a linear map $S \in \lin{W, V}$ by
-    \[S(w_i) = v_i \quad \text{for } i = 1, \ldots, m.\]
+    \[
+    	S(w_i) = v_i \quad \text{for } i = 1, \ldots, m.
+    \]
     Then for any $w \in W$, we can express $w$ as a linear combination of the basis vectors:
-    \[w = \alpha_1 w_1 + \cdots + \alpha_m w_m.\]
+    \[
+    	w = \alpha_1 w_1 + \cdots + \alpha_m w_m.
+    \]
     Applying $S$ to both sides, we have
-    \[Sw = S(\alpha_1 w_1 + \cdots + \alpha_m w_m) = \alpha_1 S(w_1) + \cdots + \alpha_m S(w_m) = \alpha_1 v_1 + \cdots + \alpha_m v_m.\]
+    \[
+    	Sw = S(\alpha_1 w_1 + \cdots + \alpha_m w_m) = \alpha_1 S(w_1) + \cdots + \alpha_m S(w_m) = \alpha_1 v_1 + \cdots + \alpha_m v_m.
+    \]
     Now, applying $T$ to $Sw$, we get
-    \[TSw = T(\alpha_1 v_1 + \cdots + \alpha_m v_m) = \alpha_1 Tv_1 + \cdots + \alpha_m Tv_m = \alpha_1 w_1 + \cdots + \alpha_m w_m = w.\]
+    \[
+    	TSw = T(\alpha_1 v_1 + \cdots + \alpha_m v_m) = \alpha_1 Tv_1 + \cdots + \alpha_m Tv_m = \alpha_1 w_1 + \cdots + \alpha_m w_m = w.
+    \]
     Therefore, $TS$ is the identity operator on $W$.
 
     Conversely, suppose there exists $S \in \lin{W, V}$ such that $TS$ is the identity operator on $W$.
 	Let $w \in W$.
 	Then
-    \[TSw = w.\]
+    \[
+    	TSw = w.
+    \]
     This means that for every $w \in W$, there exists a vector $v = Sw \in V$ such that $Tv = T(Sw) = w$.
 	Therefore, $\range T = W$, which means that $T$ is surjective.
 \end{sol}
@@ -453,7 +599,9 @@
 \begin{exercise}[3b21]
     Suppose $V$ is finite-dimensional, $T \in \lin{V, W}$, and $U$ is a subspace of $W$.
 	Prove that $\set{v \in V \mid Tv \in U}$ is a subspace of $V$ and
-    \[\dim\set{v \in V \mid Tv \in U} = \dim \nul T + \dim(U \cap \range T).\]
+    \[
+    	\dim\set{v \in V \mid Tv \in U} = \dim \nul T + \dim(U \cap \range T).
+    \]
 \end{exercise}
 
 \begin{sol}
@@ -461,7 +609,9 @@
 	We first show that $X$ is a subspace of $V$.
 	Let $v_1, v_2 \in X$ and $\alpha, \beta \in \fbb$.
 	Then
-    \[T(\alpha v_1 + \beta v_2) = \alpha Tv_1 + \beta Tv_2.\]
+    \[
+    	T(\alpha v_1 + \beta v_2) = \alpha Tv_1 + \beta Tv_2.
+    \]
     Since $Tv_1, Tv_2 \in U$ and $U$ is a subspace of $W$, it follows that $\alpha Tv_1 + \beta Tv_2 \in U$.
 	Therefore, $\alpha v_1 + \beta v_2 \in X$, and thus $X$ is a subspace of $V$.
 
@@ -476,79 +626,121 @@
 	Let $v \in X$.
 	Then $Tv \in U$, and since $Tv \in \range T$, we have $Tv \in Y$.
 	Therefore, there exist scalars $\alpha_1, \ldots, \alpha_m \in \fbb$ such that
-    \[Tv = \alpha_1 y_1 + \cdots + \alpha_m y_m = \alpha_1 Tv_1 + \cdots + \alpha_m Tv_m.\]
+    \[
+    	Tv = \alpha_1 y_1 + \cdots + \alpha_m y_m = \alpha_1 Tv_1 + \cdots + \alpha_m Tv_m.
+    \]
     Let $v' = v - (\alpha_1 v_1 + \cdots + \alpha_m v_m)$.
 	Then
-    \[Tv' = Tv - T(\alpha_1 v_1 + \cdots + \alpha_m v_m) = Tv - (\alpha_1 Tv_1 + \cdots + \alpha_m Tv_m) = 0.\]
+    \[
+    	Tv' = Tv - T(\alpha_1 v_1 + \cdots + \alpha_m v_m) = Tv - (\alpha_1 Tv_1 + \cdots + \alpha_m Tv_m) = 0.
+    \]
     Therefore, $v' \in \nul T$, and we can express $v'$ as a linear combination of the basis vectors of $\nul T$:
-    \[v' = \beta_1 n_1 + \cdots + \beta_k n_k\]
+    \[
+    	v' = \beta_1 n_1 + \cdots + \beta_k n_k
+    \]
     for some scalars $\beta_1, \ldots, \beta_k \in \fbb$.
 	Thus,
-    \[v = v' + (\alpha_1 v_1 + \cdots + \alpha_m v_m) = \beta_1 n_1 + \cdots + \beta_k n_k + \alpha_1 v_1 + \cdots + \alpha_m v_m.\]
+    \[
+    	v = v' + (\alpha_1 v_1 + \cdots + \alpha_m v_m) = \beta_1 n_1 + \cdots + \beta_k n_k + \alpha_1 v_1 + \cdots + \alpha_m v_m.
+    \]
     This shows that $v$ is a linear combination of the vectors in $\set{n_1, \ldots, n_k, v_1, \ldots, v_m}$, and hence this set spans $X$.
 
     Next, we show that this set is linearly independent.
 	Suppose
-    \[\gamma_1 n_1 + \cdots + \gamma_k n_k + \delta_1 v_1 + \cdots + \delta_m v_m = 0\]
+    \[
+    	\gamma_1 n_1 + \cdots + \gamma_k n_k + \delta_1 v_1 + \cdots + \delta_m v_m = 0
+    \]
     for some scalars $\gamma_1, \ldots, \gamma_k, \delta_1, \ldots, \delta_m \in \fbb$.
 	Observe that $Tn_i = 0$ for all $i = 1, \ldots, k$, and $Tv_j = y_j$ for all $j = 1, \ldots, m$.
 	Therefore,
-    \[0 = T(\gamma_1 n_1 + \cdots + \gamma_k n_k + \delta_1 v_1 + \cdots + \delta_m v_m) = \delta_1 y_1 + \cdots + \delta_m y_m.\]
+    \[
+    	0 = T(\gamma_1 n_1 + \cdots + \gamma_k n_k + \delta_1 v_1 + \cdots + \delta_m v_m) = \delta_1 y_1 + \cdots + \delta_m y_m.
+    \]
     Since $y_1, \ldots, y_m$ are linearly independent, it follows that $\delta_1 = \cdots = \delta_m = 0$.
 	Therefore,
-    \[\gamma_1 n_1 + \cdots + \gamma_k n_k = 0.\]
+    \[
+    	\gamma_1 n_1 + \cdots + \gamma_k n_k = 0.
+    \]
     Since $n_1, \ldots, n_k$ are linearly independent, $\gamma_1 = \cdots = \gamma_k = 0$.
 	Thus, the set $\set{n_1, \ldots, n_k, v_1, \ldots, v_m}$ is linearly independent and a basis of $X$.
 	Therefore,
-    \[\dim X = k + m = \dim \nul T + \dim(U \cap \range T).\]
+    \[
+    	\dim X = k + m = \dim \nul T + \dim(U \cap \range T).
+    \]
 \end{sol}
 
 \begin{exercise}[3b22]
     Suppose $U$ and $V$ are finite-dimensional vector spaces and $S \in \lin{V, W}$ and $T \in \lin{U, V}$.
 	Prove that
-    \[\dim \nul ST \leq \dim \nul S + \dim \nul T.\]
+    \[
+    	\dim \nul ST \leq \dim \nul S + \dim \nul T.
+    \]
 \end{exercise}
 
 \begin{sol}
     Let $u \in U$ such that $u \in \nul ST$.
 	Then $STu = 0$, which implies that $Tu \in \nul S$.
 	Therefore, we can express $\nul ST$ as
-    \[\nul ST = \set{u \in U \mid Tu \in \nul S}.\]
+    \[
+    	\nul ST = \set{u \in U \mid Tu \in \nul S}.
+    \]
     Observe that this looks similar to the set in Exercise 3b21, where $T$ is a linear map from $U$ to $V$ and $\nul S$ is a subspace of $V$.
 	By applying the result from Exercise 3b21, we have
-    \[\dim \nul ST = \dim \nul T + \dim(\nul S \cap \range T).\]
+    \[
+    	\dim \nul ST = \dim \nul T + \dim(\nul S \cap \range T).
+    \]
     Since $\nul S \cap \range T$ is a subspace of $\nul S$, we have
-    \[\dim(\nul S \cap \range T) \leq \dim \nul S.\]
+    \[
+    	\dim(\nul S \cap \range T) \leq \dim \nul S.
+    \]
     Therefore,
-    \[\dim \nul ST = \dim \nul T + \dim(\nul S \cap \range T) \leq \dim \nul T + \dim \nul S. \qh\]
+    \[
+    	\dim \nul ST = \dim \nul T + \dim(\nul S \cap \range T) \leq \dim \nul T + \dim \nul S. \qh
+    \]
 \end{sol}
 
 \begin{exercise}[3b23]
     Suppose $U$ and $V$ are finite-dimensional vector spaces and $S \in \lin{V, W}$ and $T \in \lin{U, V}$.
 	Prove that
-    \[\dim \range ST \leq \min(\dim \range S, \dim \range T).\]
+    \[
+    	\dim \range ST \leq \min(\dim \range S, \dim \range T).
+    \]
 \end{exercise}
 
 \begin{sol}
     Let $u \in U$ such that $STu \in \range ST$.
 	Then $STu = S(Tu)$, which implies that $Tu \in \range T$.
 	Therefore, we can express $\range ST$ as
-    \[\range ST = \set{S(Tu) \mid u \in U}.\]
+    \[
+    	\range ST = \set{S(Tu) \mid u \in U}.
+    \]
     Since $Tu \in \range T$, we can rewrite this as
-    \[\range ST = \set{Sv \mid v \in \range T}.\]
+    \[
+    	\range ST = \set{Sv \mid v \in \range T}.
+    \]
     This shows that $\range ST$ is a subset of $\range S$, and hence
-    \[\dim \range ST \leq \dim \range S.\]
+    \[
+    	\dim \range ST \leq \dim \range S.
+    \]
     Now let $v_1, \ldots, v_m$ be a basis of $\range T$.
 	Then for any $u \in U$, we can express $Tu$ as a linear combination of the basis vectors:
-    \[Tu = \alpha_1 v_1 + \cdots + \alpha_m v_m\]
+    \[
+    	Tu = \alpha_1 v_1 + \cdots + \alpha_m v_m
+    \]
     for some scalars $\alpha_1, \ldots, \alpha_m \in \fbb$.
 	Applying $S$ to both sides, we have
-    \[STu = S(Tu) = S(\alpha_1 v_1 + \cdots + \alpha_m v_m) = \alpha_1 Sv_1 + \cdots + \alpha_m Sv_m.\]
+    \[
+    	STu = S(Tu) = S(\alpha_1 v_1 + \cdots + \alpha_m v_m) = \alpha_1 Sv_1 + \cdots + \alpha_m Sv_m.
+    \]
     This shows that $\range ST$ is spanned by the vectors $Sv_1, \ldots, Sv_m$.
 	Therefore,
-    \[\dim \range ST \leq m = \dim \range T.\]
+    \[
+    	\dim \range ST \leq m = \dim \range T.
+    \]
     Combining the two inequalities, we have
-    \[\dim \range ST \leq \min(\dim \range S, \dim \range T). \qh\]
+    \[
+    	\dim \range ST \leq \min(\dim \range S, \dim \range T). \qh
+    \]
 \end{sol}
 
 \begin{exercise}[3b24]
@@ -563,24 +755,36 @@
     \item Since $ST = 0$, then $S(Tv) = 0$ for all $v \in V$.
 	This implies that $\range T \subseteq \nul S$.
 	By the fundamental theorem of linear maps, we have
-    \[5 = \dim \nul S + \dim \range S \geq \dim \range T + \dim \range S.\]
+    \[
+    	5 = \dim \nul S + \dim \range S \geq \dim \range T + \dim \range S.
+    \]
     Now, by \exref{3b23}, we have
-    \[\dim \range TS \leq \min(\dim \range T, \dim \range S).\]
+    \[
+    	\dim \range TS \leq \min(\dim \range T, \dim \range S).
+    \]
     Suppose that $\dim \range TS > 2$.
 	Then both $\dim \range T$ and $\dim \range S$ must be greater than $2$, or equivalently, $\dim \range T \geq 3$ and $\dim \range S \geq 3$.
 	This implies that
-    \[\dim \range T + \dim \range S \geq 3 + 3 = 6 > 5,\]
+    \[
+    	\dim \range T + \dim \range S \geq 3 + 3 = 6 > 5,
+    \]
     which is a contradiction.
 	Therefore, $\dim \range TS \leq 2$.
     \item Let $v_1, v_2, v_3, v_4, v_5$ be a basis of $\fbb^5$.
 	Define $S, T \in \lin{\fbb^5}$ by
-    \[Sv_1 = v_1, \quad Sv_2 = v_2, \quad Sv_3 = Sv_4 = Sv_5 = 0,\]
+    \[
+    	Sv_1 = v_1, \quad Sv_2 = v_2, \quad Sv_3 = Sv_4 = Sv_5 = 0,
+    \]
     and
-    \[Tv_1 = v_3, \quad Tv_2 = v_4, \quad Tv_3 = Tv_4 = Tv_5 = 0.\]
+    \[
+    	Tv_1 = v_3, \quad Tv_2 = v_4, \quad Tv_3 = Tv_4 = Tv_5 = 0.
+    \]
     Then $ST = 0$ since $S(Tv_i) = S(0) = 0$ for all $i = 1, \ldots, 5$.
 	Now, we compute $\range TS$.
 	We have
-    \[TSv_1 = T(Sv_1) = Tv_1 = v_3, \quad TSv_2 = T(Sv_2) = Tv_2 = v_4, \quad TSv_3 = TSv_4 = TSv_5 = 0.\]
+    \[
+    	TSv_1 = T(Sv_1) = Tv_1 = v_3, \quad TSv_2 = T(Sv_2) = Tv_2 = v_4, \quad TSv_3 = TSv_4 = TSv_5 = 0.
+    \]
     Therefore, $\range TS = \spn(v_3, v_4)$, which has dimension $2$.
 	Thus, we have constructed an example of $S, T \in \lin{\fbb^5}$ with $ST = 0$ and $\dim \range TS = 2$.
 \end{sole}
@@ -606,13 +810,17 @@
 
     By \exref{3a13}, we can extend $R$ to some $E \in \lin{W}$.
 	Then for any $v \in V$, we have
-    \[Tv = R(Sv) = E(Sv),\]
+    \[
+    	Tv = R(Sv) = E(Sv),
+    \]
     and hence $T = ES$.
 
     Conversely, suppose there exists $E \in \lin{W}$ such that $T = ES$.
 	Let $v \in \nul S$.
 	Then $Sv = 0$, and applying $E$ gives
-    \[Tv = E(Sv) = E(0) = 0.\]
+    \[
+    	Tv = E(Sv) = E(0) = 0.
+    \]
     Therefore, $v \in \nul T$, and hence $\nul S \subseteq \nul T$.
 \end{sol}
 
@@ -629,19 +837,27 @@
 	Let $v_1, \ldots, v_n$ be a basis of $V$.
 	For each $i = 1, \ldots, n$, since $Sv_i \in \range S \subseteq \range T$, there exists $u_i \in V$ such that $Tu_i = Sv_i$.
 	Define a linear map $E \in \lin{V}$ by
-    \[Ev_i = u_i \quad \text{for } i = 1, \ldots, n.\]
+    \[
+    	Ev_i = u_i \quad \text{for } i = 1, \ldots, n.
+    \]
     Then for any $v \in V$, we can express $v$ as a linear combination of the basis vectors:
-    \[v = \alpha_1 v_1 + \cdots + \alpha_n v_n\]
+    \[
+    	v = \alpha_1 v_1 + \cdots + \alpha_n v_n
+    \]
     for some scalars $\alpha_1, \ldots, \alpha_n \in \fbb$.
 	Applying $S$ and $TE$ to both sides, we have
-    \[Sv = \alpha_1 Sv_1 + \cdots + \alpha_n Sv_n = \alpha_1 Tu_1 + \cdots + \alpha_n Tu_n = T(\alpha_1 u_1 + \cdots + \alpha_n u_n) = TEv.\]
+    \[
+    	Sv = \alpha_1 Sv_1 + \cdots + \alpha_n Sv_n = \alpha_1 Tu_1 + \cdots + \alpha_n Tu_n = T(\alpha_1 u_1 + \cdots + \alpha_n u_n) = TEv.
+    \]
     Therefore, $S = TE$.
 
     Conversely, suppose there exists $E \in \lin{V}$ such that $S = TE$.
 	Let $w \in \range S$.
 	Then there exists $v \in V$ such that $Sv = w$.
 	Applying the definition of $S$, we have
-    \[w = Sv = TE(v) = T(E(v)).\]
+    \[
+    	w = Sv = TE(v) = T(E(v)).
+    \]
     Therefore, $w \in \range T$, and hence $\range S \subseteq \range T$.
 \end{sol}
 
@@ -653,26 +869,38 @@
 \begin{sol}
     Let $v \in V$.
 	We can express $v$ as
-    \[v = (v - Pv) + Pv.\]
+    \[
+    	v = (v - Pv) + Pv.
+    \]
     Observe that $Pv \in \range P$ by definition.
 	Now, we need to show that $v - Pv \in \nul P$.
 	Applying $P$ to $v - Pv$, we have
-    \[P(v - Pv) = Pv - P^2v = Pv - Pv = 0.\]
+    \[
+    	P(v - Pv) = Pv - P^2v = Pv - Pv = 0.
+    \]
     Therefore, $v - Pv \in \nul P$.
 	This shows that every vector $v \in V$ can be expressed as a sum of a vector in $\nul P$ and a vector in $\range P$, which implies that
-    \[V = \nul P + \range P.\]
+    \[
+    	V = \nul P + \range P.
+    \]
 
     Next, we need to show that the sum is direct.
 	Suppose $u \in \nul P \cap \range P$.
 	Then there exists some $w \in V$ such that $u = Pw$.
 	Since $u \in \nul P$, we have
-    \[Pu = P(Pw) = P^2w = Pw = u.\]
+    \[
+    	Pu = P(Pw) = P^2w = Pw = u.
+    \]
     But since $u \in \nul P$, we also have $Pu = 0$.
 	Therefore, we have
-    \[u = Pu = 0.\]
+    \[
+    	u = Pu = 0.
+    \]
     This shows that the intersection of $\nul P$ and $\range P$ is trivial, i.e., $\nul P \cap \range P = \set{0}$.
 	Hence, the sum is direct, and we conclude that
-    \[V = \nul P \oplus \range P. \qh\]
+    \[
+    	V = \nul P \oplus \range P. \qh
+    \]
 \end{sol}
 
 \begin{exercise}[3b28]
@@ -691,7 +919,9 @@
     Thus, $D(x), D(x^2), \ldots, D(x^{n+1})$ is a list of $n + 1$ polynomials with pairwise distinct degrees, which implies linear independence.
     Since $\dim \pcal_n(\rbb) = n + 1$, this list is a basis for $\pcal_n(\rbb)$.
     In particular, $p \in \pcal_n(\rbb)$, so there exist scalars $c_1, \ldots, c_{n+1} \in \rbb$ such that
-    \[p = \sum_{k=1}^{n+1} c_k D(x^k) = D\!\left(\sum_{k=1}^{n+1} c_k x^k\right) \in \range D.\]
+    \[
+    	p = \sum_{k=1}^{n+1} c_k D(x^k) = D\!\left(\sum_{k=1}^{n+1} c_k x^k\right) \in \range D.
+    \]
     Since $p$ was arbitrary, $D$ is surjective.
 \end{sol}
 
@@ -710,34 +940,50 @@
     Suppose $\phi \in \lin{V, \fbb}$ and $\phi \neq 0$.
 	Suppose $u \in V$ is not in $\nul \phi$.
 	Prove that
-    \[V = \nul \phi \op \set{au \mid a \in \fbb}.\]
+    \[
+    	V = \nul \phi \op \set{au \mid a \in \fbb}.
+    \]
 \end{exercise}
 
 \begin{sol}
     Let $v \in V$.
 	We want to show that $v$ can be expressed as a sum of a vector in $\nul \phi$ and a scalar multiple of $u$.
 	Since $\phi(u) \neq 0$, we can define a scalar
-    \[a = \frac{\phi(v)}{\phi(u)}.\]
+    \[
+    	a = \frac{\phi(v)}{\phi(u)}.
+    \]
     Then consider the vector
-    \[w = v - au.\]
+    \[
+    	w = v - au.
+    \]
     We have
-    \[\phi(w) = \phi(v - au) = \phi(v) - a\phi(u) = \phi(v) - \frac{\phi(v)}{\phi(u)}\phi(u) = 0.\]
+    \[
+    	\phi(w) = \phi(v - au) = \phi(v) - a\phi(u) = \phi(v) - \frac{\phi(v)}{\phi(u)}\phi(u) = 0.
+    \]
     Therefore, $w \in \nul \phi$.
 	Thus, we can express $v$ as
-    \[v = w + au,\]
+    \[
+    	v = w + au,
+    \]
     where $w \in \nul \phi$ and $au$ is a scalar multiple of $u$.
 	This shows that every vector in $V$ can be expressed as a sum of a vector in $\nul \phi$ and a scalar multiple of $u$, which implies that
-    \[V = \nul \phi + \set{au \mid a \in \fbb}.\]
+    \[
+    	V = \nul \phi + \set{au \mid a \in \fbb}.
+    \]
 
     Next, we need to show that the sum is direct.
 	Suppose $w \in \nul \phi \cap \set{au \mid a \in \fbb}$.
 	Then there exists a scalar $a \in \fbb$ such that $w = au$.
 	Since $w \in \nul \phi$, we have
-    \[0 = \phi(w) = \phi(au) = a\phi(u).\]
+    \[
+    	0 = \phi(w) = \phi(au) = a\phi(u).
+    \]
     Since $\phi(u) \neq 0$, it follows that $a = 0$.
 	Therefore, $w = 0$, which shows that the intersection of $\nul \phi$ and $\set{au \mid a \in \fbb}$ is trivial.
 	Hence, the sum is direct, and we conclude that
-    \[V = \nul \phi \oplus \set{au \mid a \in \fbb}. \qh\]
+    \[
+    	V = \nul \phi \oplus \set{au \mid a \in \fbb}. \qh
+    \]
 \end{sol}
 
 \begin{exercise}[3b31]
@@ -748,7 +994,9 @@
 \begin{sol}
     Suppose there exists $T \in \lin{V, W}$ such that $\nul T = X$ and $\range T = Y$.
 	By the fundamental theorem of linear maps, we have
-    \[\dim V = \dim \nul T + \dim \range T = \dim X + \dim Y.\]
+    \[
+    	\dim V = \dim \nul T + \dim \range T = \dim X + \dim Y.
+    \]
 
     Conversely, suppose $\dim X + \dim Y = \dim V$.
 	Let $n = \dim V$, $k = \dim X$, and $m = \dim Y$.
@@ -756,18 +1004,28 @@
 	Choose a basis $\set{x_1, \ldots, x_k}$ of $X$ and extend it to a basis $\set{x_1, \ldots, x_k, v_1, \ldots, v_m}$ of $V$.
 	Let $\set{y_1, \ldots, y_m}$ be a basis of $Y$.
 	Define a linear map $T \in \lin{V, W}$ by
-    \[Tx_i = 0 \quad \text{for } i = 1, \ldots, k,\]
+    \[
+    	Tx_i = 0 \quad \text{for } i = 1, \ldots, k,
+    \]
     and
-    \[Tv_j = y_j \quad \text{for } j = 1, \ldots, m.\]
+    \[
+    	Tv_j = y_j \quad \text{for } j = 1, \ldots, m.
+    \]
     Then for any $v \in V$, we can express $v$ as a linear combination of the basis vectors:
-    \[v = \alpha_1 x_1 + \cdots + \alpha_k x_k + \beta_1 v_1 + \cdots + \beta_m v_m\]
+    \[
+    	v = \alpha_1 x_1 + \cdots + \alpha_k x_k + \beta_1 v_1 + \cdots + \beta_m v_m
+    \]
     for some scalars $\alpha_1, \ldots, \alpha_k, \beta_1, \ldots, \beta_m \in \fbb$.
 	Applying $T$ to both sides gives
-    \[Tv = \alpha_1 Tx_1 + \cdots + \alpha_k Tx_k + \beta_1 Tv_1 + \cdots + \beta_m Tv_m = 0 + \beta_1 y_1 + \cdots + \beta_m y_m.\]
+    \[
+    	Tv = \alpha_1 Tx_1 + \cdots + \alpha_k Tx_k + \beta_1 Tv_1 + \cdots + \beta_m Tv_m = 0 + \beta_1 y_1 + \cdots + \beta_m y_m.
+    \]
     Therefore, $Tv \in Y$.
 	Now suppose $y = \gamma_1 y_1 + \cdots + \gamma_m y_m \in Y$.
 	Then
-    \[T(\gamma_1 v_1 + \cdots + \gamma_m v_m) = \gamma_1 y_1 + \cdots + \gamma_m y_m = y.\]
+    \[
+    	T(\gamma_1 v_1 + \cdots + \gamma_m v_m) = \gamma_1 y_1 + \cdots + \gamma_m y_m = y.
+    \]
     Hence, $\range T = Y$.
 	Moreover, if $Tv = 0$, then $\beta_1 y_1 + \cdots + \beta_m y_m = 0$.
 	Since $y_1, \ldots, y_m$ are linearly independent, it follows that $\beta_1 = \cdots = \beta_m = 0$.
@@ -786,10 +1044,14 @@
 
 \begin{sol}
     Observe that $\nul \phi$ is a two-sided ideal of $\lin V$ as follows: if $X \in \nul \phi$ and $Y \in \lin V$, then
-    \[\phi(XY) = \phi(X)\phi(Y) = 0 \cdot \phi(Y) = 0, \quad \phi(YX) = \phi(Y)\phi(X) = \phi(Y) \cdot 0 = 0.\]
+    \[
+    	\phi(XY) = \phi(X)\phi(Y) = 0 \cdot \phi(Y) = 0, \quad \phi(YX) = \phi(Y)\phi(X) = \phi(Y) \cdot 0 = 0.
+    \]
     Since $\dim V > 1$, then \exref{3a16} gives the existence of $S, T \in \lin V$ such that $ST \neq TS$.
 	Then we have
-    \[\phi(ST - TS) = \phi(S) \phi(T) - \phi(T) \phi(S) = 0.\]
+    \[
+    	\phi(ST - TS) = \phi(S) \phi(T) - \phi(T) \phi(S) = 0.
+    \]
     Therefore, $ST - TS \in \nul \phi$.
 	Since $\nul \phi$ is a two-sided ideal of $\lin V$, then by \exref{3a17}, we have $\nul \phi = \lin V$.
 	Hence, $\phi = 0$.
@@ -798,7 +1060,9 @@
 \begin{exercise}[3b33]
     Suppose that $V$ and $W$ are real vector spaces and $T \in \lin{V, W}$.
 	Define $T_\cbb: V_\cbb \to W_\cbb$ by
-    \[T_\cbb(u + iv) = Tu + iTv\]
+    \[
+    	T_\cbb(u + iv) = Tu + iTv
+    \]
     for all $u, v \in V$.
     \begin{subexercises}
         \item Show that $T_\cbb$ is a (complex) linear map from $V_\cbb$ to $W_\cbb$.
@@ -824,21 +1088,27 @@
     \item Suppose $T_\cbb$ is injective.
 	Let $v \in V$ be such that $Tv = 0$.
 	Then
-    \[T_\cbb(v + i0) = Tv + iT0 = 0 + i0 = 0.\]
+    \[
+    	T_\cbb(v + i0) = Tv + iT0 = 0 + i0 = 0.
+    \]
     Since $T_\cbb$ is injective, we have $v + i0 = 0$, which implies that $v = 0$.
 	Therefore, $T$ is injective.
 
     Conversely, suppose $T$ is injective.
 	Let $u + iv \in V_\cbb$ be such that $T_\cbb(u + iv) = 0$.
 	Then
-    \[Tu + iTv = 0.\]
+    \[
+    	Tu + iTv = 0.
+    \]
     This implies that $Tu = 0$ and $Tv = 0$.
 	Since $T$ is injective, we have $u = 0$ and $v = 0$.
 	Therefore, $u + iv = 0$, and hence $T_\cbb$ is injective.
     \item Suppose $\range T_\cbb = W_\cbb$.
 	Let $w \in W$.
 	Then $w + i0 \in W_\cbb$, and since $\range T_\cbb = W_\cbb$, there exists $u + iv \in V_\cbb$ such that
-    \[T_\cbb(u + iv) = Tu + iTv = w + i0.\]
+    \[
+    	T_\cbb(u + iv) = Tu + iTv = w + i0.
+    \]
     This implies that $Tu = w$ and $Tv = 0$.
 	Therefore, $w \in \range T$, and hence $\range T = W$.
 
@@ -846,6 +1116,8 @@
 	Let $w_1 + iw_2 \in W_\cbb$.
 	Since $\range T = W$, there exist $u, v \in V$ such that $Tu = w_1$ and $Tv = w_2$.
 	Then
-    \[T_\cbb(u + iv) = Tu + iTv = w_1 + iw_2.\]
+    \[
+    	T_\cbb(u + iv) = Tu + iTv = w_1 + iw_2.
+    \]
     Therefore, $w_1 + iw_2 \in \range T_\cbb$, and hence $\range T_\cbb = W_\cbb$.
 \end{sole}

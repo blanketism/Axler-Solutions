@@ -25,7 +25,9 @@
 	Then $v = v_1 + \cdots + v_m$ for some $v_i \in V_i$.
 	Since each $V_i$ is invariant under $T$, we have $T(v_i) \in V_i$ for each $i$.
 	Therefore,
-    \[T(v) = T(v_1 + \cdots + v_m) = T(v_1) + \cdots + T(v_m) \in V_1 + \cdots + V_m,\]
+    \[
+    	T(v) = T(v_1 + \cdots + v_m) = T(v_1) + \cdots + T(v_m) \in V_1 + \cdots + V_m,
+    \]
     so $V_1 + \cdots + V_m$ is invariant under $T$.
 \end{sol}
 
@@ -36,7 +38,9 @@
 
 \begin{sol}
     Let $\{U_i\}_{i \in I}$ be a collection of subspaces of $V$ invariant under $T$, and let
-    \[U = \bigcap_{i \in I} U_i.\]
+    \[
+    	U = \bigcap_{i \in I} U_i.
+    \]
     Let $u \in U$.
 	Then $u \in U_i$ for all $i \in I$.
 	Since each $U_i$ is invariant under $T$, we have $T(u) \in U_i$ for all $i \in I$.
@@ -65,10 +69,10 @@
 \begin{sol}
     If $(x, y)$ is an eigenvector of $T$ with eigenvalue $\lambda$, then we have the system of equations
     \[
-    \begin{cases}
-        -3y = \lambda x,\\
-        x = \lambda y
-    \end{cases}
+        \begin{cases}
+            -3y = \lambda x,\\
+            x = \lambda y
+        \end{cases}
     \]
     Solving the system, we get $\lambda^2 = -3$ which has no real solutions.
 	Therefore, $T$ has no real eigenvalues.
@@ -82,14 +86,14 @@
 \begin{sol}
     If $(w, z)$ is an eigenvector of $T$ with eigenvalue $\lambda$, then we have
     \[
-    (z, w) = \lambda (w, z),
+        (z, w) = \lambda (w, z),
     \]
     which gives the system
     \[
-    \begin{cases}
-        z = \lambda w,\\
-        w = \lambda z.
-    \end{cases}
+        \begin{cases}
+            z = \lambda w,\\
+            w = \lambda z.
+        \end{cases}
     \]
     Solving, we get $\lambda^2 = 1$, so $\lambda = 1$ or $\lambda = -1$.
 	If $\lambda = 1$, then $z = w$, so the eigenvectors are of the form $(w, w)$.
@@ -104,15 +108,15 @@
 \begin{sol}
     If $(z_1, z_2, z_3)$ is an eigenvector of $T$ with eigenvalue $\lambda$, then we have
     \[
-    (2z_2, 0, 5z_3) = \lambda (z_1, z_2, z_3),
+        (2z_2, 0, 5z_3) = \lambda (z_1, z_2, z_3),
     \]
     which gives the system
     \[
-    \begin{cases}
-        2z_2 = \lambda z_1,\\
-        0 = \lambda z_2,\\
-        5z_3 = \lambda z_3.
-    \end{cases}
+        \begin{cases}
+            2z_2 = \lambda z_1,\\
+            0 = \lambda z_2,\\
+            5z_3 = \lambda z_3.
+        \end{cases}
     \]
     Solving, we get the eigenvalues $\lambda = 0$ and $\lambda = 5$.
 	For $\lambda = 0$, the eigenvectors are of the form $(z_1, 0, 0)$.
@@ -156,9 +160,13 @@
 \begin{sol}
     Let $p(x) = a_0 + a_1x + a_2x^2 + a_3x^3 + a_4x^4$ be an eigenvector of $T$ with eigenvalue $\lambda$.
     Then
-    \[(Tp)(x) = xp'(x) = x(a_1 + 2a_2x + 3a_3x^2 + 4a_4x^3) = a_1x + 2a_2x^2 + 3a_3x^3 + 4a_4x^4.\]
+    \[
+    	(Tp)(x) = xp'(x) = x(a_1 + 2a_2x + 3a_3x^2 + 4a_4x^3) = a_1x + 2a_2x^2 + 3a_3x^3 + 4a_4x^4.
+    \]
     Equating coefficients with $\lambda p(x) = \lambda a_0 + \lambda a_1x + \lambda a_2x^2 + \lambda a_3x^3 + \lambda a_4x^4$ yields the system:
-    \[\lambda a_0 = 0, \quad \lambda a_1 = a_1, \quad \lambda a_2 = 2a_2, \quad \lambda a_3 = 3a_3, \quad \lambda a_4 = 4a_4.\]
+    \[
+    	\lambda a_0 = 0, \quad \lambda a_1 = a_1, \quad \lambda a_2 = 2a_2, \quad \lambda a_3 = 3a_3, \quad \lambda a_4 = 4a_4.
+    \]
     For each $n \in \set{0, 1, 2, 3, 4}$, the equation $\lambda a_n = n a_n$ is satisfied with $a_n \neq 0$ if and only if $\lambda = n$.
     When $\lambda = n$, all other coefficients must be zero, so the eigenvector is a nonzero scalar multiple of $x^n$.
     Therefore, the eigenvalues of $T$ are $0, 1, 2, 3, 4$, with corresponding eigenvectors being nonzero scalar multiples of $1, x, x^2, x^3, x^4$, respectively.
@@ -174,7 +182,9 @@
 	If $T$ has no eigenvalues, then $T - \lambda I$ is invertible for all $\lambda \in \fbb$, and we can choose any $\delta > 0$.
 	Otherwise, let $\lambda_1, \ldots, \lambda_m$ be the eigenvalues of $T$.
 	Define
-    \[\delta = \min_{\lambda_j \neq \alpha} |\alpha - \lambda_j|.\]
+    \[
+    	\delta = \min_{\lambda_j \neq \alpha} |\alpha - \lambda_j|.
+    \]
     If $\alpha$ is the only eigenvalue, then we can select any $\delta > 0$ since any $\lambda$ satisfying $0 < |\alpha - \lambda| < \delta$ will not be equal to $\alpha$, and hence $T - \lambda I$ will be invertible.
 	Otherwise, we have for any $\lambda \in \fbb$ such that $0 < |\alpha - \lambda| < \delta$, we have $\lambda \neq \lambda_j$ for all $j = 1, \ldots, m$, so $\lambda$ is not an eigenvalue of $T$.
 	Hence, $T - \lambda I$ is invertible for all such $\lambda$.
@@ -207,7 +217,9 @@
 \begin{sole}
     \item Let $\lambda$ be an eigenvalue of $T$ with eigenvector $v \in V$, so $T(v) = \lambda v$.
 	Then
-    \[(S\inv TS)(S\inv v) = S\inv T(v) = S\inv (\lambda v) = \lambda (S\inv v).\]
+    \[
+    	(S\inv TS)(S\inv v) = S\inv T(v) = S\inv (\lambda v) = \lambda (S\inv v).
+    \]
     Thus, $S\inv v$ is an eigenvector of $S\inv TS$ with eigenvalue $\lambda$.
 	This shows that every eigenvalue of $T$ is an eigenvalue of $S\inv TS$.
 	Conversely, if $\lambda$ is an eigenvalue of $S\inv TS$ with eigenvector $u$, then $S u$ is an eigenvector of $T$ with eigenvalue $\lambda$.
@@ -223,18 +235,23 @@
 
 \begin{sol}
     Consider the linear operator on $\rbb^4$ given by the matrix
-    \[T = 
-    \begin{pmatrix}
-        0 & -1 & 0 & 0 \\
-        1 & 0 & 0 & 0 \\
-        0 & 0 & 0 & -1 \\
-        0 & 0 & 1 & 0
-    \end{pmatrix}.
+    \[
+        T = 
+        \begin{pmatrix}
+            0 & -1 & 0 & 0 \\
+            1 & 0 & 0 & 0 \\
+            0 & 0 & 0 & -1 \\
+            0 & 0 & 1 & 0
+        \end{pmatrix}.
     \]
     Letting $T$ act on $(x_1, x_2, x_3, x_4) \in \rbb^4$, we have
-    \[T(x_1, x_2, x_3, x_4) = (-x_2, x_1, -x_4, x_3).\]
+    \[
+    	T(x_1, x_2, x_3, x_4) = (-x_2, x_1, -x_4, x_3).
+    \]
     Then any eigenvector $(x_1, x_2, x_3, x_4) \in \rbb^4$ with eigenvalue $\lambda$ must satisfy
-    \[(-x_2, x_1, -x_4, x_3) = \lambda (x_1, x_2, x_3, x_4).\]
+    \[
+    	(-x_2, x_1, -x_4, x_3) = \lambda (x_1, x_2, x_3, x_4).
+    \]
     This yields $\lambda^2 + 1 = 0$, which has no solution in $\rbb$.
 \end{sol}
 
@@ -255,7 +272,9 @@
 \begin{exercise}[5a16]
     Suppose $v_1, \ldots, v_n$ is a basis of $V$ and $T \in \lin{V}$.
 	Prove that if $\lambda$ is an eigenvalue of $T$, then
-    \[|\lambda| \leq n \max\{|\mcal(T)_{j, k}| : 1 \leq j, k \leq n\},\]
+    \[
+    	|\lambda| \leq n \max\{|\mcal(T)_{j, k}| : 1 \leq j, k \leq n\},
+    \]
     where $\mcal(T)_{j, k}$ denotes the entry in row $j$, column $k$ of the matrix of $T$ with respect to the basis $v_1, \ldots, v_n$.
     
     \note{See \exref{6a19} for a different bound on $|\lambda|$.}
@@ -265,11 +284,17 @@
     Let $\lambda$ be an eigenvalue of $T$ with eigenvector $u \in V$, so $Tu = \lambda u$.
 	Let $\mcal(T)$ be the matrix of $T$ with respect to the basis $v_1, \ldots, v_n$.
 	Then
-    \[\lambda u_j = (\mcal(T)u)_j = \sum_{k=1}^n \mcal(T)_{j, k} u_k \quad \text{for each } j = 1, \ldots, n.\]
+    \[
+    	\lambda u_j = (\mcal(T)u)_j = \sum_{k=1}^n \mcal(T)_{j, k} u_k \quad \text{for each } j = 1, \ldots, n.
+    \]
     Taking absolute values, we get
-    \[|\lambda||u_j| = \left|\sum_{k=1}^n \mcal(T)_{j, k} u_k\right| \leq \sum_{k=1}^n |\mcal(T)_{j, k}| |u_k| \leq n \max\{|\mcal(T)_{j, k}| : 1 \leq j, k \leq n\} \max\{|u_k| : 1 \leq k \leq n\}.\]
+    \[
+    	|\lambda||u_j| = \left|\sum_{k=1}^n \mcal(T)_{j, k} u_k\right| \leq \sum_{k=1}^n |\mcal(T)_{j, k}| |u_k| \leq n \max\{|\mcal(T)_{j, k}| : 1 \leq j, k \leq n\} \max\{|u_k| : 1 \leq k \leq n\}.
+    \]
     Choosing $j$ such that $|u_j| = \max\{|u_k| : 1 \leq k \leq n\}$, we obtain
-    \[|\lambda| \leq n \max\{|\mcal(T)_{j, k}| : 1 \leq j, k \leq n\}. \qh\]
+    \[
+    	|\lambda| \leq n \max\{|\mcal(T)_{j, k}| : 1 \leq j, k \leq n\}. \qh
+    \]
 \end{sol}
 
 \begin{exercise}[5a17]
@@ -285,9 +310,13 @@
 
     Conversely, suppose $\lambda$ is an eigenvalue of $T_\cbb$ with eigenvector $v + iw \in V_\cbb$, where $v, w \in V$.
 	Then
-    \[T_\cbb(v + iw) = Tv + iTw = \lambda (v + iw) = \lambda v + i\lambda w.\]
+    \[
+    	T_\cbb(v + iw) = Tv + iTw = \lambda (v + iw) = \lambda v + i\lambda w.
+    \]
     Equating real and imaginary parts, we get
-    \[Tv = \lambda v \quad \text{and} \quad Tw = \lambda w.\]
+    \[
+    	Tv = \lambda v \quad \text{and} \quad Tw = \lambda w.
+    \]
     Since $\lambda \in \rbb$, if $v \neq 0$, then $v$ is an eigenvector of $T$ corresponding to $\lambda$.
 	If $v = 0$, then $w \neq 0$ and $Tw = \lambda w$, so $w$ is an eigenvector of $T$ corresponding to $\lambda$.
 	This shows that $\lambda$ is an eigenvalue of $T$.
@@ -301,14 +330,20 @@
 \begin{sol}
     Suppose $\lambda$ is an eigenvalue of $T_\cbb$ with eigenvector $v + iw \in V_\cbb$, where $v, w \in V$.
 	Then
-    \[T_\cbb(v + iw) = Tv + iTw = \lambda (v + iw) = \lambda v + i\lambda w.\]
+    \[
+    	T_\cbb(v + iw) = Tv + iTw = \lambda (v + iw) = \lambda v + i\lambda w.
+    \]
     Moreover, we have
-    \[T_\cbb(v - iw) = Tv - iTw.\]
+    \[
+    	T_\cbb(v - iw) = Tv - iTw.
+    \]
     Note that $v + iw = 0$ if and only if both $v = w = 0$.
 	Then $v + iw \neq 0$ implies $v -i w \neq 0$.
 	Let $\lambda = a + bi$ with $a, b \in \rbb$.
 	Then equating real and imaginary parts, we have
-    \[Tv = av - bw \quad \text{and} \quad Tw = bv + aw.\]
+    \[
+    	Tv = av - bw \quad \text{and} \quad Tw = bv + aw.
+    \]
     Then
     \begin{align*}
         T_\cbb(v - iw) &= Tv - iTw \\
@@ -325,14 +360,18 @@
 
 \begin{exercise}[5a19]
     Show that the forward shift operator $T \in \lin{\fbb^\infty}$ defined by
-    \[T(z_1, z_2, \ldots) = (0, z_1, z_2, \ldots)\]
+    \[
+    	T(z_1, z_2, \ldots) = (0, z_1, z_2, \ldots)
+    \]
     has no eigenvalues.
 \end{exercise}
 
 \begin{sol}
     Suppose $\lambda \in \fbb$ is an eigenvalue of $T$ with eigenvector $(z_1, z_2, \ldots) \in \fbb^\infty$.
 	Then
-    \[T(z_1, z_2, \ldots) = (0, z_1, z_2, \ldots) = \lambda (z_1, z_2, \ldots).\]
+    \[
+    	T(z_1, z_2, \ldots) = (0, z_1, z_2, \ldots) = \lambda (z_1, z_2, \ldots).
+    \]
     Equating the first component, we get $0 = \lambda z_1$, so either $\lambda = 0$ or $z_1 = 0$.
 	If $\lambda = 0$, then the second component gives $z_1 = 0$, and the third component gives $z_2 = 0$, and so on.
 	By induction, all $z_k = 0$, contradicting that the eigenvector is nonzero.
@@ -343,7 +382,9 @@
 
 \begin{exercise}[5a20]
     Define the backward shift operator $S \in \lin{\fbb^\infty}$ by
-    \[S(z_1, z_2, z_3, \ldots) = (z_2, z_3, \ldots).\]
+    \[
+    	S(z_1, z_2, z_3, \ldots) = (z_2, z_3, \ldots).
+    \]
     \begin{subexercises}
         \item Show that every element of $\fbb$ is an eigenvalue of $S$.
         \item Find all eigenvectors of $S$.
@@ -354,14 +395,20 @@
     \item Let $\alpha \in \fbb$.
 	Consider the vector $(1, \alpha, \alpha^2, \ldots) \in \fbb^\infty$.
 	Then
-    \[S(1, \alpha, \alpha^2, \ldots) = (\alpha, \alpha^2, \alpha^3, \ldots) = \alpha (1, \alpha, \alpha^2, \ldots),\]
+    \[
+    	S(1, \alpha, \alpha^2, \ldots) = (\alpha, \alpha^2, \alpha^3, \ldots) = \alpha (1, \alpha, \alpha^2, \ldots),
+    \]
     showing that $\alpha$ is an eigenvalue of $S$ with eigenvector $(1, \alpha, \alpha^2, \ldots)$.
 	Since $\alpha \in \fbb$ was arbitrary, every element of $\fbb$ is an eigenvalue of $S$.
     \item Let $\alpha \in \fbb$ and consider the eigenvalue $\alpha$ of $S$.
 	Any eigenvector corresponding to $\alpha$ must satisfy
-    \[S(z_1, z_2, z_3, \ldots) = \alpha (z_1, z_2, z_3, \ldots),\]
+    \[
+    	S(z_1, z_2, z_3, \ldots) = \alpha (z_1, z_2, z_3, \ldots),
+    \]
     which gives
-    \[(z_2, z_3, z_4, \ldots) = (\alpha z_1, \alpha z_2, \alpha z_3, \ldots).\]
+    \[
+    	(z_2, z_3, z_4, \ldots) = (\alpha z_1, \alpha z_2, \alpha z_3, \ldots).
+    \]
     Equating components, we get $z_2 = \alpha z_1$, $z_3 = \alpha z_2 = \alpha^2 z_1$, and in general $z_k = \alpha^{k-1} z_1$ for $k \geq 1$.
 	Therefore, all eigenvectors corresponding to $\alpha$ are of the form $(z_1, \alpha z_1, \alpha^2 z_1, \ldots) = z_1 (1, \alpha, \alpha^2, \ldots)$ with $z_1 \neq 0$.
 \end{sole}
@@ -378,18 +425,28 @@
 \begin{sole}
     \item Suppose $\lambda \in \fbb$ with $\lambda \neq 0$ is an eigenvalue of $T$ with eigenvector $v \in V$.
 	Then
-    \[Tv = \lambda v.\]
+    \[
+    	Tv = \lambda v.
+    \]
     Since $T$ is invertible, we can apply $T\inv$ to both sides to get
-    \[v = T\inv (\lambda v) = \lambda T\inv v.\]
+    \[
+    	v = T\inv (\lambda v) = \lambda T\inv v.
+    \]
     Dividing both sides by $\lambda$ (which is nonzero), we obtain
-    \[T\inv v = \frac{1}{\lambda} v.\]
+    \[
+    	T\inv v = \frac{1}{\lambda} v.
+    \]
     This shows that $\frac{1}{\lambda}$ is an eigenvalue of $T\inv$ with the same eigenvector $v$.
     
     Conversely, suppose $\mu \in \fbb$ with $\mu \neq 0$ is an eigenvalue of $T\inv$ with eigenvector $v \in V$.
 	Then
-    \[T\inv v = \mu v.\]
+    \[
+    	T\inv v = \mu v.
+    \]
     Applying $T$ to both sides gives
-    \[v = \mu Tv \implies Tv = \frac{1}{\mu} v.\]
+    \[
+    	v = \mu Tv \implies Tv = \frac{1}{\mu} v.
+    \]
     This shows that $\frac{1}{\mu}$ is an eigenvalue of $T$ with the same eigenvector $v$.
     
     Therefore, $\lambda$ is an eigenvalue of $T$ if and only if $\frac{1}{\lambda}$ is an eigenvalue of $T\inv$.
@@ -400,7 +457,9 @@
 
 \begin{exercise}[5a22]
     Suppose $T \in \lin{V}$ and there exist nonzero vectors $u$ and $w$ in $V$ such that
-    \[Tu = 3w \quad \text{and} \quad Tw = 3u.\]
+    \[
+    	Tu = 3w \quad \text{and} \quad Tw = 3u.
+    \]
     Prove that $3$ or $-3$ is an eigenvalue of $T$.
 \end{exercise}
 
@@ -408,9 +467,13 @@
     Consider the vectors $u + w$ and $u - w$.
 	Since $u$ and $w$ are both nonzero, at least one of $u + w$ or $u - w$ is nonzero.
 	We have
-    \[T(u + w) = Tu + Tw = 3w + 3u = 3(u + w),\]
+    \[
+    	T(u + w) = Tu + Tw = 3w + 3u = 3(u + w),
+    \]
     and
-    \[T(u - w) = Tu - Tw = 3w - 3u = -3(u - w).\]
+    \[
+    	T(u - w) = Tu - Tw = 3w - 3u = -3(u - w).
+    \]
     Hence, one of $u + w$ or $u - w$ is an eigenvector with eigenvalue 3 or $-3$, respectively.
 \end{sol}
 
@@ -421,13 +484,19 @@
 
 \begin{sol}
     Let $\lambda$ be an eigenvalue of $ST$ with eigenvector $v \in V$, so that
-    \[STv = \lambda v.\]
+    \[
+    	STv = \lambda v.
+    \]
     If $\lambda = 0$, then $ST$ is not invertible. Since $V$ is finite-dimensional, $TS$ is also not invertible, so $0$ is an eigenvalue of $TS$.
     Otherwise, if $\lambda \neq 0$, let $w = Tv$.
     Then
-    \[Sw = S(Tv) = STv = \lambda v \neq 0 \implies w \neq 0.\]
+    \[
+    	Sw = S(Tv) = STv = \lambda v \neq 0 \implies w \neq 0.
+    \]
     Now, we have
-    \[TSw = T(STv) = T(\lambda v) = \lambda Tv = \lambda w.\]
+    \[
+    	TSw = T(STv) = T(\lambda v) = \lambda Tv = \lambda w.
+    \]
     Therefore, $w$ is an eigenvector of $TS$ with eigenvalue $\lambda$.
     Then every eigenvalue of $ST$ is also an eigenvalue of $TS$.
     By symmetry, the same argument shows that if $\lambda$ is an eigenvalue of $TS$, then it is also an eigenvalue of $ST$.
@@ -449,7 +518,9 @@
     \item Suppose the sum of the entries in each row of $A$ equals $1$.
 	Let $v = (1, 1, \ldots, 1)^t \in \fbb^n$.
 	Then
-    \[Tv = Av = v,\]
+    \[
+    	Tv = Av = v,
+    \]
     showing that $v$ is an eigenvector of $T$ corresponding to the eigenvalue $1$.
     \item Suppose the sum of the entries in each column of $A$ equals $1$.
 	By part (a), this is equivalent to saying that the sum of the entries in each row of $A^t$ equals $1$, hence $1$ is an eigenvalue of the linear operator defined by $A^t$.
@@ -466,7 +537,9 @@
     Let $Tu = \lambda u$ and $Tw = \mu w$ for some scalars $\lambda, \mu \in \fbb$.
 	Since $u + w$ is also an eigenvector of $T$, we have $T(u + w) = \nu (u + w)$ for some scalar $\nu \in \fbb$.
 	Then
-    \[\lambda u + \mu w = Tu + Tw = T(u + w) = \nu (u + w) = \nu u + \nu w.\]
+    \[
+    	\lambda u + \mu w = Tu + Tw = T(u + w) = \nu (u + w) = \nu u + \nu w.
+    \]
     Suppose $u$ and $w$ correspond to different eigenvalues.
     Then the list $u, w$ is linearly independent, and we can equate coefficients of $u$ and $w$ above to obtain $\lambda = \nu = \mu$, which is a contradiction.
     Therefore, $u$ and $w$ must correspond to the same eigenvalue.
@@ -510,7 +583,9 @@
 	We proceed as follows.
 	Let $\dim V = n$, and extend $v_1$ to a basis $v_1, \ldots, v_n$ of $V$.
 	For each $i = 2, \ldots, n$, let
-    \[U_i = \spn(v_1, w_2, \ldots, w_k), \quad w_2, \ldots, w_k \in \set{v_2, \ldots, v_n} \setminus \set{v_i},\]
+    \[
+    	U_i = \spn(v_1, w_2, \ldots, w_k), \quad w_2, \ldots, w_k \in \set{v_2, \ldots, v_n} \setminus \set{v_i},
+    \]
     i.e., each $U_i$ must contain $v_1$ as well as $k - 1$ vectors from the basis except $v_i$.
 	This choice is possible, since $k \leq n - 1$, so there are enough vectors in $\set{v_2, \ldots, v_n} \setminus \set{v_i}$ to choose $k - 1$ of them.
 	The intersection of all such $U_i$ will be exactly $\spn v_1$.
@@ -555,7 +630,9 @@
 \begin{sol}
     Let $v$ be an eigenvector of $T$ corresponding to the eigenvalue $\lambda$.
 	Then
-    \[(T - 2I)(T - 3I)(T - 4I)v = (T - 2I)(T - 3I)(\lambda - 4)v = (T - 2I)(\lambda - 3)(\lambda - 4)v = (\lambda - 2)(\lambda - 3)(\lambda - 4)v = 0.\]
+    \[
+    	(T - 2I)(T - 3I)(T - 4I)v = (T - 2I)(T - 3I)(\lambda - 4)v = (T - 2I)(\lambda - 3)(\lambda - 4)v = (\lambda - 2)(\lambda - 3)(\lambda - 4)v = 0.
+    \]
     Since $v \neq 0$, it must be that $(\lambda - 2)(\lambda - 3)(\lambda - 4) = 0$.
 	Therefore, $\lambda = 2$, $\lambda = 3$, or $\lambda = 4$.
 \end{sol}
@@ -566,23 +643,24 @@
 
 \begin{sol}
     Consider the rotation matrix by $\pi/4$ radians:
-    \[T = 
-    \begin{pmatrix}
-        \cos(\pi/4) & -\sin(\pi/4) \\
-        \sin(\pi/4) & \cos(\pi/4)
-    \end{pmatrix}.
+    \[
+        T = 
+        \begin{pmatrix}
+            \cos(\pi/4) & -\sin(\pi/4) \\
+            \sin(\pi/4) & \cos(\pi/4)
+        \end{pmatrix}.
     \]
     Then
     \[
-    T^4 = 
-    \begin{pmatrix}
-        \cos(\pi) & -\sin(\pi) \\
-        \sin(\pi) & \cos(\pi)
-    \end{pmatrix} = 
-    \begin{pmatrix}
-        -1 & 0 \\
-        0 & -1
-    \end{pmatrix} = -I. \qh
+        T^4 = 
+        \begin{pmatrix}
+            \cos(\pi) & -\sin(\pi) \\
+            \sin(\pi) & \cos(\pi)
+        \end{pmatrix} = 
+        \begin{pmatrix}
+            -1 & 0 \\
+            0 & -1
+        \end{pmatrix} = -I. \qh
     \]
 \end{sol}
 
@@ -595,10 +673,14 @@
 
 \begin{sol}
     Note that
-    \[T^4 - I = (T^2 - I)(T^2 + I) = (T - I)(T + I)(T^2 + I) = 0.\]
+    \[
+    	T^4 - I = (T^2 - I)(T^2 + I) = (T - I)(T + I)(T^2 + I) = 0.
+    \]
     Since $T$ has no eigenvalues, $T - I$ and $T + I$ are both injective, hence $T^2 - I$ is injective.
     Then for any $v \in V$, we have
-    \[(T^2 - I)(T^2 + I)v = 0,\]
+    \[
+    	(T^2 - I)(T^2 + I)v = 0,
+    \]
     which implies $(T^2 + I)v = 0$ since $T^2 - I$ is injective.
     Therefore, $T^2 + I = 0$, or $T^2 = -I$.
 \end{sol}
@@ -660,7 +742,9 @@
 
 \begin{sol}
     Suppose there exists a linear combination
-    \[a_1 e^{\lambda_1 x} + \cdots + a_n e^{\lambda_n x} = 0\]
+    \[
+    	a_1 e^{\lambda_1 x} + \cdots + a_n e^{\lambda_n x} = 0
+    \]
     for all $x \in \rbb$.
 	Let $V = \spn(e^{\lambda_1 x}, \ldots, e^{\lambda_n x})$ and define $D \in \lin{V}$ by $Df = f'$.
 	Then $De^{\lambda_i x} = \lambda_i e^{\lambda_i x}$, so $e^{\lambda_i x}$ is an eigenvector of $D$ corresponding to the eigenvalue $\lambda_i$.
@@ -675,7 +759,9 @@
 
 \begin{sol}
     Suppose there exists a linear combination
-    \[a_1 \cos(\lambda_1 x) + \cdots + a_n \cos(\lambda_n x) = 0\]
+    \[
+    	a_1 \cos(\lambda_1 x) + \cdots + a_n \cos(\lambda_n x) = 0
+    \]
     for all $x \in \rbb$.
 	Let $V = \spn(\cos(\lambda_1 x), \sin(\lambda_1 x), \ldots, \cos(\lambda_n x), \sin(\lambda_n x))$ and define $D \in \lin{V}$ by $Df = f'$.
 	Then $D^2 \cos(\lambda_i x) = -\lambda_i^2 \cos(\lambda_i x)$, so $\cos(\lambda_i x)$ is an eigenvector of $D^2$ corresponding to the eigenvalue $-\lambda_i^2$.
@@ -686,7 +772,9 @@
 \begin{exercise}[5a37]
     Suppose $V$ is finite-dimensional and $T \in \lin{V}$.
 	Define $\mathcal{A} \in \lin{\lin{V}}$ by
-    \[\mathcal{A}(S) = TS\]
+    \[
+    	\mathcal{A}(S) = TS
+    \]
     for each $S \in \lin{V}$.
 	Prove that the set of eigenvalues of $T$ equals the set of eigenvalues of $\mathcal{A}$.
 \end{exercise}
@@ -695,7 +783,9 @@
     Suppose $\lambda$ is an eigenvalue of $T$ with corresponding eigenvector $v \in V$, so $Tv = \lambda v$.
 	Consider a nonzero $\phi \in V'$ and consider $S \in \lin{V}$ defined by $Sw = \phi(w)v$ for all $w \in V$.
 	Then $S \neq 0$ and for all $w \in V$,
-    \[TSw = T(\phi(w)v) = \phi(w)Tv = \phi(w)\lambda v = \lambda \phi(w)v = \lambda Sw.\]
+    \[
+    	TSw = T(\phi(w)v) = \phi(w)Tv = \phi(w)\lambda v = \lambda \phi(w)v = \lambda Sw.
+    \]
     Hence, $\lambda$ is an eigenvalue of $\mathcal{A}$.
     
     Conversely, if $\lambda$ is an eigenvalue of $\mathcal{A}$ with corresponding eigenvector $S \in \lin{V}$, then $\mathcal{A}(S) = TS = \lambda S$.
@@ -707,7 +797,9 @@
 \begin{exercise}[5a38]
     Suppose $V$ is finite-dimensional, $T \in \lin{V}$, and $U$ is a subspace of $V$ invariant under $T$.
 	The \textit{\emph{\textbf{quotient operator}}} $T / U \in \lin{V / U}$ is defined by
-    \[(T / U)(v + U) = Tv + U\]
+    \[
+    	(T / U)(v + U) = Tv + U
+    \]
     for each $v \in V$.
     \begin{subexercises}
         \item Show that the definition of $T / U$ makes sense (which requires using the condition that $U$ is invariant under $T$) and show that $T / U$ is an operator on $V / U$.
@@ -762,7 +854,9 @@
     Suppose $S, T \in \lin{V}$ and $S$ is invertible.
 	Suppose $p \in \pcal(\fbb)$ is a polynomial.
 	Prove that
-    \[p(STS\inv) = Sp(T)S\inv.\]
+    \[
+    	p(STS\inv) = Sp(T)S\inv.
+    \]
 \end{exercise}
 
 \begin{sol}
@@ -803,7 +897,9 @@
 	Hence, $T^k(u) \in U$ for all non-negative integers $k$.
 	Now let $p(z) = a_0 + a_1 z + \cdots + a_m z^m$ be any polynomial.
 	Then
-    \[p(T)(u) = a_0 u + a_1 T(u) + \cdots + a_m T^m(u) \in U,\]
+    \[
+    	p(T)(u) = a_0 u + a_1 T(u) + \cdots + a_m T^m(u) \in U,
+    \]
     since each term is in $U$.
 	Therefore, $U$ is invariant under $p(T)$ for every polynomial $p \in \pcal(\fbb)$.
 \end{sol}
@@ -821,23 +917,33 @@
 \begin{sole}
     \item Let $\lambda$ be an eigenvalue of $T$ with corresponding eigenvector $v = (x_1, x_2, \ldots, x_n) \in \fbb^n$.
 	Then $T(v) = \lambda v$, which means
-    \[(x_1, 2x_2, 3x_3, \ldots, nx_n) = (\lambda x_1, \lambda x_2, \ldots, \lambda x_n).\]
+    \[
+    	(x_1, 2x_2, 3x_3, \ldots, nx_n) = (\lambda x_1, \lambda x_2, \ldots, \lambda x_n).
+    \]
     Comparing components, we get $\lambda x_i = i x_i$ for each $i = 1, 2, \ldots, n$.
 	Hence, if $x_i \neq 0$, then $\lambda = i$.
 	Therefore, the eigenvalues of $T$ are $1, 2, \ldots, n$, and the corresponding eigenvectors are nonzero multiples of the standard basis vectors $e_1, e_2, \ldots, e_n$.
     \item Let $U$ be an invariant subspace of $\fbb^n$ under $T$.
 	Let
-    \[u = \sum_{i = 1}^n \alpha_i e_i \in U,\]
+    \[
+    	u = \sum_{i = 1}^n \alpha_i e_i \in U,
+    \]
     where $e_i$ are the standard basis vectors of $\fbb^n$ and $\alpha_i \in \fbb$.
 	Since $U$ is invariant under $T$, we have
-    \[Tu = \sum_{i = 1}^n \alpha_i T(e_i) = \sum_{i = 1}^n \alpha_i i e_i \in U.\]
+    \[
+    	Tu = \sum_{i = 1}^n \alpha_i T(e_i) = \sum_{i = 1}^n \alpha_i i e_i \in U.
+    \]
     Consider some index $i$ such that $\alpha_i \neq 0$.
 	Then
-    \[u_1 = Tu - i u = \sum_{j = 1}^n \alpha_j j e_j - i \sum_{j = 1}^n \alpha_j e_j = \sum_{j = 1}^n \alpha_j (j - i) e_j \in U.\]
+    \[
+    	u_1 = Tu - i u = \sum_{j = 1}^n \alpha_j j e_j - i \sum_{j = 1}^n \alpha_j e_j = \sum_{j = 1}^n \alpha_j (j - i) e_j \in U.
+    \]
     The $i$-th term in this sum is $\alpha_i (i - i) e_i = 0$, hence the $e_i$ term is eliminated from $u_1$.
 	Consider another index $j$ of $u_1$ such that $\alpha_j \neq 0$.
 	Then we can form
-    \[u_2 = Tu_1 - j u_1 = \sum_{k = 1}^n \alpha_k (k - i) k e_k - j \sum_{k = 1}^n \alpha_k (k - i) e_k = \sum_{k = 1}^n \alpha_k (k - i) (k - j) e_k \in U.\]
+    \[
+    	u_2 = Tu_1 - j u_1 = \sum_{k = 1}^n \alpha_k (k - i) k e_k - j \sum_{k = 1}^n \alpha_k (k - i) e_k = \sum_{k = 1}^n \alpha_k (k - i) (k - j) e_k \in U.
+    \]
     The $j$-th term in this sum is $\alpha_j (j - i) (j - j) e_j = 0$, and $u_2$ now has all terms except the $i$-th and $j$-th terms.
 	By repeating this process for each index with a nonzero coefficient, we can isolate each $\alpha_i e_i$ in $U$ whenever $\alpha_i \neq 0$.
     This shows that for any $u \in U$, all the standard basis vectors $e_i$ corresponding to nonzero coefficients in $u$ must also be in $U$.

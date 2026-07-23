@@ -75,13 +75,17 @@
     Let $\alpha = a + bi$ for some $a, b \in \rbb$.
 	We want to find $\beta = c + di$ such that $\alpha + \beta = 0$.
 	This gives
-    \[(a + bi) + (c + di) = (a + c) + (b + d)i = 0 + 0i.\]
+    \[
+    	(a + bi) + (c + di) = (a + c) + (b + d)i = 0 + 0i.
+    \]
     Solving for $c$ and $d$, we get $c = -a$ and $d = -b$.
 	Hence, $\beta = c + di = -a - bi = -\alpha$.
 
     To see that $\beta$ is unique, suppose there is another $\gamma \in \cbb$ such that $\alpha + \gamma = 0$.
 	Then
-    \[\beta = \beta + 0 = \beta + (\alpha + \gamma) = (\beta + \alpha) + \gamma = 0 + \gamma = \gamma.\]
+    \[
+    	\beta = \beta + 0 = \beta + (\alpha + \gamma) = (\beta + \alpha) + \gamma = 0 + \gamma = \gamma.
+    \]
     Hence, $\beta$ is unique.
 \end{sol}
 
@@ -97,36 +101,52 @@
 	If $b = 0$, then $a \neq 0$, and $\beta = 1/a$.
 	Otherwise, both $a$ and $b$ are nonzero.
 	We then have
-    \[(a + bi)(c + di) = (ac - bd) + (ad + bc)i = 1 + 0i.\]
+    \[
+    	(a + bi)(c + di) = (ac - bd) + (ad + bc)i = 1 + 0i.
+    \]
     Solving for $c$ and $d$, we get the system of equations
-    \[\begin{cases}
-        ac - bd = 1 \\
-        ad + bc = 0
-    \end{cases} \implies
-    \begin{cases}
-        a^2c - abd = a \\
-        b^2c + abd = 0
-    \end{cases}\]
+    \[
+        \begin{cases}
+            ac - bd = 1 \\
+            ad + bc = 0
+        \end{cases} \implies
+        \begin{cases}
+            a^2c - abd = a \\
+            b^2c + abd = 0
+        \end{cases}
+    \]
     Adding the two equations, we get
-    \[(a^2 + b^2)c = a \implies c = \frac{a}{a^2 + b^2}.\]
+    \[
+    	(a^2 + b^2)c = a \implies c = \frac{a}{a^2 + b^2}.
+    \]
     Substituting this into the second equation, we get
-    \[abd + b^2\frac{a}{a^2 + b^2} = 0 \implies d = \frac{-b}{a^2 + b^2}.\]
+    \[
+    	abd + b^2\frac{a}{a^2 + b^2} = 0 \implies d = \frac{-b}{a^2 + b^2}.
+    \]
     Hence,
-    \[\beta = c + di = \frac{a}{a^2 + b^2} + \frac{-b}{a^2 + b^2}i.\]
+    \[
+    	\beta = c + di = \frac{a}{a^2 + b^2} + \frac{-b}{a^2 + b^2}i.
+    \]
     If $\gamma \in \cbb$ is another complex number such that $\alpha\gamma = 1$, then
-    \[\gamma = \gamma 1 = \gamma (\alpha\beta) = (\gamma\alpha) \beta = 1\beta = \beta.\]
+    \[
+    	\gamma = \gamma 1 = \gamma (\alpha\beta) = (\gamma\alpha) \beta = 1\beta = \beta.
+    \]
     Hence, $\beta$ is unique.
 \end{sol}
 
 \begin{exercise}[1a7]
     Show that
-    \[\frac{-1 + \sqrt3i}{2}\]
+    \[
+    	\frac{-1 + \sqrt3i}{2}
+    \]
     is a cube root of 1.
 \end{exercise}
 
 \begin{sol}
     Note that the complex number given can be written as
-    \[\frac 12(-1 + \sqrt3i).\]
+    \[
+    	\frac 12(-1 + \sqrt3i).
+    \]
     Cubing $-1 + \sqrt3i$, we get
     \begin{align*}
         (-1 + \sqrt 3i)^3 & = (-1)^3 + 3(-1)^2(\sqrt3i) + 3(-1)(\sqrt3i)^2 + (\sqrt3i)^3 \\
@@ -135,7 +155,9 @@
         & = 8.
     \end{align*}
     Therefore,
-    \[\left(\frac{-1 + \sqrt3i}{2}\right)^3 = \frac{(-1 + \sqrt3i)^3}{8} = \frac{8}{8} = 1. \qh\]
+    \[
+    	\left(\frac{-1 + \sqrt3i}{2}\right)^3 = \frac{(-1 + \sqrt3i)^3}{8} = \frac{8}{8} = 1. \qh
+    \]
 \end{sol}
 
 \begin{exercise}[1a8]
@@ -146,64 +168,90 @@
     Let $z = a + bi$ for some $a, b \in \rbb$.
 	We want to find $z$ such that $z^2 = i$.
 	This gives
-    \[(a + bi)^2 = a^2 - b^2 + 2abi = 0 + 1i.\]
+    \[
+    	(a + bi)^2 = a^2 - b^2 + 2abi = 0 + 1i.
+    \]
     Solving for $a$ and $b$, we get the system of equations
-    \[\begin{cases}
-        a^2 - b^2 = 0 \\
-        2ab = 1
-    \end{cases}\]
+    \[
+        \begin{cases}
+            a^2 - b^2 = 0 \\
+            2ab = 1
+        \end{cases}
+    \]
     The first equation yields $a = b$ or $a = -b$.
 	If $a = b$, then the second equation gives
-    \[2b^2 = 1 \implies b = \pm\frac{1}{\sqrt{2}} \implies a = \pm\frac{1}{\sqrt{2}}.\]
+    \[
+    	2b^2 = 1 \implies b = \pm\frac{1}{\sqrt{2}} \implies a = \pm\frac{1}{\sqrt{2}}.
+    \]
     If $a = -b$, this results in $-2b^2 = 1$ which has no solution when $b \in \rbb$.
 	Hence, the two distinct square roots of $i$ are
-    \[\frac{1}{\sqrt{2}} + \frac{1}{\sqrt{2}}i \quad \text{and} \quad -\frac{1}{\sqrt{2}} - \frac{1}{\sqrt{2}}i. \qh\]
+    \[
+    	\frac{1}{\sqrt{2}} + \frac{1}{\sqrt{2}}i \quad \text{and} \quad -\frac{1}{\sqrt{2}} - \frac{1}{\sqrt{2}}i. \qh
+    \]
 \end{sol}
 
 \begin{exercise}[1a9]
     Find $x \in \rbb^4$ such that
-    \[(4, -3, 1, 7) + 2x = (5, 9, -6, 8).\]
+    \[
+    	(4, -3, 1, 7) + 2x = (5, 9, -6, 8).
+    \]
 \end{exercise}
 
 \begin{sol}
     Let $x = (x_1, x_2, x_3, x_4) \in \rbb^4$.
 	The equation becomes
-    \[(4, -3, 1, 7) + 2(x_1, x_2, x_3, x_4) = (5, 9, -6, 8),\]
+    \[
+    	(4, -3, 1, 7) + 2(x_1, x_2, x_3, x_4) = (5, 9, -6, 8),
+    \]
     which simplifies to the system of equations
-    \[\begin{cases}
-        5 = 4 + 2x_1 \\
-        9 = -3 + 2x_2 \\
-        -6 = 1 + 2x_3 \\
-        8 = 7 + 2x_4
-    \end{cases} \implies 
-    \begin{cases}
-        2x_1 = 1 \\
-        2x_2 = 12 \\
-        2x_3 = -7 \\
-        2x_4 = 1 
-    \end{cases}\]
+    \[
+        \begin{cases}
+            5 = 4 + 2x_1 \\
+            9 = -3 + 2x_2 \\
+            -6 = 1 + 2x_3 \\
+            8 = 7 + 2x_4
+        \end{cases} \implies 
+        \begin{cases}
+            2x_1 = 1 \\
+            2x_2 = 12 \\
+            2x_3 = -7 \\
+            2x_4 = 1 
+        \end{cases}
+    \]
     Therefore,
-    \[x = \left(\frac{1}{2}, 6, -\frac{7}{2}, \frac{1}{2}\right). \qh\]
+    \[
+    	x = \left(\frac{1}{2}, 6, -\frac{7}{2}, \frac{1}{2}\right). \qh
+    \]
 \end{sol}
 
 \begin{exercise}[1a10]
     Explain why there does not exist $\lambda \in \cbb$ such that
-    \[\lambda(2 - 3i, 5 + 4i, -6 + 7i) = (12 - 5i, 7 + 22i, -32 - 9i).\]
+    \[
+    	\lambda(2 - 3i, 5 + 4i, -6 + 7i) = (12 - 5i, 7 + 22i, -32 - 9i).
+    \]
 \end{exercise}
 
 \begin{sol}
     Suppose there exists $\lambda \in \cbb$ such that
-    \[\lambda(2 - 3i, 5 + 4i, -6 + 7i) = (12 - 5i, 7 + 22i, -32 - 9i).\]
+    \[
+    	\lambda(2 - 3i, 5 + 4i, -6 + 7i) = (12 - 5i, 7 + 22i, -32 - 9i).
+    \]
     This gives the system of equations
-    \[\begin{cases}
-        \lambda(2 - 3i) = 12 - 5i \\
-        \lambda(5 + 4i) = 7 + 22i \\
-        \lambda(-6 + 7i) = -32 - 9i
-    \end{cases}\]
+    \[
+        \begin{cases}
+            \lambda(2 - 3i) = 12 - 5i \\
+            \lambda(5 + 4i) = 7 + 22i \\
+            \lambda(-6 + 7i) = -32 - 9i
+        \end{cases}
+    \]
     Solving the first equation for $\lambda$, we get
-    \[\lambda = \frac{12 - 5i}{2 - 3i} = \frac{(12 - 5i)(2 + 3i)}{(2 - 3i)(2 + 3i)} = \frac{24 + 36i - 10i - 15i^2}{4 + 9} = \frac{24 + 26i + 15}{13} = 3 + 2i.\]
+    \[
+    	\lambda = \frac{12 - 5i}{2 - 3i} = \frac{(12 - 5i)(2 + 3i)}{(2 - 3i)(2 + 3i)} = \frac{24 + 36i - 10i - 15i^2}{4 + 9} = \frac{24 + 26i + 15}{13} = 3 + 2i.
+    \]
     However, using this value for $\lambda$ in the third equation, we get
-    \[(3 + 2i)(-6 + 7i) = -18 + 21i - 12i + 14i^2 = -18 + 9i - 14 = -32 + 9i \neq -32 - 9i.\]
+    \[
+    	(3 + 2i)(-6 + 7i) = -18 + 21i - 12i + 14i^2 = -18 + 9i - 14 = -32 + 9i \neq -32 - 9i.
+    \]
     Hence, no such $\lambda$ exists.
 \end{sol}
 

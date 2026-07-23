@@ -22,24 +22,29 @@
     \end{align*}
     Equating coefficients of $5q'' + 3q'$ with those of $p$, we obtain the system
     \[
-    \begin{cases}
-        a_0 = 3b_1 + 10b_2 \\
-        a_1 = 6b_2 + 30b_3 \\
-        \vdots \\ 
-        a_{n-1} = 3nb_n + 5n(n+1)b_{n+1} \\
-        a_n = 3(n+1)b_{n+1}
-    \end{cases}.\]
+        \begin{cases}
+            a_0 = 3b_1 + 10b_2 \\
+            a_1 = 6b_2 + 30b_3 \\
+            \vdots \\ 
+            a_{n-1} = 3nb_n + 5n(n+1)b_{n+1} \\
+            a_n = 3(n+1)b_{n+1}
+        \end{cases}.
+    \]
     That is, $a_i = 3(i+1)b_{i+1} + 5(i+1)(i+2)b_{i+2}$ for $0 \leq i < n$ and $a_n = 3(n+1)b_{n+1}$.
     Finally, we solve for the coefficients of $q$ by back-substitution.
     Noting that
-    \[b_j = \frac{a_{j-1} - 5j(j+1)b_{j+1}}{3j} = \frac{a_{j-1}}{3j} - \frac{5}{3}(j+1)b_{j+1},\] we have 
-    \[\begin{cases}
-        b_{n+1} = \frac{a_n}{3(n+1)} \\
-        b_n = \frac{a_{n-1}}{3n} - \frac{5}{3}(n+1)b_{n+1} = \frac{a_{n-1}}{3n} - \frac{5}{9}a_n \\
-        b_{n-1} = \frac{a_{n-2}}{3(n-1)} - \frac{5}{3}nb_n = \frac{a_{n-2}}{3(n-1)} - \frac{5}{9}a_{n-1} + \frac{25}{27}na_n \\
-        \vdots \\
-        b_1 = \frac{a_0 - 10b_2}{3}
-    \end{cases}\]
+    \[
+    	b_j = \frac{a_{j-1} - 5j(j+1)b_{j+1}}{3j} = \frac{a_{j-1}}{3j} - \frac{5}{3}(j+1)b_{j+1},
+    \] we have 
+    \[
+        \begin{cases}
+            b_{n+1} = \frac{a_n}{3(n+1)} \\
+            b_n = \frac{a_{n-1}}{3n} - \frac{5}{3}(n+1)b_{n+1} = \frac{a_{n-1}}{3n} - \frac{5}{9}a_n \\
+            b_{n-1} = \frac{a_{n-2}}{3(n-1)} - \frac{5}{3}nb_n = \frac{a_{n-2}}{3(n-1)} - \frac{5}{9}a_{n-1} + \frac{25}{27}na_n \\
+            \vdots \\
+            b_1 = \frac{a_0 - 10b_2}{3}
+        \end{cases}
+    \]
     which has a valid solution$^\dagger$ since no division by $0$ occurs.
     Finally, we note that $b_0$ is a free variable, so there is an infinite family of polynomials $q \in \pcal(\rbb)$ with the given coefficients such that $5q'' + 3q' = p$. 
 \end{coole}
@@ -111,7 +116,9 @@ Then, we can swap $v_1$ with any other basis vector to force all diagonal entrie
 \begin{apex}[3d20]
     Suppose $q \in \pcal(\rbb)$.
 	Prove that there exists a polynomial $p \in \pcal(\rbb)$ such that
-    \[q(x) = (x^2 + x) p''(x) + 2x p'(x) + p(3)\]
+    \[
+    	q(x) = (x^2 + x) p''(x) + 2x p'(x) + p(3)
+    \]
     for all $x \in \rbb$.
 \end{apex}
 
@@ -135,33 +142,39 @@ Then, we can swap $v_1$ with any other basis vector to force all diagonal entrie
     \end{align*}
     Equating coefficients of $(x^2 + x)p'' + 2xp' + p(3)$ with those of $q$, we have that 
     \[
-    \begin{cases}
-        a_0 = p(3) = b_0 + 3b_1 + 9b_2 + \cdots + 3^nb_n \\
-        a_i = i(i+1)(b_i + b_{i+1}) \qquad\text{for } 1 \leq i \leq n-1 \\
-        a_n = n(n-1)b_n + 2nb_n = n(n+1)b_n
-    \end{cases},
+        \begin{cases}
+            a_0 = p(3) = b_0 + 3b_1 + 9b_2 + \cdots + 3^nb_n \\
+            a_i = i(i+1)(b_i + b_{i+1}) \qquad\text{for } 1 \leq i \leq n-1 \\
+            a_n = n(n-1)b_n + 2nb_n = n(n+1)b_n
+        \end{cases},
     \]
     with the formula for $a_i$ coming from the fact that the coefficient of $x^i$ in $(x^2 + x)p''(x) + 2xp'(x)$ is
-    \[(i(i-1)b_i + i(i+1)b_{i+1}) + 2ib_i = (i^2-i+2i)b_i + i(i+1)b_{i+1} = i(i+1)(b_i + b_{i+1}).\]
+    \[
+    	(i(i-1)b_i + i(i+1)b_{i+1}) + 2ib_i = (i^2-i+2i)b_i + i(i+1)b_{i+1} = i(i+1)(b_i + b_{i+1}).
+    \]
     As before, we solve for the coefficients of $p$ by back-substitution.
     Noting that for $1 \leq i \leq n$, we have
-    \[b_i = \frac{a_i}{i(i+1)} - b_{i+1},\]
+    \[
+    	b_i = \frac{a_i}{i(i+1)} - b_{i+1},
+    \]
     we obtain the system
     \[
-    \begin{cases}
-        b_n = \frac{a_n}{n(n+1)} \\
-        b_{n-1} = \frac{a_{n-1}}{n(n-1)} - b_n = \frac{a_{n-1}}{n(n-1)} - \frac{a_n}{n(n+1)} \\
-        b_{n-2} = \frac{a_{n-2}}{(n-1)(n-2)} - b_{n-1} = \frac{a_{n-2}}{(n-1)(n-2)} - \frac{a_{n-1}}{n(n-1)} + \frac{a_n}{n(n+1)} \\
-        \vdots \\
-        b_1 = \frac{a_1}{2} - b_2 \\
-        b_0 = a_0 - 3b_1 - 9b_2 - \cdots - 3^nb_n
-    \end{cases}
+        \begin{cases}
+            b_n = \frac{a_n}{n(n+1)} \\
+            b_{n-1} = \frac{a_{n-1}}{n(n-1)} - b_n = \frac{a_{n-1}}{n(n-1)} - \frac{a_n}{n(n+1)} \\
+            b_{n-2} = \frac{a_{n-2}}{(n-1)(n-2)} - b_{n-1} = \frac{a_{n-2}}{(n-1)(n-2)} - \frac{a_{n-1}}{n(n-1)} + \frac{a_n}{n(n+1)} \\
+            \vdots \\
+            b_1 = \frac{a_1}{2} - b_2 \\
+            b_0 = a_0 - 3b_1 - 9b_2 - \cdots - 3^nb_n
+        \end{cases}
     \]
     which has a valid solution$^\dagger$ since no division by $0$ occurs.
 \end{coole}
 
 $^\dagger$ As before, solving this recurrence is outside the scope of this course, but, specifically, the coefficients of $p$ are
-\[b_i = \frac{a_i}{i(i+1)} - \frac{a_{i+1}}{(i+1)(i+2)} + \cdots + (-1)^{n-i}\frac{a_n}{n(n+1)} = \sum_{j=i}^n(-1)^{j-i}\frac{a_j}{j(j+1)}\]
+\[
+	b_i = \frac{a_i}{i(i+1)} - \frac{a_{i+1}}{(i+1)(i+2)} + \cdots + (-1)^{n-i}\frac{a_n}{n(n+1)} = \sum_{j=i}^n(-1)^{j-i}\frac{a_j}{j(j+1)}
+\]
 for $1 \leq i \leq n$ and $b_0 = a_0 - \sum_{j=1}^n3^jb_j$.
 
 \begin{apex}[3e11]
@@ -199,7 +212,9 @@ for $1 \leq i \leq n$ and $b_0 = a_0 - \sum_{j=1}^n3^jb_j$.
     Suppose $v_1, \ldots, v_n$ is a basis of $V$ and $\phi_1, \ldots, \phi_n$ is the corresponding dual basis of $V'$.
 	Suppose $\psi \in V'$.
 	Prove that
-    \[\psi = \psi(v_1) \phi_1 + \cdots + \psi(v_n) \phi_n.\]
+    \[
+    	\psi = \psi(v_1) \phi_1 + \cdots + \psi(v_n) \phi_n.
+    \]
 \end{apex}
 
 \begin{csp}

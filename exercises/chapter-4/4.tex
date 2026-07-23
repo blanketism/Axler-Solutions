@@ -41,37 +41,53 @@
 \begin{sol}
     Let $w, z \in \cbb$.
 	By the triangle inequality, we have
-    \[|w| = |(w - z) + z| \leq |w - z| + |z|.\]
+    \[
+    	|w| = |(w - z) + z| \leq |w - z| + |z|.
+    \]
     Rearranging gives $|w| - |z| \leq |w - z|$.
 	Similarly,
-    \[|z| = |(z - w) + w| \leq |z - w| + |w| = |w - z| + |w|,\]
+    \[
+    	|z| = |(z - w) + w| \leq |z - w| + |w| = |w - z| + |w|,
+    \]
     which gives $|z| - |w| \leq |w - z|$, or equivalently $-|w - z| \leq |w| - |z|$.
 	Combining these inequalities, we get
-    \[||w| - |z|| \leq |w - z|. \qh\]
+    \[
+    	||w| - |z|| \leq |w - z|. \qh
+    \]
 \end{sol}
 
 \begin{exercise}[4a3]
     Suppose $V$ is a complex vector space and $\phi \in V'$.
 	Define $\sigma: V \to \rbb$ by $\sigma(v) = \Re \phi(v)$ for each $v \in V$.
 	Show that
-    \[\phi(v) = \sigma(v) - i\sigma(iv)\]
+    \[
+    	\phi(v) = \sigma(v) - i\sigma(iv)
+    \]
     for all $v \in V$.
 \end{exercise}
 
 \begin{sol}
     Let $v \in V$.
 	Then there exist $s, t \in \rbb$ such that
-    \[\phi(v) = s + ti.\]
+    \[
+    	\phi(v) = s + ti.
+    \]
     Then
-    \[\sigma(v) = \Re \phi(v) = s \quad \text{and} \quad \sigma(iv) = \Re \phi(iv) = \Re (i(s + ti)) = \Re (-t + si) = -t.\]
+    \[
+    	\sigma(v) = \Re \phi(v) = s \quad \text{and} \quad \sigma(iv) = \Re \phi(iv) = \Re (i(s + ti)) = \Re (-t + si) = -t.
+    \]
     Therefore,
-    \[\sigma(v) - i\sigma(iv) = s - i(-t) = s + ti = \phi(v). \qh\]
+    \[
+    	\sigma(v) - i\sigma(iv) = s - i(-t) = s + ti = \phi(v). \qh
+    \]
 \end{sol}
 
 \begin{exercise}[4a4]
     Suppose $m$ is a positive integer.
 	Is the set
-    \[\set{0} \cup \set{p \in \pcal(\fbb) \mid \deg p = m}\]
+    \[
+    	\set{0} \cup \set{p \in \pcal(\fbb) \mid \deg p = m}
+    \]
     a subspace of $\pcal(\fbb)$?
 \end{exercise}
 
@@ -84,7 +100,9 @@
 
 \begin{exercise}[4a5]
     Is the set
-    \[\set{0} \cup \set{p \in \pcal(\fbb) \mid \deg p \text{ is even}}\]
+    \[
+    	\set{0} \cup \set{p \in \pcal(\fbb) \mid \deg p \text{ is even}}
+    \]
     a subspace of $\pcal(\fbb)$?
 \end{exercise}
 
@@ -102,7 +120,9 @@
 
 \begin{sol}
     Consider the polynomial
-    \[p(x) = (x - \lambda_1)^{n - m + 1}(x - \lambda_2) \cdots (x - \lambda_m).\]
+    \[
+    	p(x) = (x - \lambda_1)^{n - m + 1}(x - \lambda_2) \cdots (x - \lambda_m).
+    \]
     This polynomial has degree $n$, vanishes at $\lambda_1, \ldots, \lambda_m$, and has no other zeros.
 	Therefore, it satisfies the required conditions.
 \end{sol}
@@ -110,7 +130,9 @@
 \begin{exercise}[4a7]
     Suppose that $m$ is a nonnegative integer, $z_1, \ldots, z_{m + 1}$ are distinct elements of $\fbb$, and $w_1, \ldots, w_{m + 1} \in \fbb$.
 	Prove that there exists a unique polynomial $p \in \pcal_m(\fbb)$ such that
-    \[p(z_k) = w_k\]
+    \[
+    	p(z_k) = w_k
+    \]
     for each $k = 1, \ldots, m + 1$.
     
     \note{This result can be proved without using linear algebra.
@@ -119,7 +141,9 @@
 
 \begin{sol}
     Consider the linear map $T: \pcal_m(\fbb) \to \fbb^{m + 1}$ defined by
-    \[T(p) = (p(z_1), \ldots, p(z_{m + 1})).\]
+    \[
+    	T(p) = (p(z_1), \ldots, p(z_{m + 1})).
+    \]
     Since $\dim \pcal_m(\fbb) = m + 1$ and $\dim \fbb^{m + 1} = m + 1$, it suffices to show that $T$ is injective to conclude that it is also surjective.
 	Suppose $T(p) = 0$, i.e., $p(z_k) = 0$ for all $k = 1, \ldots, m + 1$.
 	Since $p$ has degree at most $m$ and has $m + 1$ distinct zeros, it must be the zero polynomial.
@@ -157,10 +181,13 @@
 
 \begin{exercise}[4a10]
     For $p \in \pcal(\rbb)$, define $Tp: \rbb \to \rbb$ by
-    \[(Tp)(x) = \begin{cases}
-        \frac{p(x) - p(3)}{x - 3} & \text{if } x \neq 3, \\
-        p'(3) & \text{if } x = 3
-    \end{cases}\]
+    \[
+        (Tp)(x) =
+        \begin{cases}
+            \frac{p(x) - p(3)}{x - 3} & \text{if } x \neq 3, \\
+            p'(3) & \text{if } x = 3
+        \end{cases}
+    \]
     for each $x \in \rbb$.
 	Show that $Tp \in \pcal(\rbb)$ for every polynomial $p \in \pcal(\rbb)$ and also show that $T: \pcal(\rbb) \to \pcal(\rbb)$ is a linear map.
 \end{exercise}
@@ -169,7 +196,9 @@
     Let $p \in \pcal(\rbb)$.
 	Since $p(x) - p(3)$ has a zero at $x = 3$, we can factor it as $(x - 3)q(x)$ for some polynomial $q \in \pcal(\rbb)$.
 	Then for $x \neq 3$,
-    \[(Tp)(x) = \frac{p(x) - p(3)}{x - 3} = q(x),\]
+    \[
+    	(Tp)(x) = \frac{p(x) - p(3)}{x - 3} = q(x),
+    \]
     and differentiating $p$ gives $p'(3) = q(3)$.
 	Since $Tp(3) = p'(3) = q(3)$, we have $Tp(x) = q(x)$ for all $x \in \rbb$.
 	Therefore, $Tp \in \pcal(\rbb)$.
@@ -177,7 +206,9 @@
     Let $p_1, p_2 \in \pcal(\rbb)$ and $\alpha, \beta \in \rbb$.
 	Let $p_1(x) - p_1(3) = (x - 3)q_1(x)$ and $p_2(x) - p_2(3) = (x - 3)q_2(x)$ for some $q_1, q_2 \in \pcal(\rbb)$.
 	Then
-    \[(\alpha p_1 + \beta p_2)(x) = (\alpha p_1(3) + \beta p_2(3)) + (x - 3)(\alpha q_1(x) + \beta q_2(x)).\]
+    \[
+    	(\alpha p_1 + \beta p_2)(x) = (\alpha p_1(3) + \beta p_2(3)) + (x - 3)(\alpha q_1(x) + \beta q_2(x)).
+    \]
     Hence, $T(\alpha p_1 + \beta p_2)(x) = \alpha q_1(x) + \beta q_2(x) = \alpha Tp_1(x) + \beta Tp_2(x)$ for all $x \in \rbb$.
 	Therefore, $T$ is a linear map.
 \end{sol}
@@ -185,7 +216,9 @@
 \begin{exercise}[4a11]
     Suppose $p \in \pcal(\cbb)$.
 	Define $q: \cbb \to \cbb$ by
-    \[q(z) = p(z) \bar{p(\bar{z})}.\]
+    \[
+    	q(z) = p(z) \bar{p(\bar{z})}.
+    \]
     Prove that $q$ is a polynomial with real coefficients.
 
     \apnote{4a11}{ provides an alternate solution by looking at the roots of $p$.}
@@ -194,12 +227,18 @@
 \begin{sol}
     Let $p \in \pcal(\cbb)$ have the form $p(z) = a_0 + a_1 z + \cdots + a_n z^n$ with $a_k \in \cbb$.
 	Then
-    \[\bar{p(\bar z)} = \bar{\sum_{i = 0}^n a_i \bar z^i} = \sum_{i = 0}^n \bar a_i z^i.\]
+    \[
+    	\bar{p(\bar z)} = \bar{\sum_{i = 0}^n a_i \bar z^i} = \sum_{i = 0}^n \bar a_i z^i.
+    \]
     Therefore,
-    \[q(z) = p(z) \bar{p(\bar z)} = \left(\sum_{i = 0}^n a_i z^i\right)\left(\sum_{j = 0}^n \bar a_j z^j\right) = \sum_{k = 0}^{2n} \left(\sum_{i + j = k} a_i \bar a_j\right) z^k.\]
+    \[
+    	q(z) = p(z) \bar{p(\bar z)} = \left(\sum_{i = 0}^n a_i z^i\right)\left(\sum_{j = 0}^n \bar a_j z^j\right) = \sum_{k = 0}^{2n} \left(\sum_{i + j = k} a_i \bar a_j\right) z^k.
+    \]
     Let $b_m$ denote the coefficient of $z^m$ in $q(z)$.
 	Then
-    \[b_m = \sum_{i + j = m} a_i \bar a_j = \sum_{i + j = m} \bar a_j a_i = \bar{b_m}.\]
+    \[
+    	b_m = \sum_{i + j = m} a_i \bar a_j = \sum_{i + j = m} \bar a_j a_i = \bar{b_m}.
+    \]
     Hence, $b_m \in \rbb$ for each $m = 0, 1, \ldots, 2n$.
 	Therefore, $q$ is a polynomial with real coefficients.
 \end{sol}
@@ -238,7 +277,9 @@
 	Consider the map $T : \pcal_{\deg p - 1}(\fbb) \to \pcal(\fbb) / U$ defined by $T(s) = s + U$.
 	This map is linear and surjective, and $\nul T$ is trivial since if $s + U = U$, then $s \in U$, which implies $s = pq$ for some $q \in \pcal(\fbb)$.
 	Then
-    \[\deg s = \deg p + \deg q < \deg p.\]
+    \[
+    	\deg s = \deg p + \deg q < \deg p.
+    \]
 	Therefore, $q = 0$, hence $s = 0$, and $T$ is an isomorphism.
     We conclude that $\dim \pcal(\fbb) / U = \dim \pcal_{\deg p - 1}(\fbb) = \deg p$.
     \item A basis of $\pcal(\fbb) / U$ is given by the images of the standard basis of $\pcal_{\deg p - 1}(\fbb)$ under $T$, namely $\set{1 + U, x + U, \ldots, x^{\deg p - 1} + U}$.
@@ -248,10 +289,14 @@
     Suppose $p, q \in \pcal(\cbb)$ are nonconstant polynomials with no zeros in common.
 	Let $m = \deg p$ and $n = \deg q$.
 	Use linear algebra as outlined below in (a)--(c) to prove that there exist $r \in \pcal_{n-1}(\cbb)$ and $s \in \pcal_{m-1}(\cbb)$ such that
-    \[rp + sq = 1.\]
+    \[
+    	rp + sq = 1.
+    \]
     \begin{subexercises}
         \item Define $T: \pcal_{n-1}(\cbb) \times \pcal_{m-1}(\cbb) \to \pcal_{m+n-1}(\cbb)$ by
-        \[T(r, s) = rp + sq.\]
+        \[
+        	T(r, s) = rp + sq.
+        \]
         Show that the linear map $T$ is injective.
         \item Show that the linear map $T$ in (a) is surjective.
         \item Use (b) to conclude that there exist $r \in \pcal_{n-1}(\cbb)$ and $s \in \pcal_{m-1}(\cbb)$ such that $rp + sq = 1$.

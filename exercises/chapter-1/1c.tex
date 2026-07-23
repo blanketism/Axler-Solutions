@@ -16,11 +16,15 @@
         \item Since the zero vector $(0, 0, 0)$ satisfies $0 + 2(0) + 3(0) = 0$, $U$ is nonempty.
 	    Let $u = (u_1, u_2, u_3)$ and $v = (v_1, v_2, v_3)$ be elements of $U$.
 	    Then
-        \[(u_1 + v_1) + 2(u_2 + v_2) + 3(u_3 + v_3) = (u_1 + 2u_2 + 3u_3) + (v_1 + 2v_2 + 3v_3) = 0 + 0 = 0.\]
+        \[
+        	(u_1 + v_1) + 2(u_2 + v_2) + 3(u_3 + v_3) = (u_1 + 2u_2 + 3u_3) + (v_1 + 2v_2 + 3v_3) = 0 + 0 = 0.
+        \]
         Hence, $u + v$ is in $U$.
 	    Let $a \in \fbb$.
 	    Then
-        \[a u_1 + 2(a u_2) + 3(a u_3) = a(u_1 + 2u_2 + 3u_3) = a \cdot 0 = 0.\]
+        \[
+        	a u_1 + 2(a u_2) + 3(a u_3) = a(u_1 + 2u_2 + 3u_3) = a \cdot 0 = 0.
+        \]
         Hence, $au$ is in $U$.
 	    Therefore, $U$ is a subspace of $\fbb^3$.
         \item The zero vector $(0, 0, 0)$ does not satisfy $0 + 2(0) + 3(0) = 4$, so $U$ does not contain the zero vector.
@@ -32,11 +36,15 @@
         \item Since the zero vector $(0, 0, 0)$ satisfies $0 = 5(0)$, $U$ is nonempty.
 	    Let $u = (u_1, u_2, u_3)$ and $v = (v_1, v_2, v_3)$ be elements of $U$.
 	    Then
-        \[u_1 + v_1 = 5u_3 + 5v_3 = 5(u_3 + v_3).\]
+        \[
+        	u_1 + v_1 = 5u_3 + 5v_3 = 5(u_3 + v_3).
+        \]
         Hence, $u + v$ is in $U$.
 	    Let $a \in \fbb$.
 	    Then
-        \[a u_1 = a(5u_3) = 5(a u_3).\]
+        \[
+        	a u_1 = a(5u_3) = 5(a u_3).
+        \]
         Hence, $au$ is in $U$.
 	Therefore, $U$ is a subspace of $\fbb^3$. \qh
     \end{subexercises}
@@ -46,7 +54,9 @@
     Verify all assertions about subspaces in Example 1.35.
     \begin{subexercises}
         \item If $b \in \fbb$, then
-        \[\set{(x_1, x_2, x_3, x_4) \in \fbb^4 \mid x_3 = 5x_4 + b}\]
+        \[
+        	\set{(x_1, x_2, x_3, x_4) \in \fbb^4 \mid x_3 = 5x_4 + b}
+        \]
         is a subspace of $\fbb^4$ if and only if $b = 0$.
         \item The set of continuous, real-valued functions on the interval $[0, 1]$ is a subspace of $\rbb^{[0, 1]}$.
         \item The set of differentiable real-valued functions on $\rbb$ is a subspace of $\rbb^{\rbb}$.
@@ -85,22 +95,30 @@
         Then $U = \set{f \in \rbb^{(0, 3)} \mid f'(2) = 0}$.
         Let $f, g \in U$ be differentiable functions such that $f'(2) = g'(2) = 0$.
         Then
-        \[(f + g)'(2) = f'(2) + g'(2) = 0 + 0 = 0,\]
+        \[
+        	(f + g)'(2) = f'(2) + g'(2) = 0 + 0 = 0,
+        \]
         so $f + g \in U$.
         Let $a \in \rbb$.
         Then
-        \[(af)'(2) = a f'(2) = a \cdot 0 = 0,\]
+        \[
+        	(af)'(2) = a f'(2) = a \cdot 0 = 0,
+        \]
         so $af \in U$.
         Therefore, $U$ is a subspace of $\rbb^{(0, 3)}$.
         \item Let $U$ be the set of all sequences of complex numbers with limit 0.
         Then the zero sequence is in $U$.
         Let $(z_n), (w_n) \in U$ be sequences with limit 0.
         Then
-        \[\lim_{n \to \infty} (z_n + w_n) = \lim_{n \to \infty} z_n + \lim_{n \to \infty} w_n = 0 + 0 = 0,\]
+        \[
+        	\lim_{n \to \infty} (z_n + w_n) = \lim_{n \to \infty} z_n + \lim_{n \to \infty} w_n = 0 + 0 = 0,
+        \]
         so $(z_n) + (w_n) \in U$.
         Let $a \in \cbb$.
         Then
-        \[\lim_{n \to \infty} (a z_n) = a \lim_{n \to \infty} z_n = a \cdot 0 = 0,\]
+        \[
+        	\lim_{n \to \infty} (a z_n) = a \lim_{n \to \infty} z_n = a \cdot 0 = 0,
+        \]
         so $a(z_n) \in U$.
         Therefore, $U$ is a subspace of $\cbb^\infty$. \qh
     \end{subexercises}
@@ -115,11 +133,15 @@
 	Then the zero function is in $U$ since $0'(-1) = 0 = 3 \cdot 0 = 3 \cdot 0(2)$.
 	Let $f, g \in U$ be differentiable functions such that $f'(-1) = 3f(2)$ and $g'(-1) = 3g(2)$.
 	Then
-    \[(f + g)'(-1) = f'(-1) + g'(-1) = 3f(2) + 3g(2) = 3(f(2) + g(2)) = 3(f + g)(2),\]
+    \[
+    	(f + g)'(-1) = f'(-1) + g'(-1) = 3f(2) + 3g(2) = 3(f(2) + g(2)) = 3(f + g)(2),
+    \]
     so $f + g \in U$.
 	Let $a \in \rbb$.
 	Then
-    \[(af)'(-1) = a f'(-1) = a \cdot 3f(2) = 3(af)(2),\]
+    \[
+    	(af)'(-1) = a f'(-1) = a \cdot 3f(2) = 3(af)(2),
+    \]
     so $af \in U$.
 	Therefore, $U$ is a subspace of $\rbb^{(-4, 4)}$.
 \end{sol}
@@ -127,7 +149,9 @@
 \begin{exercise}[1c4]
     Suppose $b \in \rbb$.
 	Show that the set of continuous real-valued functions $f$ on the interval $[0, 1]$ such that
-    \[\int_0^1 f = b\]
+    \[
+    	\int_0^1 f = b
+    \]
     is a subspace of $\rbb^{[0, 1]}$ if and only if $b = 0$.
 \end{exercise}
 
@@ -136,20 +160,28 @@
 	Suppose $U$ is a subspace of $\rbb^{[0, 1]}$.
 	Then it must contain the zero function on $[0, 1]$.
 	Then
-    \[\int_0^1 0 = 0 = b,\]
+    \[
+    	\int_0^1 0 = 0 = b,
+    \]
     which implies $b = 0$.
 
     Conversely, suppose $b = 0$.
 	Then
-    \[U = \set*{f \in \rbb^{[0, 1]}\left|~\int_0^1 f = 0\right.}.\]
+    \[
+    	U = \set*{f \in \rbb^{[0, 1]}\left|~\int_0^1 f = 0\right.}.
+    \]
     The zero function is in $U$ since $\int_0^1 0 = 0$.
 	Let $f, g \in U$ be continuous functions such that $\int_0^1 f = \int_0^1 g = 0$.
 	Then
-    \[\int_0^1 (f + g) = \int_0^1 f + \int_0^1 g = 0 + 0 = 0,\]
+    \[
+    	\int_0^1 (f + g) = \int_0^1 f + \int_0^1 g = 0 + 0 = 0,
+    \]
     so $f + g \in U$.
 	Let $a \in \rbb$.
 	Then
-    \[\int_0^1 (af) = a \int_0^1 f = a \cdot 0 = 0,\]
+    \[
+    	\int_0^1 (af) = a \int_0^1 f = a \cdot 0 = 0,
+    \]
     so $af \in U$.
 	Therefore, $U$ is a subspace of $\rbb^{[0, 1]}$.
 \end{sol}
@@ -181,29 +213,43 @@
         Let $x = (x_1, x_2, x_3)$ and $y = (y_1, y_2, y_3)$ be elements of $U$.
         Then $x_1^3 = x_2^3$ and $y_1^3 = y_2^3$ both imply that $x_1 = x_2$ and $y_1 = y_2$.
         Hence,
-        \[(x_1 + y_1)^3 = (x_2 + y_2)^3,\]
+        \[
+        	(x_1 + y_1)^3 = (x_2 + y_2)^3,
+        \]
         so $x + y \in U$.
         Let $a \in \rbb$.
         Then
-        \[(ax_1)^3 = a^3 x_1^3 = a^3 x_2^3 = (ax_2)^3,\]
+        \[
+        	(ax_1)^3 = a^3 x_1^3 = a^3 x_2^3 = (ax_2)^3,
+        \]
         so $ax \in U$.
         Therefore, $U$ is a subspace of $\rbb^3$.
         \item No, $U$ is not a subspace of $\cbb^3$.
         To see this, consider the cubic polynomial $x^3 - 1 = 0$.
         This polynomial has three distinct roots in $\cbb$ as follows:
-        \[x^3 - 1 = (x - 1)(x^2 + x + 1) = 0\]
+        \[
+        	x^3 - 1 = (x - 1)(x^2 + x + 1) = 0
+        \]
         Applying the quadratic formula to $x^2 + x + 1 = 0$, we get
-        \[x = \frac{-1 \pm \sqrt{(-1)^2 - 4(1)(1)}}{2(1)} = \frac{-1 \pm i\sqrt{3}}{2}.\]
+        \[
+        	x = \frac{-1 \pm \sqrt{(-1)^2 - 4(1)(1)}}{2(1)} = \frac{-1 \pm i\sqrt{3}}{2}.
+        \]
         Let
-        \[\omega = \frac{-1 + i\sqrt{3}}{2}.\]
+        \[
+        	\omega = \frac{-1 + i\sqrt{3}}{2}.
+        \]
         Then $\omega^3 = 1$, and
-        \[\omega^2 = \frac{-1 - i\sqrt{3}}{2}.\]
+        \[
+        	\omega^2 = \frac{-1 - i\sqrt{3}}{2}.
+        \]
         Moreover, it is not hard to see that $\omega + \omega^2 = -1$.
         Let $u = (1, 1, 0)$ and $v = (\omega, 1, 0)$.
         Then $u, v \in U$ since $1^3 = 1^3$ and $\omega^3 = 1^3$.
         Then $u + v = (1 + \omega, 2, 0)$.
         However,
-        \[(1 + \omega)^3 = 1 + 3\omega + 3\omega^2 + \omega^3 = 1 + 3(-1) + 1 = -1 \neq 2^3 = 8.\]
+        \[
+        	(1 + \omega)^3 = 1 + 3\omega + 3\omega^2 + \omega^3 = 1 + 3(-1) + 1 = -1 \neq 2^3 = 8.
+        \]
         Hence, $u + v \notin U$, so $U$ is not closed under addition and is not a subspace of $\cbb^3$. \qh
     \end{subexercises}
 \end{sol}
@@ -226,7 +272,9 @@
 
 \begin{sol}
     Consider the subset
-    \[U = \{(x, 0) \mid x \in \rbb\} \cup \{(0, y) \mid y \in \rbb\}.\]
+    \[
+    	U = \{(x, 0) \mid x \in \rbb\} \cup \{(0, y) \mid y \in \rbb\}.
+    \]
     Then $U$ is nonempty since $(1, 0) \in U$, and it is closed under scalar multiplication since any scalar multiple of $(1, 0)$ or $(0, 1)$ is still in $U$.
 	However, $U$ is not closed under addition since $(1, 0) + (0, 1) = (1, 1) \notin U$.
 	Hence, $U$ is not a subspace of $\rbb^2$.
@@ -246,7 +294,9 @@
 	This implies $\cos p = \cos p\sqrt 2 = 1$.
 	Then $p = 2\pi m$ and $p\sqrt 2 = 2\pi n$ for positive integers $m$ and $n$.
 	Since $p \sqrt 2 = 2 \pi n$ implies $p = \sqrt 2 \pi n$, we have
-    \[2\pi m = \sqrt 2\pi n \implies \sqrt 2 = \frac nm,\]
+    \[
+    	2\pi m = \sqrt 2\pi n \implies \sqrt 2 = \frac nm,
+    \]
     which is a contradiction, since $\sqrt 2$ is irrational.
 	Then $f + g$ is not periodic.
 \end{sol}
@@ -275,7 +325,9 @@
 
 \begin{sol}
     Let $\ccal$ be a collection of subspaces of $V$, and let
-    \[U = \bigcap_{W \in \ccal} W.\]
+    \[
+    	U = \bigcap_{W \in \ccal} W.
+    \]
     Since each subspace in $\ccal$ contains the zero vector, $0 \in U$, so $U$ is nonempty.
 	Let $u, v \in U$.
 	Then $u, v \in W$ for all $W \in \ccal$.
@@ -338,7 +390,9 @@
 	Then $u + \alpha v \in U_1$ for all nonzero $\alpha \in \fbb$.
 	Now choose nonzero $\beta, \gamma \in \fbb$ with $\beta \neq \gamma$.
 	Then $u + \beta v, u + \gamma v \in U_1$, so
-    \[(u + \beta v) - (u + \gamma v) = (\beta - \gamma)v \in U_1.\]
+    \[
+    	(u + \beta v) - (u + \gamma v) = (\beta - \gamma)v \in U_1.
+    \]
     Since $\beta - \gamma \neq 0$, we have $v \in U_1$.
 	Similarly, $(u + \beta v) - \beta v = u \in U_1$.
 	Since $u \in U_2 \setminus U_3$ and $v \in U_3 \setminus U_2$ were arbitrary, $U_2 \setminus U_3 \subseteq U_1$ and $U_3 \setminus U_2 \subseteq U_1$.
@@ -354,17 +408,23 @@
 
 \begin{exercise}[1c14]
     Suppose
-    \[U = \set{(x, -x, 2x) \in \fbb^3 \mid x \in \fbb} \quad \text{and} \quad W = \set{(x, x, 2x) \in \fbb^3 \mid x \in \fbb}.\]
+    \[
+    	U = \set{(x, -x, 2x) \in \fbb^3 \mid x \in \fbb} \quad \text{and} \quad W = \set{(x, x, 2x) \in \fbb^3 \mid x \in \fbb}.
+    \]
     Describe $U + W$ using symbols, and also give a description of $U + W$ that uses no symbols.
 \end{exercise}
 
 \begin{sol}
     Let $u = (x, -x, 2x) \in U$ and $w = (y, y, 2y) \in W$.
 	Then
-    \[u + w = (x + y, -x + y, 2x + 2y) = (x + y, y - x, 2(x + y)).\]
+    \[
+    	u + w = (x + y, -x + y, 2x + 2y) = (x + y, y - x, 2(x + y)).
+    \]
     Observe that $x + y$ can take any value in $\fbb$, and $y - x$ can also take any value in $\fbb$.
 	Hence, we can write
-    \[U + W = \set{(a, b, 2a) \in \fbb^3 \mid a, b \in \fbb}.\]
+    \[
+    	U + W = \set{(a, b, 2a) \in \fbb^3 \mid a, b \in \fbb}.
+    \]
     In words, $U + W$ is the set of all vectors in $\fbb^3$ whose third component is twice the first component, and whose second component can be any value in $\fbb$.
 \end{sol}
 
@@ -403,7 +463,9 @@
 \begin{exercise}[1c17]
     Is the operation of addition on the subspaces of $V$ associative?
 	In other words, if $V_1, V_2, V_3$ are subspaces of $V$, is
-    \[(V_1 + V_2) + V_3 = V_1 + (V_2 + V_3)?\]
+    \[
+    	(V_1 + V_2) + V_3 = V_1 + (V_2 + V_3)?
+    \]
 \end{exercise}
 
 \begin{sol}
@@ -435,73 +497,94 @@
 
 \begin{exercise}[1c19]
     Prove or give a counterexample: If $V_1, V_2, U$ are subspaces of $V$ such that
-    \[V_1 + U = V_2 + U,\]
+    \[
+    	V_1 + U = V_2 + U,
+    \]
     then $V_1 = V_2$.
 \end{exercise}
 
 \begin{sol}
     The statement is false.
 	Consider the vector space $\rbb^2$ and let
-    \[V_1 = \set{(x, 0) \in \rbb^2 \mid x \in \rbb}, \quad V_2 = \set{(0, y) \in \rbb^2 \mid y \in \rbb}, \quad U = \set{(x, x) \in \rbb^2 \mid x \in \rbb}.\]
+    \[
+    	V_1 = \set{(x, 0) \in \rbb^2 \mid x \in \rbb}, \quad V_2 = \set{(0, y) \in \rbb^2 \mid y \in \rbb}, \quad U = \set{(x, x) \in \rbb^2 \mid x \in \rbb}.
+    \]
     Then $V_1 + U = \rbb^2$ and $V_2 + U = \rbb^2$, but $V_1 \neq V_2$.
 	Therefore, the statement is false.
 \end{sol}
 
 \begin{exercise}[1c20]
     Suppose
-    \[U = \set{(x, x, y, y) \in \fbb^4 \mid x, y \in \fbb}.\]
+    \[
+    	U = \set{(x, x, y, y) \in \fbb^4 \mid x, y \in \fbb}.
+    \]
     Find a subspace $W$ of $\fbb^4$ such that $\fbb^4 = U \op W$.
 \end{exercise}
 
 \begin{sol}
     Let
-    \[W = \set{(0, z, 0, w) \in \fbb^4 \mid z, w \in \fbb}.\]
+    \[
+    	W = \set{(0, z, 0, w) \in \fbb^4 \mid z, w \in \fbb}.
+    \]
     If $(x, x, y, y) \in U$ and $(0, z, 0, w) \in W$, then $(x, x, y, y) = (0, z, 0, w)$ if and only if $x = 0$, $y = 0$, $z = 0$, and $w = 0$.
 	Hence, $U \cap W = \{0\}$.
 	Moreover, for any $(a, b, c, d) \in \fbb^4$, we can write
-    \[(a, b, c, d) = (x, x, y, y) + (0, z, 0, w),\]
+    \[
+    	(a, b, c, d) = (x, x, y, y) + (0, z, 0, w),
+    \]
     where
-    \[x = a, \quad y = c, \quad z = b - x = b - a, \quad w = d - y = d - c.\]
+    \[
+    	x = a, \quad y = c, \quad z = b - x = b - a, \quad w = d - y = d - c.
+    \]
     Hence, every vector in $\fbb^4$ can be written as a sum of a vector in $U$ and a vector in $W$.
 	Therefore, $\fbb^4 = U \op W$.
 \end{sol}
 
 \begin{exercise}[1c21]
     Suppose
-    \[U = \set{(x, y, x + y, x - y, 2x) \in \fbb^5 \mid x, y \in \fbb}.\]
+    \[
+    	U = \set{(x, y, x + y, x - y, 2x) \in \fbb^5 \mid x, y \in \fbb}.
+    \]
     Find a subspace $W$ of $\fbb^5$ such that $\fbb^5 = U \op W$.
 \end{exercise}
 
 \begin{sol}
     Let
-    \[W = \set{(0, 0, z, w, v) \in \fbb^5 \mid z, w, v \in \fbb}.\]
+    \[
+    	W = \set{(0, 0, z, w, v) \in \fbb^5 \mid z, w, v \in \fbb}.
+    \]
     If $(x, y, x + y, x - y, 2x) \in U$ and $(0, 0, z, w, v) \in W$, then $(x, y, x + y, x - y, 2x) = (0, 0, z, w, v)$ if and only if $x = 0$, $y = 0$, $z = 0$, $w = 0$, and $v = 0$.
 	Hence, $U \cap W = \{0\}$.
 	Moreover, for any $(a, b, c, d, e) \in \fbb^5$, we can write
-    \[(a, b, c, d, e) = (x, y, x + y, x - y, 2x) + (0, 0, z, w, v),\]
+    \[
+    	(a, b, c, d, e) = (x, y, x + y, x - y, 2x) + (0, 0, z, w, v),
+    \]
     which implies
     \[
-    \begin{cases}
-        a = x + 0 \\
-        b = y + 0 \\
-        c = (x + y) + z \\
-        d = (x - y) + w \\
-        e = 2x + v
-    \end{cases} \implies 
-    \begin{cases}
-        x = a \\
-        y = b \\
-        z = c - (x + y) = c - (a + b) \\
-        w = d - (x - y) = d - (a - b) \\
-        v = e - 2x = e - 2a
-    \end{cases}\]
+        \begin{cases}
+            a = x + 0 \\
+            b = y + 0 \\
+            c = (x + y) + z \\
+            d = (x - y) + w \\
+            e = 2x + v
+        \end{cases} \implies 
+        \begin{cases}
+            x = a \\
+            y = b \\
+            z = c - (x + y) = c - (a + b) \\
+            w = d - (x - y) = d - (a - b) \\
+            v = e - 2x = e - 2a
+        \end{cases}
+    \]
     Hence, every vector in $\fbb^5$ can be written as a sum of a vector in $U$ and a vector in $W$.
 	Therefore, $\fbb^5 = U \op W$.
 \end{sol}
 
 \begin{exercise}[1c22]
     Suppose
-    \[U = \set{(x, y, x + y, x - y, 2x) \in \fbb^5 \mid x, y \in \fbb}.\]
+    \[
+    	U = \set{(x, y, x + y, x - y, 2x) \in \fbb^5 \mid x, y \in \fbb}.
+    \]
     Find three subspaces $W_1, W_2, W_3$ of $\fbb^5$, none of which equals $\set 0$, such that $\fbb^5 = U \op W_1 \op W_2 \op W_3$.
 
     \remark{The derivation of $z, w, e$ is from \emph{\exref{1c21}}.}
@@ -509,7 +592,9 @@
 
 \begin{sol}
     Observe that $U$ can be expressed as
-    \[U = \set{(x, 0, x, x, 2x) \in \fbb^5 \mid x \in \fbb} + \set{(0, y, y, -y, 0) \in \fbb^5 \mid y \in \fbb}.\]
+    \[
+    	U = \set{(x, 0, x, x, 2x) \in \fbb^5 \mid x \in \fbb} + \set{(0, y, y, -y, 0) \in \fbb^5 \mid y \in \fbb}.
+    \]
     Define the subspaces
     \begin{align*}
         W_1 &= \set{(0, 0, z, 0, 0) \in \fbb^5 \mid z \in \fbb}, \\
@@ -518,7 +603,9 @@
     \end{align*}
     Consider $(a, b, c, d, e) \in \fbb^5$.
 	We can write
-    \[(a, b, c, d, e) = (x, 0, x, x, 2x) + (0, y, y, -y, 0) + (0, 0, z, 0, 0) + (0, 0, 0, w, 0) + (0, 0, 0, 0, v),\]
+    \[
+    	(a, b, c, d, e) = (x, 0, x, x, 2x) + (0, y, y, -y, 0) + (0, 0, z, 0, 0) + (0, 0, 0, w, 0) + (0, 0, 0, 0, v),
+    \]
     where
     \begin{align*}
         x &= a, \\
@@ -534,7 +621,9 @@
 
 \begin{exercise}[1c23]
     Prove or give a counterexample: If $V_1, V_2, U$ are subspaces of $V$ such that
-    \[V = V_1 \op U \quad \text{ and } \quad V = V_2 \op U,\]
+    \[
+    	V = V_1 \op U \quad \text{ and } \quad V = V_2 \op U,
+    \]
     then $V_1 = V_2$.
 \end{exercise}
 
@@ -542,7 +631,9 @@
     See \exref{1c19} for a counterexample.
 	For $V_1 \op U$, observe that $V_1 \cap U = \set 0$.
 	Moreover, for any $(a, b) \in \rbb^2$, we can write
-    \[(a, b) = (a - b, 0) + (b, b) \in V_1 \op U.\]
+    \[
+    	(a, b) = (a - b, 0) + (b, b) \in V_1 \op U.
+    \]
     The proof for $V_2 \op U$ is similar.
 	Hence, $V = V_1 \op U = V_2 \op U$, but $V_1 \neq V_2$.
 	Therefore, the statement is false.
@@ -550,10 +641,14 @@
 
 \begin{exercise}[1c24]
     A function $f : \rbb \to \rbb$ is called \textbf{even} if
-    \[f(-x) = f(x)\]
+    \[
+    	f(-x) = f(x)
+    \]
     for all $x \in \rbb$.
 	A function $f : \rbb \to \rbb$ is called \textbf{odd} if
-    \[f(-x) = -f(x)\]
+    \[
+    	f(-x) = -f(x)
+    \]
     for all $x \in \rbb$.
 	Let $V_e$ denote the set of real-valued even functions on $\rbb$, and let $V_o$ denote the set of real-valued odd functions on $\rbb$.
 	Show that $\rbb^{\rbb} = V_e \op V_o$.
@@ -562,19 +657,29 @@
 \begin{sol}
     Let $f \in \rbb^{\rbb}$.
 	Define
-    \[f_e(x) = \frac{f(x) + f(-x)}{2} \quad \text{and} \quad f_o(x) = \frac{f(x) - f(-x)}{2}.\]
+    \[
+    	f_e(x) = \frac{f(x) + f(-x)}{2} \quad \text{and} \quad f_o(x) = \frac{f(x) - f(-x)}{2}.
+    \]
     Then $f_e$ is even since
-    \[f_e(-x) = \frac{f(-x) + f(x)}{2} = f_e(x),\]
+    \[
+    	f_e(-x) = \frac{f(-x) + f(x)}{2} = f_e(x),
+    \]
     and $f_o$ is odd since
-    \[f_o(-x) = \frac{f(-x) - f(x)}{2} = -\frac{f(x) - f(-x)}{2} = -f_o(x).\]
+    \[
+    	f_o(-x) = \frac{f(-x) - f(x)}{2} = -\frac{f(x) - f(-x)}{2} = -f_o(x).
+    \]
     Moreover, we have that
-    \[f(x) = f_e(x) + f_o(x).\]
+    \[
+    	f(x) = f_e(x) + f_o(x).
+    \]
     Hence, every function in $\rbb^{\rbb}$ can be written as a sum of an even function and an odd function. 
 
     Now, suppose $g \in V_e \cap V_o$.
 	Then $g$ is both even and odd.
 	Then for any $x \in \rbb$, we have
-    \[g(x) = g(-(-x)) = -g(-x) = -g(x),\]
+    \[
+    	g(x) = g(-(-x)) = -g(-x) = -g(x),
+    \]
     which implies that $2g(x) = 0$, or $g(x) = 0$.
 	Hence, the only function in the intersection of $V_e$ and $V_o$ is the zero function.
 	Therefore, $\rbb^{\rbb} = V_e \op V_o$.

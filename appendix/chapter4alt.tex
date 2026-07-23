@@ -15,7 +15,9 @@
 \begin{apex}[4a11]
     Suppose $p \in \pcal(\cbb)$.
 	Define $q: \cbb \to \cbb$ by
-    \[q(z) = p(z) \bar{p(\bar{z})}.\]
+    \[
+    	q(z) = p(z) \bar{p(\bar{z})}.
+    \]
     Prove that $q$ is a polynomial with real coefficients.
 \end{apex}
 
@@ -23,12 +25,18 @@
     If $p = 0$, then $q = 0$ is a polynomial with real coefficients.
 	Otherwise, let $n = \deg p$.
 	Then we may write
-    \[p(z) = \alpha(z - \lambda_1)(z - \lambda_2) \cdots (z - \lambda_n),\]
+    \[
+    	p(z) = \alpha(z - \lambda_1)(z - \lambda_2) \cdots (z - \lambda_n),
+    \]
     where $\alpha \in \cbb$ and $\lambda_1, \lambda_2, \ldots, \lambda_n \in \cbb$ are the roots of $p$.
 	Then
-    \[q(z) = p(z) \bar{p(\bar{z})} = \alpha(z - \lambda_1)(z - \lambda_2) \cdots (z - \lambda_n) \cdot \bar{\alpha} (z - \bar{\lambda_1}) (z - \bar{\lambda_2}) \cdots (z - \bar{\lambda_n}).\]
+    \[
+    	q(z) = p(z) \bar{p(\bar{z})} = \alpha(z - \lambda_1)(z - \lambda_2) \cdots (z - \lambda_n) \cdot \bar{\alpha} (z - \bar{\lambda_1}) (z - \bar{\lambda_2}) \cdots (z - \bar{\lambda_n}).
+    \]
     Note that the product contains the term $\alpha\bar\alpha = |\alpha|^2 \in \rbb$, as well as the pairs
-    \[(z - \lambda_i)(z - \bar{\lambda_i}) = z^2 - 2\Re(\lambda_i) z + |\lambda_i|^2.\]
+    \[
+    	(z - \lambda_i)(z - \bar{\lambda_i}) = z^2 - 2\Re(\lambda_i) z + |\lambda_i|^2.
+    \]
     Each such pair contributes a quadratic polynomial with real coefficients.
 	Since the product of polynomials with real coefficients also has real coefficients, it follows that $q(z)$ is a polynomial with real coefficients.
 \end{proof}

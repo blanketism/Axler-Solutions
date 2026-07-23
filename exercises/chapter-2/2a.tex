@@ -4,23 +4,33 @@
 
 \begin{exercise}[2a1]
     Find a list of four distinct vectors in $\fbb^3$ whose span equals
-    \[\set{(x, y, z) \in \fbb^3 \mid x + y + z = 0}\]
+    \[
+    	\set{(x, y, z) \in \fbb^3 \mid x + y + z = 0}
+    \]
 \end{exercise}
 
 \begin{sol}
     Clearly, the span of the list involves two vectors, since we may rewrite $z$ in terms of $x$ and $y$ as $z = -x - y$.
 	Thus, we may choose the following two vectors:
-    \[v_1 = (1, 0, -1), \quad v_2 = (0, 1, -1).\]
+    \[
+    	v_1 = (1, 0, -1), \quad v_2 = (0, 1, -1).
+    \]
     To find two more vectors, we may pick any two distinct linear combinations of $v_1$ and $v_2$.
 	For example, we may select
-    \[v_3 = v_1 + v_2 = (1, 1, -2), \quad v_4 = 2v_1 + 3v_2 = (2, 3, -5).\]
+    \[
+    	v_3 = v_1 + v_2 = (1, 1, -2), \quad v_4 = 2v_1 + 3v_2 = (2, 3, -5).
+    \]
     Then
-    \[\spn(v_1, v_2, v_3, v_4) = \spn(v_1, v_2) = \set{(x, y, z) \in \fbb^3 \mid x + y + z = 0}. \qh\]
+    \[
+    	\spn(v_1, v_2, v_3, v_4) = \spn(v_1, v_2) = \set{(x, y, z) \in \fbb^3 \mid x + y + z = 0}. \qh
+    \]
 \end{sol}
 
 \begin{exercise}[2a2]
     Prove or give a counterexample: If $v_1, v_2, v_3, v_4$ spans $V$, then the list
-    \[v_1 - v_2, v_2 - v_3, v_3 - v_4, v_4\]
+    \[
+    	v_1 - v_2, v_2 - v_3, v_3 - v_4, v_4
+    \]
     also spans $V$.
 \end{exercise}
 
@@ -41,7 +51,9 @@
 \begin{exercise}[2a3]
     Suppose $v_1, \ldots, v_m$ is a list of vectors in $V$.
 	For $k \in \set{1, \ldots, m}$, let
-    \[w_k = v_1 + \cdots + v_k.\]
+    \[
+    	w_k = v_1 + \cdots + v_k.
+    \]
     Show that $\spn(v_1, \ldots, v_m) = \spn(w_1, \ldots, w_m)$.
 \end{exercise}
 
@@ -67,26 +79,38 @@
     \item Let $v_1$ and $v_2$ be the vectors in the list.
 	If $v_1$ is a scalar multiple of $v_2$, then there exists a scalar $\lambda$ such that $v_1 = \lambda v_2$.
 	Then we may write
-    \[0 = v_1 - \lambda v_2,\]
+    \[
+    	0 = v_1 - \lambda v_2,
+    \]
     which shows that the list is linearly dependent.
 	Conversely, if the list is linearly dependent, then there exist scalars $\alpha$ and $\beta$, not both zero, such that
-    \[\alpha v_1 + \beta v_2 = 0.\]
+    \[
+    	\alpha v_1 + \beta v_2 = 0.
+    \]
     If $\alpha \neq 0$, then
-    \[v_1 = -\frac{\beta}{\alpha} v_2.\]
+    \[
+    	v_1 = -\frac{\beta}{\alpha} v_2.
+    \]
     Similarly, if $\beta \neq 0$, then
-    \[v_2 = -\frac{\alpha}{\beta} v_1.\]
+    \[
+    	v_2 = -\frac{\alpha}{\beta} v_1.
+    \]
     Thus, the list is linearly independent if and only if neither vector is a scalar multiple of the other.
 \end{sole}
  
 \begin{exercise}[2a5]
     Find a number $t$ such that
-    \[(3, 1, 4), (2, -3, 5), (5, 9, t)\]
+    \[
+    	(3, 1, 4), (2, -3, 5), (5, 9, t)
+    \]
     is not linearly independent in $\mathbb{R}^3$.
 \end{exercise}
 
 \begin{sol}
     To say that the list is not linearly independent is to say that there exist scalars $\alpha, \beta, \gamma$, not all zero, such that
-    \[\alpha(3, 1, 4) + \beta(2, -3, 5) + \gamma(5, 9, t) = (0, 0, 0).\]
+    \[
+    	\alpha(3, 1, 4) + \beta(2, -3, 5) + \gamma(5, 9, t) = (0, 0, 0).
+    \]
     This is equivalent to the following system of equations:
     \begin{align*}
         0 & = 3\alpha + 2\beta + 5\gamma, \\
@@ -153,16 +177,24 @@
 
 \begin{sole}
     \item Suppose $\alpha, \beta \in \rbb$ such that
-    \[\alpha(1 + i) + \beta(1 - i) = 0.\]
+    \[
+    	\alpha(1 + i) + \beta(1 - i) = 0.
+    \]
     Then we have
-    \[(\alpha + \beta) + (\alpha - \beta)i = 0.\]
+    \[
+    	(\alpha + \beta) + (\alpha - \beta)i = 0.
+    \]
     Since $0 = 0 + 0i$, we must have $\alpha + \beta = 0$ and $\alpha - \beta = 0$.
 	Solving this system of equations, we find that $\alpha = \beta = 0$.
 	Thus, the list is linearly independent.
     \item Suppose $a + bi, c + di \in \cbb$ such that
-    \[(a + bi)(1 + i) + (c + di)(1 - i) = 0.\]
+    \[
+    	(a + bi)(1 + i) + (c + di)(1 - i) = 0.
+    \]
     Then we have
-    \[(a - b + c + d) + (a + b - c + d)i = 0.\]
+    \[
+    	(a - b + c + d) + (a + b - c + d)i = 0.
+    \]
     Then we have the system of equations
     \begin{align*}
         0 & = a - b + c + d, \\
@@ -183,9 +215,13 @@
 
 \begin{sol}
     Let $\alpha, \beta, \gamma, \delta \in \fbb$ such that
-    \[\alpha(v_1 - v_2) + \beta(v_2 - v_3) + \gamma(v_3 - v_4) + \delta v_4 = 0.\]
+    \[
+    	\alpha(v_1 - v_2) + \beta(v_2 - v_3) + \gamma(v_3 - v_4) + \delta v_4 = 0.
+    \]
     Then we have
-    \[\alpha v_1 + (-\alpha + \beta)v_2 + (-\beta + \gamma)v_3 + (-\gamma + \delta)v_4 = 0.\]
+    \[
+    	\alpha v_1 + (-\alpha + \beta)v_2 + (-\beta + \gamma)v_3 + (-\gamma + \delta)v_4 = 0.
+    \]
     Since $v_1, v_2, v_3, v_4$ is linearly independent, we must have
     \begin{align*}
         0 & = \alpha, \\
@@ -208,9 +244,13 @@
 
 \begin{sol}
     Let $\alpha_1, \ldots, \alpha_m \in \fbb$ such that
-    \[\alpha_1(5v_1 - 4v_2) + \alpha_2 v_2 + \cdots + \alpha_m v_m = 0.\]
+    \[
+    	\alpha_1(5v_1 - 4v_2) + \alpha_2 v_2 + \cdots + \alpha_m v_m = 0.
+    \]
     Then we have
-    \[5\alpha_1 v_1 + (-4\alpha_1 + \alpha_2)v_2 + \alpha_3 v_3 + \cdots + \alpha_m v_m = 0.\]
+    \[
+    	5\alpha_1 v_1 + (-4\alpha_1 + \alpha_2)v_2 + \alpha_3 v_3 + \cdots + \alpha_m v_m = 0.
+    \]
     Since $v_1, v_2, \ldots, v_m$ is linearly independent, we must have
     \begin{align*}
         0 & = 5\alpha_1, \\
@@ -231,11 +271,17 @@
 
 \begin{sol}
     Let $\alpha_1, \ldots, \alpha_m \in \fbb$ such that
-    \[\alpha_1(\lambda v_1) + \cdots + \alpha_m(\lambda v_m) = 0.\]
+    \[
+    	\alpha_1(\lambda v_1) + \cdots + \alpha_m(\lambda v_m) = 0.
+    \]
     Then we have
-    \[\lambda(\alpha_1 v_1 + \cdots + \alpha_m v_m) = 0.\]
+    \[
+    	\lambda(\alpha_1 v_1 + \cdots + \alpha_m v_m) = 0.
+    \]
     Since $\lambda \neq 0$, we must have
-    \[\alpha_1 v_1 + \cdots + \alpha_m v_m = 0.\]
+    \[
+    	\alpha_1 v_1 + \cdots + \alpha_m v_m = 0.
+    \]
     Since $v_1, v_2, \ldots, v_m$ is linearly independent, we must have $\alpha_k = 0$ for $k = 1, \ldots, m$.
 	Thus, the only solution to the original equation is $\alpha_k = 0$ for $k = 1, \ldots, m$, and so the list is linearly independent.
 \end{sol}
@@ -246,10 +292,14 @@
 
 \begin{sol}
     Consider the following counterexample in $\rbb^2$:
-    \[v_1 = (1, 0), \quad v_2 = (0, 1), \quad w_1 = (0, 1), \quad w_2 = (1, 0).\]
+    \[
+    	v_1 = (1, 0), \quad v_2 = (0, 1), \quad w_1 = (0, 1), \quad w_2 = (1, 0).
+    \]
     Then $v_1, v_2$ and $w_1, w_2$ are linearly independent lists of vectors in $\rbb^2$.
 	However,
-    \[v_1 + w_1 = (1, 1), \quad v_2 + w_2 = (1, 1),\]
+    \[
+    	v_1 + w_1 = (1, 1), \quad v_2 + w_2 = (1, 1),
+    \]
     and so the list $v_1 + w_1, v_2 + w_2$ is linearly dependent.
 	Thus, the statement is false.
 \end{sol}
@@ -261,49 +311,73 @@
 
 \begin{sol}
     Let $\alpha_1, \ldots, \alpha_m \in \fbb$, not all zero, such that
-    \[\alpha_1(v_1 + w) + \cdots + \alpha_m(v_m + w) = 0.\]
+    \[
+    	\alpha_1(v_1 + w) + \cdots + \alpha_m(v_m + w) = 0.
+    \]
     Then we have
-    \[(\alpha_1 v_1 + \cdots + \alpha_m v_m) + (\alpha_1 + \cdots + \alpha_m)w = 0.\]
+    \[
+    	(\alpha_1 v_1 + \cdots + \alpha_m v_m) + (\alpha_1 + \cdots + \alpha_m)w = 0.
+    \]
     If $\alpha_1 + \cdots + \alpha_m = 0$, then we have
-    \[\alpha_1 v_1 + \cdots + \alpha_m v_m = 0,\]
+    \[
+    	\alpha_1 v_1 + \cdots + \alpha_m v_m = 0,
+    \]
     which contradicts the linear independence of $v_1, \ldots, v_m$.
 	Thus, we must have $\alpha_1 + \cdots + \alpha_m \neq 0$.
 	Let $\beta = \alpha_1 + \cdots + \alpha_m$.
 	Then we may write
-    \[w = -\frac{\alpha_1}{\beta}v_1 - \cdots - \frac{\alpha_m}{\beta}v_m.\]
+    \[
+    	w = -\frac{\alpha_1}{\beta}v_1 - \cdots - \frac{\alpha_m}{\beta}v_m.
+    \]
     Thus, $w$ is a linear combination of $v_1, \ldots, v_m$, and so $w \in \spn(v_1, \ldots, v_m)$.
 \end{sol}
  
 \begin{exercise}[2a13]
     Suppose $v_1, \ldots, v_m$ is linearly independent in $V$ and $w \in V$.
 	Show that
-    \[v_1, \ldots, v_m, w \text{ is linearly independent} \iff w \notin \spn(v_1, \ldots, v_m).\]
+    \[
+    	v_1, \ldots, v_m, w \text{ is linearly independent} \iff w \notin \spn(v_1, \ldots, v_m).
+    \]
 \end{exercise}
 
 \begin{sol}
     Suppose $v_1, \ldots, v_m, w$ is linearly independent.
 	If there were scalars $\alpha_1, \ldots, \alpha_m, \beta$ such that
-    \[\alpha_1 v_1 + \cdots + \alpha_m v_m + \beta w = 0,\]
+    \[
+    	\alpha_1 v_1 + \cdots + \alpha_m v_m + \beta w = 0,
+    \]
     then linear independence would imply that $\alpha_1 = \cdots = \alpha_m = \beta = 0$.
 	Suppose $w \in \spn(v_1, \ldots, v_m)$.
 	Then there exist scalars $\gamma_1, \ldots, \gamma_m$ such that
-    \[\gamma_1 v_1 + \cdots + \gamma_m v_m = w.\]
+    \[
+    	\gamma_1 v_1 + \cdots + \gamma_m v_m = w.
+    \]
     Then we may write
-    \[-\gamma_1 v_1 - \cdots - \gamma_m v_m + 1\cdot w = 0,\]
+    \[
+    	-\gamma_1 v_1 - \cdots - \gamma_m v_m + 1\cdot w = 0,
+    \]
     which contradicts the linear independence of $v_1, \ldots, v_m, w$.
 	Thus, $w \notin \spn(v_1, \ldots, v_m)$.
 
     Conversely, suppose $w \notin \spn(v_1, \ldots, v_m)$.
 	Then there do not exist scalars $\alpha_1, \ldots, \alpha_m$ such that
-    \[\alpha_1 v_1 + \cdots + \alpha_m v_m = w.\]
+    \[
+    	\alpha_1 v_1 + \cdots + \alpha_m v_m = w.
+    \]
     If $v_1, \ldots, v_m, w$ is linearly dependent, then there exist scalars $\beta_1, \ldots, \beta_m, \gamma$, not all zero, such that
-    \[\beta_1 v_1 + \cdots + \beta_m v_m + \gamma w = 0.\]
+    \[
+    	\beta_1 v_1 + \cdots + \beta_m v_m + \gamma w = 0.
+    \]
     If $\gamma = 0$, then we have
-    \[\beta_1 v_1 + \cdots + \beta_m v_m = 0,\]
+    \[
+    	\beta_1 v_1 + \cdots + \beta_m v_m = 0,
+    \]
     which contradicts the linear independence of $v_1, \ldots, v_m$.
 	Thus, we must have $\gamma \neq 0$.
 	Then we may write
-    \[w = -\frac{\beta_1}{\gamma}v_1 - \cdots -\frac{\beta_m}{\gamma}v_m,\]
+    \[
+    	w = -\frac{\beta_1}{\gamma}v_1 - \cdots -\frac{\beta_m}{\gamma}v_m,
+    \]
     which contradicts the assumption that $w$ is not in the span of $v_1, \ldots, v_m$.
 	Thus, $v_1, \ldots, v_m, w$ is linearly independent.
 \end{sol}
@@ -311,24 +385,34 @@
 \begin{exercise}[2a14]
     Suppose $v_1, \ldots, v_m$ is a list of vectors in $V$.
 	For $k \in \set{1, \ldots, m}$, let
-    \[w_k = v_1 + \cdots + v_k.\]
+    \[
+    	w_k = v_1 + \cdots + v_k.
+    \]
     Show that the list $v_1, \ldots, v_m$ is linearly independent if and only if the list $w_1, \ldots, w_m$ is linearly independent.
 \end{exercise}
 
 \begin{sol}
     Suppose $v_1, \ldots, v_m$ is linearly independent.
 	Let $\alpha_1, \ldots, \alpha_m \in \fbb$ such that
-    \[\alpha_1 w_1 + \cdots + \alpha_m w_m = 0.\]
+    \[
+    	\alpha_1 w_1 + \cdots + \alpha_m w_m = 0.
+    \]
     Substituting $w_k = v_1 + \cdots + v_k$ for each $k$, we get
-    \[\alpha_1 v_1 + \alpha_2(v_1 + v_2) + \alpha_3(v_1 + v_2 + v_3) + \cdots + \alpha_m(v_1 + \cdots + v_m) = 0.\]
+    \[
+    	\alpha_1 v_1 + \alpha_2(v_1 + v_2) + \alpha_3(v_1 + v_2 + v_3) + \cdots + \alpha_m(v_1 + \cdots + v_m) = 0.
+    \]
     Then we may rewrite this as
-    \[(\alpha_1 + \cdots + \alpha_m) v_1 + (\alpha_2 + \cdots + \alpha_m) v_2 + \cdots + (\alpha_{m-1} + \alpha_m) v_{m-1} + \alpha_m v_m = 0.\]
+    \[
+    	(\alpha_1 + \cdots + \alpha_m) v_1 + (\alpha_2 + \cdots + \alpha_m) v_2 + \cdots + (\alpha_{m-1} + \alpha_m) v_{m-1} + \alpha_m v_m = 0.
+    \]
     Since $v_1, \ldots, v_m$ is linearly independent, we must have $\alpha_1 = \cdots = \alpha_m = 0$.
 	Hence, $w_1, \ldots, w_m$ is linearly independent.
 
     Conversely, suppose $w_1, \ldots, w_m$ is linearly independent.
 	Let $\beta_1, \ldots, \beta_m \in \fbb$ such that
-    \[\beta_1 v_1 + \cdots + \beta_m v_m = 0.\]
+    \[
+    	\beta_1 v_1 + \cdots + \beta_m v_m = 0.
+    \]
     Noting that $v_1 = w_1$ and $v_k = w_k - w_{k-1}$ for $k \in \set{2, \ldots, m}$, we may rewrite the equation as
     \begin{align*}
         \beta_1 w_1 + \beta_2 (w_2 - w_1) + \cdots + \beta_m (w_m - w_{m-1}) &= 0, \\
@@ -389,7 +473,9 @@
     By \exref{2a17}, it suffices to construct a sequence of vectors $v_1, v_2, \ldots$ in $\fbb^\infty$ such that $v_1, \ldots, v_m$ is linearly independent for every positive integer $m$.
 	Let $v_k$ be the vector in $\fbb^\infty$ whose $k$-th coordinate is $1$ and all other coordinates are $0$.
 	Explicitly, we have
-    \[v_1 = (1, 0, 0, \ldots), \quad v_2 = (0, 1, 0, \ldots), \quad v_3 = (0, 0, 1, \ldots), \quad \ldots\]
+    \[
+    	v_1 = (1, 0, 0, \ldots), \quad v_2 = (0, 1, 0, \ldots), \quad v_3 = (0, 0, 1, \ldots), \quad \ldots
+    \]
     Then for any positive integer $m$, the list $v_1, \ldots, v_m$ is linearly independent, since the only way to write the zero vector as a linear combination of $v_1, \ldots, v_m$ is to take all coefficients to be zero.
 	Thus, by \exref{2a17}, $\fbb^\infty$ is infinite-dimensional.
 \end{sol}
@@ -402,10 +488,14 @@
     By \exref{2a17}, it suffices to construct a sequence of continuous real-valued functions $f_1, f_2, \ldots$ on the interval $[0, 1]$ such that $f_1, \ldots, f_m$ is linearly independent for every positive integer $m$.
 	Let $f_k(x) = x^{k-1}$ for each positive integer $k$.
 	Then for any positive integer $m$, let $\alpha_1, \ldots, \alpha_m \in \rbb$ such that
-    \[\alpha_1 f_1(x) + \cdots + \alpha_m f_m(x) = 0\]
+    \[
+    	\alpha_1 f_1(x) + \cdots + \alpha_m f_m(x) = 0
+    \]
     for all $x \in [0, 1]$.
 	This is equivalent to the polynomial equation
-    \[\alpha_1 + \alpha_2 x + \cdots + \alpha_m x^{m-1} = 0\]
+    \[
+    	\alpha_1 + \alpha_2 x + \cdots + \alpha_m x^{m-1} = 0
+    \]
     for all $x \in [0, 1]$.
 	Since a polynomial of degree at most $m - 1$ can have at most $m - 1$ roots unless it is the zero polynomial, we must have $\alpha_1 = \cdots = \alpha_m = 0$.
 	Thus, the list $f_1, \ldots, f_m$ is linearly independent.
@@ -419,14 +509,22 @@
 
 \begin{sol}
     Since $p_k(2) = 0$ for each $k \in \set{0, \ldots, m}$, we have
-    \[p_k(x) = (x - 2)q_k(x)\]
+    \[
+    	p_k(x) = (x - 2)q_k(x)
+    \]
     for some polynomial $q_k(x) \in \pcal_{m-1}(\fbb)$.
 	Then we may write
-    \[p_0(x), p_1(x), \ldots, p_m(x) = (x - 2)q_0(x), (x - 2)q_1(x), \ldots, (x - 2)q_m(x).\]
+    \[
+    	p_0(x), p_1(x), \ldots, p_m(x) = (x - 2)q_0(x), (x - 2)q_1(x), \ldots, (x - 2)q_m(x).
+    \]
     Since $\pcal_{m - 1}(\fbb)$ can be spanned by the $m$ polynomials $1, x, \ldots, x^{m-1}$, the list of $m + 1$ polynomials $q_0, q_1, \ldots, q_m$ must be linearly dependent.
 	Thus, there exist scalars $\alpha_0, \ldots, \alpha_m$, not all zero, such that
-    \[\alpha_0 q_0(x) + \cdots + \alpha_m q_m(x) = 0.\]
+    \[
+    	\alpha_0 q_0(x) + \cdots + \alpha_m q_m(x) = 0.
+    \]
     Then we may write
-    \[\alpha_0 p_0(x) + \cdots + \alpha_m p_m(x) = (x - 2)(\alpha_0 q_0(x) + \cdots + \alpha_m q_m(x)) = 0.\]
+    \[
+    	\alpha_0 p_0(x) + \cdots + \alpha_m p_m(x) = (x - 2)(\alpha_0 q_0(x) + \cdots + \alpha_m q_m(x)) = 0.
+    \]
     Since not all the scalars $\alpha_0, \ldots, \alpha_m$ are zero, this shows that $p_0, p_1, \ldots, p_m$ is linearly dependent in $\pcal_m(\fbb)$.
 \end{sol}
