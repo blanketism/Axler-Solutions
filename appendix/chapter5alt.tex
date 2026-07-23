@@ -78,3 +78,39 @@
 
     These two cases cover all possibilities over $\mathbb{R}$, and so combining with trivial complex case finishes the proof.
 \end{csp}
+
+\begin{apex}[5c3]
+    Suppose $T \in \lin{V}$ is invertible and $v_1, \ldots, v_n$ is a basis of $V$ with respect to which the matrix of $T$ is upper triangular, with $\lambda_1, \ldots, \lambda_n$ on the diagonal.
+    Show that the matrix of $T\inv$ is also upper triangular with respect to the basis $v_1, \ldots, v_n$, with
+    \[
+        \frac{1}{\lambda_1}, \ldots, \frac{1}{\lambda_n}
+    \]
+    on the diagonal.
+\end{apex}
+
+\begin{me}
+    Let $A$ be the matrix of $T$ with respect to the basis $v_1, \ldots, v_n$. 
+    Since $T$ is invertible, $A$ is also invertible.
+    Let $A = (a_{ij})$ be the upper-triangular matrix with $\lambda_1, \ldots, \lambda_n$ on the diagonal, and let $B = (b_{ij})$ be the matrix of $T\inv$ with respect to the same basis.
+    Denote $b_j$ as the $j$-th column of $B$.
+    Then we have
+    \[
+        Ab_j = e_j,
+    \]
+    where $e_j$ is the $j$-th column of the identity matrix. 
+    In the $n$th row, we have $\lambda_n b_{nj} = \delta_{nj}$, hence $b_{nj} = 0$ for $j < n$ and $b_{nn} = \lambda_n\inv$.
+    Now, consider the $(n-1)$-th row. We have
+    \[
+        a_{n-1,n-1}b_{n-1,j} + a_{n-1,n}b_{n,j} = \delta_{n-1,j}.
+    \]
+    For $j < n-1$, we have $b_{n,j} = 0$ and $\delta_{n-1,j} = 0$, so $b_{n-1,j} = 0$.
+    For $j = n-1$, we have $b_{n,n-1} = 0$ and $\delta_{n-1,n-1} = 1$, so $b_{n-1,n-1} = a_{n-1,n-1}\inv = \lambda_{n-1}\inv$.
+    Assume inductively that for some $k \in \{1, \ldots, n-1\}$, we have $b_{ij} = 0$ for all $i > j$ and $b_{ii} = \lambda_i\inv$ for all $i \geq k+1$.
+    Now, consider the $k$-th row. We have
+    \[
+        a_{kk}b_{kj} + a_{k,k+1}b_{k+1,j} + \cdots + a_{kn}b_{nj} = \delta_{kj}.
+    \]
+    For $j < k$, we have $b_{ij} = 0$ for all $i > j \geq k$, so the left-hand side reduces to $a_{kk}b_{kj} = 0$, hence $b_{kj} = 0$.
+    For $j = k$, we have $b_{ij} = 0$ for all $i > k$, so the left-hand side reduces to $a_{kk}b_{kk} = 1$, hence $b_{kk} = a_{kk}\inv = \lambda_k\inv$.
+    By induction, we conclude that $B$ is upper-triangular with $\lambda_1\inv, \ldots, \lambda_n\inv$ on the diagonal.
+\end{me}
