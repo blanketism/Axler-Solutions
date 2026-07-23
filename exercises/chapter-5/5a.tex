@@ -596,17 +596,11 @@
 \begin{sol}
     Note that
     \[T^4 - I = (T^2 - I)(T^2 + I) = (T - I)(T + I)(T^2 + I) = 0.\]
-    Applying $T^4 - I$ to any nonzero $v \in V$, we get
-    \[(T - I)(T + I)(T^2 + I)v = 0.\]
-    Let $(T^2 + I)v = w$.
-	If $w \neq 0$, then $(T - I)(T + I)w = 0$.
-	If $(T + I)w \neq 0$, then
-    \[(T - I)(T + I)w = T(T + I)w - I(T + I)w = 0,\]
-    which implies $T(T + I)w = (T + I)w$.
-	Then $(T + I)w$ would have to be an eigenvector of $T$ corresponding to the eigenvalue $1$, contradicting the assumption that $T$ has no eigenvalues.
-	If $(T + I)w = 0$, then $Tw = -w$, which would make $w$ an eigenvector of $T$ corresponding to the eigenvalue $-1$, again contradicting the assumption that $T$ has no eigenvalues.
-	Hence, we must have $w = 0$, i.e., $(T^2 + I)v = 0$.
-	Since $v$ was arbitrary and nonzero, we conclude that $T^2 + I = 0$, i.e., $T^2 = -I$.
+    Since $T$ has no eigenvalues, $T - I$ and $T + I$ are both injective, hence $T^2 - I$ is injective.
+    Then for any $v \in V$, we have
+    \[(T^2 - I)(T^2 + I)v = 0,\]
+    which implies $(T^2 + I)v = 0$ since $T^2 - I$ is injective.
+    Therefore, $T^2 + I = 0$, or $T^2 = -I$.
 \end{sol}
 
 \begin{exercise}[5a33]
@@ -734,15 +728,15 @@
         &= \alpha Tv + \beta Tw + U \\
         &= \alpha(T / U)(v + U) + \beta(T / U)(w + U)
     \end{align*}
-    \item Suppose $\lambda$ is an eigenvalue of $T / U$ with corresponding eigenvector $v + U \in V / U$, so $(T / U)(v + U) = Tv + U = \lambda(v + U) = \lambda v + U$.
-	This means $Tv - \lambda v = (T - \lambda I)v \in U$.
-    Suppose $\lambda$ is not an eigenvalue of $T$, hence $(T - \lambda I)$ is injective.
-    
-    Consider the restriction $(T - \lambda I)|_U$, which is injective since $T - \lambda I$ is injective.
-    Since $U$ is finite-dimensional, the injectivity of $(T - \lambda I)|_U$ implies that it is also surjective onto $U$.
-    This implies that there exists $u \in U$ such that $(T - \lambda I)u = (T - \lambda I)v$, which means $(T - \lambda I)(v - u) = 0$.
-    Since $v - u \neq 0$ (otherwise $v \in U$, which would contradict $v + U$ being an eigenvector of $T / U$), this contradicts the injectivity of $T - \lambda I$.
-    Hence, $\lambda$ must be an eigenvalue of $T$.
+    \item Let $\lambda$ be an eigenvalue of $T/U$ with eigenvector $v+U \neq 0$.
+    Then $v \notin U$ and $(T-\lambda I)v \in U$.
+    Consider $(T-\lambda I) \vert_U \in \mathcal{L}(U)$.
+    \begin{itemize}
+        \item If $(T-\lambda I) \vert_U$ is not injective, then $\lambda$ is an eigenvalue of $T \vert_U$ and hence of $T$.
+        \item If $(T-\lambda I) \vert_U$ is injective, then by finite-dimensionality it is surjective onto $U$. Thus, there exists $u \in U$ with $(T-\lambda I)u = (T-\lambda I)v$.
+        Consequently, $(T-\lambda I)(v-u)=0$ with $v-u \neq 0$ (since $v \notin U$ and $u \in U$), showing $\lambda$ is an eigenvalue of $T$.
+    \end{itemize}
+    In either case, $\lambda$ is an eigenvalue of $T$.
 \end{sole}
 
 \begin{exercise}[5a39]
@@ -858,16 +852,12 @@
 \end{exercise}
 
 \begin{sol}
-	Let $v_1, \ldots, v_n$ be a basis for $V$, with $n = \dim V$.
-	Consider the operators $T_1, T_2 \in \lin V$ defined by
-    \[T_1v_1 = v_2, \quad T_1v_i = 0~\text{for}~i = 2, \ldots, n,\]
-    and
-    \[T_2v_1 = v_1, \quad T_2v_i = 0~\text{for}~i = 2, \ldots, n.\]
-    Then $T_2T_1v_1 = T_2(T_1v_1) = T_2v_2 = 0$, and $T_1T_2v_1 = T_1(T_2v_1) = T_1v_1 = v_2$.
-	Hence, $T_2T_1 \neq T_1T_2$, so $T_1$ and $T_2$ do not commute.
-	Let $S = \set{p(T) \mid p \in \pcal(\fbb)}$. Let $p, q \in \pcal$ be defined as
-    \[p(z) = a_0 + a_1 z + \dots + a_m z^m, \quad q(z) = b_0 + b_1 z + \dots + b_k z^k.\]
-    Since $p(T)q(T) = q(T)p(T)$, it follows that all operators in $S$ commute.
-    However, if $T_1 = r(T)$ and $T_2 = s(T)$ for some polynomials $r, s \in \pcal$, then $T_1$ and $T_2$ would commute, which is a contradiction.
-    Hence, $T_1$ and $T_2$ cannot both be in $S$, so $S \neq \lin{V}$.
+    If $T$ is the zero transformation or a scalar multiple of the identity, the result trivially holds. 
+    Otherwise, because $\dim V > 1$, there is at least one nonzero vector $v_1 \in V$ that is not an eigenvector of $T$.
+    Let $Tv_1 = v_2$, so that $v_1$ and $v_2$ are linearly independent, and extend $v_1, v_2$ to a basis $v_1, \dots, v_n$ for $V$.
+
+    Now suppose that $\set{p(T) \mid p \in \pcal(\fbb)} = \lin{V}$ and consider the map $S \in \lin{V}$ defined by $Sv_1 = 0$ and $Sv_i = v_i$ for $i = 2,\dots,n$. Because $S \in \lin{V}$, there must be a polynomial $p \in \pcal(\fbb)$ such that $p(T) = S$.
+    Because the null space of $p(T)$ is invariant under $T$, it must be that the null space of $S$ is invariant under $T$. 
+    This is impossible, though, as $Sv_1 = 0$ and $STv_1 = Sv_2 = v_2 \neq 0$. 
+    Therefore, there is no $T \in \lin{V}$ such that $\set{p(T) \mid p \in \pcal(\fbb)} = \lin{V}$.
 \end{sol}

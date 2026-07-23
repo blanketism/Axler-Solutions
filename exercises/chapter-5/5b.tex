@@ -56,22 +56,14 @@
     which implies $\lambda = n$.
 	If $\lambda = 0$, then $x_1 + \cdots + x_n = 0$, and the eigenvectors are all nonzero vectors $(x_1, \ldots, x_n)$ such that $x_1 + \cdots + x_n = 0$.
 	Hence, the eigenvalues of $T$ are $0$ and $n$, with corresponding eigenvectors as described.
-    \item Following the $n = 1$ case, the minimal polynomial of $T$ is $p(z) = z - 1$.
-    The minimal polynomial of $T$ must have roots at the eigenvalues of $T$, which are $0$ and $n$.
-	Therefore, the minimal polynomial is of the form $p(z) = z(z - n)$.
-	We claim that $p(T) = 0$.
-	To verify this, let $x = x_1 + \cdots + x_n$.
-	Then
-    \[T(x_1, \ldots, x_n) = (x, \ldots, x),\]
-    and
-    \[(T - nI)(x_1, \ldots, x_n) = (x - nx_1, \ldots, x - nx_n).\]
+    \item If $n=1$, the minimal polynomial is $z-1$.
+
+    For $n>1$, we know from (a) that the eigenvalues are $0$ and $n$. Then the minimal polynomial is a polynomial multiple of $z(z - n)$. Letting $x = x_1 + \cdots + x_n$, then
+    \[T(x_1, \ldots, x_n) = (x, \ldots, x), \quad (T - nI)(x_1, \ldots, x_n) = (x - nx_1, \ldots, x - nx_n).\]
     Observe that $(x - nx_1) + \cdots + (x - nx_n) = nx - n(x_1 + \cdots + x_n) = 0$.
 	Therefore, $(T - nI)(x_1, \ldots, x_n)$ lies in $\nul T$, and applying $T$ again gives
     \[T(T - nI)(x_1, \ldots, x_n) = 0.\]
-    Hence, $p(T) = T(T - nI) = 0$.
-	To see that this is minimal, note that $T(1, \ldots, 1) = n(1, \ldots, 1) \neq 0$, so $T \neq 0$.
-	Also, $(T - nI)(1, 0, \ldots, 0) = (1 - n, 1, \ldots, 1) \neq 0$, so $T - nI \neq 0$.
-	Therefore, the minimal polynomial of $T$ is indeed $p(z) = z(z - n)$.
+    Hence, $z(z - n)$ is a polynomial multiple of the minimal polynomial, and since it must be monic, the minimal polynomial of $T$ is $z(z-n)$.
 \end{sole}
 
 \begin{exercise}[5b4]
@@ -333,16 +325,15 @@
 \end{exercise}
 
 \begin{sol}
-    By \exref{5a42}, the eigenvalues of $T$ are $1, 2, \ldots, n$, whose eigenvectors are scalar multiples of the standard basis vectors $e_1, e_2, \ldots, e_n$.
-    The minimal polynomial of $T$ must have roots at the eigenvalues of $T$, which are $1, 2, \ldots, n$.
-    Therefore, the minimal polynomial is of the form $p(z) = (z - 1)(z - 2) \cdots (z - n)$.
-    To verify that this is indeed the minimal polynomial, we can check that $p(T) = 0$.
-    Observe that $p(T)e_j = 0$ for each $j = 1, 2, \ldots, n$, since $T e_j = j e_j$ and thus $(T - jI)e_j = 0$.
-    Since $\{e_1, e_2, \ldots, e_n\}$ establishes a basis for $\fbb^n$, it follows that $p(T) = 0$.
-    Therefore, the minimal polynomial of $T$ is divisible by $(z - 1)(z - 2) \cdots (z - n)$ and has degree $n$.
-    
-    To see that this is minimal, note that if we remove any factor $(z - k)$ from $p(z)$, the resulting polynomial would not annihilate $T$ and would result in $(k - 1)(k - 2) \cdots (k - (k-1))(k - (k+1)) \cdots (k - n)e_k \neq 0$ when applied to $e_k$.
-    Therefore, the minimal polynomial of $T$ is $p(z) = (z - 1)(z - 2) \cdots (z - n)$.
+    For each $k \in \{1, \dots, n\}$, the standard basis vector $e_k$ satisfies $Te_k=ke_k$, so each $k$ is an eigenvalue. Let $p(z)=(z-1)(z-2) \cdots (z-n)$. So,
+    \[p(T) e_k=p(k) e_k=0 \cdot e_k=0 \text{ for all } k \in \{1, \dots, n\},\]
+    and since the $e_k$ form a basis of $V$, $p(T)=0$. Therefore, the minimal polynomial $m_T (z)$ divides $p(z)$.
+
+    Now suppose $m_T (z)$ is the minimal polynomial of $T$. For each eigenvalue $k$,
+    \[0=m_T (T) e_k=m_T (k) e_k \implies m_T (k)=0.\]
+    Thus, $(z-k)$ divides $m_T (z)$ for every $k \in \{1, \dots, n\}$. Because the factors are distinct, $p(z)$ divides $m_T (z)$.
+
+    Since both $p(z)$ and $m_T (z)$ are monic, $p(z)=m_T (z)$. Hence, the minimal polynomial is $p(z)=(z-1) \cdots (z-n)$.
 \end{sol}
 
 \begin{exercise}[5b13]
@@ -529,25 +520,17 @@
 \end{exercise}
 
 \begin{sol}
-    Let $p(z)$ be the minimal polynomial of $T$.
-    Since the eigenvalues of $T$ are $3, 5, 8$, the minimal polynomial must have these roots.
-    Therefore, we can write
-    \[p(z) = (z - 3)^{m_1}(z - 5)^{m_2}(z - 8)^{m_3},\]
-    where $m_1, m_2, m_3 \geq 1$ are the multiplicities of the eigenvalues in the minimal polynomial.
-
-    Since $T \in \lin{\fbb^4}$, the degree of the minimal polynomial cannot exceed $\dim \fbb^4 = 4$.
-    Thus, we have
-    \[m_1 + m_2 + m_3 \leq 4.\]
-
-    To show that $(T - 3I)^2(T - 5I)^2(T - 8I)^2 = 0$, we need to show that each $m_i \leq 2$.
-    Without loss of generality, suppose $m_1 \geq 3$.
-    Then $m_2 + m_3 \leq 1$, which implies that at least one of $m_2$ or $m_3$ is equal to $0$, contradicting the fact that both $5$ and $8$ are eigenvalues of $T$.
-    Hence, $m_1 \leq 2$.
-    By similar reasoning, we can conclude that $m_2 \leq 2$ and $m_3 \leq 2$.
-
-    Therefore, we have $m_1, m_2, m_3 \leq 2$.
-    Then $p(z)$ divides $(z - 3)^2(z - 5)^2(z - 8)^2$ for some polynomial $q(z)$, and thus
-    \[(T - 3I)^2(T - 5I)^2(T - 8I)^2 = q(T)p(T) = q(T) \cdot 0 = 0. \qh\]
+    Let $p$ be the minimal polynomial of $T$.
+    The eigenvalues of $T$ are $3$, $5$, and $8$, so each is a root of $p$.
+    Hence,
+    \[p(z)=(z-3)^{m_1} (z-5)^{m_2} (z-8)^{m_3}\]
+    where $m_1$, $m_2$, $m_3 \geq 1$.
+    Because $T$ acts on a $4$-dimensional space, $\deg p \leq 4$, and so $m_1+m_2+m_3 \leq 4$.
+    Since $m_2$, $m_3 \geq 1$, we have $m_1 \leq 4-1-1=2$.
+    By similar logic, $m_1$, $m_2$, $m_3 \leq 2$.
+    This means $p(z)$ divides $(z-3)^2 (z-5)^2 (z-8)^2$.
+    Applying this polynomial to $T$ yields
+    \[(T-3I)^2 (T-5I)^2 (T-8I)^2=0. \qh\]
 \end{sol}
 
 \begin{exercise}[5b21]
@@ -635,25 +618,14 @@
 \end{exercise}
 
 \begin{sol}
-    Let $n = \dim V$.
-    Since $5$ and $6$ are the only eigenvalues of $T$, the minimal polynomial of $T$ must be of the form
-    \[p(z) = (z - 5)^{m_1}(z - 6)^{m_2},\]
-    where $m_1, m_2 \geq 1$ are the multiplicities of the eigenvalues in the minimal polynomial.
-
-    Since $T \in \lin{V}$, we have $\deg p \leq n$.
-    Therefore, we have
-    \[m_1 + m_2 \leq n.\]
-
-    To show that $(T - 5I)^{n-1}(T - 6I)^{n-1} = 0$, we need to show that each $m_i \leq n - 1$.
-    Suppose $m_1 \geq n$.
-    Then $m_2 \leq 0$, which contradicts the fact that $6$ is an eigenvalue of $T$.
-    Hence, $m_1 \leq n - 1$.
-    By similar reasoning, we can conclude that $m_2 \leq n - 1$.
-
-    Therefore, we have $m_1, m_2 \leq n - 1$.
-    Then $p(z)$ divides $(z - 5)^{n-1}(z - 6)^{n-1}$, so there exists a polynomial $q(z)$ such that $p(z)q(z) = (z - 5)^{n-1}(z - 6)^{n-1}$.
-    Applying this to $T$, we have
-    \[(T - 5I)^{n-1}(T - 6I)^{n-1} = p(T)q(T) = 0 \cdot q(T) = 0. \qh\]
+    Let $p$ be the minimal polynomial of $T$. The eigenvalues of $T$ are $5$ and $6$, so each is a root of $p$.
+    Hence,
+    \[p(z) = (z - 5)^{m_1}(z - 6)^{m_2}\]
+    where $m_1, m_2 \geq 1$.
+    Because $\deg p \leq \dim V$, we have $m_1 + m_2 \leq \dim V$.
+    Since $m_2 \geq 1$, we get $m_1 \leq \dim V - 1$, and similarly $m_2 \leq \dim V - 1$.
+    This means $p(z)$ divides $(z - 5)^{\dim V - 1}(z - 6)^{\dim V - 1}$, so
+    \[(T - 5I)^{\dim V - 1}(T - 6I)^{\dim V - 1} = 0. \qh\]
 \end{sol}
 
 \begin{exercise}[5b25]
@@ -754,28 +726,16 @@
 \end{exercise}
 
 \begin{sol}
-    Let $p(z)$ be the minimal polynomial of $T$.
-    Then we have
-    \[p(T) = 0.\]
-    Consider the dual map $T' \in \lin{V'}$ defined by $T'(\phi) = \phi \circ T$ for all $\phi \in V'$.
-    By induction, we can extend the polynomial $p(z)$ to act on $V'$ by defining
-    \[p(T'\phi) = p(T')(\phi) = \phi \circ p(T).\]
-    Since $p(T) = 0$, it follows that
-    \[p(T')(\phi) = \phi \circ 0 = 0\]
-    for all $\phi \in V'$.
-    Therefore, $p(T') = 0$, which shows that the minimal polynomial of $T'$ divides $p(z)$.
+    Let $p$ be the minimal polynomial of $T$. For any $\phi \in V'$, we have
+    \[p(T')(\phi)=\phi \circ p(T)=\phi \circ 0=0 \implies p(T')=0.\]
+    Hence, the minimal polynomial of $T'$ divides $p$. \\ 
 
-    Conversely, let $q(z)$ be the minimal polynomial of $T'$.
-    Then we have
-    \[q(T') = 0.\]
-    This implies that $q(T')(\phi) = \phi \circ q(T) = 0$ for all $\phi \in V'$.
-    By \exref{3f32}, we know that $V$ is isomorphic to $V''$, the double dual of $V$.
-    Using the isomorphism $\Lambda : V \to V''$ defined in \exref{3f32} (c), we can see that if $q(T')(\phi) = 0$ for all $\phi \in V'$, then
-    \[\Lambda(q(T)v)(\phi) = \phi(q(T)v) = q(T')(\phi)(v) = 0\]
-    for all $v \in V$ and $\phi \in V'$.
-    It follows that $q(T)v = 0$ for all $v \in V$.
-    Therefore, $q(T) = 0$, which shows that the minimal polynomial of $T$ divides $q(z)$.
-    Combining both directions, we conclude that the minimal polynomial of $T'$ equals the minimal polynomial of $T$.
+    Conversely, let $q$ be the minimal polynomial of $T'$, so $q(T')=0$. Then for all $\phi \in V'$ and all $v \in V$,
+    \[0=\left(q(T') \phi \right)(v)=\phi \left(q(T) v \right).\]
+    Thus, for each fixed $v$, the functional $\phi$ is applied to $q(T)v$ gives zero for every $\phi \in V'$.
+    Since $\phi(w) = 0$ for all $\phi \in V'$ implies $w = 0$, this forces $q(T)v=0$ for all $v$; i.e., $q(T)=0$. Therefore, $p$ divides $q$. \\ 
+
+    Both $p$ and $q$ divide each other and are monic, so they are equal.
 \end{sol}
 
 \begin{exercise}[5b29]
