@@ -86,30 +86,13 @@
 \end{exercise}
 
 \begin{sol}
-    Let $A$ be the matrix of $T$ with respect to the basis $v_1, \ldots, v_n$. 
-    Since $T$ is invertible, $A$ is also invertible.
-    Let $A = (a_{ij})$ be the upper-triangular matrix with $\lambda_1, \ldots, \lambda_n$ on the diagonal, and let $B = (b_{ij})$ be the matrix of $T\inv$ with respect to the same basis.
-    Denote $b_j$ as the $j$-th column of $B$.
-    Then we have
-    \[
-        Ab_j = e_j,
-    \]
-    where $e_j$ is the $j$-th column of the identity matrix. 
-    In the $n$th row, we have $\lambda_n b_{nj} = \delta_{nj}$, hence $b_{nj} = 0$ for $j < n$ and $b_{nn} = \lambda_n\inv$.
-    Now, consider the $(n-1)$-th row. We have
-    \[
-        a_{n-1,n-1}b_{n-1,j} + a_{n-1,n}b_{n,j} = \delta_{n-1,j}.
-    \]
-    For $j < n-1$, we have $b_{n,j} = 0$ and $\delta_{n-1,j} = 0$, so $b_{n-1,j} = 0$.
-    For $j = n-1$, we have $b_{n,n-1} = 0$ and $\delta_{n-1,n-1} = 1$, so $b_{n-1,n-1} = a_{n-1,n-1}\inv = \lambda_{n-1}\inv$.
-    Assume inductively that for some $k \in \{1, \ldots, n-1\}$, we have $b_{ij} = 0$ for all $i > j$ and $b_{ii} = \lambda_i\inv$ for all $i \geq k+1$.
-    Now, consider the $k$-th row. We have
-    \[
-        a_{kk}b_{kj} + a_{k,k+1}b_{k+1,j} + \cdots + a_{kn}b_{nj} = \delta_{kj}.
-    \]
-    For $j < k$, we have $b_{ij} = 0$ for all $i > j \geq k$, so the left-hand side reduces to $a_{kk}b_{kj} = 0$, hence $b_{kj} = 0$.
-    For $j = k$, we have $b_{ij} = 0$ for all $i > k$, so the left-hand side reduces to $a_{kk}b_{kk} = 1$, hence $b_{kk} = a_{kk}\inv = \lambda_k\inv$.
-    By induction, we conclude that $B$ is upper-triangular with $\lambda_1\inv, \ldots, \lambda_n\inv$ on the diagonal.
+    Let $V_k=\spn(v_1, \dots, v_k)$ for each $k \in \{1, \dots, n\}$.
+    Because $\mcal(T,(v_1,\dots,v_n))$ is upper-triangular, $T(V_k) \subseteq V_k$ for every $k$; thus each $V_k$ is invariant under $T$.
+    Since $T$ is invertible, its restriction to the (finite-dimensional) $V_k$ is injective, hence surjective onto $V_k$.
+    Therefore, $T(V_k)=V_k$. Applying $T\inv$ yields $V_k=T\inv (V_k)$, meaning each $V_k$ is also invariant under $T\inv$. So, $\mcal(T\inv, (v_1, \dots, v_n))$ is upper-triangular. 
+
+    Let $\mu_1$, $\dots$, $\mu_n$ be the diagonal entries of $\mcal(T\inv, (v_1, \dots, v_n))$.
+    Since $TT\inv=I$ is upper-triangular, we have from \exref{5c2} (b) that $\lambda_k \mu_k=1$ for each $k$, giving $\mu_k=\frac{1}{\lambda_k}$.
 \end{sol}
 
 \begin{exercise}[5c4]
@@ -161,11 +144,14 @@
 \end{exercise}
 
 \begin{sol}
-    The minimal polynomial of $T$ has degree at most $\dim V$, and since $\fbb = \cbb$, then the minimal polynomial factors completely into $\dim V$ linear factors.
-    Then $T$ has an upper-triangular matrix with respect to some basis of $V$ by 5.44.
-    Let $v_1, \ldots, v_n$ be that basis.
-    By 5.39, $Tv_k \in \spn(v_1, \ldots, v_k)$ for each $k = 1, \ldots, \dim V$.
-    Therefore, $\spn(v_1, \ldots, v_k)$ is a $k$-dimensional subspace of $V$ that is invariant under $T$.
+    Recall that every operator on a finite-dimensional complex vector space has an upper-triangular matrix with respect to some basis.
+    Let $v_1$, $\dots$, $v_n$ be such a basis.
+    Then, for each $k \in \{1, \dots, n\}$,
+    \[
+        Tv_j \in \spn(v_1, \dots, v_j) \subseteq \spn(v_1, \dots, v_k)
+    \]
+    for all $j \leq k$.
+    Hence, $\spn(v_1, \dots, v_k)$ is a $k$-dimensional subspace that is invariant under $T$.
 \end{sol}
 
 \begin{exercise}[5c7]

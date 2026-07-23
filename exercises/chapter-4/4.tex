@@ -139,7 +139,8 @@
 
     Conversely, suppose $p$ and $p'$ have no zeros in common.
 	If $p$ had a multiple zero $z$, then $p(z) = 0$ and $p'(z) = 0$, which would contradict the assumption.
-	Therefore, all zeros of $p$ are distinct.
+	Since $p$ has degree $m$, it can have at most $m$ zeros by the fundamental theorem of algebra.
+    Therefore, $p$ must have exactly $m$ distinct zeros.
 \end{sol}
 
 \begin{exercise}[4a9]
@@ -236,8 +237,10 @@
 	This shows that every polynomial in $\pcal(\fbb)$ can be written as an element of $U$ plus a polynomial of degree less than $\deg p$.
 	Consider the map $T : \pcal_{\deg p - 1}(\fbb) \to \pcal(\fbb) / U$ defined by $T(s) = s + U$.
 	This map is linear and surjective, and $\nul T$ is trivial since if $s + U = U$, then $s \in U$, which implies $s = pq$ for some $q \in \pcal(\fbb)$.
-	But $\deg s < \deg p$, so $s$ must be zero.
-	Therefore, $T$ is an isomorphism, and we conclude that $\dim \pcal(\fbb) / U = \dim \pcal_{\deg p - 1}(\fbb) = \deg p$.
+	Then
+    \[\deg s = \deg p + \deg q < \deg p.\]
+	Therefore, $q = 0$, hence $s = 0$, and $T$ is an isomorphism.
+    We conclude that $\dim \pcal(\fbb) / U = \dim \pcal_{\deg p - 1}(\fbb) = \deg p$.
     \item A basis of $\pcal(\fbb) / U$ is given by the images of the standard basis of $\pcal_{\deg p - 1}(\fbb)$ under $T$, namely $\set{1 + U, x + U, \ldots, x^{\deg p - 1} + U}$.
 \end{sole}
 
@@ -258,12 +261,10 @@
 
 \begin{sole}
     \item To show that $T$ is injective, suppose that $T(r, s) = rp + sq = 0$ for some $(r, s) \in \pcal_{n-1}(\cbb) \times \pcal_{m-1}(\cbb)$.
-	Then $rp = -sq$ so that $q$ divides $rp$.
-	Since $p$ and $q$ have no zeros in common, $q$ must divide $r$.
-	But $\deg r < \deg q$, so the only possibility is that $r = 0$.
-	Then $-sq = 0$.
-	Since $q$ is nonconstant, this implies that $s = 0$.
-	Therefore, $\nul T = \set{(0, 0)}$, and hence $T$ is injective.
+    Then $rp = -sq$ implies $rp$ is a polynomial multiple of $q$, so every zero of $q$ must be a zero of $rp$.
+    Because $p$ and $q$ have no zeros in common, every zero of $q$ must be a zero of $r$. But $\deg r < \deg q$, so it must be that $r = 0$.
+    Because $r = 0$, we have $-sq = 0$. Then since $q$ is nonconstant, it must be that $s = 0$.
+    Therefore, if $(r,s) \in \nul T$, we have $(r,s) = 0$, so $T$ is injective.
     \item To show that $T$ is surjective, note that $\dim(\pcal_{n-1}(\cbb) \times \pcal_{m-1}(\cbb)) = n + m = \dim \pcal_{m+n-1}(\cbb)$.
 	Since $T$ is a linear map between vector spaces of the same finite dimension, and we have already shown that $T$ is injective, it follows that $T$ is also surjective.
     \item Since $T$ is surjective, for the polynomial $1 \in \pcal_{m+n-1}(\cbb)$, there exist $r \in \pcal_{n-1}(\cbb)$ and $s \in \pcal_{m-1}(\cbb)$ such that $T(r, s) = rp + sq = 1$.

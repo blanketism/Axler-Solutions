@@ -112,8 +112,8 @@
 	Then $\phi_i = 0$ for all $i$, which implies $\phi(0, \ldots, 0, v_i, 0, \ldots, 0) = 0$ for all $v_i \in V_i$.
 	By linearity, $\phi$ must be zero on all of $V_1 \times \cdots \times V_m$, so $\phi = 0$.
 	For surjectivity, given $(\phi_1, \ldots, \phi_m) \in V_1' \times \cdots \times V_m'$, define $\phi \in (V_1 \times \cdots \times V_m)'$ by
-    \[\phi(v_1, \ldots, v_m) = \phi_1(v_1) + \cdots + \phi_m(v_m).\]
-    Then $\Phi(\phi) = (\phi_1, \ldots, \phi_m)$, so $\Phi$ is surjective.
+    \[\phi(v_1, \ldots, v_m) = \phi_1(v_1) + \cdots + \phi_m(v_m),\]
+    which is linear by linearity of each $\phi_i$. Then $\Phi(\phi) = (\phi_1, \ldots, \phi_m)$, so $\Phi$ is surjective.
 
     Therefore, $\Phi$ is a linear isomorphism, and $(V_1 \times \cdots \times V_m)'$ and $V_1' \times \cdots \times V_m'$ are isomorphic vector spaces.
 \end{sol}
@@ -403,6 +403,7 @@
     Suppose $V$ is finite-dimensional and $U$ is a subspace of $V$.
 	Show that
     \[U = \set{v \in V \mid \phi(v) = 0 \text{ for every } \phi \in U^0}.\]
+    \remark{This says that $U = (U^0)^0$.}
 \end{exercise}
 
 \begin{sol}
@@ -413,7 +414,7 @@
 	Hence, $v \in S$, so $U \subseteq S$.
 
     Conversely, suppose $v \in S$.
-	If $v \notin U$, then by \exref{3f4}, there exists a linear functional $\phi \in V'$ such that $\phi(u) = 0$ for all $u \in U$ and $\phi(v) \neq 0$.
+	If $v \notin U$, then by the construction done in \exref{3f4} with $v_1 = v$, there exists a linear functional $\phi \in V'$ such that $\phi(u) = 0$ for all $u \in U$ and $\phi(v) \neq 0$.
 	But this $\phi$ is in $U^0$, which contradicts $v \in S$.
 	Hence, $v \in U$, and therefore $S \subseteq U$.
 
@@ -655,11 +656,16 @@
 \end{exercise}
 
 \begin{sole}
-    \item Since $(\operatorname{range} T)^0=\operatorname{null} T'$ and $\operatorname{null} T'=\operatorname{span}(\phi)$, we have $(\operatorname{range} T)^0=\operatorname{span}(\phi)$.
-	Since $(U^0)^0=U$ in finite dimensions, taking annihilators yields
-    \[\operatorname{range} T=\left(\operatorname{span}(\phi) \right)^0=\operatorname{null} \phi.\]
-    \item Using $\operatorname{null} T=(\operatorname{range} T')^0$ and $\operatorname{range} T'=\operatorname{span}(\psi)$ immediately yields
-    \[\operatorname{null} T=\left(\operatorname{span}(\psi) \right)^0=\operatorname{null} \psi. \qh\]
+    \item From $\nul T' = \spn(\phi)$ and $\nul T' = (\range T)^0$, we have by \exref{3f20} that
+    \[\range T = ((\range T)^0)^0 = (\nul T')^0 = (\spn(\phi))^0 = \nul \phi,\]
+    where the last equality follows as such:
+    \[v \in \nul \phi \iff \phi(v) = 0 \iff \alpha \phi(v) = 0~\text{for all}~\alpha \in \fbb \iff v \in (\spn(\phi))^0.\]
+    \item Note that $\range T' = \spn(\psi)$ and $\range T' = (\nul T)^0$.
+    Then $(\nul T)^0 = \spn(\psi)$.
+    By \exref{3f20}, we have
+    \[\nul T = ((\nul T)^0)^0 = (\spn(\psi))^0 = \nul \psi,\]
+    where the last equality follows as such:
+    \[v \in \nul \psi \iff \psi(v) = 0 \iff \alpha \psi(v) = 0~\text{for all}~\alpha \in \fbb \iff v \in (\spn(\psi))^0.\]
 \end{sole}
 
 \begin{exercise}[3f30]
