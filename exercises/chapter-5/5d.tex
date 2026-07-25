@@ -7,17 +7,76 @@
         \item Prove that if $T^4 = T$, then $T$ is diagonalizable.
         \item Give an example of an operator $T \in \lin{\cbb^2}$ such that $T^4 = T^2$ and $T$ is not diagonalizable.
     \end{subexercises}
+    \remark{The roots $\omega$ in part (b) are the roots obtained in \exref{1c6}.}
 \end{exercise}
+
+\begin{sole}
+    \item If $T^4 = I$, then the minimal polynomial of $T$ divides $z^4 - 1 = (z - 1)(z + 1)(z - i)(z + i)$, which has no repeated roots. Hence the minimal polynomial of $T$ has no repeated roots, so $T$ is diagonalizable.
+    \item If $T^4 = T$, then the minimal polynomial of $T$ divides $z^4 - z = z(z - 1)(z - \omega)(z - \omega^2)$. This polynomial has no repeated roots, so the minimal polynomial of $T$ has no repeated roots, and hence $T$ is diagonalizable.
+    \item Let $T \in \lin{\cbb^2}$ be defined by
+    \[
+        T(z_1, z_2) = (z_2, 0).
+    \]
+    Then $T^2(z_1, z_2) = (0, 0)$, so $T^4 = T^2$. However, $T$ is not diagonalizable because the only eigenvalue of $T$ is $0$, and $\dim E(0, T) = 1 < 2 = \dim \cbb^2$.
+\end{sole}
 
 \begin{exercise}[5d2]
     Suppose $T \in \lin{V}$ has a diagonal matrix $A$ with respect to some basis of $V$.
     Prove that if $\lambda \in \fbb$, then $\lambda$ appears on the diagonal of $A$ precisely $\dim E(\lambda, T)$ times.
 \end{exercise}
 
+\begin{sol}
+    Suppose $A$ is a diagonal matrix of $T$ with respect to some basis of $V$.
+    Let $\lambda \in \fbb$.
+    Let $m$ denote the number of times $\lambda$ appears on the diagonal of $A$.
+    Then $A - \lambda I$ is a diagonal matrix of $T - \lambda I$ with respect to the same basis, with exactly $m$ zeros on the diagonal.
+    A diagonal matrix with $m$ zeros on the diagonal has null space of dimension $m$, so $\dim \nul(T - \lambda I) = m$.
+    Since $E(\lambda, T) = \nul(T - \lambda I)$, we have $\dim E(\lambda, T) = m$.
+\end{sol}
+
 \begin{exercise}[5d3]
     Suppose $V$ is finite-dimensional and $T \in \lin{V}$.
     Prove that if the operator $T$ is diagonalizable, then $V = \nul T \op \range T$.
 \end{exercise}
+
+\begin{sol}
+    Suppose $T$ is diagonalizable.
+    Let $\lambda_1, \ldots, \lambda_m$ denote the distinct eigenvalues of $T$.
+    Then
+    \[
+        V = E(\lambda_1, T) \op \cdots \op E(\lambda_m, T).
+    \]
+    If 0 is not an eigenvalue of $T$, then $\nul T = \set{0}$ and $\range T = V$, so $V = \nul T \op \range T$.
+    If 0 is an eigenvalue of $T$, then we may assume $\lambda_1 = 0$.
+    Let
+    \[
+        U = E(\lambda_2, T) \op \cdots \op E(\lambda_m, T).
+    \]
+    Since $\nul T = E(0, T)$, we have $V = \nul T \op U$.
+    It remains to show that $U = \range T$.
+
+    Let $u \in U$.
+    Then $u = u_2 + \cdots + u_m$ for some $u_k \in E(\lambda_k, T)$.
+    Since $\lambda_k \neq 0$ for $k = 2, \ldots, m$, we have $u_k = \lambda_k\inv T(u_k)$ for each $k = 2, \ldots, m$.
+    Hence,
+    \[
+        u = u_2 + \cdots + u_m = \lambda_2\inv T(u_2) + \cdots + \lambda_m\inv T(u_m) = T(\lambda_2\inv u_2 + \cdots + \lambda_m\inv u_m) \in \range T.
+    \]
+    Thus, $U \subseteq \range T$.
+
+    Now let $v \in \range T$.
+    Note that eigenspaces are invariant as follows: If $u \in E(\lambda_k, T)$, then $T(u) = \lambda_k u \in E(\lambda_k, T)$.
+    Since $U$ is a direct sum of eigenspaces, it is invariant under $T$.
+    Then $v = T(w)$ for some $w \in V$.
+    Since $V = \nul T \op U$, we may write $w = w_1 + w_2$ for some $w_1 \in \nul T$ and $w_2 \in U$.
+    Then
+    \[
+        v = T(w) = T(w_1 + w_2) = T(w_1) + T(w_2) = 0 + T(w_2) = T(w_2) \in U.
+    \]
+    Thus, $\range T \subseteq U$.
+    Since $U \subseteq \range T$ and $\range T \subseteq U$, we have $U = \range T$.
+    Therefore, $V = \nul T \op U = \nul T \op \range T$.
+\end{sol}
 
 \begin{exercise}[5d4]
     Suppose $V$ is finite-dimensional and $T \in \lin{V}$.
