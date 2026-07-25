@@ -1,0 +1,181 @@
+\subsection{Diagonalizable Operators}
+
+\begin{exercise}[5d1]
+    Suppose $V$ is a finite-dimensional complex vector space and $T \in \lin{V}$.
+    \begin{subexercises}
+        \item Prove that if $T^4 = I$, then $T$ is diagonalizable.
+        \item Prove that if $T^4 = T$, then $T$ is diagonalizable.
+        \item Give an example of an operator $T \in \lin{\cbb^2}$ such that $T^4 = T^2$ and $T$ is not diagonalizable.
+    \end{subexercises}
+\end{exercise}
+
+\begin{exercise}[5d2]
+    Suppose $T \in \lin{V}$ has a diagonal matrix $A$ with respect to some basis of $V$.
+    Prove that if $\lambda \in \fbb$, then $\lambda$ appears on the diagonal of $A$ precisely $\dim E(\lambda, T)$ times.
+\end{exercise}
+
+\begin{exercise}[5d3]
+    Suppose $V$ is finite-dimensional and $T \in \lin{V}$.
+    Prove that if the operator $T$ is diagonalizable, then $V = \nul T \op \range T$.
+\end{exercise}
+
+\begin{exercise}[5d4]
+    Suppose $V$ is finite-dimensional and $T \in \lin{V}$.
+    Prove that the following are equivalent.
+    \begin{subexercises}
+        \item $V = \nul T \op \range T$.
+        \item $V = \nul T + \range T$.
+        \item $\nul T \cap \range T = \set{0}$.
+    \end{subexercises}
+\end{exercise}
+
+\begin{exercise}[5d5]
+    Suppose $V$ is a finite-dimensional complex vector space and $T \in \lin{V}$.
+    Prove that $T$ is diagonalizable if and only if
+    \[
+        V = \nul(T - \lambda I) \op \range(T - \lambda I)
+    \]
+    for every $\lambda \in \cbb$.
+\end{exercise}
+
+\begin{exercise}[5d6]
+    Suppose $T \in \lin{\fbb^5}$ and $\dim E(8, T) = 4$.
+    Prove that $T - 2I$ or $T - 6I$ is invertible.
+\end{exercise}
+
+\begin{exercise}[5d7]
+    Suppose $T \in \lin{V}$ is invertible.
+    Prove that
+    \[
+        E(\lambda, T) = E\left(\tfrac{1}{\lambda}, T\inv\right)
+    \]
+    for every $\lambda \in \fbb$ with $\lambda \neq 0$.
+\end{exercise}
+
+\begin{exercise}[5d8]
+    Suppose $V$ is finite-dimensional and $T \in \lin{V}$.
+    Let $\lambda_1, \ldots, \lambda_m$ denote the distinct nonzero eigenvalues of $T$.
+    Prove that
+    \[
+        \dim E(\lambda_1, T) + \cdots + \dim E(\lambda_m, T) \leq \dim \range T.
+    \]
+\end{exercise}
+
+\begin{exercise}[5d9]
+    Suppose $R, T \in \lin{\fbb^3}$ each have $2, 6, 7$ as eigenvalues.
+    Prove that there exists an invertible operator $S \in \lin{\fbb^3}$ such that $R = S\inv T S$.
+\end{exercise}
+
+\begin{exercise}[5d10]
+    Find $R, T \in \lin{\fbb^4}$ such that $R$ and $T$ each have $2, 6, 7$ as eigenvalues, $R$ and $T$ have no other eigenvalues, and there does not exist an invertible operator $S \in \lin{\fbb^4}$ such that $R = S\inv T S$.
+\end{exercise}
+
+\begin{exercise}[5d11]
+    Find $T \in \lin{\cbb^3}$ such that $6$ and $7$ are eigenvalues of $T$ and such that $T$ does not have a diagonal matrix with respect to any basis of $\cbb^3$.
+\end{exercise}
+
+\begin{exercise}[5d12]
+    Suppose $T \in \lin{\cbb^3}$ is such that $6$ and $7$ are eigenvalues of $T$.
+    Furthermore, suppose $T$ does not have a diagonal matrix with respect to any basis of $\cbb^3$.
+    Prove that there exists $(z_1, z_2, z_3) \in \cbb^3$ such that
+    \[
+        T(z_1, z_2, z_3) = (6 + 8z_1, 7 + 8z_2, 13 + 8z_3).
+    \]
+\end{exercise}
+
+\begin{exercise}[5d13]
+    Suppose $A$ is a diagonal matrix with distinct entries on the diagonal and $B$ is a matrix of the same size as $A$.
+    Show that $AB = BA$ if and only if $B$ is a diagonal matrix.
+\end{exercise}
+
+\begin{exercise}[5d14]
+    \begin{subexercises}
+        \item Give an example of a finite-dimensional complex vector space and an operator $T$ on that vector space such that $T^2$ is diagonalizable but $T$ is not diagonalizable.
+        \item Suppose $\fbb = \cbb$, $k$ is a positive integer, and $T \in \lin{V}$ is invertible.
+        Prove that $T$ is diagonalizable if and only if $T^k$ is diagonalizable.
+    \end{subexercises}
+\end{exercise}
+
+\begin{exercise}[5d15]
+    Suppose $V$ is a finite-dimensional complex vector space, $T \in \lin{V}$, and $p$ is the minimal polynomial of $T$.
+    Prove that the following are equivalent.
+    \begin{subexercises}
+        \item $T$ is diagonalizable.
+        \item There does not exist $\lambda \in \cbb$ such that $p$ is a polynomial multiple of $(z - \lambda)^2$.
+        \item $p$ and its derivative $p'$ have no zeros in common.
+        \item The greatest common divisor of $p$ and $p'$ is the constant polynomial $1$.
+    \end{subexercises}
+    \textit{The \emph{\textbf{greatest common divisor}} of $p$ and $p'$ is the monic polynomial $q$ of largest degree such that $p$ and $p'$ are both polynomial multiples of $q$.
+    The Euclidean algorithm for polynomials (look it up) can quickly determine the greatest common divisor of two polynomials, without requiring any information about the zeros of the polynomials.
+    Thus the equivalence of (a) and (d) above shows that we can determine whether $T$ is diagonalizable without knowing anything about the zeros of $p$.}
+\end{exercise}
+
+\begin{exercise}[5d16]
+    Suppose that $T \in \lin{V}$ is diagonalizable.
+    Let $\lambda_1, \ldots, \lambda_m$ denote the distinct eigenvalues of $T$.
+    Prove that a subspace $U$ of $V$ is invariant under $T$ if and only if there exist subspaces $U_1, \ldots, U_m$ of $V$ such that $U_k \subseteq E(\lambda_k, T)$ for each $k$ and $U = U_1 \op \cdots \op U_m$.
+\end{exercise}
+
+\begin{exercise}[5d17]
+    Suppose $V$ is finite-dimensional.
+    Prove that $\lin{V}$ has a basis consisting of diagonalizable operators.
+\end{exercise}
+
+\begin{exercise}[5d18]
+    Suppose that $T \in \lin{V}$ is diagonalizable and $U$ is a subspace of $V$ that is invariant under $T$.
+    Prove that the quotient operator $T/U$ is a diagonalizable operator on $V/U$.
+\end{exercise}
+
+\begin{exercise}[5d19]
+    Prove or give a counterexample: If $T \in \lin{V}$ and there exists a subspace $U$ of $V$ that is invariant under $T$ such that $T|_U$ and $T/U$ are both diagonalizable, then $T$ is diagonalizable.
+    \textit{See Exercise 13 in Section 5C for an analogous statement about upper-triangular matrices.}
+\end{exercise}
+
+\begin{exercise}[5d20]
+    Suppose $V$ is finite-dimensional and $T \in \lin{V}$.
+    Prove that $T$ is diagonalizable if and only if the dual operator $T'$ is diagonalizable.
+\end{exercise}
+
+\begin{exercise}[5d21]
+    The \emph{\textbf{Fibonacci sequence}} $F_0, F_1, F_2, \ldots$ is defined by
+    \[
+        F_0 = 0, \quad F_1 = 1, \quad \text{and } F_n = F_{n-2} + F_{n-1} \text{ for } n \geq 2.
+    \]
+    Define $T \in \lin{\rbb^2}$ by $T(x, y) = (y, x + y)$.
+    \begin{subexercises}
+        \item Show that $T^n(0, 1) = (F_n, F_{n+1})$ for each nonnegative integer $n$.
+        \item Find the eigenvalues of $T$.
+        \item Find a basis of $\rbb^2$ consisting of eigenvectors of $T$.
+        \item Use the solution to (c) to compute $T^n(0, 1)$.
+        Conclude that
+        \[
+            F_n = \frac{1}{\sqrt{5}}\left[\left(\frac{1 + \sqrt{5}}{2}\right)^n - \left(\frac{1 - \sqrt{5}}{2}\right)^n\right]
+        \]
+        for each nonnegative integer $n$.
+        \item Use (d) to conclude that if $n$ is a nonnegative integer, then the Fibonacci number $F_n$ is the integer that is closest to
+        \[
+            \frac{1}{\sqrt{5}}\left(\frac{1 + \sqrt{5}}{2}\right)^n.
+        \]
+    \end{subexercises}
+    \textit{Each $F_n$ is a nonnegative integer, even though the right side of the formula in (d) does not look like an integer.
+    The number}
+    \[
+        \frac{1 + \sqrt{5}}{2}
+    \]
+    \textit{is called the \emph{\textbf{golden ratio}}.}
+\end{exercise}
+
+\begin{exercise}[5d22]
+    Suppose $T \in \lin{V}$ and $A$ is an $n$-by-$n$ matrix that is the matrix of $T$ with respect to some basis of $V$.
+    Prove that if
+    \[
+        |A_{j, j}| > \sum_{\substack{k=1 \\ k \neq j}}^{n} |A_{j, k}|
+    \]
+    for each $j \in \set{1, \ldots, n}$, then $T$ is invertible.
+    \textit{This exercise states that if the diagonal entries of the matrix of $T$ are large compared to the nondiagonal entries, then $T$ is invertible.}
+\end{exercise}
+
+\begin{exercise}[5d23]
+    Suppose the definition of the Gershgorin disks is changed so that the radius of the $k^{\text{th}}$ disk is the sum of the absolute values of the entries in column (instead of row) $k$ of $A$, excluding the diagonal entry.
+    Show that the Gershgorin disk theorem (5.67) still holds with this changed definition.
+\end{exercise}
