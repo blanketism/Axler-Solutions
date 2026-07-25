@@ -204,10 +204,29 @@
     \end{subexercises}
 \end{exercise}
 
+\begin{sole}
+    \item Suppose there exists a basis of $V$ with respect to which $T$ has an upper-triangular matrix.
+    Then the diagonal entries of this matrix are the eigenvalues of $T$.
+    Let $p(z) = z^2 + 2z + 2$.
+    Then $p(T)$ also has an upper-triangular matrix with respect to the same basis, and the diagonal entries of this matrix are $p(\lambda)$, where $\lambda$ is an eigenvalue of $T$.
+    Since $p(T)v = 0$ for some nonzero vector $v$, $p(T)$ is not injective.
+    Then $p(T)$ is not invertible, so $p(\lambda) = 0$ for some eigenvalue $\lambda \in \rbb$ of $T$.
+    However, $p(z)$ has no real roots, contradicting that $p(\lambda) = 0$ for some real eigenvalue $\lambda$.
+    \item Utilizing the same deductions as in part (a), we conclude that there exists an eigenvalue $\lambda$ of $T$ such that $p(\lambda) = 0$.
+    The roots of $p(z)$ are $-1 + i$ and $-1 - i$, so either $-1 + i$ or $-1 - i$ must be an eigenvalue of $T$.
+    Since the diagonal entries of an upper-triangular matrix are the eigenvalues of the corresponding operator, either $-1 + i$ or $-1 - i$ must appear on the diagonal of $A$.
+\end{sole}
+
 \begin{exercise}[5c9]
     Suppose $B$ is a square matrix with complex entries.
     Prove that there exists an invertible square matrix $A$ with complex entries such that $A\inv BA$ is an upper-triangular matrix.
 \end{exercise}
+
+\begin{sol}
+    Since $B$ represents a linear operator on a finite-dimensional complex vector space, let $T$ be the linear operator corresponding to $B$, i.e., $B = \mcal(T, (e_1, \ldots, e_n))$, where $(e_1, \ldots, e_n)$ is the standard basis of $\cbb^n$.
+    Since $T$ has an upper-triangular matrix with respect to some basis of the vector space, let $A$ be the change of basis matrix from the new basis to the standard basis.
+    Then $A\inv BA$ is the matrix representation of $T$ with respect to this new basis, which is upper-triangular.
+\end{sol}
 
 \begin{exercise}[5c10]
     Suppose $T \in \lin{V}$ and $v_1, \ldots, v_n$ is a basis of $V$.
@@ -220,10 +239,39 @@
     \note{A square matrix is called \textbf{lower triangular} if all entries above the diagonal are $0$.}
 \end{exercise}
 
+\begin{solitem}
+    \item Suppose the matrix of $T$ with respect to $v_1, \ldots, v_n$ is lower triangular.
+    Fix some $k \in \set{1, \ldots, n}$.
+    For $j \in \set{1, \ldots, n}$, then
+    \[
+        Tv_j \in \spn(v_j, \ldots, v_n)
+    \]
+    because the matrix is lower triangular.
+    If $j \geq k$, then $\spn(v_j, \ldots, v_n) \subseteq \spn(v_k, \ldots, v_n)$.
+    Therefore, $Tv_j \in \spn(v_k, \ldots, v_n)$ for all $j \geq k$, which shows that $\spn(v_k, \ldots, v_n)$ is invariant under $T$.
+    \item Suppose $\spn(v_k, \ldots, v_n)$ is invariant under $T$ for each $k = 1, \ldots, n$.
+    Then for each $k$, we have $Tv_k \in \spn(v_k, \ldots, v_n)$, which shows that $Tv_k$ can be expressed as a linear combination of $v_k, \ldots, v_n$.
+    \item Suppose $Tv_k \in \spn(v_k, \ldots, v_n)$ for each $k = 1, \ldots, n$.
+    Then
+    \[
+        Tv_k = \sum_{j = k}^n A_{j, k}v_j
+    \]
+    for some scalars $A_{j, k}$.
+    Then $A_{i, k} = 0$ for all $i < k$, which shows that the matrix of $T$ with respect to $v_1, \ldots, v_n$ is lower triangular.
+\end{solitem}
+
 \begin{exercise}[5c11]
     Suppose $\fbb = \cbb$ and $V$ is finite-dimensional.
     Prove that if $T \in \lin{V}$, then there exists a basis of $V$ with respect to which $T$ has a lower-triangular matrix.
 \end{exercise}
+
+\begin{sol}
+    Since $T$ has an upper-triangular matrix with respect to some basis of $V$, let $v_1, \ldots, v_n$ be such a basis.
+    Then $\spn(v_1, \ldots, v_k)$ is invariant under $T$ for each $k = 1, \ldots, n$.
+    Consider the reverse basis $w_1 = v_n, w_2 = v_{n-1}, \ldots, w_n = v_1$.
+    Then $\spn(w_k, \ldots, w_n) = \spn(v_1, \ldots, v_{n-k+1})$ is invariant under $T$ for each $k = 1, \ldots, n$.
+    By \exref{5c10}, the matrix of $T$ with respect to the basis $w_1, \ldots, w_n$ is lower triangular.
+\end{sol}
 
 \begin{exercise}[5c12]
     Suppose $V$ is finite-dimensional, $T \in \lin{V}$ has an upper-triangular matrix with respect to some basis of $V$, and $U$ is a subspace of $V$ that is invariant under $T$.
@@ -231,8 +279,15 @@
         \item Prove that $T|_U$ has an upper-triangular matrix with respect to some basis of $U$.
         \item Prove that the quotient operator $T/U$ has an upper-triangular matrix with respect to some basis of $V/U$.
     \end{subexercises}
-    \note{The quotient operator $T/U$ was defined in Exercise 38 in Section 5A.}
+    \note{The quotient operator $T/U$ was defined in \exref{5a38}.}
 \end{exercise}
+
+\begin{sole}
+    \item Since $T$ has an upper-triangular matrix with respect to some basis of $V$, then its minimal polynomial is a product of linear factors.
+    Since $U$ is invariant under $T$, the minimal polynomial of $T|_U$ divides the minimal polynomial of $T$, and thus is also a product of linear factors.
+    Therefore, $T|_U$ has an upper-triangular matrix with respect to some basis of $U$.
+    \item Since the minimal polynomial of $T$ is a polynomial multiple of the minimal polynomial of $T/U$, the same argument as in part (a) shows that $T/U$ has an upper-triangular matrix with respect to some basis of $V/U$.
+\end{sole}
 
 \begin{exercise}[5c13]
     Suppose $V$ is finite-dimensional and $T \in \lin{V}$.
@@ -240,7 +295,47 @@
     Prove that $T$ has an upper-triangular matrix with respect to some basis of $V$.
 \end{exercise}
 
+\begin{sol}
+    Let $u_1, \ldots, u_m$ be a basis of $U$ with respect to which $T|_U$ has an upper-triangular matrix.
+    Let $v_1 + U, \ldots, v_n + U$ be a basis of $V/U$ with respect to which $T/U$ has an upper-triangular matrix.
+    Then the list $u_1, \ldots, u_m, v_1, \ldots, v_n$ is a basis of $V$.
+    Since $T|_U$ has an upper-triangular matrix with respect to the basis $u_1, \ldots, u_m$, we have
+    \[
+        Tu_j = \sum_{k=1}^j A_{k,j}u_k
+    \]
+    for some scalars $A_{k,j}$ and for each $j = 1, \ldots, m$.
+    Since $T/U$ has an upper-triangular matrix with respect to the basis $v_1 + U, \ldots, v_n + U$, we have
+    \[
+        T(v_j + U) = \sum_{k=1}^j B_{k,j}(v_k + U)
+    \]
+    for some scalars $B_{k,j}$ and for each $j = 1, \ldots, n$.
+    This implies that
+    \[
+        Tv_j - \sum_{k=1}^j B_{k,j}v_k \in U,
+    \]
+    so there exist scalars $C_{l,j}$ such that
+    \[
+        Tv_j - \sum_{k=1}^j B_{k,j}v_k = \sum_{l=1}^m C_{l,j}u_l.
+    \]
+    Therefore,
+    \[
+        Tv_j = \sum_{l=1}^m C_{l,j}u_l + \sum_{k=1}^j B_{k,j}v_k,
+    \]
+    which shows that the matrix of $T$ with respect to the basis $u_1, \ldots, u_m, v_1, \ldots, v_n$ is upper-triangular.
+\end{sol}
+
 \begin{exercise}[5c14]
     Suppose $V$ is finite-dimensional and $T \in \lin{V}$.
     Prove that $T$ has an upper-triangular matrix with respect to some basis of $V$ if and only if the dual operator $T'$ has an upper-triangular matrix with respect to some basis of the dual space $V'$.
 \end{exercise}
+
+\begin{sol}
+    By \exref{5b28}, the minimal polynomials of $T$ and $T'$ are the same.
+    Therefore, the following are equivalent:
+    \begin{itemize}
+        \item $T$ has an upper-triangular matrix with respect to some basis of $V$.
+        \item The minimal polynomial of $T$ is a product of linear factors.
+        \item The minimal polynomial of $T'$ is a product of linear factors.
+        \item $T'$ has an upper-triangular matrix with respect to some basis of $V'$. \qh
+    \end{itemize}
+\end{sol}
