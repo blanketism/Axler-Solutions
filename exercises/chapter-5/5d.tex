@@ -88,6 +88,14 @@
     \end{subexercises}
 \end{exercise}
 
+\begin{sole}
+    \item If $V = \nul T \op \range T$, then $V = \nul T + \range T$.
+    \item If $V = \nul T + \range T$, then $\dim V = \dim \nul T + \dim \range T - \dim(\nul T \cap \range T)$.
+    Since $\dim V = \dim \nul T + \dim \range T$ by the fundamental theorem of linear maps, we have $\dim(\nul T \cap \range T) = 0$, so $\nul T \cap \range T = \set{0}$.
+    \item  If $\nul T \cap \range T = \set{0}$, then $\dim V = \dim \nul T + \dim \range T - \dim(\nul T \cap \range T) = \dim \nul T + \dim \range T$.
+    Since $\dim V = \dim \nul T + \dim \range T$ by the fundamental theorem of linear maps, and $\nul T \cap \range T = \set{0}$, we have $V = \nul T \op \range T$.
+\end{sole}
+
 \begin{exercise}[5d5]
     Suppose $V$ is a finite-dimensional complex vector space and $T \in \lin{V}$.
     Prove that $T$ is diagonalizable if and only if
@@ -97,19 +105,88 @@
     for every $\lambda \in \cbb$.
 \end{exercise}
 
+\begin{sol}
+    Suppose $T$ is diagonalizable.
+    Let $\lambda \in \cbb$.
+    Since $T$ is diagonalizable, we have
+    \[
+        V = E(\lambda_1, T) \op \cdots \op E(\lambda_m, T)
+    \]
+    for some distinct eigenvalues $\lambda_1, \ldots, \lambda_m$ of $T$.
+    If $\lambda$ is not an eigenvalue of $T$, then $\nul(T - \lambda I) = \set{0}$ and $\range(T - \lambda I) = V$, so
+    \[
+        V = \nul(T - \lambda I) \op \range(T - \lambda I).
+    \]
+    If $\lambda$ is an eigenvalue of $T$, then we may assume $\lambda_1 = \lambda$.
+    Let
+    \[
+        U = E(\lambda_2, T) \op \cdots \op E(\lambda_m, T).
+    \]
+    Then $V = E(\lambda, T) \op U$.
+    It remains to show that $U = \range(T - \lambda I)$.
+
+    By dimension counting, we have
+    \[
+        \dim U = \dim V - \dim E(\lambda, T) = \dim V - \dim \nul(T - \lambda I) = \dim \range(T - \lambda I).
+    \]
+    Since each $u_k \in E(\lambda_k, T)$ satisfies $T(u_k) = \lambda_k u_k$, we have
+    \[
+        (T - \lambda I)(u_k) = (\lambda_k - \lambda) u_k \in E(\lambda_k, T).
+    \]
+    To see that $T - \lambda I$ is injective on $U$, suppose $u \in U$ and $(T - \lambda I)(u) = 0$.
+    Then $u = u_2 + \cdots + u_m$ for some $u_k \in E(\lambda_k, T)$, and
+    \[
+        0 = (T - \lambda I)(u) = (T - \lambda I)(u_2 + \cdots + u_m) = (T - \lambda I)(u_2) + \cdots + (T - \lambda I)(u_m) = (\lambda_2 - \lambda) u_2 + \cdots + (\lambda_m - \lambda) u_m.
+    \]
+    Since $\lambda_2, \ldots, \lambda_m$ are distinct from $\lambda$, we have $\lambda_k - \lambda \neq 0$ for each $k = 2, \ldots, m$.
+    Since the sum above is a direct sum, we have $(\lambda_k - \lambda) u_k = 0$ for each $k = 2, \ldots, m$, so $u_k = 0$ for each $k = 2, \ldots, m$.
+    Hence, $u = u_2 + \cdots + u_m = 0$, so $T - \lambda I$ is injective on $U$.
+    Since $T - \lambda I$ is injective on $U$ and $\dim U = \dim \range(T - \lambda I)$, we have $U = \range(T - \lambda I)$.
+\end{sol}
+
 \begin{exercise}[5d6]
     Suppose $T \in \lin{\fbb^5}$ and $\dim E(8, T) = 4$.
     Prove that $T - 2I$ or $T - 6I$ is invertible.
 \end{exercise}
 
+\begin{sol}
+    Suppose $T - 2I$ and $T - 6I$ are not invertible.
+    Then $2$ and $6$ are eigenvalues of $T$, so $\dim E(2, T) \geq 1$ and $\dim E(6, T) \geq 1$.
+    Since $8$ is also an eigenvalue of $T$, we have
+    \[
+        \dim E(2, T) + \dim E(6, T) + \dim E(8, T) \geq 1 + 1 + 4 = 6 > 5 = \dim \fbb^5,
+    \]
+    which is a contradiction.
+    Hence, $T - 2I$ or $T - 6I$ is invertible.
+\end{sol}
+
 \begin{exercise}[5d7]
     Suppose $T \in \lin{V}$ is invertible.
     Prove that
     \[
-        E(\lambda, T) = E\left(\tfrac{1}{\lambda}, T\inv\right)
+        E(\lambda, T) = E\left(\frac{1}{\lambda}, T\inv\right)
     \]
     for every $\lambda \in \fbb$ with $\lambda \neq 0$.
 \end{exercise}
+
+\begin{sol}
+    Suppose $v \in E(\lambda, T)$.
+    Then $T(v) = \lambda v$.
+    Since $T$ is invertible, we have $v = T\inv(\lambda v) = \lambda T\inv(v)$, so $T\inv(v) = \frac{1}{\lambda} v$.
+    Hence,
+    \[
+        v \in E(\lambda\inv, T\inv),
+    \]
+    so $E(\lambda, T) \subseteq E(\lambda\inv, T\inv)$.
+    
+    Now suppose $v \in E(\lambda\inv, T\inv)$.
+    Then
+    \[
+        T\inv(v) = \lambda\inv v \implies v = T(\lambda\inv v) \implies v = \lambda\inv T(v) \implies T(v) = \lambda v.
+    \]
+    Hence, $v \in E(\lambda, T)$, so $E(\lambda\inv, T\inv) \subseteq E(\lambda, T)$.
+    Then $E(\lambda, T) = E(\lambda\inv, T\inv)$.
+\end{sol}
 
 \begin{exercise}[5d8]
     Suppose $V$ is finite-dimensional and $T \in \lin{V}$.
@@ -120,18 +197,100 @@
     \]
 \end{exercise}
 
+\begin{sol}
+    Let $U = E(\lambda_1, T) \op \cdots \op E(\lambda_m, T)$.
+    Then $\dim U = \dim E(\lambda_1, T) + \cdots + \dim E(\lambda_m, T)$.
+    To see that $T$ is injective on $U$, suppose $u \in U$ and $T(u) = 0$.
+    Then $u = u_1 + \cdots + u_m$ for some $u_k \in E(\lambda_k, T)$, and
+    \[
+        0 = T(u) = T(u_1 + \cdots + u_m) = T(u_1) + \cdots + T(u_m) = \lambda_1 u_1 + \cdots + \lambda_m u_m.
+    \]
+    Since $\lambda_1, \ldots, \lambda_m$ are distinct and nonzero, we have $\lambda_k \neq 0$ for each $k = 1, \ldots, m$.
+    Since the sum above is a direct sum, we have $\lambda_k u_k = 0$ for each $k = 1, \ldots, m$, so $u_k = 0$ for each $k = 1, \ldots, m$.
+    Hence,
+    \[
+        \dim U = \dim T(U) \leq \dim \range T.
+    \]
+    Therefore,
+    \[
+        \dim E(\lambda_1, T) + \cdots + \dim E(\lambda_m, T) = \dim U \leq \dim \range T. \qedhere
+    \]
+\end{sol}
+
 \begin{exercise}[5d9]
     Suppose $R, T \in \lin{\fbb^3}$ each have $2, 6, 7$ as eigenvalues.
     Prove that there exists an invertible operator $S \in \lin{\fbb^3}$ such that $R = S\inv T S$.
 \end{exercise}
 
+\begin{sol}
+    Let $r_2, r_6, r_7$ denote the eigenvectors of $R$ corresponding to the eigenvalues $2, 6, 7$, respectively.
+    Since $\dim V = 3$ and $R$ has three distinct eigenvalues, we have
+    \[
+        \dim V = \dim E(2, R) + \dim E(6, R) + \dim E(7, R) = 3.
+    \]
+    Since $\dim E(\lambda, R) \geq 1$ for each eigenvalue $\lambda = 2, 6, 7$, we have $\dim E(\lambda, R) = 1$ for each eigenvalue $\lambda = 2, 6, 7$.
+    Hence, $\set{r_2, r_6, r_7}$ is a basis of $V$.
+    Let $t_2, t_6, t_7$ denote the eigenvectors of $T$ corresponding to the eigenvalues $2, 6, 7$, respectively.
+    By the same reasoning, $\set{t_2, t_6, t_7}$ is a basis of $V$.
+    Let $S \in \lin{V}$ be defined by
+    \[
+        S(r_2) = t_2, \quad S(r_6) = t_6, \quad S(r_7) = t_7.
+    \]
+    Then $S$ is invertible because it maps a basis of $V$ to a basis of $V$.
+    To see that $R = S\inv T S$, note that for any basis vector $r_k$ of $R$, we have
+    \[
+        S\inv T S(r_k) = S\inv T(t_k) = S\inv(\lambda_k t_k) = \lambda_k S\inv(t_k) = \lambda_k r_k = R(r_k),
+    \]
+    where $\lambda_k$ is the eigenvalue corresponding to $r_k$ and $t_k$.
+    Since $S\inv T S$ and $R$ agree on a basis of $V$, we have $R = S\inv T S$.
+\end{sol}
+
 \begin{exercise}[5d10]
     Find $R, T \in \lin{\fbb^4}$ such that $R$ and $T$ each have $2, 6, 7$ as eigenvalues, $R$ and $T$ have no other eigenvalues, and there does not exist an invertible operator $S \in \lin{\fbb^4}$ such that $R = S\inv T S$.
 \end{exercise}
 
+\begin{sol}
+    Define $R$ to be the operator whose matrix with respect to the standard basis of $\fbb^4$ has diagonal entries $2, 6, 7, 7$ and all other entries $0$.
+    Then $R$ has eigenvalues $2, 6, 7$ and no other eigenvalues.
+    Define $T$ to be the operator whose matrix with respect to the standard basis of $\fbb^4$ has diagonal entries $2, 6, 7, 2$ and all other entries $0$.
+    Then $T$ has eigenvalues $2, 6, 7$ and no other eigenvalues.
+    If there did exist an invertible operator $S \in \lin{\fbb^4}$ such that $R = S\inv T S$, then
+    \[
+        Rv = S\inv T S v = \lambda v \implies T(Sv) = \lambda Sv
+    \]
+    for every eigenvalue $\lambda$ of $R$ and some eigenvector $v \in E(\lambda, R)$.
+    Hence, the map $S|_{E(\lambda, R)}$ maps $E(\lambda, R)$ to $E(\lambda, T)$.
+    Since $S$ is invertible, $S|_{E(\lambda, R)}$ is injective, so $\dim E(\lambda, R) \leq \dim E(\lambda, T)$.
+    However, $\dim E(7, R) = 2 > 1 = \dim E(7, T)$, so there does not exist an invertible operator $S \in \lin{\fbb^4}$ such that $R = S\inv T S$.
+\end{sol}
+
 \begin{exercise}[5d11]
     Find $T \in \lin{\cbb^3}$ such that $6$ and $7$ are eigenvalues of $T$ and such that $T$ does not have a diagonal matrix with respect to any basis of $\cbb^3$.
 \end{exercise}
+
+\begin{sol}
+    Consider the operator $T \in \lin{\cbb^3}$ whose matrix with respect to the standard basis of $\cbb^3$ is
+    \[
+        \begin{pmatrix}
+            6 & 1 & 0 \\
+            0 & 6 & 0 \\
+            0 & 0 & 7
+        \end{pmatrix}.
+    \]
+    Observe that 6 and 7 are eigenvalues of $T$.
+    If $T$ had a diagonal matrix with respect to some basis of $\cbb^3$, then $\dim E(6, T) + \dim E(7, T) = 3$.
+    However, $E(6, T)$ is the null space of $T - 6I$, which has matrix
+    \[
+        \begin{pmatrix}
+            0 & 1 & 0 \\
+            0 & 0 & 0 \\
+            0 & 0 & 1
+        \end{pmatrix}.
+    \]
+    Observe that the null space of this matrix is spanned by $(1, 0, 0)$, so $\dim E(6, T) = 1$.
+    Similarly, we can deduce that $\dim E(7, T) = 1$.
+    Hence, $\dim E(6, T) + \dim E(7, T) = 2 < 3$, so $T$ does not have a diagonal matrix with respect to any basis of $\cbb^3$.
+\end{sol}
 
 \begin{exercise}[5d12]
     Suppose $T \in \lin{\cbb^3}$ is such that $6$ and $7$ are eigenvalues of $T$.
