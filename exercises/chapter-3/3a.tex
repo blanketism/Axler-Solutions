@@ -2,7 +2,7 @@
 
 \subsection{Vector Space of Linear Maps}
 
-\begin{exercise}[3a1]
+\begin{exercise}{3a1}
     Suppose $b, c \in \rbb$.
 	Define $T: \rbb^3 \to \rbb^2$ by
     \[
@@ -44,7 +44,7 @@
     Therefore, $T$ is linear if and only if $b = c = 0$.
 \end{sol}
 
-\begin{exercise}[3a2]
+\begin{exercise}{3a2}
     Suppose $b, c \in \rbb$.
 	Define $T: \pcal(\rbb) \to \rbb^2$ by
     \[
@@ -95,7 +95,7 @@
     Therefore, $T$ is linear if and only if $b = c = 0$.
 \end{sol}
 
-\begin{exercise}[3a3]
+\begin{exercise}{3a3}
     Suppose that $T \in \lin{\fbb^n, \fbb^m}$.
 	Show that there exist scalars $A_{j, k} \in \fbb$ for $j = 1, \ldots, m$ and $k = 1, \ldots, n$ such that
     \[
@@ -125,7 +125,7 @@
     \]
 \end{sol}
 
-\begin{exercise}[3a4]
+\begin{exercise}{3a4}
     Suppose $T \in \lin{V, W}$ and $v_1, \ldots, v_m$ is a list of vectors in $V$ such that $Tv_1, \ldots, Tv_m$ is a linearly independent list in $W$.
 	Prove that $v_1, \ldots, v_m$ is linearly independent.
 \end{exercise}
@@ -140,7 +140,7 @@
 	Therefore, $v_1, \ldots, v_m$ is linearly independent.
 \end{sol}
 
-\begin{exercise}[3a5]
+\begin{exercise}{3a5}
     Prove that $\lin{V, W}$ is a vector space, as was asserted in 3.6.
 \end{exercise}
 
@@ -242,7 +242,7 @@
     \end{enumerate}
 \end{sol}
 
-\begin{exercise}[3a6]
+\begin{exercise}{3a6}
     Prove that multiplication of linear maps has the associative, identity, and distributive properties asserted in 3.8.
     \begin{subexercises}
         \item \textbf{Associativity}: $(T_1T_2)T_3 = T_1(T_2T_3)$ whenever $T_1, T_2,$ and $T_3$ are linear maps such that the products make sense (meaning $T_3$ maps into the domain of $T_2$, and $T_2$ maps into the domain of $T_1$).
@@ -251,7 +251,7 @@
     \end{subexercises}
 \end{exercise}
 
-\begin{sole}
+\begin{solenum}
     \item Let $T_1 \in \lin{V, W}$, $T_2 \in \lin{U, V}$, and $T_3 \in \lin{X, U}$.
 	Then for any $x \in X$,
     \begin{align*}
@@ -281,9 +281,9 @@
         & = (ST_1)u + (ST_2)u \\
         & = (ST_1 + ST_2)u. \qedhere
     \end{align*}
-\end{sole}
+\end{solenum}
 
-\begin{exercise}[3a7]
+\begin{exercise}{3a7}
     Show that every linear map from a one-dimensional vector space to itself is multiplication by some scalar.
 	More precisely, prove that if $\dim V = 1$ and $T \in \lin{V}$, then there exists $\lambda \in \fbb$ such that $Tv = \lambda v$ for all $v \in V$.
 \end{exercise}
@@ -301,7 +301,7 @@
     \]
 \end{sol}
 
-\begin{exercise}[3a8]
+\begin{exercise}{3a8}
     Give an example of a function $\phi: \rbb^2 \to \rbb$ such that
     \[
     	\phi(av) = a\phi(v)
@@ -334,7 +334,7 @@
     Therefore, $\phi$ is not linear.
 \end{sol}
 
-\begin{exercise}[3a9]
+\begin{exercise}{3a9}
     Give an example of a function $\phi: \cbb \to \cbb$ such that
     \[
     	\phi(w + z) = \phi(w) + \phi(z)
@@ -364,7 +364,7 @@
     Therefore, $\phi$ is not linear.
 \end{sol}
 
-\begin{exercise}[3a10]
+\begin{exercise}{3a10}
     Prove or give a counterexample: If $q \in \pcal(\rbb)$ and $T: \pcal(\rbb) \to \pcal(\rbb)$ is defined by $Tp = q \circ p$, then $T$ is a linear map.
 \end{exercise}
 
@@ -377,7 +377,7 @@
     \]
 \end{sol}
 
-\begin{exercise}[3a11]
+\begin{exercise}{3a11}
     Suppose $V$ is finite-dimensional and $T \in \lin{V}$.
 	Prove that $T$ is a scalar multiple of the identity if and only if $ST = TS$ for every $S \in \lin{V}$.
 \end{exercise}
@@ -424,7 +424,7 @@
     Therefore, $T$ is a scalar multiple of the identity.
 \end{sol}
 
-\begin{exercise}[3a12]
+\begin{exercise}{3a12}
     Suppose $U$ is a subspace of $V$ with $U \neq V$.
 	Suppose $S \in \lin{U, W}$ and $S \neq 0$ (which means that $Su \neq 0$ for some $u \in U$).
 	Define $T: V \to W$ by
@@ -453,7 +453,7 @@
     Therefore, $T$ is not linear.
 \end{sol}
 
-\begin{exercise}[3a13]
+\begin{exercise}{3a13}
     Suppose $V$ is finite-dimensional.
 	Prove that every linear map on a subspace of $V$ can be extended to a linear map on $V$.
 	In other words, show that if $U$ is a subspace of $V$ and $S \in \lin{U, W}$, then there exists $T \in \lin{V, W}$ such that $Tu = Su$ for all $u \in U$.
@@ -483,7 +483,7 @@
     Therefore, $T$ extends $S$ to all of $V$.
 \end{sol}
 
-\begin{exercise}[3a14]
+\begin{exercise}{3a14}
     Suppose $V$ is finite-dimensional with $\dim V > 0$, and suppose $W$ is infinite-dimensional.
 	Prove that $\lin{V, W}$ is infinite-dimensional.
 \end{exercise}
@@ -514,7 +514,7 @@
 	Therefore, $T_1, T_2, \ldots$ is linearly independent in $\lin{V, W}$, and hence $\lin{V, W}$ is infinite-dimensional.
 \end{sol}
 
-\begin{exercise}[3a15]
+\begin{exercise}{3a15}
     Suppose $v_1, \ldots, v_m$ is a linearly dependent list of vectors in $V$.
 	Suppose also that $W \neq \set{0}$.
 	Prove that there exist $w_1, \ldots, w_m \in W$ such that no $T \in \lin{V, W}$ satisfies $Tv_k = w_k$ for each $k = 1, \ldots, m$.
@@ -550,7 +550,7 @@
 	Therefore, no such $T \in \lin{V, W}$ exists.
 \end{sol}
 
-\begin{exercise}[3a16]
+\begin{exercise}{3a16}
     Suppose $V$ is finite-dimensional with $\dim V > 1$.
 	Prove that there exist $S, T \in \lin{V}$ such that $ST \neq TS$.
 \end{exercise}
@@ -577,7 +577,7 @@
     Therefore, $ST \neq TS$.
 \end{sol}
 
-\begin{exercise}[3a17]
+\begin{exercise}{3a17}
     Suppose $V$ is finite-dimensional.
 	Show that the only two-sided ideals of $\lin{V}$ are $\set{0}$ and $\lin{V}$.
     

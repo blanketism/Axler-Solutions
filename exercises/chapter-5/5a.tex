@@ -2,7 +2,7 @@
 
 \subsection{Invariant Subspaces}
 
-\begin{exercise}[5a1]
+\begin{exercise}{5a1}
     Suppose $T \in \lin{V}$ and $U$ is a subspace of $V$.
     \begin{subexercises}
         \item Prove that if $U \subseteq \nul T$, then $U$ is invariant under $T$.
@@ -10,12 +10,12 @@
     \end{subexercises}
 \end{exercise}
 
-\begin{sole}
+\begin{solenum}
     \item If $U \subseteq \nul T$, then for any $u \in U$, we have $T(u) = 0 \in U$, so $U$ is invariant under $T$.
     \item If $\range T \subseteq U$, then for any $u \in U$, $T(u) \in \range T \subseteq U$, so $U$ is invariant under $T$.
-\end{sole}
+\end{solenum}
 
-\begin{exercise}[5a2]
+\begin{exercise}{5a2}
     Suppose that $T \in \lin{V}$ and $V_1, \ldots, V_m$ are subspaces of $V$ invariant under $T$.
 	Prove that $V_1 + \cdots + V_m$ is invariant under $T$.
 \end{exercise}
@@ -31,7 +31,7 @@
     so $V_1 + \cdots + V_m$ is invariant under $T$.
 \end{sol}
 
-\begin{exercise}[5a3]
+\begin{exercise}{5a3}
     Suppose $T \in \lin{V}$.
 	Prove that the intersection of every collection of subspaces of $V$ invariant under $T$ is invariant under $T$.
 \end{exercise}
@@ -47,7 +47,7 @@
 	Therefore, $T(u) \in U$, so $U$ is invariant under $T$.
 \end{sol}
 
-\begin{exercise}[5a4]
+\begin{exercise}{5a4}
     Prove or give a counterexample: If $V$ is finite-dimensional and $U$ is a subspace of $V$ that is invariant under every operator on $V$, then $U = \set{0}$ or $U = V$.
 \end{exercise}
 
@@ -61,7 +61,7 @@
 	Therefore, $U = \set{0}$ or $U = V$.
 \end{sol}
 
-\begin{exercise}[5a5]
+\begin{exercise}{5a5}
     Suppose $T \in \lin{\rbb^2}$ is defined by $T(x, y) = (-3y, x)$.
 	Find the eigenvalues of $T$.
 \end{exercise}
@@ -78,7 +78,7 @@
 	Therefore, $T$ has no real eigenvalues.
 \end{sol}
 
-\begin{exercise}[5a6]
+\begin{exercise}{5a6}
     Define $T \in \lin{\fbb^2}$ by $T(w, z) = (z, w)$.
 	Find all eigenvalues and eigenvectors of $T$.
 \end{exercise}
@@ -100,7 +100,7 @@
 	If $\lambda = -1$, then $z = -w$, so the eigenvectors are of the form $(w, -w)$.
 \end{sol}
 
-\begin{exercise}[5a7]
+\begin{exercise}{5a7}
     Define $T \in \lin{\fbb^3}$ by $T(z_1, z_2, z_3) = (2z_2, 0, 5z_3)$.
 	Find all eigenvalues and eigenvectors of $T$.
 \end{exercise}
@@ -123,7 +123,7 @@
 	For $\lambda = 5$, the eigenvectors are of the form $(0, 0, z_3)$.
 \end{sol}
 
-\begin{exercise}[5a8]
+\begin{exercise}{5a8}
     Suppose $P \in \lin{V}$ is such that $P^2 = P$.
 	Prove that if $\lambda$ is an eigenvalue of $P$, then $\lambda = 0$ or $\lambda = 1$.
 \end{exercise}
@@ -137,7 +137,7 @@
 	Hence, $\lambda = 0$ or $\lambda = 1$.
 \end{sol}
 
-\begin{exercise}[5a9]
+\begin{exercise}{5a9}
     Define $T: \pcal(\rbb) \to \pcal(\rbb)$ by $Tp = p'$.
 	Find all eigenvalues and eigenvectors of $T$.
 \end{exercise}
@@ -152,7 +152,7 @@
     \end{itemize}
 \end{sol}
 
-\begin{exercise}[5a10]
+\begin{exercise}{5a10}
     Define $T \in \lin{\pcal_4(\rbb)}$ by $(Tp)(x) = xp'(x)$ for all $x \in \rbb$.
 	Find all eigenvalues and eigenvectors of $T$.
 \end{exercise}
@@ -172,7 +172,7 @@
     Therefore, the eigenvalues of $T$ are $0, 1, 2, 3, 4$, with corresponding eigenvectors being nonzero scalar multiples of $1, x, x^2, x^3, x^4$, respectively.
 \end{sol}
 
-\begin{exercise}[5a11]
+\begin{exercise}{5a11}
     Suppose $V$ is finite-dimensional, $T \in \lin{V}$, and $\alpha \in \fbb$.
 	Prove that there exists $\delta > 0$ such that $T - \lambda I$ is invertible for all $\lambda \in \fbb$ such that $0 < |\alpha - \lambda| < \delta$.
 \end{exercise}
@@ -190,7 +190,7 @@
 	Hence, $T - \lambda I$ is invertible for all such $\lambda$.
 \end{sol}
 
-\begin{exercise}[5a12]
+\begin{exercise}{5a12}
     Suppose $V = U \op W$, where $U$ and $W$ are nonzero subspaces of $V$.
 	Define $P \in \lin{V}$ by $P(u + w) = u$ for each $u \in U$ and each $w \in W$.
 	Find all eigenvalues and eigenvectors of $P$.
@@ -205,7 +205,7 @@
 	Therefore, the eigenvalues are $\lambda = 1$ and $\lambda = 0$, with corresponding eigenvectors being the nonzero vectors in $U$ for $\lambda = 1$ and the nonzero vectors in $W$ for $\lambda = 0$.
 \end{sol}
 
-\begin{exercise}[5a13]
+\begin{exercise}{5a13}
     Suppose $T \in \lin{V}$.
 	Suppose $S \in \lin{V}$ is invertible.
     \begin{subexercises}
@@ -214,7 +214,7 @@
     \end{subexercises}
 \end{exercise}
 
-\begin{sole}
+\begin{solenum}
     \item Let $\lambda$ be an eigenvalue of $T$ with eigenvector $v \in V$, so $T(v) = \lambda v$.
 	Then
     \[
@@ -227,9 +227,9 @@
     \item The relation between the eigenvectors of $T$ and the eigenvectors of $S\inv TS$ is given by $v \mapsto S\inv v$.
 	Specifically, if $v$ is an eigenvector of $T$ with eigenvalue $\lambda$, then $S\inv v$ is an eigenvector of $S\inv TS$ with the same eigenvalue $\lambda$.
 	Conversely, if $u$ is an eigenvector of $S\inv TS$ with eigenvalue $\lambda$, then $S u$ is an eigenvector of $T$ with eigenvalue $\lambda$.
-\end{sole}
+\end{solenum}
 
-\begin{exercise}[5a14]
+\begin{exercise}{5a14}
     Give an example of an operator on $\rbb^4$ that has no (real) eigenvalues.
 \end{exercise}
 
@@ -255,7 +255,7 @@
     This yields $\lambda^2 + 1 = 0$, which has no solution in $\rbb$.
 \end{sol}
 
-\begin{exercise}[5a15]
+\begin{exercise}{5a15}
     Suppose $V$ is finite-dimensional, $T \in \lin{V}$, and $\lambda \in \fbb$.
 	Show that $\lambda$ is an eigenvalue of $T$ if and only if $\lambda$ is an eigenvalue of the dual operator $T' \in \lin{V'}$.
 \end{exercise}
@@ -269,7 +269,7 @@
     \end{align*}
 \end{sol}
 
-\begin{exercise}[5a16]
+\begin{exercise}{5a16}
     Suppose $v_1, \ldots, v_n$ is a basis of $V$ and $T \in \lin{V}$.
 	Prove that if $\lambda$ is an eigenvalue of $T$, then
     \[
@@ -297,7 +297,7 @@
     \]
 \end{sol}
 
-\begin{exercise}[5a17]
+\begin{exercise}{5a17}
     Suppose $\fbb = \rbb$, $T \in \lin{V}$, and $\lambda \in \rbb$.
 	Prove that $\lambda$ is an eigenvalue of $T$ if and only if $\lambda$ is an eigenvalue of the complexification $T_\cbb$.
     
@@ -322,7 +322,7 @@
 	This shows that $\lambda$ is an eigenvalue of $T$.
 \end{sol}
 
-\begin{exercise}[5a18]
+\begin{exercise}{5a18}
     Suppose $\fbb = \rbb$, $T \in \lin{V}$, and $\lambda \in \cbb$.
 	Prove that $\lambda$ is an eigenvalue of the complexification $T_\cbb$ if and only if $\bar{\lambda}$ is an eigenvalue of $T_\cbb$.
 \end{exercise}
@@ -358,7 +358,7 @@
 	This completes the proof.
 \end{sol}
 
-\begin{exercise}[5a19]
+\begin{exercise}{5a19}
     Show that the forward shift operator $T \in \lin{\fbb^\infty}$ defined by
     \[
     	T(z_1, z_2, \ldots) = (0, z_1, z_2, \ldots)
@@ -380,7 +380,7 @@
 	Therefore, $T$ has no eigenvalues.
 \end{sol}
 
-\begin{exercise}[5a20]
+\begin{exercise}{5a20}
     Define the backward shift operator $S \in \lin{\fbb^\infty}$ by
     \[
     	S(z_1, z_2, z_3, \ldots) = (z_2, z_3, \ldots).
@@ -391,7 +391,7 @@
     \end{subexercises}
 \end{exercise}
 
-\begin{sole}
+\begin{solenum}
     \item Let $\alpha \in \fbb$.
 	Consider the vector $(1, \alpha, \alpha^2, \ldots) \in \fbb^\infty$.
 	Then
@@ -411,9 +411,9 @@
     \]
     Equating components, we get $z_2 = \alpha z_1$, $z_3 = \alpha z_2 = \alpha^2 z_1$, and in general $z_k = \alpha^{k-1} z_1$ for $k \geq 1$.
 	Therefore, all eigenvectors corresponding to $\alpha$ are of the form $(z_1, \alpha z_1, \alpha^2 z_1, \ldots) = z_1 (1, \alpha, \alpha^2, \ldots)$ with $z_1 \neq 0$.
-\end{sole}
+\end{solenum}
 
-\begin{exercise}[5a21]
+\begin{exercise}{5a21}
     Suppose $T \in \lin{V}$ is invertible.
     \begin{subexercises}
         \item Suppose $\lambda \in \fbb$ with $\lambda \neq 0$.
@@ -422,7 +422,7 @@
     \end{subexercises}
 \end{exercise}
 
-\begin{sole}
+\begin{solenum}
     \item Suppose $\lambda \in \fbb$ with $\lambda \neq 0$ is an eigenvalue of $T$ with eigenvector $v \in V$.
 	Then
     \[
@@ -453,9 +453,9 @@
     \item Part (a) shows that if $\lambda$ is an eigenvalue of $T$, then $\frac{1}{\lambda}$ is an eigenvalue of $T\inv$ with the same eigenvector.
 	Conversely, if $\mu$ is an eigenvalue of $T\inv$, then $\frac{1}{\mu}$ is an eigenvalue of $T$ with the same eigenvector.
 	Therefore, $T$ and $T\inv$ have the same eigenvectors.
-\end{sole}
+\end{solenum}
 
-\begin{exercise}[5a22]
+\begin{exercise}{5a22}
     Suppose $T \in \lin{V}$ and there exist nonzero vectors $u$ and $w$ in $V$ such that
     \[
     	Tu = 3w \quad \text{and} \quad Tw = 3u.
@@ -477,7 +477,7 @@
     Hence, one of $u + w$ or $u - w$ is an eigenvector with eigenvalue 3 or $-3$, respectively.
 \end{sol}
 
-\begin{exercise}[5a23]
+\begin{exercise}{5a23}
     Suppose $V$ is finite-dimensional and $S, T \in \lin{V}$.
 	Prove that $ST$ and $TS$ have the same eigenvalues.
 \end{exercise}
@@ -503,7 +503,7 @@
     Hence, $ST$ and $TS$ have the same eigenvalues.
 \end{sol}
 
-\begin{exercise}[5a24]
+\begin{exercise}{5a24}
     Suppose $A$ is an $n$-by-$n$ matrix with entries in $\fbb$.
 	Define $T \in \lin{\fbb^n}$ by $Tx = Ax$, where elements of $\fbb^n$ are thought of as $n$-by-$1$ column vectors.
     \begin{subexercises}
@@ -514,7 +514,7 @@
     \end{subexercises}
 \end{exercise}
 
-\begin{sole}
+\begin{solenum}
     \item Suppose the sum of the entries in each row of $A$ equals $1$.
 	Let $v = (1, 1, \ldots, 1)^t \in \fbb^n$.
 	Then
@@ -526,9 +526,9 @@
 	By part (a), this is equivalent to saying that the sum of the entries in each row of $A^t$ equals $1$, hence $1$ is an eigenvalue of the linear operator defined by $A^t$.
 	But the eigenvalues of $A^t$ are the same as the eigenvalues of $A$ because $A - \lambda I$ is not invertible if and only if $A^t - \lambda I$ is not invertible.
 	Therefore, $1$ is an eigenvalue of $T$.
-\end{sole}
+\end{solenum}
 
-\begin{exercise}[5a25]
+\begin{exercise}{5a25}
     Suppose $T \in \lin{V}$ and $u, w$ are eigenvectors of $T$ such that $u + w$ is also an eigenvector of $T$.
 	Prove that $u$ and $w$ are eigenvectors of $T$ corresponding to the same eigenvalue.
 \end{exercise}
@@ -545,7 +545,7 @@
     Therefore, $u$ and $w$ must correspond to the same eigenvalue.
 \end{sol}
 
-\begin{exercise}[5a26]
+\begin{exercise}{5a26}
     Suppose $T \in \lin{V}$ is such that every nonzero vector in $V$ is an eigenvector of $T$.
 	Prove that $T$ is a scalar multiple of the identity operator.
 \end{exercise}
@@ -569,7 +569,7 @@
 	Hence, $T = \lambda I$.
 \end{sol}
 
-\begin{exercise}[5a27]
+\begin{exercise}{5a27}
     Suppose that $V$ is finite-dimensional and $k \in \{1, \ldots, \dim V - 1\}$.
 	Suppose $T \in \lin{V}$ is such that every subspace of $V$ of dimension $k$ is invariant under $T$.
 	Prove that $T$ is a scalar multiple of the identity operator.
@@ -594,7 +594,7 @@
 	Since $v_1$ was arbitrary, it follows that $T$ is a scalar multiple of the identity operator.
 \end{sol}
 
-\begin{exercise}[5a28]
+\begin{exercise}{5a28}
     Suppose $V$ is finite-dimensional and $T \in \lin{V}$.
 	Prove that $T$ has at most $1 + \dim \range T$ distinct eigenvalues.
 \end{exercise}
@@ -609,7 +609,7 @@
     Hence, $m \leq 1 + \dim \range T$.
 \end{sol}
 
-\begin{exercise}[5a29]
+\begin{exercise}{5a29}
     Suppose $T \in \lin{\rbb^3}$ and $-4, 5$, and $\sqrt{7}$ are eigenvalues of $T$.
 	Prove that there exists $x \in \rbb^3$ such that $Tx - 9x = (-4, 5, \sqrt{7})$.
 \end{exercise}
@@ -621,7 +621,7 @@
 	Therefore, for any vector in $\rbb^3$, there exists $x \in \rbb^3$ such that $(T - 9I)x = (-4, 5, \sqrt{7})$.
 \end{sol}
 
-\begin{exercise}[5a30]
+\begin{exercise}{5a30}
     Suppose $T \in \lin{V}$ and $(T - 2I)(T - 3I)(T - 4I) = 0$.
 	Suppose $\lambda$ is an eigenvalue of $T$.
 	Prove that $\lambda = 2$ or $\lambda = 3$ or $\lambda = 4$.
@@ -637,7 +637,7 @@
 	Therefore, $\lambda = 2$, $\lambda = 3$, or $\lambda = 4$.
 \end{sol}
 
-\begin{exercise}[5a31]
+\begin{exercise}{5a31}
     Give an example of $T \in \lin{\rbb^2}$ such that $T^4 = -I$.
 \end{exercise}
 
@@ -664,7 +664,7 @@
     \]
 \end{sol}
 
-\begin{exercise}[5a32]
+\begin{exercise}{5a32}
     Suppose $T \in \lin{V}$ has no eigenvalues and $T^4 = I$.
 	Prove that $T^2 = -I$.
     
@@ -685,7 +685,7 @@
     Therefore, $T^2 + I = 0$, or $T^2 = -I$.
 \end{sol}
 
-\begin{exercise}[5a33]
+\begin{exercise}{5a33}
     Suppose $T \in \lin{V}$ and $m$ is a positive integer.
     \begin{subexercises}
         \item Prove that $T$ is injective if and only if $T^m$ is injective.
@@ -693,7 +693,7 @@
     \end{subexercises}
 \end{exercise}
 
-\begin{sole}
+\begin{solenum}
     \item Suppose $T$ is injective.
 	Then if $T^m v = 0$, we have $T(T^{m-1}v) = 0$, which implies $T^{m-1}v = 0$ since $T$ is injective.
 	Repeating this argument, we eventually get $v = 0$.
@@ -714,9 +714,9 @@
 	Let $w = T^{m-1} u$.
 	Then $Tw = T(T^{m-1} u) = T^m u = v$.
 	Hence, $T$ is surjective.
-\end{sole}
+\end{solenum}
 
-\begin{exercise}[5a34]
+\begin{exercise}{5a34}
     Suppose $V$ is finite-dimensional and $v_1, \ldots, v_m \in V$.
 	Prove that the list $v_1, \ldots, v_m$ is linearly independent if and only if there exists $T \in \lin{V}$ such that $v_1, \ldots, v_m$ are eigenvectors of $T$ corresponding to distinct eigenvalues.
 \end{exercise}
@@ -732,7 +732,7 @@
 	Hence, $v_1, \ldots, v_m$ are linearly independent.
 \end{sol}
 
-\begin{exercise}[5a35]
+\begin{exercise}{5a35}
     Suppose that $\lambda_1, \ldots, \lambda_n$ is a list of distinct real numbers.
 	Prove that the list $e^{\lambda_1 x}, \ldots, e^{\lambda_n x}$ is linearly independent in the vector space of real-valued functions on $\rbb$.
     
@@ -752,7 +752,7 @@
 	Hence, $a_1 = \cdots = a_n = 0$, proving that $e^{\lambda_1 x}, \ldots, e^{\lambda_n x}$ are linearly independent.
 \end{sol}
 
-\begin{exercise}[5a36]
+\begin{exercise}{5a36}
     Suppose that $\lambda_1, \ldots, \lambda_n$ is a list of distinct positive numbers.
 	Prove that the list $\cos(\lambda_1 x), \ldots, \\ \cos(\lambda_n x)$ is linearly independent in the vector space of real-valued functions on $\rbb$.
 \end{exercise}
@@ -769,7 +769,7 @@
 	Hence, $a_1 = \cdots = a_n = 0$, proving that $\cos(\lambda_1 x), \ldots, \cos(\lambda_n x)$ are linearly independent.
 \end{sol}
 
-\begin{exercise}[5a37]
+\begin{exercise}{5a37}
     Suppose $V$ is finite-dimensional and $T \in \lin{V}$.
 	Define $\mathcal{A} \in \lin{\lin{V}}$ by
     \[
@@ -794,7 +794,7 @@
 	Therefore, the set of eigenvalues of $T$ equals the set of eigenvalues of $\mathcal{A}$.
 \end{sol}
 
-\begin{exercise}[5a38]
+\begin{exercise}{5a38}
     Suppose $V$ is finite-dimensional, $T \in \lin{V}$, and $U$ is a subspace of $V$ invariant under $T$.
 	The \textit{\emph{\textbf{quotient operator}}} $T / U \in \lin{V / U}$ is defined by
     \[
@@ -807,7 +807,7 @@
     \end{subexercises}
 \end{exercise}
 
-\begin{sole}
+\begin{solenum}
     \item  To show that the definition of $T / U$ makes sense, suppose $v + U = v' + U$ for some $v, v' \in V$.
 	Then $v - v' \in U$, and since $U$ is invariant under $T$, we have $T(v - v') \in U$, so $Tv - Tv' \in U$, which implies $Tv + U = Tv' + U$.
 	Hence, the definition of $T / U$ is well-defined.
@@ -829,9 +829,9 @@
         Consequently, $(T-\lambda I)(v-u)=0$ with $v-u \neq 0$ (since $v \notin U$ and $u \in U$), showing $\lambda$ is an eigenvalue of $T$.
     \end{itemize}
     In either case, $\lambda$ is an eigenvalue of $T$.
-\end{sole}
+\end{solenum}
 
-\begin{exercise}[5a39]
+\begin{exercise}{5a39}
     Suppose $V$ is finite-dimensional and $T \in \lin{V}$.
 	Prove that $T$ has an eigenvalue if and only if there exists a subspace of $V$ of dimension $\dim V - 1$ that is invariant under $T$.
 \end{exercise}
@@ -850,7 +850,7 @@
 	Hence, $T$ has an eigenvalue.
 \end{sol}
 
-\begin{exercise}[5a40]
+\begin{exercise}{5a40}
     Suppose $S, T \in \lin{V}$ and $S$ is invertible.
 	Suppose $p \in \pcal(\fbb)$ is a polynomial.
 	Prove that
@@ -884,7 +884,7 @@
     Hence, the result holds for all polynomials $p$.
 \end{sol}
 
-\begin{exercise}[5a41]
+\begin{exercise}{5a41}
     Suppose $T \in \lin{V}$ and $U$ is a subspace of $V$ invariant under $T$.
 	Prove that $U$ is invariant under $p(T)$ for every polynomial $p \in \pcal(\fbb)$.
 \end{exercise}
@@ -904,7 +904,7 @@
 	Therefore, $U$ is invariant under $p(T)$ for every polynomial $p \in \pcal(\fbb)$.
 \end{sol}
 
-\begin{exercise}[5a42]
+\begin{exercise}{5a42}
     Define $T \in \lin{\fbb^n}$ by $T(x_1, x_2, x_3, \ldots, x_n) = (x_1, 2x_2, 3x_3, \ldots, nx_n)$.
     \begin{subexercises}
         \item Find all eigenvalues and eigenvectors of $T$.
@@ -914,7 +914,7 @@
 	The solution here remains as to show the student the mechanism.}
 \end{exercise}
 
-\begin{sole}
+\begin{solenum}
     \item Let $\lambda$ be an eigenvalue of $T$ with corresponding eigenvector $v = (x_1, x_2, \ldots, x_n) \in \fbb^n$.
 	Then $T(v) = \lambda v$, which means
     \[
@@ -948,9 +948,9 @@
 	By repeating this process for each index with a nonzero coefficient, we can isolate each $\alpha_i e_i$ in $U$ whenever $\alpha_i \neq 0$.
     This shows that for any $u \in U$, all the standard basis vectors $e_i$ corresponding to nonzero coefficients in $u$ must also be in $U$.
 	Therefore, $U$ must be the span of some subset of the standard basis vectors $\{e_1, e_2, \ldots, e_n\}$.
-\end{sole}
+\end{solenum}
 
-\begin{exercise}[5a43]
+\begin{exercise}{5a43}
     Suppose that $V$ is finite-dimensional, $\dim V > 1$, and $T \in \lin{V}$.
 	Prove that $\set{p(T) \mid p \in \pcal(\fbb)} \neq \lin{V}$.
 

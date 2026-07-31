@@ -1,6 +1,6 @@
 \subsection{Diagonalizable Operators}
 
-\begin{exercise}[5d1]
+\begin{exercise}{5d1}
     Suppose $V$ is a finite-dimensional complex vector space and $T \in \lin{V}$.
     \begin{subexercises}
         \item Prove that if $T^4 = I$, then $T$ is diagonalizable.
@@ -10,7 +10,7 @@
     \remark{The roots $\omega$ in part (b) are the roots obtained in \exref{1c6}.}
 \end{exercise}
 
-\begin{sole}
+\begin{solenum}
     \item If $T^4 = I$, then the minimal polynomial of $T$ divides $z^4 - 1 = (z - 1)(z + 1)(z - i)(z + i)$, which has no repeated roots. Hence the minimal polynomial of $T$ has no repeated roots, so $T$ is diagonalizable.
     \item If $T^4 = T$, then the minimal polynomial of $T$ divides $z^4 - z = z(z - 1)(z - \omega)(z - \omega^2)$. This polynomial has no repeated roots, so the minimal polynomial of $T$ has no repeated roots, and hence $T$ is diagonalizable.
     \item Let $T \in \lin{\cbb^2}$ be defined by
@@ -18,9 +18,9 @@
         T(z_1, z_2) = (z_2, 0).
     \]
     Then $T^2(z_1, z_2) = (0, 0)$, so $T^4 = T^2$. However, $T$ is not diagonalizable because the only eigenvalue of $T$ is $0$, and $\dim E(0, T) = 1 < 2 = \dim \cbb^2$.
-\end{sole}
+\end{solenum}
 
-\begin{exercise}[5d2]
+\begin{exercise}{5d2}
     Suppose $T \in \lin{V}$ has a diagonal matrix $A$ with respect to some basis of $V$.
     Prove that if $\lambda \in \fbb$, then $\lambda$ appears on the diagonal of $A$ precisely $\dim E(\lambda, T)$ times.
 \end{exercise}
@@ -34,7 +34,7 @@
     Since $E(\lambda, T) = \nul(T - \lambda I)$, we have $\dim E(\lambda, T) = m$.
 \end{sol}
 
-\begin{exercise}[5d3]
+\begin{exercise}{5d3}
     Suppose $V$ is finite-dimensional and $T \in \lin{V}$.
     Prove that if the operator $T$ is diagonalizable, then $V = \nul T \op \range T$.
 \end{exercise}
@@ -78,7 +78,7 @@
     Therefore, $V = \nul T \op U = \nul T \op \range T$.
 \end{sol}
 
-\begin{exercise}[5d4]
+\begin{exercise}{5d4}
     Suppose $V$ is finite-dimensional and $T \in \lin{V}$.
     Prove that the following are equivalent.
     \begin{subexercises}
@@ -88,15 +88,15 @@
     \end{subexercises}
 \end{exercise}
 
-\begin{sole}
+\begin{solenum}
     \item If $V = \nul T \op \range T$, then $V = \nul T + \range T$.
     \item If $V = \nul T + \range T$, then $\dim V = \dim \nul T + \dim \range T - \dim(\nul T \cap \range T)$.
     Since $\dim V = \dim \nul T + \dim \range T$ by the fundamental theorem of linear maps, we have $\dim(\nul T \cap \range T) = 0$, so $\nul T \cap \range T = \set{0}$.
     \item  If $\nul T \cap \range T = \set{0}$, then $\dim V = \dim \nul T + \dim \range T - \dim(\nul T \cap \range T) = \dim \nul T + \dim \range T$.
     Since $\dim V = \dim \nul T + \dim \range T$ by the fundamental theorem of linear maps, and $\nul T \cap \range T = \set{0}$, we have $V = \nul T \op \range T$.
-\end{sole}
+\end{solenum}
 
-\begin{exercise}[5d5]
+\begin{exercise}{5d5}
     Suppose $V$ is a finite-dimensional complex vector space and $T \in \lin{V}$.
     Prove that $T$ is diagonalizable if and only if
     \[
@@ -144,7 +144,7 @@
     Since $T - \lambda I$ is injective on $U$ and $\dim U = \dim \range(T - \lambda I)$, we have $U = \range(T - \lambda I)$.
 \end{sol}
 
-\begin{exercise}[5d6]
+\begin{exercise}{5d6}
     Suppose $T \in \lin{\fbb^5}$ and $\dim E(8, T) = 4$.
     Prove that $T - 2I$ or $T - 6I$ is invertible.
 \end{exercise}
@@ -160,7 +160,7 @@
     Hence, $T - 2I$ or $T - 6I$ is invertible.
 \end{sol}
 
-\begin{exercise}[5d7]
+\begin{exercise}{5d7}
     Suppose $T \in \lin{V}$ is invertible.
     Prove that
     \[
@@ -188,7 +188,7 @@
     Then $E(\lambda, T) = E(\lambda\inv, T\inv)$.
 \end{sol}
 
-\begin{exercise}[5d8]
+\begin{exercise}{5d8}
     Suppose $V$ is finite-dimensional and $T \in \lin{V}$.
     Let $\lambda_1, \ldots, \lambda_m$ denote the distinct nonzero eigenvalues of $T$.
     Prove that
@@ -217,7 +217,7 @@
     \]
 \end{sol}
 
-\begin{exercise}[5d9]
+\begin{exercise}{5d9}
     Suppose $R, T \in \lin{\fbb^3}$ each have $2, 6, 7$ as eigenvalues.
     Prove that there exists an invertible operator $S \in \lin{\fbb^3}$ such that $R = S\inv T S$.
 \end{exercise}
@@ -245,7 +245,7 @@
     Since $S\inv T S$ and $R$ agree on a basis of $V$, we have $R = S\inv T S$.
 \end{sol}
 
-\begin{exercise}[5d10]
+\begin{exercise}{5d10}
     Find $R, T \in \lin{\fbb^4}$ such that $R$ and $T$ each have $2, 6, 7$ as eigenvalues, $R$ and $T$ have no other eigenvalues, and there does not exist an invertible operator $S \in \lin{\fbb^4}$ such that $R = S\inv T S$.
 \end{exercise}
 
@@ -264,7 +264,7 @@
     However, $\dim E(7, R) = 2 > 1 = \dim E(7, T)$, so there does not exist an invertible operator $S \in \lin{\fbb^4}$ such that $R = S\inv T S$.
 \end{sol}
 
-\begin{exercise}[5d11]
+\begin{exercise}{5d11}
     Find $T \in \lin{\cbb^3}$ such that $6$ and $7$ are eigenvalues of $T$ and such that $T$ does not have a diagonal matrix with respect to any basis of $\cbb^3$.
 \end{exercise}
 
@@ -292,7 +292,7 @@
     Hence, $\dim E(6, T) + \dim E(7, T) = 2 < 3$, so $T$ does not have a diagonal matrix with respect to any basis of $\cbb^3$.
 \end{sol}
 
-\begin{exercise}[5d12]
+\begin{exercise}{5d12}
     Suppose $T \in \lin{\cbb^3}$ is such that $6$ and $7$ are eigenvalues of $T$.
     Furthermore, suppose $T$ does not have a diagonal matrix with respect to any basis of $\cbb^3$.
     Prove that there exists $(z_1, z_2, z_3) \in \cbb^3$ such that
@@ -301,12 +301,12 @@
     \]
 \end{exercise}
 
-\begin{exercise}[5d13]
+\begin{exercise}{5d13}
     Suppose $A$ is a diagonal matrix with distinct entries on the diagonal and $B$ is a matrix of the same size as $A$.
     Show that $AB = BA$ if and only if $B$ is a diagonal matrix.
 \end{exercise}
 
-\begin{exercise}[5d14]
+\begin{exercise}{5d14}
     \begin{subexercises}
         \item Give an example of a finite-dimensional complex vector space and an operator $T$ on that vector space such that $T^2$ is diagonalizable but $T$ is not diagonalizable.
         \item Suppose $\fbb = \cbb$, $k$ is a positive integer, and $T \in \lin{V}$ is invertible.
@@ -314,7 +314,7 @@
     \end{subexercises}
 \end{exercise}
 
-\begin{exercise}[5d15]
+\begin{exercise}{5d15}
     Suppose $V$ is a finite-dimensional complex vector space, $T \in \lin{V}$, and $p$ is the minimal polynomial of $T$.
     Prove that the following are equivalent.
     \begin{subexercises}
@@ -328,33 +328,33 @@
     Thus the equivalence of (a) and (d) above shows that we can determine whether $T$ is diagonalizable without knowing anything about the zeros of $p$.}
 \end{exercise}
 
-\begin{exercise}[5d16]
+\begin{exercise}{5d16}
     Suppose that $T \in \lin{V}$ is diagonalizable.
     Let $\lambda_1, \ldots, \lambda_m$ denote the distinct eigenvalues of $T$.
     Prove that a subspace $U$ of $V$ is invariant under $T$ if and only if there exist subspaces $U_1, \ldots, U_m$ of $V$ such that $U_k \subseteq E(\lambda_k, T)$ for each $k$ and $U = U_1 \op \cdots \op U_m$.
 \end{exercise}
 
-\begin{exercise}[5d17]
+\begin{exercise}{5d17}
     Suppose $V$ is finite-dimensional.
     Prove that $\lin{V}$ has a basis consisting of diagonalizable operators.
 \end{exercise}
 
-\begin{exercise}[5d18]
+\begin{exercise}{5d18}
     Suppose that $T \in \lin{V}$ is diagonalizable and $U$ is a subspace of $V$ that is invariant under $T$.
     Prove that the quotient operator $T/U$ is a diagonalizable operator on $V/U$.
 \end{exercise}
 
-\begin{exercise}[5d19]
+\begin{exercise}{5d19}
     Prove or give a counterexample: If $T \in \lin{V}$ and there exists a subspace $U$ of $V$ that is invariant under $T$ such that $T|_U$ and $T/U$ are both diagonalizable, then $T$ is diagonalizable.
     \textit{See Exercise 13 in Section 5C for an analogous statement about upper-triangular matrices.}
 \end{exercise}
 
-\begin{exercise}[5d20]
+\begin{exercise}{5d20}
     Suppose $V$ is finite-dimensional and $T \in \lin{V}$.
     Prove that $T$ is diagonalizable if and only if the dual operator $T'$ is diagonalizable.
 \end{exercise}
 
-\begin{exercise}[5d21]
+\begin{exercise}{5d21}
     The \emph{\textbf{Fibonacci sequence}} $F_0, F_1, F_2, \ldots$ is defined by
     \[
         F_0 = 0, \quad F_1 = 1, \quad \text{and } F_n = F_{n-2} + F_{n-1} \text{ for } n \geq 2.
@@ -383,7 +383,7 @@
     \textit{is called the \emph{\textbf{golden ratio}}.}
 \end{exercise}
 
-\begin{exercise}[5d22]
+\begin{exercise}{5d22}
     Suppose $T \in \lin{V}$ and $A$ is an $n$-by-$n$ matrix that is the matrix of $T$ with respect to some basis of $V$.
     Prove that if
     \[
@@ -393,7 +393,7 @@
     \textit{This exercise states that if the diagonal entries of the matrix of $T$ are large compared to the nondiagonal entries, then $T$ is invertible.}
 \end{exercise}
 
-\begin{exercise}[5d23]
+\begin{exercise}{5d23}
     Suppose the definition of the Gershgorin disks is changed so that the radius of the $k^{\text{th}}$ disk is the sum of the absolute values of the entries in column (instead of row) $k$ of $A$, excluding the diagonal entry.
     Show that the Gershgorin disk theorem (5.67) still holds with this changed definition.
 \end{exercise}

@@ -1,6 +1,6 @@
 \subsection{Matrices}
 
-\begin{exercise}[3c1]
+\begin{exercise}{3c1}
     Suppose $T \in \lin{V, W}$.
 	Show that with respect to each choice of bases of $V$ and $W$, the matrix of $T$ has at least $\dim \range T$ nonzero entries.
 \end{exercise}
@@ -16,7 +16,7 @@
 	Therefore, $A$ must have at least $\dim \range T$ nonzero columns, and hence at least $\dim \range T$ nonzero entries.
 \end{sol}
 
-\begin{exercise}[3c2]
+\begin{exercise}{3c2}
     Suppose $V$ and $W$ are finite-dimensional and $T \in \lin{V, W}$.
 	Prove that $\dim \range T = 1$ if and only if there exist a basis of $V$ and a basis of $W$ such that with respect to these bases, all entries of $\mcal(T)$ equal $1$.
 \end{exercise}
@@ -87,7 +87,7 @@
 	Therefore, $\range T = \spn w$, and hence $\dim \range T = 1$.
 \end{sol}
 
-\begin{exercise}[3c3]
+\begin{exercise}{3c3}
     Suppose $v_1, \ldots, v_n$ is a basis of $V$ and $w_1, \ldots, w_m$ is a basis of $W$.
     \begin{subexercises}
         \item Show that if $S, T \in \lin{V, W}$, then $\mcal(S + T) = \mcal(S) + \mcal(T)$.
@@ -95,7 +95,7 @@
     \end{subexercises}
 \end{exercise}
 
-\begin{sole}
+\begin{solenum}
     \item Let $v_1, \ldots, v_n$ be a basis of $V$ and $w_1, \ldots, w_m$ be a basis of $W$.
 	Then the matrix of $S + T$ with respect to these bases is given by
     \begin{align*}
@@ -133,9 +133,9 @@
         \end{pmatrix} \\
         & = \lambda \mcal(T). \qedhere
     \end{align*}
-\end{sole}
+\end{solenum}
 
-\begin{exercise}[3c4]
+\begin{exercise}{3c4}
     Suppose that $D \in \lin{\pcal_3(\rbb), \pcal_2(\rbb)}$ is the differentiation map defined by $Dp = p'$.
 	Find a basis of $\pcal_3(\rbb)$ and a basis of $\pcal_2(\rbb)$ such that the matrix of $D$ with respect to these bases is
     \[
@@ -167,7 +167,7 @@
     Therefore, with respect to the bases, we get the desired matrix representation of $D$.
 \end{sol}
 
-\begin{exercise}[3c5]
+\begin{exercise}{3c5}
     Suppose $V$ and $W$ are finite-dimensional and $T \in \lin{V, W}$.
 	Prove that there exist a basis of $V$ and a basis of $W$ such that with respect to these bases, all entries of $\mcal(T)$ are $0$ except that the entries in row $k$, column $k$, equal $1$ if $1 \leq k \leq \dim \range T$.
 \end{exercise}
@@ -201,7 +201,7 @@
     Therefore, the matrix of $T$ with respect to these bases has $1$'s in the diagonal entries corresponding to $Tv_k$ and $0$'s elsewhere, as desired.
 \end{sol}
 
-\begin{exercise}[3c6]
+\begin{exercise}{3c6}
     Suppose $v_1, \ldots, v_m$ is a basis of $V$ and $W$ is finite-dimensional.
 	Suppose $T \in \lin{V, W}$.
 	Prove that there exists a basis $w_1, \ldots, w_n$ of $W$ such that all entries in the first column of $\mcal(T)$ [with respect to the bases $v_1, \ldots, v_m$ and $w_1, \ldots, w_n$] are $0$ except for possibly a $1$ in the first row, first column.
@@ -224,7 +224,7 @@
 	Therefore, the first column of $\mcal(T)$ has a $1$ in the first row and zeros in all other rows, as desired.
 \end{sol}
 
-\begin{exercise}[3c7]
+\begin{exercise}{3c7}
     Suppose $w_1, \ldots, w_n$ is a basis of $W$ and $V$ is finite-dimensional.
 	Suppose $T \in \lin{V, W}$.
 	Prove that there exists a basis $v_1, \ldots, v_m$ of $V$ such that all entries in the first row of $\mcal(T)$ [with respect to the bases $v_1, \ldots, v_m$ and $w_1, \ldots, w_n$] are $0$ except for possibly a $1$ in the first row, first column.
@@ -272,7 +272,7 @@
 	It follows that $Tv_1$ has a 1 in the first row, while $Tv_j$ for $j = 2, \ldots, m$ have zeros in the first row.
 \end{sol}
 
-\begin{exercise}[3c8]
+\begin{exercise}{3c8}
     Suppose $A$ is an $m$-by-$n$ matrix and $B$ is an $n$-by-$p$ matrix.
 	Prove that $(AB)_{j, \cdot} = A_{j, \cdot} B$ for each $1 \leq j \leq m$.
 	In other words, show that row $j$ of $AB$ equals (row $j$ of $A$) times $B$.
@@ -301,7 +301,7 @@
 	This proves that row $j$ of $AB$ equals (row $j$ of $A$) times $B$.
 \end{sol}
 
-\begin{exercise}[3c9]
+\begin{exercise}{3c9}
     Suppose $a = (a_1 \quad \cdots \quad a_n)$ is a $1$-by-$n$ matrix and $B$ is an $n$-by-$p$ matrix.
 	Prove that
     \[
@@ -339,7 +339,7 @@
     which shows that $aB$ is indeed a linear combination of the rows of $B$, with the scalars coming from the entries of $a$.
 \end{sol}
 
-\begin{exercise}[3c10]
+\begin{exercise}{3c10}
     Give an example of $2$-by-$2$ matrices $A$ and $B$ such that $AB \neq BA$.
 \end{exercise}
 
@@ -403,7 +403,7 @@
     By comparing the two products, we see that $AB \neq BA$.
 \end{sol}
 
-\begin{exercise}[3c11]
+\begin{exercise}{3c11}
     Prove that the distributive property holds for matrix addition and matrix multiplication.
 	In other words, suppose $A, B, C, D, E$, and $F$ are matrices whose sizes are such that $A(B + C)$ and $(D + E)F$ make sense.
 	Explain why $AB + AC$ and $DF + EF$ both make sense and prove that
@@ -437,7 +437,7 @@
 	Therefore, $(D + E)F = DF + EF$.
 \end{sol}
 
-\begin{exercise}[3c12]
+\begin{exercise}{3c12}
     Prove that matrix multiplication is associative.
 	In other words, suppose $A$, $B$, and $C$ are matrices whose sizes are such that $(AB)C$ makes sense.
 	Explain why $A(BC)$ makes sense and prove that
@@ -469,7 +469,7 @@
 	Therefore, $(AB)C = A(BC)$.
 \end{sol}
 
-\begin{exercise}[3c13]
+\begin{exercise}{3c13}
     Suppose $A$ is an $n$-by-$n$ matrix and $1 \leq j, k \leq n$.
 	Show that the entry in row $j$, column $k$, of $A^3$ (which is defined to mean $AAA$) is
     \[
@@ -498,7 +498,7 @@
     which is the desired expression.
 \end{sol}
 
-\begin{exercise}[3c14]
+\begin{exercise}{3c14}
     Suppose $m$ and $n$ are positive integers.
 	Prove that the function $A \mapsto A^t$ is a linear map from $\fbb^{m, n}$ to $\fbb^{n, m}$.
 \end{exercise}
@@ -532,7 +532,7 @@
     Since both properties hold, we conclude that the function $A \mapsto A^t$ is a linear map from $\fbb^{m, n}$ to $\fbb^{n, m}$.
 \end{sol}
 
-\begin{exercise}[3c15]
+\begin{exercise}{3c15}
     Prove that if $A$ is an $m$-by-$n$ matrix and $C$ is an $n$-by-$p$ matrix, then
     \[
     	(AC)^t = C^t A^t.
@@ -568,7 +568,7 @@
     \]
 \end{sol}
 
-\begin{exercise}[3c16]
+\begin{exercise}{3c16}
     Suppose $A$ is an $m$-by-$n$ matrix with $A \neq 0$.
 	Prove that the rank of $A$ is $1$ if and only if there exist $(c_1, \ldots, c_m) \in \fbb^m$ and $(d_1, \ldots, d_n) \in \fbb^n$ such that $A_{j, k} = c_j d_k$ for every $j = 1, \ldots, m$ and every $k = 1, \ldots, n$.
 \end{exercise}
@@ -590,7 +590,7 @@
 	Therefore, the rank of $A$ is 1.
 \end{sol}
 
-\begin{exercise}[3c17]
+\begin{exercise}{3c17}
     Suppose $T \in \lin{V}$, and $u_1, \ldots, u_n$ and $v_1, \ldots, v_n$ are bases of $V$.
 	Prove that the following are equivalent.
     \begin{subexercises}

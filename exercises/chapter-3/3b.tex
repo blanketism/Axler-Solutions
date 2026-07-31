@@ -1,6 +1,6 @@
 \subsection{Null Spaces and Ranges}
 
-\begin{exercise}[3b1]
+\begin{exercise}{3b1}
     Give an example of a linear map $T$ with $\dim \nul T = 3$ and $\dim \range T = 2$.
 \end{exercise}
 
@@ -12,7 +12,7 @@
     Then $\nul T = \set{(0, 0, x_3, x_4, x_5) \mid x_3, x_4, x_5 \in \rbb}$, which has dimension $3$, and $\range T = \rbb^2$, which has dimension $2$.
 \end{sol}
 
-\begin{exercise}[3b2]
+\begin{exercise}{3b2}
     Suppose $S, T \in \lin{V}$ are such that $\range S \subseteq \nul T$.
 	Prove that $(ST)^2 = 0$.
 \end{exercise}
@@ -31,7 +31,7 @@
     Since $v$ was arbitrary, it follows that $(ST)^2 = 0$.
 \end{sol}
 
-\begin{exercise}[3b3]
+\begin{exercise}{3b3}
     Suppose $v_1, \ldots, v_m$ is a list of vectors in $V$.
 	Define $T \in \lin{\fbb^m, V}$ by
     \[
@@ -43,12 +43,12 @@
     \end{subexercises}
 \end{exercise}
 
-\begin{sole}
+\begin{solenum}
     \item The list $v_1, \ldots, v_m$ spans $V$ if and only if $\range T = V$, i.e., $T$ is surjective.
     \item The list $v_1, \ldots, v_m$ is linearly independent if and only if $\nul T = \set{0}$, i.e., $T$ is injective.
-\end{sole}
+\end{solenum}
 
-\begin{exercise}[3b4]
+\begin{exercise}{3b4}
     Show that $\set{T \in \lin{\rbb^5, \rbb^4} \mid \dim \nul T > 2}$ is not a subspace of $\lin{\rbb^5, \rbb^4}$.
 \end{exercise}
 
@@ -75,7 +75,7 @@
 	Hence, the set is not closed under addition and is not a subspace of $\lin{\rbb^5, \rbb^4}$.
 \end{sol}
 
-\begin{exercise}[3b5]
+\begin{exercise}{3b5}
     Give an example of $T \in \lin{\rbb^4}$ such that $\range T = \nul T$.
 \end{exercise}
 
@@ -95,7 +95,7 @@
 	Hence, $\range T = \nul T$.
 \end{sol}
 
-\begin{exercise}[3b6]
+\begin{exercise}{3b6}
     Prove that there does not exist $T \in \lin{\rbb^5}$ such that $\range T = \nul T$.
 \end{exercise}
 
@@ -109,7 +109,7 @@
 	Hence, no such $T$ exists.
 \end{sol}
 
-\begin{exercise}[3b7]
+\begin{exercise}{3b7}
     Suppose $V$ and $W$ are finite-dimensional with $2 \leq \dim V \leq \dim W$.
 	Show that $\set{T \in \lin{V, W} \mid T \text{ is not injective}}$ is not a subspace of $\lin{V, W}$.
 \end{exercise}
@@ -148,7 +148,7 @@
 	Since $T_1$ and $T_2$ are not injective, but their sum is injective, the set $\set{T \in \lin{V, W} \mid T \text{ is not injective}}$ is not closed under addition and thus is not a subspace of $\lin{V, W}$.
 \end{sol}
 
-\begin{exercise}[3b8]
+\begin{exercise}{3b8}
     Suppose $V$ and $W$ are finite-dimensional with $\dim V \geq \dim W \geq 2$.
 	Show that $\set{T \in \lin{V, W} \mid T \text{ is not surjective}}$ is not a subspace of $\lin{V, W}$.
 \end{exercise}
@@ -178,7 +178,7 @@
 	Since $T_1$ and $T_2$ are not surjective, but their sum is surjective, the set $\set{T \in \lin{V, W} \mid T \text{ is not surjective}}$ is not closed under addition and thus is not a subspace of $\lin{V, W}$.
 \end{sol}
 
-\begin{exercise}[3b9]
+\begin{exercise}{3b9}
     Suppose $T \in \lin{V, W}$ is injective and $v_1, \ldots, v_n$ is linearly independent in $V$.
 	Prove that $Tv_1, \ldots, Tv_n$ is linearly independent in $W$.
 \end{exercise}
@@ -200,7 +200,7 @@
 	Therefore, $Tv_1, \ldots, Tv_n$ is linearly independent in $W$.
 \end{sol}
 
-\begin{exercise}[3b10]
+\begin{exercise}{3b10}
     Suppose $v_1, \ldots, v_n$ spans $V$ and $T \in \lin{V, W}$.
 	Show that $Tv_1, \ldots, Tv_n$ spans $\range T$.
 \end{exercise}
@@ -221,7 +221,7 @@
 	Since $w$ was arbitrary in $\range T$, it follows that $Tv_1, \ldots, Tv_n$ spans $\range T$.
 \end{sol}
 
-\begin{exercise}[3b11]
+\begin{exercise}{3b11}
     Suppose that $V$ is finite-dimensional and that $T \in \lin{V, W}$.
 	Prove that there exists a subspace $U$ of $V$ such that
     \[
@@ -275,7 +275,7 @@
 	Thus, we have found a subspace $U$ of $V$ such that $U \cap \nul T = \set{0}$ and $\range T = \set{Tu \mid u \in U}$.
 \end{sol}
 
-\begin{exercise}[3b12]
+\begin{exercise}{3b12}
     Suppose $T$ is a linear map from $\fbb^4$ to $\fbb^2$ such that
     \[
     	\nul T = \set{(x_1, x_2, x_3, x_4) \in \fbb^4 \mid x_1 = 5x_2 \text{ and } x_3 = 7x_4}.
@@ -299,7 +299,7 @@
 	Therefore, $T$ is surjective.
 \end{sol}
 
-\begin{exercise}[3b13]
+\begin{exercise}{3b13}
     Suppose $U$ is a three-dimensional subspace of $\rbb^8$ and that $T$ is a linear map from $\rbb^8$ to $\rbb^5$ such that $\nul T = U$.
 	Prove that $T$ is surjective.
 \end{exercise}
@@ -314,7 +314,7 @@
 	Therefore, $T$ is surjective.
 \end{sol}
 
-\begin{exercise}[3b14]
+\begin{exercise}{3b14}
     Prove that there does not exist a linear map from $\fbb^5$ to $\fbb^2$ whose null space equals $\set{(x_1, x_2, x_3, x_4, x_5) \in \fbb^5 \mid x_1 = 3x_2 \text{ and } x_3 = x_4 = x_5}$.
 \end{exercise}
 
@@ -335,7 +335,7 @@
 	Therefore, no such linear map exists.
 \end{sol}
 
-\begin{exercise}[3b15]
+\begin{exercise}{3b15}
     Suppose there exists a linear map on $V$ whose null space and range are both finite-dimensional.
 	Prove that $V$ is finite-dimensional.
 
@@ -375,7 +375,7 @@
 	Hence, $V$ is finite-dimensional.
 \end{sol}
 
-\begin{exercise}[3b16]
+\begin{exercise}{3b16}
     Suppose $V$ and $W$ are both finite-dimensional.
 	Prove that there exists an injective linear map from $V$ to $W$ if and only if $\dim V \leq \dim W$.
 \end{exercise}
@@ -416,7 +416,7 @@
 	Hence, there exists an injective linear map from $V$ to $W$ if and only if $\dim V \leq \dim W$.
 \end{sol}
 
-\begin{exercise}[3b17]
+\begin{exercise}{3b17}
     Suppose $V$ and $W$ are both finite-dimensional.
 	Prove that there exists a surjective linear map from $V$ onto $W$ if and only if $\dim V \geq \dim W$.
 \end{exercise}
@@ -460,7 +460,7 @@
 	Hence, there exists a surjective linear map from $V$ onto $W$ if and only if $\dim V \geq \dim W$.
 \end{sol}
 
-\begin{exercise}[3b18]
+\begin{exercise}{3b18}
     Suppose $V$ and $W$ are finite-dimensional and that $U$ is a subspace of $V$.
 	Prove that there exists $T \in \lin{V, W}$ such that $\nul T = U$ if and only if $\dim U \geq \dim V - \dim W$.
 \end{exercise}
@@ -514,7 +514,7 @@
 	Thus, there exists $T \in \lin{V, W}$ such that $\nul T = U$ if and only if $\dim U \geq \dim V - \dim W$.
 \end{sol}
 
-\begin{exercise}[3b19]
+\begin{exercise}{3b19}
     Suppose $W$ is finite-dimensional and $T \in \lin{V, W}$.
 	Prove that $T$ is injective if and only if there exists $S \in \lin{W, V}$ such that $ST$ is the identity operator on $V$.
 \end{exercise}
@@ -558,7 +558,7 @@
 	Therefore, $\nul T = \set{0}$, which means $T$ is injective.
 \end{sol}
 
-\begin{exercise}[3b20]
+\begin{exercise}{3b20}
     Suppose $W$ is finite-dimensional and $T \in \lin{V, W}$.
 	Prove that $T$ is surjective if and only if there exists $S \in \lin{W, V}$ such that $TS$ is the identity operator on $W$.
 \end{exercise}
@@ -596,7 +596,7 @@
 	Therefore, $\range T = W$, which means that $T$ is surjective.
 \end{sol}
 
-\begin{exercise}[3b21]
+\begin{exercise}{3b21}
     Suppose $V$ is finite-dimensional, $T \in \lin{V, W}$, and $U$ is a subspace of $W$.
 	Prove that $\set{v \in V \mid Tv \in U}$ is a subspace of $V$ and
     \[
@@ -669,7 +669,7 @@
     \]
 \end{sol}
 
-\begin{exercise}[3b22]
+\begin{exercise}{3b22}
     Suppose $U$ and $V$ are finite-dimensional vector spaces and $S \in \lin{V, W}$ and $T \in \lin{U, V}$.
 	Prove that
     \[
@@ -699,7 +699,7 @@
     \]
 \end{sol}
 
-\begin{exercise}[3b23]
+\begin{exercise}{3b23}
     Suppose $U$ and $V$ are finite-dimensional vector spaces and $S \in \lin{V, W}$ and $T \in \lin{U, V}$.
 	Prove that
     \[
@@ -743,7 +743,7 @@
     \]
 \end{sol}
 
-\begin{exercise}[3b24]
+\begin{exercise}{3b24}
     \begin{subexercises}
         \item Suppose $\dim V = 5$ and $S, T \in \lin{V}$ are such that $ST = 0$.
 	Prove that $\dim \range TS \leq 2$.
@@ -751,7 +751,7 @@
     \end{subexercises}
 \end{exercise}
 
-\begin{sole}
+\begin{solenum}
     \item Since $ST = 0$, then $S(Tv) = 0$ for all $v \in V$.
 	This implies that $\range T \subseteq \nul S$.
 	By the fundamental theorem of linear maps, we have
@@ -787,9 +787,9 @@
     \]
     Therefore, $\range TS = \spn(v_3, v_4)$, which has dimension $2$.
 	Thus, we have constructed an example of $S, T \in \lin{\fbb^5}$ with $ST = 0$ and $\dim \range TS = 2$.
-\end{sole}
+\end{solenum}
 
-\begin{exercise}[3b25]
+\begin{exercise}{3b25}
     Suppose that $W$ is finite-dimensional and $S, T \in \lin{V, W}$.
 	Prove that $\nul S \subseteq \nul T$ if and only if there exists $E \in \lin{W}$ such that $T = ES$.
 
@@ -824,7 +824,7 @@
     Therefore, $v \in \nul T$, and hence $\nul S \subseteq \nul T$.
 \end{sol}
 
-\begin{exercise}[3b26]
+\begin{exercise}{3b26}
     Suppose that $V$ is finite-dimensional and $S, T \in \lin{V, W}$.
 	Prove that $\range S \subseteq \range T$ if and only if there exists $E \in \lin{V}$ such that $S = TE$.
 
@@ -861,7 +861,7 @@
     Therefore, $w \in \range T$, and hence $\range S \subseteq \range T$.
 \end{sol}
 
-\begin{exercise}[3b27]
+\begin{exercise}{3b27}
     Suppose $P \in \lin{V}$ and $P^2 = P$.
 	Prove that $V = \nul P \op \range P$.
 \end{exercise}
@@ -903,7 +903,7 @@
     \]
 \end{sol}
 
-\begin{exercise}[3b28]
+\begin{exercise}{3b28}
     Suppose $D \in \lin{\pcal(\rbb)}$ is such that $\deg Dp = (\deg p) - 1$ for every nonconstant polynomial $p \in \pcal(\rbb)$.
 	Prove that $D$ is surjective.
     
@@ -925,7 +925,7 @@
     Since $p$ was arbitrary, $D$ is surjective.
 \end{sol}
 
-\begin{exercise}[3b29]
+\begin{exercise}{3b29}
     Suppose $p \in \pcal(\rbb)$.
 	Prove that there exists a polynomial $q \in \pcal(\rbb)$ such that $5q'' + 3q' = p$.
 
@@ -936,7 +936,7 @@
     Define $D \in \lin{\pcal(\rbb)}$ by $Dq = 5q'' + 3q'$ for all $q \in \pcal(\rbb)$. For nonconstant $q$, we have $\deg Dq = \deg q - 1$. By \exref{3b28}, $D$ is surjective. Therefore, for any polynomial $p \in \pcal(\rbb)$, there exists a polynomial $q \in \pcal(\rbb)$ such that $Dq = p$, which means that $5q'' + 3q' = p$.
 \end{sol}
 
-\begin{exercise}[3b30]
+\begin{exercise}{3b30}
     Suppose $\phi \in \lin{V, \fbb}$ and $\phi \neq 0$.
 	Suppose $u \in V$ is not in $\nul \phi$.
 	Prove that
@@ -986,7 +986,7 @@
     \]
 \end{sol}
 
-\begin{exercise}[3b31]
+\begin{exercise}{3b31}
     Suppose $V$ is finite-dimensional, $X$ is a subspace of $V$, and $Y$ is a finite-dimensional subspace of $W$.
 	Prove that there exists $T \in \lin{V, W}$ such that $\nul T = X$ and $\range T = Y$ if and only if $\dim X + \dim Y = \dim V$.
 \end{exercise}
@@ -1035,7 +1035,7 @@
 	This shows that there exists a linear map $T \in \lin{V, W}$ such that $\nul T = X$ and $\range T = Y$.
 \end{sol}
 
-\begin{exercise}[3b32]
+\begin{exercise}{3b32}
     Suppose $V$ is finite-dimensional with $\dim V > 1$.
 	Show that if $\phi: \lin{V} \to \fbb$ is a linear map such that $\phi(ST) = \phi(S)\phi(T)$ for all $S, T \in \lin{V}$, then $\phi = 0$.
     
@@ -1057,7 +1057,7 @@
 	Hence, $\phi = 0$.
 \end{sol}
 
-\begin{exercise}[3b33]
+\begin{exercise}{3b33}
     Suppose that $V$ and $W$ are real vector spaces and $T \in \lin{V, W}$.
 	Define $T_\cbb: V_\cbb \to W_\cbb$ by
     \[
@@ -1074,7 +1074,7 @@
 	The linear map $T_\cbb$ is called the \textbf{complexification} of the linear map $T$.}
 \end{exercise}
 
-\begin{sole}
+\begin{solenum}
     \item Let $u + vi$ and $w + xi \in V_\cbb$.
 	Then for any $a + bi \in \cbb$, we have
     \begin{align*}
@@ -1120,4 +1120,4 @@
     	T_\cbb(u + iv) = Tu + iTv = w_1 + iw_2.
     \]
     Therefore, $w_1 + iw_2 \in \range T_\cbb$, and hence $\range T_\cbb = W_\cbb$.
-\end{sole}
+\end{solenum}

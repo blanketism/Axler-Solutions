@@ -2,7 +2,7 @@
 
 \subsection{Span and Linear Independence}
 
-\begin{exercise}[2a1]
+\begin{exercise}{2a1}
     Find a list of four distinct vectors in $\fbb^3$ whose span equals
     \[
     	\set{(x, y, z) \in \fbb^3 \mid x + y + z = 0}
@@ -26,7 +26,7 @@
     \]
 \end{sol}
 
-\begin{exercise}[2a2]
+\begin{exercise}{2a2}
     Prove or give a counterexample: If $v_1, v_2, v_3, v_4$ spans $V$, then the list
     \[
     	v_1 - v_2, v_2 - v_3, v_3 - v_4, v_4
@@ -48,7 +48,7 @@
 	Therefore, $\spn W = V$, and so $W$ spans $V$.
 \end{sol}
  
-\begin{exercise}[2a3]
+\begin{exercise}{2a3}
     Suppose $v_1, \ldots, v_m$ is a list of vectors in $V$.
 	For $k \in \set{1, \ldots, m}$, let
     \[
@@ -64,14 +64,14 @@
 	Therefore, $\spn(v_1, \ldots, v_m) = \spn(w_1, \ldots, w_m)$.
 \end{sol}
  
-\begin{exercise}[2a4]
+\begin{exercise}{2a4}
     \begin{subexercises}
         \item Show that a list of length one in a vector space is linearly independent if and only if the vector in the list is not 0.
         \item Show that a list of length two in a vector space is linearly independent if and only if neither of the two vectors in the list is a scalar multiple of the other.
     \end{subexercises}
 \end{exercise}
 
-\begin{sole}
+\begin{solenum}
     \item Let $v$ be the vector in the list.
 	If $v = 0$, then the list is linearly dependent, since $0 \cdot v = 0$.
 	If $v \neq 0$, then the only way to write $0$ as a linear combination of $v$ is to take the scalar multiple to be $0$.
@@ -96,9 +96,9 @@
     	v_2 = -\frac{\alpha}{\beta} v_1.
     \]
     Thus, the list is linearly independent if and only if neither vector is a scalar multiple of the other.
-\end{sole}
+\end{solenum}
  
-\begin{exercise}[2a5]
+\begin{exercise}{2a5}
     Find a number $t$ such that
     \[
     	(3, 1, 4), (2, -3, 5), (5, 9, t)
@@ -135,7 +135,7 @@
 	Then the list is not linearly independent when $t = 2$.
 \end{sol}
  
-\begin{exercise}[2a6]
+\begin{exercise}{2a6}
     Show that the list $(2, 3, 1), (1, -1, 2), (7, 3, c)$ is linearly dependent in $\mathbb{F}^3$ if and only if $c = 8$.
 \end{exercise}
 
@@ -168,14 +168,14 @@
 	Thus, the list is linearly independent when $c \neq 8$.
 \end{sol}
  
-\begin{exercise}[2a7]
+\begin{exercise}{2a7}
     \begin{subexercises}
         \item Show that if we think of $\cbb$ as a vector space over $\rbb$, then the list $1 + i, 1 - i$ is linearly independent.
         \item Show that if we think of $\cbb$ as a vector space over $\cbb$, then the list $1 + i, 1 - i$ is linearly dependent.
     \end{subexercises}
 \end{exercise}
 
-\begin{sole}
+\begin{solenum}
     \item Suppose $\alpha, \beta \in \rbb$ such that
     \[
     	\alpha(1 + i) + \beta(1 - i) = 0.
@@ -204,9 +204,9 @@
 	Substituting this into the first equation, we obtain $b = c$.
 	Then we have infinitely many nontrivial solutions to the system of equations, such as $a = 1, b = 0, c = 0, d = -1$.
 	Thus, the list is linearly dependent.
-\end{sole}
+\end{solenum}
 
-\begin{exercise}[2a8]
+\begin{exercise}{2a8}
     Suppose $v_1, v_2, v_3, v_4$ is linearly independent in $V$.
 	Prove that the list
     \(v_1 - v_2, v_2 - v_3, v_3 - v_4, v_4\)
@@ -236,7 +236,7 @@
 	Thus, the only solution to the original equation is $\alpha = \beta = \gamma = \delta = 0$, and so the list is linearly independent.
 \end{sol}
  
-\begin{exercise}[2a9]
+\begin{exercise}{2a9}
     Prove or give a counterexample: If $v_1, v_2, \ldots, v_m$ is a linearly independent list of vectors in $V$, then
     \(5v_1 - 4v_2, v_2, v_3, \ldots, v_m\)
     is linearly independent.
@@ -265,7 +265,7 @@
 	Thus, the only solution to the original equation is $\alpha_k = 0$ for $k = 1, \ldots, m$, and so the list is linearly independent.
 \end{sol}
 
-\begin{exercise}[2a10]
+\begin{exercise}{2a10}
     Prove or give a counterexample: If $v_1, v_2, \ldots, v_m$ is a linearly independent list of vectors in $V$ and $\lambda \in \fbb$ with $\lambda \neq 0$, then $\lambda v_1, \lambda v_2, \ldots, \lambda v_m$ is linearly independent.
 \end{exercise}
 
@@ -286,7 +286,7 @@
 	Thus, the only solution to the original equation is $\alpha_k = 0$ for $k = 1, \ldots, m$, and so the list is linearly independent.
 \end{sol}
  
-\begin{exercise}[2a11]
+\begin{exercise}{2a11}
     Prove or give a counterexample: If $v_1, \ldots, v_m$ and $w_1, \ldots, w_m$ are linearly independent lists of vectors in $V$, then the list $v_1 + w_1, \ldots, v_m + w_m$ is linearly independent.
 \end{exercise}
 
@@ -304,7 +304,7 @@
 	Thus, the statement is false.
 \end{sol}
  
-\begin{exercise}[2a12]
+\begin{exercise}{2a12}
     Suppose $v_1, \ldots, v_m$ is linearly independent in $V$ and $w \in V$.
 	Prove that if $v_1 + w, \ldots, v_m + w$ is linearly dependent, then $w \in \spn(v_1, \ldots, v_m)$.
 \end{exercise}
@@ -332,7 +332,7 @@
     Thus, $w$ is a linear combination of $v_1, \ldots, v_m$, and so $w \in \spn(v_1, \ldots, v_m)$.
 \end{sol}
  
-\begin{exercise}[2a13]
+\begin{exercise}{2a13}
     Suppose $v_1, \ldots, v_m$ is linearly independent in $V$ and $w \in V$.
 	Show that
     \[
@@ -382,7 +382,7 @@
 	Thus, $v_1, \ldots, v_m, w$ is linearly independent.
 \end{sol}
  
-\begin{exercise}[2a14]
+\begin{exercise}{2a14}
     Suppose $v_1, \ldots, v_m$ is a list of vectors in $V$.
 	For $k \in \set{1, \ldots, m}$, let
     \[
@@ -430,7 +430,7 @@
 	Hence, $v_1, \ldots, v_m$ is linearly independent.
 \end{sol}
  
-\begin{exercise}[2a15]
+\begin{exercise}{2a15}
     Explain why there does not exist a list of six polynomials that is linearly independent in $\pcal_4(\fbb)$.
 \end{exercise}
 
@@ -438,7 +438,7 @@
     Since $\pcal_4(\fbb)$ can be spanned by the list $1, x, x^2, x^3, x^4$, and the length of a linearly independent list cannot exceed the length of a spanning list, there does not exist a list of six polynomials that is linearly independent in $\pcal_4(\fbb)$.
 \end{sol}
  
-\begin{exercise}[2a16]
+\begin{exercise}{2a16}
     Explain why no list of four polynomials spans $\pcal_4(\fbb)$.
 \end{exercise}
 
@@ -446,7 +446,7 @@
     Since the list $1, x, x^2, x^3, x^4$ is a linearly independent list in $\pcal_4(\fbb)$ and has length 5, and the length of a spanning list cannot be less than the length of a linearly independent list, no list of four polynomials can span $\pcal_4(\fbb)$.
 \end{sol}
  
-\begin{exercise}[2a17]
+\begin{exercise}{2a17}
     Prove that $V$ is infinite-dimensional if and only if there is a sequence $v_1, v_2, \ldots$ of vectors in $V$ such that $v_1, \ldots, v_m$ is linearly independent for every positive integer $m$.
 \end{exercise}
 
@@ -465,7 +465,7 @@
 	Since there is no maximum length for a linearly independent list of vectors in $V$, this implies that $V$ is infinite-dimensional.
 \end{sol}
  
-\begin{exercise}[2a18]
+\begin{exercise}{2a18}
     Prove that $\fbb^\infty$ is infinite-dimensional.
 \end{exercise}
 
@@ -480,7 +480,7 @@
 	Thus, by \exref{2a17}, $\fbb^\infty$ is infinite-dimensional.
 \end{sol}
  
-\begin{exercise}[2a19]
+\begin{exercise}{2a19}
     Prove that the real vector space of all continuous real-valued functions on the interval $[0, 1]$ is infinite-dimensional.
 \end{exercise}
 
@@ -502,7 +502,7 @@
 	Therefore, by \exref{2a17}, the real vector space of all continuous real-valued functions on the interval $[0, 1]$ is infinite-dimensional.
 \end{sol}
  
-\begin{exercise}[2a20]
+\begin{exercise}{2a20}
     Suppose $p_0, p_1, \ldots, p_m$ are polynomials in $\pcal_m(\fbb)$ such that $p_k(2) = 0$ for each $k \in \set{0, \ldots, m}$.
 	Prove that $p_0, p_1, \ldots, p_m$ is not linearly independent in $\pcal_m(\fbb)$.
 \end{exercise}

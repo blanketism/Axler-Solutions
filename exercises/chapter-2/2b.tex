@@ -1,6 +1,6 @@
 \subsection{Bases}
 
-\begin{exercise}[2b1]
+\begin{exercise}{2b1}
     Find all vector spaces that have exactly one basis.
 
     \remark{The proof of this exercise fails if $\fbb$ contains only two elements.
@@ -32,7 +32,7 @@
 	Therefore, the only vector space that has exactly one basis is the zero vector space.
 \end{sol}
 
-\begin{exercise}[2b2]
+\begin{exercise}{2b2}
     Verify all assertions in Example 2.27.
     \begin{subexercises}
         \item The list $(1, 0, \ldots, 0), (0, 1, 0, \ldots, 0), \ldots, (0, \ldots, 0, 1)$ is a basis of $\fbb^n$, called the \emph{standard basis} of $\fbb^n$.
@@ -50,7 +50,7 @@
     \end{subexercises}
 \end{exercise}
 
-\begin{sole}
+\begin{solenum}
     \item Suppose $\alpha_1, \ldots, \alpha_n \in \fbb$ such that
     \[
     	\alpha_1(1, 0, \ldots, 0) + \alpha_2(0, 1, 0, \ldots, 0) + \cdots + \alpha_n(0, \ldots, 0, 1) = 0.
@@ -118,9 +118,9 @@
     \]
     so the list spans $\pcal_m(\fbb)$.
 	Thus, the list is a basis of $\pcal_m(\fbb)$.
-\end{sole}
+\end{solenum}
 
-\begin{exercise}[2b3]
+\begin{exercise}{2b3}
     \begin{subexercises}
         \item Let $U$ be the subspace of $\rbb^5$ defined by
         \[
@@ -132,7 +132,7 @@
     \end{subexercises}
 \end{exercise}
 
-\begin{sole}
+\begin{solenum}
     \item Note that we can rewrite the subspace $U$ as
     \[
     	U = \set{(3x_2, x_2, 7x_4, x_4, x_5) \in \rbb^5 \mid x_2, x_4, x_5 \in \rbb}.
@@ -157,9 +157,9 @@
     	\rbb^5 = U \op W,
     \]
     since $U \cap W = \set{0}$ and every vector in $\rbb^5$ can be written as a sum of a vector in $U$ and a vector in $W$.
-\end{sole}
+\end{solenum}
 
-\begin{exercise}[2b4]
+\begin{exercise}{2b4}
     \begin{subexercises}
         \item Let $U$ be the subspace of $\cbb^5$ defined by
         \[
@@ -171,7 +171,7 @@
     \end{subexercises}
 \end{exercise}
 
-\begin{sole}
+\begin{solenum}
     \item Note that we can rewrite the subspace $U$ as
     \[
     	U = \set{(z_1, 6z_1, -2z_4 - 3z_5, z_4, z_5) \in \cbb^5 \mid z_1, z_4, z_5 \in \cbb}.
@@ -196,9 +196,9 @@
     	\cbb^5 = U \op W,
     \]
     since $U \cap W = \set{0}$ and every vector in $\cbb^5$ can be written as a sum of a vector in $U$ and a vector in $W$.
-\end{sole}
+\end{solenum}
 
-\begin{exercise}[2b5]
+\begin{exercise}{2b5}
     Suppose $V$ is finite-dimensional and $U, W$ are subspaces of $V$ such that $V = U + W$.
 	Prove that there exists a basis of $V$ consisting of vectors in $U \cup W$.
 \end{exercise}
@@ -210,7 +210,7 @@
 	Thus, there exists a basis of $V$ consisting of vectors in $U \cup W$.
 \end{sol}
 
-\begin{exercise}[2b6]
+\begin{exercise}{2b6}
     Prove or give a counterexample: If $p_0, p_1, p_2, p_3$ is a list in $\pcal_3(\fbb)$ such that none of the polynomials $p_0, p_1, p_2, p_3$ has degree 2, then the list is not a basis of $\pcal_3(\fbb)$.
 \end{exercise}
 
@@ -227,7 +227,7 @@
 	Thus, the list $p_0, p_1, p_2, p_3$ is a basis of $\pcal_3(\fbb)$.
 \end{sol}
 
-\begin{exercise}[2b7]
+\begin{exercise}{2b7}
     Suppose $v_1, v_2, v_3, v_4$ is a basis of $V$.
 	Prove that
     \[
@@ -283,7 +283,7 @@
 	Therefore, the list is a basis of $V$.
 \end{sol}
 
-\begin{exercise}[2b8]
+\begin{exercise}{2b8}
     Prove or give a counterexample: If $v_1, v_2, v_3, v_4$ is a basis of $V$ and $U$ is a subspace of $V$ such that $v_1, v_2 \in U$ and $v_3 \notin U$ and $v_4 \notin U$, then $v_1, v_2$ is a basis of $U$.
 \end{exercise}
 
@@ -299,7 +299,7 @@
 	Thus, $v_1, v_2$ is not a basis of $U$.
 \end{sol}
 
-\begin{exercise}[2b9]
+\begin{exercise}{2b9}
     Suppose $v_1, \ldots, v_m$ is a list of vectors in $V$.
 	For $k \in \set{1, \ldots, m}$, let
     \[
@@ -314,7 +314,7 @@
 	Thus, $v_1, \ldots, v_m$ is a basis of $V$ if and only if $w_1, \ldots, w_m$ is a basis of $V$.
 \end{sol}
 
-\begin{exercise}[2b10]
+\begin{exercise}{2b10}
     Suppose $U$ and $W$ are subspaces of $V$ such that $V = U \op W$.
 	Suppose also that $u_1, \ldots, u_m$ is a basis of $U$ and $w_1, \ldots, w_n$ is a basis of $W$.
 	Prove that
@@ -360,7 +360,7 @@
 	Therefore, the list is a basis of $V$.
 \end{sol}
 
-\begin{exercise}[2b11]
+\begin{exercise}{2b11}
     Suppose $V$ is a real vector space.
 	Show that if $v_1, \ldots, v_n$ is a basis of $V$ (as a real vector space), then $v_1, \ldots, v_n$ is also a basis of the complexification $V_\cbb$ (as a complex vector space).
 

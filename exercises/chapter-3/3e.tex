@@ -1,6 +1,6 @@
 \subsection{Products and Quotients of Vector Spaces}
 
-\begin{exercise}[3e1]
+\begin{exercise}{3e1}
     Suppose $T$ is a function from $V$ to $W$.
 	The \textit{graph of $T$} is the subset of $V \times W$ defined by
     \[
@@ -37,7 +37,7 @@
 	Thus, $T$ is a linear map.
 \end{sol}
 
-\begin{exercise}[3e2]
+\begin{exercise}{3e2}
     Suppose that $V_1, \ldots, V_m$ are vector spaces such that $V_1 \times \cdots \times V_m$ is finite-dimensional.
 	Prove that $V_k$ is finite-dimensional for each $k = 1, \ldots, m$.
 \end{exercise}
@@ -54,7 +54,7 @@
 	Since $V$ is finite-dimensional and $T$ is a linear map that is surjective, it follows that $V_k$ is finite-dimensional.
 \end{sol}
 
-\begin{exercise}[3e3]
+\begin{exercise}{3e3}
     Suppose $V_1, \ldots, V_m$ are vector spaces.
 	Prove that $\lin{V_1 \times \cdots \times V_m, W}$ and $\lin{V_1, W} \times \cdots \times \lin{V_m, W}$ are isomorphic vector spaces.
 \end{exercise}
@@ -94,7 +94,7 @@
 	Therefore, $T$ is an isomorphism.
 \end{sol}
 
-\begin{exercise}[3e4]
+\begin{exercise}{3e4}
     Suppose $W_1, \ldots, W_m$ are vector spaces.
 	Prove that $\lin{V, W_1 \times \cdots \times W_m}$ and $\lin{V, W_1} \times \cdots \times \lin{V, W_m}$ are isomorphic vector spaces.
 
@@ -136,7 +136,7 @@
 	Therefore, $T$ is an isomorphism.
 \end{sol}
 
-\begin{exercise}[3e5]
+\begin{exercise}{3e5}
     For $m$ a positive integer, define $V^m$ by
     \[
     	V^m = \underbrace{V \times \cdots \times V}_{m \text{ times}}.
@@ -169,7 +169,7 @@
 	Therefore, $T$ is an isomorphism.
 \end{sol}
 
-\begin{exercise}[3e6]
+\begin{exercise}{3e6}
     Suppose that $v, x$ are vectors in $V$ and that $U, W$ are subspaces of $V$ such that $v + U = x + W$.
 	Prove that $U = W$.
 \end{exercise}
@@ -188,7 +188,7 @@
 	Therefore, $U = W$.
 \end{sol}
 
-\begin{exercise}[3e7]
+\begin{exercise}{3e7}
     Let $U = \set{(x, y, z) \in \rbb^3 \mid 2x + 3y + 5z = 0}$.
 	Suppose $A \subseteq \rbb^3$.
 	Prove that $A$ is a translate of $U$ if and only if there exists $c \in \rbb$ such that
@@ -221,7 +221,7 @@
     \end{align*}
 \end{sol}
 
-\begin{exercise}[3e8]
+\begin{exercise}{3e8}
     \begin{subexercises}
         \item Suppose $T \in \lin{V, W}$ and $c \in W$.
 	Prove that $\set{x \in V \mid Tx = c}$ is either the empty set or is a translate of $\nul T$.
@@ -229,7 +229,7 @@
     \end{subexercises}
 \end{exercise}
 
-\begin{sole}
+\begin{solenum}
     \item Suppose $T \in \lin{V, W}$ and $c \in W$.
 	Let $A = \set{x \in V \mid Tx = c}$.
 	If $A$ is nonempty, then there exists $v \in V$ such that $Tv = c$.
@@ -243,9 +243,9 @@
 	Therefore, $A = v + \nul T$.
     \item A system of linear equations such as 3.27 can be written in the form $Tx = c$ for some linear map $T$ and some vector $c$.
 	By part (a), the set of solutions to this system of linear equations is either the empty set or is a translate of $\nul T$, which is a subspace of $\fbb^n$.
-\end{sole}
+\end{solenum}
 
-\begin{exercise}[3e9]
+\begin{exercise}{3e9}
     Prove that a nonempty subset $A$ of $V$ is a translate of some subspace of $V$ if and only if $\lambda v + (1 - \lambda) w \in A$ for all $v, w \in A$ and all $\lambda \in \fbb$.
 \end{exercise}
 
@@ -278,7 +278,7 @@
 	Therefore, $A = v_0 + U$.
 \end{sol}
 
-\begin{exercise}[3e10]
+\begin{exercise}{3e10}
     Suppose $A_1 = v + U_1$ and $A_2 = w + U_2$ for some $v, w \in V$ and some subspaces $U_1, U_2$ of $V$.
 	Prove that the intersection $A_1 \cap A_2$ is either a translate of some subspace of $V$ or is the empty set.
 \end{exercise}
@@ -293,7 +293,7 @@
 	Thus, by \exref{3e9}, $A_1 \cap A_2$ is a translate of some subspace of $V$.
 \end{sol}
 
-\begin{exercise}[3e11]
+\begin{exercise}{3e11}
     Suppose $U = \set{(x_1, x_2, \ldots) \in \fbb^\infty \mid x_k \neq 0 \text{ for only finitely many } k}$.
     \begin{subexercises}
         \item Show that $U$ is a subspace of $\fbb^\infty$.
@@ -302,7 +302,7 @@
     \apnote{3e11}{ for a generalization of this treatment, so long as you are comfortable with the idea $\nbb$ can be partitioned into infinitely many disjoint infinite sets.}
 \end{exercise}
 
-\begin{sole}
+\begin{solenum}
     \item We claim that $U$ can be reformulated as the set of vectors $(x_1, x_2, \ldots) \in \fbb^\infty$ such that there exists an index $N$ such that $x_k = 0$ for all $k > N$.
 	To see this, suppose $(x_1, x_2, \ldots) \in U$.
 	Then there exists a finite set of indices $K$ such that $x_k = 0$ for all $k \notin K$.
@@ -345,9 +345,9 @@
 	Since $B_i$ is infinite, it follows that $\lambda_i = 0$.
 	Hence, all $\lambda_i = 0$, proving that $v_1 + U, \ldots, v_m + U$ are linearly independent.
 	Since $m$ was arbitrary, $\fbb^\infty / U$ is infinite-dimensional.
-\end{sole}
+\end{solenum}
 
-\begin{exercise}[3e12]
+\begin{exercise}{3e12}
     Suppose $v_1, \ldots, v_m \in V$.
 	Let
     \[
@@ -360,7 +360,7 @@
     \end{subexercises}
 \end{exercise}
 
-\begin{sole}
+\begin{solenum}
     \item For any element $\lambda_1 v_1 + \cdots + \lambda_m v_m \in A$, we can write
     \[
     	\lambda_1 v_1 + \cdots + \lambda_m v_m = v_1 + \lambda_2 (v_2 - v_1) + \cdots + \lambda_m (v_m - v_1) = v_1 + \sum_{i = 2}^m \lambda_i (v_i - v_1),
@@ -373,9 +373,9 @@
 	Hence, $A \subseteq B$.
     \item The subspace $U = \spn(v_2 - v_1, \ldots, v_m - v_1)$ has dimension at most $m - 1$, since it is spanned by $m - 1$ vectors.
 	Therefore, $A = v_1 + U$ is a translate of a subspace of $V$ of dimension less than $m$.
-\end{sole}
+\end{solenum}
 
-\begin{exercise}[3e13]
+\begin{exercise}{3e13}
     Suppose $U$ is a subspace of $V$ such that $V / U$ is finite-dimensional.
 	Prove that $V$ is isomorphic to $U \times (V / U)$.
 \end{exercise}
@@ -409,7 +409,7 @@
 	Therefore, $V \cong U \times (V/U)$.
 \end{sol}
 
-\begin{exercise}[3e14]
+\begin{exercise}{3e14}
     Suppose $U$ and $W$ are subspaces of $V$ and $V = U \op W$.
 	Suppose $w_1, \ldots, w_m$ is a basis of $W$.
 	Prove that $w_1 + U, \ldots, w_m + U$ is a basis of $V / U$.
@@ -433,7 +433,7 @@
 	Therefore, $w_1 + U, \ldots, w_m + U$ are linearly independent, and hence form a basis of $V / U$.
 \end{sol}
 
-\begin{exercise}[3e15]
+\begin{exercise}{3e15}
     Suppose $U$ is a subspace of $V$ and $v_1 + U, \ldots, v_m + U$ is a basis of $V / U$ and $u_1, \ldots, u_n$ is a basis of $U$.
 	Prove that $v_1, \ldots, v_m, u_1, \ldots, u_n$ is a basis of $V$.
 \end{exercise}
@@ -462,7 +462,7 @@
 	Therefore, $v_1, \ldots, v_m, u_1, \ldots, u_n$ are linearly independent, and hence form a basis of $V$.
 \end{sol}
 
-\begin{exercise}[3e16]
+\begin{exercise}{3e16}
     Suppose $\phi \in \lin{V, \fbb}$ and $\phi \neq 0$.
 	Prove that $\dim V / (\nul \phi) = 1$.
 \end{exercise}
@@ -473,7 +473,7 @@
 	This implies $\range \phi = \fbb$, and hence $\dim V / (\nul \phi) = \dim \range \phi = 1$.
 \end{sol}
 
-\begin{exercise}[3e17]
+\begin{exercise}{3e17}
     Suppose $U$ is a subspace of $V$ such that $\dim V / U = 1$.
 	Prove that there exists $\phi \in \lin{V, \fbb}$ such that $\nul \phi = U$.
 \end{exercise}
@@ -489,7 +489,7 @@
 	Therefore, $\nul \phi = U$.
 \end{sol}
 
-\begin{exercise}[3e18]
+\begin{exercise}{3e18}
     Suppose that $U$ is a subspace of $V$ such that $V / U$ is finite-dimensional.
     \begin{subexercises}
         \item Show that if $W$ is a finite-dimensional subspace of $V$ and $V = U + W$, then $\dim W \geq \dim V / U$.
@@ -497,7 +497,7 @@
     \end{subexercises}
 \end{exercise}
 
-\begin{sole}
+\begin{solenum}
     \item Suppose $W$ is a finite-dimensional subspace of $V$ and $V = U + W$.
 	Let $\pi: V \to V / U$ be the quotient map, and consider the restriction $\pi|_W : W \to V / U$.
 	To see that $\range(\pi|_W) = V / U$, note that for any $v + U \in V / U$, we can write $v = u + w$ for some $u \in U$ and $w \in W$.
@@ -540,9 +540,9 @@
 	Since $v_1 + U, \ldots, v_m + U$ are linearly independent, it follows that $\lambda_1 = \cdots = \lambda_m = 0$.
 	Hence, $w = 0$, and we have $U \cap W = \set 0$.
 	Therefore, $V = U \op W$.
-\end{sole}
+\end{solenum}
 
-\begin{exercise}[3e19]
+\begin{exercise}{3e19}
     Suppose $T \in \lin{V, W}$ and $U$ is a subspace of $V$.
 	Let $\pi$ denote the quotient map from $V$ onto $V / U$.
 	Prove that there exists $S \in \lin{V / U, W}$ such that $T = S \circ \pi$ if and only if $U \subseteq \nul T$.

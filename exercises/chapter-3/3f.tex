@@ -2,7 +2,7 @@
 
 \remark{For the rest of the solutions manual, unless otherwise stated, we will be using the Kronecker delta notation, i.e., we define $\delta_{ij} = 1$ if $i = j$ and $\delta_{ij} = 0$ if $i \neq j$.}
 
-\begin{exercise}[3f1]
+\begin{exercise}{3f1}
     Explain why each linear functional is surjective or is the zero map.
 \end{exercise}
 
@@ -17,7 +17,7 @@
     Hence, $\phi$ is surjective.
 \end{sol}
 
-\begin{exercise}[3f2]
+\begin{exercise}{3f2}
     Give three distinct examples of linear functionals on $\rbb^{[0, 1]}$.
 \end{exercise}
 
@@ -28,7 +28,7 @@
     \]
 \end{sol}
 
-\begin{exercise}[3f3]
+\begin{exercise}{3f3}
     Suppose $V$ is finite-dimensional and $v \in V$ with $v \neq 0$.
 	Prove that there exists $\phi \in V'$ such that $\phi(v) = 1$.
 \end{exercise}
@@ -40,7 +40,7 @@
 	Clearly, $\phi(v) = 1$.
 \end{sol}
 
-\begin{exercise}[3f4]
+\begin{exercise}{3f4}
     Suppose $V$ is finite-dimensional and $U$ is a subspace of $V$ such that $U \neq V$.
 	Prove that there exists $\phi \in V'$ such that $\phi(u) = 0$ for every $u \in U$ but $\phi \neq 0$.
 \end{exercise}
@@ -53,7 +53,7 @@
 	Clearly, $\phi(u) = 0$ for all $u \in U$ and $\phi \neq 0$.
 \end{sol}
 
-\begin{exercise}[3f5]
+\begin{exercise}{3f5}
     Suppose $T \in \lin{V, W}$ and $w_1, \ldots, w_m$ is a basis of $\range T$.
 	Hence for each $v \in V$, there exist unique numbers $\phi_1(v), \ldots, \phi_m(v)$ such that
     \[
@@ -81,7 +81,7 @@
     Hence, each $\phi_i$ is a linear functional on $V$.
 \end{sol}
 
-\begin{exercise}[3f6]
+\begin{exercise}{3f6}
     Suppose $\phi, \beta \in V'$.
 	Prove that $\nul \phi \subseteq \nul \beta$ if and only if there exists $c \in \fbb$ such that $\beta = c\phi$.
 \end{exercise}
@@ -110,7 +110,7 @@
     Conversely, if $\beta = c\phi$, then clearly $\nul \phi \subseteq \nul \beta$ because if $\phi(v) = 0$, then $\beta(v) = c\phi(v) = 0$.
 \end{sol}
 
-\begin{exercise}[3f7]
+\begin{exercise}{3f7}
     Suppose that $V_1, \ldots, V_m$ are vector spaces.
 	Prove that $(V_1 \times \cdots \times V_m)'$ and $V_1' \times \cdots \times V_m'$ are isomorphic vector spaces.
 \end{exercise}
@@ -142,7 +142,7 @@
     Therefore, $\Phi$ is a linear isomorphism, and $(V_1 \times \cdots \times V_m)'$ and $V_1' \times \cdots \times V_m'$ are isomorphic vector spaces.
 \end{sol}
 
-\begin{exercise}[3f8]
+\begin{exercise}{3f8}
     Suppose $v_1, \ldots, v_n$ is a basis of $V$ and $\phi_1, \ldots, \phi_n$ is the dual basis of $V'$.
 	Define $\Gamma: V \to \fbb^n$ and $\Lambda: \fbb^n \to V$ by
     \[
@@ -178,7 +178,7 @@
     Hence, $\Gamma$ and $\Lambda$ are inverses of each other.
 \end{sol}
 
-\begin{exercise}[3f9]
+\begin{exercise}{3f9}
     Suppose $m$ is a positive integer.
 	Show that the dual basis of the basis $1, x, \ldots, x^m$ of $\pcal_m(\rbb)$ is $\phi_0, \phi_1, \ldots, \phi_m$, where
     \[
@@ -206,7 +206,7 @@
     Therefore, $\phi_k(x^j) = \delta_{kj}$ for all $0 \leq k, j \leq m$, which shows that $\phi_0, \phi_1, \ldots, \phi_m$ is indeed the dual basis of $1, x, \ldots, x^m$.
 \end{sol}
 
-\begin{exercise}[3f10]
+\begin{exercise}{3f10}
     Suppose $m$ is a positive integer.
     \begin{subexercises}
         \item Show that $1, x - 5, \ldots, (x - 5)^m$ is a basis of $\pcal_m(\rbb)$.
@@ -214,7 +214,7 @@
     \end{subexercises}
 \end{exercise}
 
-\begin{sole}
+\begin{solenum}
     \item Note that $1, x - 5, \ldots, (x - 5)^m$ is a list of $m + 1$ polynomials in $\pcal_m(\rbb)$ with differing degrees, and since $\pcal_m(\rbb)$ has dimension $m + 1$, this list forms a basis of $\pcal_m(\rbb)$.
     \item Substitute $y = x - 5$.
 	Then the basis $1, x - 5, \ldots, (x - 5)^m$ becomes $1, y, \ldots, y^m$.
@@ -226,9 +226,9 @@
     \[
     	\phi_k(p) = \frac{p^{(k)}(5)}{k!}. \qedhere
     \]
-\end{sole}
+\end{solenum}
 
-\begin{exercise}[3f11]
+\begin{exercise}{3f11}
     Suppose $v_1, \ldots, v_n$ is a basis of $V$ and $\phi_1, \ldots, \phi_n$ is the corresponding dual basis of $V'$.
 	Suppose $\psi \in V'$.
 	Prove that
@@ -254,7 +254,7 @@
     \]
 \end{sol}
 
-\begin{exercise}[3f12]
+\begin{exercise}{3f12}
     Suppose $S, T \in \lin{V, W}$.
     \begin{subexercises}
         \item Prove that $(S + T)' = S' + T'$.
@@ -262,7 +262,7 @@
     \end{subexercises}
 \end{exercise}
 
-\begin{sole}
+\begin{solenum}
     \item Let $\psi \in W'$.
 	Then for any $v \in V$, we have
     \begin{align*}
@@ -296,9 +296,9 @@
     \[
     	(\lambda T)' = \lambda T'. \qedhere
     \]
-\end{sole}
+\end{solenum}
 
-\begin{exercise}[3f13]
+\begin{exercise}{3f13}
     Show that the dual map of the identity operator on $V$ is the identity operator on $V'$.
 \end{exercise}
 
@@ -317,7 +317,7 @@
     Since this holds for all $\psi \in V'$, then $I'$ must be the identity operator on $V'$.
 \end{sol}
 
-\begin{exercise}[3f14]
+\begin{exercise}{3f14}
     Define $T: \rbb^3 \to \rbb^2$ by
     \[
     	T(x, y, z) = (4x + 5y + 6z, 7x + 8y + 9z).
@@ -329,7 +329,7 @@
     \end{subexercises}
 \end{exercise}
 
-\begin{sole}
+\begin{solenum}
     \item Let $(x, y, z) \in \rbb^3$.
 	Then we have
     \begin{align*}
@@ -345,9 +345,9 @@
         T'(\phi_1) &= 4\psi_1 + 5\psi_2 + 6\psi_3, \\
         T'(\phi_2) &= 7\psi_1 + 8\psi_2 + 9\psi_3.
     \end{align*} \qedhere
-\end{sole}
+\end{solenum}
 
-\begin{exercise}[3f15]
+\begin{exercise}{3f15}
     Define $T: \pcal(\rbb) \to \pcal(\rbb)$ by
     \[
     	(Tp)(x) = x^2 p(x) + p''(x)
@@ -364,7 +364,7 @@
     \end{subexercises}
 \end{exercise}
 
-\begin{sole}
+\begin{solenum}
     \item Let $p \in \pcal(\rbb)$.
 	Then we have
     \begin{align*}
@@ -383,9 +383,9 @@
         &= \frac{1}{6} + \frac{18}{6} \\
         &= \frac{19}{6}. \qedhere
     \end{align*}
-\end{sole}
+\end{solenum}
 
-\begin{exercise}[3f16]
+\begin{exercise}{3f16}
     Suppose $W$ is finite-dimensional and $T \in \lin{V, W}$.
 	Prove that
     \[
@@ -411,7 +411,7 @@
     Hence, $T' = 0$.
 \end{sol}
 
-\begin{exercise}[3f17]
+\begin{exercise}{3f17}
     Suppose $V$ and $W$ are finite-dimensional and $T \in \lin{V, W}$.
 	Prove that $T$ is invertible if and only if $T' \in \lin{W', V'}$ is invertible.
 \end{exercise}
@@ -434,7 +434,7 @@
 	Therefore, $T$ is invertible.
 \end{sol}
 
-\begin{exercise}[3f18]
+\begin{exercise}{3f18}
     Suppose $V$ and $W$ are finite-dimensional.
 	Prove that the map that takes $T \in \lin{V, W}$ to $T' \in \lin{W', V'}$ is an isomorphism of $\lin{V, W}$ onto $\lin{W', V'}$.
 \end{exercise}
@@ -462,7 +462,7 @@
 	Hence, $\Phi$ is surjective and therefore an isomorphism.
 \end{sol}
 
-\begin{exercise}[3f19]
+\begin{exercise}{3f19}
     Suppose $U \subseteq V$.
 	Explain why
     \[
@@ -475,7 +475,7 @@
 	Equivalently, this means that $U \subseteq \nul \phi$.
 \end{sol}
 
-\begin{exercise}[3f20]
+\begin{exercise}{3f20}
     Suppose $V$ is finite-dimensional and $U$ is a subspace of $V$.
 	Show that
     \[
@@ -499,7 +499,7 @@
     Combining both inclusions, we get $S = U$, as desired.
 \end{sol}
 
-\begin{exercise}[3f21]
+\begin{exercise}{3f21}
     Suppose $V$ is finite-dimensional and $U$ and $W$ are subspaces of $V$.
     \begin{subexercises}
         \item Prove that $W^0 \subseteq U^0$ if and only if $U \subseteq W$.
@@ -507,7 +507,7 @@
     \end{subexercises}
 \end{exercise}
 
-\begin{sole}
+\begin{solenum}
     \item Suppose $W^0 \subseteq U^0$.
 	If $u \in U$, then for any $\phi \in W^0$, we have $\phi(u) = 0$ because $\phi \in U^0$.
 	Hence, by \exref{3f20}, we have $u \in W$, so $U \subseteq W$.
@@ -518,9 +518,9 @@
 	By part (a), this implies that $U \subseteq W$ and $W \subseteq U$.
 	Hence, $U = W$.
 	Conversely, if $U = W$, then clearly $U^0 = W^0$.
-\end{sole}
+\end{solenum}
 
-\begin{exercise}[3f22]
+\begin{exercise}{3f22}
     Suppose $V$ is finite-dimensional and $U$ and $W$ are subspaces of $V$.
     \begin{subexercises}
         \item Show that $(U + W)^0 = U^0 \cap W^0$.
@@ -528,7 +528,7 @@
     \end{subexercises}
 \end{exercise}
 
-\begin{sole}
+\begin{solenum}
     \item Let $\phi \in (U + W)^0$.
 	Then for any $u \in U$ and $w \in W$, we have $\phi(u + w) = 0$.
 	In particular, taking $w = 0$ gives $\phi(u) = 0$ for all $u \in U$, so $\phi \in U^0$.
@@ -566,9 +566,9 @@
 	If $\phi = \phi_U + \phi_W \in U^0 + W^0$, then for any $v \in U \cap W$, we have $\phi(v) = \phi_U(v) + \phi_W(v) = 0 + 0 = 0$, so $\phi \in (U \cap W)^0$.
 	Therefore, $U^0 + W^0 \subseteq (U \cap W)^0$.
 	Since the dimensions are equal, we conclude that $(U \cap W)^0 = U^0 + W^0$.
-\end{sole}
+\end{solenum}
 
-\begin{exercise}[3f23]
+\begin{exercise}{3f23}
     Suppose $V$ is finite-dimensional and $\phi_1, \ldots, \phi_m \in V'$.
 	Prove that the following three sets are equal to each other.
     \begin{subexercises}
@@ -605,7 +605,7 @@
     We conclude that $A = B$.
 \end{sol}
 
-\begin{exercise}[3f24]
+\begin{exercise}{3f24}
     Suppose $V$ is finite-dimensional and $v_1, \ldots, v_m \in V$.
 	Define a linear map $\Gamma: V' \to \fbb^m$ by $\Gamma(\phi) = (\phi(v_1), \ldots, \phi(v_m))$.
     \begin{subexercises}
@@ -614,7 +614,7 @@
     \end{subexercises}
 \end{exercise}
 
-\begin{sole}
+\begin{solenum}
     \item Suppose $v_1, \ldots, v_m$ spans $V$.
 	If $\Gamma(\phi) = 0$, then $\phi(v_i) = 0$ for all $i = 1, \ldots, m$.
 	Since $v_1, \ldots, v_m$ spans $V$, it follows that $\phi(v) = 0$ for all $v \in V$, i.e., $\phi = 0$.
@@ -640,9 +640,9 @@
     \]
     a contradiction.
 	Hence, $v_1, \ldots, v_m$ must be linearly independent.
-\end{sole}
+\end{solenum}
 
-\begin{exercise}[3f25]
+\begin{exercise}{3f25}
     Suppose $V$ is finite-dimensional and $\phi_1, \ldots, \phi_m \in V'$.
 	Define a linear map $\Gamma: V \to \fbb^m$ by $\Gamma(v) = (\phi_1(v), \ldots, \phi_m(v))$.
     \begin{subexercises}
@@ -651,7 +651,7 @@
     \end{subexercises}
 \end{exercise}
 
-\begin{sole}
+\begin{solenum}
     \item Suppose $\phi_1, \ldots, \phi_m$ spans $V'$.
 	If $\Gamma(v) = 0$, then $\phi_i(v) = 0$ for all $i = 1, \ldots, m$.
 	Since $\phi_1, \ldots, \phi_m$ spans $V'$, then by \exref{3f3}, it follows that $\psi(v) = 0$ for all $\psi \in V'$, i.e., $v = 0$.
@@ -688,9 +688,9 @@
     \]
     so $\dim \spn(\phi_1, \ldots, \phi_m) = \dim V - \dim((\nul \phi_1) \cap \cdots \cap (\nul \phi_m)) = m$.
 	Hence, $\phi_1, \ldots, \phi_m$ is linearly independent.
-\end{sole}
+\end{solenum}
 
-\begin{exercise}[3f26]
+\begin{exercise}{3f26}
     Suppose $V$ is finite-dimensional and $\Omega$ is a subspace of $V'$.
 	Prove that
     \[
@@ -710,7 +710,7 @@
     \]
 \end{sol}
 
-\begin{exercise}[3f27]
+\begin{exercise}{3f27}
     Suppose $T \in \lin{\pcal_5(\rbb)}$ and $\nul T' = \spn(\phi)$, where $\phi$ is the linear functional on $\pcal_5(\rbb)$ defined by $\phi(p) = p(8)$.
 	Prove that
     \[
@@ -739,7 +739,7 @@
 	We conclude that $\range T = W$, as desired.
 \end{sol}
 
-\begin{exercise}[3f28]
+\begin{exercise}{3f28}
     Suppose $V$ is finite-dimensional and $\phi_1, \ldots, \phi_m$ is a linearly independent list in $V'$.
 	Prove that
     \[
@@ -761,7 +761,7 @@
     as desired.
 \end{sol}
 
-\begin{exercise}[3f29]
+\begin{exercise}{3f29}
     Suppose $V$ and $W$ are finite-dimensional and $T \in \lin{V, W}$.
     \begin{subexercises}
         \item Prove that if $\phi \in W'$ and $\nul T' = \spn(\phi)$, then $\range T = \nul \phi$.
@@ -769,7 +769,7 @@
     \end{subexercises}
 \end{exercise}
 
-\begin{sole}
+\begin{solenum}
     \item From $\nul T' = \spn(\phi)$ and $\nul T' = (\range T)^0$, we have by \exref{3f20} that
     \[
     	\range T = ((\range T)^0)^0 = (\nul T')^0 = (\spn(\phi))^0 = \nul \phi,
@@ -788,9 +788,9 @@
     \[
     	v \in \nul \psi \iff \psi(v) = 0 \iff \alpha \psi(v) = 0~\text{for all}~\alpha \in \fbb \iff v \in (\spn(\psi))^0.
     \]
-\end{sole}
+\end{solenum}
 
-\begin{exercise}[3f30]
+\begin{exercise}{3f30}
     Suppose $V$ is finite-dimensional and $\phi_1, \ldots, \phi_n$ is a basis of $V'$.
 	Show that there exists a basis of $V$ whose dual basis is $\phi_1, \ldots, \phi_n$.
 \end{exercise}
@@ -819,7 +819,7 @@
     as desired.
 \end{sol}
 
-\begin{exercise}[3f31]
+\begin{exercise}{3f31}
     Suppose $U$ is a subspace of $V$.
 	Let $i: U \to V$ be the inclusion map defined by $i(u) = u$.
 	Thus, $i' \in \lin{V', U'}$.
@@ -830,7 +830,7 @@
     \end{subexercises}
 \end{exercise}
 
-\begin{sole}
+\begin{solenum}
     \item Note that if $\phi \in \nul i'$, then $i'(\phi) = 0$, so $\phi(i(u)) = 0$ for all $u \in U$.
 	Since $i(u) = u$, we have $\phi(u) = 0$ for all $u \in U$, so $\phi \in U^0$.
 	Hence, $\nul i' \subseteq U^0$.
@@ -854,9 +854,9 @@
 	Then we know that $V' / U^0$ is isomorphic to $\range i'$.
 	Then the induced map $\tilde{i'}: V' / U^0 \to \range i'$ defined by $\tilde{i'}(\phi + U^0) = i'(\phi)$ is an isomorphism.
 	Since $\range i' = U'$ by part (b), we conclude that $i'$ induces an isomorphism from $V' / U^0$ onto $U'$, as desired.
-\end{sole}
+\end{solenum}
 
-\begin{exercise}[3f32]
+\begin{exercise}{3f32}
     The \textbf{double dual space} of $V$, denoted by $V''$, is defined to be the dual space of $V'$.
 	In other words, $V'' = (V')'$.
 	Define $\Lambda: V \to V''$ by
@@ -874,7 +874,7 @@
 	In contrast, the isomorphism $\Lambda$ from $V$ onto $V''$ does not require a choice of basis and thus is considered more natural.}
 \end{exercise}
 
-\begin{sole}
+\begin{solenum}
     \item To see that $\Lambda$ is linear, let $v, w \in V$ and $a \in \fbb$.
 	Then for any $\phi \in V'$, we have
     \begin{align*}
@@ -905,9 +905,9 @@
 	Therefore, $\dim \range \Lambda = \dim V - 0 = \dim V$.
 	Since $\range \Lambda$ is a subspace of $V''$ and has the same dimension as $V''$, we conclude that $\range \Lambda = V''$, so $\Lambda$ is surjective.
 	Combining injectivity and surjectivity, we conclude that $\Lambda$ is an isomorphism from $V$ onto $V''$, as desired.
-\end{sole}
+\end{solenum}
 
-\begin{exercise}[3f33]
+\begin{exercise}{3f33}
     Suppose $U$ is a subspace of $V$.
 	Let $\pi: V \to V / U$ be the usual quotient map.
 	Thus, $\pi' \in \lin{(V / U)', V'}$.
@@ -918,7 +918,7 @@
     \end{subexercises}
 \end{exercise}
 
-\begin{sole}
+\begin{solenum}
     \item Suppose $\pi'(\phi) = 0$ for some $\phi \in (V / U)'$.
 	Then $\phi(\pi(v)) = 0$ for all $v \in V$.
 	Since $\pi(v) = v + U$, we have $\phi(v + U) = 0$ for all $v \in V$.
@@ -944,4 +944,4 @@
 	From part (b), we have $\range \pi' = U^0$.
 	Then the induced map $\tilde{\pi'}: (V / U)' \to U^0$ defined by $\tilde{\pi'}(\phi) = \pi'(\phi)$ is an isomorphism.
 	Hence, $\pi'$ is an isomorphism from $(V / U)'$ onto $U^0$, as desired.
-\end{sole}
+\end{solenum}

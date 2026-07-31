@@ -2,7 +2,7 @@
 
 \setcounter{subsection}{1}
 
-\begin{exercise}[4a1]
+\begin{exercise}{4a1}
     Suppose $w, z \in \cbb$.
 	Verify the following equalities and inequalities.
     \begin{subexercises}
@@ -32,7 +32,7 @@
     \end{subexercises}
 \end{sol}
 
-\begin{exercise}[4a2]
+\begin{exercise}{4a2}
     Prove that if $w, z \in \cbb$, then $||w| - |z|| \leq |w - z|$.
     
     \note{The inequality above is called the \emph{\textbf{reverse triangle inequality}}.}
@@ -56,7 +56,7 @@
     \]
 \end{sol}
 
-\begin{exercise}[4a3]
+\begin{exercise}{4a3}
     Suppose $V$ is a complex vector space and $\phi \in V'$.
 	Define $\sigma: V \to \rbb$ by $\sigma(v) = \Re \phi(v)$ for each $v \in V$.
 	Show that
@@ -82,7 +82,7 @@
     \]
 \end{sol}
 
-\begin{exercise}[4a4]
+\begin{exercise}{4a4}
     Suppose $m$ is a positive integer.
 	Is the set
     \[
@@ -98,7 +98,7 @@
 	Therefore, the set is not closed under addition and hence not a subspace.
 \end{sol}
 
-\begin{exercise}[4a5]
+\begin{exercise}{4a5}
     Is the set
     \[
     	\set{0} \cup \set{p \in \pcal(\fbb) \mid \deg p \text{ is even}}
@@ -113,7 +113,7 @@
 	Therefore, the set is not closed under addition and hence not a subspace.
 \end{sol}
 
-\begin{exercise}[4a6]
+\begin{exercise}{4a6}
     Suppose that $m$ and $n$ are positive integers with $m \leq n$, and suppose $\lambda_1, \ldots, \lambda_m \in \fbb$.
 	Prove that there exists a polynomial $p \in \pcal(\fbb)$ with $\deg p = n$ such that $0 = p(\lambda_1) = \cdots = p(\lambda_m)$ and such that $p$ has no other zeros.
 \end{exercise}
@@ -127,7 +127,7 @@
 	Therefore, it satisfies the required conditions.
 \end{sol}
 
-\begin{exercise}[4a7]
+\begin{exercise}{4a7}
     Suppose that $m$ is a nonnegative integer, $z_1, \ldots, z_{m + 1}$ are distinct elements of $\fbb$, and $w_1, \ldots, w_{m + 1} \in \fbb$.
 	Prove that there exists a unique polynomial $p \in \pcal_m(\fbb)$ such that
     \[
@@ -151,7 +151,7 @@
 	This shows that for any $(w_1, \ldots, w_{m + 1}) \in \fbb^{m + 1}$, there exists a unique $p \in \pcal_m(\fbb)$ such that $T(p) = (w_1, \ldots, w_{m + 1})$, which is exactly the desired polynomial.
 \end{sol}
 
-\begin{exercise}[4a8]
+\begin{exercise}{4a8}
     Suppose $p \in \pcal(\cbb)$ has degree $m$.
 	Prove that $p$ has $m$ distinct zeros if and only if $p$ and its derivative $p'$ have no zeros in common.
 \end{exercise}
@@ -167,7 +167,7 @@
     Therefore, $p$ must have exactly $m$ distinct zeros.
 \end{sol}
 
-\begin{exercise}[4a9]
+\begin{exercise}{4a9}
     Prove that every polynomial of odd degree with real coefficients has a real zero.
 
     \apnote{4a9}{ provides an alternate solution using the intermediate value theorem.}
@@ -179,7 +179,7 @@
 	Therefore, there must be at least one real zero.
 \end{sol}
 
-\begin{exercise}[4a10]
+\begin{exercise}{4a10}
     For $p \in \pcal(\rbb)$, define $Tp: \rbb \to \rbb$ by
     \[
         (Tp)(x) =
@@ -213,7 +213,7 @@
 	Therefore, $T$ is a linear map.
 \end{sol}
 
-\begin{exercise}[4a11]
+\begin{exercise}{4a11}
     Suppose $p \in \pcal(\cbb)$.
 	Define $q: \cbb \to \cbb$ by
     \[
@@ -243,7 +243,7 @@
 	Therefore, $q$ is a polynomial with real coefficients.
 \end{sol}
 
-\begin{exercise}[4a12]
+\begin{exercise}{4a12}
     Suppose $m$ is a nonnegative integer and $p \in \pcal_m(\cbb)$ is such that there are distinct real numbers $x_0, x_1, \ldots, x_m$ with $p(x_k) \in \rbb$ for each $k = 0, 1, \ldots, m$.
 	Prove that all coefficients of $p$ are real.
 \end{exercise}
@@ -255,7 +255,7 @@
 	Therefore, all coefficients of $p$ are real.
 \end{sol}
 
-\begin{exercise}[4a13]
+\begin{exercise}{4a13}
     Suppose $p \in \pcal(\fbb)$ with $p \neq 0$.
 	Let $U = \set{pq \mid q \in \pcal(\fbb)}$.
     \begin{subexercises}
@@ -264,7 +264,7 @@
     \end{subexercises}
 \end{exercise}
 
-\begin{sole}
+\begin{solenum}
     \item We first show that $U$ is a subspace of $\pcal(\fbb)$.
 	Clearly, $0 \in U$ since $0 = p \cdot 0$.
 	If $u_1, u_2 \in U$, then $u_1 = pq_1$ and $u_2 = pq_2$ for some $q_1, q_2 \in \pcal(\fbb)$.
@@ -283,9 +283,9 @@
 	Therefore, $q = 0$, hence $s = 0$, and $T$ is an isomorphism.
     We conclude that $\dim \pcal(\fbb) / U = \dim \pcal_{\deg p - 1}(\fbb) = \deg p$.
     \item A basis of $\pcal(\fbb) / U$ is given by the images of the standard basis of $\pcal_{\deg p - 1}(\fbb)$ under $T$, namely $\set{1 + U, x + U, \ldots, x^{\deg p - 1} + U}$.
-\end{sole}
+\end{solenum}
 
-\begin{exercise}[4a14]
+\begin{exercise}{4a14}
     Suppose $p, q \in \pcal(\cbb)$ are nonconstant polynomials with no zeros in common.
 	Let $m = \deg p$ and $n = \deg q$.
 	Use linear algebra as outlined below in (a)--(c) to prove that there exist $r \in \pcal_{n-1}(\cbb)$ and $s \in \pcal_{m-1}(\cbb)$ such that
@@ -304,7 +304,7 @@
     \remark{In part (a), one may also observe that a multiple of $p$ and $q$ must have $\deg p + \deg q$, but $\deg rp = \deg r + \deg p \leq n - 1 + m$.}
 \end{exercise}
 
-\begin{sole}
+\begin{solenum}
     \item To show that $T$ is injective, suppose that $T(r, s) = rp + sq = 0$ for some $(r, s) \in \pcal_{n-1}(\cbb) \times \pcal_{m-1}(\cbb)$.
     Then $rp = -sq$ implies $rp$ is a polynomial multiple of $q$, so every zero of $q$ must be a zero of $rp$.
     Because $p$ and $q$ have no zeros in common, every zero of $q$ must be a zero of $r$. But $\deg r < \deg q$, so it must be that $r = 0$.
@@ -313,4 +313,4 @@
     \item To show that $T$ is surjective, note that $\dim(\pcal_{n-1}(\cbb) \times \pcal_{m-1}(\cbb)) = n + m = \dim \pcal_{m+n-1}(\cbb)$.
 	Since $T$ is a linear map between vector spaces of the same finite dimension, and we have already shown that $T$ is injective, it follows that $T$ is also surjective.
     \item Since $T$ is surjective, for the polynomial $1 \in \pcal_{m+n-1}(\cbb)$, there exist $r \in \pcal_{n-1}(\cbb)$ and $s \in \pcal_{m-1}(\cbb)$ such that $T(r, s) = rp + sq = 1$.
-\end{sole}
+\end{solenum}

@@ -1,6 +1,6 @@
 \subsection{Invertibility and Isomorphisms}
 
-\begin{exercise}[3d1]
+\begin{exercise}{3d1}
     Suppose $T \in \lin{V, W}$ is invertible.
 	Show that $T\inv$ is invertible and
     \[
@@ -13,7 +13,7 @@
 	By $TT\inv = I$ and $T\inv T = I$, we have that $T\inv$ is invertible and $(T\inv)\inv = T$.
 \end{sol}
 
-\begin{exercise}[3d2]
+\begin{exercise}{3d2}
     Suppose $T \in \lin{U, V}$ and $S \in \lin{V, W}$ are both invertible linear maps.
 	Prove that $ST \in \lin{U, W}$ is invertible and that $(ST)\inv = T\inv S\inv$.
 \end{exercise}
@@ -31,7 +31,7 @@
     Thus, $ST$ is invertible and $(ST)\inv = T\inv S\inv$.
 \end{sol}
 
-\begin{exercise}[3d3]
+\begin{exercise}{3d3}
     Suppose $V$ is finite-dimensional and $T \in \lin{V}$.
 	Prove that the following are equivalent.
     \begin{subexercises}
@@ -62,7 +62,7 @@
 	Since $T$ is injective and $\range T = V$, then $T$ is invertible.
 \end{solitem}
 
-\begin{exercise}[3d4]
+\begin{exercise}{3d4}
     Suppose $V$ is finite-dimensional and $\dim V > 1$.
 	Prove that the set of non-invertible linear maps from $V$ to itself is not a subspace of $\lin{V}$.
 \end{exercise}
@@ -86,7 +86,7 @@
 	Therefore, the set of non-invertible linear maps from $V$ to itself is not a subspace of $\lin{V}$.
 \end{sol}
 
-\begin{exercise}[3d5]
+\begin{exercise}{3d5}
     Suppose $V$ is finite-dimensional, $U$ is a subspace of $V$, and $S \in \lin{U, V}$.
 	Prove that there exists an invertible linear map $T$ from $V$ to itself such that $Tu = Su$ for every $u \in U$ if and only if $S$ is injective.
 \end{exercise}
@@ -109,7 +109,7 @@
 	Thus, there exists an invertible linear map $T$ from $V$ to itself such that $Tu = Su$ for every $u \in U$.
 \end{sol}
 
-\begin{exercise}[3d6]
+\begin{exercise}{3d6}
     Suppose that $W$ is finite-dimensional and $S, T \in \lin{V, W}$.
 	Prove that $\nul S = \nul T$ if and only if there exists an invertible $E \in \lin{W}$ such that $S = ET$.
 \end{exercise}
@@ -131,7 +131,7 @@
 	Therefore, $\nul S = \nul T$.
 \end{sol}
 
-\begin{exercise}[3d7]
+\begin{exercise}{3d7}
     Suppose that $V$ is finite-dimensional and $S, T \in \lin{V, W}$.
 	Prove that $\range S = \range T$ if and only if there exists an invertible $E \in \lin{V}$ such that $S = TE$.
 \end{exercise}
@@ -176,7 +176,7 @@
 	Therefore, $\range S = \range T$.
 \end{sol}
 
-\begin{exercise}[3d8]
+\begin{exercise}{3d8}
     Suppose $V$ and $W$ are finite-dimensional and $S, T \in \lin{V, W}$.
 	Prove that there exist invertible $E_1 \in \lin{V}$ and $E_2 \in \lin{W}$ such that $S = E_2 T E_1$ if and only if $\dim \nul S = \dim \nul T$.
 \end{exercise}
@@ -204,7 +204,7 @@
 	By \exref{3d6} with $\nul S = \nul TE_1$, there exists an invertible $E_2 \in \lin{W}$ such that $S = E_2 TE_1$.
 \end{sol}
 
-\begin{exercise}[3d9]
+\begin{exercise}{3d9}
     Suppose $V$ is finite-dimensional and $T: V \to W$ is a surjective linear map of $V$ onto $W$.
 	Prove that there is a subspace $U$ of $V$ such that $T|_U$ is an isomorphism of $U$ onto $W$.
     
@@ -229,7 +229,7 @@
 	Hence, $T|_U$ is surjective onto $W$, and therefore an isomorphism of $U$ onto $W$.
 \end{sol}
 
-\begin{exercise}[3d10]
+\begin{exercise}{3d10}
     Suppose $V$ and $W$ are finite-dimensional and $U$ is a subspace of $V$.
 	Let
     \[
@@ -244,7 +244,7 @@
 	What is $\range \Phi$?}
 \end{exercise}
 
-\begin{sole}
+\begin{solenum}
     \item Consider the zero map $0 \in \lin{V, W}$.
 	For this map, $U \subseteq \nul 0$ since $\nul 0 = V$.
 	Hence, $0 \in \ecal$, showing that $\ecal$ is non-empty.
@@ -274,9 +274,9 @@
     \[
     	\dim \ecal = (\dim V)(\dim W) - (\dim U)(\dim W) = (\dim V - \dim U)(\dim W). \qedhere
     \]
-\end{sole}
+\end{solenum}
 
-\begin{exercise}[3d11]
+\begin{exercise}{3d11}
     Suppose $V$ is finite-dimensional and $S, T \in \lin{V}$.
 	Prove that
     \[
@@ -296,7 +296,7 @@
     Then $ST$ is a product of invertible linear maps, and thus $ST$ is invertible by \exref{3d2}.
 \end{sol}
 
-\begin{exercise}[3d12]
+\begin{exercise}{3d12}
     Suppose $V$ is finite-dimensional and $S, T, U \in \lin{V}$ and $STU = I$.
 	Show that $T$ is invertible and that $T\inv = US$.
 \end{exercise}
@@ -312,7 +312,7 @@
     Hence, $T$ is invertible with $T\inv = US$.
 \end{sol}
 
-\begin{exercise}[3d13]
+\begin{exercise}{3d13}
     Show that the result in \exref{3d12} can fail without the hypothesis that $V$ is finite-dimensional.
 \end{exercise}
 
@@ -330,7 +330,7 @@
 	However, $T$ is not injective since $\nul T = \spn v_1$, and thus $T$ is not invertible.
 \end{sol}
 
-\begin{exercise}[3d14]
+\begin{exercise}{3d14}
     Prove or give a counterexample: If $V$ is a finite-dimensional vector space and $R, S, T \in \lin{V}$ are such that $RST$ is surjective, then $S$ is injective.
 \end{exercise}
 
@@ -341,7 +341,7 @@
 	Hence, $S$ is injective.
 \end{sol}
 
-\begin{exercise}[3d15]
+\begin{exercise}{3d15}
     Suppose $T \in \lin{V}$ and $v_1, \ldots, v_m$ is a list in $V$ such that $Tv_1, \ldots, Tv_m$ spans $V$.
 	Prove that $v_1, \ldots, v_m$ spans $V$.
 \end{exercise}
@@ -360,7 +360,7 @@
     Since $T\inv$ is surjective, every vector $w \in V$ can be written as $T\inv v$ for some $v \in V$, and thus $v_1, \ldots, v_m$ spans $V$.
 \end{sol}
 
-\begin{exercise}[3d16]
+\begin{exercise}{3d16}
     Prove that every linear map from $\fbb^{n, 1}$ to $\fbb^{m, 1}$ is given by a matrix multiplication.
 	In other words, prove that if $T \in \lin{\fbb^{n, 1}, \fbb^{m, 1}}$, then there exists an $m$-by-$n$ matrix $A$ such that $Tx = Ax$ for every $x \in \fbb^{n, 1}$.
 \end{exercise}
@@ -380,7 +380,7 @@
 	Hence, $Tx = Ax$ for every $x \in \fbb^{n, 1}$.
 \end{sol}
 
-\begin{exercise}[3d17]
+\begin{exercise}{3d17}
     Suppose $V$ is finite-dimensional and $S \in \lin{V}$.
 	Define $\acal \in \lin{\lin{V}}$ by
     \[
@@ -393,7 +393,7 @@
     \end{subexercises}
 \end{exercise}
 
-\begin{sole}
+\begin{solenum}
     \item Consider $T \in \nul \acal$.
 	Then $\acal(T) = ST = 0$, so $T$ is a linear map from $V$ to $\nul S$.
 	Conversely, if $T$ is a linear map from $V$ to $\nul S$, then $ST = 0$, so $T \in \nul \acal$.
@@ -410,9 +410,9 @@
     \[
     	\dim \range \acal = (\dim V)^2 - (\dim V)(\dim \nul S) = (\dim V)(\dim \range S). \qedhere
     \]
-\end{sole}
+\end{solenum}
 
-\begin{exercise}[3d18]
+\begin{exercise}{3d18}
     Show that $V$ and $\lin{\fbb, V}$ are isomorphic vector spaces.
 \end{exercise}
 
@@ -440,7 +440,7 @@
 	Therefore, $T$ is an isomorphism, and thus $V$ and $\lin{\fbb, V}$ are isomorphic vector spaces.
 \end{sol}
 
-\begin{exercise}[3d19]
+\begin{exercise}{3d19}
     Suppose $V$ is finite-dimensional and $T \in \lin{V}$.
 	Prove that $T$ has the same matrix with respect to every basis of $V$ if and only if $T$ is a scalar multiple of the identity operator.
 
@@ -500,7 +500,7 @@
 	Hence, $T$ has the same matrix with respect to every basis of $V$.
 \end{sol}
 
-\begin{exercise}[3d20]
+\begin{exercise}{3d20}
     Suppose $q \in \pcal(\rbb)$.
 	Prove that there exists a polynomial $p \in \pcal(\rbb)$ such that
     \[
@@ -555,7 +555,7 @@
 	Then there does exist some $p \in \pcal_n(\rbb)$ such that $Tp = q$.
 \end{sol}
 
-\begin{exercise}[3d21]
+\begin{exercise}{3d21}
     Suppose $n$ is a positive integer and $A_{j, k} \in \fbb$ for all $j, k = 1, \ldots, n$.
 	Prove that the following are equivalent (note that in both parts below, the number of equations equals the number of variables).
     \begin{subexercises}
@@ -574,7 +574,7 @@
     \end{subexercises}
 \end{exercise}
 
-\begin{sole}
+\begin{solenum}
     \item Suppose the trivial solution $0 \in \fbb^{n, 1}$ is the only solution to the homogeneous system of equations.
 	Then $\nul T = \set 0$, where $T : \fbb^{n, 1} \to \fbb^{n, 1}$ is defined by $Tx = Ax$ for $x \in \fbb^{n, 1}$.
 	Since $\nul T = \set 0$, then $T$ is injective.
@@ -585,9 +585,9 @@
 	Then $T : \fbb^{n, 1} \to \fbb^{n, 1}$ defined by $Tx = Ax$ for $x \in \fbb^{n, 1}$ is surjective.
 	Since $\fbb^{n, 1}$ is finite-dimensional, then $T$ is injective.
 	Hence, the trivial solution is the only solution to the homogeneous system of equations.
-\end{sole}
+\end{solenum}
 
-\begin{exercise}[3d22]
+\begin{exercise}{3d22}
     Suppose $T \in \lin{V}$ and $v_1, \ldots, v_n$ is a basis of $V$.
 	Prove that
     \[
@@ -614,7 +614,7 @@
     Hence, $\mcal(T, (v_1, \ldots, v_n))$ is invertible.
 \end{sol}
 
-\begin{exercise}[3d23]
+\begin{exercise}{3d23}
     Suppose that $u_1, \ldots, u_n$ and $v_1, \ldots, v_n$ are bases of $V$.
 	Let $T \in \lin{V}$ be such that $Tv_k = u_k$ for each $k = 1, \ldots, n$.
 	Prove that
@@ -628,7 +628,7 @@
 	Similarly, column $k$ of $\mcal(I, (u_1, \ldots, u_n), (v_1, \ldots, v_n))$ is also $u_k$ with respect to the basis $v_1, \ldots, v_n$.
 \end{sol}
 
-\begin{exercise}[3d24]
+\begin{exercise}{3d24}
     Suppose $A$ and $B$ are square matrices of the same size and $AB = I$.
 	Prove that $BA = I$.
 \end{exercise}

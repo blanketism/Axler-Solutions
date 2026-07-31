@@ -1,6 +1,6 @@
 \subsection{Upper-Triangular Matrices}
 
-\begin{exercise}[5c1]
+\begin{exercise}{5c1}
     Prove or give a counterexample: If $T \in \lin{V}$ and $T^2$ has an upper-triangular matrix with respect to some basis of $V$, then $T$ has an upper-triangular matrix with respect to some basis of $V$.
 
     \remark{The matrix in this exercise represents the $90^\circ$ counterclockwise rotation of $\rbb^2$.}
@@ -33,7 +33,7 @@
     However, $T$ does not have an upper-triangular matrix with respect to any basis of $\rbb^2$, since it has no real eigenvalues and thus cannot be represented in upper-triangular form over $\rbb$.
 \end{sol}
 
-\begin{exercise}[5c2]
+\begin{exercise}{5c2}
     Suppose $A$ and $B$ are upper-triangular matrices of the same size, with $\alpha_1, \ldots, \alpha_n$ on the diagonal of $A$ and $\beta_1, \ldots, \beta_n$ on the diagonal of $B$.
     \begin{subexercises}
         \item Show that $A + B$ is an upper-triangular matrix with $\alpha_1 + \beta_1, \ldots, \alpha_n + \beta_n$ on the diagonal.
@@ -42,7 +42,7 @@
     \note{The results in this exercise are used in the proof of 5.81.}
 \end{exercise}
 
-\begin{sole}
+\begin{solenum}
     \item Let $C = A + B$.
     Since $A$ and $B$ are upper-triangular, for any entry $c_{ij}$ of $C$ where $i > j$, we have
     \[
@@ -72,9 +72,9 @@
         d_{ii} = a_{ii}b_{ii} = \alpha_i\beta_i,
     \]
     for $i = 1, \ldots, n$.
-\end{sole}
+\end{solenum}
 
-\begin{exercise}[5c3]
+\begin{exercise}{5c3}
     Suppose $T \in \lin{V}$ is invertible and $v_1, \ldots, v_n$ is a basis of $V$ with respect to which the matrix of $T$ is upper triangular, with $\lambda_1, \ldots, \lambda_n$ on the diagonal.
     Show that the matrix of $T\inv$ is also upper triangular with respect to the basis $v_1, \ldots, v_n$, with
     \[
@@ -95,7 +95,7 @@
     Since $TT\inv=I$ is upper-triangular, we have from \exref{5c2} (b) that $\lambda_k \mu_k=1$ for each $k$, giving $\mu_k=\frac{1}{\lambda_k}$.
 \end{sol}
 
-\begin{exercise}[5c4]
+\begin{exercise}{5c4}
     Give an example of an operator whose matrix with respect to some basis contains only $0$'s on the diagonal, but the operator is invertible.
 
     \note{This exercise and the exercise below show that 5.41 fails without the hypothesis that an upper-triangular matrix is under consideration.}
@@ -121,7 +121,7 @@
     \]
 \end{sol}
 
-\begin{exercise}[5c5]
+\begin{exercise}{5c5}
     Give an example of an operator whose matrix with respect to some basis contains only nonzero numbers on the diagonal, but the operator is not invertible.
 \end{exercise}
 
@@ -138,7 +138,7 @@
     Since $T(1, -1) = (0, 0)$, $T$ is not invertible.
 \end{sol}
 
-\begin{exercise}[5c6]
+\begin{exercise}{5c6}
     Suppose $\fbb = \cbb$, $V$ is finite-dimensional, and $T \in \lin{V}$.
     Prove that if $k \in \{1, \ldots, \dim V\}$, then $V$ has a $k$-dimensional subspace invariant under $T$.
 \end{exercise}
@@ -154,7 +154,7 @@
     Hence, $\spn(v_1, \dots, v_k)$ is a $k$-dimensional subspace that is invariant under $T$.
 \end{sol}
 
-\begin{exercise}[5c7]
+\begin{exercise}{5c7}
     Suppose $V$ is finite-dimensional, $T \in \lin{V}$, and $v \in V$.
     \begin{subexercises}
         \item Prove that there exists a unique monic polynomial $p_v$ of smallest degree such that $p_v(T)v = 0$.
@@ -162,7 +162,7 @@
     \end{subexercises}
 \end{exercise}
 
-\begin{sole}
+\begin{solenum}
     \item If $v = 0$, then $p(T)v = 0$ for any polynomial $p$, so we can take $p_v(x) = 1$.
     Otherwise, suppose $v \neq 0$.
     Consider the list $v, Tv, T^2v, \ldots, T^{\dim V}v$.
@@ -194,9 +194,9 @@
     since $p_v(T)v = 0$.
     If $r \neq 0$, then $r$ is a polynomial of smaller degree than $p_v$ such that $r(T)v = 0$, which contradicts the minimality of $p_v$.
     Therefore, $r = 0$, and we have $m_T = p_vq$, which shows that $m_T$ is a polynomial multiple of $p_v$.
-\end{sole}
+\end{solenum}
 
-\begin{exercise}[5c8]
+\begin{exercise}{5c8}
     Suppose $V$ is finite-dimensional, $T \in \lin{V}$, and there exists a nonzero vector $v \in V$ such that $T^2v + 2Tv = -2v$.
     \begin{subexercises}
         \item Prove that if $\fbb = \rbb$, then there does not exist a basis of $V$ with respect to which $T$ has an upper-triangular matrix.
@@ -204,7 +204,7 @@
     \end{subexercises}
 \end{exercise}
 
-\begin{sole}
+\begin{solenum}
     \item Suppose there exists a basis of $V$ with respect to which $T$ has an upper-triangular matrix.
     Then the diagonal entries of this matrix are the eigenvalues of $T$.
     Let $p(z) = z^2 + 2z + 2$.
@@ -215,9 +215,9 @@
     \item Utilizing the same deductions as in part (a), we conclude that there exists an eigenvalue $\lambda$ of $T$ such that $p(\lambda) = 0$.
     The roots of $p(z)$ are $-1 + i$ and $-1 - i$, so either $-1 + i$ or $-1 - i$ must be an eigenvalue of $T$.
     Since the diagonal entries of an upper-triangular matrix are the eigenvalues of the corresponding operator, either $-1 + i$ or $-1 - i$ must appear on the diagonal of $A$.
-\end{sole}
+\end{solenum}
 
-\begin{exercise}[5c9]
+\begin{exercise}{5c9}
     Suppose $B$ is a square matrix with complex entries.
     Prove that there exists an invertible square matrix $A$ with complex entries such that $A\inv BA$ is an upper-triangular matrix.
 \end{exercise}
@@ -228,7 +228,7 @@
     Then $A\inv BA$ is the matrix representation of $T$ with respect to this new basis, which is upper-triangular.
 \end{sol}
 
-\begin{exercise}[5c10]
+\begin{exercise}{5c10}
     Suppose $T \in \lin{V}$ and $v_1, \ldots, v_n$ is a basis of $V$.
     Show that the following are equivalent.
     \begin{subexercises}
@@ -260,7 +260,7 @@
     Then $A_{i, k} = 0$ for all $i < k$, which shows that the matrix of $T$ with respect to $v_1, \ldots, v_n$ is lower triangular.
 \end{solitem}
 
-\begin{exercise}[5c11]
+\begin{exercise}{5c11}
     Suppose $\fbb = \cbb$ and $V$ is finite-dimensional.
     Prove that if $T \in \lin{V}$, then there exists a basis of $V$ with respect to which $T$ has a lower-triangular matrix.
 \end{exercise}
@@ -273,7 +273,7 @@
     By \exref{5c10}, the matrix of $T$ with respect to the basis $w_1, \ldots, w_n$ is lower triangular.
 \end{sol}
 
-\begin{exercise}[5c12]
+\begin{exercise}{5c12}
     Suppose $V$ is finite-dimensional, $T \in \lin{V}$ has an upper-triangular matrix with respect to some basis of $V$, and $U$ is a subspace of $V$ that is invariant under $T$.
     \begin{subexercises}
         \item Prove that $T|_U$ has an upper-triangular matrix with respect to some basis of $U$.
@@ -282,14 +282,14 @@
     \note{The quotient operator $T/U$ was defined in \exref{5a38}.}
 \end{exercise}
 
-\begin{sole}
+\begin{solenum}
     \item Since $T$ has an upper-triangular matrix with respect to some basis of $V$, then its minimal polynomial is a product of linear factors.
     Since $U$ is invariant under $T$, the minimal polynomial of $T|_U$ divides the minimal polynomial of $T$, and thus is also a product of linear factors.
     Therefore, $T|_U$ has an upper-triangular matrix with respect to some basis of $U$.
     \item Since the minimal polynomial of $T$ is a polynomial multiple of the minimal polynomial of $T/U$, the same argument as in part (a) shows that $T/U$ has an upper-triangular matrix with respect to some basis of $V/U$.
-\end{sole}
+\end{solenum}
 
-\begin{exercise}[5c13]
+\begin{exercise}{5c13}
     Suppose $V$ is finite-dimensional and $T \in \lin{V}$.
     Suppose there exists a subspace $U$ of $V$ that is invariant under $T$ such that $T|_U$ has an upper-triangular matrix with respect to some basis of $U$ and also $T/U$ has an upper-triangular matrix with respect to some basis of $V/U$.
     Prove that $T$ has an upper-triangular matrix with respect to some basis of $V$.
@@ -324,7 +324,7 @@
     which shows that the matrix of $T$ with respect to the basis $u_1, \ldots, u_m, v_1, \ldots, v_n$ is upper-triangular.
 \end{sol}
 
-\begin{exercise}[5c14]
+\begin{exercise}{5c14}
     Suppose $V$ is finite-dimensional and $T \in \lin{V}$.
     Prove that $T$ has an upper-triangular matrix with respect to some basis of $V$ if and only if the dual operator $T'$ has an upper-triangular matrix with respect to some basis of the dual space $V'$.
 \end{exercise}
