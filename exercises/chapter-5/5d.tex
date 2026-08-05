@@ -301,10 +301,47 @@
     \]
 \end{exercise}
 
+\begin{sol}
+    To show that some $(z_1, z_2, z_3) \in \cbb^3$ satisfies the above is the same as showing that the operator $T - 8I$ is surjective.
+    Since $T$ does not have a diagonal matrix with respect to any basis of $\cbb^3$, we have $\dim E(6, T) + \dim E(7, T) < 3$.
+    We claim that 6 and 7 are the only eigenvalues of $T$.
+    If there were another eigenvalue $\lambda$ of $T$, then $\dim E(6, T) + \dim E(7, T) + \dim E(\lambda, T) \geq 1 + 1 + 1 = 3$, which is a contradiction.
+    Hence, 6 and 7 are the only eigenvalues of $T$.
+
+    Then 8 is not an eigenvalue of $T$, so $T - 8I$ is injective.
+    Since $T - 8I$ is a linear map from $\cbb^3$ to $\cbb^3$, it is injective if and only if it is surjective.
+    Hence, $T - 8I$ is surjective, so there exists $(z_1, z_2, z_3) \in \cbb^3$ such that
+    \[
+        (T - 8I)(z_1, z_2, z_3) = (6, 7, 13) \implies T(z_1, z_2, z_3) = (6 + 8z_1, 7 + 8z_2, 13 + 8z_3). \qedhere
+    \]
+\end{sol}
+
 \begin{exercise}{5d13}
     Suppose $A$ is a diagonal matrix with distinct entries on the diagonal and $B$ is a matrix of the same size as $A$.
     Show that $AB = BA$ if and only if $B$ is a diagonal matrix.
 \end{exercise}
+
+\begin{sol}
+    Let $A$ be a diagonal matrix with distinct entries on the diagonal, and let $B$ be a matrix of the same size as $A$.
+    Suppose $AB = BA$.
+    Let $A_{j, j}$ denote the $j$-th diagonal entry of $A$, and let $B_{j, k}$ denote the entry of $B$ in row $j$ and column $k$.
+    Then
+    \[
+        (AB)_{j, k} = A_{j, j} B_{j, k}, \quad (BA)_{j, k} = B_{j, k} A_{k, k}.
+    \]
+    Since $AB = BA$, we have
+    \[
+        A_{j, j} B_{j, k} = B_{j, k} A_{k, k}.
+    \]
+    If $j \neq k$, then $A_{j, j} - A_{k, k} \neq 0$ because the diagonal entries of $A$ are distinct.
+    Hence,
+    \[
+        (A_{j, j} - A_{k, k}) B_{j, k} = 0 \implies B_{j, k} = 0.
+    \]
+    Thus, all off-diagonal entries of $B$ are zero, so $B$ is a diagonal matrix.
+
+    Conversely, if $B$ is a diagonal matrix, then it is straightforward to verify that $AB = BA$.
+\end{sol}
 
 \begin{exercise}{5d14}
     \begin{subexercises}
@@ -313,6 +350,36 @@
         Prove that $T$ is diagonalizable if and only if $T^k$ is diagonalizable.
     \end{subexercises}
 \end{exercise}
+
+\begin{solenum}
+    \item Consider the operator $T \in \lin{\cbb^2}$ defined by
+    \[
+        T(z_1, z_2) = (z_2, 0).
+    \]
+    Then $T^2(z_1, z_2) = (0, 0)$, so $T^2$ is diagonalizable.
+    However, $T$ is not diagonalizable because the only eigenvalue of $T$ is $0$, and $\dim E(0, T) = 1 < 2 = \dim \cbb^2$.
+    \item Suppose $T$ is diagonalizable.
+    Then a basis of $V$ consists of eigenvectors of $T$, and each eigenvector of $T$ is also an eigenvector of $T^k$.
+    Hence, $T^k$ is diagonalizable.
+
+    Conversely, suppose $T^k$ is diagonalizable.
+    Then a basis of $V$ consists of eigenvectors of $T^k$.
+    Consider the minimal polynomial $p$ of $T^k$ as
+    \[
+        p(z) = (z - \lambda_1) \cdots (z - \lambda_m),
+    \]
+    where $\lambda_1, \ldots, \lambda_m$ are the distinct eigenvalues of $T^k$.
+    Consider the polynomial
+    \[
+        q(z) = (z^k - \lambda_1) \cdots (z^k - \lambda_m).
+    \]
+    Note that $q(T) = p(T^k) = 0$, so the minimal polynomial of $T$ divides $q$.
+    Since $T$ is invertible, $0$ is not an eigenvalue of $T$, so $0$ is not a root of the minimal polynomial of $T$.
+    To see that $q$ has no repeated roots, note that individual $(z^k - \lambda_j)$ factors as $k$ distinct linear factors over $\cbb$.
+    Moreover, factors from $(z^k - \lambda_j)$ and $(z^k - \lambda_\ell)$ do not share any roots for $j \neq \ell$, for otherwise if $\omega$ is a root of both $z^k - \lambda_j$ and $z^k - \lambda_\ell$, then $\omega^k = \lambda_j = \lambda_\ell$, which is a contradiction.
+    Hence, $q$ has no repeated roots, so the minimal polynomial of $T$ has no repeated roots.
+    Since the minimal polynomial of $T$ has no repeated roots, $T$ is diagonalizable. 
+\end{solenum}
 
 \begin{exercise}{5d15}
     Suppose $V$ is a finite-dimensional complex vector space, $T \in \lin{V}$, and $p$ is the minimal polynomial of $T$.
@@ -323,10 +390,39 @@
         \item $p$ and its derivative $p'$ have no zeros in common.
         \item The greatest common divisor of $p$ and $p'$ is the constant polynomial $1$.
     \end{subexercises}
-    \textit{The \emph{\textbf{greatest common divisor}} of $p$ and $p'$ is the monic polynomial $q$ of largest degree such that $p$ and $p'$ are both polynomial multiples of $q$.
+
+    \note{The \emph{\textbf{greatest common divisor}} of $p$ and $p'$ is the monic polynomial $q$ of largest degree such that $p$ and $p'$ are both polynomial multiples of $q$.
     The Euclidean algorithm for polynomials (look it up) can quickly determine the greatest common divisor of two polynomials, without requiring any information about the zeros of the polynomials.
     Thus the equivalence of (a) and (d) above shows that we can determine whether $T$ is diagonalizable without knowing anything about the zeros of $p$.}
 \end{exercise}
+
+\begin{sol}
+    \leavevmode
+    
+    {\noindent{(a) $\implies$ (b)}} Suppose $T$ is diagonalizable.
+    Then the minimal polynomial of $T$ has no repeated roots, so there does not exist $\lambda \in \cbb$ such that $p$ is a polynomial multiple of $(z - \lambda)^2$.
+
+    {\noindent{(b) $\implies$ (c)}} Suppose there does not exist $\lambda \in \cbb$ such that $p$ is a polynomial multiple of $(z - \lambda)^2$.
+    Then $p$ has no repeated roots, so we may let 
+    \[
+        p(z) = (z - \lambda_1) \cdots (z - \lambda_m)
+    \]
+    for some distinct $\lambda_1, \ldots, \lambda_m \in \cbb$.
+    Then evaluating the derivative $p'$ at $\lambda_k$ gives
+    \[
+        p'(\lambda_k) = \prod_{j \neq k} (\lambda_k - \lambda_j) \neq 0
+    \]
+    by the distinctness of $\lambda_1, \ldots, \lambda_m$.
+    Hence, $p$ and $p'$ have no zeros in common.
+
+    {\noindent{(c) $\implies$ (d)}} Suppose $p$ and its derivative $p'$ have no zeros in common.
+    Then the greatest common divisor of $p$ and $p'$ has no zeros, so it is a constant polynomial.
+
+    {\noindent{(d) $\implies$ (a)}} Suppose the greatest common divisor of $p$ and $p'$ is the constant polynomial $1$.
+    If $p$ had a repeated root $\lambda \in \cbb$, then $p$ would be a polynomial multiple of $(z - \lambda)^2$, so $p'$ would be a polynomial multiple of $(z - \lambda)$.
+    Hence, $p$ and $p'$ would have a zero in common, which is a contradiction.
+    Thus, $p$ has no repeated roots, so $T$ is diagonalizable.
+\end{sol}
 
 \begin{exercise}{5d16}
     Suppose that $T \in \lin{V}$ is diagonalizable.
@@ -334,25 +430,145 @@
     Prove that a subspace $U$ of $V$ is invariant under $T$ if and only if there exist subspaces $U_1, \ldots, U_m$ of $V$ such that $U_k \subseteq E(\lambda_k, T)$ for each $k$ and $U = U_1 \op \cdots \op U_m$.
 \end{exercise}
 
+\begin{sol}
+    Suppose $U$ is invariant under $T$.
+    Let $U_k = U \cap E(\lambda_k, T)$ for each $k = 1, \ldots, m$.
+    Then $U_k \subseteq E(\lambda_k, T)$ for each $k$.
+    For each $k$, define the polynomial $p_k$ by
+    \[
+        p_k(z) = \prod_{j \neq k} \frac{z - \lambda_j}{\lambda_k - \lambda_j}.
+    \]
+    Then $p_k(\lambda_j) = 0$ for $j \neq k$ and $p_k(\lambda_k) = 1$.
+    Let $u \in U$ with
+    \[
+        u = u_1 + \cdots + u_m, \quad u_k \in E(\lambda_k, T).
+    \]
+    Then $p_k(T)(u) = u_k \in U$ for each $k$, so $u_k \in U_k$ for each $k$.
+    Hence, $U = U_1 \op \cdots \op U_m$.
+
+    Conversely, suppose there exist subspaces $U_1, \ldots, U_m$ of $V$ such that $U_k \subseteq E(\lambda_k, T)$ for each $k$ and $U = U_1 \op \cdots \op U_m$.
+    Then for each $u \in U$, we have
+    \[
+        u = u_1 + \cdots + u_m, \quad u_k \in U_k.
+    \]
+    Then
+    \[
+        T(u) = T(u_1 + \cdots + u_m) = T(u_1) + \cdots + T(u_m) = \lambda_1 u_1 + \cdots + \lambda_m u_m \in U,
+    \]
+    so $U$ is invariant under $T$.
+\end{sol}
+
 \begin{exercise}{5d17}
     Suppose $V$ is finite-dimensional.
     Prove that $\lin{V}$ has a basis consisting of diagonalizable operators.
 \end{exercise}
+
+\begin{sol}
+    Let $n = \dim V$.
+    Let $\set{v_1, \ldots, v_n}$ be a basis of $V$.
+    For each $j, k \in \set{1, \ldots, n}$, define $T_{j, k} \in \lin{V}$ by
+    \[
+        T_{j, k}(v_\ell) = 
+        \begin{cases}
+            v_j & \text{if } \ell = k, \\
+            0 & \text{if } \ell \neq k.
+        \end{cases}
+    \]
+    If $j = k$, let $D_j = T_{j, j}$.
+    Then $D_j$ is diagonalizable because $D_j(v_j) = v_j$ and $D_j(v_\ell) = 0$ for $\ell \neq j$.
+    If $j \neq k$, let $N_{j, k} = D_j + T_{j, k}$.
+    Then $N_{j, k}$ is diagonalizable because $N_{j, k}(v_j) = v_j$, $N_{j, k}(v_k) = v_j$, and $N_{j, k}(v_\ell) = 0$ for $\ell \neq j, k$.
+    Then the eigenvalues of $N_{j, k}$ are $0$ and $1$ with corresponding eigenvectors $v_j - v_k$ ($n - 1$ of these) and $v_j$ ($1$ of these), so $N_{j, k}$ is diagonalizable.
+
+    Note that the set
+    \[
+        \set{D_1, \ldots, D_n} \cup \set{N_{j, k} : j, k \in \set{1, \ldots, n}, j \neq k}
+    \]
+    spans $\lin{V}$ because for any $T \in \lin{V}$, we have
+    \[
+        T = \sum_{j,k = 1}^n \alpha_{j, k} T_{j, k} = \sum_{j \neq k} \alpha_{j, k} (N_{j, k} - D_j) + \sum_{j = 1}^n \alpha_{j, j} D_j
+    \]
+    shows that the set above spans $\lin{V}$.
+
+    Moreover, note that $\dim \lin{V} = n^2$ and the set above has $n + n(n - 1) = n^2$ elements, so it is a basis of $\lin{V}$ consisting of diagonalizable operators.
+\end{sol}
 
 \begin{exercise}{5d18}
     Suppose that $T \in \lin{V}$ is diagonalizable and $U$ is a subspace of $V$ that is invariant under $T$.
     Prove that the quotient operator $T/U$ is a diagonalizable operator on $V/U$.
 \end{exercise}
 
+\begin{sol}
+    Since $T$ is diagonalizable, there exists a basis of $V$ consisting of eigenvectors of $T$.
+    To see that $U$ has a basis consisting of eigenvectors of $T$, note that $V$ has a basis of eigenvectors of $T$.
+    By invariance of $U$ under $T$, we may consider $T|_U \in \lin{U}$ which is also diagonalizable.
+    Hence, $U$ has a basis consisting of eigenvectors of $T$.
+
+    Let $\set{v_1, \ldots, v_m}$ be a basis of $U$ consisting of eigenvectors of $T$.
+    Extend this basis to a basis $\set{v_1, \ldots, v_n}$ of $V$ consisting of eigenvectors of $T$.
+    Then $\set{v_{m+1} + U, \ldots, v_n + U}$ is a basis of $V/U$.
+    For each $k = m + 1, \ldots, n$, we have
+    \[
+        (T/U)(v_k + U) = T(v_k) + U = \lambda_k v_k + U = \lambda_k (v_k + U),
+    \]
+    where $\lambda_k$ is the eigenvalue corresponding to the eigenvector $v_k$.
+    Hence, $\set{v_{m+1} + U, \ldots, v_n + U}$ is a basis of $V/U$ consisting of eigenvectors of $T/U$, so $T/U$ is diagonalizable.
+\end{sol}
+
 \begin{exercise}{5d19}
     Prove or give a counterexample: If $T \in \lin{V}$ and there exists a subspace $U$ of $V$ that is invariant under $T$ such that $T|_U$ and $T/U$ are both diagonalizable, then $T$ is diagonalizable.
-    \textit{See Exercise 13 in Section 5C for an analogous statement about upper-triangular matrices.}
+
+    \note{See \exref{5c13} for an analogous statement about upper-triangular matrices.}
 \end{exercise}
+
+\begin{sol}
+    This statement is false.
+    Consider the operator $T \in \lin{\fbb^2}$ whose matrix with respect to the standard basis of $\fbb^2$ is
+    \[
+        \begin{pmatrix}
+            0 & 1 \\
+            0 & 0
+        \end{pmatrix}.
+    \]
+
+    Let $U = \spn\set{(1, 0)}$.
+    Then $U$ is invariant under $T$ since $T(1, 0) = (0, 0) \in U$.
+    The operator $T|_U$ is diagonalizable because it is the zero operator on a one-dimensional space.
+    The quotient operator $V/U$ is one-dimensional, so $T/U$ is diagonalizable.
+    However, $T$ is not diagonalizable because the only eigenvalue of $T$ is $1$, and $\dim E(1, T) = 1 < 2 = \dim \fbb^2$.
+\end{sol}
 
 \begin{exercise}{5d20}
     Suppose $V$ is finite-dimensional and $T \in \lin{V}$.
     Prove that $T$ is diagonalizable if and only if the dual operator $T'$ is diagonalizable.
 \end{exercise}
+
+\begin{sol}
+    Suppose $T$ is diagonalizable.
+    Then there exists a basis of $V$ consisting of eigenvectors of $T$.
+    Let $\set{v_1, \ldots, v_n}$ be a basis of $V$ consisting of eigenvectors of $T$, and let $\lambda_1, \ldots, \lambda_n$ be the corresponding eigenvalues.
+    Let $\set{\phi_1, \ldots, \phi_n}$ be the dual basis of $V'$ corresponding to $\set{v_1, \ldots, v_n}$.
+    Then for each $k = 1, \ldots, n$, we have
+    \[
+        T'(\phi_k)(v_j) = \phi_k(T(v_j)) = \phi_k(\lambda_j v_j) = \lambda_j \phi_k(v_j) = 
+        \begin{cases}
+            \lambda_k & j = k, \\
+            0 & j \neq k,
+        \end{cases}
+    \]
+    so $T'(\phi_k) = \lambda_k \phi_k$.
+    Hence, $\set{\phi_1, \ldots, \phi_n}$ is a basis of $V'$ consisting of eigenvectors of $T'$, so $T'$ is diagonalizable.
+
+    Conversely, suppose $T'$ is diagonalizable.
+    Then there exists a basis of $V'$ consisting of eigenvectors of $T'$.
+    Using the same reasoning as above, $(T')'$ is diagonalizable with the same eigenvalues as $T'$.
+    From \exref{3f32}, we know that $V$ is isomorphic to $V''$ with the map $\Lambda: V \to V''$ defined by
+    \[
+        \Lambda(v)(\phi) = \phi(v)
+    \]
+    for each $v \in V$ and $\phi \in V'$.
+    Then $(T')'(\Lambda(v)) = \Lambda(T(v))$ for each $v \in V$, so $T$ has a basis of eigenvectors corresponding to the same eigenvalues as $T'$, so $T$ is diagonalizable.
+\end{sol}
 
 \begin{exercise}{5d21}
     The \emph{\textbf{Fibonacci sequence}} $F_0, F_1, F_2, \ldots$ is defined by
@@ -375,12 +591,12 @@
             \frac{1}{\sqrt{5}}\left(\frac{1 + \sqrt{5}}{2}\right)^n.
         \]
     \end{subexercises}
-    \textit{Each $F_n$ is a nonnegative integer, even though the right side of the formula in (d) does not look like an integer.
-    The number}
+    \note{Each $F_n$ is a nonnegative integer, even though the right side of the formula in (d) does not look like an integer.
+    The number
     \[
         \frac{1 + \sqrt{5}}{2}
     \]
-    \textit{is called the \emph{\textbf{golden ratio}}.}
+    is called the \textbf{golden ratio}.}
 \end{exercise}
 
 \begin{exercise}{5d22}
