@@ -590,7 +590,8 @@
 
 \begin{sol}
     Let $p(z)$ be the minimal polynomial of $T$ with degree $d$.
-    We will show that $\dim \ecal = d$.
+    Let $\ical = \set{I, T, T^2, \ldots, T^{d-1}}$.
+    We will show that $\ical$ is a basis for $\ecal$.
 
     First, we show that $\dim \ecal \leq d$.
     By the Division Algorithm for polynomials, for any polynomial $q \in \pcal(\fbb)$, we can write
@@ -602,20 +603,21 @@
     \[
     	q(T) = s(T)p(T) + r(T) = 0 + r(T) = r(T).
     \]
-    Since $\deg r < d$, the set $\{I, T, T^2, \ldots, T^{d-1}\}$ spans $\ecal$.
+    Since $\deg r < d$, the set $\ical$ spans $\ecal$.
     Hence, $\dim \ecal \leq d$.
 
     Next, we show that $\dim \ecal \geq d$.
-    Suppose there exists a nontrivial linear combination of $\{I, T, T^2, \ldots, T^{d-1}\}$ that equals zero:
+    Suppose
     \[
-    	a_0 I + a_1 T + a_2 T^2 + \cdots + a_{d-1} T^{d-1} = 0.
+    	a_0 I + a_1 T + a_2 T^2 + \cdots + a_{d-1} T^{d-1} = 0
     \]
-    This would imply that the polynomial
+    for scalars $a_0, a_1, \ldots, a_{d-1} \in \fbb$ not all zero.
+    Then the polynomial
     \[
     	q(z) = a_0 + a_1 z + a_2 z^2 + \cdots + a_{d-1} z^{d-1}
     \]
     annihilates $T$, contradicting the minimality of $p(z)$ since $\deg q < d$.
-    Therefore, the set $\{I, T, T^2, \ldots, T^{d-1}\}$ is linearly independent in $\ecal$, which implies that $\dim \ecal \geq d$.
+    Therefore, the set $\ical$ is linearly independent in $\ecal$, which implies that $\dim \ecal \geq d$.
 
     Combining both inequalities, we conclude that $\dim \ecal = d$, which is the degree of the minimal polynomial of $T$.
 \end{sol}

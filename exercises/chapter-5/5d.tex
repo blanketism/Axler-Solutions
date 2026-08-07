@@ -97,14 +97,15 @@
     Since $\dim V = \dim \nul T + \dim \range T$ by the fundamental theorem of linear maps, we have $\dim(\nul T \cap \range T) = 0$, so $\nul T \cap \range T = \set{0}$.
 
     \noindent(c) $\implies$ (a): If $\nul T \cap \range T = \set{0}$, then
-    \[
-        \dim(\nul T + \range T) = \dim \nul T + \dim \range T - \dim(\nul T \cap \range T).
-    \]
+    \begin{align*}
+        \dim(\nul T + \range T) &= \dim \nul T + \dim \range T - \dim(\nul T \cap \range T) \\
+        &= \dim \nul T + \dim \range T. \\
+    \end{align*}
     
     By the fundamental theorem of linear maps, we have $\dim V = \dim \nul T + \dim \range T$.
     Hence,
     \[
-        \dim(\nul T + \range T) = \dim \nul T + \dim \range T - 0 = \dim V.
+        \dim(\nul T + \range T) = \dim V.
     \]
 
     Since $\nul T + \range T \subseteq V$ and $\dim(\nul T + \range T) = \dim V$, we have $\nul T + \range T = V$.
@@ -223,22 +224,14 @@
 \end{exercise}
 
 \begin{sol}
-    Let $U = E(\lambda_1, T) \op \cdots \op E(\lambda_m, T)$.
-    Then $\dim U = \dim E(\lambda_1, T) + \cdots + \dim E(\lambda_m, T)$.
-    To see that $T$ is injective on $U$, suppose $u \in U$ and $T(u) = 0$.
-    Then $u = u_1 + \cdots + u_m$ for some $u_k \in E(\lambda_k, T)$, and
+    For every nonzero eigenvalue $\lambda$ of $T$ and every $v \in E(\lambda, T)$, we have $v = T(\lambda\inv v) \in \range T$, so $E(\lambda, T) \subseteq \range T$.
+    Since eigenspaces corresponding to distinct eigenvalues are linearly independent, we have
     \[
-        0 = T(u) = T(u_1 + \cdots + u_m) = T(u_1) + \cdots + T(u_m) = \lambda_1 u_1 + \cdots + \lambda_m u_m.
+        E(\lambda_1, T) \op \cdots \op E(\lambda_m, T) \subseteq \range T.
     \]
-    Since $\lambda_1, \ldots, \lambda_m$ are distinct and nonzero, we have $\lambda_k \neq 0$ for each $k = 1, \ldots, m$.
-    Since the sum above is a direct sum, we have $\lambda_k u_k = 0$ for each $k = 1, \ldots, m$, so $u_k = 0$ for each $k = 1, \ldots, m$.
-    Hence,
+    It follows that
     \[
-        \dim U = \dim T(U) \leq \dim \range T.
-    \]
-    Therefore,
-    \[
-        \dim E(\lambda_1, T) + \cdots + \dim E(\lambda_m, T) = \dim U \leq \dim \range T. \qedhere
+        \dim E(\lambda_1, T) + \cdots + \dim E(\lambda_m, T) = \dim(E(\lambda_1, T) \op \cdots \op E(\lambda_m, T)) \leq \dim \range T. \qedhere
     \]
 \end{sol}
 
