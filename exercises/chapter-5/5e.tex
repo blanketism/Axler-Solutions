@@ -1,0 +1,68 @@
+\subsection{Commuting Operators}
+
+\begin{exercise}{5e1}
+    Give an example of two commuting operators $S, T$ on $\fbb^4$ such that there is a subspace of $\fbb^4$ that is invariant under $S$ but not under $T$ and there is a subspace of $\fbb^4$ that is invariant under $T$ but not under $S$.
+\end{exercise}
+
+\begin{exercise}{5e2}
+    Suppose $\ecal$ is a subset of $\lin{V}$ and every element of $\ecal$ is diagonalizable.
+    Prove that there exists a basis of $V$ with respect to which every element of $\ecal$ has a diagonal matrix if and only if every pair of elements of $\ecal$ commutes.
+    
+    \note{This exercise extends 5.76, which considers the case in which $\ecal$ contains only two elements.
+    For this exercise, $\ecal$ may contain any number of elements, and $\ecal$ may even be an infinite set.}
+\end{exercise}
+
+\begin{exercise}{5e3}
+    Suppose $S, T \in \lin{V}$ are such that $ST = TS$.
+    Suppose $p \in \pcal(\fbb)$.
+    \begin{subexercises}
+        \item Prove that $\nul p(S)$ is invariant under $T$.
+        \item Prove that $\range p(S)$ is invariant under $T$.
+    \end{subexercises}
+    \note{See 5.18 for the special case $S = T$.}
+\end{exercise}
+
+\begin{exercise}{5e4}
+    Prove or give a counterexample: If $A$ is a diagonal matrix and $B$ is an upper-triangular matrix of the same size as $A$, then $A$ and $B$ commute.
+\end{exercise}
+
+\begin{exercise}{5e5}
+    Prove that a pair of operators on a finite-dimensional vector space commute if and only if their dual operators commute.
+
+    \note{See 3.118 for the definition of the dual of an operator.}
+\end{exercise}
+
+\begin{exercise}{5e6}
+    Suppose $V$ is a finite-dimensional complex vector space and $S, T \in \lin{V}$ commute.
+    Prove that there exist $\alpha, \lambda \in \cbb$ such that
+    \[
+        \range(S - \alpha I) + \range(T - \lambda I) \neq V.
+    \]
+\end{exercise}
+
+\begin{exercise}{5e7}
+    Suppose $V$ is a complex vector space, $S \in \lin{V}$ is diagonalizable, and $T \in \lin{V}$ commutes with $S$.
+    Prove that there is a basis of $V$ such that $S$ has a diagonal matrix with respect to this basis and $T$ has an upper-triangular matrix with respect to this basis.
+\end{exercise}
+
+\begin{exercise}{5e8}
+    Suppose $m = 3$ in Example 5.72 and $D_x, D_y$ are the commuting partial differentiation operators on $\pcal_3(\rbb^2)$ from that example.
+    Find a basis of $\pcal_3(\rbb^2)$ with respect to which $D_x$ and $D_y$ each have an upper-triangular matrix.
+\end{exercise}
+
+\begin{exercise}{5e9}
+    Suppose $V$ is a finite-dimensional nonzero complex vector space.
+    Suppose that $\ecal \subseteq \lin{V}$ is such that $S$ and $T$ commute for all $S, T \in \ecal$.
+    \begin{subexercises}
+        \item Prove that there is a vector in $V$ that is an eigenvector for every element of $\ecal$.
+        \item Prove that there is a basis of $V$ with respect to which every element of $\ecal$ has an upper-triangular matrix.
+    \end{subexercises}
+    \note{This exercise extends 5.78 and 5.80, which consider the case in which $\ecal$ contains only two elements.
+    For this exercise, $\ecal$ may contain any number of elements, and $\ecal$ may even be an infinite set.}
+\end{exercise}
+
+\begin{exercise}{5e10}
+    Give an example of two commuting operators $S, T$ on a finite-dimensional real vector space such that $S + T$ has an eigenvalue that does not equal an eigenvalue of $S$ plus an eigenvalue of $T$ and $ST$ has an eigenvalue that does not equal an eigenvalue of $S$ times an eigenvalue of $T$.
+    
+    \note{This exercise shows that 5.81 does not hold on real vector spaces.}
+\end{exercise}
