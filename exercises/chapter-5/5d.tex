@@ -88,13 +88,28 @@
     \end{subexercises}
 \end{exercise}
 
-\begin{solenum}
-    \item If $V = \nul T \op \range T$, then $V = \nul T + \range T$.
-    \item If $V = \nul T + \range T$, then $\dim V = \dim \nul T + \dim \range T - \dim(\nul T \cap \range T)$.
+\begin{sol}
+    \leavevmode
+
+    \noindent(a) $\implies$ (b): If $V = \nul T \op \range T$, then $V = \nul T + \range T$.
+    
+    \noindent(b) $\implies$ (c): If $V = \nul T + \range T$, then $\dim V = \dim \nul T + \dim \range T - \dim(\nul T \cap \range T)$.
     Since $\dim V = \dim \nul T + \dim \range T$ by the fundamental theorem of linear maps, we have $\dim(\nul T \cap \range T) = 0$, so $\nul T \cap \range T = \set{0}$.
-    \item  If $\nul T \cap \range T = \set{0}$, then $\dim V = \dim \nul T + \dim \range T - \dim(\nul T \cap \range T) = \dim \nul T + \dim \range T$.
-    Since $\dim V = \dim \nul T + \dim \range T$ by the fundamental theorem of linear maps, and $\nul T \cap \range T = \set{0}$, we have $V = \nul T \op \range T$.
-\end{solenum}
+
+    \noindent(c) $\implies$ (a): If $\nul T \cap \range T = \set{0}$, then
+    \[
+        \dim(\nul T + \range T) = \dim \nul T + \dim \range T - \dim(\nul T \cap \range T).
+    \]
+    
+    By the fundamental theorem of linear maps, we have $\dim V = \dim \nul T + \dim \range T$.
+    Hence,
+    \[
+        \dim(\nul T + \range T) = \dim \nul T + \dim \range T - 0 = \dim V.
+    \]
+
+    Since $\nul T + \range T \subseteq V$ and $\dim(\nul T + \range T) = \dim V$, we have $\nul T + \range T = V$.
+    Along with the assumption that $\nul T \cap \range T = \set{0}$, we have $V = \nul T \op \range T$.
+\end{sol}
 
 \begin{exercise}{5d5}
     Suppose $V$ is a finite-dimensional complex vector space and $T \in \lin{V}$.
@@ -142,6 +157,16 @@
     Since the sum above is a direct sum, we have $(\lambda_k - \lambda) u_k = 0$ for each $k = 2, \ldots, m$, so $u_k = 0$ for each $k = 2, \ldots, m$.
     Hence, $u = u_2 + \cdots + u_m = 0$, so $T - \lambda I$ is injective on $U$.
     Since $T - \lambda I$ is injective on $U$ and $\dim U = \dim \range(T - \lambda I)$, we have $U = \range(T - \lambda I)$.
+
+    Conversely, suppose $V = \nul(T - \lambda I) \op \range(T - \lambda I)$ for every $\lambda \in \cbb$.
+    Then $\nul(T - \lambda I) \cap \range(T - \lambda I) = \set{0}$ for every $\lambda \in \cbb$.
+    Note that $T - \lambda I$ restricted to $\range(T - \lambda I)$ is injective, so $\lambda$ is not an eigenvalue of $T|_{\range(T - \lambda I)}$.
+    Then the minimal polynomial of $T|_{\range(T - \lambda I)}$ does not have $\lambda$ as a root.
+    Suppose $(z - \lambda)^2$ divides the minimal polynomial of $T$.
+    Then there is some $v \in V$ such that $(T - \lambda I)^2v = 0$, but $(T - \lambda I)v \neq 0$.
+    Then $(T - \lambda I)v \in \range(T - \lambda I)$, and $v \in \nul(T - \lambda I) \cap \range(T - \lambda I) = \set{0}$, which is a contradiction.
+    Hence, $(z - \lambda)^2$ does not divide the minimal polynomial of $T$ for any $\lambda \in \cbb$, so the minimal polynomial of $T$ has no repeated roots.
+    Since the minimal polynomial of $T$ has no repeated roots, $T$ is diagonalizable.
 \end{sol}
 
 \begin{exercise}{5d6}
@@ -223,26 +248,16 @@
 \end{exercise}
 
 \begin{sol}
-    Let $r_2, r_6, r_7$ denote the eigenvectors of $R$ corresponding to the eigenvalues $2, 6, 7$, respectively.
-    Since $\dim V = 3$ and $R$ has three distinct eigenvalues, we have
+    Since $R$ and $T$ each have 3 distinct eigenvalues, they are both diagonalizable.
+    Let $r_2, r_6, r_7$ be eigenvectors of $R$ with $Rr_k = kr_k$ for $k = 2, 6, 7$, and let $t_2, t_6, t_7$ be eigenvectors of $T$ with $Tt_k = kt_k$ for $k = 2, 6, 7$.
+    Each list of 3 eigenvectors is linearly independent, so they each form a basis of $\fbb^3$.
+    Define $S \in \lin{\fbb^3}$ by $S(r_k) = t_k$ for $k = 2, 6, 7$.
+    Then $S$ is invertible because it maps a basis of $\fbb^3$ to a basis of $\fbb^3$.
+    For each $k = 2, 6, 7$, we have
     \[
-        \dim V = \dim E(2, R) + \dim E(6, R) + \dim E(7, R) = 3.
+        S\inv T S(r_k) = S\inv T(t_k) = S\inv(kt_k) = kS\inv(t_k) = kr_k = R(r_k).
     \]
-    Since $\dim E(\lambda, R) \geq 1$ for each eigenvalue $\lambda = 2, 6, 7$, we have $\dim E(\lambda, R) = 1$ for each eigenvalue $\lambda = 2, 6, 7$.
-    Hence, $\set{r_2, r_6, r_7}$ is a basis of $V$.
-    Let $t_2, t_6, t_7$ denote the eigenvectors of $T$ corresponding to the eigenvalues $2, 6, 7$, respectively.
-    By the same reasoning, $\set{t_2, t_6, t_7}$ is a basis of $V$.
-    Let $S \in \lin{V}$ be defined by
-    \[
-        S(r_2) = t_2, \quad S(r_6) = t_6, \quad S(r_7) = t_7.
-    \]
-    Then $S$ is invertible because it maps a basis of $V$ to a basis of $V$.
-    To see that $R = S\inv T S$, note that for any basis vector $r_k$ of $R$, we have
-    \[
-        S\inv T S(r_k) = S\inv T(t_k) = S\inv(\lambda_k t_k) = \lambda_k S\inv(t_k) = \lambda_k r_k = R(r_k),
-    \]
-    where $\lambda_k$ is the eigenvalue corresponding to $r_k$ and $t_k$.
-    Since $S\inv T S$ and $R$ agree on a basis of $V$, we have $R = S\inv T S$.
+    Since $S\inv T S$ and $R$ agree on a basis of $\fbb^3$, we have $R = S\inv T S$.
 \end{sol}
 
 \begin{exercise}{5d10}
@@ -277,7 +292,7 @@
             0 & 0 & 7
         \end{pmatrix}.
     \]
-    Observe that 6 and 7 are eigenvalues of $T$.
+    Observe that 6 and 7 are the only eigenvalues of $T$ since the matrix is upper triangular with diagonal entries 6, 6, 7.
     If $T$ had a diagonal matrix with respect to some basis of $\cbb^3$, then $\dim E(6, T) + \dim E(7, T) = 3$.
     However, $E(6, T)$ is the null space of $T - 6I$, which has matrix
     \[
@@ -288,8 +303,17 @@
         \end{pmatrix}.
     \]
     Observe that the null space of this matrix is spanned by $(1, 0, 0)$, so $\dim E(6, T) = 1$.
-    Similarly, we can deduce that $\dim E(7, T) = 1$.
-    Hence, $\dim E(6, T) + \dim E(7, T) = 2 < 3$, so $T$ does not have a diagonal matrix with respect to any basis of $\cbb^3$.
+    Similarly, $E(7, T)$ is the null space of $T - 7I$, which has matrix
+    \[
+        \begin{pmatrix}
+            -1 & 1 & 0 \\
+            0 & -1 & 0 \\
+            0 & 0 & 0
+        \end{pmatrix}.
+    \]
+
+    Observe that the null space of this matrix is spanned by $(0, 0, 1)$, so $\dim E(7, T) = 1$.
+    Hence, $\dim E(6, T) + \dim E(7, T) = 1 + 1 = 2 < 3$, so $T$ does not have a diagonal matrix with respect to any basis of $\cbb^3$.
 \end{sol}
 
 \begin{exercise}{5d12}
@@ -302,15 +326,10 @@
 \end{exercise}
 
 \begin{sol}
-    To show that some $(z_1, z_2, z_3) \in \cbb^3$ satisfies the above is the same as showing that the operator $T - 8I$ is surjective.
-    Since $T$ does not have a diagonal matrix with respect to any basis of $\cbb^3$, we have $\dim E(6, T) + \dim E(7, T) < 3$.
-    We claim that 6 and 7 are the only eigenvalues of $T$.
-    If there were another eigenvalue $\lambda$ of $T$, then $\dim E(6, T) + \dim E(7, T) + \dim E(\lambda, T) \geq 1 + 1 + 1 = 3$, which is a contradiction.
-    Hence, 6 and 7 are the only eigenvalues of $T$.
-
-    Then 8 is not an eigenvalue of $T$, so $T - 8I$ is injective.
-    Since $T - 8I$ is a linear map from $\cbb^3$ to $\cbb^3$, it is injective if and only if it is surjective.
-    Hence, $T - 8I$ is surjective, so there exists $(z_1, z_2, z_3) \in \cbb^3$ such that
+    Since $T$ cannot be diagonalized, it cannot have 3 distinct eigenvalues.
+    Then $6$ and $7$ must be the only eigenvalues of $T$.
+    In particular, $8$ is not an eigenvalue of $T$, so $T - 8I$ is surjective.
+    Then there exists $(z_1, z_2, z_3) \in \cbb^3$ such that
     \[
         (T - 8I)(z_1, z_2, z_3) = (6, 7, 13) \implies T(z_1, z_2, z_3) = (6 + 8z_1, 7 + 8z_2, 13 + 8z_3). \qedhere
     \]
@@ -363,22 +382,19 @@
     Hence, $T^k$ is diagonalizable.
 
     Conversely, suppose $T^k$ is diagonalizable.
-    Then a basis of $V$ consists of eigenvectors of $T^k$.
-    Consider the minimal polynomial $p$ of $T^k$ as
+    Let $\lambda_1, \ldots, \lambda_m$ denote the distinct eigenvalues of $T^k$.
+    Then the minimal polynomial of $T^k$ has no repeated roots, so we may write
     \[
-        p(z) = (z - \lambda_1) \cdots (z - \lambda_m),
+        p(z) = (z - \lambda_1) \cdots (z - \lambda_m).
     \]
-    where $\lambda_1, \ldots, \lambda_m$ are the distinct eigenvalues of $T^k$.
     Consider the polynomial
     \[
         q(z) = (z^k - \lambda_1) \cdots (z^k - \lambda_m).
     \]
     Note that $q(T) = p(T^k) = 0$, so the minimal polynomial of $T$ divides $q$.
-    Since $T$ is invertible, $0$ is not an eigenvalue of $T$, so $0$ is not a root of the minimal polynomial of $T$.
-    To see that $q$ has no repeated roots, note that individual $(z^k - \lambda_j)$ factors as $k$ distinct linear factors over $\cbb$.
-    Moreover, factors from $(z^k - \lambda_j)$ and $(z^k - \lambda_\ell)$ do not share any roots for $j \neq \ell$, for otherwise if $\omega$ is a root of both $z^k - \lambda_j$ and $z^k - \lambda_\ell$, then $\omega^k = \lambda_j = \lambda_\ell$, which is a contradiction.
-    Hence, $q$ has no repeated roots, so the minimal polynomial of $T$ has no repeated roots.
-    Since the minimal polynomial of $T$ has no repeated roots, $T$ is diagonalizable. 
+    Since $T$ is invertible, $T^k$ is also invertible.
+    Then $\lambda_j \neq 0$ for each $j = 1, \ldots, m$, so $q$ has no repeated roots.
+    Hence, the minimal polynomial of $T$ has no repeated roots, so $T$ is diagonalizable.
 \end{solenum}
 
 \begin{exercise}{5d15}
@@ -478,17 +494,18 @@
     Then $D_j$ is diagonalizable because $D_j(v_j) = v_j$ and $D_j(v_\ell) = 0$ for $\ell \neq j$.
     If $j \neq k$, let $N_{j, k} = D_j + T_{j, k}$.
     Then $N_{j, k}$ is diagonalizable because $N_{j, k}(v_j) = v_j$, $N_{j, k}(v_k) = v_j$, and $N_{j, k}(v_\ell) = 0$ for $\ell \neq j, k$.
-    Then the eigenvalues of $N_{j, k}$ are $0$ and $1$ with corresponding eigenvectors $v_j - v_k$ ($n - 1$ of these) and $v_j$ ($1$ of these), so $N_{j, k}$ is diagonalizable.
+    Then the eigenvalues of $N_{j, k}$ are $0$ and $1$ with corresponding eigenvectors $v_j - v_k$ ($n - 2$ of these) and $v_j$ ($1$ of these), so $N_{j, k}$ is diagonalizable.
 
     Note that the set
     \[
         \set{D_1, \ldots, D_n} \cup \set{N_{j, k} : j, k \in \set{1, \ldots, n}, j \neq k}
     \]
-    spans $\lin{V}$ because for any $T \in \lin{V}$, we have
+    spans $\lin{V}$.
+    For any $T \in \lin{V}$, we have
     \[
-        T = \sum_{j,k = 1}^n \alpha_{j, k} T_{j, k} = \sum_{j \neq k} \alpha_{j, k} (N_{j, k} - D_j) + \sum_{j = 1}^n \alpha_{j, j} D_j
+        T = \sum_{j,k = 1}^n \alpha_{j, k} T_{j, k} = \sum_{j \neq k} \alpha_{j, k} (N_{j, k} - D_j) + \sum_{j = 1}^n \alpha_{j, j} D_j,
     \]
-    shows that the set above spans $\lin{V}$.
+    which shows that the set above spans $\lin{V}$.
 
     Moreover, note that $\dim \lin{V} = n^2$ and the set above has $n + n(n - 1) = n^2$ elements, so it is a basis of $\lin{V}$ consisting of diagonalizable operators.
 \end{sol}
@@ -499,20 +516,15 @@
 \end{exercise}
 
 \begin{sol}
-    Since $T$ is diagonalizable, there exists a basis of $V$ consisting of eigenvectors of $T$.
-    To see that $U$ has a basis consisting of eigenvectors of $T$, note that $V$ has a basis of eigenvectors of $T$.
-    By invariance of $U$ under $T$, we may consider $T|_U \in \lin{U}$ which is also diagonalizable.
-    Hence, $U$ has a basis consisting of eigenvectors of $T$.
-
-    Let $\set{v_1, \ldots, v_m}$ be a basis of $U$ consisting of eigenvectors of $T$.
-    Extend this basis to a basis $\set{v_1, \ldots, v_n}$ of $V$ consisting of eigenvectors of $T$.
-    Then $\set{v_{m+1} + U, \ldots, v_n + U}$ is a basis of $V/U$.
-    For each $k = m + 1, \ldots, n$, we have
+    Since $T$ is diagonalizable, $V$ has a basis $v_1, \ldots, v_n$ of eigenvectors of $T$.
+    Let $\lambda_1, \ldots, \lambda_n$ be the corresponding eigenvalues of $T$.
+    Note that $v_1 + U, \ldots, v_n + U$ span $V/U$.
+    Moreover, for each $j$, we have
     \[
-        (T/U)(v_k + U) = T(v_k) + U = \lambda_k v_k + U = \lambda_k (v_k + U),
+        (T/U)(v_j + U) = T(v_j) + U = \lambda_j v_j + U = \lambda_j (v_j + U),
     \]
-    where $\lambda_k$ is the eigenvalue corresponding to the eigenvector $v_k$.
-    Hence, $\set{v_{m+1} + U, \ldots, v_n + U}$ is a basis of $V/U$ consisting of eigenvectors of $T/U$, so $T/U$ is diagonalizable.
+    so $V/U$ is spanned by eigenvectors of $T/U$.
+    We may reduce this spanning set to a basis of $V/U$ consisting of eigenvectors of $T/U$, so $T/U$ is diagonalizable.
 \end{sol}
 
 \begin{exercise}{5d19}
@@ -606,7 +618,8 @@
         |A_{j, j}| > \sum_{\substack{k=1 \\ k \neq j}}^{n} |A_{j, k}|
     \]
     for each $j \in \set{1, \ldots, n}$, then $T$ is invertible.
-    \textit{This exercise states that if the diagonal entries of the matrix of $T$ are large compared to the nondiagonal entries, then $T$ is invertible.}
+    
+    \note{This exercise states that if the diagonal entries of the matrix of $T$ are large compared to the nondiagonal entries, then $T$ is invertible.}
 \end{exercise}
 
 \begin{exercise}{5d23}
