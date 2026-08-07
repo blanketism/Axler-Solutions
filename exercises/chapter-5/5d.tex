@@ -11,7 +11,7 @@
 \end{exercise}
 
 \begin{solenum}
-    \item If $T^4 = I$, then the minimal polynomial of $T$ divides $z^4 - 1 = (z - 1)(z + 1)(z - i)(z + i)$, which has no repeated roots. Hence the minimal polynomial of $T$ has no repeated roots, so $T$ is diagonalizable.
+    \item If $T^4 = I$, then the minimal polynomial of $T$ divides $z^4 - 1 = (z - 1)(z + 1)(z - i)(z + i)$, which has no repeated roots. Hence, the minimal polynomial of $T$ has no repeated roots, so $T$ is diagonalizable.
     \item If $T^4 = T$, then the minimal polynomial of $T$ divides $z^4 - z = z(z - 1)(z - \omega)(z - \omega^2)$. This polynomial has no repeated roots, so the minimal polynomial of $T$ has no repeated roots, and hence $T$ is diagonalizable.
     \item Let $T \in \lin{\cbb^2}$ be defined by
     \[
@@ -402,7 +402,7 @@
 
     \note{The \emph{\textbf{greatest common divisor}} of $p$ and $p'$ is the monic polynomial $q$ of largest degree such that $p$ and $p'$ are both polynomial multiples of $q$.
     The Euclidean algorithm for polynomials (look it up) can quickly determine the greatest common divisor of two polynomials, without requiring any information about the zeros of the polynomials.
-    Thus the equivalence of (a) and (d) above shows that we can determine whether $T$ is diagonalizable without knowing anything about the zeros of $p$.}
+    Thus, the equivalence of (a) and (d) above shows that we can determine whether $T$ is diagonalizable without knowing anything about the zeros of $p$.}
 \end{exercise}
 
 \begin{sol}
@@ -602,7 +602,79 @@
         \frac{1 + \sqrt{5}}{2}
     \]
     is called the \textbf{golden ratio}.}
+
+    \remark{Part (e) uses the triangle inequality and creating ``zeros'' in the right places to show that the second term in the formula for $F_n$ is less than $1/2$ in absolute value.}
 \end{exercise}
+
+\begin{solenum}
+    \item We prove the statement by induction on $n$.
+    For the base case $n = 0$, we have $T^0(0, 1) = (0, 1) = (F_0, F_1)$.
+    Now suppose the statement holds for some nonnegative integer $n$.
+    Then
+    \begin{align*}
+        T^{n+1}(0, 1) &= T(T^n(0, 1)) \\
+        &= T(F_n, F_{n+1}) \\
+        &= (F_{n+1}, F_n + F_{n+1}) \\
+        &= (F_{n+1}, F_{n+2}),
+    \end{align*}
+    so the statement holds for $n + 1$.
+    \item Suppose $T(x, y) = \lambda (x, y)$ for some $\lambda \in \rbb$ and $(x, y) \in \rbb^2$ with $(x, y) \neq (0, 0)$.
+    Then
+    \[
+        (y, x + y) = (\lambda x, \lambda y),
+    \]
+    so $y = \lambda x$ and $x + y = \lambda y$.
+    We then have
+    \[
+        x + \lambda x = \lambda^2 x \implies (1 + \lambda - \lambda^2)x = 0.
+    \]
+    If $x = 0$, then $y = \lambda x = 0$, which is a contradiction.
+    Hence, $x \neq 0$, so we have
+    \[
+        \lambda^2 - \lambda - 1 = 0 \implies \lambda = \frac{1 \pm \sqrt{5}}{2}.
+    \]
+    \item Let
+    \[
+        \lambda_1 = \frac{1 + \sqrt{5}}{2}, \quad \lambda_2 = \frac{1 - \sqrt{5}}{2}.
+    \]
+
+    Using $y = \lambda x$, we have the basis $\set{(1, \lambda_1), (1, \lambda_2)}$ of $\rbb^2$ consisting of eigenvectors of $T$.
+    \item Let $v_1$ and $v_2$ be the eigenvectors of $T$ corresponding to the eigenvalues $\lambda_1$ and $\lambda_2$, respectively.
+    Since $v_1, v_2$ form a basis of $\rbb^2$, we may write $(0, 1) = \alpha v_1 + \beta v_2$ for some $\alpha, \beta \in \rbb$:
+    \[
+        (0, 1) = \alpha\left(1, \frac{1 + \sqrt{5}}{2}\right) + \beta\left(1, \frac{1 - \sqrt{5}}{2}\right) = (\alpha + \beta, \alpha\lambda_1 + \beta\lambda_2).
+    \]
+    Then $\alpha + \beta = 0$ and $\alpha\lambda_1 + \beta\lambda_2 = 1$, so $\beta = -\alpha$ and $\alpha(\lambda_1 - \lambda_2) = 1$.
+    Note that $\lambda_1 - \lambda_2 = \sqrt{5}$, so $\alpha = 1/\sqrt{5}$ and $\beta = -1/\sqrt{5}$.
+    Then
+    \begin{align*}
+        T^n(0, 1) &= T^n\left(\frac{1}{\sqrt{5}}v_1 - \frac{1}{\sqrt{5}}v_2\right) \\
+        &= \frac{1}{\sqrt{5}}T^n(v_1) - \frac{1}{\sqrt{5}}T^n(v_2) \\
+        &= \frac{1}{\sqrt{5}}\lambda_1^n v_1 - \frac{1}{\sqrt{5}}\lambda_2^n v_2 \\
+        &= \frac{1}{\sqrt{5}}\left(\lambda_1^n - \lambda_2^n, \lambda_1^{n+1} - \lambda_2^{n+1}\right).
+    \end{align*}
+    Hence, we have
+    \[
+        F_n = \frac{1}{\sqrt{5}}\left(\lambda_1^n - \lambda_2^n\right) = \frac{1}{\sqrt{5}}\left[\left(\frac{1 + \sqrt{5}}{2}\right)^n - \left(\frac{1 - \sqrt{5}}{2}\right)^n\right].
+    \]
+    \item Observe that $\frac{1}{\sqrt 5} < \frac{1}{2}$. Moreover,
+    \[
+        |\lambda_2| = \frac{\sqrt{5} - 1}{2} < 1
+    \]
+    since $\sqrt{5} < 3$.
+    Then for all $n \geq 0$, we have $|\lambda_2^n| \leq 1$, so
+    \[
+        \left|\frac{1}{\sqrt{5}}\lambda_2^n\right| < \frac{1}{2} \implies \left|\frac{1}{\sqrt{5}}\lambda_1^n - F_n\right| < \frac{1}{2}.
+    \]
+    
+    Let $m$ be an integer such that $m \neq F_n$.
+    Then $|m - F_n| \geq 1$, so
+    \[
+        \abs*{\frac{1}{\sqrt 5}\lambda_1^n - m} = \abs*{\frac{1}{\sqrt 5}\lambda_1^n - F_n + F_n - m} \geq \abs*{F_n - m} - \abs*{\frac{1}{\sqrt 5}\lambda_1^n - F_n} > 1 - \frac{1}{2} = \frac{1}{2}.
+    \]
+
+    Since the distance from $\frac{1}{\sqrt 5}\lambda_1^n$ to any integer other than $F_n$ is greater than $1/2$, we conclude that $F_n$ is the integer closest to $\frac{1}{\sqrt 5}\lambda_1^n$.
+\end{solenum}
 
 \begin{exercise}{5d22}
     Suppose $T \in \lin{V}$ and $A$ is an $n$-by-$n$ matrix that is the matrix of $T$ with respect to some basis of $V$.
@@ -615,7 +687,38 @@
     \note{This exercise states that if the diagonal entries of the matrix of $T$ are large compared to the nondiagonal entries, then $T$ is invertible.}
 \end{exercise}
 
+\begin{sol}
+    By Theorem 5.67, each eigenvalue $\lambda$ of $T$ lies in at least one of the Gershgorin disks
+    \[
+        D_j = \bigg\{z \in \cbb \biggm| |z - A_{j, j}| \leq \sum_{\substack{k=1 \\ k \neq j}}^{n} |A_{j, k}|\bigg\}.
+    \]
+    
+    If $\lambda = 0$ is an eigenvalue of $T$, then $0$ lies in at least one of the Gershgorin disks $D_j$.
+    However, by the given inequality, we have
+    \[
+        |0 - A_{j, j}| = |A_{j, j}| > \sum_{\substack{k=1 \\ k \neq j}}^{n} |A_{j, k}|,
+    \]
+    so $0 \notin D_j$ for each $j \in \set{1, \ldots, n}$.
+    Hence, $0$ is not an eigenvalue of $T$, so $T$ is invertible.
+\end{sol}
+
 \begin{exercise}{5d23}
     Suppose the definition of the Gershgorin disks is changed so that the radius of the $k^{\text{th}}$ disk is the sum of the absolute values of the entries in column (instead of row) $k$ of $A$, excluding the diagonal entry.
     Show that the Gershgorin disk theorem (5.67) still holds with this changed definition.
 \end{exercise}
+
+\begin{sol}
+    Let $A = \mcal(T)$ be the matrix of $T$ with respect to a basis $v_1, \ldots, v_n$ for $V$.
+    Let $\lambda$ be an eigenvalue of $T$.
+    By \exref{5d20}, we know $T$ and $T'$ have the same eigenvalues, so $\lambda$ is also an eigenvalue of $T'$.
+    Moreover, we know that the matrix of $T'$ with respect to the dual basis is just $A^t$.
+    Using Theorem 5.67 on $T'$, there must be some $k \in \set{1, \ldots, n}$ such that
+    \[
+        |\lambda - A^t_{k, k}| \leq \sum_{\substack{j=1 \\ j \neq k}}^{n} |A^t_{k, j}|.
+    \]
+    Since $A^t_{k, k} = A_{k, k}$ and $A^t_{k, j} = A_{j, k}$, we have
+    \[
+        |\lambda - A_{k, k}| \leq \sum_{\substack{j=1 \\ j \neq k}}^{n} |A_{j, k}|,
+    \]
+    so $\lambda$ lies in the $k^{\text{th}}$ Gershgorin disk with the changed definition.
+\end{sol}
