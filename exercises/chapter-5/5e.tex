@@ -4,6 +4,22 @@
     Give an example of two commuting operators $S, T$ on $\fbb^4$ such that there is a subspace of $\fbb^4$ that is invariant under $S$ but not under $T$ and there is a subspace of $\fbb^4$ that is invariant under $T$ but not under $S$.
 \end{exercise}
 
+\begin{sol}
+    Let $e_1, e_2, e_3, e_4$ be the standard basis of $\fbb^4$.
+    Consider the operators $S, T \in \lin{\fbb^4}$ defined by
+    \[
+        S(x, y, z, w) = (0, x, 0, 0) \quad \text{and} \quad T(x, y, z, w) = (0, 0, x, 0).
+    \]
+    Then
+    \begin{align*}
+        ST(x, y, z, w) &= S(0, 0, x, 0) = (0, 0, 0, 0), \\
+        TS(x, y, z, w) &= T(0, x, 0, 0) = (0, 0, 0, 0),
+    \end{align*}
+    so $ST = TS$.
+    The subspace $U = \spn(e_1, e_2)$ is invariant under $S$, since $Se_1 = e_2 \in U$ and $Se_2 = 0 \in U$, but not under $T$, since $Te_1 = e_3 \notin U$.
+    The subspace $W = \spn(e_1, e_3)$ is invariant under $T$, since $Te_1 = e_3 \in W$ and $Te_3 = 0 \in W$, but not under $S$, since $Se_1 = e_2 \notin W$.
+\end{sol}
+
 \begin{exercise}{5e2}
     Suppose $\ecal$ is a subset of $\lin{V}$ and every element of $\ecal$ is diagonalizable.
     Prove that there exists a basis of $V$ with respect to which every element of $\ecal$ has a diagonal matrix if and only if every pair of elements of $\ecal$ commutes.
@@ -11,6 +27,30 @@
     \note{This exercise extends 5.76, which considers the case in which $\ecal$ contains only two elements.
     For this exercise, $\ecal$ may contain any number of elements, and $\ecal$ may even be an infinite set.}
 \end{exercise}
+
+\begin{sol}
+    Suppose there exists a basis of $V$ with respect to which every element of $\ecal$ has a diagonal matrix.
+    Then every pair of elements of $\ecal$ commutes, since diagonal matrices commute.
+
+    Conversely, suppose every pair of elements of $\ecal$ commutes.
+    We proceed by induction on $\dim V$.
+    If $\dim V = 1$, then every operator on $V$ is diagonalizable and has a diagonal matrix with respect to any basis of $V$.
+    Now suppose $\dim V > 1$ and the statement holds for all vector spaces of dimension less than $\dim V$.
+    If every element of $\ecal$ is a scalar multiple of the identity operator, then every element of $\ecal$ has a diagonal matrix with respect to any basis of $V$.
+    Otherwise, there exists an operator $S \in \ecal$ that is not a scalar multiple of the identity operator.
+    Decompose $V$ into a direct sum of eigenspaces of $S$:
+    \[
+        V = E(\lambda_1, S) \oplus \cdots \oplus E(\lambda_m, S),
+    \]
+    where $\lambda_1, \ldots, \lambda_m$ are the distinct eigenvalues of $S$.
+    Since every element of $\ecal$ commutes with $S$, each eigenspace $E(\lambda_i, S)$ is invariant under every element of $\ecal$.
+    Since $S$ is not a scalar multiple of the identity, $m \geq 2$, so $\dim E(\lambda_i, S) < \dim V$ for each $i$.
+    For any $T \in \ecal$, Theorem 5.62 implies that the minimal polynomial of $T$ consists of distinct linear factors.
+    Since the minimal polynomial of $T|_{E(\lambda_i, S)}$ divides the minimal polynomial of $T$, it follows that $T|_{E(\lambda_i, S)}$ is diagonalizable.
+    Furthermore, any pair of elements of $\ecal$ commutes on $E(\lambda_i, S)$ since they commute on $V$ and $E(\lambda_i, S)$ is invariant.
+    By the induction hypothesis, for each $i$ there exists a basis of $E(\lambda_i, S)$ with respect to which every restricted element of $\ecal$ has a diagonal matrix.
+    Taking the union of these bases gives a basis of $V$ with respect to which every element of $\ecal$ has a diagonal matrix.
+\end{sol}
 
 \begin{exercise}{5e3}
     Suppose $S, T \in \lin{V}$ are such that $ST = TS$.
@@ -22,15 +62,113 @@
     \note{See 5.18 for the special case $S = T$.}
 \end{exercise}
 
+\begin{sol}
+    We first show that $ST = TS$ implies $S^n T = TS^n$ for every positive integer $n$ by induction on $n$.
+    The base case $n = 1$ is given.
+    Now suppose $S^n T = TS^n$ for some positive integer $n$.
+    Then
+    \[
+        S^{n+1} T = S(S^n T) = S(TS^n) = (ST)S^n = (TS)S^n = T(S^{n+1}),
+    \]
+    so $S^{n+1} T = TS^{n+1}$.
+    This completes the induction, so $S^n T = TS^n$ for all positive integers $n$.
+    Using this result, it follows that $p(S)T = Tp(S)$ for any polynomial $p \in \pcal(\fbb)$.
+    \begin{subexercises}
+        \item Suppose $v \in \nul p(S)$.
+        Then $p(S)v = 0$, so
+        \[
+            p(S)(Tv) = Tp(S)v = T(0) = 0,
+        \]
+        which shows that $Tv \in \nul p(S)$.
+        Thus, $\nul p(S)$ is invariant under $T$.
+        \item Suppose $v \in \range p(S)$.
+        Then there exists $u \in V$ such that $p(S)u = v$, so
+        \[
+            p(S)(Tu) = Tp(S)u = T(v),
+        \]
+        which shows that $Tv \in \range p(S)$.
+        Thus, $\range p(S)$ is invariant under $T$. \qedhere
+    \end{subexercises}
+\end{sol}
+
 \begin{exercise}{5e4}
     Prove or give a counterexample: If $A$ is a diagonal matrix and $B$ is an upper-triangular matrix of the same size as $A$, then $A$ and $B$ commute.
 \end{exercise}
+
+\begin{sol}
+    This statement is false.
+    Consider the diagonal matrix
+    \[
+        A = \begin{pmatrix}
+            1 & 0 \\
+            0 & 2
+        \end{pmatrix}
+    \]
+    and the upper-triangular matrix
+    \[
+        B = \begin{pmatrix}
+            0 & 1 \\
+            0 & 0
+        \end{pmatrix}.
+    \]
+    Then
+    \[
+        AB =
+        \begin{pmatrix}
+            1 & 0 \\
+            0 & 2
+        \end{pmatrix}
+        \begin{pmatrix}
+            0 & 1 \\
+            0 & 0
+        \end{pmatrix} = 
+        \begin{pmatrix}
+            0 & 1 \\
+            0 & 0
+        \end{pmatrix},
+    \]
+    but
+    \[
+        BA = 
+        \begin{pmatrix}
+            0 & 1 \\
+            0 & 0
+        \end{pmatrix}
+        \begin{pmatrix}
+            1 & 0 \\
+            0 & 2
+        \end{pmatrix} =
+        \begin{pmatrix}
+            0 & 2 \\
+            0 & 0
+        \end{pmatrix}.
+    \]
+    Since $AB \neq BA$, $A$ and $B$ do not commute.
+\end{sol}
 
 \begin{exercise}{5e5}
     Prove that a pair of operators on a finite-dimensional vector space commute if and only if their dual operators commute.
 
     \note{See 3.118 for the definition of the dual of an operator.}
 \end{exercise}
+
+\begin{sol}
+    Suppose $S, T \in \lin{V}$ commute.
+    Then for any $\phi \in V'$ and $v \in V$,
+    \[
+        (S'T'\phi)(v) = (T'\phi)(Sv) = \phi(TSv) = \phi(STv) = (S'\phi)(Tv) = (T'S'\phi)(v),
+    \]
+    so $S'T' = T'S'$.
+    
+    Conversely, suppose $S', T' \in \lin{V'}$ commute.
+    Applying the result we just proved to $S'$ and $T'$, we have that $(S')'(T')' = (T')'(S')'$, or equivalently $S''T'' = T''S''$.
+    By \exref{3f32}, we know that $S$ and $T$ are isomorphic to $S''$ and $T''$, respectively, via the isomorphism $\Lambda$.
+    Then
+    \[
+        \Lambda(S T) = S''T'' = T''S'' = \Lambda(T S),
+    \]
+    and injectivity of $\Lambda$ implies that $ST = TS$.
+\end{sol}
 
 \begin{exercise}{5e6}
     Suppose $V$ is a finite-dimensional complex vector space and $S, T \in \lin{V}$ commute.
@@ -40,15 +178,56 @@
     \]
 \end{exercise}
 
+\begin{sol}
+    Since $V$ is finite-dimensional and over $\cbb$, $S$ has an eigenvalue $\alpha \in \cbb$.
+    Let $W = \range(S - \alpha I)$.
+    Since $\nul(S - \alpha I) \neq \set 0$, the fundamental theorem of linear maps gives $W \neq V$, so $V/W$ is a nonzero complex finite-dimensional space.
+    Since $ST = TS$, the subspace $W$ is invariant under $T$: for $w = (S - \alpha I)u \in W$,
+    \[
+        Tw = T(S - \alpha I)u = (S - \alpha I)Tu \in W.
+    \]
+    Thus, the quotient operator $T/W \in \lin{V/W}$ is well-defined and has an eigenvalue $\lambda \in \cbb$.
+
+    Suppose for contradiction that $W + \range(T - \lambda I) = V$.
+    For every $v \in V$, write $v = w + (T - \lambda I)u$ with $w \in W$ and $u \in V$.
+    Then
+    \[
+        v + W = (T - \lambda I)u + W = (T/W - \lambda I)(u + W),
+    \]
+    so $T/W - \lambda I$ is surjective on $V/W$.
+    Since $V/W$ is finite-dimensional, $T/W - \lambda I$ is invertible, contradicting $\lambda$ being an eigenvalue of $T/W$.
+\end{sol}
+
 \begin{exercise}{5e7}
     Suppose $V$ is a complex vector space, $S \in \lin{V}$ is diagonalizable, and $T \in \lin{V}$ commutes with $S$.
     Prove that there is a basis of $V$ such that $S$ has a diagonal matrix with respect to this basis and $T$ has an upper-triangular matrix with respect to this basis.
 \end{exercise}
 
+\begin{sol}
+    Since $S$ is diagonalizable, we can decompose $V$ into a direct sum of eigenspaces of $S$:
+    \[
+        V = E(\lambda_1, S) \oplus \cdots \oplus E(\lambda_m, S),
+    \]
+    where $\lambda_1, \ldots, \lambda_m$ are the distinct eigenvalues of $S$.
+    Since $ST = TS$, each eigenspace $E(\lambda_i, S)$ is invariant under $T$.
+    Since $V$ is complex and each $E(\lambda_i, S)$ is invariant under $T$, there exists a basis of $E(\lambda_i, S)$ with respect to which $T|_{E(\lambda_i, S)}$ has an upper-triangular matrix by Theorem 5.44.
+    Let $\beta_i$ be such a basis of $E(\lambda_i, S)$, and let $\beta$ be the union of the $\beta_i$.
+    Since $V = E(\lambda_1, S) \oplus \cdots \oplus E(\lambda_m, S)$, $\beta$ is a basis of $V$.
+    Moreover, each basis vector in $\beta_i$ is an eigenvector of $S$, so $\mcal(S, \beta)$ is diagonal.
+    Lastly, for each $v \in \beta_i$, $Tv \in E(\lambda_i, S) = \spn(\beta_i)$.
+    By choice of $\beta_i$, $\mcal(T|_{E(\lambda_i, S)}, \beta_i)$ is upper-triangular, so $\mcal(T, \beta)$ is upper-triangular.
+\end{sol}
+
 \begin{exercise}{5e8}
     Suppose $m = 3$ in Example 5.72 and $D_x, D_y$ are the commuting partial differentiation operators on $\pcal_3(\rbb^2)$ from that example.
     Find a basis of $\pcal_3(\rbb^2)$ with respect to which $D_x$ and $D_y$ each have an upper-triangular matrix.
 \end{exercise}
+
+\begin{sol}
+    Consider the basis $1, x, y, x^2, xy, y^2, x^3, x^2y, xy^2, y^3$ of $\pcal_3(\rbb^2)$.
+    Enumerate the basis vectors as $v_1, \ldots, v_{10}$ in the order given.
+    Then $D_x v_j \in \spn(v_1, \ldots, v_{j-1})$ and $D_y v_j \in \spn(v_1, \ldots, v_{j-1})$ for each $j = 1, \ldots, 10$, so $\mcal(D_x)$ and $\mcal(D_y)$ are upper-triangular with respect to this basis.
+\end{sol}
 
 \begin{exercise}{5e9}
     Suppose $V$ is a finite-dimensional nonzero complex vector space.
@@ -61,8 +240,67 @@
     For this exercise, $\ecal$ may contain any number of elements, and $\ecal$ may even be an infinite set.}
 \end{exercise}
 
+\begin{solenum}
+    \item We proceed by induction on $\dim V$.
+    For the base case $\dim V = 1$, every nonzero vector in $V$ is an eigenvector for every element of $\ecal$.
+    Now suppose $\dim V > 1$ and the statement holds for all complex vector spaces of dimension less than $\dim V$.
+    Pick any $T \in \ecal$.
+    Since $V$ is complex and finite-dimensional, $T$ has an eigenvalue $\lambda \in \cbb$.
+    By \exref{5e3}, $E(\lambda, T)$ is invariant under every element of $\ecal$.
+
+    If $E(\lambda, T) = V$, then $T = \lambda I$, so every nonzero vector is an eigenvector of $T$.
+    If all elements of $\ecal$ are scalar multiples of the identity, then every nonzero vector is an eigenvector for every element of $\ecal$.
+    Otherwise, there exists an operator $S \in \ecal$ that is not a scalar multiple of the identity.
+    Let $\mu$ be an eigenvalue of $S$.
+    Then $E(\mu, S)$ is a nonzero proper subspace of $V$ that is invariant under every element of $\ecal$ by \exref{5e3}, so $\dim E(\mu, S) < \dim V$.
+    The restrictions $\set{R|_{E(\mu, S)} \mid R \in \ecal}$ pairwise commute because for any $R_1, R_2 \in \ecal$,
+    \[
+        R_1|_{E(\mu, S)} \, R_2|_{E(\mu, S)} = (R_1 R_2)|_{E(\mu, S)} = (R_2 R_1)|_{E(\mu, S)} = R_2|_{E(\mu, S)} \, R_1|_{E(\mu, S)}.
+    \]
+    By the inductive hypothesis, there exists a nonzero $v \in E(\mu, S)$ that is an eigenvector for every restriction, hence for every element of $\ecal$.
+    \item We proceed by induction on $\dim V$.
+    For the base case $\dim V = 1$, every operator on $V$ has an upper-triangular matrix with respect to any basis of $V$.
+    Now suppose $\dim V > 1$ and the statement holds for all complex vector spaces of dimension less than $\dim V$.
+    By part (a), there exists a nonzero $v_1 \in V$ that is an eigenvector for every element of $\ecal$.
+    Let $U = \spn(v_1)$.
+    Since $v_1$ is an eigenvector for every element of $\ecal$, $U$ is invariant under every element of $\ecal$, so the quotient operators $\set{T / U \mid T \in \ecal}$ on $V / U$ are well-defined.
+    For any $S, T \in \ecal$,
+    \[
+        (S / U)(T / U) = (ST) / U = (TS) / U = (T / U)(S / U),
+    \]
+    so the quotient operators pairwise commute.
+    Since $\dim(V / U) = \dim V - 1$, the inductive hypothesis gives a basis $v_2 + U, \ldots, v_n + U$ of $V / U$ with respect to which every $T / U$ has an upper-triangular matrix.
+    Then $v_1, v_2, \ldots, v_n$ is a basis of $V$.
+    For any $T \in \ecal$, $Tv_1 \in \spn(v_1)$ since $v_1$ is an eigenvector of $T$.
+    For $k \geq 2$, $T / U$ being upper-triangular gives $(T / U)(v_k + U) \in \spn(v_2 + U, \ldots, v_k + U)$, so $Tv_k \in \spn(v_1, v_2, \ldots, v_k)$.
+    Hence, every element of $\ecal$ has an upper-triangular matrix with respect to $v_1, \ldots, v_n$.
+\end{solenum}
+
 \begin{exercise}{5e10}
     Give an example of two commuting operators $S, T$ on a finite-dimensional real vector space such that $S + T$ has an eigenvalue that does not equal an eigenvalue of $S$ plus an eigenvalue of $T$ and $ST$ has an eigenvalue that does not equal an eigenvalue of $S$ times an eigenvalue of $T$.
     
     \note{This exercise shows that 5.81 does not hold on real vector spaces.}
 \end{exercise}
+
+\begin{sol}
+    Consider the operators $S, T \in \lin{\rbb^4}$ defined by
+    \[
+        S(x, y, z, w) = (-y, x, -w, z) \quad \text{and} \quad T(x, y, z, w) = (-y, x, w, -z).
+    \]
+    Then
+    \begin{align*}
+        ST(x, y, z, w) &= S(-y, x, w, -z) = (-x, -y, z, w), \\
+        TS(x, y, z, w) &= T(-y, x, -w, z) = (-x, -y, z, w),
+    \end{align*}
+    so $ST = TS$.
+    Note that $S$ and $T$ have no real eigenvalues, but
+    \[
+        (S + T)(x, y, z, w) = (-2y, 2x, 0, 0),
+    \]
+    so $S + T$ has eigenvalue $0$ with eigenvector $(0, 0, 1, 0)$.
+    Also,
+    \[
+        ST(x, y, z, w) = (-x, -y, z, w),
+    \]
+    so $ST$ has eigenvalue $-1$ with eigenvector $(1, 0, 0, 0)$.
+\end{sol}
