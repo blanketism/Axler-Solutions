@@ -1,0 +1,306 @@
+\section{Inner Product Spaces}
+
+\subsection{Inner Products and Norms}
+
+\begin{exercise}{6a1}
+    Prove or give a counterexample: If $v_1, \ldots, v_m \in V$, then
+    \[
+        \sum_{j=1}^{m} \sum_{k=1}^{m} \gen{v_j, v_k} \geq 0.
+    \]
+\end{exercise}
+
+\begin{exercise}{6a2}
+    Suppose $S \in \lin{V}$.
+    Define $\gen{\cdot, \cdot}_1$ by
+    \[
+        \gen{u, v}_1 = \gen{Su, Sv}
+    \]
+    for all $u, v \in V$.
+    Show that $\gen{\cdot, \cdot}_1$ is an inner product on $V$ if and only if $S$ is injective.
+\end{exercise}
+
+\begin{exercise}{6a3}
+    \begin{subexercises}
+        \item Show that the function taking an ordered pair $((x_1, x_2), (y_1, y_2))$ of elements of $\rbb^2$ to $|x_1 y_1| + |x_2 y_2|$ is not an inner product on $\rbb^2$.
+        \item Show that the function taking an ordered pair $((x_1, x_2, x_3), (y_1, y_2, y_3))$ of elements of $\rbb^3$ to $x_1 y_1 + x_3 y_3$ is not an inner product on $\rbb^3$.
+    \end{subexercises}
+\end{exercise}
+
+\begin{exercise}{6a4}
+    Suppose $T \in \lin{V}$ is such that $\norm{Tv} \leq \norm{v}$ for every $v \in V$.
+    Prove that $T - \sqrt{2}\, I$ is injective.
+\end{exercise}
+
+\begin{exercise}{6a5}
+    Suppose $V$ is a real inner product space.
+    \begin{subexercises}
+        \item Show that $\gen{u + v, u - v} = \norm{u}^2 - \norm{v}^2$ for every $u, v \in V$.
+        \item Show that if $u, v \in V$ have the same norm, then $u + v$ is orthogonal to $u - v$.
+        \item Use (b) to show that the diagonals of a rhombus are perpendicular to each other.
+    \end{subexercises}
+\end{exercise}
+
+\begin{exercise}{6a6}
+    Suppose $u, v \in V$.
+    Prove that $\gen{u, v} = 0 \iff \norm{u} \leq \norm{u + av}$ for all $a \in \fbb$.
+\end{exercise}
+
+\begin{exercise}{6a7}
+    Suppose $u, v \in V$.
+    Prove that $\norm{au + bv} = \norm{bu + av}$ for all $a, b \in \rbb$ if and only if $\norm{u} = \norm{v}$.
+\end{exercise}
+
+\begin{exercise}{6a8}
+    Suppose $a, b, c, x, y \in \rbb$ and $a^2 + b^2 + c^2 + x^2 + y^2 \leq 1$.
+    Prove that $a + b + c + 4x + 9y \leq 10$.
+\end{exercise}
+
+\begin{exercise}{6a9}
+    Suppose $u, v \in V$ and $\norm{u} = \norm{v} = 1$ and $\gen{u, v} = 1$.
+    Prove that $u = v$.
+\end{exercise}
+
+\begin{exercise}{6a10}
+    Suppose $u, v \in V$ and $\norm{u} \leq 1$ and $\norm{v} \leq 1$.
+    Prove that
+    \[
+        \sqrt{1 - \norm{u}^2}\sqrt{1 - \norm{v}^2} \leq 1 - |\gen{u, v}|.
+    \]
+\end{exercise}
+
+\begin{exercise}{6a11}
+    Find vectors $u, v \in \rbb^2$ such that $u$ is a scalar multiple of $(1, 3)$, $v$ is orthogonal to $(1, 3)$, and $(1, 2) = u + v$.
+\end{exercise}
+
+\begin{exercise}{6a12}
+    Suppose $a, b, c, d$ are positive numbers.
+    \begin{subexercises}
+        \item Prove that $(a + b + c + d)\left(\dfrac{1}{a} + \dfrac{1}{b} + \dfrac{1}{c} + \dfrac{1}{d}\right) \geq 16$.
+        \item For which positive numbers $a, b, c, d$ is the inequality above an equality?
+    \end{subexercises}
+\end{exercise}
+
+\begin{exercise}{6a13}
+    Show that the square of an average is less than or equal to the average of the squares.
+    More precisely, show that if $a_1, \ldots, a_n \in \rbb$, then the square of the average of $a_1, \ldots, a_n$ is less than or equal to the average of $a_1^2, \ldots, a_n^2$.
+\end{exercise}
+
+\begin{exercise}{6a14}
+    Suppose $v \in V$ and $v \neq 0$.
+    Prove that $v/\norm{v}$ is the unique closest element on the unit sphere of $V$ to $v$.
+    More precisely, prove that if $u \in V$ and $\norm{u} = 1$, then
+    \[
+        \left\|v - \frac{v}{\norm{v}}\right\| \leq \norm{v - u},
+    \]
+    with equality only if $u = v/\norm{v}$.
+\end{exercise}
+
+\begin{exercise}{6a15}
+    Suppose $u, v$ are nonzero vectors in $\rbb^2$.
+    Prove that
+    \[
+        \gen{u, v} = \norm{u}\, \norm{v} \cos\theta,
+    \]
+    where $\theta$ is the angle between $u$ and $v$ (thinking of $u$ and $v$ as arrows with initial point at the origin).
+
+    \hint{Use the law of cosines on the triangle formed by $u$, $v$, and $u - v$.}
+\end{exercise}
+
+\begin{exercise}{6a16}
+    The angle between two vectors (thought of as arrows with initial point at the origin) in $\rbb^2$ or $\rbb^3$ can be defined geometrically.
+    However, geometry is not as clear in $\rbb^n$ for $n > 3$.
+    Thus, the angle between two nonzero vectors $x, y \in \rbb^n$ is defined to be
+    \[
+        \arccos \frac{\gen{x, y}}{\norm{x}\, \norm{y}},
+    \]
+    where the motivation for this definition comes from \exref{6a15}.
+    Explain why the Cauchy--Schwarz inequality is needed to show that this definition makes sense.
+\end{exercise}
+
+\begin{exercise}{6a17}
+    Prove that
+    \[
+        \left(\sum_{k=1}^{n} a_k b_k\right)^2 \leq \left(\sum_{k=1}^{n} k a_k^2\right)\left(\sum_{k=1}^{n} \frac{b_k^2}{k}\right)
+    \]
+    for all real numbers $a_1, \ldots, a_n$ and $b_1, \ldots, b_n$.
+\end{exercise}
+
+\begin{exercise}{6a18}
+    \begin{subexercises}
+        \item Suppose $f\colon [1, \infty) \to [0, \infty)$ is continuous.
+        Show that
+        \[
+            \left(\int_1^{\infty} f\right)^2 \leq \int_1^{\infty} x^2(f(x))^2\, dx.
+        \]
+        \item For which continuous functions $f\colon [1, \infty) \to [0, \infty)$ is the inequality in (a) an equality with both sides finite?
+    \end{subexercises}
+\end{exercise}
+
+\begin{exercise}{6a19}
+    Suppose $v_1, \ldots, v_n$ is a basis of $V$ and $T \in \lin{V}$.
+    Prove that if $\lambda$ is an eigenvalue of $T$, then
+    \[
+        |\lambda|^2 \leq \sum_{j=1}^{n} \sum_{k=1}^{n} |\mcal(T)_{j,k}|^2,
+    \]
+    where $\mcal(T)_{j,k}$ denotes the entry in row $j$, column $k$ of the matrix of $T$ with respect to the basis $v_1, \ldots, v_n$.
+\end{exercise}
+
+\begin{exercise}{6a20}
+    Prove that if $u, v \in V$, then $\bigl|\, \norm{u} - \norm{v}\, \bigr| \leq \norm{u - v}$.
+    
+    \hint{The inequality above is called the \emph{\textbf{reverse triangle inequality}}.
+    For the reverse triangle inequality when $V = \cbb$, see \exref{4-2}.}
+\end{exercise}
+
+\begin{exercise}{6a21}
+    Suppose $u, v \in V$ are such that
+    \[
+        \norm{u} = 3, \quad \norm{u + v} = 4, \quad \norm{u - v} = 6.
+    \]
+    What number does $\norm{v}$ equal?
+\end{exercise}
+
+\begin{exercise}{6a22}
+    Show that if $u, v \in V$, then
+    \[
+        \norm{u + v}\, \norm{u - v} \leq \norm{u}^2 + \norm{v}^2.
+    \]
+\end{exercise}
+
+\begin{exercise}{6a23}
+    Suppose $v_1, \ldots, v_m \in V$ are such that $\norm{v_k} \leq 1$ for each $k = 1, \ldots, m$.
+    Show that there exist $a_1, \ldots, a_m \in \set{1, -1}$ such that
+    \[
+        \norm{a_1 v_1 + \cdots + a_m v_m} \leq \sqrt{m}.
+    \]
+\end{exercise}
+
+\begin{exercise}{6a24}
+    Prove or give a counterexample: If $\norm{\cdot}$ is the norm associated with an inner product on $\rbb^2$, then there exists $(x, y) \in \rbb^2$ such that $\norm{(x, y)} \neq \max\set{|x|, |y|}$.
+\end{exercise}
+
+\begin{exercise}{6a25}
+    Suppose $p > 0$.
+    Prove that there is an inner product on $\rbb^2$ such that the associated norm is given by
+    \[
+        \norm{(x, y)} = (|x|^p + |y|^p)^{1/p}
+    \]
+    for all $(x, y) \in \rbb^2$ if and only if $p = 2$.
+\end{exercise}
+
+\begin{exercise}{6a26}
+    Suppose $V$ is a real inner product space.
+    Prove that
+    \[
+        \gen{u, v} = \frac{\norm{u + v}^2 - \norm{u - v}^2}{4}
+    \]
+    for all $u, v \in V$.
+\end{exercise}
+
+\begin{exercise}{6a27}
+    Suppose $V$ is a complex inner product space.
+    Prove that
+    \[
+        \gen{u, v} = \frac{\norm{u + v}^2 - \norm{u - v}^2 + \norm{u + iv}^2 i - \norm{u - iv}^2 i}{4}
+    \]
+    for all $u, v \in V$.
+\end{exercise}
+
+\begin{exercise}{6a28}
+    A norm on a vector space $U$ is a function
+    \[
+        \norm{\cdot} \colon U \to [0, \infty)
+    \]
+    such that $\norm{u} = 0$ if and only if $u = 0$, $\norm{\alpha u} = |\alpha|\norm{u}$ for all $\alpha \in \fbb$ and all $u \in U$, and $\norm{u + v} \leq \norm{u} + \norm{v}$ for all $u, v \in U$.
+    Prove that a norm satisfying the parallelogram equality comes from an inner product (in other words, show that if $\norm{\cdot}$ is a norm on $U$ satisfying the parallelogram equality, then there is an inner product $\gen{\cdot, \cdot}$ on $U$ such that $\norm{u} = \gen{u, u}^{1/2}$ for all $u \in U$).
+\end{exercise}
+
+\begin{exercise}{6a29}
+    Suppose $V_1, \ldots, V_m$ are inner product spaces.
+    Show that the equation
+    \[
+        \gen{(u_1, \ldots, u_m), (v_1, \ldots, v_m)} = \gen{u_1, v_1} + \cdots + \gen{u_m, v_m}
+    \]
+    defines an inner product on $V_1 \times \cdots \times V_m$.
+    
+    \note{In the expression above on the right, for each $k = 1, \ldots, m$, the inner product $\gen{u_k, v_k}$ denotes the inner product on $V_k$.
+    Each of the spaces $V_1, \ldots, V_m$ may have a different inner product, even though the same notation is used here.}
+\end{exercise}
+
+\begin{exercise}{6a30}
+    Suppose $V$ is a real inner product space.
+    For $u, v, w, x \in V$, define
+    \[
+        \gen{u + iv, w + ix}_{\cbb} = \gen{u, w} + \gen{v, x} + (\gen{v, w} - \gen{u, x})i.
+    \]
+    \begin{subexercises}
+        \item Show that $\gen{\cdot, \cdot}_{\cbb}$ makes $V_{\cbb}$ into a complex inner product space.
+        \item Show that if $u, v \in V$, then
+        \[
+            \gen{u, v}_{\cbb} = \gen{u, v} \quad \text{and} \quad \norm{u + iv}_{\cbb}^2 = \norm{u}^2 + \norm{v}^2.
+        \]
+    \end{subexercises}
+    \hint{See \exref{1b8} for the definition of the complexification $V_{\cbb}$.}
+\end{exercise}
+
+\begin{exercise}{6a31}
+    Suppose $u, v, w \in V$.
+    Prove that
+    \[
+        \norm{w - \tfrac{1}{2}(u + v)}^2 = \frac{\norm{w - u}^2 + \norm{w - v}^2}{2} - \frac{\norm{u - v}^2}{4}.
+    \]
+\end{exercise}
+
+\begin{exercise}{6a32}
+    Suppose that $E$ is a subset of $V$ with the property that $u, v \in E$ implies $\frac{1}{2}(u + v) \in E$.
+    Let $w \in V$.
+    Show that there is at most one point in $E$ that is closest to $w$.
+    In other words, show that there is at most one $u \in E$ such that
+    \[
+        \norm{w - u} \leq \norm{w - x}
+    \]
+    for all $x \in E$.
+\end{exercise}
+
+\begin{exercise}{6a33}
+    Suppose $f, g$ are differentiable functions from $\rbb$ to $\rbb^n$.
+    \begin{subexercises}
+        \item Show that $\gen{f(t), g(t)}' = \gen{f'(t), g(t)} + \gen{f(t), g'(t)}$.
+        \item Suppose $c$ is a positive number and $\norm{f(t)} = c$ for every $t \in \rbb$.
+        Show that $\gen{f'(t), f(t)} = 0$ for every $t \in \rbb$.
+        \item Interpret the result in (b) geometrically in terms of the tangent vector to a curve lying on a sphere in $\rbb^n$ centered at the origin.
+    \end{subexercises}
+    \note{A function $f\colon \rbb \to \rbb^n$ is called differentiable if there exist differentiable functions $f_1, \ldots, f_n$ from $\rbb$ to $\rbb$ such that $f(t) = (f_1(t), \ldots, f_n(t))$ for each $t \in \rbb$.
+    Furthermore, for each $t \in \rbb$, the derivative $f'(t) \in \rbb^n$ is defined by $f'(t) = (f_1'(t), \ldots, f_n'(t))$.}
+\end{exercise}
+
+\begin{exercise}{6a34}
+    Use inner products to prove Apollonius's identity: In a triangle with sides of length $a$, $b$, and $c$, let $d$ be the length of the line segment from the midpoint of the side of length $c$ to the opposite vertex.
+    Then
+    \[
+        a^2 + b^2 = \tfrac{1}{2}c^2 + 2d^2.
+    \]
+\end{exercise}
+
+\begin{exercise}{6a35}
+    Fix a positive integer $n$.
+    The \emph{Laplacian} $\Delta p$ of a twice differentiable real-valued function $p$ on $\rbb^n$ is the function on $\rbb^n$ defined by
+    \[
+        \Delta p = \frac{\partial^2 p}{\partial x_1^2} + \cdots + \frac{\partial^2 p}{\partial x_n^2}.
+    \]
+    The function $p$ is called \textit{harmonic} if $\Delta p = 0$.
+
+    A \textit{polynomial} on $\rbb^n$ is a linear combination (with coefficients in $\rbb$) of functions of the form $x_1^{m_1} \cdots x_n^{m_n}$, where $m_1, \ldots, m_n$ are nonnegative integers.
+
+    Suppose $q$ is a polynomial on $\rbb^n$.
+    Prove that there exists a harmonic polynomial $p$ on $\rbb^n$ such that $p(x) = q(x)$ for every $x \in \rbb^n$ with $\norm{x} = 1$.
+
+    \note{The only fact about harmonic functions that you need for this exercise is that if $p$ is a harmonic function on $\rbb^n$ and $p(x) = 0$ for all $x \in \rbb^n$ with $\norm{x} = 1$, then $p = 0$.}
+
+    \hint{A reasonable guess is that the desired harmonic polynomial $p$ is of the form $q + (1 - \norm{x}^2)r$ for some polynomial $r$.
+    Prove that there is a polynomial $r$ on $\rbb^n$ such that $q + (1 - \norm{x}^2)r$ is harmonic by defining an operator $T$ on a suitable vector space by
+    \[
+        Tr = \Delta((1 - \norm{x}^2)r)
+    \]
+    and then showing that $T$ is injective and hence surjective.}
+\end{exercise}
