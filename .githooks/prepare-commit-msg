@@ -7,8 +7,8 @@ from collections import defaultdict
 
 EXERCISE_RE = re.compile(r"\\begin\{exercise\}[\{\[]([^}\]]+)[\}\]]")
 UNLABELED_RE = re.compile(r"\\begin\{exercise\}(?![\{\[])")
-SOL_START_RE = re.compile(r"\\begin\{sol\}")
-SOL_END_RE = re.compile(r"\\end\{sol\}")
+SOL_START_RE = re.compile(r"\\begin\{(?:sol|solenum|solitem)\}")
+SOL_END_RE = re.compile(r"\\end\{(?:sol|solenum|solitem)\}")
 EXERCISE_END_RE = re.compile(r"\\end\{exercise\}")
 
 
