@@ -266,7 +266,7 @@
     \[
         Rv = S\inv T S v = \lambda v \implies T(Sv) = \lambda Sv
     \]
-    for every eigenvalue $\lambda$ of $R$ and some eigenvector $v \in E(\lambda, R)$.
+    for every eigenvalue $\lambda$ of $R$ and every eigenvector $v \in E(\lambda, R)$.
     Hence, the map $S|_{E(\lambda, R)}$ maps $E(\lambda, R)$ to $E(\lambda, T)$.
     Since $S$ is invertible, $S|_{E(\lambda, R)}$ is injective, so $\dim E(\lambda, R) \leq \dim E(\lambda, T)$.
     However, $\dim E(7, R) = 2 > 1 = \dim E(7, T)$, so there does not exist an invertible operator $S \in \lin{\fbb^4}$ such that $R = S\inv T S$.
@@ -539,8 +539,8 @@
     Let $U = \spn\set{(1, 0)}$.
     Then $U$ is invariant under $T$ since $T(1, 0) = (0, 0) \in U$.
     The operator $T|_U$ is diagonalizable because it is the zero operator on a one-dimensional space.
-    The quotient operator $V/U$ is one-dimensional, so $T/U$ is diagonalizable.
-    However, $T$ is not diagonalizable because the only eigenvalue of $T$ is $1$, and $\dim E(1, T) = 1 < 2 = \dim \fbb^2$.
+    The quotient space $V/U$ is one-dimensional, so $T/U$ is diagonalizable.
+    However, $T$ is not diagonalizable because the only eigenvalue of $T$ is $0$, and $\dim E(0, T) = 1 < 2 = \dim \fbb^2$.
 \end{sol}
 
 \begin{exercise}{5d20}

@@ -162,9 +162,9 @@
 	Hence, all the scalars are zero, proving that $E$ is invertible.
 
     Conversely, suppose there exists an invertible $E \in \lin{V}$ such that $S = TE$.
-	If $w \in \range S$, then there exists some $v \in V$ such that $Sv = w$.
-	Since $S = TE$, we have $TEv = w$, and thus $w \in \range T$.
-	Hence, $\range S \subseteq \range T$.
+	We have that $\range S \subseteq \range T$ by \exref{3b26}.
+    Because $E$ is invertible, we also have that $T = SE\inv$, so $\range T \subseteq \range S$ by the same reasoning.
+    Hence, $\range S = \range T$.
 	Similarly, if $w \in \range T$, then there exists some $v \in V$ such that $Tv = w$.
 	Since $E$ is invertible, there exists some $u \in V$ such that $Eu = v$.
 	Then we have

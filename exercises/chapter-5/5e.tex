@@ -34,6 +34,7 @@
 
     Conversely, suppose every pair of elements of $\ecal$ commutes.
     We proceed by induction on $\dim V$.
+    If $\dim V = 0$, then $\emptyset$ is a basis, every element of $\ecal$ has empty matrix representation, and every pair of elements of $\ecal$ commutes.
     If $\dim V = 1$, then every operator on $V$ is diagonalizable and has a diagonal matrix with respect to any basis of $V$.
     Now suppose $\dim V > 1$ and the statement holds for all vector spaces of dimension less than $\dim V$.
     If every element of $\ecal$ is a scalar multiple of the identity operator, then every element of $\ecal$ has a diagonal matrix with respect to any basis of $V$.
@@ -45,11 +46,11 @@
     where $\lambda_1, \ldots, \lambda_m$ are the distinct eigenvalues of $S$.
     Since every element of $\ecal$ commutes with $S$, each eigenspace $E(\lambda_i, S)$ is invariant under every element of $\ecal$.
     Since $S$ is not a scalar multiple of the identity, $m \geq 2$, so $\dim E(\lambda_i, S) < \dim V$ for each $i$.
-    For any $T \in \ecal$, Theorem 5.62 implies that the minimal polynomial of $T$ consists of distinct linear factors.
+    For any $T \in \ecal$, Theorem 5.62 implies that the minimal polynomial of $T$ is a product of distinct linear factors.
     Since the minimal polynomial of $T|_{E(\lambda_i, S)}$ divides the minimal polynomial of $T$, it follows that $T|_{E(\lambda_i, S)}$ is diagonalizable.
     Furthermore, any pair of elements of $\ecal$ commutes on $E(\lambda_i, S)$ since they commute on $V$ and $E(\lambda_i, S)$ is invariant.
     By the induction hypothesis, for each $i$ there exists a basis of $E(\lambda_i, S)$ with respect to which every restricted element of $\ecal$ has a diagonal matrix.
-    Taking the union of these bases gives a basis of $V$ with respect to which every element of $\ecal$ has a diagonal matrix.
+    Concatenating these bases gives a basis of $V$ with respect to which every element of $\ecal$ has a diagonal matrix.
 \end{sol}
 
 \begin{exercise}{5e3}
@@ -63,15 +64,15 @@
 \end{exercise}
 
 \begin{sol}
-    We first show that $ST = TS$ implies $S^n T = TS^n$ for every positive integer $n$ by induction on $n$.
-    The base case $n = 1$ is given.
+    We first show that $ST = TS$ implies $S^n T = TS^n$ for every nonnegative integer $n$ by induction on $n$.
+    The base 
     Now suppose $S^n T = TS^n$ for some positive integer $n$.
     Then
     \[
         S^{n+1} T = S(S^n T) = S(TS^n) = (ST)S^n = (TS)S^n = T(S^{n+1}),
     \]
     so $S^{n+1} T = TS^{n+1}$.
-    This completes the induction, so $S^n T = TS^n$ for all positive integers $n$.
+    This completes the induction, so $S^n T = TS^n$ for all nonnegative integers $n$.
     Using this result, it follows that $p(S)T = Tp(S)$ for any polynomial $p \in \pcal(\fbb)$.
     \begin{subexercises}
         \item Suppose $v \in \nul p(S)$.
@@ -163,9 +164,9 @@
     Conversely, suppose $S', T' \in \lin{V'}$ commute.
     Applying the result we just proved to $S'$ and $T'$, we have that $(S')'(T')' = (T')'(S')'$, or equivalently $S''T'' = T''S''$.
     By \exref{3f32}, we know that $S$ and $T$ are isomorphic to $S''$ and $T''$, respectively, via the isomorphism $\Lambda$.
-    Then
+    Then for any $v \in V$,
     \[
-        \Lambda(S T) = S''T'' = T''S'' = \Lambda(T S),
+        \Lambda(S Tv) = S''T''\Lambda(v) = T''S''\Lambda(v) = \Lambda(T Sv),
     \]
     and injectivity of $\Lambda$ implies that $ST = TS$.
 \end{sol}
@@ -179,6 +180,7 @@
 \end{exercise}
 
 \begin{sol}
+    Assume $V \neq \set 0$.
     Since $V$ is finite-dimensional and over $\cbb$, $S$ has an eigenvalue $\alpha \in \cbb$.
     Let $W = \range(S - \alpha I)$.
     Since $\nul(S - \alpha I) \neq \set 0$, the fundamental theorem of linear maps gives $W \neq V$, so $V/W$ is a nonzero complex finite-dimensional space.
@@ -244,7 +246,7 @@
     \item We proceed by induction on $\dim V$.
     For the base case $\dim V = 1$, every nonzero vector in $V$ is an eigenvector for every element of $\ecal$.
     Now suppose $\dim V > 1$ and the statement holds for all complex vector spaces of dimension less than $\dim V$.
-    Pick any $T \in \ecal$.
+    If $\ecal = \emptyset$, then any nonzero vector in $V$ is an eigenvector for every element of $\ecal$.
     Since $V$ is complex and finite-dimensional, $T$ has an eigenvalue $\lambda \in \cbb$.
     By \exref{5e3}, $E(\lambda, T)$ is invariant under every element of $\ecal$.
 
