@@ -164,29 +164,20 @@
     \]
     The minimal polynomial of $ST$ is $p(z) = z^2$, since $ST \neq 0$ but $(ST)^2 = 0$, while the minimal polynomial of $TS$ is $q(z) = z$.
 	Hence, the minimal polynomials of $ST$ and $TS$ are not equal.
-    \item Without loss of generality, suppose $S$ is invertible.
-	We claim that $(TS)^n = S\inv (ST)^n S$ for all positive integers $n$.
-
-	We prove this by induction on $n$.
-	For the base case $n = 1$, we have $(TS)^1 = TS = S\inv (ST) S$.
-	Now suppose the claim holds for some positive integer $k$, i.e., $(TS)^k = S\inv (ST)^k S$.
-	Then
+    \item Without loss of generality, suppose $S$ is invertible, and note that $ST = STSS\inv$.
+    Let $p$ be the minimal polynomial of $TS$.
+    By \exref{5a40}, we have
     \[
-    	(TS)^{k+1} = (TS)^k (TS) = S\inv (ST)^k S (TS) = S\inv (ST)^k (ST) S = S\inv (ST)^{k+1} S.
+        p(ST) = p(S(TS)S\inv) = Sp(TS)S\inv = 0,
     \]
-    By induction, the claim holds for all positive integers $n$.
-	Let $p = z^m + a_{m-1} z^{m-1} + \cdots + a_1 z + a_0$ be the minimal polynomial of $ST$.
-	Then
-    \begin{align*}
-        p(TS) &= (TS)^m + a_{m-1} (TS)^{m-1} + \cdots + a_1 (TS) + a_0 I \\
-        &= S\inv (ST)^m S + a_{m-1} S\inv (ST)^{m-1} S + \cdots + a_1 S\inv (ST) S + S\inv(a_0 I)S \\
-        &= S\inv ((ST)^m + a_{m-1} (ST)^{m-1} + \cdots + a_1 (ST) + a_0 I) S \\
-        &= S\inv p(ST) S = 0,
-    \end{align*}
-    where $S\inv S = I$ implies $S\inv (a_0I) S = a_0 I$.
-	Hence, $p$ annihilates $TS$, and since $p$ is the minimal polynomial of $ST$, it follows that the minimal polynomial $q$ of $TS$ divides $p$.
-	Observing that $ST = S(TS)S\inv$, we can similarly show that $q$ annihilates $ST$, and thus $p$ divides $q$.
-	Therefore, $p = q$, and the minimal polynomials of $ST$ and $TS$ are equal.
+    so $p$ annihilates $ST$.
+    Similarly, let $q$ be the minimal polynomial of $ST$.
+    Then
+    \[
+        q(TS) = q(S\inv(ST)S) = S\inv q(ST) S = 0
+    \]
+    as $TS = S\inv(ST)S$.
+    Therefore, since $p$ annihilates $ST$, $p$ divides $q$, and since $q$ annihilates $TS$, $q$ divides $p$, so $p = q$.
 \end{solenum}
 
 \begin{exercise}{5b8}

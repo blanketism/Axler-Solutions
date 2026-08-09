@@ -285,24 +285,11 @@
 \end{exercise}
 
 \begin{sol}
-    Consider the operators $S, T \in \lin{\rbb^4}$ defined by
+    Consider the operators $S, T \in \lin{\rbb^2}$ defined by
     \[
-        S(x, y, z, w) = (-y, x, -w, z) \quad \text{and} \quad T(x, y, z, w) = (-y, x, w, -z).
+        S(x, y) = (-y, x) \quad \text{and} \quad T(x, y) = (y, -x).
     \]
-    Then
-    \begin{align*}
-        ST(x, y, z, w) &= S(-y, x, w, -z) = (-x, -y, z, w), \\
-        TS(x, y, z, w) &= T(-y, x, -w, z) = (-x, -y, z, w),
-    \end{align*}
-    so $ST = TS$.
-    Note that $S$ and $T$ have no real eigenvalues, but
-    \[
-        (S + T)(x, y, z, w) = (-2y, 2x, 0, 0),
-    \]
-    so $S + T$ has eigenvalue $0$ with eigenvector $(0, 0, 1, 0)$.
-    Also,
-    \[
-        ST(x, y, z, w) = (-x, -y, z, w),
-    \]
-    so $ST$ has eigenvalue $-1$ with eigenvector $(1, 0, 0, 0)$.
+    Since both are rotation operators, they commute.
+    Neither $S$ nor $T$ has any real eigenvalues since no nonzero vector in $\rbb^2$ is a scalar multiple of its image under either operator.
+    However, $S + T$ is the zero operator, which has eigenvalue $0$, and $ST = I$, which has eigenvalue $1$.
 \end{sol}
