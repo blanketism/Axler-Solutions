@@ -9,6 +9,13 @@
     \]
 \end{exercise}
 
+\begin{sol}
+    By the additivity of inner products in the first slot, we have
+    \[
+        \sum_{j=1}^{m} \sum_{k=1}^{m} \gen{v_j, v_k} = \gen*{\sum_{j=1}^{m} v_j, \sum_{k=1}^{m} v_k} = \norm*{\sum_{j=1}^{m} v_j}^2 \geq 0. \qedhere
+    \]
+\end{sol}
+
 \begin{exercise}{6a2}
     Suppose $S \in \lin{V}$.
     Define $\gen{\cdot, \cdot}_1$ by
@@ -19,6 +26,21 @@
     Show that $\gen{\cdot, \cdot}_1$ is an inner product on $V$ if and only if $S$ is injective.
 \end{exercise}
 
+\begin{sol}
+    Define $\gen{\cdot, \cdot}_1 = \gen{Su, Sv}$ for all $u, v \in V$.
+    From the linearity of $S$ and the properties of the regular inner product $\gen{\cdot, \cdot}$, we see that $\gen{\cdot, \cdot}_1$ holds the properties:
+    \begin{itemize}
+        \item $\gen{u, v}_1 = \gen{Su, Sv} = \bar{\gen{Sv, Su}} = \bar{\gen{v, u}_1}$ for all $u, v \in V$.
+        \item $\gen{u + w, v}_1 = \gen{S(u + w), Sv} = \gen{Su + Sw, Sv} = \gen{Su, Sv} + \gen{Sw, Sv} = \gen{u, v}_1 + \gen{w, v}_1$ for all $u, v, w \in V$.
+        \item $\gen{\alpha u, v}_1 = \gen{S(\alpha u), Sv} = \gen{\alpha Su, Sv} = \alpha \gen{Su, Sv} = \alpha \gen{u, v}_1$ for all $u, v \in V$ and $\alpha \in \fbb$.
+        \item $\gen{u, u}_1 = \gen{Su, Su} = \norm{Su}^2 \geq 0$ for all $u \in V$.
+    \end{itemize}
+    The only property that may not hold is definiteness.
+
+    If $S$ is injective, then $\gen{u, u}_1 = 0 \implies \norm{Su}^2 = 0 \implies Su = 0 \implies u = 0$, so definiteness holds.
+    Conversely, if $\gen{\cdot, \cdot}_1$ is an inner product, then definiteness holds, so $Su = 0 \implies \gen{u, u}_1 = 0 \implies u = 0$, so $S$ is injective.
+\end{sol}
+
 \begin{exercise}{6a3}
     \begin{subexercises}
         \item Show that the function taking an ordered pair $((x_1, x_2), (y_1, y_2))$ of elements of $\rbb^2$ to $|x_1 y_1| + |x_2 y_2|$ is not an inner product on $\rbb^2$.
@@ -26,10 +48,32 @@
     \end{subexercises}
 \end{exercise}
 
+\begin{solenum}
+    \item It is not linear in the first slot, since
+    \[
+        \gen{(1, 0) + (0, 1), (1, 0)} = \gen{(1, 1), (1, 0)} = |1 \cdot 1| + |1 \cdot 0| = 1,
+    \]
+    but
+    \[
+        \gen{(1, 0), (1, 0)} + \gen{(0, 1), (1, 0)} = |1 \cdot 1| + |0 \cdot 0| + |0 \cdot 1| + |1 \cdot 0| = 2.
+    \]
+    \item It is not positive definite, since $(0, 1, 0) \neq (0, 0, 0)$ but
+    \[
+        \gen{(0, 1, 0), (0, 1, 0)} = 0 \cdot 0 + 0 \cdot 0 = 0. \qedhere
+    \]
+\end{solenum}
+
 \begin{exercise}{6a4}
     Suppose $T \in \lin{V}$ is such that $\norm{Tv} \leq \norm{v}$ for every $v \in V$.
-    Prove that $T - \sqrt{2}\, I$ is injective.
+    Prove that $T - \sqrt{2}I$ is injective.
 \end{exercise}
+
+\begin{sol}
+    Suppose $v \in V$ is such that $(T - \sqrt{2}I)v = 0$.
+    Then $Tv = \sqrt{2}v$, so $\norm{Tv} = \sqrt{2}\norm{v}$.
+    But $\norm{Tv} \leq \norm{v}$, so $\sqrt{2}\norm{v} \leq \norm{v}$, which implies $\norm{v} = 0$, so $v = 0$.
+    Thus, $T - \sqrt{2}I$ is injective.
+\end{sol}
 
 \begin{exercise}{6a5}
     Suppose $V$ is a real inner product space.
@@ -40,25 +84,96 @@
     \end{subexercises}
 \end{exercise}
 
+\begin{solenum}
+    \item We have
+    \begin{align*}
+        \gen{u + v, u - v} &= \gen{u, u - v} + \gen{v, u - v} \\
+        &= \gen{u, u} - \gen{u, v} + \gen{v, u} - \gen{v, v} \\
+        &= \norm{u}^2 - \norm{v}^2.
+    \end{align*}
+    \item If $\norm{u} = \norm{v}$, then $\gen{u + v, u - v} = \norm{u}^2 - \norm{v}^2 = 0$, so $u + v$ is orthogonal to $u - v$.
+    \item Let $u$ and $v$ be the vectors corresponding to two adjacent sides of a rhombus.
+    Then $\norm{u} = \norm{v}$, so $u + v$ is orthogonal to $u - v$.
+\end{solenum}
+
 \begin{exercise}{6a6}
     Suppose $u, v \in V$.
     Prove that $\gen{u, v} = 0 \iff \norm{u} \leq \norm{u + av}$ for all $a \in \fbb$.
 \end{exercise}
+
+\begin{sol}
+    Suppose $\gen{u, v} = 0$.
+    Then for any $a \in \fbb$, we have
+    \[
+        \norm{u + av}^2 = \gen{u + av, u + av} = \gen{u, u} + a\gen{v, u} + \bar{a}\gen{u, v} + |a|^2\gen{v, v} = \norm{u}^2 + |a|^2\norm{v}^2 \geq \norm{u}^2,
+    \]
+    so $\norm{u + av} \geq \norm{u}$.
+
+    Conversely, suppose $\norm{u} \leq \norm{u + av}$ for all $a \in \fbb$.
+    If $v = 0$, then $\gen{u, v} = 0$.
+    Otherwise, $v \neq 0$.
+    Let
+    \[
+        a = -\frac{\gen{u, v}}{\norm{v}^2}.
+    \]
+    Then
+    \begin{align*}
+        \norm{u + av}^2 &= \gen{u + av, u + av} \\
+        &= \gen{u, u} + a\gen{v, u} + \bar{a}\gen{u, v} + |a|^2\gen{v, v} \\
+        &= \norm{u}^2 - \frac{\gen{u, v}}{\norm{v}^2}\gen{v, u} - \frac{\bar{\gen{u, v}}}{\norm{v}^2}\gen{u, v} + \frac{|\gen{u, v}|^2}{\norm{v}^4}\norm{v}^2 \\
+        &= \norm{u}^2 - \frac{|\gen{u, v}|^2}{\norm{v}^2} - \frac{|\gen{u, v}|^2}{\norm{v}^2} + \frac{|\gen{u, v}|^2}{\norm{v}^2} \\
+        &= \norm{u}^2 - \frac{|\gen{u, v}|^2}{\norm{v}^2}.
+    \end{align*}
+    Since $\norm{u} \leq \norm{u + av}$, we have
+    \begin{align*}
+        \norm{u}^2 &\leq \norm{u + av}^2 \\
+        &= \norm{u}^2 - \frac{|\gen{u, v}|^2}{\norm{v}^2}.
+    \end{align*}
+    Therefore, $|\gen{u, v}|^2 \leq 0$, which implies $\gen{u, v} = 0$.
+\end{sol}
 
 \begin{exercise}{6a7}
     Suppose $u, v \in V$.
     Prove that $\norm{au + bv} = \norm{bu + av}$ for all $a, b \in \rbb$ if and only if $\norm{u} = \norm{v}$.
 \end{exercise}
 
+\begin{sol}
+    For all $a, b \in \rbb$, we have
+    \begin{align*}
+        \norm{au + bv}^2 = \norm{bu + av}^2 &\iff \gen{au + bv, au + bv} = \gen{bu + av, bu + av} \\
+        &\iff a^2\norm{u}^2 + 2ab\Re\gen{u, v} + b^2\norm{v}^2 = b^2\norm{u}^2 + 2ab\Re\gen{u, v} + a^2\norm{v}^2 \\
+        &\iff (a^2 - b^2)(\norm{u}^2 - \norm{v}^2) = 0.
+    \end{align*}
+    Since there exist $a, b \in \rbb$ such that $a^2 - b^2 \neq 0$, we have $\norm{au + bv} = \norm{bu + av}$ for all $a, b \in \rbb$ if and only if $\norm{u}^2 - \norm{v}^2 = 0$, which is equivalent to $\norm{u} = \norm{v}$.
+\end{sol}
+
 \begin{exercise}{6a8}
     Suppose $a, b, c, x, y \in \rbb$ and $a^2 + b^2 + c^2 + x^2 + y^2 \leq 1$.
     Prove that $a + b + c + 4x + 9y \leq 10$.
 \end{exercise}
 
+\begin{sol}
+    Let $u = (a, b, c, x, y)$ and $v = (1, 1, 1, 4, 9)$.
+    Then $\norm{u}^2 = a^2 + b^2 + c^2 + x^2 + y^2 \leq 1$ and $\norm{v}^2 = 1^2 + 1^2 + 1^2 + 4^2 + 9^2 = 99$.
+    By the Cauchy--Schwarz inequality, we have
+    \[
+        a + b + c + 4x + 9y = \gen{u, v} \leq |\gen{u, v}| \leq \norm{u}\,\norm{v} \leq \sqrt{99} < 10. \qedhere
+    \]
+\end{sol}
+
 \begin{exercise}{6a9}
     Suppose $u, v \in V$ and $\norm{u} = \norm{v} = 1$ and $\gen{u, v} = 1$.
     Prove that $u = v$.
 \end{exercise}
+
+\begin{sol}
+    We have
+    \[
+        \norm{u - v}^2 = \gen{u - v, u - v} = \gen{u, u} - \gen{u, v} - \gen{v, u} + \gen{v, v} = 1 - 1 - 1 + 1 = 0,
+    \]
+    where $\gen{v, u} = \bar{\gen{u, v}} = \bar 1 = 1$.
+    Therefore, $\norm{u - v} = 0$, which implies $u - v = 0$, so $u = v$.
+\end{sol}
 
 \begin{exercise}{6a10}
     Suppose $u, v \in V$ and $\norm{u} \leq 1$ and $\norm{v} \leq 1$.
@@ -68,9 +183,33 @@
     \]
 \end{exercise}
 
+\begin{sol}
+    Consider the vectors $(\norm{u}, \sqrt{1 - \norm{u}^2})$ and $(\norm{v}, \sqrt{1 - \norm{v}^2})$ in $\rbb^2$.
+    By the Cauchy--Schwarz inequality, we have
+    \[
+        \norm{u}\,\norm{v} + \sqrt{1 - \norm{u}^2}\sqrt{1 - \norm{v}^2} \leq \sqrt{\norm{u}^2 + 1 - \norm{u}^2}\sqrt{\norm{v}^2 + 1 - \norm{v}^2} = 1.
+    \]
+    By the Cauchy--Schwarz inequality, we also have $|\gen{u, v}| \leq \norm{u}\,\norm{v}$.
+    Therefore,
+    \[
+        \sqrt{1 - \norm{u}^2}\sqrt{1 - \norm{v}^2} \leq 1 - \norm{u}\,\norm{v} \leq 1 - |\gen{u, v}|. \qedhere
+    \]
+\end{sol}
+
 \begin{exercise}{6a11}
     Find vectors $u, v \in \rbb^2$ such that $u$ is a scalar multiple of $(1, 3)$, $v$ is orthogonal to $(1, 3)$, and $(1, 2) = u + v$.
 \end{exercise}
+
+\begin{sol}
+    Let $u = a(1, 3) = (a, 3a)$ for some $a \in \rbb$.
+    Then $v = (1, 2) - u = (1 - a, 2 - 3a)$.
+    Since $v$ is orthogonal to $(1, 3)$, we have
+    \[
+        \gen{v, (1, 3)} = (1 - a) + 3(2 - 3a) = 7 - 10a = 0,
+    \]
+    which implies $a = \frac{7}{10}$.
+    Therefore, $u = \left(\frac{7}{10}, \frac{21}{10}\right)$ and $v = \left(\frac{3}{10}, -\frac{1}{10}\right)$.
+\end{sol}
 
 \begin{exercise}{6a12}
     Suppose $a, b, c, d$ are positive numbers.
@@ -80,10 +219,52 @@
     \end{subexercises}
 \end{exercise}
 
+\begin{solenum}
+    \item Consider the vectors in $\rbb^4$:
+    \begin{align*}
+        u &= \left(\sqrt{a}, \sqrt{b}, \sqrt{c}, \sqrt{d}\right) \implies \norm{u}^2 = a + b + c + d, \\
+        v &= \left(\frac{1}{\sqrt{a}}, \frac{1}{\sqrt{b}}, \frac{1}{\sqrt{c}}, \frac{1}{\sqrt{d}}\right) \implies \norm{v}^2 = \frac{1}{a} + \frac{1}{b} + \frac{1}{c} + \frac{1}{d}.
+    \end{align*}
+    Note that
+    \[
+        \gen{u, v} = \sqrt{a}\cdot\frac{1}{\sqrt{a}} + \sqrt{b}\cdot\frac{1}{\sqrt{b}} + \sqrt{c}\cdot\frac{1}{\sqrt{c}} + \sqrt{d}\cdot\frac{1}{\sqrt{d}} = 4.
+    \]
+    By the Cauchy--Schwarz inequality, we have $|\gen{u, v}| \leq \norm{u}\,\norm{v}$, so
+    \[
+        16 = |\gen{u, v}|^2 \leq \norm{u}^2\,\norm{v}^2 = (a + b + c + d)\left(\frac{1}{a} + \frac{1}{b} + \frac{1}{c} + \frac{1}{d}\right).
+    \]
+    \item By the equality condition of the Cauchy--Schwarz inequality, we have equality if and only if $u$ is a scalar multiple of $v$.
+    If $u = \alpha v$ for some $\alpha \in \rbb$, then
+    \[
+        \begin{cases}
+            \sqrt{a} = \alpha\frac{1}{\sqrt{a}} \implies a = \alpha, \\
+            \sqrt{b} = \alpha\frac{1}{\sqrt{b}} \implies b = \alpha, \\
+            \sqrt{c} = \alpha\frac{1}{\sqrt{c}} \implies c = \alpha, \\
+            \sqrt{d} = \alpha\frac{1}{\sqrt{d}} \implies d = \alpha,
+        \end{cases}
+    \]
+    so $a = b = c = d$.
+\end{solenum}
+
 \begin{exercise}{6a13}
     Show that the square of an average is less than or equal to the average of the squares.
     More precisely, show that if $a_1, \ldots, a_n \in \rbb$, then the square of the average of $a_1, \ldots, a_n$ is less than or equal to the average of $a_1^2, \ldots, a_n^2$.
+
+    \remark{This is known as the QM--AM inequality, which is a special case of the power mean inequality.}
 \end{exercise}
+
+\begin{sol}
+    Let $u = (a_1, \ldots, a_n)$ and $v = (1, \ldots, 1) \in \rbb^n$.
+    Then $\norm{u}^2 = a_1^2 + \cdots + a_n^2$ and $\norm{v}^2 = n$.
+    By the Cauchy--Schwarz inequality, we have
+    \[
+        |a_1 + \cdots + a_n|^2 = |\gen{u, v}|^2 \leq \norm{u}^2\,\norm{v}^2 = n(a_1^2 + \cdots + a_n^2),
+    \]
+    so
+    \[
+        \left(\frac{a_1 + \cdots + a_n}{n}\right)^2 = \frac{|a_1 + \cdots + a_n|^2}{n^2} \leq \frac{n(a_1^2 + \cdots + a_n^2)}{n^2} = \frac{a_1^2 + \cdots + a_n^2}{n}. \qedhere
+    \]
+\end{sol}
 
 \begin{exercise}{6a14}
     Suppose $v \in V$ and $v \neq 0$.
@@ -94,6 +275,23 @@
     \]
     with equality only if $u = v/\norm{v}$.
 \end{exercise}
+
+\begin{sol}
+    Let $u \in V$ with $\norm{u} = 1$.
+    Then
+    \begin{align*}
+        \norm{v - u}^2 &= \norm{v}^2 - 2\Re\gen{v, u} + \norm{u}^2 \\
+        &\geq \norm{v}^2 - 2|\gen{v, u}| + 1 \\
+        &\geq \norm{v}^2 - 2\norm{v}\,\norm{u} + 1 \\
+        &= \norm{v}^2 - 2\norm{v} + 1 \\
+        &= (\norm{v} - 1)^2
+    \end{align*}
+
+    Equality holds if and only if $\Re\gen{v, u} = |\gen{v, u}| = \norm{v}$.
+    The second equality implies $v = \alpha u$ for some $\alpha \in \fbb$.
+    Since $\alpha = \gen{v, u}$ and $\Re{v, u} = |\gen{v, u}|$, we have $\alpha = \norm{v} > 0$.
+    Therefore, $u = v/\norm{v}$.
+\end{sol}
 
 \begin{exercise}{6a15}
     Suppose $u, v$ are nonzero vectors in $\rbb^2$.
@@ -106,6 +304,23 @@
     \hint{Use the law of cosines on the triangle formed by $u$, $v$, and $u - v$.}
 \end{exercise}
 
+\begin{sol}
+    Let $\theta$ be the angle between $u$ and $v$.
+    By the law of cosines, we have
+    \[
+        \norm{u - v}^2 = \norm{u}^2 + \norm{v}^2 - 2\norm{u}\,\norm{v}\cos\theta.
+    \]
+    On the other hand, we have
+    \[
+        \norm{u - v}^2 = \gen{u - v, u - v} = \gen{u, u} - 2\gen{u, v} + \gen{v, v} = \norm{u}^2 + \norm{v}^2 - 2\gen{u, v}.
+    \]
+    Therefore,
+    \[
+        \norm{u}^2 + \norm{v}^2 - 2\norm{u}\,\norm{v}\cos\theta = \norm{u}^2 + \norm{v}^2 - 2\gen{u, v},
+    \]
+    which implies $\gen{u, v} = \norm{u}\,\norm{v}\cos\theta$.
+\end{sol}
+
 \begin{exercise}{6a16}
     The angle between two vectors (thought of as arrows with initial point at the origin) in $\rbb^2$ or $\rbb^3$ can be defined geometrically.
     However, geometry is not as clear in $\rbb^n$ for $n > 3$.
@@ -117,6 +332,16 @@
     Explain why the Cauchy--Schwarz inequality is needed to show that this definition makes sense.
 \end{exercise}
 
+\begin{sol}
+    The Cauchy--Schwarz inequality states that $|\gen{x, y}| \leq \norm{x}\,\norm{y}$ for all $x, y \in \rbb^n$.
+    Therefore, if $x$ and $y$ are nonzero vectors in $\rbb^n$, then
+    \[
+        -1 \leq -\frac{|\gen{x, y}|}{\norm{x}\,\norm{y}} \leq \frac{\gen{x, y}}{\norm{x}\,\norm{y}} \leq \frac{|\gen{x, y}|}{\norm{x}\,\norm{y}} \leq 1.
+    \]
+
+    Since the domain of $\arccos$ is $[-1, 1]$, the Cauchy--Schwarz inequality ensures that $\arccos$ is defined for the given expression.
+\end{sol}
+
 \begin{exercise}{6a17}
     Prove that
     \[
@@ -125,16 +350,53 @@
     for all real numbers $a_1, \ldots, a_n$ and $b_1, \ldots, b_n$.
 \end{exercise}
 
+\begin{sol}
+    Define the vectors
+    \[
+        u = \left(\sqrt{1}a_1, \sqrt{2}a_2, \ldots, \sqrt{n}a_n\right), \quad v = \left(\frac{b_1}{\sqrt{1}}, \frac{b_2}{\sqrt{2}}, \ldots, \frac{b_n}{\sqrt{n}}\right) \in \rbb^n.
+    \]
+    Then
+    \[
+        \norm{u}^2 = \sum_{k=1}^{n} k a_k^2, \quad \norm{v}^2 = \sum_{k=1}^{n} \frac{b_k^2}{k}, \quad \gen{u, v} = \sum_{k=1}^{n} a_k b_k.
+    \]
+    By the Cauchy--Schwarz inequality, we have
+    \[
+        \left(\sum_{k=1}^{n} a_k b_k\right)^2 = |\gen{u, v}|^2 \leq \norm{u}^2\,\norm{v}^2 = \left(\sum_{k=1}^{n} k a_k^2\right)\left(\sum_{k=1}^{n} \frac{b_k^2}{k}\right). \qedhere
+    \]
+\end{sol}
+
 \begin{exercise}{6a18}
     \begin{subexercises}
-        \item Suppose $f\colon [1, \infty) \to [0, \infty)$ is continuous.
+        \item Suppose $f: [1, \infty) \to [0, \infty)$ is continuous.
         Show that
         \[
-            \left(\int_1^{\infty} f\right)^2 \leq \int_1^{\infty} x^2(f(x))^2\, dx.
+            \left(\int_1^{\infty} f\right)^2 \leq \int_1^{\infty} x^2(f(x))^2 \dd x.
         \]
-        \item For which continuous functions $f\colon [1, \infty) \to [0, \infty)$ is the inequality in (a) an equality with both sides finite?
+        \item For which continuous functions $f: [1, \infty) \to [0, \infty)$ is the inequality in (a) an equality with both sides finite?
     \end{subexercises}
 \end{exercise}
+
+\begin{solenum}
+    \item Consider the functions over $[1, \infty)$:
+    \[
+        u(x) = x f(x), \quad v(x) = \frac{1}{x}.
+    \]
+    Then
+    \[
+        \gen{u, v} = \int_1^{\infty} u(x)v(x) \dd x = \int_1^{\infty} f(x) \dd x, \quad \norm{u}^2 = \int_1^{\infty} (x f(x))^2 \dd x, \quad \norm{v}^2 = \int_1^{\infty} \frac{1}{x^2} \dd x = 1.
+    \]
+    By the Cauchy--Schwarz inequality, we have
+    \[
+        \left(\int_1^{\infty} f\right)^2 = |\gen{u, v}|^2 \leq \norm{u}^2\,\norm{v}^2 = \int_1^{\infty} x^2(f(x))^2 \dd x.
+    \]
+    \item The equality condition of the Cauchy--Schwarz inequality states that we have equality if and only if $u$ is a scalar multiple of $v$.
+    Note that $f(x) \geq 0$ for all $x \in [1, \infty)$, so the scalar multiple must be nonnegative.
+    Therefore, we have equality if and only if there exists a nonnegative constant $c$ such that $x f(x) = c/x$ for all $x \in [1, \infty)$, which is equivalent to $f(x) = c/x^2$ for all $x \in [1, \infty)$.
+    Moreover, both sides are finite as follows:
+    \[
+        \int_1^{\infty} f(x) \dd x = \int_1^{\infty} \frac{c}{x^2} \dd x = c, \quad \int_1^{\infty} x^2(f(x))^2 \dd x = \int_1^{\infty} x^2\left(\frac{c}{x^2}\right)^2 \dd x = c^2. \qedhere
+    \]
+\end{solenum}
 
 \begin{exercise}{6a19}
     Suppose $v_1, \ldots, v_n$ is a basis of $V$ and $T \in \lin{V}$.
@@ -145,12 +407,43 @@
     where $\mcal(T)_{j,k}$ denotes the entry in row $j$, column $k$ of the matrix of $T$ with respect to the basis $v_1, \ldots, v_n$.
 \end{exercise}
 
+\begin{sol}
+    Let $u \in V$ be an eigenvector of $T$ corresponding to the eigenvalue $\lambda$, so $Tu = \lambda u$.
+    Let $A = \mcal(T)$ be the matrix of $T$ with respect to the basis $v_1, \ldots, v_n$.
+    From $Tu = \lambda u$, the coordinate vector $x \in \fbb^n$ of $u$ with respect to the basis $v_1, \ldots, v_n$ satisfies $Ax = \lambda x$.
+    Note that $x \neq 0$ since $u \neq 0$.
+
+    Applying the Cauchy--Schwarz inequality to the rows of $A$, we have
+    \[
+        |\lambda|^2 \norm{x}^2 = \norm{Ax}^2 = \sum_{j=1}^{n} \left|\sum_{k=1}^{n} A_{j,k} x_k\right|^2 \leq \left(\sum_{j=1}^{n} \sum_{k=1}^{n} |A_{j,k}|^2\right)\norm{x}^2.
+    \]
+    Dividing both sides by $\norm{x}^2$ gives the desired inequality.
+\end{sol}
+
 \begin{exercise}{6a20}
     Prove that if $u, v \in V$, then $\bigl|\, \norm{u} - \norm{v}\, \bigr| \leq \norm{u - v}$.
     
     \hint{The inequality above is called the \emph{\textbf{reverse triangle inequality}}.
     For the reverse triangle inequality when $V = \cbb$, see \exref{4-2}.}
 \end{exercise}
+
+\begin{sol}
+    By the triangle inequality, we have
+    \[
+        \norm{u} = \norm{(u - v) + v} \leq \norm{u - v} + \norm{v},
+    \]
+    which implies $\norm{u} - \norm{v} \leq \norm{u - v}$.
+    Similarly, we have
+    \[
+        \norm{v} = \norm{(v - u) + u} \leq \norm{v - u} + \norm{u} = \norm{u - v} + \norm{u},
+    \]
+    which implies $\norm{v} - \norm{u} \leq \norm{u - v}$.
+    Therefore, we have
+    \[
+        -\norm{u - v} \leq \norm{u} - \norm{v} \leq \norm{u - v},
+    \]
+    which is equivalent to $\bigl|\,\norm{u} - \norm{v}\,\bigr| \leq \norm{u - v}$.
+\end{sol}
 
 \begin{exercise}{6a21}
     Suppose $u, v \in V$ are such that
@@ -160,6 +453,19 @@
     What number does $\norm{v}$ equal?
 \end{exercise}
 
+\begin{sol}
+    We have
+    \begin{align*}
+        \norm{u + v}^2 &= \gen{u + v, u + v} = \norm{u}^2 + 2\Re\gen{u, v} + \norm{v}^2 = 16, \\
+        \norm{u - v}^2 &= \gen{u - v, u - v} = \norm{u}^2 - 2\Re\gen{u, v} + \norm{v}^2 = 36.
+    \end{align*}
+    Adding the two equations gives
+    \[
+        2\norm{u}^2 + 2\norm{v}^2 = 52,
+    \]
+    so $\norm{v}^2 = 26 - 9 = 17$, which implies $\norm{v} = \sqrt{17}$.
+\end{sol}
+
 \begin{exercise}{6a22}
     Show that if $u, v \in V$, then
     \[
@@ -167,17 +473,86 @@
     \]
 \end{exercise}
 
+\begin{sol}
+    We have
+    \begin{align*}
+        \norm{u + v}^2 \norm{u - v}^2 &= \gen{u + v, u + v}\,\gen{u - v, u - v} \\
+        &= (\norm{u}^2 + 2\Re\gen{u, v} + \norm{v}^2)(\norm{u}^2 - 2\Re\gen{u, v} + \norm{v}^2) \\
+        &= (\norm{u}^2 + \norm{v}^2)^2 - (2\Re\gen{u, v})^2 \\
+        &\leq (\norm{u}^2 + \norm{v}^2)^2,
+    \end{align*}
+    where the last inequality follows from the fact that $(2\Re\gen{u, v})^2 \geq 0$.
+    Taking the square root of both sides gives the desired inequality.
+\end{sol}
+
 \begin{exercise}{6a23}
     Suppose $v_1, \ldots, v_m \in V$ are such that $\norm{v_k} \leq 1$ for each $k = 1, \ldots, m$.
     Show that there exist $a_1, \ldots, a_m \in \set{1, -1}$ such that
     \[
         \norm{a_1 v_1 + \cdots + a_m v_m} \leq \sqrt{m}.
     \]
+    \remark{Note that $\min\set{A, B}^2 \leq \frac{A^2 + B^2}{2}$ so long as $A, B \geq 0$.
+    This follows from the fact that either $A \leq B$ or $B \leq A$ forces $\min\set{A, B}^2 \leq A^2$ and $\min\set{A, B}^2 \leq B^2$.}
 \end{exercise}
+
+\begin{sol}
+    We proceed by induction on $m$.
+    For the base case $m = 1$, we have $\norm{v_1} \leq 1 = \sqrt{1}$, so the statement holds.
+
+    Now suppose the statement holds for some $m \geq 1$.
+    Let $v_1, \ldots, v_{m+1} \in V$ be such that $\norm{v_k} \leq 1$ for each $k = 1, \ldots, m + 1$.
+    By the induction hypothesis, there exist $a_1, \ldots, a_m \in \set{1, -1}$ such that
+    \[
+        \norm{a_1 v_1 + \cdots + a_m v_m} \leq \sqrt{m}.
+    \]
+    Let $u = a_1 v_1 + \cdots + a_m v_m$.
+    Then
+    \[
+        \norm{u + v_{m+1}}^2 = \norm{u}^2 + 2\Re\gen{u, v_{m+1}} + \norm{v_{m+1}}^2,
+    \]
+    and
+    \[
+        \norm{u - v_{m+1}}^2 = \norm{u}^2 - 2\Re\gen{u, v_{m+1}} + \norm{v_{m+1}}^2.
+    \]
+    Adding these two equations gives
+    \[
+        \norm{u + v_{m+1}}^2 + \norm{u - v_{m+1}}^2 = 2\norm{u}^2 + 2\norm{v_{m+1}}^2.
+    \]
+    Since $\norm{v_{m+1}}^2 \leq 1$, we have
+    \[
+        2\norm{u}^2 + 2\norm{v_{m+1}}^2 \leq 2\norm{u}^2 + 2.
+    \]
+    Therefore,
+    \[
+        \min\set{\norm{u + v_{m+1}},\,\norm{u - v_{m+1}}}^2 \leq \frac{\norm{u + v_{m+1}}^2 + \norm{u - v_{m+1}}^2}{2} \leq \norm{u}^2 + 1 \leq m + 1,
+    \]
+    where the last inequality follows from the induction hypothesis.
+    Taking the square root of both sides gives
+    \[
+        \min\set{\norm{u + v_{m+1}},\,\norm{u - v_{m+1}}} \leq \sqrt{m + 1}.
+    \]
+    Therefore, there exists $a_{m+1} \in \set{1, -1}$ such that
+    \[
+        \norm{a_1 v_1 + \cdots + a_m v_m + a_{m+1} v_{m+1}} = \norm{u + a_{m+1} v_{m+1}} \leq \sqrt{m + 1}. \qedhere
+    \]
+\end{sol}
 
 \begin{exercise}{6a24}
     Prove or give a counterexample: If $\norm{\cdot}$ is the norm associated with an inner product on $\rbb^2$, then there exists $(x, y) \in \rbb^2$ such that $\norm{(x, y)} \neq \max\set{|x|, |y|}$.
 \end{exercise}
+
+\begin{sol}
+    If we define the norm as $\norm{(x, y)} = \max\set{|x|, |y|}$ for all $(x, y) \in \rbb^2$, then take $u = (1, 0)$ and $v = (0, 1)$.
+    Then
+    \[
+        \norm{u + v}^2 + \norm{u - v}^2 = 1 + 1 = 2,
+    \]
+    but
+    \[
+        2\norm{u}^2 + 2\norm{v}^2 = 2 + 2 = 4,
+    \]
+    contradicting the parallelogram equality.
+\end{sol}
 
 \begin{exercise}{6a25}
     Suppose $p > 0$.
@@ -188,6 +563,34 @@
     for all $(x, y) \in \rbb^2$ if and only if $p = 2$.
 \end{exercise}
 
+\begin{sol}
+    If $p = 2$, then the standard inner product on $\rbb^2$ gives the associated norm
+    \[
+        \norm{(x, y)} = (|x|^2 + |y|^2)^{1/2}.
+    \]
+
+    Now suppose there is an inner product on $\rbb^2$ such that the associated norm is given by
+    \[
+        \norm{(x, y)} = (|x|^p + |y|^p)^{1/p}
+    \]
+    for all $(x, y) \in \rbb^2$.
+    Then the parallelogram equality must hold for this norm.
+    Let $u = (1, 0)$ and $v = (0, 1)$.
+    Then
+    \[
+        \norm{u + v}^2 + \norm{u - v}^2 = 2^{2/p} + 2^{2/p} = 2\cdot 2^{2/p} = 2^{1 + 2/p},
+    \]
+    and
+    \[
+        2\norm{u}^2 + 2\norm{v}^2 = 4.
+    \]
+    Therefore, we must have
+    \[
+        2^{1 + 2/p} = 4,
+    \]
+    which implies $1 + 2/p = 2$, so $p = 2$.
+\end{sol}
+
 \begin{exercise}{6a26}
     Suppose $V$ is a real inner product space.
     Prove that
@@ -196,6 +599,16 @@
     \]
     for all $u, v \in V$.
 \end{exercise}
+
+\begin{sol}
+    We have
+    \begin{align*}
+        \norm{u + v}^2 - \norm{u - v}^2 &= \gen{u + v, u + v} - \gen{u - v, u - v} \\
+        &= (\norm{u}^2 + 2\gen{u, v} + \norm{v}^2) - (\norm{u}^2 - 2\gen{u, v} + \norm{v}^2) \\
+        &= 4\gen{u, v}.
+    \end{align*}
+    Dividing both sides by $4$ gives the desired equality.
+\end{sol}
 
 \begin{exercise}{6a27}
     Suppose $V$ is a complex inner product space.
@@ -206,14 +619,205 @@
     for all $u, v \in V$.
 \end{exercise}
 
+\begin{sol}
+    We have
+    \begin{align*}
+        \norm{u + v}^2 - \norm{u - v}^2 &= \gen{u + v, u + v} - \gen{u - v, u - v} \\
+        &= (\norm{u}^2 + 2\Re\gen{u, v} + \norm{v}^2) - (\norm{u}^2 - 2\Re\gen{u, v} + \norm{v}^2) \\
+        &= 4\Re\gen{u, v},
+    \end{align*}
+    and
+    \begin{align*}
+        \norm{u + iv}^2 - \norm{u - iv}^2 &= \gen{u + iv, u + iv} - \gen{u - iv, u - iv} \\
+        &= (\norm{u}^2 + 2\Re\gen{u, iv} + \norm{v}^2) - (\norm{u}^2 - 2\Re\gen{u, iv} + \norm{v}^2) \\
+        &= 4\Re\gen{u, iv}.
+    \end{align*}
+
+    Let $\gen{u, v} = a + bi$ for some $a, b \in \rbb$.
+    Then
+    \[
+        \gen{u, iv} = \bar i\gen{u, v} = -i(a + bi) = b - ai,
+    \]
+    so $\Re\gen{u, iv} = \Im\gen{u, v}$.
+    Therefore, we have
+    \[
+        \norm{u + v}^2 - \norm{u - v}^2 + \norm{u + iv}^2 i - \norm{u - iv}^2 i = 4\Re\gen{u, v} + 4\Im\gen{u, v}i = 4\gen{u, v}.
+    \]
+    Dividing both sides by $4$ gives the desired equality.
+\end{sol}
+
 \begin{exercise}{6a28}
     A norm on a vector space $U$ is a function
     \[
-        \norm{\cdot} \colon U \to [0, \infty)
+        \norm{\cdot} : U \to [0, \infty)
     \]
-    such that $\norm{u} = 0$ if and only if $u = 0$, $\norm{\alpha u} = |\alpha|\norm{u}$ for all $\alpha \in \fbb$ and all $u \in U$, and $\norm{u + v} \leq \norm{u} + \norm{v}$ for all $u, v \in U$.
+    such that $\norm{u} = 0$ if and only if $u = 0$, $\norm{\alpha u} = |\alpha|\,\norm{u}$ for all $\alpha \in \fbb$ and all $u \in U$, and $\norm{u + v} \leq \norm{u} + \norm{v}$ for all $u, v \in U$.
     Prove that a norm satisfying the parallelogram equality comes from an inner product (in other words, show that if $\norm{\cdot}$ is a norm on $U$ satisfying the parallelogram equality, then there is an inner product $\gen{\cdot, \cdot}$ on $U$ such that $\norm{u} = \gen{u, u}^{1/2}$ for all $u \in U$).
+
+    \remark{This is a highly non-trivial result known as the \emph{Jordan--von Neumann theorem}.
+    The proof is not easy since it requires density of $\qbb$ in $\rbb$ to ensure homogeneity from the rational numbers extends to the real numbers via continuity.}
 \end{exercise}
+
+\begin{sol}
+    Suppose $\norm{\cdot}$ is a norm on $U$ satisfying the parallelogram equality.
+    We first work in the case that $\fbb = \rbb$.
+    Define
+    \[
+        \gen{u, v} = \frac{\norm{u + v}^2 - \norm{u - v}^2}{4}
+    \]
+    for all $u, v \in U$.
+    We now check that $\gen{\cdot, \cdot}$ is an inner product on $U$.
+    \begin{itemize}
+        \item \textbf{Positive-Definiteness}: For any $u \in U$, we have
+        \[
+            \gen{u, u} = \frac{\norm{u + u}^2 - \norm{u - u}^2}{4} = \frac{\norm{2u}^2 - 0}{4} = \frac{4\norm{u}^2}{4} = \norm{u}^2 \geq 0,
+        \]
+        since $\norm{u} \geq 0$.
+        This establishes that $\norm{u} = \gen{u, u}^{1/2}$ for all $u \in U$.
+        Moreover, $\gen{u, u} = 0$ if and only if $\norm{u}^2 = 0$, which is equivalent to $u = 0$.
+        \item \textbf{Symmetry}: Note that $\norm{a} = \norm{-a}$ for any $a \in U$.
+        For any $u, v \in U$, we have
+        \[
+            \gen{u, v} = \frac{\norm{u + v}^2 - \norm{u - v}^2}{4} = \frac{\norm{v + u}^2 - \norm{v - u}^2}{4} = \gen{v, u}.
+        \]
+        \item \textbf{Additivity in the First Slot}: Let $u, v, w \in U$.
+        Applying the parallelogram equality to the pairs $(u + w, v)$ and $(u - w, v)$ gives
+        \begin{align*}
+            \norm{(u + w) + v}^2 + \norm{(u + w) - v}^2 &= 2\norm{u + w}^2 + 2\norm{v}^2, \\
+            \norm{(u - w) + v}^2 + \norm{(u - w) - v}^2 &= 2\norm{u - w}^2 + 2\norm{v}^2.
+        \end{align*}
+        Subtracting the second equation from the first gives
+        \[
+            \norm{(u + w) + v}^2 - \norm{(u - w) + v}^2 + \norm{(u + w) - v}^2 - \norm{(u - w) - v}^2 = 2\norm{u + w}^2 - 2\norm{u - w}^2.
+        \]
+        Rearranging terms inside the norms gives
+        \[
+            \norm{(u + v) + w}^2 - \norm{(u + v) - w}^2 + \norm{(u - v) + w}^2 - \norm{(u - v) - w}^2 = 2\norm{u + w}^2 - 2\norm{u - w}^2.
+        \]
+        Dividing both sides by $4$ gives the relation $\gen{u + v, w} + \gen{u - v, w} = 2\gen{u, w}$.
+
+        Now apply the parallelogram equality to the pairs $(v + w, u)$ and $(v - w, u)$ to get
+        \begin{align*}
+            \norm{(v + w) + u}^2 + \norm{(v + w) - u}^2 &= 2\norm{v + w}^2 + 2\norm{u}^2, \\
+            \norm{(v - w) + u}^2 + \norm{(v - w) - u}^2 &= 2\norm{v - w}^2 + 2\norm{u}^2.
+        \end{align*}
+        Subtracting the second equation from the first gives
+        \[
+            \norm{(v + w) + u}^2 - \norm{(v - w) + u}^2 + \norm{(v + w) - u}^2 - \norm{(v - w) - u}^2 = 2\norm{v + w}^2 - 2\norm{v - w}^2.
+        \]
+        Rearranging terms inside the norms gives
+        \[
+            \norm{(u + v) + w}^2 - \norm{(u + v) - w}^2 + \norm{(u - v) - w}^2 - \norm{(u - v) + w}^2 = 2\norm{v + w}^2 - 2\norm{v - w}^2.
+        \]
+        Dividing both sides by $4$ gives the relation $\gen{u + v, w} - \gen{u - v, w} = 2\gen{v, w}$.
+        Adding the two relations gives $\gen{u + v, w} = \gen{u, w} + \gen{v, w}$.
+        \item \textbf{Homogeneity in the First Slot}: Let $u, v \in U$ and $\alpha \in \rbb$.
+        If $\alpha = 0$, then
+        \[
+            \gen{0, v} = \frac{\norm{0 + v}^2 - \norm{0 - v}^2}{4} = \frac{\norm{v}^2 - \norm{v}^2}{4} = 0 = 0\gen{u, v}.
+        \]
+        We first consider when $\alpha$ is a positive integer.
+        We proceed by induction on $\alpha$.
+        For the base case $\alpha = 1$, we have $\gen{1\cdot u, v} = \gen{u, v}$.
+        Now suppose the statement holds for some positive integer $\alpha$.
+        Then
+        \[
+            \gen{(\alpha + 1)u, v} = \gen{\alpha u + u, v} = \gen{\alpha u, v} + \gen{u, v} = \alpha\gen{u, v} + \gen{u, v} = (\alpha + 1)\gen{u, v}.
+        \]
+        Therefore, the statement holds for all positive integers $\alpha$.
+        Next, we consider when $\alpha$ is a negative integer.
+        By direct computation, we have for $\alpha = -1$ that
+        \[
+            \gen{-u, v} = \frac{\norm{-u + v}^2 - \norm{-u - v}^2}{4} = \frac{\norm{v - u}^2 - \norm{-(u + v)}^2}{4} = \frac{\norm{v - u}^2 - \norm{u + v}^2}{4} = -\gen{u, v}.
+        \]
+        We may now consider $\alpha = -\beta$ for some positive integer $\beta$.
+        Then
+        \[
+            \gen{\alpha u, v} = \gen{-\beta u, v} = \gen{-(\beta u), v} = -\gen{\beta u, v} = -\beta\gen{u, v} = \alpha\gen{u, v}.
+        \]
+
+        We now consider when $\alpha$ is a rational number.
+        Let $\alpha = p/q$ for some integers $p$ and $q$ with $q > 0$.
+        Then
+        \[
+            q\gen{\alpha u, v} = \gen{q(\alpha u), v} = \gen{p u, v} = p\gen{u, v},
+        \]
+        so $\gen{\alpha u, v} = \alpha\gen{u, v}$.
+        
+        Finally, we consider when $\alpha$ is an arbitrary real number.
+        By the density of the rational numbers in the real numbers, there exists a sequence $(\alpha_n)_{n=1}^{\infty}$ of rational numbers such that $\alpha_n \to \alpha$ as $n \to \infty$.
+        By the reverse triangle inequality, we have
+        \[
+            \bigl|\,\norm{\alpha_n u + v} - \norm{\alpha u + v}\,\bigr| \leq \norm{(\alpha_n - \alpha)u} = |\alpha_n - \alpha|\,\norm{u},
+        \]
+        where $|\alpha_n - \alpha| \to 0$ as $n \to \infty$, so $\norm{\alpha_n u + v} \to \norm{\alpha u + v}$ as $n \to \infty$.
+        Similarly, we have $\norm{\alpha_n u - v} \to \norm{\alpha u - v}$ as $n \to \infty$.
+        Then $\gen{\alpha_n u, v} \to \gen{\alpha u, v}$ as $n \to \infty$.
+        It follows that $\gen{\alpha_n u, v} = \alpha_n\gen{u, v} \to \alpha\gen{u, v}$ as $n \to \infty$, so $\gen{\alpha u, v} = \alpha\gen{u, v}$.
+    \end{itemize}
+    Now suppose $\fbb = \cbb$.
+    Define
+    \[
+        \gen{u, v} = \frac{\norm{u + v}^2 - \norm{u - v}^2}{4} + \frac{\norm{u + iv}^2 - \norm{u - iv}^2}{4}i
+    \]
+    for all $u, v \in U$.
+    We again check that $\gen{\cdot, \cdot}$ is an inner product on $U$.
+    \begin{itemize}
+        \item \textbf{Positive-Definiteness}: For any $u \in U$, $\Re\gen{u, u}$ follows from the real case.
+        Considering $\Im\gen{u, u}$, we have that
+        \begin{align*}
+            \norm{u + iu}^2 &= \norm{(1 + i)u}^2 = |1 + i|^2 \norm{u}^2 = 2\norm{u}^2, \\
+            \norm{u - iu}^2 &= \norm{(1 - i)u}^2 = |1 - i|^2 \norm{u}^2 = 2\norm{u}^2,
+        \end{align*}
+        so $\Im\gen{u, u} = 0$.
+        Therefore, $\gen{u, u} = \Re\gen{u, u} + \Im\gen{u, u}i = \Re\gen{u, u} \geq 0$.
+        This again establishes that $\norm{u} = \gen{u, u}^{1/2}$ for all $u \in U$.
+        Moreover, $\gen{u, u} = 0$ if and only if $\Re\gen{u, u} = 0$, which is equivalent to $u = 0$.
+        \item \textbf{Conjugate Symmetry}: For any $u, v \in U$, $\Re\gen{u, v}$ follows from the real case.
+        Moreover, note that $\norm{u + iv} = \norm{i(v - iu)} = |i|\,\norm{v - iu} = \norm{v - iu}$.
+        Similarly, $\norm{u - iv} = \norm{-i(v + iu)} = |-i|\,\norm{v + iu} = \norm{v + iu}$.
+        Thus, for $\Im\gen{u, v}$, we have
+        \begin{align*}
+            \Im\gen{u, v} &= \frac{\norm{u + iv}^2 - \norm{u - iv}^2}{4} \\
+            &= \frac{\norm{v - iu}^2 - \norm{v + iu}^2}{4} \\
+            &= -\Im\gen{v, u}.
+        \end{align*}
+        Therefore, $\gen{u, v} = \Re\gen{u, v} + \Im\gen{u, v}i = \Re\gen{v, u} - \Im\gen{v, u}i = \bar{\gen{v, u}}$.
+        \item \textbf{Additivity in the First Slot}: Let $u, v, w \in U$.
+        Then $\Re\gen{u + v, w}$ follows from the real case.
+        For $\Im\gen{u + v, w}$, we have
+        \begin{align*}
+            \Im\gen{u + v, w} &= \frac{\norm{(u + v) + iw}^2 - \norm{(u + v) - iw}^2}{4} \\
+            &= \frac{\norm{(u + iw) + v}^2 - \norm{(u + iw) - v}^2}{4} \\
+            &= \Im\gen{u, w} + \Im\gen{v, w},
+        \end{align*}
+        where the last equality follows from the real case where $w$ is replaced by $iw$.
+        Therefore,
+        \begin{align*}
+            \gen{u + v, w} &= \Re\gen{u + v, w} + \Im\gen{u + v, w}i \\
+            &= \Re\gen{u, w} + \Re\gen{v, w} + (\Im\gen{u, w} + \Im\gen{v, w})i \\
+            &= (\Re\gen{u, w} + \Im\gen{u, w}i) + (\Re\gen{v, w} + \Im\gen{v, w}i) \\
+            &= \gen{u, w} + \gen{v, w}.
+        \end{align*}
+        \item \textbf{Homogeneity in the First Slot}: Let $u, v \in U$ and $\alpha \in \cbb$.
+        We first consider $\alpha = i$.
+        Then
+        \begin{align*}
+            \gen{iu, v} &= \frac{\norm{iu + v}^2 - \norm{iu - v}^2}{4} + \frac{\norm{iu + iv}^2 - \norm{iu - iv}^2}{4}i \\
+            &= \frac{\norm{v - iu}^2 - \norm{v + iu}^2}{4} + \frac{\norm{i(u + v)}^2 - \norm{i(u - v)}^2}{4}i \\
+            &= -\Im\gen{v, u} + \Re\gen{u, v}i = i\gen{u, v}.
+        \end{align*}
+        Now let $\alpha = a + bi$ for some $a, b \in \rbb$.
+        From the real case, we have
+        \[
+            \gen{au, v} = a\gen{u, v} \quad \text{and} \quad \gen{ibu, v} = b\gen{iu, v} = bi\gen{u, v}.
+        \]
+        Therefore,
+        \[
+            \gen{\alpha u, v} = \gen{au + ibu, v} = \gen{au, v} + \gen{ibu, v} = a\gen{u, v} + bi\gen{u, v} = \alpha\gen{u, v}. \qedhere
+        \]
+    \end{itemize}
+\end{sol}
 
 \begin{exercise}{6a29}
     Suppose $V_1, \ldots, V_m$ are inner product spaces.
@@ -226,6 +830,18 @@
     \note{In the expression above on the right, for each $k = 1, \ldots, m$, the inner product $\gen{u_k, v_k}$ denotes the inner product on $V_k$.
     Each of the spaces $V_1, \ldots, V_m$ may have a different inner product, even though the same notation is used here.}
 \end{exercise}
+
+\begin{sol}
+    Let $\gen{\cdot, \cdot}_k$ denote the inner product on $V_k$ for each $k = 1, \ldots, m$.
+    To see that $\gen{\cdot, \cdot}$ is an inner product on $V_1 \times \cdots \times V_m$, note that the properties of conjugate symmetry, additivity in the first slot, and homogeneity in the first slot follow from the corresponding properties of each $\gen{\cdot, \cdot}_k$.
+
+    For positive-definiteness, let $(u_1, \ldots, u_m) \in V_1 \times \cdots \times V_m$.
+    Then
+    \[
+        \gen{(u_1, \ldots, u_m), (u_1, \ldots, u_m)} = \gen{u_1, u_1}_1 + \cdots + \gen{u_m, u_m}_m \geq 0.
+    \]
+    Moreover, $\gen{(u_1, \ldots, u_m), (u_1, \ldots, u_m)} = 0$ if and only if $\gen{u_k, u_k}_k = 0$ for each $k = 1, \ldots, m$, which is equivalent to $u_1 = \cdots = u_m = 0$.
+\end{sol}
 
 \begin{exercise}{6a30}
     Suppose $V$ is a real inner product space.
@@ -243,6 +859,62 @@
     \hint{See \exref{1b8} for the definition of the complexification $V_{\cbb}$.}
 \end{exercise}
 
+\begin{solenum}
+    \item We first check that $\gen{\cdot, \cdot}_{\cbb}$ is an inner product on $V_{\cbb}$.
+    \begin{itemize}
+        \item \textbf{Positive-Definiteness}: For any $u + iv \in V_{\cbb}$, we have
+        \[
+            \gen{u + iv, u + iv}_{\cbb} = \gen{u, u} + \gen{v, v} + (\gen{v, u} - \gen{u, v})i = \norm{u}^2 + \norm{v}^2 \geq 0,
+        \]
+        since $\norm{u}, \norm{v} \geq 0$.
+        Moreover, $\gen{u + iv, u + iv}_{\cbb} = 0$ if and only if $\norm{u}^2 + \norm{v}^2 = 0$, which is equivalent to $u = v = 0$, so $u + iv = 0$.
+        \item \textbf{Conjugate Symmetry}: For any $u + iv, w + ix \in V_{\cbb}$, we have
+        \begin{align*}
+            \gen{w + ix, u + iv}_{\cbb} &= \gen{w, u} + \gen{x, v} + (\gen{x, u} - \gen{w, v})i \\
+            &= \bar{\gen{u, w}} + \bar{\gen{v, x}} + (\bar{\gen{u, x}} - \bar{\gen{v, w}})i \\
+            &= \bar{\gen{u, w} + \gen{v, x} + (\gen{v, w} - \gen{u, x})i} = \bar{\gen{u + iv, w + ix}_{\cbb}}.
+        \end{align*}
+        \item \textbf{Additivity in the First Slot}: Let $u + iv, w + ix, y + iz \in V_{\cbb}$.
+        Then
+        \begin{align*}
+            \gen{(u + iv) + (y + iz), w + ix}_{\cbb} &= \gen{(u + y) + i(v + z), w + ix}_{\cbb} \\
+            &= \gen{u + y, w} + \gen{v + z, x} + (\gen{v + z, w} - \gen{u + y, x})i
+        \end{align*}
+        Expanding the inner products gives
+        \begin{align*}
+            &\phantom{==} (\gen{u, w} + \gen{y, w}) + (\gen{v, x} + \gen{z, x}) + ((\gen{v, w} + \gen{z, w}) - (\gen{u, x} + \gen{y, x}))i \\
+            &= (\gen{u, w} + \gen{v, x} + (\gen{v, w} - \gen{u, x})i) + (\gen{y, w} + \gen{z, x} + (\gen{z, w} - \gen{y, x})i) \\
+            &= \gen{u + iv, w + ix}_{\cbb} + \gen{y + iz, w + ix}_{\cbb}.
+        \end{align*}
+        \item \textbf{Homogeneity in the First Slot}: Let $u + iv, w + ix \in V_{\cbb}$ and $\lambda \in \rbb$.
+        Then
+        \begin{align*}
+            \gen{\lambda(u + iv), w + ix}_{\cbb} &= \gen{(\lambda u) + i(\lambda v), w + ix}_{\cbb} \\
+            &= \gen{\lambda u, w} + \gen{\lambda v, x} + (\gen{\lambda v, w} - \gen{\lambda u, x})i \\
+            &= \lambda\gen{u, w} + \lambda\gen{v, x} + (\lambda\gen{v, w} - \lambda\gen{u, x})i \\
+            &= \lambda(\gen{u, w} + \gen{v, x} + (\gen{v, w} - \gen{u, x})i) = \lambda\gen{u + iv, w + ix}_{\cbb}.
+        \end{align*}
+        Moreover, note that $i(u + iv) = -v + iu$.
+        Then
+        \begin{align*}
+            \gen{i(u + iv), w + ix}_{\cbb} &= \gen{-v + iu, w + ix}_{\cbb} \\
+            &= \gen{-v, w} + \gen{u, x} + (\gen{u, w} - \gen{-v, x})i \\
+            &= -\gen{v, w} + \gen{u, x} + (\gen{u, w} + \gen{v, x})i \\
+            &= i(\gen{u, w} + \gen{v, x} + (\gen{v, w} - \gen{u, x})i) = i\gen{u + iv, w + ix}_{\cbb}.
+        \end{align*}
+        Hence, homogeneity in the first slot holds for all $\alpha \in \cbb$ by using additivity in the first slot and the fact that $\alpha = a + bi$ for some $a, b \in \rbb$.
+    \end{itemize}
+    Hence, $\gen{\cdot, \cdot}_{\cbb}$ is an inner product on $V_{\cbb}$, so $V_{\cbb}$ is a complex inner product space.
+    \item We have
+    \[
+        \gen{u, v}_{\cbb} = \gen{u + i0, v + i0}_{\cbb} = \gen{u, v} + \gen{0, 0} + (\gen{0, v} - \gen{u, 0})i = \gen{u, v},
+    \]
+    and
+    \[
+        \norm{u + iv}_{\cbb}^2 = \gen{u + iv, u + iv}_{\cbb} = \gen{u, u} + \gen{v, v} + (\gen{v, u} - \gen{u, v})i = \norm{u}^2 + \norm{v}^2. \qedhere
+    \]
+\end{solenum}
+
 \begin{exercise}{6a31}
     Suppose $u, v, w \in V$.
     Prove that
@@ -250,6 +922,23 @@
         \norm{w - \tfrac{1}{2}(u + v)}^2 = \frac{\norm{w - u}^2 + \norm{w - v}^2}{2} - \frac{\norm{u - v}^2}{4}.
     \]
 \end{exercise}
+
+\begin{sol}
+    Set $a = w - u$ and $b = w - v$.
+    Then the left-hand side is
+    \[
+        \norm{w - \tfrac{1}{2}(u + v)}^2 = \norm{\tfrac{1}{2}(a + b)}^2 = \frac{1}{4}\norm{a + b}^2.
+    \]
+    Moreover, the right-hand side is
+    \[
+        \frac{\norm{w - u}^2 + \norm{w - v}^2}{2} - \frac{\norm{u - v}^2}{4} = \frac{\norm{a}^2 + \norm{b}^2}{2} - \frac{\norm{a - b}^2}{4} = \frac{2\norm{a}^2 + 2\norm{b}^2 - \norm{a - b}^2}{4}.
+    \]
+    From the parallelogram equality, we have
+    \[
+        \norm{a + b}^2 + \norm{a - b}^2 = 2\norm{a}^2 + 2\norm{b}^2 \implies \norm{a + b}^2 = 2\norm{a}^2 + 2\norm{b}^2 - \norm{a - b}^2,
+    \]
+    so division by $4$ gives our desired equality.
+\end{sol}
 
 \begin{exercise}{6a32}
     Suppose that $E$ is a subset of $V$ with the property that $u, v \in E$ implies $\frac{1}{2}(u + v) \in E$.
@@ -262,6 +951,21 @@
     for all $x \in E$.
 \end{exercise}
 
+\begin{sol}
+    Suppose $u, v \in E$ are both closest points to $w$.
+    Then $\norm{w - u} = \norm{w - v}$.
+    By the property of $E$, we have $\frac{1}{2}(u + v) \in E$.
+    By \exref{6a31}, we have
+    \[
+        \norm{w - \tfrac{1}{2}(u + v)}^2 = \frac{\norm{w - u}^2 + \norm{w - v}^2}{2} - \frac{\norm{u - v}^2}{4} = \norm{w - u}^2 - \frac{\norm{u - v}^2}{4}.
+    \]
+    Since $\frac{1}{2}(u + v) \in E$, we have
+    \[
+        \norm{w - u}^2 \leq \norm{w - \tfrac{1}{2}(u + v)}^2 = \norm{w - u}^2 - \frac{\norm{u - v}^2}{4},
+    \]
+    so $\norm{u - v}^2 = 0$, which implies that $u = v$.
+\end{sol}
+
 \begin{exercise}{6a33}
     Suppose $f, g$ are differentiable functions from $\rbb$ to $\rbb^n$.
     \begin{subexercises}
@@ -270,9 +974,24 @@
         Show that $\gen{f'(t), f(t)} = 0$ for every $t \in \rbb$.
         \item Interpret the result in (b) geometrically in terms of the tangent vector to a curve lying on a sphere in $\rbb^n$ centered at the origin.
     \end{subexercises}
-    \note{A function $f\colon \rbb \to \rbb^n$ is called differentiable if there exist differentiable functions $f_1, \ldots, f_n$ from $\rbb$ to $\rbb$ such that $f(t) = (f_1(t), \ldots, f_n(t))$ for each $t \in \rbb$.
+    \note{A function $f: \rbb \to \rbb^n$ is called differentiable if there exist differentiable functions $f_1, \ldots, f_n$ from $\rbb$ to $\rbb$ such that $f(t) = (f_1(t), \ldots, f_n(t))$ for each $t \in \rbb$.
     Furthermore, for each $t \in \rbb$, the derivative $f'(t) \in \rbb^n$ is defined by $f'(t) = (f_1'(t), \ldots, f_n'(t))$.}
 \end{exercise}
+
+\begin{solenum}
+    \item We have
+    \[
+        \gen{f(t), g(t)}' = \left(\sum_{k=1}^n f_k(t)g_k(t)\right)' = \sum_{k=1}^n \bigl(f_k'(t)g_k(t) + f_k(t)g_k'(t)\bigr) = \gen{f'(t), g(t)} + \gen{f(t), g'(t)}.
+    \]
+    \item Suppose $\norm{f(t)} = c$ for every $t \in \rbb$.
+    Then $\gen{f(t), f(t)} = c^2$ for every $t \in \rbb$.
+    Differentiating both sides with respect to $t$, we get
+    \[
+        \gen{f'(t), f(t)} + \gen{f(t), f'(t)} = 2\gen{f'(t), f(t)} = 0,
+    \]
+    so $\gen{f'(t), f(t)} = 0$ for every $t \in \rbb$.
+    \item Geometrically, the result in (b) says that the tangent vector to a curve lying on a sphere in $\rbb^n$ centered at the origin is orthogonal to the position vector of the point on the curve.
+\end{solenum}
 
 \begin{exercise}{6a34}
     Use inner products to prove Apollonius's identity: In a triangle with sides of length $a$, $b$, and $c$, let $d$ be the length of the line segment from the midpoint of the side of length $c$ to the opposite vertex.
@@ -280,7 +999,31 @@
     \[
         a^2 + b^2 = \tfrac{1}{2}c^2 + 2d^2.
     \]
+    \begin{center}
+        \begin{tikzpicture}
+            \coordinate (A) at (0, 0);
+            \coordinate (M) at (3, 0);
+            \coordinate (B) at (6, 0);
+            \coordinate (C) at (8, 6);
+
+            \draw (A) -- (B) node[pos=0.5, below] {$c$};
+            \draw (A) -- (C) node[pos=0.45, left, xshift=-2pt] {$a$};
+            \draw (M) -- (C) node[pos=0.45, left, xshift=-1pt] {$d$};
+            \draw (B) -- (C) node[pos=0.45, right] {$b$};
+        \end{tikzpicture}
+    \end{center}
 \end{exercise}
+
+\begin{sol}
+    Consider $\triangle ABC$ with $\norm{C - A} = a$, $\norm{C - B} = b$, and $\norm{B - A} = c$.
+    Let $M$ be the midpoint of $\bar{AB}$, so $M = \frac{1}{2}(A + B)$.
+    Then $d = \norm{C - M}$.
+    By \exref{6a31}, we have
+    \[
+        \norm{C - M}^2 = \frac{\norm{C - A}^2 + \norm{C - B}^2}{2} - \frac{\norm{A - B}^2}{4} = \frac{a^2 + b^2}{2} - \frac{c^2}{4}.
+    \]
+    Rearranging terms gives $a^2 + b^2 = \frac{1}{2}c^2 + 2d^2$.
+\end{sol}
 
 \begin{exercise}{6a35}
     Fix a positive integer $n$.
@@ -304,3 +1047,30 @@
     \]
     and then showing that $T$ is injective and hence surjective.}
 \end{exercise}
+
+\begin{sol}
+    Consider $T \in \lin{\pcal_m(\rbb^n)}$ defined by $Tr = \Delta((1 - \norm{x}^2)r)$, where $\deg q = m$.
+    Note that $T$ is well-defined, since multiplication by $1 - \norm{x}^2$ increases the degree of a polynomial by $2$, and $\Delta$ decreases the degree by at most $2$.
+    Moreover, linearity of $T$ follows from both linearity of $\Delta$ and linearity of multiplication by $1 - \norm{x}^2$.
+
+    We show that $T$ is injective.
+    Suppose $Tr = 0$ for some $r \in \pcal_m(\rbb^n)$.
+    Then $\Delta((1 - \norm{x}^2)r) = 0$, so $(1 - \norm{x}^2)r$ is harmonic.
+    Since $(1 - \norm{x}^2)r(x) = 0$ for all $x \in \rbb^n$ with $\norm{x} = 1$, we have $(1 - \norm{x}^2)r = 0$ by the fact about harmonic functions given in the exercise.
+    
+    Now fix $y \in \rbb^n$.
+    Evaluating at $x = ty$ for $t \in \rbb$, we have $(1 - t^2\norm{y}^2)r(ty) = 0$ for all $t \in \rbb$.
+    If $y = 0$, then $r(ty) = r(0) = 0$ for all $t \in \rbb$.
+    Otherwise, assume $y \neq 0$.
+    Since $1 - t^2\norm{y}^2$ is a polynomial in $t$ of degree at most $2$, it has at most two roots.
+    Therefore, $r(ty) = 0$ for all $t \in \rbb$ except for at most two values of $t$.
+    Since $r(ty)$ is a polynomial in $t$, it must be identically zero, so $r(ty) = 0$ for all $t \in \rbb$.
+    Since $y \in \rbb^n$ was arbitrary, we have $r = 0$, so $T$ is injective.
+    Moreover, finite-dimensionality of $\pcal_m(\rbb^n)$ implies that $T$ is surjective.
+    Therefore, there exists $r \in \pcal_m(\rbb^n)$ such that $Tr = \Delta((1 - \norm{x}^2)r) = -\Delta q$.
+    We then have
+    \[
+        \Delta(q + (1 - \norm{x}^2)r) = \Delta q + \Delta((1 - \norm{x}^2)r) = \Delta q - \Delta q = 0,
+    \]
+    so $p = q + (1 - \norm{x}^2)r$ is harmonic.
+\end{sol}
