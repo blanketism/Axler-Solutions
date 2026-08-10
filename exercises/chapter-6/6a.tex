@@ -10,7 +10,7 @@
 \end{exercise}
 
 \begin{sol}
-    By the additivity of inner products in the first slot, we have
+    By the additivity of inner products in both slots, we have
     \[
         \sum_{j=1}^{m} \sum_{k=1}^{m} \gen{v_j, v_k} = \gen*{\sum_{j=1}^{m} v_j, \sum_{k=1}^{m} v_k} = \norm*{\sum_{j=1}^{m} v_j}^2 \geq 0. \qedhere
     \]
@@ -27,8 +27,8 @@
 \end{exercise}
 
 \begin{sol}
-    Define $\gen{\cdot, \cdot}_1 = \gen{Su, Sv}$ for all $u, v \in V$.
-    From the linearity of $S$ and the properties of the regular inner product $\gen{\cdot, \cdot}$, we see that $\gen{\cdot, \cdot}_1$ holds the properties:
+    Define $\gen{u, v}_1 = \gen{Su, Sv}$ for all $u, v \in V$.
+    From the linearity of $S$ and the properties of the regular inner product $\gen{\cdot, \cdot}$, we see that $\gen{\cdot, \cdot}_1$ satisfies the properties:
     \begin{itemize}
         \item $\gen{u, v}_1 = \gen{Su, Sv} = \bar{\gen{Sv, Su}} = \bar{\gen{v, u}_1}$ for all $u, v \in V$.
         \item $\gen{u + w, v}_1 = \gen{S(u + w), Sv} = \gen{Su + Sw, Sv} = \gen{Su, Sv} + \gen{Sw, Sv} = \gen{u, v}_1 + \gen{w, v}_1$ for all $u, v, w \in V$.
@@ -93,7 +93,7 @@
     \end{align*}
     \item If $\norm{u} = \norm{v}$, then $\gen{u + v, u - v} = \norm{u}^2 - \norm{v}^2 = 0$, so $u + v$ is orthogonal to $u - v$.
     \item Let $u$ and $v$ be the vectors corresponding to two adjacent sides of a rhombus.
-    Then $\norm{u} = \norm{v}$, so $u + v$ is orthogonal to $u - v$.
+    Then $\norm{u} = \norm{v}$, so $u + v$ is orthogonal to $u - v$, where $u + v$ and $u - v$ represent the diagonals of the rhombus.
 \end{solenum}
 
 \begin{exercise}{6a6}
@@ -289,7 +289,7 @@
 
     Equality holds if and only if $\Re\gen{v, u} = |\gen{v, u}| = \norm{v}$.
     The second equality implies $v = \alpha u$ for some $\alpha \in \fbb$.
-    Since $\alpha = \gen{v, u}$ and $\Re{v, u} = |\gen{v, u}|$, we have $\alpha = \norm{v} > 0$.
+    Since $\alpha = \gen{v, u}$ and $\Re\gen{v, u} = |\gen{v, u}|$, we have $\alpha = \norm{v} > 0$.
     Therefore, $u = v/\norm{v}$.
 \end{sol}
 
@@ -837,7 +837,7 @@
     \[
         \gen{(u_1, \ldots, u_m), (u_1, \ldots, u_m)} = \gen{u_1, u_1}_1 + \cdots + \gen{u_m, u_m}_m \geq 0.
     \]
-    Moreover, $\gen{(u_1, \ldots, u_m), (u_1, \ldots, u_m)} = 0$ if and only if $\gen{u_k, u_k}_k = 0$ for each $k = 1, \ldots, m$, which is equivalent to $u_1 = \cdots = u_m = 0$.
+    Moreover, $\gen{(u_1, \ldots, u_m), (u_1, \ldots, u_m)} = 0$ if and only if $\gen{u_k, u_k}_k = 0$ for each $k = 1, \ldots, m$, which is equivalent to $u_k = 0$ for each $k = 1, \ldots, m$, so $(u_1, \ldots, u_m) = 0$.
 \end{sol}
 
 \begin{exercise}{6a30}
