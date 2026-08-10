@@ -1,0 +1,208 @@
+\subsection{Orthonormal Bases}
+
+\begin{exercise}{6b1}
+    Suppose $e_1, \ldots, e_m$ is a list of vectors in $V$ such that
+    \[
+        \norm{a_1 e_1 + \cdots + a_m e_m}^2 = |a_1|^2 + \cdots + |a_m|^2
+    \]
+    for all $a_1, \ldots, a_m \in \fbb$.
+    Show that $e_1, \ldots, e_m$ is an orthonormal list.
+
+    \note{This exercise provides a converse to 6.24.}
+\end{exercise}
+
+\begin{exercise}{6b2}
+    \begin{subexercises}
+        \item Suppose $\theta \in \rbb$.
+        Show that both
+        \[
+            (\cos\theta, \sin\theta),\, (-\sin\theta, \cos\theta) \quad \text{and} \quad (\cos\theta, \sin\theta),\, (\sin\theta, -\cos\theta)
+        \]
+        are orthonormal bases of $\rbb^2$.
+        \item Show that each orthonormal basis of $\rbb^2$ is of the form given by one of the two possibilities in (a).
+    \end{subexercises}
+\end{exercise}
+
+\begin{exercise}{6b3}
+    Suppose $e_1, \ldots, e_m$ is an orthonormal list in $V$ and $v \in V$.
+    Prove that
+    \[
+        \norm{v}^2 = |\gen{v, e_1}|^2 + \cdots + |\gen{v, e_m}|^2 \iff v \in \spn(e_1, \ldots, e_m).
+    \]
+\end{exercise}
+
+\begin{exercise}{6b4}
+    Suppose $n$ is a positive integer.
+    Prove that
+    \[
+        \frac{1}{\sqrt{2\pi}},\, \frac{\cos x}{\sqrt{\pi}},\, \frac{\cos 2x}{\sqrt{\pi}},\, \ldots,\, \frac{\cos nx}{\sqrt{\pi}},\, \frac{\sin x}{\sqrt{\pi}},\, \frac{\sin 2x}{\sqrt{\pi}},\, \ldots,\, \frac{\sin nx}{\sqrt{\pi}}
+    \]
+    is an orthonormal list of vectors in $C[-\pi, \pi]$, the vector space of continuous real-valued functions on $[-\pi, \pi]$ with inner product
+    \[
+        \gen{f, g} = \int_{-\pi}^{\pi} fg.
+    \]
+    \hint{The following formulas should help.}
+    \begin{align*}
+        (\sin x)(\cos y) &= \frac{\sin(x - y) + \sin(x + y)}{2}, \\
+        (\sin x)(\sin y) &= \frac{\cos(x - y) - \cos(x + y)}{2}, \\
+        (\cos x)(\cos y) &= \frac{\cos(x - y) + \cos(x + y)}{2}.
+    \end{align*}
+\end{exercise}
+
+\begin{exercise}{6b5}
+    Suppose $f\colon [-\pi, \pi] \to \rbb$ is continuous.
+    For each nonnegative integer $k$, define
+    \[
+        a_k = \frac{1}{\sqrt{\pi}} \int_{-\pi}^{\pi} f(x) \cos(kx)\, dx \quad \text{and} \quad b_k = \frac{1}{\sqrt{\pi}} \int_{-\pi}^{\pi} f(x) \sin(kx)\, dx.
+    \]
+    Prove that
+    \[
+        \frac{a_0^2}{2} + \sum_{k=1}^{\infty} (a_k^2 + b_k^2) \leq \int_{-\pi}^{\pi} f^2.
+    \]
+    \note{The inequality above is actually an equality for all continuous functions $f\colon [-\pi, \pi] \to \rbb$.
+    However, proving that this inequality is an equality involves Fourier series techniques beyond the scope of this book.}
+\end{exercise}
+
+\begin{exercise}{6b6}
+    Suppose $e_1, \ldots, e_n$ is an orthonormal basis of $V$.
+    \begin{subexercises}
+        \item Prove that if $v_1, \ldots, v_n$ are vectors in $V$ such that
+        \[
+            \norm{e_k - v_k} < \frac{1}{\sqrt{n}}
+        \]
+        for each $k$, then $v_1, \ldots, v_n$ is a basis of $V$.
+        \item Show that there exist $v_1, \ldots, v_n \in V$ such that
+        \[
+            \norm{e_k - v_k} \leq \frac{1}{\sqrt{n}}
+        \]
+        for each $k$, but $v_1, \ldots, v_n$ is not linearly independent.
+    \end{subexercises}
+    \note{This exercise states in (a) that an appropriately small perturbation of an orthonormal basis is a basis.
+    Then (b) shows that the number $1/\sqrt{n}$ on the right side of the inequality in (a) cannot be improved upon.}
+\end{exercise}
+
+\begin{exercise}{6b7}
+    Suppose $T \in \lin{\rbb^3}$ has an upper-triangular matrix with respect to the basis $(1, 0, 0)$, $(1, 1, 1)$, $(1, 1, 2)$.
+    Find an orthonormal basis of $\rbb^3$ with respect to which $T$ has an upper-triangular matrix.
+\end{exercise}
+
+\begin{exercise}{6b8}
+    Make $\pcal_2(\rbb)$ into an inner product space by defining $\gen{p, q} = \int_0^1 pq$ for all $p, q \in \pcal_2(\rbb)$.
+    \begin{subexercises}
+        \item Apply the Gram--Schmidt procedure to the basis $1, x, x^2$ to produce an orthonormal basis of $\pcal_2(\rbb)$.
+        \item The differentiation operator (the operator that takes $p$ to $p'$) on $\pcal_2(\rbb)$ has an upper-triangular matrix with respect to the basis $1, x, x^2$, which is not an orthonormal basis.
+        Find the matrix of the differentiation operator on $\pcal_2(\rbb)$ with respect to the orthonormal basis produced in (a) and verify that this matrix is upper triangular, as expected from the proof of 6.37.
+    \end{subexercises}
+\end{exercise}
+
+\begin{exercise}{6b9}
+    Suppose $e_1, \ldots, e_m$ is the result of applying the Gram--Schmidt procedure to a linearly independent list $v_1, \ldots, v_m$ in $V$.
+    Prove that $\gen{v_k, e_k} > 0$ for each $k = 1, \ldots, m$.
+\end{exercise}
+
+\begin{exercise}{6b10}
+    Suppose $v_1, \ldots, v_m$ is a linearly independent list in $V$.
+    Explain why the orthonormal list produced by the formulas of the Gram--Schmidt procedure (6.32) is the only orthonormal list $e_1, \ldots, e_m$ in $V$ such that $\gen{v_k, e_k} > 0$ and $\spn(v_1, \ldots, v_k) = \spn(e_1, \ldots, e_k)$ for each $k = 1, \ldots, m$.
+
+    \note{The result in this exercise is used in the proof of 7.58.}
+\end{exercise}
+
+\begin{exercise}{6b11}
+    Find a polynomial $q \in \pcal_2(\rbb)$ such that $p\left(\tfrac{1}{2}\right) = \int_0^1 pq$ for every $p \in \pcal_2(\rbb)$.
+\end{exercise}
+
+\begin{exercise}{6b12}
+    Find a polynomial $q \in \pcal_2(\rbb)$ such that
+    \[
+        \int_0^1 p(x) \cos(\pi x)\, dx = \int_0^1 pq
+    \]
+    for every $p \in \pcal_2(\rbb)$.
+\end{exercise}
+
+\begin{exercise}{6b13}
+    Show that a list $v_1, \ldots, v_m$ of vectors in $V$ is linearly dependent if and only if the Gram--Schmidt formula in 6.32 produces $f_k = 0$ for some $k \in \set{1, \ldots, m}$.
+
+    \note{This exercise gives an alternative to Gaussian elimination techniques for determining whether a list of vectors in an inner product space is linearly dependent.}
+\end{exercise}
+
+\begin{exercise}{6b14}
+    Suppose $V$ is a real inner product space and $v_1, \ldots, v_m$ is a linearly independent list of vectors in $V$.
+    Prove that there exist exactly $2^m$ orthonormal lists $e_1, \ldots, e_m$ of vectors in $V$ such that
+    \[
+        \spn(v_1, \ldots, v_k) = \spn(e_1, \ldots, e_k)
+    \]
+    for all $k \in \set{1, \ldots, m}$.
+\end{exercise}
+
+\begin{exercise}{6b15}
+    Suppose $\gen{\cdot, \cdot}_1$ and $\gen{\cdot, \cdot}_2$ are inner products on $V$ such that $\gen{u, v}_1 = 0$ if and only if $\gen{u, v}_2 = 0$.
+    Prove that there is a positive number $c$ such that $\gen{u, v}_1 = c\gen{u, v}_2$ for every $u, v \in V$.
+
+    \note{This exercise shows that if two inner products have the same pairs of orthogonal vectors, then each of the inner products is a scalar multiple of the other inner product.}
+\end{exercise}
+
+\begin{exercise}{6b16}
+    Suppose $V$ is finite-dimensional.
+    Suppose $\gen{\cdot, \cdot}_1$, $\gen{\cdot, \cdot}_2$ are inner products on $V$ with corresponding norms $\norm{\cdot}_1$ and $\norm{\cdot}_2$.
+    Prove that there exists a positive number $c$ such that $\norm{v}_1 \leq c\norm{v}_2$ for every $v \in V$.
+\end{exercise}
+
+\begin{exercise}{6b17}
+    Suppose $\fbb = \cbb$ and $V$ is finite-dimensional.
+    Prove that if $T$ is an operator on $V$ such that $1$ is the only eigenvalue of $T$ and $\norm{Tv} \leq \norm{v}$ for all $v \in V$, then $T$ is the identity operator.
+\end{exercise}
+
+\begin{exercise}{6b18}
+    Suppose $u_1, \ldots, u_m$ is a linearly independent list in $V$.
+    Show that there exists $v \in V$ such that $\gen{u_k, v} = 1$ for all $k \in \set{1, \ldots, m}$.
+\end{exercise}
+
+\begin{exercise}{6b19}
+    Suppose $v_1, \ldots, v_n$ is a basis of $V$.
+    Prove that there exists a basis $u_1, \ldots, u_n$ of $V$ such that
+    \[
+        \gen{v_j, u_k} = \begin{cases}
+            0 & \text{if } j \neq k, \\
+            1 & \text{if } j = k.
+        \end{cases}
+    \]
+\end{exercise}
+
+\begin{exercise}{6b20}
+    Suppose $\fbb = \cbb$, $V$ is finite-dimensional, and $\ecal \subseteq \lin{V}$ is such that $ST = TS$ for all $S, T \in \ecal$.
+    Prove that there is an orthonormal basis of $V$ with respect to which every element of $\ecal$ has an upper-triangular matrix.
+
+    \note{This exercise strengthens \exref{5e9}(b) (in the context of inner product spaces) by asserting that the basis in that exercise can be chosen to be orthonormal.}
+\end{exercise}
+
+\begin{exercise}{6b21}
+    Suppose $\fbb = \cbb$, $V$ is finite-dimensional, $T \in \lin{V}$, and all eigenvalues of $T$ have absolute value less than $1$.
+    Let $\ep > 0$.
+    Prove that there exists a positive integer $m$ such that $\norm{T^m v} \leq \ep\norm{v}$ for every $v \in V$.
+\end{exercise}
+
+\begin{exercise}{6b22}
+    Suppose $C[-1, 1]$ is the vector space of continuous real-valued functions on the interval $[-1, 1]$ with inner product given by
+    \[
+        \gen{f, g} = \int_{-1}^{1} fg
+    \]
+    for all $f, g \in C[-1, 1]$.
+    Let $\phi$ be the linear functional on $C[-1, 1]$ defined by $\phi(f) = f(0)$.
+    Show that there does not exist $g \in C[-1, 1]$ such that
+    \[
+        \phi(f) = \gen{f, g}
+    \]
+    for every $f \in C[-1, 1]$.
+
+    \note{This exercise shows that the Riesz representation theorem (6.42) does not hold on infinite-dimensional vector spaces without additional hypotheses on $V$ and $\phi$.}
+\end{exercise}
+
+\begin{exercise}{6b23}
+    For all $u, v \in V$, define $d(u, v) = \norm{u - v}$.
+    \begin{subexercises}
+        \item Show that $d$ is a metric on $V$.
+        \item Show that if $V$ is finite-dimensional, then $d$ is a complete metric on $V$ (meaning that every Cauchy sequence converges).
+        \item Show that every finite-dimensional subspace of $V$ is a closed subset of $V$ (with respect to the metric $d$).
+    \end{subexercises}
+    \note{This exercise requires familiarity with metric spaces.}
+\end{exercise}
