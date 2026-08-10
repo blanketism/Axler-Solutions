@@ -51,11 +51,11 @@
 \begin{solenum}
     \item It is not linear in the first slot, since
     \[
-        \gen{(1, 0) + (0, 1), (1, 0)} = \gen{(1, 1), (1, 0)} = |1 \cdot 1| + |1 \cdot 0| = 1,
+        \gen{(1, 0) + (-1, 0), (1, 0)} = \gen{(0, 0), (1, 0)} = |0 \cdot 1| + |0 \cdot 0| = 0,
     \]
     but
     \[
-        \gen{(1, 0), (1, 0)} + \gen{(0, 1), (1, 0)} = |1 \cdot 1| + |0 \cdot 0| + |0 \cdot 1| + |1 \cdot 0| = 2.
+        \gen{(1, 0), (1, 0)} + \gen{(-1, 0), (1, 0)} = |1 \cdot 1| + |0 \cdot 0| + |-1 \cdot 1| + |0 \cdot 0| = 2.
     \]
     \item It is not positive definite, since $(0, 1, 0) \neq (0, 0, 0)$ but
     \[
@@ -785,13 +785,10 @@
         Therefore, $\gen{u, v} = \Re\gen{u, v} + \Im\gen{u, v}i = \Re\gen{v, u} - \Im\gen{v, u}i = \bar{\gen{v, u}}$.
         \item \textbf{Additivity in the First Slot}: Let $u, v, w \in U$.
         Then $\Re\gen{u + v, w}$ follows from the real case.
-        For $\Im\gen{u + v, w}$, we have
-        \begin{align*}
-            \Im\gen{u + v, w} &= \frac{\norm{(u + v) + iw}^2 - \norm{(u + v) - iw}^2}{4} \\
-            &= \frac{\norm{(u + iw) + v}^2 - \norm{(u + iw) - v}^2}{4} \\
-            &= \Im\gen{u, w} + \Im\gen{v, w},
-        \end{align*}
-        where the last equality follows from the real case where $w$ is replaced by $iw$.
+        For $\Im\gen{u + v, w}$, the real-case additivity identity applied with $w$ replaced by $iw$ gives
+        \[
+            \Im\gen{u + v, w} = \Im\gen{u, w} + \Im\gen{v, w}.
+        \]
         Therefore,
         \begin{align*}
             \gen{u + v, w} &= \Re\gen{u + v, w} + \Im\gen{u + v, w}i \\
