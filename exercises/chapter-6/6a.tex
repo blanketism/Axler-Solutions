@@ -103,33 +103,21 @@
 
 \begin{sol}
     Suppose $\gen{u, v} = 0$.
-    Then for any $a \in \fbb$, we have
+    Then for all $a \in \fbb$, we have $\gen{u, av} = 0$.
+    By the Pythagorean theorem, we have
     \[
-        \norm{u + av}^2 = \gen{u + av, u + av} = \gen{u, u} + a\gen{v, u} + \bar{a}\gen{u, v} + |a|^2\gen{v, v} = \norm{u}^2 + |a|^2\norm{v}^2 \geq \norm{u}^2,
+        \norm{u + av}^2 = \norm{u}^2 + \norm{av}^2 \geq \norm{u}^2,
     \]
-    so $\norm{u + av} \geq \norm{u}$.
-
-    Conversely, suppose $\norm{u} \leq \norm{u + av}$ for all $a \in \fbb$.
+    Conversely, suppose that $\norm{u} \leq \norm{u + av}$ for all $a \in \fbb$.
     If $v = 0$, then $\gen{u, v} = 0$.
-    Otherwise, $v \neq 0$.
-    Let
+    Otherwise, consider $v \neq 0$, and let $a = -\frac{\gen{u, v}}{\norm{v}^2}$.
+    We have $\gen{u + av, v} = 0$, so $\gen{u + av, av} = 0$.
+    Then by the Pythagorean theorem, we have
     \[
-        a = -\frac{\gen{u, v}}{\norm{v}^2}.
+        \norm{u}^2 = \norm{(u + av) - av}^2 = \norm{u + av}^2 + \norm{av}^2.
     \]
-    Then
-    \begin{align*}
-        \norm{u + av}^2 &= \gen{u + av, u + av} \\
-        &= \gen{u, u} + a\gen{v, u} + \bar{a}\gen{u, v} + |a|^2\gen{v, v} \\
-        &= \norm{u}^2 - \frac{\gen{u, v}}{\norm{v}^2}\gen{v, u} - \frac{\bar{\gen{u, v}}}{\norm{v}^2}\gen{u, v} + \frac{|\gen{u, v}|^2}{\norm{v}^4}\norm{v}^2 \\
-        &= \norm{u}^2 - \frac{|\gen{u, v}|^2}{\norm{v}^2} - \frac{|\gen{u, v}|^2}{\norm{v}^2} + \frac{|\gen{u, v}|^2}{\norm{v}^2} \\
-        &= \norm{u}^2 - \frac{|\gen{u, v}|^2}{\norm{v}^2}.
-    \end{align*}
-    Since $\norm{u} \leq \norm{u + av}$, we have
-    \begin{align*}
-        \norm{u}^2 &\leq \norm{u + av}^2 \\
-        &= \norm{u}^2 - \frac{|\gen{u, v}|^2}{\norm{v}^2}.
-    \end{align*}
-    Therefore, $|\gen{u, v}|^2 \leq 0$, which implies $\gen{u, v} = 0$.
+    Note that $\norm{u} \leq \norm{u + av}$ implies $\norm{u}^2 \leq \norm{u + av}^2$.
+    Hence, $\norm{av}^2 \leq 0$, which implies $a = 0$ and $\gen{u, v} = 0$.
 \end{sol}
 
 \begin{exercise}{6a7}
