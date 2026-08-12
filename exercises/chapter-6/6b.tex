@@ -185,7 +185,7 @@
     \]
     By Bessel's inequality, for every $n \geq 1$,
     \[
-        \frac{a_0^2}{2} + \sum_{k=1}^{n}(a_k^2 + b_k^2) = \sum_{j=0}^{2n} |\gen{f, e_j}|^2 \leq \norm{f}^2 = \int_{-\pi}^{\pi} f^2.
+        \frac{a_0^2}{2} + \sum_{k=1}^{n}(a_k^2 + b_k^2) = |\gen{f, f_0}|^2 + \sum_{k=1}^{n}(|\gen{f, f_k}|^2 + |\gen{f, g_k}|^2) \leq \norm{f}^2 = \int_{-\pi}^{\pi} f^2.
     \]
     Since the right side is independent of $n$, taking $n \to \infty$ gives the result.
 \end{sol}
@@ -301,7 +301,7 @@
     \]
     \item The differentiation operator $D$ on $\pcal_2(\rbb)$ has the following matrix with respect to the basis $1, x, x^2$:
     \[
-        D =
+        \mcal(D, (1, x, x^2)) =
         \begin{pmatrix}
             0 & 1 & 0 \\
             0 & 0 & 2 \\
@@ -429,7 +429,7 @@
     Let $f_k$, $e_k$ be the vectors obtained from the Gram--Schmidt procedure, with the process continuing as long as $f_k \neq 0$.
     If $v_1, \ldots, v_m$ is linearly dependent, take the smallest $k$ with $v_k \in \spn(v_1, \ldots, v_{k-1})$.
     Then $v_1, \ldots, v_{k-1}$ is linearly independent, so $e_1, \ldots, e_{k-1}$ is an orthonormal basis of that span.
-    Hence
+    Hence,
     \[
         v_k = \sum_{j=1}^{k-1} \gen{v_k, e_j} e_j \implies f_k = v_k - \sum_{j=1}^{k-1} \gen{v_k, e_j} e_j = 0.
     \]
@@ -525,7 +525,7 @@
         \norm{Te_k}^2 = \norm*{e_k + \sum_{i=1}^{k-1} a_{i,k} e_i}^2 = 1 + \sum_{i=1}^{k-1} |a_{i,k}|^2.
     \]
     Since $\norm{Te_k} \leq \norm{e_k} = 1$ by hypothesis, we have $\sum_{i=1}^{k-1} |a_{i,k}|^2 = 0$, forcing each $a_{i,k} = 0$.
-    Thus $Te_k = e_k$ for all $k$, so $T = I$.
+    Thus, $Te_k = e_k$ for all $k$, so $T = I$.
 \end{sol}
 
 \begin{exercise}{6b18}
@@ -558,10 +558,10 @@
     In particular, $\gen{v_j, u_k} = f_k(v_j) = \delta_{jk}$.
     The list $u_1, \ldots, u_n$ is linearly independent because if $c_1 u_1 + \cdots + c_n u_n = 0$, then for each $j$,
     \[
-        0 = \gen*{v_j, \sum_{k=1}^{n} c_k u_k} = c_j,
+        0 = \gen*{v_j, \sum_{k=1}^{n} c_k u_k} = \bar{c_j},
     \]
-    so all coefficients are zero.
-    Hence $u_1, \ldots, u_n$ is a basis of $V$ with the desired properties.
+    which implies $c_j = 0$ for all $j$.
+    Hence, $u_1, \ldots, u_n$ is a basis of $V$ with the desired properties.
 \end{sol}
 
 \begin{exercise}{6b20}
@@ -572,7 +572,6 @@
 \end{exercise}
 
 \begin{sol}
-    Since $\fbb = \cbb$, the minimal polynomial of every element of $\ecal$ splits into linear factors over $\cbb$.
     By \exref{5e9}(b), there exists a basis $v_1, \ldots, v_n$ of $V$ such that every element of $\ecal$ has an upper-triangular matrix with respect to this basis.
     Equivalently, every $T \in \ecal$ satisfies $T(\spn(v_1, \ldots, v_k)) \subseteq \spn(v_1, \ldots, v_k)$ for each $k \in \{1, \ldots, n\}$.
 
