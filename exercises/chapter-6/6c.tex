@@ -258,29 +258,27 @@
 
 \begin{sol}
     Let $U = \range P$.
-    As in \exref{6c9}, $U$ consists of the vectors fixed by $P$, and for any $v \in V$, we can write $v = Pv + (v - Pv)$ with $Pv \in U$ and $v - Pv \in \nul P$.
-    By the dimension argument in \exref{6c9}, it suffices to show that $\nul P \subseteq U^\perp$.
-
+    From \exref{3b27}, $P^2 = P$ implies $V = U \op \nul P$.
     Let $w \in \nul P$ and $u \in U$.
-    For any $\alpha \in \fbb$, let $v = u + \alpha w$.
-    Then $Pv = u$, so $\norm{Pv}^2 = \norm{u}^2$.
-    The condition $\norm{Pv} \leq \norm{v}$ gives
+    If $w \neq 0$, then it follows for every $\alpha \in \fbb$ that
     \[
-        \norm{u}^2 \leq \norm{u + \alpha w}^2 = \norm{u}^2 + 2\Re(\alpha \gen{u, w}) + |\alpha|^2 \norm{w}^2,
+        \norm{u} = \norm{P(u + \alpha w)} \leq \norm{u + \alpha w}.
     \]
-    so $2\Re(\alpha \gen{u, w}) + |\alpha|^2 \norm{w}^2 \geq 0$ for all $\alpha \in \fbb$.
-
-    Suppose for contradiction that $\gen{u, w} \neq 0$.
-    Set $\alpha = -\beta \gen{u, w}$ for $\beta > 0$.
-    Then
+    Hence,
     \[
-        -2\beta |\gen{u, w}|^2 + \beta^2 |\gen{u, w}|^2 \norm{w}^2 \geq 0.
+        \norm{u}^2 \leq \norm{u}^2 + 2\Re(\bar \alpha\gen{u, w}) + |\alpha|^2 \norm{w}^2.
     \]
-    Dividing by $\beta |\gen{u, w}|^2 > 0$ gives $-2 + \beta \norm{w}^2 \geq 0$ for all $\beta > 0$.
-    Sending $\beta \to 0^+$ gives $-2 \geq 0$, a contradiction.
-    Hence, $\gen{u, w} = 0$ for all $u \in U$ and $w \in \nul P$, so $\nul P \subseteq U^\perp$.
-
-    By the dimension argument in \exref{6c9}, $\nul P = U^\perp$, and hence $P = P_U$.
+    Taking $\alpha = -\gen{u, w}/\norm{w}^2$ gives
+    \[
+        -\frac{|\gen{u, w}|^2}{\norm{w}^2} \geq 0 \implies \gen{u, w} = 0.
+    \]
+    Therefore, $\nul P \subseteq U^\perp$.
+    From the fundamental theorem of linear maps,
+    \[
+        \dim \nul P = \dim V - \dim U = \dim U^\perp.
+    \]
+    Hence, $\nul P = U^\perp$, so $V = U \op U^\perp$.
+    Then $P$ is the orthogonal projection onto $U$, i.e., $P = P_U$.
 \end{sol}
 
 \begin{exercise}{6c11}
@@ -314,20 +312,20 @@
     For any $v \in V$, write $v = u + w$ with $u \in U$ and $w \in U^\perp$.
     Then
     \[
-        P_U T v = P_U T(u + w) = P_U(Tu + Tw) = P_U Tu + P_U Tw = Tu + 0 = Tu,
+        P_U T v = P_U(Tu + Tw) = P_U Tu + P_U Tw = Tu + 0 = Tu,
     \]
     since $Tu \in U$ and $Tw \in U^\perp$.
     On the other hand,
     \[
-        T P_U v = T P_U(u + w) = T u,
+        T P_U v = T P_U(u + w) = Tu,
     \]
     so $P_U T v = T P_U v$ for all $v \in V$, and hence $P_U T = T P_U$.
 
     Conversely, suppose $P_U T = T P_U$.
-    For any $u \in U$, we have $P_U u = u$, so $P_U Tu = P_U T P_U u = T P_U u = Tu$.
-    Hence, $Tu \in U$, so $U$ is invariant under $T$.
-    For any $w \in U^\perp$, we have $P_U w = 0$, so $P_U Tw = P_U T P_U w = T P_U w = T 0 = 0$.
-    Hence, $Tw \in U^\perp$, so $U^\perp$ is invariant under $T$.
+    For any $u \in U$, we have $P_U(Tu) = T(P_U u) = Tu$, so $Tu \in U$,
+    and $U$ is invariant under $T$.
+    For any $w \in U^\perp$, we have $P_U(Tw) = T(P_U w) = T(0) = 0$, so $Tw \in U^\perp$,
+    and $U^\perp$ is invariant under $T$.
 \end{sol}
 
 \begin{exercise}{6c13}
@@ -525,17 +523,13 @@
 \begin{sol}
     For the first equality, $w \in W$ satisfies $T^\dagger w = 0$ if and only if $\gen{T^\dagger w, v} = 0$ for all $v \in V$, which holds if and only if $\gen{w, Tv} = 0$ for all $v \in V$, i.e., $w \in (\range T)^\perp$.
 
-    For the second equality, first note $\range T^\dagger \subseteq (\nul T)^\perp$ as follows: if $v = T^\dagger w$, then for every $u \in \nul T$,
-    \[
-        \gen{v, u} = \gen{T^\dagger w, u} = \gen{w, Tu} = 0,
-    \]
-    so $v \in (\nul T)^\perp$.
-    For the reverse inclusion, the first equality gives $\dim \nul T^\dagger = \dim (\range T)^\perp = \dim W - \dim \range T$.
-    By the fundamental theorem of linear maps applied to $T^\dagger$,
-    \[
-        \dim \range T^\dagger = \dim W - \dim \nul T^\dagger = \dim \range T = \dim (\nul T)^\perp.
-    \]
-    Since $\range T^\dagger \subseteq (\nul T)^\perp$ and the two spaces have equal dimension, $\range T^\dagger = (\nul T)^\perp$.
+    For the second equality, for all $u \in V$,
+    \begin{align*}
+        u \in (\range T^\dagger)^\perp &\iff \gen{u, T^\dagger w} = 0 \text{ for all } w \in W \\
+        &\iff \gen{Tu, w} = 0 \text{ for all } w \in W \\
+        &\iff Tu = 0,
+    \end{align*}
+    so $(\range T^\dagger)^\perp = \nul T$, and taking orthogonal complements gives $\range T^\dagger = (\nul T)^\perp$.
 \end{sol}
 
 \begin{exercise}{6c21}
@@ -574,11 +568,11 @@
     \item We have $P_{(\nul T)^\perp}$ being the projection onto the plane $a - 3b + 2c = 0$.
     Hence,
     \[
-        P_{(\nul T)^\perp}(a, b, c) = (a, b, c) - \frac{a - 3b + 2c}{14}(1, -3, 2) = \left(\frac{13a + 3b - 2c}{14}, \frac{-5a + 3b + 4c}{14}, \frac{2a + b + 12c}{14}\right).
+        P_{(\nul T)^\perp}(a, b, c) = (a, b, c) - \frac{a - 3b + 2c}{14}(1, -3, 2) = \left(\frac{13a + 3b - 2c}{14}, \frac{3a + 5b + 6c}{14}, \frac{-2a + 6b + 10c}{14}\right).
     \]
     For $(a, b, c) \in \fbb^3$, we have
     \[
-        T^\dagger T(a, b, c) = T^\dagger(a + b + c, 2b + 3c) = \left(\frac{13a + 3b - 2c}{14}, \frac{-5a + 3b + 4c}{14}, \frac{2a + b + 12c}{14}\right),
+        T^\dagger T(a, b, c) = T^\dagger(a + b + c, 2b + 3c) = \left(\frac{13a + 3b - 2c}{14}, \frac{3a + 5b + 6c}{14}, \frac{-2a + 6b + 10c}{14}\right),
     \]
     as required.
 \end{solenum}

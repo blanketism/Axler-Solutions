@@ -475,7 +475,7 @@
     If $V = \set 0$, then the result holds trivially.
     Otherwise, assume $V \neq \set 0$, and let $e_1 \in V$ such that $\norm{e_1}_2 = 1$.
     Let $c = \norm{e_1}_1^2$.
-    For any $u, v \in V$, then $U = \spn(u, v, e_1)$ is finite-dimensional.
+    For any $u, v \in V$, $U = \spn(u, v, e_1)$ is finite-dimensional.
     Extend $e_1$ to an orthonormal basis $e_1, \ldots, e_n$ of $U$ with respect to $\gen{\cdot, \cdot}_2$.
     Since $\gen{e_j, e_k}_2 = 0$ for $j \neq k$, the same holds for $\gen{\cdot, \cdot}_1$.
 
@@ -501,11 +501,12 @@
 \begin{sol}
     If $V = \set 0$, then the result holds trivially.
     Otherwise, assume $V \neq \set 0$, and let $e_1, \ldots, e_n$ be an orthonormal basis of $V$ with respect to $\gen{\cdot, \cdot}_2$.
-    For any $v = a_1 e_1 + \cdots + a_n e_n \in V$ for some scalars $a_1, \ldots, a_n$, we have
+    For any $v \in V$, write $v = a_1 e_1 + \cdots + a_n e_n$ for some scalars $a_1, \ldots, a_n$.
+    Then
     \[
         \norm{v}_1 \leq \sum_{j=1}^{n} |a_j|\norm{e_j}_1 \leq \left(\sum_{j=1}^{n} |a_j|^2\right)^{1/2} \left(\sum_{j=1}^{n} \norm{e_j}_1^2\right)^{1/2} = \norm{v}_2 \left(\sum_{j=1}^{n} \norm{e_j}_1^2\right)^{1/2}.
     \]
-    Taking $c = \left(\sum_{j=1}^{n} \norm{e_j}_1^2\right)^{1/2}$ gives the desired inequality.
+    Taking $c = \left(\sum_{j=1}^{n} \norm{e_j}_1^2\right)^{1/2} > 0$ gives the desired inequality.
 \end{sol}
 
 \begin{exercise}{6b17}
