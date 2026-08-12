@@ -157,7 +157,7 @@
         &= \frac{1}{2\pi}\int_{-\pi}^{\pi} (\cos(j - k)x - \cos(j + k)x) \dd x \\
         &= \frac{1}{2\pi}\left.\left(\frac{\sin(j - k)x}{j - k} - \frac{\sin(j + k)x}{j + k}\right)\right|_{-\pi}^{\pi} = 0.
     \end{align*}
-    For $j, k = 1, \ldots, n$, note that $\gen{f_j, g_k}$ is a product of an even function and an odd function, so $\gen{f_j, g_k} = 0$.
+    For $j, k = 1, \ldots, n$, note that $f_j g_k$ is a product of an even function and an odd function, so $\gen{f_j, g_k} = 0$.
     Thus, the list of vectors is orthonormal.
 \end{sol}
 
@@ -209,29 +209,22 @@
 \end{exercise}
 
 \begin{solenum}
-    \item For some scalars $a_1, \ldots, a_n$, suppose $a_1 v_1 + \cdots + a_n v_n = 0$.
+    \item Suppose $v_1, \ldots, v_n$ are linearly dependent.
+    Then there exist scalars $a_1, \ldots, a_n$, not all zero, such that
+    \[
+        a_1 v_1 + \cdots + a_n v_n = 0.
+    \]
     Then
-    \[
-        \norm{a_1 e_1 + \cdots + a_n e_n} = \norm{a_1 e_1 + \cdots + a_n e_n - (a_1 v_1 + \cdots + a_n v_n)} = \norm{a_1(e_1 - v_1) + \cdots + a_n(e_n - v_n)}.
-    \]
-    By the triangle inequality and the Cauchy--Schwarz inequality, we have
     \begin{align*}
-        \norm{a_1(e_1 - v_1) + \cdots + a_n(e_n - v_n)} &\leq |a_1|\norm{e_1 - v_1} + \cdots + |a_n|\norm{e_n - v_n} \\
-        &< \frac{|a_1|}{\sqrt{n}} + \cdots + \frac{|a_n|}{\sqrt{n}} \\
-        &= \frac{|a_1| + \cdots + |a_n|}{\sqrt{n}} \\
-        &\leq \frac{\sqrt{n}\sqrt{|a_1|^2 + \cdots + |a_n|^2}}{\sqrt{n}} \\
-        &= \sqrt{|a_1|^2 + \cdots + |a_n|^2}.
+        \sqrt{\sum_{k=1}^n|a_k|^2} &= \norm*{\sum_{k=1}^n a_k e_k} \\
+        &= \norm*{\sum_{k=1}^na_k(e_k - v_k)} \\
+        &\leq \sum_{k=1}^n |a_k|\norm{e_k - v_k} \\
+        &< \frac{1}{\sqrt{n}}\sum_{k=1}^n |a_k| \\
+        &\leq \frac{1}{\sqrt{n}}\sqrt{n}\sqrt{\sum_{k=1}^n|a_k|^2} \\
+        &= \sqrt{\sum_{k=1}^n|a_k|^2}.
     \end{align*}
-    Since $e_1, \ldots, e_n$ is an orthonormal basis of $V$, we have
-    \[
-        \norm{a_1 e_1 + \cdots + a_n e_n} = \sqrt{|a_1|^2 + \cdots + |a_n|^2}.
-    \]
-    Combining the above inequalities gives
-    \[
-        \sqrt{|a_1|^2 + \cdots + |a_n|^2} < \sqrt{|a_1|^2 + \cdots + |a_n|^2},
-    \]
-    which is a contradiction unless $a_1 = \cdots = a_n = 0$.
-    Hence, $v_1, \ldots, v_n$ is linearly independent, and since $V$ is $n$-dimensional, $v_1, \ldots, v_n$ is a basis of $V$.
+    This results in $1 < 1$, which is a contradiction, so $v_1, \ldots, v_n$ must be linearly independent.
+    Since $\dim V = n$, it follows that $v_1, \ldots, v_n$ is a basis of $V$.
     \item Consider the vector
     \[
         u = \frac{1}{\sqrt{n}}(e_1 + \cdots + e_n), \quad \norm{u}^2 = \frac{1}{n}\norm{e_1 + \cdots + e_n}^2 = \frac{1}{n}(n) = 1.
@@ -273,8 +266,9 @@
         e_2 = \frac{f_2}{\norm{f_2}} = \frac{1}{\sqrt{2}}(0, 1, 1), \quad
         e_3 = \frac{f_3}{\norm{f_3}} = \sqrt{2}\left(0, -\frac{1}{2}, \frac{1}{2}\right) = \left(0, -\frac{\sqrt{2}}{2}, \frac{\sqrt{2}}{2}\right).
     \]
-    Since $\spn(v_1, v_2, v_3) = \spn(e_1, e_2, e_3)$, and $\spn(v_1), \spn(v_1, v_2), \spn(v_1, v_2, v_3)$ are invariant under $T$, it follows that $\spn(e_1), \spn(e_1, e_2), \spn(e_1, e_2, e_3)$ are invariant under $T$.
-    Hence, $T$ has an upper-triangular matrix with respect to the orthonormal basis $e_1, e_2, e_3$.
+    By the Gram--Schmidt procedure, we know $\spn(e_1, \ldots, e_k) = \spn(v_1, \ldots, v_k)$ for each $k = 1, 2, 3$.
+    Since $\mcal(T, (v_1, v_2, v_3))$ is upper-triangular, $\spn(v_1, \ldots, v_k)$ is invariant under $T$ for each $k = 1, 2, 3$.
+    Hence, $\spn(e_1, \ldots, e_k)$ is invariant under $T$ for each $k = 1, 2, 3$, so $\mcal(T, (e_1, e_2, e_3))$ is upper-triangular.
 \end{sol}
 
 \begin{exercise}{6b8}
@@ -514,16 +508,23 @@
 \end{exercise}
 
 \begin{sol}
-    Let $e_1, \ldots, e_n$ be an orthonormal basis of $V$ with respect to $\gen{\cdot, \cdot}_2$.
-    By hypothesis, $\gen{e_j, e_k}_1 = 0$ for $j \neq k$.
-    Set $c_j = \gen{e_j, e_j}_1$, so each $c_j > 0$ by positivity of $\gen{\cdot, \cdot}_1$.
-    For distinct $j, k$, we have $\gen{e_j + e_k, e_j - e_k}_2 = 0$, so by hypothesis $\gen{e_j + e_k, e_j - e_k}_1 = 0$, which gives $c_j - c_k = 0$.
-    Hence, all $c_j$ are equal to some positive number $c$.
+    If $V = \set 0$, then the result holds trivially.
+    Otherwise, assume $V \neq \set 0$, and let $e_1 \in V$ such that $\norm{e_1}_2 = 1$.
+    Let $c = \norm{e_1}_1^2$.
+    For any $u, v \in V$, then $U = \spn(u, v, e_1)$ is finite-dimensional.
+    Extend $e_1$ to an orthonormal basis $e_1, \ldots, e_n$ of $U$ with respect to $\gen{\cdot, \cdot}_2$.
+    Since $\gen{e_j, e_k}_2 = 0$ for $j \neq k$, the same holds for $\gen{\cdot, \cdot}_1$.
 
-    For any $u, v \in V$, write $u = a_1 e_1 + \cdots + a_n e_n$ and $v = b_1 e_1 + \cdots + b_n e_n$ for some scalars $a_1, \ldots, a_n, b_1, \ldots, b_n$.
+    For each $j > 1$, $\gen{e_1 + e_j, e_1 - e_j}_2 = 0$, so $\gen{e_1 + e_j, e_1 - e_j}_1 = 0$.
+    Expanding gives
+    \[
+        0 = \gen{e_1 + e_j, e_1 - e_j}_1 = \gen{e_1, e_1}_1 - \gen{e_j, e_j}_1 = c - \gen{e_j, e_j}_1,
+    \]
+    so $\gen{e_j, e_j}_1 = c > 0$ for all $j$.
+    Write $u = a_1 e_1 + \cdots + a_n e_n$ and $v = b_1 e_1 + \cdots + b_n e_n$ for some scalars $a_1, \ldots, a_n, b_1, \ldots, b_n$.
     Then
     \[
-        \gen{u, v}_1 = \sum_{j=1}^{n} a_j \bar{b_j} \gen{e_j, e_j}_1 = c\sum_{j=1}^{n} a_j \bar{b_j} = c\gen{u, v}_2. \qedhere
+        \gen{u, v}_1 = \sum_{j=1}^{n} a_j\bar{b_j}\gen{e_j, e_j}_1 = c\sum_{j=1}^{n} a_j\bar{b_j} = c\gen{u, v}_2. \qedhere
     \]
 \end{sol}
 
@@ -534,16 +535,13 @@
 \end{exercise}
 
 \begin{sol}
-    Let $e_1, \ldots, e_n$ be an orthonormal basis of $V$ with respect to $\gen{\cdot, \cdot}_2$.
-    Define
+    If $V = \set 0$, then the result holds trivially.
+    Otherwise, assume $V \neq \set 0$, and let $e_1, \ldots, e_n$ be an orthonormal basis of $V$ with respect to $\gen{\cdot, \cdot}_2$.
+    For any $v = a_1 e_1 + \cdots + a_n e_n \in V$ for some scalars $a_1, \ldots, a_n$, we have
     \[
-        d = \max_{j=1, \ldots, n} \norm{e_j}_1.
+        \norm{v}_1 \leq \sum_{j=1}^{n} |a_j|\norm{e_j}_1 \leq \left(\sum_{j=1}^{n} |a_j|^2\right)^{1/2} \left(\sum_{j=1}^{n} \norm{e_j}_1^2\right)^{1/2} = \norm{v}_2 \left(\sum_{j=1}^{n} \norm{e_j}_1^2\right)^{1/2}.
     \]
-    For any $v \in V$, write $v = a_1 e_1 + \cdots + a_n e_n$ for some scalars $a_1, \ldots, a_n$.
-    Then by the triangle inequality and Cauchy--Schwarz,
-    \[
-        \norm{v}_1 = \norm*{\sum_{j=1}^{n} a_j e_j}_1 \leq \sum_{j=1}^{n} |a_j|\,\norm{e_j}_1 \leq d\sum_{j=1}^{n} |a_j| \leq d\sqrt{n}\sqrt{\sum_{j=1}^{n} |a_j|^2} = d\sqrt{n}\norm{v}_2. \qedhere
-    \]
+    Taking $c = \left(\sum_{j=1}^{n} \norm{e_j}_1^2\right)^{1/2}$ gives the desired inequality.
 \end{sol}
 
 \begin{exercise}{6b17}
@@ -634,60 +632,58 @@
     Suppose $\fbb = \cbb$, $V$ is finite-dimensional, $T \in \lin{V}$, and all eigenvalues of $T$ have absolute value less than $1$.
     Let $\ep > 0$.
     Prove that there exists a positive integer $m$ such that $\norm{T^m v} \leq \ep\norm{v}$ for every $v \in V$.
+
+    \remark{This exercise is quite difficult with a long solution.
+    A high level overview is this: Schur's theorem gives an orthonormal basis of $V$ with respect to which $\mcal(T)$ is upper-triangular.
+    This reduces the problem to showing each basis vector is contracted by $T^m$ for sufficiently large $m$, which is done by induction on the index of the basis vector.
+    The final step is to use the triangle inequality to show that $T^m$ contracts every vector in $V$.}
 \end{exercise}
 
 \begin{sol}
-    If $V = \set 0$, then $\norm{T^m v} = 0 \leq \ep\norm{v}$ for every $v \in V$ with $m = 1$.
-    Assume $V$ is non-trivial, so $n = \dim V \geq 1$.
-    By Schur's theorem, there exists an orthonormal basis $e_1, \ldots, e_n$ of $V$ with respect to which $T$ has an upper-triangular matrix.
-    Let $\lambda_1, \ldots, \lambda_n$ denote the diagonal entries of this matrix, which are precisely the eigenvalues of $T$.
-    By assumption, we know that $|\lambda_j| < 1$ for all $j$.
-    Define
+    If $V = \set 0$, then the result holds trivially.
+    Otherwise, assume $V \neq \set 0$, and let $\dim V = n \geq 1$.
+    By Schur's theorem, there exists an orthonormal basis $e_1, \ldots, e_n$ of $V$ such that $\mcal(T)$ is upper-triangular whose diagonal entries are the eigenvalues of $T$.
+    Let $\lambda_1, \ldots, \lambda_n$ be the eigenvalues of $T$, so $|\lambda_j| < 1$ for each $j$.
+    Write $Te_j = \lambda_j e_j + v_j$ for each $j$, where $v_j \in \spn(e_1, \ldots, e_{j-1})$ and $v_1 = 0$.
+    Let
     \[
-        \lambda = \max\{|\lambda_1|, \ldots, |\lambda_n|\} < 1.
+        \lambda = \max_j |\lambda_j| < 1,
     \]
-    By upper-triangularity, we may split each $Te_j$ into a component along $e_j$ and a component in the span of the previous basis vectors:
+    and choose $\alpha$ such that $\lambda < \alpha < 1$.
+
+    We prove by induction on $j$ that there exists some $C_j > 0$ such that $\norm{T^k e_j} \leq C_j \alpha^k$ for all $k \geq 0$.
+    For the base case $j = 1$, we have $Te_1 = \lambda_1 e_1$, which gives
     \[
-        Te_j = \lambda_j e_j + v_j
+        \norm{T^k e_1} = |\lambda_1|^k \leq \lambda^k < \alpha^k,
     \]
-    for some $v_j \in \spn\{e_1, \ldots, e_{j-1}\}$, with $v_1 = 0$.
-    Now let $\alpha \in \rbb$ such that $\lambda < \alpha < 1$.
-    We induce on $j$ to show the existence of some $C_j > 0$ such that $\norm{T^k e_j} \leq C_j \alpha^k$ for all $k \geq 0$.
-    
-    For the base case $j = 1$, we have $Te_1 = \lambda_1 e_1$, so $\norm{T^k e_1} = |\lambda_1|^k \leq \lambda^k < \alpha^k$ for all $k \geq 0$, and we may take $C_1 = 1$.
-    Now suppose the statement holds for all indices less than $j$.
-    Write
+    so we can take $C_1 = 1$.
+
+    Assume the inductive hypothesis holds for all indices less than $j$.
+    Consider
     \[
-        v_j = \sum_{i=1}^{j-1} a_i e_i
+        v_j = \sum_{i=1}^{j-1}a_i e_i.
     \]
-    for some scalars $a_1, \ldots, a_{j-1}$.
-    Choose $\beta$ with $\lambda < \beta < \alpha$.
-    By the induction hypothesis applied with $\beta$ in place of $\alpha$, there exist constants $D_i > 0$ such that $\norm{T^k e_i} \leq D_i \beta^k$ for all $k \geq 0$ and $i < j$.
-    Then
+    By the inductive hypothesis, $\norm{T^k e_i} \leq C_i \alpha^k$ for all $i < j$, so
     \[
-        \norm{T^k v_j} \leq \sum_{i=1}^{j-1} |a_i|\,\norm{T^k e_i} \leq B \beta^k, \quad B = \sum_{i=1}^{j-1} |a_i| D_i.
+        \norm{T^k v_j} \leq \sum_{i=1}^{j-1} |a_i|\,\norm{T^k e_i} \leq B\alpha^k, \quad B = \sum_{i=1}^{j-1} |a_i|C_i.
     \]
-    Inducing on $k$, we can expand $T^k e_j$ as
+    Repeatedly applying $T$ where $Te_j = \lambda_j e_j + v_j$ gives
     \[
         T^k e_j = \lambda_j^k e_j + \sum_{i=0}^{k-1} \lambda_j^{k-1-i} T^i v_j.
     \]
-    Because $\norm{e_j} = 1$ and $|\lambda_j| \leq \lambda < \beta$, we have
+    Taking norms and using the triangle inequality gives
     \[
-        \norm{T^k e_j} \leq \beta^k + B \sum_{i=0}^{k-1} \beta^{k-1-i} \beta^i = \beta^k + B k \beta^{k-1}.
+        \norm{T^k e_j} \leq \lambda^k + B\sum_{i=0}^{k-1} \lambda^{k-1-i}\alpha^i = \lambda^k + B\frac{\alpha^k - \lambda^k}{\alpha - \lambda} < \left(1 + \frac{B}{\alpha - \lambda}\right)\alpha^k,
     \]
-    Set $\gamma = \beta / \alpha$ so that $0 < \gamma < 1$.
-    Then the sequence $(k \gamma^k)_{k \geq 0}$ converges to $0$ and is therefore bounded by some $M > 0$.
-    Since $\beta = \gamma\alpha$ and $\beta \leq \alpha$, we have $k\beta^{k-1} \leq M\alpha^k / \beta$, so
+    so we can take $C_j = 1 + \frac{B}{\alpha - \lambda}$ to complete the inductive step.
+
+    Let $C = \max\set{C_1, \ldots, C_n}$.
+    For any $v \in V$, write $v = a_1 e_1 + \cdots + a_n e_n$ for some scalars $a_1, \ldots, a_n$.
+    Then $|a_j| \leq \norm{v}$ by orthonormality, so
     \[
-        \norm{T^k e_j} \leq \alpha^k + \frac{BM}{\beta} \alpha^k = \left(1 + \frac{BM}{\beta}\right) \alpha^k.
+        \norm{T^k v} \leq \sum_{j=1}^{n} |a_j|\,\norm{T^k e_j} \leq nC\alpha^k\norm{v}.
     \]
-    Hence, we may take $C_j = 1 + BM / \beta$.
-    Define $C = \max\{C_1, \ldots, C_n\}$.
-    For any $v = a_1 e_1 + \cdots + a_n e_n$, we have $|a_j| \leq \norm{v}$ by orthonormality, so
-    \[
-        \norm{T^k v} \leq \sum_{j=1}^{n} |a_j|\,\norm{T^k e_j} \leq n C \alpha^k \norm{v}.
-    \]
-    Because $0 < \alpha < 1$, there exists a positive integer $m$ such that $n C \alpha^m \leq \ep$, and for this $m$, we have $\norm{T^m v} \leq \ep \norm{v}$ for every $v \in V$.
+    Choosing such $m$ that $nC\alpha^m \leq \ep$ gives $\norm{T^m v} \leq \ep\norm{v}$ for every $v \in V$.
 \end{sol}
 
 \begin{exercise}{6b22}
