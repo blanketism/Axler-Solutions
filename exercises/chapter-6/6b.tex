@@ -332,22 +332,15 @@
 \end{exercise}
 
 \begin{sol}
-    Fix $k \in \{1, \ldots, m\}$.
-    By the Gram--Schmidt procedure,
+    By the Gram--Schmidt procedure, we have
     \[
-        e_k = \frac{f_k}{\norm{f_k}}, \quad f_k = v_k - \sum_{j=1}^{k-1} \gen{v_k, e_j}e_j.
+        e_k = \frac{f_k}{\norm{f_k}}, \quad f_k = v_k - \sum_{j=1}^{k-1}\gen{v_k, e_j}e_j.
     \]
-    Since $\spn(e_1, \ldots, e_{k-1}) = \spn(v_1, \ldots, v_{k-1})$ and $v_1, \ldots, v_m$ is linearly independent, it follows that $v_k \notin \spn(e_1, \ldots, e_{k-1})$, so $f_k \neq 0$ and $\norm{f_k} > 0$.
-    Then
+    From the linear independence of $v_1, \ldots, v_m$, $v_k \notin \spn(v_1, \ldots, v_{k-1}) = \spn(e_1, \ldots, e_{k-1})$, so $f_k \neq 0$ and $\norm{f_k} > 0$.
+    Then by orthogonality of $f_k$ and $e_j$ for $j < k$, we have
     \[
-        \gen{v_k, e_k} = \frac{\gen{v_k, f_k}}{\norm{f_k}} = \frac{1}{\norm{f_k}}\left(\norm{v_k}^2 - \sum_{j=1}^{k-1}|\gen{v_k, e_j}|^2\right).
+        \gen{v_k, e_k} = \frac{1}{\norm{f_k}}\gen{v_k, f_k} = \frac{1}{\norm{f_k}}\gen*{f_k + \sum_{j=1}^{k-1}\gen{v_k, e_j}e_j, f_k} = \frac{1}{\norm{f_k}}\gen{f_k, f_k} = \norm{f_k} > 0. \qedhere
     \]
-    By \exref{6b3},
-    \[
-        \norm{v_k}^2 = \sum_{j=1}^{k-1}|\gen{v_k, e_j}|^2
-    \]    
-    holds if and only if $v_k \in \spn(e_1, \ldots, e_{k-1})$, which we have shown does not hold.
-    Hence, $\gen{v_k, e_k} > 0$.
 \end{sol}
 
 \begin{exercise}{6b10}
@@ -359,31 +352,18 @@
 
 \begin{sol}
     Suppose $e_1, \ldots, e_m$ is an orthonormal list in $V$ such that $\gen{v_k, e_k} > 0$ and $\spn(v_1, \ldots, v_k) = \spn(e_1, \ldots, e_k)$ for each $k = 1, \ldots, m$.
-    We induce on $k$ to show that $e_k$ must be the same as the $k$th vector produced by the Gram--Schmidt procedure.
+    We induce on $k$ to show that $e_k$ agrees with the Gram--Schmidt output.
 
-    For $k = 1$, we have $\spn(v_1) = \spn(e_1)$, so $v_1 = a_1 e_1$ for some nonzero scalar $a_1$.
-    Then $\gen{v_1, e_1} = a_1 > 0$, so
-    \[
-        e_1 = \frac{v_1}{\norm{v_1}},
-    \]
-    which is the Gram--Schmidt output.
+    For $k = 1$, we have $\spn(v_1) = \spn(e_1)$ and $\norm{e_1} = 1$, so $v_1 = \gen{v_1, e_1} e_1$.
+    Taking norms and using $\gen{v_1, e_1} > 0$ gives $\gen{v_1, e_1} = \norm{v_1}$, so $e_1 = v_1 / \norm{v_1}$, which is the Gram--Schmidt output.
 
-    Now suppose that for some $k < m$, the vectors $e_1, \ldots, e_k$ agree with the Gram--Schmidt output.
-    Define
+    Now suppose the claim holds for $e_1, \ldots, e_k$.
+    Since $v_{k+1} \in \spn(e_1, \ldots, e_{k+1})$ and $e_1, \ldots, e_{k+1}$ is orthonormal,
     \[
-        f_{k+1} = v_{k+1} - \sum_{j=1}^{k}\gen{v_{k+1}, e_j}e_j.
+        v_{k+1} = \sum_{j=1}^{k+1} \gen{v_{k+1}, e_j} e_j \implies \gen{v_{k+1}, e_{k+1}} e_{k+1} = v_{k+1} - \sum_{j=1}^{k} \gen{v_{k+1}, e_j} e_j.
     \]
-    Since $e_1, \ldots, e_k$ is orthonormal, $\gen{f_{k+1}, e_j} = \gen{v_{k+1}, e_j} - \gen{v_{k+1}, e_j} = 0$ for each $j = 1, \ldots, k$.
-    Since $\spn(v_1, \ldots, v_{k+1}) = \spn(e_1, \ldots, e_{k+1})$, we can write $v_{k+1} = a_1 e_1 + \cdots + a_{k+1} e_{k+1}$, so
-    \[
-        f_{k+1} = a_{k+1}e_{k+1} + \sum_{j=1}^{k}(a_j - \gen{v_{k+1}, e_j})e_j.
-    \]
-    Taking the inner product with $e_j$ for $j \leq k$ and using $\gen{f_{k+1}, e_j} = 0$ gives $a_j = \gen{v_{k+1}, e_j}$, so $f_{k+1} = a_{k+1}e_{k+1}$.
-    Since $a_{k+1} = \gen{v_{k+1}, e_{k+1}} > 0$ by hypothesis, we get
-    \[
-        e_{k+1} = \frac{f_{k+1}}{\norm{f_{k+1}}},
-    \]
-    which is the Gram--Schmidt output.
+    By the induction hypothesis, the right-hand side is the Gram--Schmidt vector $f_{k+1}$.
+    Taking norms and using $\gen{v_{k+1}, e_{k+1}} > 0$ gives $\gen{v_{k+1}, e_{k+1}} = \norm{f_{k+1}}$, so $e_{k+1} = f_{k+1} / \norm{f_{k+1}}$, which is the Gram--Schmidt output.
 \end{sol}
 
 \begin{exercise}{6b11}
@@ -446,35 +426,19 @@
 \end{exercise}
 
 \begin{sol}
-    Suppose $v_1, \ldots, v_m$ is linearly dependent.
-    Let $k$ be the smallest index such that $v_k \in \spn(v_1, \ldots, v_{k-1})$.
-    Then $v_1, \ldots, v_{k-1}$ is linearly independent, so the Gram--Schmidt procedure produces nonzero $f_1, \ldots, f_{k-1}$ and thus a well-defined orthonormal list $e_1, \ldots, e_{k-1}$ with
+    Let $f_k$, $e_k$ be the vectors obtained from the Gram--Schmidt procedure, with the process continuing as long as $f_k \neq 0$.
+    If $v_1, \ldots, v_m$ is linearly dependent, take the smallest $k$ with $v_k \in \spn(v_1, \ldots, v_{k-1})$.
+    Then $v_1, \ldots, v_{k-1}$ is linearly independent, so $e_1, \ldots, e_{k-1}$ is an orthonormal basis of that span.
+    Hence
     \[
-        \spn(e_1, \ldots, e_{k-1}) = \spn(v_1, \ldots, v_{k-1}).
+        v_k = \sum_{j=1}^{k-1} \gen{v_k, e_j} e_j \implies f_k = v_k - \sum_{j=1}^{k-1} \gen{v_k, e_j} e_j = 0.
     \]
 
-    Since $v_k \in \spn(e_1, \ldots, e_{k-1})$, write 
+    Conversely, if the procedure gives $f_k = 0$ for some minimal $k$, then
     \[
-        v_k = \sum_{j=1}^{k-1} c_j e_j
+        v_k = \sum_{j=1}^{k-1} \gen{v_k, e_j} e_j \in \spn(e_1, \ldots, e_{k-1}) = \spn(v_1, \ldots, v_{k-1}),
     \]
-    for some scalars $c_1, \ldots, c_{k-1}$.
-    Then for each $i \in \set{1, \ldots, k-1}$,
-    \[
-        \gen{v_k, e_i} = \sum_{j=1}^{k-1} c_j \gen{e_j, e_i} = c_i,
-    \]
-    so
-    \[
-        f_k = v_k - \sum_{j=1}^{k-1}\gen{v_k, e_j}e_j = v_k - v_k = 0.
-    \]
-
-    Conversely, suppose $f_k = 0$ for some $k$.
-    If $k = 1$, then $v_1 = 0$ and the list is linearly dependent.
-    If $k \geq 2$ and some $f_j = 0$ for $j < k$, then the same argument applied to the smallest such $j$ already yields linear dependence.
-    Otherwise, $e_1, \ldots, e_{k-1}$ are well-defined and
-    \[
-        v_k = \sum_{j=1}^{k-1}\gen{v_k, e_j}e_j \in \spn(e_1, \ldots, e_{k-1}) = \spn(v_1, \ldots, v_{k-1}),
-    \]
-    so $v_1, \ldots, v_m$ is linearly dependent.
+    so $v_1, \ldots, v_k$ is a linearly dependent list.
 \end{sol}
 
 \begin{exercise}{6b14}
@@ -550,25 +514,18 @@
 \end{exercise}
 
 \begin{sol}
-    By 6.37, there is an orthonormal basis $e_1, \ldots, e_n$ of $V$ with respect to which $\mcal(T)$ is upper triangular.
-    Since $1$ is the only eigenvalue of $T$, the diagonal entries of $\mcal(T)$ are all $1$, so 
+    By Schur's theorem, there exists an orthonormal basis $e_1, \ldots, e_n$ of $V$ such that $\mcal(T)$ is upper-triangular.
+    Since $1$ is the only eigenvalue of $T$, the diagonal entries are all $1$, so
     \[
-        Te_k = e_k + \sum_{j=1}^{k-1} a_{j,k} e_j
+        Te_k = e_k + \sum_{i=1}^{k-1} a_{i,k} e_i
     \]
     for each $k$.
-    We show $a_{j,k} = 0$ for all $j < k$ by induction on $k$.
-    The base case $k = 1$ gives $Te_1 = e_1$.
-    For the inductive step, suppose $Te_j = e_j$ for all $j < k$.
-    Then
+    By orthonormality,
     \[
-        \norm{Te_k}^2 = \norm*{e_k + \sum_{j=1}^{k-1} a_{j,k} e_j}^2 = 1 + \sum_{j=1}^{k-1} |a_{j,k}|^2.
+        \norm{Te_k}^2 = \norm*{e_k + \sum_{i=1}^{k-1} a_{i,k} e_i}^2 = 1 + \sum_{i=1}^{k-1} |a_{i,k}|^2.
     \]
-    Since $\norm{Te_k} \leq \norm{e_k} = 1$, we get
-    \[
-        \sum_{j=1}^{k-1} |a_{j,k}|^2 \leq 0,
-    \]
-    so each $a_{j,k} = 0$.
-    Hence $Te_k = e_k$ for all $k$, giving $T = I$.
+    Since $\norm{Te_k} \leq \norm{e_k} = 1$ by hypothesis, we have $\sum_{i=1}^{k-1} |a_{i,k}|^2 = 0$, forcing each $a_{i,k} = 0$.
+    Thus $Te_k = e_k$ for all $k$, so $T = I$.
 \end{sol}
 
 \begin{exercise}{6b18}
@@ -703,26 +660,15 @@
 \end{exercise}
 
 \begin{sol}
-    Suppose for contradiction that there exists $g \in C[-1, 1]$ such that $\phi(f) = \gen{f, g}$ for every $f \in C[-1, 1]$.
-    Then for every $f \in C[-1, 1]$, we have
+    Suppose for contradiction that there exists $g \in C[-1, 1]$ such that $f(0) = \int_{-1}^{1} fg$ for every $f \in C[-1, 1]$.
+    Take $f(x) = x^2 g(x)$, which is continuous.
+    Then
     \[
-        f(0) = \int_{-1}^{1} fg.
+        0 = f(0) = \int_{-1}^{1} x^2 (g(x))^2 \dd x.
     \]
-    Since $g$ is continuous over the interval $[-1, 1]$, by the extreme value theorem, there exists $M \geq 0$ such that $|g(x)| \leq M$ for all $x \in [-1, 1]$.
-    If $M = 0$, then $g = 0$ and the equation above gives $f(0) = 0$ for all $f \in C[-1, 1]$, which is false.
-    Hence, $M > 0$.
-    For each positive integer $n$, define $f_n \in C[-1, 1]$ by $f_n(x) = \max\set{1 - n|x|, 0}$.
-    Then $f_n(0) = 1$, so the assumption gives
-    \[
-        1 = \int_{-1}^{1} f_n g.
-    \]
-    But $f_n(x) = 0$ for $|x| \geq 1/n$ and $0 \leq f_n(x) \leq 1$ for all $x$, so
-    \[
-        \left| \int_{-1}^{1} f_n g \right|
-            \leq \int_{-1/n}^{1/n} |g|
-            \leq \frac{2M}{n}.
-    \]
-    Taking $n > 2M$ gives $|1| \leq 2M/n < 1$, a contradiction.
+    The integrand is continuous and nonnegative, so $x^2 (g(x))^2 = 0$ for all $x \in [-1, 1]$.
+    Hence, $g(x) = 0$ for all $x \in [-1, 1] \setminus \set{0}$, and continuity forces $g(0) = 0$, so $g \equiv 0$.
+    But then $f(0) = 0$ for every $f \in C[-1, 1]$, which is false (take $f = 1$), a contradiction.
     Hence, no such $g$ exists.
 \end{sol}
 
