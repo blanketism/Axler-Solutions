@@ -1,0 +1,271 @@
+\section{Operators on Inner Product Spaces}
+
+\subsection{Self-Adjoint and Normal Operators}
+
+\begin{exercise}{7a1}
+    Suppose $n$ is a positive integer.
+    Define $T \in \lin{\fbb^n}$ by
+    \[
+        T(z_1, \ldots, z_n) = (0, z_1, \ldots, z_{n-1}).
+    \]
+    Find a formula for $T^\ast(z_1, \ldots, z_n)$.
+\end{exercise}
+
+\begin{exercise}{7a2}
+    Suppose $T \in \lin{V, W}$.
+    Prove that
+    \[
+        T = 0 \iff T^\ast = 0 \iff T^\ast T = 0 \iff TT^\ast = 0.
+    \]
+\end{exercise}
+
+\begin{exercise}{7a3}
+    Suppose $T \in \lin{V}$ and $\lambda \in \fbb$.
+    Prove that
+    \[
+        \lambda \text{ is an eigenvalue of } T \iff \bar{\lambda} \text{ is an eigenvalue of } T^\ast.
+    \]
+\end{exercise}
+
+\begin{exercise}{7a4}
+    Suppose $T \in \lin{V}$ and $U$ is a subspace of $V$.
+    Prove that
+    \[
+        U \text{ is invariant under } T \iff U^\perp \text{ is invariant under } T^\ast.
+    \]
+\end{exercise}
+
+\begin{exercise}{7a5}
+    Suppose $T \in \lin{V, W}$.
+    Suppose $e_1, \ldots, e_n$ is an orthonormal basis of $V$ and $f_1, \ldots, f_m$ is an orthonormal basis of $W$.
+    Prove that
+    \[
+        \norm{Te_1}^2 + \cdots + \norm{Te_n}^2 = \norm{T^\ast f_1}^2 + \cdots + \norm{T^\ast f_m}^2.
+    \]
+    \note{The numbers $\norm{Te_1}^2, \ldots, \norm{Te_n}^2$ in the equation above depend on the orthonormal basis $e_1, \ldots, e_n$, but the right side of the equation does not depend on $e_1, \ldots, e_n$.
+    Thus, the equation above shows that the sum on the left side does not depend on which orthonormal basis $e_1, \ldots, e_n$ is used.}
+\end{exercise}
+
+\begin{exercise}{7a6}
+    Suppose $T \in \lin{V, W}$.
+    Prove that
+    \begin{subexercises}
+        \item $T$ is injective $\iff$ $T^\ast$ is surjective;
+        \item $T$ is surjective $\iff$ $T^\ast$ is injective.
+    \end{subexercises}
+\end{exercise}
+
+\begin{exercise}{7a7}
+    Prove that if $T \in \lin{V, W}$, then
+    \begin{subexercises}
+        \item $\dim \nul T^\ast = \dim \nul T + \dim W - \dim V$;
+        \item $\dim \range T^\ast = \dim \range T$.
+    \end{subexercises}
+\end{exercise}
+
+\begin{exercise}{7a8}
+    Suppose $A$ is an $m$-by-$n$ matrix with entries in $\fbb$.
+    Use (b) in Exercise 7 to prove that the row rank of $A$ equals the column rank of $A$.
+
+    \note{This exercise asks for yet another alternative proof of a result that was previously proved in 3.57 and 3.133.}
+\end{exercise}
+
+\begin{exercise}{7a9}
+    Prove that the product of two self-adjoint operators on $V$ is self-adjoint if and only if the two operators commute.
+\end{exercise}
+
+\begin{exercise}{7a10}
+    Suppose $\fbb = \cbb$ and $T \in \lin{V}$.
+    Prove that $T$ is self-adjoint if and only if
+    \[
+        \gen{Tv, v} = \gen{T^\ast v, v}
+    \]
+    for all $v \in V$.
+\end{exercise}
+
+\begin{exercise}{7a11}
+    Define an operator $S : \fbb^2 \to \fbb^2$ by $S(w, z) = (-z, w)$.
+    \begin{subexercises}
+        \item Find a formula for $S^\ast$.
+        \item Show that $S$ is normal but not self-adjoint.
+        \item Find all eigenvalues of $S$.
+    \end{subexercises}
+    \note{If $\fbb = \rbb$, then $S$ is the operator on $\rbb^2$ of counterclockwise rotation by $90^\circ$.}
+\end{exercise}
+
+\begin{exercise}{7a12}
+    An operator $B \in \lin{V}$ is called \textbf{skew} if
+    \[
+        B^\ast = -B.
+    \]
+    Suppose that $T \in \lin{V}$.
+    Prove that $T$ is normal if and only if there exist commuting operators $A$ and $B$ such that $A$ is self-adjoint, $B$ is a skew operator, and $T = A + B$.
+\end{exercise}
+
+\begin{exercise}{7a13}
+    Suppose $\fbb = \rbb$.
+    Define $\acal \in \lin{\lin{V}}$ by $\acal T = T^\ast$ for all $T \in \lin{V}$.
+    \begin{subexercises}
+        \item Find all eigenvalues of $\acal$.
+        \item Find the minimal polynomial of $\acal$.
+    \end{subexercises}
+\end{exercise}
+
+\begin{exercise}{7a14}
+    Define an inner product on $\pcal_2(\rbb)$ by $\gen{p, q} = \int_0^1 pq$.
+    Define an operator $T \in \lin{\pcal_2(\rbb)}$ by
+    \[
+        T(ax^2 + bx + c) = bx.
+    \]
+    \begin{subexercises}
+        \item Show that with this inner product, the operator $T$ is not self-adjoint.
+        \item The matrix of $T$ with respect to the basis $1, x, x^2$ is
+        \[
+            \begin{pmatrix}
+                0 & 0 & 0 \\
+                0 & 1 & 0 \\
+                0 & 0 & 0
+            \end{pmatrix}.
+        \]
+        This matrix equals its conjugate transpose, even though $T$ is not self-adjoint.
+        Explain why this is not a contradiction.
+    \end{subexercises}
+\end{exercise}
+
+\begin{exercise}{7a15}
+    Suppose $T \in \lin{V}$ is invertible.
+    Prove that
+    \begin{subexercises}
+        \item $T$ is self-adjoint $\iff$ $T\inv$ is self-adjoint;
+        \item $T$ is normal $\iff$ $T\inv$ is normal.
+    \end{subexercises}
+\end{exercise}
+
+\begin{exercise}{7a16}
+    Suppose $\fbb = \rbb$.
+    \begin{subexercises}
+        \item Show that the set of self-adjoint operators on $V$ is a subspace of $\lin{V}$.
+        \item What is the dimension of the subspace of $\lin{V}$ in (a) [in terms of $\dim V$]?
+    \end{subexercises}
+\end{exercise}
+
+\begin{exercise}{7a17}
+    Suppose $\fbb = \cbb$.
+    Show that the set of self-adjoint operators on $V$ is not a subspace of $\lin{V}$.
+\end{exercise}
+
+\begin{exercise}{7a18}
+    Suppose $\dim V \geq 2$.
+    Show that the set of normal operators on $V$ is not a subspace of $\lin{V}$.
+\end{exercise}
+
+\begin{exercise}{7a19}
+    Suppose $T \in \lin{V}$ and $\norm{T^\ast v} \leq \norm{Tv}$ for every $v \in V$.
+    Prove that $T$ is normal.
+
+    \note{This exercise fails on infinite-dimensional inner product spaces, leading to what are called \emph{hyponormal operators}, which have a well-developed theory.}
+\end{exercise}
+
+\begin{exercise}{7a20}
+    Suppose $P \in \lin{V}$ is such that $P^2 = P$.
+    Prove that the following are equivalent.
+    \begin{subexercises}
+        \item $P$ is self-adjoint.
+        \item $P$ is normal.
+        \item There is a subspace $U$ of $V$ such that $P = P_U$.
+    \end{subexercises}
+\end{exercise}
+
+\begin{exercise}{7a21}
+    Suppose $D : \pcal_8(\rbb) \to \pcal_8(\rbb)$ is the differentiation operator defined by $Dp = p'$.
+    Prove that there does not exist an inner product on $\pcal_8(\rbb)$ that makes $D$ a normal operator.
+\end{exercise}
+
+\begin{exercise}{7a22}
+    Give an example of an operator $T \in \lin{\rbb^3}$ such that $T$ is normal but not self-adjoint.
+\end{exercise}
+
+\begin{exercise}{7a23}
+    Suppose $T$ is a normal operator on $V$.
+    Suppose also that $v, w \in V$ satisfy the equations
+    \[
+        \norm{v} = \norm{w} = 2, \quad Tv = 3v, \quad Tw = 4w.
+    \]
+    Show that $\norm{T(v + w)} = 10$.
+\end{exercise}
+
+\begin{exercise}{7a24}
+    Suppose $T \in \lin{V}$ and
+    \[
+        a_0 + a_1 z + a_2 z^2 + \cdots + a_{m-1} z^{m-1} + z^m
+    \]
+    is the minimal polynomial of $T$.
+    Prove that the minimal polynomial of $T^\ast$ is
+    \[
+        \bar{a_0} + \bar{a_1} z + \bar{a_2} z^2 + \cdots + \bar{a_{m-1}} z^{m-1} + z^m.
+    \]
+    \note{This exercise shows that the minimal polynomial of $T^\ast$ equals the minimal polynomial of $T$ if $\fbb = \rbb$.}
+\end{exercise}
+
+\begin{exercise}{7a25}
+    Suppose $T \in \lin{V}$.
+    Prove that $T$ is diagonalizable if and only if $T^\ast$ is diagonalizable.
+\end{exercise}
+
+\begin{exercise}{7a26}
+    Fix $u, x \in V$.
+    Define $T \in \lin{V}$ by $Tv = \gen{v, u}x$ for every $v \in V$.
+    \begin{subexercises}
+        \item Prove that if $V$ is a real vector space, then $T$ is self-adjoint if and only if the list $u, x$ is linearly dependent.
+        \item Prove that $T$ is normal if and only if the list $u, x$ is linearly dependent.
+    \end{subexercises}
+\end{exercise}
+
+\begin{exercise}{7a27}
+    Suppose $T \in \lin{V}$ is normal.
+    Prove that
+    \[
+        \nul T^k = \nul T \quad \text{and} \quad \range T^k = \range T
+    \]
+    for every positive integer $k$.
+\end{exercise}
+
+\begin{exercise}{7a28}
+    Suppose $T \in \lin{V}$ is normal.
+    Prove that if $\lambda \in \fbb$, then the minimal polynomial of $T$ is not a polynomial multiple of $(x - \lambda)^2$.
+\end{exercise}
+
+\begin{exercise}{7a29}
+    Prove or give a counterexample: If $T \in \lin{V}$ and there is an orthonormal basis $e_1, \ldots, e_n$ of $V$ such that $\norm{Te_k} = \norm{T^\ast e_k}$ for each $k = 1, \ldots, n$, then $T$ is normal.
+\end{exercise}
+
+\begin{exercise}{7a30}
+    Suppose that $T \in \lin{\fbb^3}$ is normal and $T(1, 1, 1) = (2, 2, 2)$.
+    Suppose $(z_1, z_2, z_3) \in \nul T$.
+    Prove that $z_1 + z_2 + z_3 = 0$.
+\end{exercise}
+
+\begin{exercise}{7a31}
+    Fix a positive integer $n$.
+    In the inner product space of continuous real-valued functions on $[-\pi, \pi]$ with inner product $\gen{f, g} = \int_{-\pi}^{\pi} fg$, let
+    \[
+        V = \spn(1, \cos x, \cos 2x, \ldots, \cos nx, \sin x, \sin 2x, \ldots, \sin nx).
+    \]
+    \begin{subexercises}
+        \item Define $D \in \lin{V}$ by $Df = f'$.
+        Show that $D^\ast = -D$.
+        Conclude that $D$ is normal but not self-adjoint.
+        \item Define $T \in \lin{V}$ by $Tf = f''$.
+        Show that $T$ is self-adjoint.
+    \end{subexercises}
+\end{exercise}
+
+\begin{exercise}{7a32}
+    Suppose $T : V \to W$ is a linear map.
+    Show that under the standard identification of $V$ with $V'$ (see 6.58) and the corresponding identification of $W$ with $W'$, the adjoint map $T^\ast : W \to V$ corresponds to the dual map $T' : W' \to V'$.
+    More precisely, show that
+    \[
+        T'(\phi_w) = \phi_{T^\ast w}
+    \]
+    for all $w \in W$, where $\phi_w$ and $\phi_{T^\ast w}$ are defined as in 6.58.
+\end{exercise}
