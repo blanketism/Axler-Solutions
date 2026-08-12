@@ -8,6 +8,22 @@
     \]
 \end{exercise}
 
+\begin{sol}
+    Suppose $v \in \set{v_1, \ldots, v_m}^\perp$.
+    Then $\gen{v, v_k} = 0$ for each $k = 1, \ldots, m$.
+    For any $u \in \spn(v_1, \ldots, v_m)$, we can write $u = a_1 v_1 + \cdots + a_m v_m$ for some scalars $a_1, \ldots, a_m$.
+    Then
+    \[
+        \gen{v, u} = \sum_{k=1}^{m} a_k \gen{v, v_k} = 0,
+    \]
+    so $v \in (\spn(v_1, \ldots, v_m))^\perp$.
+
+    Conversely, suppose $v \in (\spn(v_1, \ldots, v_m))^\perp$.
+    Then $\gen{v, u} = 0$ for all $u \in \spn(v_1, \ldots, v_m)$.
+    In particular, $\gen{v, v_k} = 0$ for each $k = 1, \ldots, m$.
+    Hence, $v \in \set{v_1, \ldots, v_m}^\perp$.
+\end{sol}
+
 \begin{exercise}{6c2}
     Suppose $U$ is a subspace of $V$ with basis $u_1, \ldots, u_m$ and
     \[
@@ -17,6 +33,19 @@
     Prove that if the Gram--Schmidt procedure is applied to the basis of $V$ above, producing a list $e_1, \ldots, e_m, f_1, \ldots, f_n$, then $e_1, \ldots, e_m$ is an orthonormal basis of $U$ and $f_1, \ldots, f_n$ is an orthonormal basis of $U^\perp$.
 \end{exercise}
 
+\begin{sol}
+    Let $e_1, \ldots, e_m, f_1, \ldots, f_n$ be the result of applying the Gram--Schmidt procedure to the basis $u_1, \ldots, u_m, v_1, \ldots, v_n$ of $V$.
+    By the properties of the Gram--Schmidt procedure, $\spn(e_1, \ldots, e_k) = \spn(u_1, \ldots, u_k)$ for each $k \leq m$.
+    In particular, $\spn(e_1, \ldots, e_m) = \spn(u_1, \ldots, u_m) = U$, so $e_1, \ldots, e_m$ is an orthonormal basis of $U$.
+
+    Since each $f_j$ is constructed to be orthogonal to all previous vectors in the Gram--Schmidt process, it follows that each $f_j$ is orthogonal to every $e_k$ for $k = 1, \ldots, m$.
+    Hence, $f_1, \ldots, f_n \in U^\perp$.
+    Additionally, $f_1, \ldots, f_n$ is an orthonormal list in $U^\perp$ because the Gram--Schmidt procedure produces orthonormal vectors.
+    By Theorem 6.49, $V = U \op U^\perp$, so $\dim U + \dim U^\perp = \dim V$.
+    Since $\dim U = m$ and $\dim V = m + n$, we have $\dim U^\perp = n$.
+    Therefore, $f_1, \ldots, f_n$ is an orthonormal basis of $U^\perp$.
+\end{sol}
+
 \begin{exercise}{6c3}
     Suppose $U$ is the subspace of $\rbb^4$ defined by
     \[
@@ -25,6 +54,51 @@
     Find an orthonormal basis of $U$ and an orthonormal basis of $U^\perp$.
 \end{exercise}
 
+\begin{sol}
+    Let $v_1= (1, 2, 3, -4)$ and $v_2 = (-5, 4, 3, 2)$.
+    Applying the Gram--Schmidt procedure to $v_1$ and $v_2$, we first set $f_1 = v_1$ with $\norm{f_1}^2 = 30$.
+    Then
+    \[
+        f_2 = v_2 - \frac{\gen{v_2, f_1}}{\norm{f_1}^2} f_1 = (-5, 4, 3, 2) - \frac{4}{30}(1, 2, 3, -4) = \frac{1}{15}(-77, 56, 39, 38),
+    \]
+    where
+    \[
+        \norm{f_2}^2 = \frac{1}{225}((-77)^2 + 56^2 + 39^2 + 38^2) = \frac{12030}{225}.
+    \]
+    Then an orthonormal basis of $U$ is given by
+    \[
+        e_1 = \frac{1}{\sqrt{30}}(1, 2, 3, -4), \quad e_2 = \frac{1}{\sqrt{12030}}(-77, 56, 39, 38).
+    \]
+    An orthonormal basis for $U^\perp$ consists of vectors orthogonal to both $v_1$ and $v_2$.
+    To find such vectors, consider the system of equations
+    \[
+        \begin{cases}
+            x + 2y + 3z - 4w = 0 \\
+            -5x + 4y + 3z + 2w = 0
+        \end{cases}
+    \]
+    The first equation yields $x = -2y - 3z + 4w$, and substituting into the second equation gives
+    \[
+        -5(-2y - 3z + 4w) + 4y + 3z + 2w = 0 \implies 14y + 18z - 18w = 0 \implies 7y = -9z + 9w.
+    \]
+    Choosing $z = w = 1$ gives $y = 0$, and then $x = -2(0) - 3(1) + 4(1) = 1$.
+    Choosing $z = 0$ and $w = 7$ gives $y = 9$ and then $x = -2(9) - 3(0) + 4(7) = -18 + 28 = 10$.
+    Hence, we have two vectors $u_1 = (1, 0, 1, 1)$ and $u_2 = (10, 9, 0, 7)$ in $U^\perp$.
+    Applying the Gram--Schmidt procedure to $u_1$ and $u_2$, we first set $g_1 = u_1$ with $\norm{g_1}^2 = 3$.
+    Then
+    \[
+        g_2 = u_2 - \frac{\gen{u_2, g_1}}{\norm{g_1}^2} g_1 = (10, 9, 0, 7) - \frac{17}{3}(1, 0, 1, 1) = \frac{1}{3}(13, 27, -17, 4),
+    \]
+    where
+    \[
+        \norm{g_2}^2 = \frac{1}{9}(13^2 + 27^2 + (-17)^2 + 4^2) = \frac{1203}{9}.
+    \]
+    Then an orthonormal basis of $U^\perp$ is given by
+    \[
+        e_1' = \frac{1}{\sqrt{3}}(1, 0, 1, 1), \quad e_2' = \frac{1}{\sqrt{1203}}(13, 27, -17, 4). \qedhere
+    \]
+\end{sol}
+
 \begin{exercise}{6c4}
     Suppose $e_1, \ldots, e_n$ is a list of vectors in $V$ with $\norm{e_k} = 1$ for each $k = 1, \ldots, n$ and
     \[
@@ -32,26 +106,96 @@
     \]
     for all $v \in V$.
     Prove that $e_1, \ldots, e_n$ is an orthonormal basis of $V$.
-    \textit{This exercise provides a converse to 6.30(b).}
+
+    \note{This exercise provides a converse to 6.30(b).}
 \end{exercise}
+
+\begin{sol}
+    Letting $v = e_j$, then
+    \[
+        1 = \norm{e_j}^2 = |\gen{e_j, e_1}|^2 + \cdots + |\gen{e_j, e_n}|^2 = |\gen{e_j, e_j}|^2 + \sum_{k \neq j} |\gen{e_j, e_k}|^2.
+    \]
+    Since $\norm{e_j} = 1$, we have $|\gen{e_j, e_j}|^2 = 1$, so
+    \[
+        1 = 1 + \sum_{k \neq j} |\gen{e_j, e_k}|^2 \implies \sum_{k \neq j} |\gen{e_j, e_k}|^2 = 0,
+    \]
+    which forces $|\gen{e_j, e_k}|^2 = 0$ for each $k \neq j$, so $\gen{e_j, e_k} = 0$ for each $j \neq k$.
+    Hence, $e_1, \ldots, e_n$ is an orthonormal list.
+    To show that $e_1, \ldots, e_n$ is a basis of $V$, let $v \in V$ be arbitrary.
+    Consider
+    \[
+        u = v - \sum_{k=1}^{n} \gen{v, e_k} e_k.
+    \]
+    Then for each $j$:
+    \[
+        \gen{u, e_j} = \gen{v, e_j} - \sum_{k=1}^{n} \gen{v, e_k} \gen{e_k, e_j} = \gen{v, e_j} - \gen{v, e_j} = 0
+    \]
+    by orthonormality.
+    Thus, $u$ is orthogonal to each $e_j$, so by the given condition,
+    \[
+        \norm{u}^2 = |\gen{u, e_1}|^2 + \cdots + |\gen{u, e_n}|^2 = 0,
+    \]
+    which implies $u = 0$.
+    Therefore, $v \in \spn(e_1, \ldots, e_n)$.
+    Since $e_1, \ldots, e_n$ is an orthonormal list and $\spn(e_1, \ldots, e_n) = V$, it follows that $e_1, \ldots, e_n$ is an orthonormal basis of $V$.
+\end{sol}
 
 \begin{exercise}{6c5}
     Suppose that $V$ is finite-dimensional and $U$ is a subspace of $V$.
     Show that $P_{U^\perp} = I - P_U$, where $I$ is the identity operator on $V$.
 \end{exercise}
 
+\begin{sol}
+    Since $V = U \op U^\perp$, for any $v \in V$, we can write $v = u + w$ for some $u \in U$ and $w \in U^\perp$.
+    Then
+    \[
+        P_U v = P_U(u + w) = P_U u + P_U w = u + 0 = u, \quad P_{U^\perp} v = P_{U^\perp}(u + w) = P_{U^\perp} u + P_{U^\perp} w = 0 + w = w.
+    \]
+    Therefore,
+    \[
+        (I - P_U)v = v - P_U v = (u + w) - u = w = P_{U^\perp} v.
+    \]
+    Since $v \in V$ was arbitrary, we conclude that $P_{U^\perp} = I - P_U$.
+\end{sol}
+
 \begin{exercise}{6c6}
     Suppose $V$ is finite-dimensional and $T \in \lin{V, W}$.
     Show that
     \[
-        T = TP_{(\nul T)^\perp} = P_{\range T}\, T.
+        T = TP_{(\nul T)^\perp} = P_{\range T}T.
     \]
 \end{exercise}
+
+\begin{sol}
+    We first show that $T = TP_{(\nul T)^\perp}$.
+    For any $v \in V$, write $v = u + w$ for some $u \in \nul T$ and $w \in (\nul T)^\perp$.
+    Then
+    \[
+        TP_{(\nul T)^\perp} v = TP_{(\nul T)^\perp}(u + w) = TP_{(\nul T)^\perp} u + TP_{(\nul T)^\perp} w = T0 + Tw = Tw.
+    \]
+    Since $u \in \nul T$, we have $Tu = 0$, so $Tv = T(u + w) = Tu + Tw = 0 + Tw = Tw$.
+    Hence, $T = TP_{(\nul T)^\perp}$.
+
+    Next, we show that $T = P_{\range T}T$.
+    For any $v \in V$, we have $Tv \in \range T$, so $P_{\range T}Tv = Tv$.
+    Therefore, $T = P_{\range T}T$.
+\end{sol}
 
 \begin{exercise}{6c7}
     Suppose that $X$ and $Y$ are finite-dimensional subspaces of $V$.
     Prove that $P_X P_Y = 0$ if and only if $\gen{x, y} = 0$ for all $x \in X$ and all $y \in Y$.
 \end{exercise}
+
+\begin{sol}
+    Suppose $P_X P_Y = 0$.
+    Let $x \in X$ and $y \in Y$.
+    Then $P_X P_Y y = 0$, so $P_X y = 0$, and $y \in X^\perp$.
+    Hence, $\gen{x, y} = 0$ for all $x \in X$ and all $y \in Y$.
+
+    Conversely, if $\gen{x, y} = 0$ for all $x \in X$ and all $y \in Y$, then $Y \subseteq X^\perp$.
+    For any $v \in V$, we have $P_Y v \in Y \subseteq X^\perp$, so $P_X P_Y v = 0$.
+    Therefore, $P_X P_Y = 0$.
+\end{sol}
 
 \begin{exercise}{6c8}
     Suppose $U$ is a finite-dimensional subspace of $V$ and $v \in V$.
@@ -68,11 +212,40 @@
     Show that $w = P_U v$.
 \end{exercise}
 
+\begin{sol}
+    By the Riesz representation theorem, we have $w \in U$. For any $u \in U$, we have
+    \[
+        \gen{u, v - w} = \gen{u, v} - \gen{u, w} = \phi(u) - \phi(u) = 0.
+    \]
+    Hence, $v - w \in U^\perp$, so $w = P_U v$.
+\end{sol}
+
 \begin{exercise}{6c9}
     Suppose $V$ is finite-dimensional.
     Suppose $P \in \lin{V}$ is such that $P^2 = P$ and every vector in $\nul P$ is orthogonal to every vector in $\range P$.
     Prove that there exists a subspace $U$ of $V$ such that $P = P_U$.
 \end{exercise}
+
+\begin{sol}
+    Let $U = \range P$.
+    If $v \in U$, then $v = Pu$ for some $u \in V$, so $Pv = P^2u = Pu = v$.
+    Conversely, if $Pv = v$, then $v \in \range P = U$.
+    Hence, $U$ consists precisely of the vectors fixed by $P$.
+
+    Since every vector in $\nul P$ is orthogonal to every vector in $U = \range P$, we have $\nul P \subseteq U^\perp$.
+    By the fundamental theorem of linear maps,
+    \[
+        \dim \nul P = \dim V - \dim \range P = \dim V - \dim U = \dim U^\perp,
+    \]
+    so $\nul P = U^\perp$.
+
+    For any $v \in V$, write $v = u + w$ with $u \in U$ and $w \in U^\perp = \nul P$.
+    Then
+    \[
+        Pv = Pu + Pw = u + 0 = u = P_U v,
+    \]
+    so $P = P_U$.
+\end{sol}
 
 \begin{exercise}{6c10}
     Suppose $V$ is finite-dimensional and $P \in \lin{V}$ is such that $P^2 = P$ and
@@ -83,6 +256,33 @@
     Prove that there exists a subspace $U$ of $V$ such that $P = P_U$.
 \end{exercise}
 
+\begin{sol}
+    Let $U = \range P$.
+    As in \exref{6c9}, $U$ consists of the vectors fixed by $P$, and for any $v \in V$, we can write $v = Pv + (v - Pv)$ with $Pv \in U$ and $v - Pv \in \nul P$.
+    By the dimension argument in \exref{6c9}, it suffices to show that $\nul P \subseteq U^\perp$.
+
+    Let $w \in \nul P$ and $u \in U$.
+    For any $\alpha \in \fbb$, let $v = u + \alpha w$.
+    Then $Pv = u$, so $\norm{Pv}^2 = \norm{u}^2$.
+    The condition $\norm{Pv} \leq \norm{v}$ gives
+    \[
+        \norm{u}^2 \leq \norm{u + \alpha w}^2 = \norm{u}^2 + 2\Re(\alpha \gen{u, w}) + |\alpha|^2 \norm{w}^2,
+    \]
+    so $2\Re(\alpha \gen{u, w}) + |\alpha|^2 \norm{w}^2 \geq 0$ for all $\alpha \in \fbb$.
+
+    Suppose for contradiction that $\gen{u, w} \neq 0$.
+    Set $\alpha = -\beta \gen{u, w}$ for $\beta > 0$.
+    Then
+    \[
+        -2\beta |\gen{u, w}|^2 + \beta^2 |\gen{u, w}|^2 \norm{w}^2 \geq 0.
+    \]
+    Dividing by $\beta |\gen{u, w}|^2 > 0$ gives $-2 + \beta \norm{w}^2 \geq 0$ for all $\beta > 0$.
+    Sending $\beta \to 0^+$ gives $-2 \geq 0$, a contradiction.
+    Hence, $\gen{u, w} = 0$ for all $u \in U$ and $w \in \nul P$, so $\nul P \subseteq U^\perp$.
+
+    By the dimension argument in \exref{6c9}, $\nul P = U^\perp$, and hence $P = P_U$.
+\end{sol}
+
 \begin{exercise}{6c11}
     Suppose $T \in \lin{V}$ and $U$ is a finite-dimensional subspace of $V$.
     Prove that
@@ -91,6 +291,16 @@
     \]
 \end{exercise}
 
+\begin{sol}
+    Suppose $U$ is invariant under $T$. For $v \in V$, write $v = u + w$ with $u = P_U v \in U$ and $w \in U^\perp$.
+    By invariance, $Tu \in U$, so $P_U Tu = Tu$.
+    Then $P_U T P_U v = P_U T u = P_U Tu = Tu = T P_U v$.
+
+    Conversely, suppose $P_U T P_U = T P_U$.
+    For any $u \in U$, we have $P_U u = u$, so $P_U T u = P_U T P_U u = T P_U u = Tu$.
+    Hence, $Tu \in U$, so $U$ is invariant under $T$.
+\end{sol}
+
 \begin{exercise}{6c12}
     Suppose $V$ is finite-dimensional, $T \in \lin{V}$, and $U$ is a subspace of $V$.
     Prove that
@@ -98,6 +308,27 @@
         U \text{ and } U^\perp \text{ are both invariant under } T \iff P_U T = T P_U.
     \]
 \end{exercise}
+
+\begin{sol}
+    Suppose $U$ and $U^\perp$ are both invariant under $T$.
+    For any $v \in V$, write $v = u + w$ with $u \in U$ and $w \in U^\perp$.
+    Then
+    \[
+        P_U T v = P_U T(u + w) = P_U(Tu + Tw) = P_U Tu + P_U Tw = Tu + 0 = Tu,
+    \]
+    since $Tu \in U$ and $Tw \in U^\perp$.
+    On the other hand,
+    \[
+        T P_U v = T P_U(u + w) = T u,
+    \]
+    so $P_U T v = T P_U v$ for all $v \in V$, and hence $P_U T = T P_U$.
+
+    Conversely, suppose $P_U T = T P_U$.
+    For any $u \in U$, we have $P_U u = u$, so $P_U Tu = P_U T P_U u = T P_U u = Tu$.
+    Hence, $Tu \in U$, so $U$ is invariant under $T$.
+    For any $w \in U^\perp$, we have $P_U w = 0$, so $P_U Tw = P_U T P_U w = T P_U w = T 0 = 0$.
+    Hence, $Tw \in U^\perp$, so $U^\perp$ is invariant under $T$.
+\end{sol}
 
 \begin{exercise}{6c13}
     Suppose $\fbb = \rbb$ and $V$ is finite-dimensional.
@@ -110,14 +341,46 @@
         \item Show that $v \mapsto \phi_v$ is an injective linear map from $V$ to $V'$.
         \item Use (a) and a dimension-counting argument to show that $v \mapsto \phi_v$ is an isomorphism from $V$ onto $V'$.
     \end{subexercises}
-    \textit{The purpose of this exercise is to give an alternative proof of the Riesz representation theorem (6.42 and 6.58) when $\fbb = \rbb$.
-    Thus you should not use the Riesz representation theorem as a tool in your solution.}
+    \note{The purpose of this exercise is to give an alternative proof of the Riesz representation theorem (6.42 and 6.58) when $\fbb = \rbb$.
+    Thus, you should not use the Riesz representation theorem as a tool in your solution.}
 \end{exercise}
+
+\begin{solenum}
+    \item Define the map $\Phi : V \to V'$ by $\Phi(v) = \phi_v$ for all $v \in V$.
+    To show that $\Phi$ is linear, let $v_1, v_2 \in V$ and $a, b \in \rbb$.
+    Then for any $u \in V$,
+    \begin{align*}
+        \Phi(av_1 + bv_2)(u) &= \phi_{av_1 + bv_2}(u) \\
+        &= \gen{u, av_1 + bv_2} \\
+        &= a\gen{u, v_1} + b\gen{u, v_2} \\
+        &= a\phi_{v_1}(u) + b\phi_{v_2}(u) \\
+        &= a\Phi(v_1)(u) + b\Phi(v_2)(u).
+    \end{align*}
+    Since this holds for all $u \in V$, we have $\Phi(av_1 + bv_2) = a\Phi(v_1) + b\Phi(v_2)$, so $\Phi$ is linear.
+    Injectivity follows from the fact that if $\Phi(v) = 0$, then $\phi_v(u) = 0$ for all $u \in V$, which implies $\gen{u, v} = 0$ for all $u \in V$.
+    In particular, taking $u = v$ gives $\gen{v, v} = 0$, so $v = 0$.
+    \item By part (a), $\Phi$ is an injective linear map from $V$ to $V'$.
+    Since $V$ is finite-dimensional, we have $\dim V = \dim V'$.
+    Hence, $\Phi$ is also surjective, and therefore an isomorphism from $V$ onto $V'$.
+\end{solenum}
 
 \begin{exercise}{6c14}
     Suppose that $e_1, \ldots, e_n$ is an orthonormal basis of $V$.
     Explain why the dual basis (see 3.112) of $e_1, \ldots, e_n$ is $e_1, \ldots, e_n$ under the identification of $V'$ with $V$ provided by the Riesz representation theorem (6.58).
 \end{exercise}
+
+\begin{sol}
+    Let $\phi_1, \ldots, \phi_n$ be the dual basis of $e_1, \ldots, e_n$.
+    By the Riesz representation theorem, for each $j$ there exists a unique $v_j \in V$ such that $\phi_j(u) = \gen{u, v_j}$ for all $u \in V$.
+    Define $\psi_j \in V'$ by $\psi_j(u) = \gen{u, e_j}$.
+    Then for any $k$,
+    \[
+        \psi_j(e_k) = \gen{e_k, e_j} = \delta_{jk} = \phi_j(e_k).
+    \]
+    Since $\psi_j$ and $\phi_j$ agree on a basis of $V$, they are equal.
+    By uniqueness in the Riesz representation theorem, $v_j = e_j$.
+    Hence, the dual basis $\phi_1, \ldots, \phi_n$ corresponds to $e_1, \ldots, e_n$ under the identification of $V'$ with $V$ provided by the Riesz representation theorem.
+\end{sol}
 
 \begin{exercise}{6c15}
     In $\rbb^4$, let
@@ -126,6 +389,19 @@
     \]
     Find $u \in U$ such that $\norm{u - (1, 2, 3, 4)}$ is as small as possible.
 \end{exercise}
+
+\begin{sol}
+    Applying the Gram--Schmidt procedure to the basis $v_1 = (1, 1, 0, 0)$ and $v_2 = (1, 1, 1, 2)$ of $U$, we first set $f_1 = v_1$ with $\norm{f_1}^2 = 2$.
+    Then
+    \[
+        f_2 = v_2 - \frac{\gen{v_2, f_1}}{\norm{f_1}^2} f_1 = (1, 1, 1, 2) - \frac{2}{2}(1, 1, 0, 0) = (0, 0, 1, 2),
+    \]
+    with $\norm{f_2}^2 = 5$.
+    Projecting $(1, 2, 3, 4)$ onto $U$ gives
+    \[
+        P_U(1, 2, 3, 4) = \frac{\gen{(1, 2, 3, 4), f_1}}{\norm{f_1}^2} f_1 + \frac{\gen{(1, 2, 3, 4), f_2}}{\norm{f_2}^2} f_2 = \frac{3}{2}(1, 1, 0, 0) + \frac{11}{5}(0, 0, 1, 2) = \left(\frac{3}{2}, \frac{3}{2}, \frac{11}{5}, \frac{22}{5}\right). \qedhere
+    \]
+\end{sol}
 
 \begin{exercise}{6c16}
     Suppose $C[-1, 1]$ is the vector space of continuous real-valued functions on the interval $[-1, 1]$ with inner product given by
@@ -143,20 +419,100 @@
     \end{subexercises}
 \end{exercise}
 
+\begin{solenum}
+    \item Let $g \in U^\perp$, so $\gen{f, g} = 0$ for all $f \in U$.
+    For any $\ep > 0$, define $f_\ep \in C[-1, 1]$ by $f_\ep(x) = g(x)$ for $|x| \geq \ep$, $f_\ep(0) = 0$, with $f_\ep$ linear on $[-\ep, 0]$ and on $[0, \ep]$ so that $f_\ep$ is continuous at $x = 0$ and $x = \pm \ep$.
+    Then $f_\ep \in U$, so $\gen{f_\ep, g} = 0$.
+    Let $M = \max_{[-1,1]} |g|$.
+    Since $f_\ep = g$ outside $[-\ep, \ep]$,
+    \[
+        |\gen{g, g}| = |\gen{f_\ep - g, g}| = \left|\int_{-\ep}^{\ep} (f_\ep - g)g\right| \leq \int_{-\ep}^{\ep} |f_\ep - g|\,|g| \leq 2M \cdot M \cdot 2\ep = 4\ep M^2,
+    \]
+    Since $\ep > 0$ is arbitrary, $\gen{g, g} = 0$, so $g = 0$.
+    Hence, $U^\perp = \set{0}$.
+    \item 6.49 asserts that $V = U \op U^\perp$, but $U^\perp = \set{0}$, so $U \op U^\perp = U \neq C[-1, 1]$ since the constant function $1$ is not in $U$.
+    6.52 asserts that $(U^\perp)^\perp = U$, but $(U^\perp)^\perp = \set{0}^\perp = C[-1, 1] \neq U$.
+\end{solenum}
+
 \begin{exercise}{6c17}
     Find $p \in \pcal_3(\rbb)$ such that $p(0) = 0$, $p'(0) = 0$, and $\int_0^1 |2 + 3x - p(x)|^2\, dx$ is as small as possible.
 \end{exercise}
 
+\begin{sol}
+    The conditions $p(0) = 0$ and $p'(0) = 0$ imply that $p(x) = ax^2 + bx^3$ for some scalars $a, b \in \rbb$.
+    Let $f(x) = 2 + 3x$ and $g(x) = ax^2 + bx^3$.
+    To minimize the integral, we project $f$ onto $\spn(x^2, x^3)$ in $C[0, 1]$ to get the resulting system of equations:
+    \begin{align*}
+        0 &= \gen{f - g, x^2} = \int_0^1 (2 + 3x - ax^2 - bx^3)x^2 \dd x = \frac{2}{3} + \frac{3}{4} - \frac{a}{5} - \frac{b}{6}, \\
+        0 &= \gen{f - g, x^3} = \int_0^1 (2 + 3x - ax^2 - bx^3)x^3 \dd x = \frac{1}{2} + \frac{3}{5} - \frac{a}{6} - \frac{b}{7}.
+    \end{align*}
+    Solving this system yields $a = 24$ and $b = -\frac{203}{10}$, so the polynomial $p(x) = 24x^2 - \frac{203}{10}x^3$ minimizes the integral.
+\end{sol}
+
 \begin{exercise}{6c18}
     Find $p \in \pcal_5(\rbb)$ that makes $\int_{-\pi}^{\pi} |\sin x - p(x)|^2\, dx$ as small as possible.
-    \textit{The polynomial 6.65 is an excellent approximation to the answer to this exercise, but here you are asked to find the exact solution, which involves powers of $\pi$.
+
+    \note{The polynomial 6.65 is an excellent approximation to the answer to this exercise, but here you are asked to find the exact solution, which involves powers of $\pi$.
     A computer that can perform symbolic integration should help.}
 \end{exercise}
+
+\begin{sol}
+    Similar to \exref{6c17}, we project $\sin x$ onto $\spn(1, x, x^2, x^3, x^4, x^5)$ in $C[-\pi, \pi]$.
+    Note that $\sin x$ is orthogonal to $1$, $x^2$, and $x^4$ on $[-\pi, \pi]$ because it is an odd function.
+    Hence, we only need to consider the projection onto $\spn(x, x^3, x^5)$.
+    Using the Gram--Schmidt procedure, we can find an orthonormal basis of $\spn(x, x^3, x^5)$ and then compute the projection of $\sin x$ onto this subspace.
+    Calculating the orthonormal basis, we begin with $f_1 = x$ with $\norm{f_1}^2 = \frac{2\pi^3}{3}$.
+    Then
+    \[
+        f_2 = x^3 - \frac{\gen{x^3, f_1}}{\norm{f_1}^2} f_1 = x^3 - \frac{3\pi^2}{5}x, \quad \norm{f_2}^2 = \frac{8\pi^7}{175}.
+    \]
+    Finally,
+    \[
+        f_3 = x^5 - \frac{\gen{x^5, f_1}}{\norm{f_1}^2} f_1 - \frac{\gen{x^5, f_2}}{\norm{f_2}^2} f_2 = x^5 - \frac{10\pi^2}{9}x^3 + \frac{5\pi^4}{21}x, \quad \norm{f_3}^2 = \frac{128\pi^{11}}{43659}.
+    \]
+    Projecting $\sin x$ onto $U = \spn(x, x^3, x^5)$ gives
+    \[
+        P_U \sin x = \frac{\gen{\sin x, f_1}}{\norm{f_1}^2} f_1 + \frac{\gen{\sin x, f_2}}{\norm{f_2}^2} f_2 + \frac{\gen{\sin x, f_3}}{\norm{f_3}^2} f_3,
+    \]
+    where the inner products are computed as follows:
+    \begin{align*}
+        \gen{\sin x, f_1} &= \int_{-\pi}^{\pi} x \sin x \dd x = 2\pi, \\
+        \gen{\sin x, f_2} &= \int_{-\pi}^{\pi} \left(x^3 - \frac{3\pi^2}{5}x\right) \sin x \dd x = \frac{4\pi}{5}(\pi^2 - 15), \\
+        \gen{\sin x, f_3} &= \int_{-\pi}^{\pi} \left(x^5 - \frac{10\pi^2}{9}x^3 + \frac{5\pi^4}{21}x\right) \sin x \dd x = \frac{2}{63}(8\pi^5 - 840\pi^3 + 7560\pi).
+    \end{align*}
+    The coefficients of $f_1$, $f_2$, and $f_3$ in the projection are then
+    \[
+        \frac{\gen{\sin x, f_1}}{\norm{f_1}^2} = \frac{3}{\pi^2}, \quad
+        \frac{\gen{\sin x, f_2}}{\norm{f_2}^2} = \frac{35(\pi^2 - 15)}{2\pi^6}, \quad
+        \frac{\gen{\sin x, f_3}}{\norm{f_3}^2} = \frac{693(8\pi^4 - 840\pi^2 + 7560)}{8\pi^{10}}.
+    \]
+    Hence, the polynomial $p(x) = P_U \sin x$ that minimizes the integral is $p(x) = \alpha x + \beta x^3 + \gamma x^5$, where
+    \begin{align*}
+        \alpha &= \frac{105}{8\pi^6}(\pi^4-153\pi^2+1485), \\
+        \beta &= -\frac{315}{4\pi^8}(\pi^4 - 125\pi^2 + 1155), \\
+        \gamma &= \frac{693}{8\pi^{10}}(\pi^4 - 105\pi^2 + 945). \qedhere
+    \end{align*}
+\end{sol}
 
 \begin{exercise}{6c19}
     Suppose $V$ is finite-dimensional and $P \in \lin{V}$ is an orthogonal projection of $V$ onto some subspace of $V$.
     Prove that $P^\dagger = P$.
 \end{exercise}
+
+\begin{sol}
+    For $u, v \in V$, write $u = u_U + u_{U^\perp}$ and $v = v_U + v_{U^\perp}$ with $u_U, v_U \in U = \range P$ and $u_{U^\perp}, v_{U^\perp} \in U^\perp = \nul P$.
+    Then $Pu = u_U$ and $Pv = v_U$, so
+    \[
+        \gen{Pu, v} = \gen{u_U, v_U + v_{U^\perp}} = \gen{u_U, v_U}
+    \]
+    since $u_U \in U$ and $v_{U^\perp} \in U^\perp$.
+    On the other hand,
+    \[
+        \gen{u, Pv} = \gen{u_U + u_{U^\perp}, v_U} = \gen{u_U, v_U}
+    \]
+    since $u_{U^\perp} \in U^\perp$ and $v_U \in U$.
+    Hence, $\gen{Pu, v} = \gen{u, Pv}$ for all $u, v \in V$, so $P^\dagger = P$.
+\end{sol}
 
 \begin{exercise}{6c20}
     Suppose $V$ is finite-dimensional and $T \in \lin{V, W}$.
@@ -165,6 +521,22 @@
         \nul T^\dagger = (\range T)^\perp \quad \text{and} \quad \range T^\dagger = (\nul T)^\perp.
     \]
 \end{exercise}
+
+\begin{sol}
+    For the first equality, $w \in W$ satisfies $T^\dagger w = 0$ if and only if $\gen{T^\dagger w, v} = 0$ for all $v \in V$, which holds if and only if $\gen{w, Tv} = 0$ for all $v \in V$, i.e., $w \in (\range T)^\perp$.
+
+    For the second equality, first note $\range T^\dagger \subseteq (\nul T)^\perp$ as follows: if $v = T^\dagger w$, then for every $u \in \nul T$,
+    \[
+        \gen{v, u} = \gen{T^\dagger w, u} = \gen{w, Tu} = 0,
+    \]
+    so $v \in (\nul T)^\perp$.
+    For the reverse inclusion, the first equality gives $\dim \nul T^\dagger = \dim (\range T)^\perp = \dim W - \dim \range T$.
+    By the fundamental theorem of linear maps applied to $T^\dagger$,
+    \[
+        \dim \range T^\dagger = \dim W - \dim \nul T^\dagger = \dim \range T = \dim (\nul T)^\perp.
+    \]
+    Since $\range T^\dagger \subseteq (\nul T)^\perp$ and the two spaces have equal dimension, $\range T^\dagger = (\nul T)^\perp$.
+\end{sol}
 
 \begin{exercise}{6c21}
     Suppose $T \in \lin{\fbb^3, \fbb^2}$ is defined by
@@ -178,14 +550,65 @@
     \end{subexercises}
 \end{exercise}
 
+\begin{solenum}
+    \item From $a + b + c = 2b + 3c = 0$, we see that $\nul T = \spn{(1, -3, 2)}$, so $(\nul T)^\perp = \set{(a, b, c) \mid a - 3b + 2c = 0}$.
+    To find $(x, y)$ where $T^\dagger(x, y) = (a, b, c)$, we need $(a, b, c) \in (\nul T)^\perp$ and $T(a, b, c) = (x, y)$.
+    Hence, we have the system of equations
+    \[
+        \begin{cases}
+            x = a + b + c, \\
+            y = 2b + 3c, \\
+            0 = a - 3b + 2c.
+        \end{cases}
+    \]
+    This yields the solution
+    \[
+        T^\dagger(x, y) = \left(\frac{13x - 5y}{14}, \frac{3x + y}{14}, \frac{-2x + 4y}{14}\right).
+    \]
+    \item Note that $\range T = \fbb^2$, so $P_{\range T} = I$.
+    For $(x, y) \in \fbb^2$, we have
+    \[
+        TT^\dagger(x, y) = T\left(\frac{13x - 5y}{14}, \frac{3x + y}{14}, \frac{-2x + 4y}{14}\right) = (x, y),
+    \]
+    as required.
+    \item We have $P_{(\nul T)^\perp}$ being the projection onto the plane $a - 3b + 2c = 0$.
+    Hence,
+    \[
+        P_{(\nul T)^\perp}(a, b, c) = (a, b, c) - \frac{a - 3b + 2c}{14}(1, -3, 2) = \left(\frac{13a + 3b - 2c}{14}, \frac{-5a + 3b + 4c}{14}, \frac{2a + b + 12c}{14}\right).
+    \]
+    For $(a, b, c) \in \fbb^3$, we have
+    \[
+        T^\dagger T(a, b, c) = T^\dagger(a + b + c, 2b + 3c) = \left(\frac{13a + 3b - 2c}{14}, \frac{-5a + 3b + 4c}{14}, \frac{2a + b + 12c}{14}\right),
+    \]
+    as required.
+\end{solenum}
+
 \begin{exercise}{6c22}
     Suppose $V$ is finite-dimensional and $T \in \lin{V, W}$.
     Prove that
     \[
         TT^\dagger T = T \quad \text{and} \quad T^\dagger TT^\dagger = T^\dagger.
     \]
-    \textit{Both formulas above clearly hold if $T$ is invertible because in that case we can replace $T^\dagger$ with $T^{-1}$.}
+    \note{Both formulas above clearly hold if $T$ is invertible because in that case we can replace $T^\dagger$ with $T^{-1}$.}
 \end{exercise}
+
+\begin{sol}
+    Let $V = \nul T \op (\nul T)^\perp$ so that any $v \in V$ can be written as $v = u + w$ with $u \in \nul T$ and $w \in (\nul T)^\perp$.
+    For the first equality, we have $Tv = Tw \in \range T$.
+    Then $T^\dagger Tw = w$ since $T^\dagger$ restricted to $\range T$ is the inverse of $T$ restricted to $(\nul T)^\perp$.
+    Hence,
+    \[
+        TT^\dagger Tv = TT^\dagger Tw = Tw = Tv
+    \]
+    for all $v \in V$, so $TT^\dagger T = T$.
+
+    For the second equality, let $w \in W$ and write $w = x + y$ with $x \in \range T$ and $y \in (\range T)^\perp$.
+    Then $T^\dagger w = T^\dagger x \in (\nul T)^\perp$, so
+    \[
+        T^\dagger TT^\dagger w = T^\dagger T(T^\dagger x) = T^\dagger x = T^\dagger w.
+    \]
+    Hence, $T^\dagger TT^\dagger = T^\dagger$.
+\end{sol}
 
 \begin{exercise}{6c23}
     Suppose $V$ and $W$ are finite-dimensional and $T \in \lin{V, W}$.
@@ -193,5 +616,19 @@
     \[
         (T^\dagger)^\dagger = T.
     \]
-    \textit{The equation above is analogous to the equation $(T^{-1})^{-1} = T$ that holds if $T$ is invertible.}
+    \note{The equation above is analogous to the equation $(T^{-1})^{-1} = T$ that holds if $T$ is invertible.}
 \end{exercise}
+
+\begin{sol}
+    By \exref{6c20}, $\nul T^\dagger = (\range T)^\perp$ and $\range T^\dagger = (\nul T)^\perp$.
+    Applying 6.68 to $T^\dagger$ in place of $T$ and substituting via \exref{6c20}, for $v \in V$,
+    \[
+        (T^\dagger)^\dagger v = (T^\dagger|_{(\nul T^\dagger)^\perp})\inv P_{\range T^\dagger}\, v = (T^\dagger|_{\range T})\inv P_{(\nul T)^\perp}\, v.
+    \]
+    By 6.67, $T|_{(\nul T)^\perp}$ is an isomorphism onto $\range T$ whose inverse is $T^\dagger|_{\range T}$, so $(T^\dagger|_{\range T})\inv = T|_{(\nul T)^\perp}$.
+    Hence,
+    \[
+        (T^\dagger)^\dagger v = T(P_{(\nul T)^\perp} v) = T(T^\dagger T v) = Tv,
+    \]
+    where the second equality uses 6.69(c) and the third uses \exref{6c22}.
+\end{sol}
