@@ -14,7 +14,7 @@
     For any $u \in \spn(v_1, \ldots, v_m)$, we can write $u = a_1 v_1 + \cdots + a_m v_m$ for some scalars $a_1, \ldots, a_m$.
     Then
     \[
-        \gen{v, u} = \sum_{k=1}^{m} a_k \gen{v, v_k} = 0,
+        \gen{v, u} = \sum_{k=1}^{m} \bar{a_k} \gen{v, v_k} = 0,
     \]
     so $v \in (\spn(v_1, \ldots, v_m))^\perp$.
 
@@ -111,7 +111,7 @@
 \end{exercise}
 
 \begin{sol}
-    Letting $v = e_j$, then
+    Setting $v = e_j$, we have
     \[
         1 = \norm{e_j}^2 = |\gen{e_j, e_1}|^2 + \cdots + |\gen{e_j, e_n}|^2 = |\gen{e_j, e_j}|^2 + \sum_{k \neq j} |\gen{e_j, e_k}|^2.
     \]
@@ -424,7 +424,7 @@
     Let $M = \max_{[-1,1]} |g|$.
     Since $f_\ep = g$ outside $[-\ep, \ep]$,
     \[
-        |\gen{g, g}| = |\gen{f_\ep - g, g}| = \left|\int_{-\ep}^{\ep} (f_\ep - g)g\right| \leq \int_{-\ep}^{\ep} |f_\ep - g|\,|g| \leq 2M \cdot M \cdot 2\ep = 4\ep M^2,
+        |\gen{g, g}| = |\gen{f_\ep - g, g}| = \left|\int_{-\ep}^{\ep} (f_\ep - g)g\right| \leq \int_{-\ep}^{\ep} |f_\ep - g|\,|g| \leq 2M \cdot M \cdot 2\ep = 4\ep M^2.
     \]
     Since $\ep > 0$ is arbitrary, $\gen{g, g} = 0$, so $g = 0$.
     Hence, $U^\perp = \set{0}$.
@@ -459,7 +459,7 @@
     Note that $\sin x$ is orthogonal to $1$, $x^2$, and $x^4$ on $[-\pi, \pi]$ because it is an odd function.
     Hence, we only need to consider the projection onto $\spn(x, x^3, x^5)$.
     Using the Gram--Schmidt procedure, we can find an orthonormal basis of $\spn(x, x^3, x^5)$ and then compute the projection of $\sin x$ onto this subspace.
-    Calculating the orthonormal basis, we begin with $f_1 = x$ with $\norm{f_1}^2 = \frac{2\pi^3}{3}$.
+    Calculating the orthogonal basis, we begin with $f_1 = x$ with $\norm{f_1}^2 = \frac{2\pi^3}{3}$.
     Then
     \[
         f_2 = x^3 - \frac{\gen{x^3, f_1}}{\norm{f_1}^2} f_1 = x^3 - \frac{3\pi^2}{5}x, \quad \norm{f_2}^2 = \frac{8\pi^7}{175}.
@@ -482,7 +482,7 @@
     \[
         \frac{\gen{\sin x, f_1}}{\norm{f_1}^2} = \frac{3}{\pi^2}, \quad
         \frac{\gen{\sin x, f_2}}{\norm{f_2}^2} = \frac{35(\pi^2 - 15)}{2\pi^6}, \quad
-        \frac{\gen{\sin x, f_3}}{\norm{f_3}^2} = \frac{693(8\pi^4 - 840\pi^2 + 7560)}{8\pi^{10}}.
+        \frac{\gen{\sin x, f_3}}{\norm{f_3}^2} = \frac{693(\pi^4 - 105\pi^2 + 945)}{8\pi^{10}}.
     \]
     Hence, the polynomial $p(x) = P_U \sin x$ that minimizes the integral is $p(x) = \alpha x + \beta x^3 + \gamma x^5$, where
     \begin{align*}
