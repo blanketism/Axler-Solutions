@@ -11,6 +11,19 @@
     Find a formula for $T^\ast(z_1, \ldots, z_n)$.
 \end{exercise}
 
+\begin{sol}
+    Let $(z_1, \ldots, z_n), (w_1, \ldots, w_n) \in \fbb^n$.
+    We need
+    \[
+        \gen{T(z_1, \ldots, z_n), (w_1, \ldots, w_n)} = \gen{(z_1, \ldots, z_n), T^\ast(w_1, \ldots, w_n)}.
+    \]
+    The left side gives
+    \[
+        \gen{(0, z_1, \ldots, z_{n-1}), (w_1, \ldots, w_n)} = z_1\bar{w_2} + \cdots + z_{n-1}\bar{w_n}.
+    \]
+    By comparison, we see that $T^\ast(w_1, \ldots, w_n) = (w_2, \ldots, w_n, 0)$.
+\end{sol}
+
 \begin{exercise}{7a2}
     Suppose $T \in \lin{V, W}$.
     Prove that
@@ -18,6 +31,35 @@
         T = 0 \iff T^\ast = 0 \iff T^\ast T = 0 \iff TT^\ast = 0.
     \]
 \end{exercise}
+
+\begin{sol}
+    We show that $T = 0$ implies the other three statements.
+    If $T = 0$, then for all $v \in V$ and $w \in W$, we have
+    \[
+        \gen{T^\ast w, v} = \gen{w, Tv} = \gen{w, 0} = 0,
+    \]
+    which implies $T^\ast w = 0$ for all $w \in W$, so $T^\ast = 0$.
+    Then $T^\ast T = 0$ and $TT^\ast = 0$ follow immediately.
+    If $T^\ast = 0$, then for all $v \in V$, we have
+    \[
+        \norm{Tv}^2 = \gen{Tv, Tv} = \gen{T^\ast Tv, v} = \gen{0, v} = 0,
+    \]
+    which implies $Tv = 0$ for all $v \in V$, so $T = 0$.
+
+    Now suppose $T^\ast T = 0$.
+    Then for all $v \in V$, we have
+    \[
+        \norm{Tv}^2 = \gen{Tv, Tv} = \gen{T^\ast Tv, v} = \gen{0, v} = 0,
+    \]
+    which implies $Tv = 0$ for all $v \in V$, so $T = 0$.
+    On the other hand, $TT^\ast = 0$ implies
+    \[
+        \norm{T^\ast w}^2 = \gen{T^\ast w, T^\ast w} = \gen{TT^\ast w, w} = \gen{0, w} = 0,
+    \]
+    which implies $T^\ast w = 0$ for all $w \in W$, so $T^\ast = 0$.
+
+    Hence, the other three statements all imply $T = 0$ as well, so we have shown that all four statements are equivalent.
+\end{sol}
 
 \begin{exercise}{7a3}
     Suppose $T \in \lin{V}$ and $\lambda \in \fbb$.
@@ -27,6 +69,20 @@
     \]
 \end{exercise}
 
+\begin{sol}
+    By Theorem 7.5, we have $(T - \lambda I)^\ast = T^\ast - \bar{\lambda} I$.
+    Moreover, Theorem 7.6(a) gives $\nul(T - \lambda I)^\ast = (\range(T - \lambda I))^\perp$.
+    Thus, we have
+    \begin{align*}
+        \lambda \text{ is an eigenvalue of } T &\iff \nul(T - \lambda I) \neq \set 0 \\
+        &\iff \range(T - \lambda I) \neq V \\
+        &\iff (\range(T - \lambda I))^\perp \neq \set 0 \\
+        &\iff \nul(T - \lambda I)^\ast \neq \set 0 \\
+        &\iff \nul(T^\ast - \bar{\lambda} I) \neq \set 0 \\
+        &\iff \bar{\lambda} \text{ is an eigenvalue of } T^\ast. \qedhere
+    \end{align*}
+\end{sol}
+
 \begin{exercise}{7a4}
     Suppose $T \in \lin{V}$ and $U$ is a subspace of $V$.
     Prove that
@@ -34,6 +90,19 @@
         U \text{ is invariant under } T \iff U^\perp \text{ is invariant under } T^\ast.
     \]
 \end{exercise}
+
+\begin{sol}
+    Suppose $U$ is invariant under $T$, and let $v \in U^\perp$.
+    Then for all $u \in U$, we have $Tu \in U$, so
+    \[
+        \gen{T^\ast v, u} = \gen{v, Tu} = 0,
+    \]
+    which implies $T^\ast v \in U^\perp$, so $U^\perp$ is invariant under $T^\ast$.
+
+    Conversely, suppose $U^\perp$ is invariant under $T^\ast$ with $u \in U$.
+    Note that $(T^\ast)^\ast = T$, and $(U^\perp)^\perp = U$ follows since $V$ is finite-dimensional.
+    Applying the first part of the proof to $T^\ast$ and $U^\perp$, we see that $U = (U^\perp)^\perp$ is invariant under $(T^\ast)^\ast = T$.
+\end{sol}
 
 \begin{exercise}{7a5}
     Suppose $T \in \lin{V, W}$.
@@ -46,6 +115,25 @@
     Thus, the equation above shows that the sum on the left side does not depend on which orthonormal basis $e_1, \ldots, e_n$ is used.}
 \end{exercise}
 
+\begin{sol}
+    Let
+    \[
+        Te_j = \sum_{k=1}^m \gen{Te_j, f_k} f_k \implies \norm{Te_j}^2 = \sum_{k=1}^m \abs{\gen{Te_j, f_k}}^2.
+    \]
+    Similarly, we may write
+    \[
+        T^\ast f_i = \sum_{\ell=1}^n \gen{T^\ast f_i, e_\ell} e_\ell \implies \norm{T^\ast f_i}^2 = \sum_{\ell=1}^n \abs{\gen{T^\ast f_i, e_\ell}}^2.
+    \]
+    Note that
+    \[
+        \gen{T^\ast f_i, e_j} = \gen{f_i, Te_j} = \bar{\gen{Te_j, f_i}} \implies \abs{\gen{T^\ast f_i, e_j}}^2 = \abs{\gen{Te_j, f_i}}^2.
+    \]
+    Therefore, we have
+    \[
+        \sum_{k=1}^m \norm{T^\ast f_k}^2 = \sum_{k=1}^m \sum_{\ell=1}^n \abs{\gen{Te_\ell, f_k}}^2 = \sum_{\ell=1}^n \sum_{k=1}^m \abs{\gen{Te_\ell, f_k}}^2 = \sum_{\ell=1}^n \norm{Te_\ell}^2. \qedhere
+    \]
+\end{sol}
+
 \begin{exercise}{7a6}
     Suppose $T \in \lin{V, W}$.
     Prove that
@@ -55,6 +143,11 @@
     \end{subexercises}
 \end{exercise}
 
+\begin{solenum}
+    \item $T$ injective $\iff \nul T = \set 0 \iff (\range T^\ast)^\perp = \set 0 \iff \range T^\ast = V \iff T^\ast$ surjective.
+    \item $T$ surjective $\iff \range T = W \iff (\nul T^\ast)^\perp = W \iff \nul T^\ast = \set 0 \iff T^\ast$ injective.
+\end{solenum}
+
 \begin{exercise}{7a7}
     Prove that if $T \in \lin{V, W}$, then
     \begin{subexercises}
@@ -63,6 +156,21 @@
     \end{subexercises}
 \end{exercise}
 
+\begin{solenum}
+    \item By Theorem 7.6(a), we have $\nul T^\ast = (\range T)^\perp$, so $\dim \nul T^\ast = \dim W - \dim \range T$.
+    Using the fundamental theorem of linear maps, we have $\dim \range T = \dim V - \dim \nul T$, so
+    \[
+        \dim \nul T^\ast = \dim W - \dim V + \dim \nul T.
+    \]
+    \item Applying the fundamental theorem of linear maps to $T^\ast$, we have
+    \begin{align*}
+        \dim \range T^\ast &= \dim W - \dim \nul T^\ast \\
+        &= \dim W - (\dim W - \dim V + \dim \nul T) \\
+        &= \dim V - \dim \nul T \\
+        &= \dim \range T. \qedhere
+    \end{align*}
+\end{solenum}
+
 \begin{exercise}{7a8}
     Suppose $A$ is an $m$-by-$n$ matrix with entries in $\fbb$.
     Use (b) in Exercise 7 to prove that the row rank of $A$ equals the column rank of $A$.
@@ -70,9 +178,24 @@
     \note{This exercise asks for yet another alternative proof of a result that was previously proved in 3.57 and 3.133.}
 \end{exercise}
 
+\begin{sol}
+    Let $T \in \lin{\fbb^n, \fbb^m}$ have the matrix $A = \mcal(T)$ with respect to the standard bases of $\fbb^n$ and $\fbb^m$.
+    The columns of $A^\ast = \mcal(T^\ast)$ are the conjugate-transposed rows of $A$, so the column rank of $A^\ast$ equals the row rank of $A$.
+    By \exref{7a7}(b), $\dim \range T^\ast = \dim \range T$, so the column rank of $A^\ast$ equals the column rank of $A$, and the result follows.
+\end{sol}
+
 \begin{exercise}{7a9}
     Prove that the product of two self-adjoint operators on $V$ is self-adjoint if and only if the two operators commute.
 \end{exercise}
+
+\begin{sol}
+    Let $S, T \in \lin{V}$ be self-adjoint, so $S^\ast = S$ and $T^\ast = T$.
+    Note that $(ST)^\ast = T^\ast S^\ast = TS$.
+    Hence,
+    \[
+        ST \text{ is self-adjoint } \iff (ST)^\ast = ST \iff TS = ST. \qedhere
+    \]
+\end{sol}
 
 \begin{exercise}{7a10}
     Suppose $\fbb = \cbb$ and $T \in \lin{V}$.
