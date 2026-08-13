@@ -1,0 +1,32 @@
+\subsection{Inner Product Spaces}
+
+\begin{apex}[6c16]
+    Suppose $C[-1, 1]$ is the vector space of continuous real-valued functions on the interval $[-1, 1]$ with inner product given by
+    \[
+        \gen{f, g} = \int_{-1}^{1} fg
+    \]
+    for all $f, g \in C[-1, 1]$.
+    Let $U$ be the subspace of $C[-1, 1]$ defined by
+    \[
+        U = \set{f \in C[-1, 1] \mid f(0) = 0}.
+    \]
+    \begin{subexercises}
+        \item Show that $U^\perp = \set{0}$.
+        \item Show that 6.49 and 6.52 do not hold without the finite-dimensional hypothesis.
+    \end{subexercises}
+\end{apex}
+
+\begin{me}
+    A more analysis-based solution to part (a) is as follows.
+
+    Let $g \in U^\perp$, so $\gen{f, g} = 0$ for all $f \in U$.
+    For any $\ep > 0$, define $f_\ep \in C[-1, 1]$ by $f_\ep(x) = g(x)$ for $|x| \geq \ep$, $f_\ep(0) = 0$, with $f_\ep$ linear on $[-\ep, 0]$ and on $[0, \ep]$ so that $f_\ep$ is continuous at $x = 0$ and $x = \pm \ep$.
+    Then $f_\ep \in U$, so $\gen{f_\ep, g} = 0$.
+    Let $M = \max_{[-1,1]} |g|$.
+    Since $f_\ep = g$ outside $[-\ep, \ep]$,
+    \[
+        |\gen{g, g}| = |\gen{f_\ep - g, g}| = \left|\int_{-\ep}^{\ep} (f_\ep - g)g\right| \leq \int_{-\ep}^{\ep} |f_\ep - g|\,|g| \leq 2M \cdot M \cdot 2\ep = 4\ep M^2.
+    \]
+    Since $\ep > 0$ is arbitrary, $\gen{g, g} = 0$, so $g = 0$.
+    Hence, $U^\perp = \set{0}$.
+\end{me}
