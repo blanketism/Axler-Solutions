@@ -63,10 +63,12 @@
     	0v = 0 \text{ for all } v \in V.
     \]
     Here, the 0 on the left side is the number 0, and the 0 on the right side is the additive identity in $V$.
+
+    \note{The phrase a ``condition can be replaced'' in a definition means that the collection of objects satisfying the definition is unchanged if the original condition is replaced with the new condition.}
 \end{exercise}
 
-\begin{sol}
-    Suppose that $0v = 0$ for all $v \in V$.
+\begin{soliff}
+    \rightimp Suppose that $0v = 0$ for all $v \in V$.
 	Let $v \in V$.
 	Then
     \[
@@ -74,11 +76,11 @@
     \]
     Hence, $(-1)v$ is the additive inverse of $v$.
     
-    Conversely, suppose that for every $v \in V$, there exists an additive inverse $-v \in V$ such that $v + (-v) = 0$.
+    \leftimp Conversely, suppose that for every $v \in V$, there exists an additive inverse $-v \in V$ such that $v + (-v) = 0$.
 	Then $0v = (0 + 0)v = 0v + 0v$.
 	Adding $-0v$ to both sides, we get $0 = 0v$.
 	Hence, $0v = 0$ for all $v \in V$.
-\end{sol}
+\end{soliff}
 
 \begin{exercise}{1b6}
     Let $\infty$ and $-\infty$ denote two distinct objects, neither of which is in $\rbb$.
@@ -193,8 +195,8 @@
 \begin{exercise}{1b8}
     Suppose $V$ is a real vector space.
     \begin{itemize}
-        \item The \textbf{complexification} of $V$, denoted by $V_{\cbb}$, equals $V \times V$.
-	An element of $V_{\cbb}$ is an ordered pair $(u, v)$, where $u, v \in V$, but we write this as $u + iv$.
+        \item The \term{complexification} of $V$, denoted by $V_{\cbb}$, equals $V \times V$.
+	    An element of $V_{\cbb}$ is an ordered pair $(u, v)$, where $u, v \in V$, but we write this as $u + iv$.
         \item Addition on $V_{\cbb}$ is defined by
         \[
         	(u_1 + iv_1) + (u_2 + iv_2) = (u_1 + u_2) + i(v_1 + v_2)

@@ -13,114 +13,85 @@
 \begin{sol}
     Let $U$ be the subset of $\fbb^3$ in question.
     \begin{subexercises}
-        \item Since the zero vector $(0, 0, 0)$ satisfies $0 + 2(0) + 3(0) = 0$, $U$ is nonempty.
-	    Let $u = (u_1, u_2, u_3)$ and $v = (v_1, v_2, v_3)$ be elements of $U$.
-	    Then
+        \item Since $0 + 2(0) + 3(0) = 0$, $(0, 0, 0) \in U$, so $U$ is nonempty. Let $u = (u_1, u_2, u_3), v = (v_1, v_2, v_3) \in U$ and $\alpha \in \fbb$.
+        Then
         \[
-        	(u_1 + v_1) + 2(u_2 + v_2) + 3(u_3 + v_3) = (u_1 + 2u_2 + 3u_3) + (v_1 + 2v_2 + 3v_3) = 0 + 0 = 0.
+            (u_1 + v_1) + 2(u_2 + v_2) + 3(u_3 + v_3) = (u_1 + 2u_2 + 3u_3) + (v_1 + 2v_2 + 3v_3) = 0 + 0 = 0,
         \]
-        Hence, $u + v$ is in $U$.
-	    Let $a \in \fbb$.
-	    Then
+        and
         \[
-        	a u_1 + 2(a u_2) + 3(a u_3) = a(u_1 + 2u_2 + 3u_3) = a \cdot 0 = 0.
+            \alpha u_1 + 2(\alpha u_2) + 3(\alpha u_3) = \alpha(u_1 + 2u_2 + 3u_3) = \alpha(0) = 0.
         \]
-        Hence, $au$ is in $U$.
-	    Therefore, $U$ is a subspace of $\fbb^3$.
-        \item The zero vector $(0, 0, 0)$ does not satisfy $0 + 2(0) + 3(0) = 4$, so $U$ does not contain the zero vector.
-	    Hence, it is not a subspace of $\fbb^3$.
-        \item Suppose $u = (1, 0, 0)$ and $v = (0, 1, 1)$.
-	    Then $u$ and $v$ are in $U$ since $1 \cdot 0 \cdot 0 = 0$ and $0 \cdot 1 \cdot 1 = 0$.
-	    However, $u + v = (1, 1, 1)$ is not in $U$ since $1 \cdot 1 \cdot 1 = 1 \neq 0$.
-	    Hence, $U$ is not closed under addition and is not a subspace of $\fbb^3$.
-        \item Since the zero vector $(0, 0, 0)$ satisfies $0 = 5(0)$, $U$ is nonempty.
-	    Let $u = (u_1, u_2, u_3)$ and $v = (v_1, v_2, v_3)$ be elements of $U$.
-	    Then
+        Hence, $u + v \in U$ and $\alpha u \in U$, so $U$ is a subspace of $\fbb^3$.
+        \item Since $0 + 2(0) + 3(0) = 0 \neq 4$, $(0, 0, 0) \notin U$, so $U$ does not contain the zero vector. Therefore, $U$ is not a subspace of $\fbb^3$.
+        \item Since $1 \cdot 0 \cdot 0 = 0$ and $0 \cdot 1 \cdot 1 = 0$, $(1, 0, 0), (0, 1, 1) \in U$.
+        However, $(1, 0, 0) + (0, 1, 1) = (1, 1, 1)$ and $1 \cdot 1 \cdot 1 = 1 \neq 0$, so $(1, 1, 1) \notin U$.
+        Hence, $U$ is not closed under addition, so $U$ is not a subspace of $\fbb^3$.
+        \item Since $5(0) = 0$, $(0, 0, 0) \in U$, so $U$ is nonempty. Let $u = (u_1, u_2, u_3), v = (v_1, v_2, v_3) \in U$ and $\alpha \in \fbb$.
+        Then
         \[
-        	u_1 + v_1 = 5u_3 + 5v_3 = 5(u_3 + v_3).
+            u_1 + v_1 = 5u_3 + 5v_3 = 5(u_3 + v_3),
         \]
-        Hence, $u + v$ is in $U$.
-	    Let $a \in \fbb$.
-	    Then
+        and
         \[
-        	a u_1 = a(5u_3) = 5(a u_3).
+            \alpha u_1 = \alpha(5u_3) = 5(\alpha u_3).
         \]
-        Hence, $au$ is in $U$.
-	Therefore, $U$ is a subspace of $\fbb^3$. \qedhere
+        Hence, $u + v \in U$ and $\alpha u \in U$, so $U$ is a subspace of $\fbb^3$. \qedhere
     \end{subexercises}
 \end{sol}
 
 \begin{exercise}{1c2}
     Verify all assertions about subspaces in Example 1.35.
-    \begin{subexercises}
-        \item If $b \in \fbb$, then
-        \[
-        	\set{(x_1, x_2, x_3, x_4) \in \fbb^4 \mid x_3 = 5x_4 + b}
-        \]
-        is a subspace of $\fbb^4$ if and only if $b = 0$.
-        \item The set of continuous, real-valued functions on the interval $[0, 1]$ is a subspace of $\rbb^{[0, 1]}$.
-        \item The set of differentiable real-valued functions on $\rbb$ is a subspace of $\rbb^{\rbb}$.
-        \item The set of differentiable real-valued functions $f$ on the interval $(0, 3)$ such that $f'(2) = b$ is a subspace of $\rbb^{(0, 3)}$ if and only if $b = 0$.
-        \item The set of all sequences of complex numbers with limit 0 is a subspace of $\cbb^\infty$.
-    \end{subexercises}
 \end{exercise}
 
 \begin{sol}
-    Let $U$ be the subset of $\fbb^4$ in question.
+    Let $U$ be the subsets in question.
     \begin{subexercises}
-        \item Suppose $U$ is a subspace of $\fbb^4$.
-	    Then it must contain the zero vector $(0, 0, 0, 0)$.
-	    Then $0 = 5(0) + b$, which implies $b = 0$.
-        
-        Conversely, suppose $b = 0$.
+        \item \rightimp Suppose $U$ is a subspace of $\fbb^4$.
+        Then it must contain the zero vector $(0, 0, 0, 0)$.
+        Then $0 = 5(0) + b$, which implies $b = 0$.
+
+        \leftimp Suppose $b = 0$.
         Then $U = \set{(x_1, x_2, x_3, x_4) \in \fbb^4 \mid x_3 = 5x_4}$.
-        The proof is similar to that of \exref{1c1} (d), hence $U$ is a subspace of $\fbb^4$.
-        \item Note that the 0 function on $[0, 1]$ is continuous, so $0 \in U$.
-    	Let $f, g \in U$ be continuous functions.
-	    Then $f + g$ is continuous, so $f + g \in U$.
-        Let $a \in \rbb$.
-        Then $af$ is continuous, so $af \in U$.
+        The proof is similar to the proof in \exref{1c1}(d), so we conclude that $U$ is a subspace of $\fbb^4$.
+        \item Since the $0$ function is continuous, $0 \in U$.
+        Let $f, g \in U$ and $\alpha \in \rbb$.
+        Since both $f + g$ and $\alpha f$ are continuous over $[0, 1]$, $f + g, \alpha f \in U$.
         Therefore, $U$ is a subspace of $\rbb^{[0, 1]}$.
-        \item Since the derivative of the 0 function is the 0 function, $0 \in U$.
-        Let $f, g \in U$ be differentiable functions.
-        Then $f + g$ is differentiable, so $f + g \in U$.
-        Let $a \in \rbb$.
-        Then $af$ is differentiable, so $af \in U$.
-        Therefore, $U$ is a subspace of $\rbb^{\rbb}$.
-        \item Suppose $U$ is a subspace of $\rbb^{(0, 3)}$.
-        Then it must contain the 0 function on $(0, 3)$.
-        Then $0' = 0 = b$, which implies $b = 0$.
-        
-        Conversely, suppose $b = 0$.
-        Then $U = \set{f \in \rbb^{(0, 3)} \mid f'(2) = 0}$.
-        Let $f, g \in U$ be differentiable functions such that $f'(2) = g'(2) = 0$.
+        \item Since the $0$ function is differentiable on $\rbb$, $0 \in U$.
+        Let $f, g \in U$ and $\alpha \in \rbb$.
+        Since both $f + g$ and $\alpha f$ are differentiable on $\rbb$, $f + g, \alpha f \in U$.
+        Hence, $U$ is a subspace of $\rbb^{\rbb}$.
+        \item \rightimp Suppose $U$ is a subspace of $\rbb^{(0, 3)}$.
+        Then $0 \in U$, so $0'(2) = 0 = b$, which implies $b = 0$.
+
+        \leftimp Suppose $b = 0$.
         Then
         \[
-        	(f + g)'(2) = f'(2) + g'(2) = 0 + 0 = 0,
+            U = \set{f \in \rbb^{(0, 3)} \mid f'(2) = 0}.
         \]
-        so $f + g \in U$.
-        Let $a \in \rbb$.
+        The zero function is in $U$ since $0'(2) = 0$.
+        Let $f, g \in U$ and $\alpha \in \rbb$.
         Then
         \[
-        	(af)'(2) = a f'(2) = a \cdot 0 = 0,
+            (f + g)'(2) = f'(2) + g'(2) = 0 + 0 = 0,
         \]
-        so $af \in U$.
-        Therefore, $U$ is a subspace of $\rbb^{(0, 3)}$.
-        \item Let $U$ be the set of all sequences of complex numbers with limit 0.
-        Then the zero sequence is in $U$.
-        Let $(z_n), (w_n) \in U$ be sequences with limit 0.
+        and
+        \[
+            (\alpha f)'(2) = \alpha f'(2) = \alpha \cdot 0 = 0.
+        \]
+        Thus, $f + g, \alpha f \in U$, so $U$ is a subspace of $\rbb^{(0, 3)}$.
+        \item The sequence of zeroes has limit 0, so it is in $U$.
+        Let $\set{z_n}_{n = 1}^{\infty}, \set{w_n}_{n = 1}^{\infty} \in U$ and $\alpha \in \cbb$.
         Then
         \[
-        	\lim_{n \to \infty} (z_n + w_n) = \lim_{n \to \infty} z_n + \lim_{n \to \infty} w_n = 0 + 0 = 0,
+            \lim_{n \to \infty} (z_n + w_n) = \lim_{n \to \infty} z_n + \lim_{n \to \infty} w_n = 0 + 0 = 0,
         \]
-        so $(z_n) + (w_n) \in U$.
-        Let $a \in \cbb$.
-        Then
+        and
         \[
-        	\lim_{n \to \infty} (a z_n) = a \lim_{n \to \infty} z_n = a \cdot 0 = 0,
+            \lim_{n \to \infty} (\alpha z_n) = \alpha \lim_{n \to \infty} z_n = \alpha \cdot 0 = 0.
         \]
-        so $a(z_n) \in U$.
-        Therefore, $U$ is a subspace of $\cbb^\infty$. \qedhere
+        Thus, $\set{z_n}_1^{\infty} + \set{w_n}_1^{\infty}, \alpha\set{z_n}_1^{\infty} \in U$, so $U$ is a subspace of $\cbb^{\infty}$. \qedhere
     \end{subexercises}
 \end{sol}
 
@@ -129,21 +100,18 @@
 \end{exercise}
 
 \begin{sol}
-    Let $U$ be the set in question.
-	Then the zero function is in $U$ since $0'(-1) = 0 = 3 \cdot 0 = 3 \cdot 0(2)$.
-	Let $f, g \in U$ be differentiable functions such that $f'(-1) = 3f(2)$ and $g'(-1) = 3g(2)$.
-	Then
+    Let $U = \set{f \in \rbb^{(-4, 4)} \mid f'(-1) = 3f(2)}$.
+    Since the zero function is differentiable on $(-4, 4)$ and $0'(-1) = 0 = 3(0) = 3 \cdot 0(2)$, $0 \in U$, so $U$ is nonempty.
+    Let $f, g \in U$ and $\alpha \in \rbb$.
+    Then
     \[
-    	(f + g)'(-1) = f'(-1) + g'(-1) = 3f(2) + 3g(2) = 3(f(2) + g(2)) = 3(f + g)(2),
+        (f + g)'(-1) = f'(-1) + g'(-1) = 3f(2) + 3g(2) = 3(f(2) + g(2)) = 3(f + g)(2),
     \]
-    so $f + g \in U$.
-	Let $a \in \rbb$.
-	Then
+    and
     \[
-    	(af)'(-1) = a f'(-1) = a \cdot 3f(2) = 3(af)(2),
+        (\alpha f)'(-1) = \alpha f'(-1) = \alpha(3f(2)) = 3(\alpha f(2)) = 3(\alpha f)(2).
     \]
-    so $af \in U$.
-	Therefore, $U$ is a subspace of $\rbb^{(-4, 4)}$.
+    Hence, $f + g, \alpha f \in U$, so $U$ is a subspace of $\rbb^{(-4, 4)}$. \qedhere
 \end{sol}
 
 \begin{exercise}{1c4}
@@ -156,34 +124,29 @@
 \end{exercise}
 
 \begin{sol}
-    Let $U$ be the set in question.
-	Suppose $U$ is a subspace of $\rbb^{[0, 1]}$.
-	Then it must contain the zero function on $[0, 1]$.
-	Then
+    Define
     \[
-    	\int_0^1 0 = 0 = b,
+        U = \set*{f \in \rbb^{[0, 1]} \setmid f \text{ is continuous and } \int_0^1 f = b}.
     \]
-    which implies $b = 0$.
+    \rightimp Suppose $U$ is a subspace of $\rbb^{[0, 1]}$.
+    Then $0 \in U$, so $\int_0^1 0 = 0 = b$, which implies $b = 0$.
 
-    Conversely, suppose $b = 0$.
-	Then
+    \leftimp Suppose $b = 0$.
+    Then
     \[
-    	U = \set*{f \in \rbb^{[0, 1]}\left|~\int_0^1 f = 0\right.}.
+        U = \set*{f \in \rbb^{[0, 1]} \setmid f \text{ is continuous and } \int_0^1 f = 0}.
     \]
-    The zero function is in $U$ since $\int_0^1 0 = 0$.
-	Let $f, g \in U$ be continuous functions such that $\int_0^1 f = \int_0^1 g = 0$.
-	Then
+    Since the zero function is continuous on $[0, 1]$ and $\int_0^1 0 = 0$, $0 \in U$, so $U$ is nonempty.
+    Let $f, g \in U$ and $\alpha \in \rbb$.
+    Then
     \[
-    	\int_0^1 (f + g) = \int_0^1 f + \int_0^1 g = 0 + 0 = 0,
+        \int_0^1 (f + g) = \int_0^1 f + \int_0^1 g = 0 + 0 = 0,
     \]
-    so $f + g \in U$.
-	Let $a \in \rbb$.
-	Then
+    and
     \[
-    	\int_0^1 (af) = a \int_0^1 f = a \cdot 0 = 0,
+        \int_0^1 (\alpha f) = \alpha \int_0^1 f = \alpha(0) = 0.
     \]
-    so $af \in U$.
-	Therefore, $U$ is a subspace of $\rbb^{[0, 1]}$.
+    Therefore, $f + g, \alpha f \in U$, so $U$ is a subspace of $\rbb^{[0, 1]}$.
 \end{sol}
 
 \begin{exercise}{1c5}
@@ -192,8 +155,8 @@
 
 \begin{sol}
     No, $\rbb^2$ is not a subspace of $\cbb^2$.
-	Let $u = (1, 0) \in \rbb^2$ and $a = i \in \cbb$.
-	Then $au = (i, 0) \notin \rbb^2$, so $\rbb^2$ is not closed under scalar multiplication and is not a subspace of $\cbb^2$.
+	Let $x = (1, 0) \in \rbb^2$ and $\alpha = i \in \cbb$.
+    Then $\alpha x = (i, 0) \notin \rbb^2$, so $\rbb^2$ is not closed under scalar multiplication and is not a subspace of $\cbb^2$.
 \end{sol}
 
 \begin{exercise}{1c6}
@@ -360,7 +323,7 @@
 \begin{exercise}{1c13}
     Prove that the union of three subspaces of $V$ is a subspace of $V$ if and only if one of the subspaces contains the other two.
 
-    \note{This result fails when the field has only two elements.}
+    \note{This exercise is surprisingly harder than \exref{1c12}, possibly because this exercise is not true if we replace $\fbb$ with a field containing only two elements.}
 
     \remark{The proof of this exercise is more involved than the proof of \emph{\exref{1c12}} in that it requires a more careful analysis of the possible relationships between the three subspaces.}
 
@@ -625,6 +588,8 @@
     	V = V_1 \op U \quad \text{ and } \quad V = V_2 \op U,
     \]
     then $V_1 = V_2$.
+
+    \hint{When trying to discover whether a conjecture in linear algebra is true or false, it is often useful to start by experimenting in $\fbb^2$.}
 \end{exercise}
 
 \begin{sol}
