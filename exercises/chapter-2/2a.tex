@@ -10,20 +10,17 @@
 \end{exercise}
 
 \begin{sol}
-    Clearly, the span of the list involves two vectors, since we may rewrite $z$ in terms of $x$ and $y$ as $z = -x - y$.
-	Thus, we may choose the following two vectors:
+    Let $U = \set{(x, y, z) \in \fbb^3 \mid x + y + z = 0}$.
+    Rewriting $z = -x - y$, we have
     \[
-    	v_1 = (1, 0, -1), \quad v_2 = (0, 1, -1).
+        U = \set{(x, y, -x - y) \mid x, y \in \fbb}.
     \]
-    To find two more vectors, we may pick any two distinct linear combinations of $v_1$ and $v_2$.
-	For example, we may select
+    Consider the list of vectors
     \[
-    	v_3 = v_1 + v_2 = (1, 1, -2), \quad v_4 = 2v_1 + 3v_2 = (2, 3, -5).
+        v_1 = (1, 0, -1), \quad v_2 = (0, 1, -1), \quad v_3 = (2, -1, -1), \quad v_4 = (1, 1, -2).
     \]
-    Then
-    \[
-    	\spn(v_1, v_2, v_3, v_4) = \spn(v_1, v_2) = \set{(x, y, z) \in \fbb^3 \mid x + y + z = 0}. \qedhere
-    \]
+    For any $(z, w, -z - w) \in U$, we may write it as $z v_1 + w v_2$.
+    Therefore, $v_1, v_2, v_3, v_4$ span $U$.
 \end{sol}
 
 \begin{exercise}{2a2}
