@@ -151,13 +151,16 @@
     \]
     To see that $T - \lambda I$ is injective on $U$, suppose $u \in U$ and $(T - \lambda I)(u) = 0$.
     Then $u = u_2 + \cdots + u_m$ for some $u_k \in E(\lambda_k, T)$, and
-    \[
-        0 = (T - \lambda I)(u) = (T - \lambda I)(u_2 + \cdots + u_m) = (T - \lambda I)(u_2) + \cdots + (T - \lambda I)(u_m) = (\lambda_2 - \lambda) u_2 + \cdots + (\lambda_m - \lambda) u_m.
-    \]
+    \begin{align*}
+        0 &= (T - \lambda I)(u) \\
+          &= (T - \lambda I)(u_2 + \cdots + u_m) \\
+          &= (T - \lambda I)(u_2) + \cdots + (T - \lambda I)(u_m) \\
+          &= (\lambda_2 - \lambda) u_2 + \cdots + (\lambda_m - \lambda) u_m.
+    \end{align*}
     Since $\lambda_2, \ldots, \lambda_m$ are distinct from $\lambda$, we have $\lambda_k - \lambda \neq 0$ for each $k = 2, \ldots, m$.
     Since the sum above is a direct sum, we have $(\lambda_k - \lambda) u_k = 0$ for each $k = 2, \ldots, m$, so $u_k = 0$ for each $k = 2, \ldots, m$.
     Hence, $u = u_2 + \cdots + u_m = 0$, so $T - \lambda I$ is injective on $U$.
-    Since $T - \lambda I$ is injective on $U$ and $\dim U = \dim \range(T - \lambda I)$, we have $U = \range(T - \lambda I)$.
+    Since $\dim U = \dim \range(T - \lambda I)$ and $U$ is invariant under $T - \lambda I$, we have $U = \range(T - \lambda I)$.
 
     Conversely, suppose $V = \nul(T - \lambda I) \op \range(T - \lambda I)$ for every $\lambda \in \cbb$.
     Then $\nul(T - \lambda I) \cap \range(T - \lambda I) = \set{0}$ for every $\lambda \in \cbb$.
