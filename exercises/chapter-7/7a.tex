@@ -12,16 +12,17 @@
 \end{exercise}
 
 \begin{sol}
-    Let $(z_1, \ldots, z_n), (w_1, \ldots, w_n) \in \fbb^n$.
+    If $n = 1$, then $T(z_1) = 0$, so $T^\ast(z_1) = 0$.
+    Let $n > 1$.
+    Then for all $(z_1, \ldots, z_n), (w_1, \ldots, w_n) \in \fbb^n$, we have
+    \[
+        \gen{T(z_1, \ldots, z_n), (w_1, \ldots, w_n)} = \gen{(0, z_1, \ldots, z_{n-1}), (w_1, \ldots, w_n)} = z_1\bar{w_2} + \cdots + z_{n-1}\bar{w_n}.
+    \]
     We need
     \[
-        \gen{T(z_1, \ldots, z_n), (w_1, \ldots, w_n)} = \gen{(z_1, \ldots, z_n), T^\ast(w_1, \ldots, w_n)}.
+        \gen{(z_1, \ldots, z_n), T^\ast(w_1, \ldots, w_n)} = z_1\bar{w_2} + \cdots + z_{n-1}\bar{w_n}.
     \]
-    The left side gives
-    \[
-        \gen{(0, z_1, \ldots, z_{n-1}), (w_1, \ldots, w_n)} = z_1\bar{w_2} + \cdots + z_{n-1}\bar{w_n}.
-    \]
-    By comparison, we see that $T^\ast(w_1, \ldots, w_n) = (w_2, \ldots, w_n, 0)$.
+    By comparison, we see that $T^\ast(w_1, \ldots, w_n) = (w_2, \ldots, w_n, 0)$, so $T^\ast(z_1, \ldots, z_n) = (z_2, \ldots, z_n, 0)$ for all $(z_1, \ldots, z_n) \in \fbb^n$.
 \end{sol}
 
 \begin{exercise}{7a2}
@@ -71,7 +72,7 @@
 
 \begin{sol}
     By Theorem 7.5, we have $(T - \lambda I)^\ast = T^\ast - \bar{\lambda} I$.
-    Moreover, Theorem 7.6(a) gives $\nul(T - \lambda I)^\ast = (\range(T - \lambda I))^\perp$.
+    Moreover, Theorem 7.6(a) gives $\nul((T - \lambda I)^\ast) = (\range(T - \lambda I))^\perp$.
     Thus, we have
     \begin{align*}
         \lambda \text{ is an eigenvalue of } T &\iff \nul(T - \lambda I) \neq \set 0 \\
@@ -99,7 +100,7 @@
     \]
     which implies $T^\ast v \in U^\perp$, so $U^\perp$ is invariant under $T^\ast$.
 
-    Conversely, suppose $U^\perp$ is invariant under $T^\ast$ with $u \in U$.
+    Conversely, suppose $U^\perp$ is invariant under $T^\ast$.
     Note that $(T^\ast)^\ast = T$, and $(U^\perp)^\perp = U$ follows since $V$ is finite-dimensional.
     Applying the first part of the proof to $T^\ast$ and $U^\perp$, we see that $U = (U^\perp)^\perp$ is invariant under $(T^\ast)^\ast = T$.
 \end{sol}
@@ -180,7 +181,8 @@
 
 \begin{sol}
     Let $T \in \lin{\fbb^n, \fbb^m}$ have the matrix $A = \mcal(T)$ with respect to the standard bases of $\fbb^n$ and $\fbb^m$.
-    The columns of $A^\ast = \mcal(T^\ast)$ are the conjugate-transposed rows of $A$, so the column rank of $A^\ast$ equals the row rank of $A$.
+    Since the standard bases of $\fbb^n$ and $\fbb^m$ are orthonormal, $A^\ast = \mcal(T^\ast)$ are the conjugate-transposed rows of $A$.
+    Since complex conjugation preserves linear independence, the column rank of $A^\ast$ equals the row rank of $A$.
     By \exref{7a7}(b), $\dim \range T^\ast = \dim \range T$, so the column rank of $A^\ast$ equals the column rank of $A$, and the result follows.
 \end{sol}
 

@@ -65,14 +65,14 @@
 
 \begin{sol}
     We first show that $ST = TS$ implies $S^n T = TS^n$ for every nonnegative integer $n$ by induction on $n$.
-    The base 
-    Now suppose $S^n T = TS^n$ for some positive integer $n$.
+    The base case $n = 0$ is trivial since $S^0 T = I T = T = T I = TS^0$.
+    Now suppose $S^n T = TS^n$ for some nonnegative integer $n$.
     Then
     \[
         S^{n+1} T = S(S^n T) = S(TS^n) = (ST)S^n = (TS)S^n = T(S^{n+1}),
     \]
     so $S^{n+1} T = TS^{n+1}$.
-    This completes the induction, so $S^n T = TS^n$ for all nonnegative integers $n$.
+    This completes the induction, so $S^n T = TS^n$ for any nonnegative integer $n$.
     Using this result, it follows that $p(S)T = Tp(S)$ for any polynomial $p \in \pcal(\fbb)$.
     \begin{subexercises}
         \item Suppose $v \in \nul p(S)$.
@@ -243,7 +243,8 @@
 \end{exercise}
 
 \begin{solenum}
-    \item We proceed by induction on $\dim V$.
+    \item Let $T \in \ecal$.
+    We proceed by induction on $\dim V$.
     For the base case $\dim V = 1$, every nonzero vector in $V$ is an eigenvector for every element of $\ecal$.
     Now suppose $\dim V > 1$ and the statement holds for all complex vector spaces of dimension less than $\dim V$.
     If $\ecal = \emptyset$, then any nonzero vector in $V$ is an eigenvector for every element of $\ecal$.

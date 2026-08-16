@@ -490,11 +490,11 @@
     Then $D_j$ is diagonalizable because $D_j(v_j) = v_j$ and $D_j(v_\ell) = 0$ for $\ell \neq j$.
     If $j \neq k$, let $N_{j, k} = D_j + T_{j, k}$.
     Then $N_{j, k}$ is diagonalizable because $N_{j, k}(v_j) = v_j$, $N_{j, k}(v_k) = v_j$, and $N_{j, k}(v_\ell) = 0$ for $\ell \neq j, k$.
-    Then the eigenvalues of $N_{j, k}$ are $0$ and $1$ with corresponding eigenvectors $v_j - v_k$ ($n - 2$ of these) and $v_j$ ($1$ of these), so $N_{j, k}$ is diagonalizable.
+    Then the eigenvalues of $N_{j, k}$ are 0 with corresponding eigenvector $v_j - v_k$, and 1 with $n - 2$ corresponding eigenvectors $v_\ell$ for $\ell \neq j, k$, so $N_{j, k}$ is diagonalizable.
 
     Note that the set
     \[
-        \set{D_1, \ldots, D_n} \cup \set{N_{j, k} : j, k \in \set{1, \ldots, n}, j \neq k}
+        \set{D_1, \ldots, D_n} \cup \set{N_{j, k} \mid j, k \in \set{1, \ldots, n}, j \neq k}
     \]
     spans $\lin{V}$.
     For any $T \in \lin{V}$, we have
