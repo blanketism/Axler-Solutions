@@ -590,23 +590,55 @@
 \end{exercise}
 
 \begin{sol}
-    Suppose $f \in V_e \cap V_o$.
-    Then $f(-x) = f(x)$ and $f(-x) = -f(x)$ for all $x \in \rbb$.
-    Hence, $f(x) = -f(x)$ for all $x \in \rbb$, which implies that $f(x) = 0$ for all $x \in \rbb$.
-    
-    Now let $g \in \rbb^{\rbb}$.
-    Define the functions $g_e, g_o \in \rbb^{\rbb}$ by
+    Let $f(x) = 0$ for all $x \in \rbb$.
+    Since $f(-x) = f(x) = 0$, and $f(-x) = -f(x) = 0$, we have $f(x) \in V_e$ and $f(x) \in V_o$.
+    Now suppose $f_1, f_2 \in V_e$ and $\alpha \in \rbb$.
+    Then
     \[
-        g_e(x) = \frac{g(x) + g(-x)}{2} \quad \text{and} \quad g_o(x) = \frac{g(x) - g(-x)}{2}.
+        (f_1 + f_2)(-x) = f_1(-x) + f_2(-x) = f_1(x) + f_2(x) = (f_1 + f_2)(x)
+    \]
+    Hence, $f_1 + f_2 \in V_e$.
+    Also,
+    \[
+        (\alpha f_1)(-x) = \alpha f_1(-x) = \alpha f_1(x) = (\alpha f_1)(x),
+    \]
+    so $\alpha f_1 \in V_e$.
+    Therefore, $V_e$ is a subspace of $\rbb^{\rbb}$.
+
+    Similarly, if $g_1, g_2 \in V_o$ and $\beta \in \rbb$, then
+    \[
+        (g_1 + g_2)(-x) = g_1(-x) + g_2(-x) = -g_1(x) - g_2(x) = -(g_1 + g_2)(x)
+    \]
+    Hence, $g_1 + g_2 \in V_o$.
+    Also,
+    \[
+        (\beta g_1)(-x) = \beta g_1(-x) = \beta (-g_1(x)) = -(\beta g_1)(x),
+    \]
+    so $\beta g_1 \in V_o$.
+    Therefore, $V_o$ is a subspace of $\rbb^{\rbb}$.
+
+    We now show $\rbb^{\rbb} = V_e + V_o$.
+    Let $g \in \rbb^{\rbb}$.
+    Define the functions $g_e$ and $g_o$ by
+    \[
+        g_e(x) = \frac{g(x) + g(-x)}{2}, \quad g_o(x) = \frac{g(x) - g(-x)}{2}.
     \]
     Then
     \[
-        g_e(-x) = \frac{g(-x) + g(x)}{2} = g_e(x) \quad \text{and} \quad g_o(-x) = \frac{g(-x) - g(x)}{2} = -g_o(x),
+        g_e(-x) = \frac{g(-x) + g(x)}{2} = \frac{g(x) + g(-x)}{2} = g_e(x),
     \]
-    so $g_e \in V_e$ and $g_o \in V_o$.
-    Moreover, we have that
+    and
+    \[
+        g_o(-x) = \frac{g(-x) - g(x)}{2} = -\frac{g(x) - g(-x)}{2} = -g_o(x).
+    \]
+    Hence, $g_e \in V_e$ and $g_o \in V_o$.
+    Moreover,
     \[
         g(x) = g_e(x) + g_o(x),
     \]
-    so $\rbb^{\rbb} = V_e \oplus V_o$.
+    so $g \in V_e + V_o$.
+
+    Finally, if $h \in V_e \cap V_o$, then $h(-x) = h(x)$ and $h(-x) = -h(x)$ for all $x \in \rbb$.
+    Hence, $h(x) = -h(x)$, so $h(x) = 0$ for all $x \in \rbb$.
+    Therefore, $V_e \cap V_o = \set 0$, and we conclude that $\rbb^{\rbb} = V_e \op V_o$.
 \end{sol}
