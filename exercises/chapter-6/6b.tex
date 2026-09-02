@@ -12,24 +12,25 @@
 \end{exercise}
 
 \begin{sol}
-    For each $k \in \set{1, \ldots, m}$, let $a_k = 1$ and $a_j = 0$ for all $j \neq k$.
-    Then
+    Let $j, k \in \set{1, \ldots, m}$ with $j \neq k$.
+    Then for $a_j = 1$ and $a_i = 0$ for all $i \neq j, k$, we have
     \[
-        \norm{e_k}^2 = \norm{a_1 e_1 + \cdots + a_m e_m}^2 = |a_1|^2 + \cdots + |a_m|^2 = 1.
+        \norm{e_j + a_k e_k}^2 = |1|^2 + |a_k|^2 = 1 + |a_k|^2
     \]
-    Next, for distinct $j, k \in \set{1, \ldots, m}$, set $a_j = a_k = 1$ and $a_i = 0$ for all $i \notin \set{j, k}$.
-    Then $\norm{e_j + e_k}^2 = 2$ by hypothesis, and expanding gives
+    by the hypothesis.
+    If $a_k = 0$, then $\gen{e_j, e_j} = \norm{e_j}^2 = 1$ for all $j$.
+    Otherwise, let $|a_k| = 1$ so that $\norm{e_j + a_k e_k}^2 = 1 + |a_k|^2 = 2$.
+
+    If $\fbb = \rbb$, then
     \[
-        \norm{e_j + e_k}^2 = \norm{e_j}^2 + \gen{e_j, e_k} + \bar{\gen{e_j, e_k}} + \norm{e_k}^2 = 2 + 2\Re\gen{e_j, e_k},
+        \gen{e_j, e_k} = \frac{1}{4} (\norm{e_j + e_k}^2 - \norm{e_j - e_k}^2) = \frac{1}{4} (2 - 2) = 0
     \]
-    so $\Re\gen{e_j, e_k} = 0$.
-    If $\fbb = \rbb$, then $\gen{e_j, e_k} = 0$.
-    If $\fbb = \cbb$, set $a_j = 1$, $a_k = i$, and all other scalars to $0$.
-    Then $\norm{e_j + ie_k}^2 = 2$ by hypothesis, and expanding gives
+    by \exref{6a26}. If $\fbb = \cbb$, then
     \[
-        \norm{e_j + ie_k}^2 = \norm{e_j}^2 + i\gen{e_k, e_j} + \bar{i\gen{e_k, e_j}} + \norm{e_k}^2 = 2 - 2\Im\gen{e_k, e_j},
+        \gen{e_j, e_k} = \frac{1}{4}(\norm{e_j + e_k}^2 - \norm{e_j - e_k}^2 + \norm{e_j + i e_k}^2i - \norm{e_j - i e_k}^2i) = \frac{1}{4}(2 - 2 + 2i - 2i) = 0
     \]
-    so $\Im\gen{e_j, e_k} = 0$, and thus $\gen{e_j, e_k} = 0$.
+    by \exref{6a27}.
+    Therefore, the list $e_1, \ldots, e_m$ is orthonormal.
 \end{sol}
 
 \begin{exercise}{6b2}
@@ -91,11 +92,7 @@
 \end{exercise}
 
 \begin{sol}
-    If $v \in \spn(e_1, \ldots, e_m)$, then there exist scalars $a_1, \ldots, a_m$ such that $v = a_1 e_1 + \cdots + a_m e_m$.
-    Then
-    \[
-        \norm{v}^2 = \norm{a_1 e_1 + \cdots + a_m e_m}^2 = |a_1|^2 + \cdots + |a_m|^2 = |\gen{v, e_1}|^2 + \cdots + |\gen{v, e_m}|^2.
-    \]
+    Since $e_1, \ldots, e_m$ is an orthonormal basis for $\spn(e_1, \ldots, e_m)$, if $v \in \spn(e_1, \ldots, e_m)$, then we have $\norm{v}^2 = |\gen{v, e_1}|^2 + \cdots + |\gen{v, e_m}|^2$.
 
     Conversely, suppose $\norm{v}^2 = |\gen{v, e_1}|^2 + \cdots + |\gen{v, e_m}|^2$.
     Let $w = v - (\gen{v, e_1}e_1 + \cdots + \gen{v, e_m}e_m)$.

@@ -1,5 +1,47 @@
 \subsection{Inner Product Spaces}
 
+\begin{apex}[6a23]
+    Suppose $v_1, \ldots, v_m \in V$ are such that $\norm{v_k} \leq 1$ for each $k = 1, \ldots, m$.
+    Show that there exist $a_1, \ldots, a_m \in \set{1, -1}$ such that
+    \[
+        \norm{a_1 v_1 + \cdots + a_m v_m} \leq \sqrt{m}.
+    \]
+\end{apex}
+
+\begin{coole}
+    Note that if the average value $M$ of the squared norm $\|a_1v_1 + \cdots + a_mv_m\|^2$ over all possible assignments of $a_1, \dots, a_m \in \{1, -1\}$ is less than or equal to $m$, then there must exist some assignment $a_1, \dots, a_m \in \{1, -1\}$ such that $\|a_1v_1 + \cdots + a_mv_m\|^2 \leq m$. Taking the square root of both sides of this inequality would yield our desired inequality. By \exref{6a13}, this value is less than or equal to the average value $M$ of the squared norm $\|a_1v_1 + \cdots + a_mv_m\|^2$, so we may use $M$ to bound our desired average.
+
+    Consider that there are $2^m$ possible assignments of $a_1, \dots, a_m$, so
+    \begin{align*}
+    M &= \frac{1}{2^m}\sum_{a_1, \dots, a_m \in \{1, -1\}}\|a_1v_1 + \cdots, a_mv_m\|^2  \\
+    &=\frac{1}{2^m}\sum_{a_1, \dots, a_m \in \{1,-1\}}\left\|\sum_{k = 1}^ma_kv_k\right\|^2 \\
+    &= \frac{1}{2^m}\sum_{a_1, \dots, a_m \in \{1,-1\}}\left\langle \sum_{k = 1}^ma_kv_k, \sum_{k = 1}^ma_kv_k\right\rangle \\
+    &= \frac{1}{2^m}\sum_{a_1, \dots, a_m \in \{1,-1\}}\left\langle \sum_{i = 1}^ma_iv_i, \sum_{j = 1}^ma_jv_j\right\rangle \\
+    &= \frac{1}{2^m}\sum_{a_1, \dots, a_m \in \{1,-1\}}\sum_{i = 1}^m\sum_{j = 1}^m\langle a_iv_i, a_jv_j\rangle \\
+    &= \frac{1}{2^m}\sum_{a_1, \dots, a_m \in \{1,-1\}}\sum_{i = 1}^m\sum_{j = 1}^ma_ia_j\langle v_i, v_j\rangle,
+    \end{align*}
+    with the last steps being by additivity in both slots and homogeneity ($\bar{a_j} = a_j$ since $a_j$ is real).
+    Consider $a_ia_j\langle v_i, v_j\rangle$ when $i \neq j$.
+    Because we are summing over all possible assignments of $a_1, \dots, a_m$, and there are exactly as many assignments with $a_ia_j\langle v_i, v_j \rangle = \langle v_i, v_j \rangle$ as there are assignments with $a_ia_j\langle v_i, v_j \rangle = -\langle v_i, v_j \rangle$, these cancel out. We may simplify to only consider terms where $i = j$:
+
+    \begin{align*} 
+    M &= \frac{1}{2^m}\sum_{a_1, \dots, a_m \in \{1,-1\}}\sum_{i = 1}^m\sum_{j = 1}^ma_ia_j\langle v_i, v_j\rangle \\
+    &= \frac{1}{2^m}\sum_{a_1, \dots, a_m \in \{1,-1\}}\sum_{k = 1}^ma_ka_k\langle v_k, v_k\rangle \\
+    &= \frac{1}{2^m}\sum_{a_1, \dots, a_m \in \{1,-1\}}\sum_{k = 1}^ma_k^2\|v_k\|^2
+    \end{align*}
+    But $1^2 = 1$ and $(-1)^2 = 1$, so $a_k^2 = 1$:
+    \begin{align*} 
+    M &= \frac{1}{2^m}\sum_{a_1, \dots, a_m \in \{1,-1\}}\sum_{k = 1}^m\|v_k\|^2 \\
+    &= \sum_{k=1}^m\|v_k\|^2\cdot\frac{1}{2^m}\sum_{a_1, \dots, a_m \in \{1, -1\}}1 \\
+    &= \sum_{k=1}^m\|v_k\|^2\cdot\frac{1}{2^m}2^m \\
+    &= \sum_{k=1}^m\|v_k\|^2 \\
+    &\leq m
+    \end{align*}
+    because there are $2^m$ assignments of $a_1, \dots, a_m \in \{1, -1\}$, and our original assumption had $\|v_k\| \leq 1$.
+
+    Therefore, since the average of $\|a_1v_1 + \cdots + a_mv_m\|^2$ over all possible assignments of $a_1, \dots, a_m \in \{1, -1\}$ is less than or equal to $m$, there is an assignment $a_1, \dots, a_m \in \{1, -1\}$ such that $\|a_1v_1 + \cdots + a_mv_m\|^2 \leq m$. Taking the square root of both sides yields that for the given assignment, $\|a_1v_1 + \cdots + a_mv_m\| \leq \sqrt{m}$.
+\end{coole}
+
 \begin{apex}[6c16]
     Suppose $C[-1, 1]$ is the vector space of continuous real-valued functions on the interval $[-1, 1]$ with inner product given by
     \[

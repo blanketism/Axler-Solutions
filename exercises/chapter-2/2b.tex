@@ -8,46 +8,19 @@
 \end{exercise}
 
 \begin{sol}
-    Since an infinite-dimensional vector space has infinitely many bases, we only need to consider finite-dimensional vector spaces.
-	Let $V$ be a finite-dimensional vector space, and let $v_1, \ldots, v_n$ be a basis of $V$.
-	Then any other basis of $V$ must have the same length as $v_1, \ldots, v_n$, which is $n$.
-	If $n \geq 1$, consider $\alpha \in \fbb$ such that $\alpha \neq 0$ and $\alpha \neq 1$.
-	Then the list $\alpha v_1, v_2, \ldots, v_n$ still spans $V$, since we may recover $v_1 = \alpha\inv(\alpha v_1)$.
-	Moreover, the list $\alpha v_1, v_2, \ldots, v_n$ is linearly independent, since if
-    \[
-    	\beta_1(\alpha v_1) + \beta_2 v_2 + \cdots + \beta_n v_n = 0,
-    \]
-    then we may write
-    \[
-    	(\alpha \beta_1) v_1 + \beta_2 v_2 + \cdots + \beta_n v_n = 0.
-    \]
-    Since $v_1, \ldots, v_n$ is linearly independent, we must have $\alpha \beta_1 = 0$, which implies that $\beta_1 = 0$.
-	Then we also have $\beta_2 = \cdots = \beta_n = 0$.
-	Thus, the list $\alpha v_1, v_2, \ldots, v_n$ is linearly independent.
-	Therefore, if $n \geq 1$, then $V$ has more than one basis.
-	If $n = 0$, then $V = \set{0}$.
-	The empty list spans $V$, and the empty list must be linearly independent, since there are no nonzero scalars to consider.
-	Thus, the empty list is a basis of $V$.
-	Moreover, this is the only basis of $V$, since $0$ is linearly dependent.
-	Therefore, the only vector space that has exactly one basis is the zero vector space.
+    Let $V$ be a vector space with exactly one basis, call it $v_1, \dots, v_n$.
+    Consider that for $v \in V$, the list containing only $v$ is linearly independent, so we may extend the list $v$ to a basis for $V$.
+    This means that $v = v_k$ for some $k \in \{1, \dots, n\}$, so every vector in $V$ is one of $v_1, \dots, v_n$.
+    For nonzero $\lambda \in \fbb$ and $k \in \{1, \dots, n\}$, consider $\lambda v_k \in V$.
+    If $\lambda v_k = v_j$ for some $j \neq k$, then $v_1, \dots, v_n$ is not linearly independent, a contradiction.
+    Therefore, $\lambda v_k = v_k$, and thus $(\lambda - 1)v_k = 0$.
+    Because $\lambda$ was arbitrary, it must be that $v_k = 0$.
+    Because $k$ was arbitrary, we have $v_k = 0$ for all $k \in \{1, \dots, n\}$, so the basis for $V$ is empty.
+    $\spn(\,) = \{0\}$, so the trivial vector space $V = \{0\}$ is the only vector space with exactly one basis.
 \end{sol}
 
 \begin{exercise}{2b2}
     Verify all assertions in Example 2.27.
-    \begin{subexercises}
-        \item The list $(1, 0, \ldots, 0), (0, 1, 0, \ldots, 0), \ldots, (0, \ldots, 0, 1)$ is a basis of $\fbb^n$, called the \emph{standard basis} of $\fbb^n$.
-        \item The list $(1, 2), (3, 5)$ is a basis of $\fbb^2$.
-	Note that this list has length two, which is the same as the length of the standard basis of $\fbb^2$.
-	In the next section, we will see that this is not a coincidence.
-        \item The list $(1, 2, -4), (7, -5, 6)$ is linearly independent in $\fbb^3$ but is not a basis of $\fbb^3$ because it does not span $\fbb^3$.
-        \item The list $(1, 2), (3, 5), (4, 13)$ spans $\fbb^2$ but is not a basis of $\fbb^2$ because it is not linearly independent.
-        \item The list $(1, 1, 0), (0, 0, 1)$ is a basis of $\set{(x, x, y) \in \fbb^3 \mid x, y \in \fbb}$.
-        \item The list $(1, -1, 0), (1, 0, -1)$ is a basis of
-        \[
-        	\set{(x, y, z) \in \fbb^3 \mid x + y + z = 0}.
-        \]
-        \item The list $1, z, \ldots, z^m$ is a basis of $\pcal_m(\fbb)$, called the \emph{standard basis} of $\pcal_m(\fbb)$.
-    \end{subexercises}
 \end{exercise}
 
 \begin{solenum}
@@ -206,8 +179,7 @@
 \begin{sol}
     Let $u_1, \ldots, u_m$ be a basis of $U$ and $w_1, \ldots, w_n$ a basis of $W$.
 	Then the list $u_1, \ldots, u_m, w_1, \ldots, w_n$ spans $V$, since any vector in $V$ can be written as a sum of a vector in $U$ and a vector in $W$.
-	We can extract a basis of $V$ from this list by removing any linearly dependent vectors.
-	Thus, there exists a basis of $V$ consisting of vectors in $U \cup W$.
+	Because every spanning list of $V$ can be reduced to a basis of $V$, $u_1, \ldots, u_m, w_1, \ldots, w_n$ can be reduced to a basis of $V$ consisting of vectors in $U \cup W$.
 \end{sol}
 
 \begin{exercise}{2b6}
@@ -325,39 +297,21 @@
 \end{exercise}
 
 \begin{sol}
-    Let $u_1, \ldots, u_m$ be a basis of $U$ and $w_1, \ldots, w_n$ be a basis of $W$.
-	We claim that the list
+    Let $v \in V$.
+    Since $V = U \oplus W$, there are unique $u \in U$ and $w \in W$ such that $v = u + w$.
+    Since $u_1, \ldots, u_m$ spans $U$ and $w_1, \ldots, w_n$ spans $W$, there exists scalars $\alpha_1, \ldots, \alpha_m$ and $\beta_1, \ldots, \beta_n$ such that
     \[
-    	u_1, \ldots, u_m, w_1, \ldots, w_n
+        u = \sum_{i=1}^m \alpha_i u_i \quad \text{and} \quad w = \sum_{j=1}^n \beta_j w_j.
     \]
-    is a basis of $V$.
-	Let $\alpha_1, \ldots, \alpha_m, \beta_1, \ldots, \beta_n \in \fbb$ such that
+    Therefore,
     \[
-    	\alpha_1 u_1 + \cdots + \alpha_m u_m + \beta_1 w_1 + \cdots + \beta_n w_n = 0.
-    \]
-    Then we may write
-    \[
-    	\alpha_1 u_1 + \cdots + \alpha_m u_m = -\beta_1 w_1 - \cdots - \beta_n w_n.
-    \]
-    Since the left-hand side is in $U$ and the right-hand side is in $W$, and $U \cap W = \set{0}$, we must have
-    \[
-    	\alpha_1 u_1 + \cdots + \alpha_m u_m = 0 \quad \text{and} \quad \beta_1 w_1 + \cdots + \beta_n w_n = 0.
-    \]
-    Since $u_1, \ldots, u_m$ is a basis of $U$, we have $\alpha_1 = \cdots = \alpha_m = 0$.
-	Similarly, since $w_1, \ldots, w_n$ is a basis of $W$, we have $\beta_1 = \cdots = \beta_n = 0$.
-	Thus, the list is linearly independent.
-	Moreover, since $V = U \op W$, then $v = u + w$ for some $u \in U$ and $w \in W$.
-	Then we may write
-    \[
-    	u = \gamma_1 u_1 + \cdots + \gamma_m u_m \quad \text{and} \quad w = \delta_1 w_1 + \cdots + \delta_n w_n
-    \]
-    for some $\gamma_1, \ldots, \gamma_m, \delta_1, \ldots, \delta_n \in \fbb$.
-	Hence,
-    \[
-    	v = u + w = \gamma_1 u_1 + \cdots + \gamma_m u_m + \delta_1 w_1 + \cdots + \delta_n w_n,
+        v = u + w = \sum_{i=1}^m \alpha_i u_i + \sum_{j=1}^n \beta_j w_j,
     \]
     which shows that the list spans $V$.
-	Therefore, the list is a basis of $V$.
+    To show linear independence, suppose $v = 0$ so that $v = u + w$ imply $u = w = 0$.
+    Since $u_1, \ldots, u_m$ and $w_1, \ldots, w_n$ are linearly independent, it follows that $\alpha_1 = \cdots = \alpha_m = 0$ and $\beta_1 = \cdots = \beta_n = 0$.
+    Therefore, the list $u_1, \ldots, u_m, w_1, \ldots, w_n$ is linearly independent.
+    Combining this with the fact that it spans $V$, we conclude that it is a basis of $V$.
 \end{sol}
 
 \begin{exercise}{2b11}

@@ -1,5 +1,32 @@
 \subsection{Finite-Dimensional Vector Spaces}
 
+\begin{apex}[2a20]
+    Suppose $p_0, p_1, \ldots, p_m$ are polynomials in $\pcal_m(\fbb)$ such that $p_k(2) = 0$ for each $k \in \set{0, \ldots, m}$.
+	Prove that $p_0, p_1, \ldots, p_m$ is not linearly independent in $\pcal_m(\fbb)$.
+\end{apex}
+
+\begin{me}
+    Since $p_k(2) = 0$ for each $k \in \set{0, \ldots, m}$, we have
+    \[
+    	p_k(x) = (x - 2)q_k(x)
+    \]
+    for some polynomial $q_k(x) \in \pcal_{m-1}(\fbb)$.
+	Then we may write
+    \[
+    	p_0(x), p_1(x), \ldots, p_m(x) = (x - 2)q_0(x), (x - 2)q_1(x), \ldots, (x - 2)q_m(x).
+    \]
+    Since $\pcal_{m - 1}(\fbb)$ can be spanned by the $m$ polynomials $1, x, \ldots, x^{m-1}$, the list of $m + 1$ polynomials $q_0, q_1, \ldots, q_m$ must be linearly dependent.
+	Thus, there exist scalars $\alpha_0, \ldots, \alpha_m$, not all zero, such that
+    \[
+    	\alpha_0 q_0(x) + \cdots + \alpha_m q_m(x) = 0.
+    \]
+    Then we may write
+    \[
+    	\alpha_0 p_0(x) + \cdots + \alpha_m p_m(x) = (x - 2)(\alpha_0 q_0(x) + \cdots + \alpha_m q_m(x)) = 0.
+    \]
+    Since not all the scalars $\alpha_0, \ldots, \alpha_m$ are zero, this shows that $p_0, p_1, \ldots, p_m$ is linearly dependent in $\pcal_m(\fbb)$.
+\end{me}
+
 \begin{apex}[2c8]
     Suppose $v_1, \ldots, v_m$ is linearly independent in $V$ and $w \in V$.
 	Prove that

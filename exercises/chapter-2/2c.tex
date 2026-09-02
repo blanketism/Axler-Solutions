@@ -295,27 +295,20 @@
 \end{exercise}
 
 \begin{sol}
-    Observe that $(v_i + w) - (v_{i + 1} + w) = v_i - v_{i + 1}$ for $1 \leq i \leq m - 1$.
-	Then the list of vectors
+    Consider the subspaces of $V$:
     \[
-    	v_1 - v_2, v_2 - v_3, \ldots, v_{m-1} - v_m
+        U = \spn(v_1, \ldots, v_m), \quad X = \spn(v_1 + w, \ldots, v_m + w), \quad W = \spn(w).
     \]
-    is contained in $\spn(v_1 + w, \ldots, v_m + w)$.
-	We claim that this list is linearly independent.
-	Suppose that
+    Since $v_1, \ldots, v_m$ is linearly independent, we have $\dim U = m$.
+    Moreover, $\dim W = 1$.
+    Lastly, note that $v_k = (v_k + w) - w \in X + W$ for each $k = 1, \ldots, m$.
+    Therefore, $U \subseteq X + W$, and since $U$ is a subspace of dimension $m$, we have
     \[
-    	\alpha_1(v_1 - v_2) + \alpha_2(v_2 - v_3) + \cdots + \alpha_{m - 1}(v_{m - 1} - v_m) = 0
+        \dim U \leq \dim(X + W) = \dim X + \dim W - \dim(X \cap W) \leq \dim X + \dim W,
     \]
-    for some $\alpha_1, \ldots, \alpha_{m - 1} \in \fbb$.
-	Then we can rewrite this equation as
+    which gives
     \[
-    	\alpha_1 v_1 + (\alpha_2 - \alpha_1)v_2 + \cdots + (\alpha_{m - 1} - \alpha_{m - 2})v_{m - 1} - \alpha_{m - 1} v_m = 0.
-    \]
-    Since $v_1, \ldots, v_m$ is linearly independent, we must have $\alpha_1 = 0$, $\alpha_2 - \alpha_1 = 0$, $\ldots$, $\alpha_{m - 1} - \alpha_{m - 2} = 0$, and $-\alpha_{m - 1} = 0$.
-	This implies that $\alpha_1 = \cdots = \alpha_{m - 1} = 0$.
-	Thus, the list is linearly independent, and so we have
-    \[
-    	\dim \spn(v_1 + w, \ldots, v_m + w) \geq m - 1. \qedhere
+        m = \dim U \leq \dim X + \dim W = \dim X + 1 \implies \dim X \geq m - 1. \qedhere
     \]
 \end{sol}
 

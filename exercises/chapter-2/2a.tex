@@ -307,7 +307,8 @@
 \end{exercise}
 
 \begin{sol}
-    Let $\alpha_1, \ldots, \alpha_m \in \fbb$, not all zero, such that
+    If $w = 0$, then $w \in \spn(v_1, \ldots, v_m)$ and we are done.
+    Otherwise, assume $w \neq 0$, and let $\alpha_1, \ldots, \alpha_m \in \fbb$, not all zero, such that
     \[
     	\alpha_1(v_1 + w) + \cdots + \alpha_m(v_m + w) = 0.
     \]
@@ -337,47 +338,17 @@
     \]
 \end{exercise}
 
-\begin{sol}
-    Suppose $v_1, \ldots, v_m, w$ is linearly independent.
-	If there were scalars $\alpha_1, \ldots, \alpha_m, \beta$ such that
-    \[
-    	\alpha_1 v_1 + \cdots + \alpha_m v_m + \beta w = 0,
-    \]
-    then linear independence would imply that $\alpha_1 = \cdots = \alpha_m = \beta = 0$.
-	Suppose $w \in \spn(v_1, \ldots, v_m)$.
-	Then there exist scalars $\gamma_1, \ldots, \gamma_m$ such that
-    \[
-    	\gamma_1 v_1 + \cdots + \gamma_m v_m = w.
-    \]
-    Then we may write
-    \[
-    	-\gamma_1 v_1 - \cdots - \gamma_m v_m + 1\cdot w = 0,
-    \]
-    which contradicts the linear independence of $v_1, \ldots, v_m, w$.
-	Thus, $w \notin \spn(v_1, \ldots, v_m)$.
+\begin{soliff}
+    \rightimp We proceed by contrapositive.
+    Suppose $w \in \spn(v_1, \ldots, v_m)$, but $v_1, \ldots, v_m, w$ is linearly independent.
+    Then $w$ is a linear combination of $v_1, \ldots, v_m$, contradicting the linear independence of $v_1, \ldots, v_m, w$.
+    Hence, $w \notin \spn(v_1, \ldots, v_m)$.
 
-    Conversely, suppose $w \notin \spn(v_1, \ldots, v_m)$.
-	Then there do not exist scalars $\alpha_1, \ldots, \alpha_m$ such that
-    \[
-    	\alpha_1 v_1 + \cdots + \alpha_m v_m = w.
-    \]
-    If $v_1, \ldots, v_m, w$ is linearly dependent, then there exist scalars $\beta_1, \ldots, \beta_m, \gamma$, not all zero, such that
-    \[
-    	\beta_1 v_1 + \cdots + \beta_m v_m + \gamma w = 0.
-    \]
-    If $\gamma = 0$, then we have
-    \[
-    	\beta_1 v_1 + \cdots + \beta_m v_m = 0,
-    \]
-    which contradicts the linear independence of $v_1, \ldots, v_m$.
-	Thus, we must have $\gamma \neq 0$.
-	Then we may write
-    \[
-    	w = -\frac{\beta_1}{\gamma}v_1 - \cdots -\frac{\beta_m}{\gamma}v_m,
-    \]
-    which contradicts the assumption that $w$ is not in the span of $v_1, \ldots, v_m$.
-	Thus, $v_1, \ldots, v_m, w$ is linearly independent.
-\end{sol}
+    \leftimp Conversely, suppose $w \notin \spn(v_1, \ldots, v_m)$, but $v_1, \ldots, v_m, w$ is linearly dependent.
+    By the linear dependence lemma, there exists $k \in \set{1, \ldots, m}$ such that $v_k \in \spn(v_1, \ldots, v_{k - 1})$.
+    This contradicts the linear independence of $v_1, \ldots, v_m$.
+    Hence, $v_1, \ldots, v_m, w$ must be linearly independent.
+\end{soliff}
  
 \begin{exercise}{2a14}
     Suppose $v_1, \ldots, v_m$ is a list of vectors in $V$.
@@ -459,7 +430,8 @@
 
     Conversely, suppose there exists a sequence of vectors $v_1, v_2, \ldots$ in $V$ such that $v_1, \ldots, v_m$ is linearly independent for every positive integer $m$.
 	Then for every positive integer $m$, there exists a linearly independent list of vectors in $V$ of length $m$.
-	Since there is no maximum length for a linearly independent list of vectors in $V$, this implies that $V$ is infinite-dimensional.
+	Since there is no maximum length for a linearly independent list of vectors in $V$, no list can span $V$.
+    Therefore, $V$ is infinite-dimensional.
 \end{sol}
  
 \begin{exercise}{2a18}
@@ -499,29 +471,19 @@
 	Therefore, by \exref{2a17}, the real vector space of all continuous real-valued functions on the interval $[0, 1]$ is infinite-dimensional.
 \end{sol}
  
-\begin{exercise}{2a20}
+\begin{exercise}*{2a20}
     Suppose $p_0, p_1, \ldots, p_m$ are polynomials in $\pcal_m(\fbb)$ such that $p_k(2) = 0$ for each $k \in \set{0, \ldots, m}$.
 	Prove that $p_0, p_1, \ldots, p_m$ is not linearly independent in $\pcal_m(\fbb)$.
 \end{exercise}
 
 \begin{sol}
-    Since $p_k(2) = 0$ for each $k \in \set{0, \ldots, m}$, we have
+    Note that $\pcal_m(\fbb)$ is spanned by the list $1, z, \ldots, z^m$ of $m + 1$ vectors, so there cannot be a list of $m + 2$ linearly independent vectors in $\pcal_m(\fbb)$. 
+    Suppose $p_0, \ldots, p_m$ is linearly independent in $\pcal_m(\fbb)$.
+    Moreover, notice that every linear combination of $p_0, \ldots, p_m$ is a polynomial such that
     \[
-    	p_k(x) = (x - 2)q_k(x)
+        \sum_{i = 0}^m \alpha_i p_i(2) = 0.
     \]
-    for some polynomial $q_k(x) \in \pcal_{m-1}(\fbb)$.
-	Then we may write
-    \[
-    	p_0(x), p_1(x), \ldots, p_m(x) = (x - 2)q_0(x), (x - 2)q_1(x), \ldots, (x - 2)q_m(x).
-    \]
-    Since $\pcal_{m - 1}(\fbb)$ can be spanned by the $m$ polynomials $1, x, \ldots, x^{m-1}$, the list of $m + 1$ polynomials $q_0, q_1, \ldots, q_m$ must be linearly dependent.
-	Thus, there exist scalars $\alpha_0, \ldots, \alpha_m$, not all zero, such that
-    \[
-    	\alpha_0 q_0(x) + \cdots + \alpha_m q_m(x) = 0.
-    \]
-    Then we may write
-    \[
-    	\alpha_0 p_0(x) + \cdots + \alpha_m p_m(x) = (x - 2)(\alpha_0 q_0(x) + \cdots + \alpha_m q_m(x)) = 0.
-    \]
-    Since not all the scalars $\alpha_0, \ldots, \alpha_m$ are zero, this shows that $p_0, p_1, \ldots, p_m$ is linearly dependent in $\pcal_m(\fbb)$.
+    Since $q = 1 \in \pcal_m(\fbb)$ is a polynomial where $q(2) \neq 0$, $q \notin \spn(p_0, \ldots, p_n)$.
+    By \exref{2a13}, the list $p_0, \ldots, p_m, q$ is of length $m + 2$ that is linearly independent, which is a contradiction.
+    Hence, $p_0, \ldots, p_m$ cannot be linearly independent in $\pcal_m(\fbb)$.
 \end{sol}

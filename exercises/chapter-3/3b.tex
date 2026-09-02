@@ -89,9 +89,9 @@
     \[
     	Tx = x_1 Tv_1 + x_2 Tv_2 + x_3 Tv_3 + x_4 Tv_4 = x_1 v_3 + x_2 v_4.
     \]
-    Then $\range T = \spn{v_3, v_4}$.
+    Then $\range T = \spn(v_3, v_4)$.
 	If $Tx = 0$, then $x_1 v_3 + x_2 v_4 = 0$, which implies $x_1 = x_2 = 0$.
-	Therefore, $\nul T = \set{(0, 0, x_3, x_4) \mid x_3, x_4 \in \rbb} = \spn{v_3, v_4}$.
+	Therefore, $\nul T = \set{(0, 0, x_3, x_4) \mid x_3, x_4 \in \rbb} = \spn(v_3, v_4)$.
 	Hence, $\range T = \nul T$.
 \end{sol}
 
@@ -231,48 +231,16 @@
 \end{exercise}
 
 \begin{sol}
-    Since $\nul T$ is a subspace of $V$, we can extend a basis of $\nul T$ to a basis of $V$.
-	Let $n_1, \ldots, n_k$ be a basis of $\nul T$, and extend this to a basis of $V$ by adding vectors $u_1, \ldots, u_m$.
-	Hence, a basis for $V$ is given by
-    \[
-    	n_1, \ldots, n_k, u_1, \ldots, u_m.
-    \]
-    Define $U = \spn(u_1, \ldots, u_m)$.
-	Suppose $v \in U \cap \nul T$.
-	Then $v$ can be expressed as a linear combination of the basis vectors of $U$:
-    \[
-    	v = \alpha_1 u_1 + \cdots + \alpha_m u_m.
-    \]
-    Since $v \in \nul T$ as well, we can also express $v$ as a linear combination of the basis vectors of $\nul T$:
-    \[
-    	v = \beta_1 n_1 + \cdots + \beta_k n_k.
-    \]
-    Equating the two expressions for $v$, we have
-    \[
-    	\alpha_1 u_1 + \cdots + \alpha_m u_m = \beta_1 n_1 + \cdots + \beta_k n_k.
-    \]
-    Since $n_1, \ldots, n_k, u_1, \ldots, u_m$ is a basis for $V$, the only way this equality can hold is if all coefficients are zero, i.e., $\alpha_1 = \cdots = \alpha_m = 0$ and $\beta_1 = \cdots = \beta_k = 0$.
-	Therefore, $v = 0$, and we conclude that $U \cap \nul T = \set{0}$.
-
-    Now, let $w \in \range T$.
-	Then there exists $v \in V$ such that $Tv = w$.
-	We can express $v$ as a linear combination of the basis vectors of $V$:
-    \[
-    	v = \gamma_1 n_1 + \cdots + \gamma_k n_k + \delta_1 u_1 + \cdots + \delta_m u_m.
-    \]
-    Applying $T$ to both sides, we have
-    \[
-    	Tv = T(\gamma_1 n_1 + \cdots + \gamma_k n_k + \delta_1 u_1 + \cdots + \delta_m u_m) = \gamma_1 Tn_1 + \cdots + \gamma_k Tn_k + \delta_1 Tu_1 + \cdots + \delta_m Tu_m.
-    \]
-    Since $n_1, \ldots, n_k \in \nul T$, we have $Tn_i = 0$ for all $i = 1, \ldots, k$.
-	Therefore,
-    \[
-    	Tv = \delta_1 Tu_1 + \cdots + \delta_m Tu_m.
-    \]
-    Let $u = \delta_1 u_1 + \cdots + \delta_m u_m \in U$.
-	Then $Tu = w$.
-	Since $w$ was arbitrary in $\range T$, it follows that $\range T = \set{Tu \mid u \in U}$.
-	Thus, we have found a subspace $U$ of $V$ such that $U \cap \nul T = \set{0}$ and $\range T = \set{Tu \mid u \in U}$.
+    By 2.33, because $\nul T$ is a subspace of $V$ with $V$ finite dimensional, there exists a subspace $U$ of $V$ such that $V = \nul T \oplus U$.
+    Then $U \cap \nul T = \set 0$.
+    Additionally, every $v \in V$ can be written uniquely as $v = n + u$ with $n \in \nul T$ and $u \in U$.
+    Hence,
+    \begin{align*}
+        \range T &= \set{Tv \mid v \in V} \\
+        &= \set{T(n + u) \mid n \in \nul T, u \in U} \\
+        &= \set{Tn + Tu \mid n \in \nul T, u \in U} \\
+        &= \set{Tu \mid u \in U}. \qedhere
+    \end{align*}
 \end{sol}
 
 \begin{exercise}{3b12}
@@ -382,20 +350,7 @@
 
 \begin{sol}
     Suppose there exists an injective linear map $T \in \lin{V, W}$.
-	By the fundamental theorem of linear maps, we have
-    \[
-    	\dim V = \dim \nul T + \dim \range T.
-    \]
-    Since $T$ is injective, $\nul T = \set{0}$, so $\dim \nul T = 0$.
-	Therefore,
-    \[
-    	\dim V = 0 + \dim \range T = \dim \range T.
-    \]
-    Since $\range T$ is a subspace of $W$, we have $\dim \range T \leq \dim W$.
-	Thus,
-    \[
-    	\dim V = \dim \range T \leq \dim W.
-    \]
+	By contraposition of 3.22, an injective linear map $T \in \lin{V, W}$ implies that $\dim V \leq \dim W$.
 
     Conversely, suppose $\dim V \leq \dim W$.
 	Let $n = \dim V$ and $m = \dim W$.
@@ -423,19 +378,7 @@
 
 \begin{sol}
     Suppose there exists a surjective linear map $T \in \lin{V, W}$.
-	By the fundamental theorem of linear maps, we have
-    \[
-    	\dim V = \dim \nul T + \dim \range T.
-    \]
-    Since $T$ is surjective, $\range T = W$, so $\dim \range T = \dim W$.
-	Therefore,
-    \[
-    	\dim V = \dim \nul T + \dim W.
-    \]
-    Since $\dim \nul T \geq 0$, it follows that
-    \[
-    	\dim V \geq \dim W.
-    \]
+	By contraposition of 3.24, a surjective linear map $T \in \lin{V, W}$ implies that $\dim V \geq \dim W$.
 
     Conversely, suppose $\dim V \geq \dim W$.
 	Let $n = \dim V$ and $m = \dim W$.
@@ -521,32 +464,20 @@
 
 \begin{sol}
     Suppose $T$ is injective.
-	Then $\nul T = \set{0}$.
-	Also, $\range T$ is finite dimensional since it is a subspace of $W$.
-	Since $T$ is injective, it is an isomorphism from $V$ onto $\range T$.
-	Hence, $V$ is finite dimensional.
-	Let $n = \dim V$ and $m = \dim W$.
-	Since $T$ is injective, we have $\dim \range T = n$.
-	Choose a basis $\set{v_1, \ldots, v_n}$ of $V$.
-	Then $\set{Tv_1, \ldots, Tv_n}$ is linearly independent in $W$.
-	Extend this set to a basis of $W$ by adding vectors $w_1, \ldots, w_{m - n}$.
-	Define a linear map $S \in \lin{W, V}$ by
+	Since $\range T$ is a subspace of $W$, it is finite-dimensional.
+    Let $\dim \range T = n$.
+    If there is no linearly independent list of $n$ vectors in $V$, then $V$ is finite-dimensional, and $\dim V < n$, which contradicts the fundamental theorem of linear maps.
+    Therefore, there exists a linearly independent list $v_1, \ldots, v_n$ of vectors in $V$.
+
+    Since $T$ is injective, the list $Tv_1, \ldots, Tv_n$ is linearly independent in $\range T$ by \exref{3b9}.
+    Additionally, the list has length $n$ and so is a basis of $\range T$.
+    By the linear map lemma, there exists $S_0 \in \lin{\range T, V}$ such that $S_0(Tv_i) = v_i$ for all $i = 1, \ldots, n$.
+    By \exref{3a13}, there exists an extension $S \in \lin{W, V}$ of $S_0$. Since
     \[
-    	S(Tv_i) = v_i \quad \text{for } i = 1, \ldots, n, \quad S(w_j) = 0 \quad \text{for } j = 1, \ldots, m - n.
+        (ST)v_i = S(Tv_i) = S_0(Tv_i) = v_i
     \]
-    Then for any $v \in V$, we can express $v$ as a linear combination of the basis vectors:
-    \[
-    	v = \alpha_1 v_1 + \cdots + \alpha_n v_n.
-    \]
-    Applying $T$ to both sides, we have
-    \[
-    	Tv = \alpha_1 Tv_1 + \cdots + \alpha_n Tv_n.
-    \]
-    Now, applying $S$ to $Tv$, we get
-    \[
-    	STv = S(\alpha_1 Tv_1 + \cdots + \alpha_n Tv_n) = \alpha_1 S(Tv_1) + \cdots + \alpha_n S(Tv_n) = \alpha_1 v_1 + \cdots + \alpha_n v_n = v.
-    \]
-    Therefore, $ST$ is the identity operator on $V$.
+    for all $i = 1, \ldots, n$, $ST$ acts as the identity on a basis of $V$.
+    By the linear map lemma, this map is unique, hence $ST$ is the identity operator on $V$.
 
     Conversely, suppose there exists $S \in \lin{W, V}$ such that $ST$ is the identity operator on $V$.
 	Let $v \in \nul T$.
@@ -564,27 +495,17 @@
 \end{exercise}
 
 \begin{sol}
-    Suppose $T$ is surjective.
-	Then $\range T = W$.
-	Let $m = \dim W$ and choose a basis $\set{w_1, \ldots, w_m}$ of $W$.
-	Since $T$ is surjective, for each $w_i$, there exists $v_i \in V$ such that $Tv_i = w_i$.
-	Define a linear map $S \in \lin{W, V}$ by
+    Suppose $T$ is surjective, and let $w_1, \ldots, w_n$ be a basis for $W$.
+    By surjectivity of $T$, there are vectors $v_1, \ldots, v_n \in V$ where $Tv_i = w_i$ for all $i = 1, \ldots, n$.
+    By the linear map lemma, there exists $S \in \lin{W, V}$ such that
     \[
-    	S(w_i) = v_i \quad \text{for } i = 1, \ldots, m.
+        Sw_i = v_i \quad \text{for } i = 1, \ldots, n.
     \]
-    Then for any $w \in W$, we can express $w$ as a linear combination of the basis vectors:
+    Then
     \[
-    	w = \alpha_1 w_1 + \cdots + \alpha_m w_m.
+        TSw_i = T(Sw_i) = Tv_i = w_i \quad \text{for } i = 1, \ldots, n.
     \]
-    Applying $S$ to both sides, we have
-    \[
-    	Sw = S(\alpha_1 w_1 + \cdots + \alpha_m w_m) = \alpha_1 S(w_1) + \cdots + \alpha_m S(w_m) = \alpha_1 v_1 + \cdots + \alpha_m v_m.
-    \]
-    Now, applying $T$ to $Sw$, we get
-    \[
-    	TSw = T(\alpha_1 v_1 + \cdots + \alpha_m v_m) = \alpha_1 Tv_1 + \cdots + \alpha_m Tv_m = \alpha_1 w_1 + \cdots + \alpha_m w_m = w.
-    \]
-    Therefore, $TS$ is the identity operator on $W$.
+    By the linear map lemma, because $TS$ agrees with the identity on a basis of $W$, it must be the identity operator on $W$.
 
     Conversely, suppose there exists $S \in \lin{W, V}$ such that $TS$ is the identity operator on $W$.
 	Let $w \in W$.
@@ -615,58 +536,27 @@
     Since $Tv_1, Tv_2 \in U$ and $U$ is a subspace of $W$, it follows that $\alpha Tv_1 + \beta Tv_2 \in U$.
 	Therefore, $\alpha v_1 + \beta v_2 \in X$, and thus $X$ is a subspace of $V$.
 
-    Now, we will compute the dimension of $X$.
-	Let $Y = U \cap \range T$.
-	Let $\dim \null T = k$ and $\dim Y = m$.
-	Let $n_1, \ldots, n_k$ be a basis of $\nul T$, and let $y_1, \ldots, y_m$ be a basis of $Y$.
-	Since $y_i \in \range T$, there exist vectors $v_i \in V$ such that $Tv_i = y_i$ for $i = 1, \ldots, m$.
-	We claim that the set $\set{n_1, \ldots, n_k, v_1, \ldots, v_m}$ is a basis of $X$.
-
-    First, we show that this set spans $X$.
-	Let $v \in X$.
-	Then $Tv \in U$, and since $Tv \in \range T$, we have $Tv \in Y$.
-	Therefore, there exist scalars $\alpha_1, \ldots, \alpha_m \in \fbb$ such that
+    Because $V$ is finite-dimensional, so are $\nul T$ and $X$.
+    Let $v_1, \ldots, v_m$ be a basis for $\nul T$.
+    Since $U$ is a subspace of $W$, $0 \in U$, so $\nul T \subseteq X$.
+    We may then extend $v_1, \ldots, v_m$ to a basis $v_1, \ldots, v_m, v_{m+1}, \ldots, v_n$ of $X$.
+    If $w \in U \cap \range T$, then there exists $v \in V$ such that $Tv = w$, and since $v_1, \ldots, v_n$ is a basis of $X$, we may write
     \[
-    	Tv = \alpha_1 y_1 + \cdots + \alpha_m y_m = \alpha_1 Tv_1 + \cdots + \alpha_m Tv_m.
+        w = Tv = T\left(\sum_{i=1}^{n} \alpha_i v_i\right) = \sum_{i=1}^{n} \alpha_i Tv_i = \sum_{i=m+1}^{n} \alpha_i Tv_i
     \]
-    Let $v' = v - (\alpha_1 v_1 + \cdots + \alpha_m v_m)$.
-	Then
+    for scalars $\alpha_1, \ldots, \alpha_n \in \fbb$.
+    Then $Tv_{m+1}, \ldots, Tv_n$ span $U \cap \range T$.
+    Additionally, if $\sum_{i=m+1}^{n} \alpha_i Tv_i = 0$, then
     \[
-    	Tv' = Tv - T(\alpha_1 v_1 + \cdots + \alpha_m v_m) = Tv - (\alpha_1 Tv_1 + \cdots + \alpha_m Tv_m) = 0.
+        T\left(\sum_{i=m+1}^{n} \alpha_i v_i\right) = \sum_{i=m+1}^{n} \alpha_i Tv_i = 0,
     \]
-    Therefore, $v' \in \nul T$, and we can express $v'$ as a linear combination of the basis vectors of $\nul T$:
+    which means that $\sum_{i=m+1}^{n} \alpha_i v_i \in \nul T$, contradicting the fact that $v_1, \ldots, v_n$ was linearly independent unless all $\alpha_{m+1}, \ldots, \alpha_n$ are zero.
+    Therefore, $Tv_{m+1}, \ldots, Tv_n$ is linearly independent in $U \cap \range T$, so it is a basis for $U \cap \range T$.
+    Hence,
     \[
-    	v' = \beta_1 n_1 + \cdots + \beta_k n_k
+        \dim(U \cap \range T) = n - m = \dim X - \dim \nul T,
     \]
-    for some scalars $\beta_1, \ldots, \beta_k \in \fbb$.
-	Thus,
-    \[
-    	v = v' + (\alpha_1 v_1 + \cdots + \alpha_m v_m) = \beta_1 n_1 + \cdots + \beta_k n_k + \alpha_1 v_1 + \cdots + \alpha_m v_m.
-    \]
-    This shows that $v$ is a linear combination of the vectors in $\set{n_1, \ldots, n_k, v_1, \ldots, v_m}$, and hence this set spans $X$.
-
-    Next, we show that this set is linearly independent.
-	Suppose
-    \[
-    	\gamma_1 n_1 + \cdots + \gamma_k n_k + \delta_1 v_1 + \cdots + \delta_m v_m = 0
-    \]
-    for some scalars $\gamma_1, \ldots, \gamma_k, \delta_1, \ldots, \delta_m \in \fbb$.
-	Observe that $Tn_i = 0$ for all $i = 1, \ldots, k$, and $Tv_j = y_j$ for all $j = 1, \ldots, m$.
-	Therefore,
-    \[
-    	0 = T(\gamma_1 n_1 + \cdots + \gamma_k n_k + \delta_1 v_1 + \cdots + \delta_m v_m) = \delta_1 y_1 + \cdots + \delta_m y_m.
-    \]
-    Since $y_1, \ldots, y_m$ are linearly independent, it follows that $\delta_1 = \cdots = \delta_m = 0$.
-	Therefore,
-    \[
-    	\gamma_1 n_1 + \cdots + \gamma_k n_k = 0.
-    \]
-    Since $n_1, \ldots, n_k$ are linearly independent, $\gamma_1 = \cdots = \gamma_k = 0$.
-	Thus, the set $\set{n_1, \ldots, n_k, v_1, \ldots, v_m}$ is linearly independent and a basis of $X$.
-	Therefore,
-    \[
-    	\dim X = k + m = \dim \nul T + \dim(U \cap \range T).
-    \]
+    where rearranging gives the desired formula.
 \end{sol}
 
 \begin{exercise}{3b22}

@@ -442,14 +442,9 @@
 \end{exercise}
 
 \begin{sol}
-    We have
-    \begin{align*}
-        \norm{u + v}^2 &= \gen{u + v, u + v} = \norm{u}^2 + 2\Re\gen{u, v} + \norm{v}^2 = 16, \\
-        \norm{u - v}^2 &= \gen{u - v, u - v} = \norm{u}^2 - 2\Re\gen{u, v} + \norm{v}^2 = 36.
-    \end{align*}
-    Adding the two equations gives
+    By the parallelogram equality,
     \[
-        2\norm{u}^2 + 2\norm{v}^2 = 52,
+        \norm{u + v}^2 + \norm{u - v}^2 = 2\norm{u}^2 + 2\norm{v}^2 = 16 + 36 = 52,
     \]
     so $\norm{v}^2 = 26 - 9 = 17$, which implies $\norm{v} = \sqrt{17}$.
 \end{sol}
@@ -462,18 +457,16 @@
 \end{exercise}
 
 \begin{sol}
-    We have
+    By the triangle inequality, we have
     \begin{align*}
-        \norm{u + v}^2 \norm{u - v}^2 &= \gen{u + v, u + v}\,\gen{u - v, u - v} \\
-        &= (\norm{u}^2 + 2\Re\gen{u, v} + \norm{v}^2)(\norm{u}^2 - 2\Re\gen{u, v} + \norm{v}^2) \\
-        &= (\norm{u}^2 + \norm{v}^2)^2 - (2\Re\gen{u, v})^2 \\
-        &\leq (\norm{u}^2 + \norm{v}^2)^2,
+        \norm{u + v}^2 \norm{u - v}^2 &\leq (\norm u^2 + \norm v^2)(\norm u^2 + \norm{-v}^2) \\
+        &= (\norm u^2 + \norm v^2)(\norm u^2 + \norm v^2) \\
+        &= (\norm u^2 + \norm v^2)^2.
     \end{align*}
-    where the last inequality follows from the fact that $(2\Re\gen{u, v})^2 \geq 0$.
     Taking the square root of both sides gives the desired inequality.
 \end{sol}
 
-\begin{exercise}{6a23}
+\begin{exercise}*{6a23}
     Suppose $v_1, \ldots, v_m \in V$ are such that $\norm{v_k} \leq 1$ for each $k = 1, \ldots, m$.
     Show that there exist $a_1, \ldots, a_m \in \set{1, -1}$ such that
     \[
@@ -624,7 +617,7 @@
     Let $\gen{u, v} = a + bi$ for some $a, b \in \rbb$.
     Then
     \[
-        \gen{u, iv} = \bar i\gen{u, v} = -i(a + bi) = b - ai,
+        \gen{u, iv} = \bar \imath\gen{u, v} = -i(a + bi) = b - ai,
     \]
     so $\Re\gen{u, iv} = \Im\gen{u, v}$.
     Therefore, we have
@@ -668,38 +661,32 @@
         \[
             \gen{u, v} = \frac{\norm{u + v}^2 - \norm{u - v}^2}{4} = \frac{\norm{v + u}^2 - \norm{v - u}^2}{4} = \gen{v, u}.
         \]
-        \item \textbf{Additivity in the First Slot}: Let $u, v, w \in U$.
-        Applying the parallelogram equality to the pairs $(u + w, v)$ and $(u - w, v)$ gives
+        \item \textbf{Additivity in the First Slot}: Let $x, y, z \in U$.
+        Applying the parallelogram equality to the pairs $(x + z, y)$ and $(x - z, y)$ gives
         \begin{align*}
-            \norm{(u + w) + v}^2 + \norm{(u + w) - v}^2 &= 2\norm{u + w}^2 + 2\norm{v}^2, \\
-            \norm{(u - w) + v}^2 + \norm{(u - w) - v}^2 &= 2\norm{u - w}^2 + 2\norm{v}^2.
+            \norm{(x + z) + y}^2 + \norm{(x + z) - y}^2 &= 2\norm{x + z}^2 + 2\norm{y}^2, \\
+            \norm{(x - z) + y}^2 + \norm{(x - z) - y}^2 &= 2\norm{x - z}^2 + 2\norm{y}^2.
         \end{align*}
         Subtracting the second equation from the first gives
         \[
-            \norm{(u + w) + v}^2 - \norm{(u - w) + v}^2 + \norm{(u + w) - v}^2 - \norm{(u - w) - v}^2 = 2\norm{u + w}^2 - 2\norm{u - w}^2.
+            \norm{(x + z) + y}^2 - \norm{(x - z) + y}^2 + \norm{(x + z) - y}^2 - \norm{(x - z) - y}^2 = 2\norm{x + z}^2 - 2\norm{x - z}^2.
         \]
         Rearranging terms inside the norms gives
         \[
-            \norm{(u + v) + w}^2 - \norm{(u + v) - w}^2 + \norm{(u - v) + w}^2 - \norm{(u - v) - w}^2 = 2\norm{u + w}^2 - 2\norm{u - w}^2.
+            \norm{(x + y) + z}^2 - \norm{(x + y) - z}^2 + \norm{(x - y) + z}^2 - \norm{(x - y) - z}^2 = 2\norm{x + z}^2 - 2\norm{x - z}^2.
         \]
-        Dividing both sides by $4$ gives the relation $\gen{u + v, w} + \gen{u - v, w} = 2\gen{u, w}$.
-
-        Now apply the parallelogram equality to the pairs $(v + w, u)$ and $(v - w, u)$ to get
-        \begin{align*}
-            \norm{(v + w) + u}^2 + \norm{(v + w) - u}^2 &= 2\norm{v + w}^2 + 2\norm{u}^2, \\
-            \norm{(v - w) + u}^2 + \norm{(v - w) - u}^2 &= 2\norm{v - w}^2 + 2\norm{u}^2.
-        \end{align*}
-        Subtracting the second equation from the first gives
+        Dividing both sides by $4$ gives the relation $\gen{x + y, z} + \gen{x - y, z} = 2\gen{x, z}$.
+        Note that $x = y$ yields $\gen{2x, z} = 2\gen{x, z}$.
+        Then for any $u, v, w \in V$, define
         \[
-            \norm{(v + w) + u}^2 - \norm{(v - w) + u}^2 + \norm{(v + w) - u}^2 - \norm{(v - w) - u}^2 = 2\norm{v + w}^2 - 2\norm{v - w}^2.
+            x = \frac{u + v}{2}, \quad y = \frac{u - v}{2}
         \]
-        Rearranging terms inside the norms gives
+        so that
         \[
-            \norm{(u + v) + w}^2 - \norm{(u + v) - w}^2 + \norm{(u - v) - w}^2 - \norm{(u - v) + w}^2 = 2\norm{v + w}^2 - 2\norm{v - w}^2.
+            \gen{u + v, w} = \gen{2x, w} = 2\gen{x, w} = \gen{x + y, w} + \gen{x - y, w} = \gen{u, w} + \gen{v, w}.
         \]
-        Dividing both sides by $4$ gives the relation $\gen{u + v, w} - \gen{u - v, w} = 2\gen{v, w}$.
-        Adding the two relations gives $\gen{u + v, w} = \gen{u, w} + \gen{v, w}$.
         \item \textbf{Homogeneity in the First Slot}: Let $u, v \in U$ and $\alpha \in \rbb$.
+        We show that $\gen{\alpha u, v} = \alpha \gen{u, v}$ for all $\alpha \in \rbb$.
         If $\alpha = 0$, then
         \[
             \gen{0, v} = \frac{\norm{0 + v}^2 - \norm{0 - v}^2}{4} = \frac{\norm{v}^2 - \norm{v}^2}{4} = 0 = 0\gen{u, v}.
