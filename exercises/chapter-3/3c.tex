@@ -500,12 +500,12 @@
 
 \begin{exercise}{3c14}
     Suppose $m$ and $n$ are positive integers.
-	Prove that the function $A \mapsto A^t$ is a linear map from $\fbb^{m, n}$ to $\fbb^{n, m}$.
+	Prove that the function $A \mapsto A\trans$ is a linear map from $\fbb^{m, n}$ to $\fbb^{n, m}$.
 \end{exercise}
 
 \begin{sol}
     Let $A, B \in \fbb^{m, n}$ and let $\lambda \in \fbb$.
-	We need to show that $(A + B)^t = A^t + B^t$ and $(\lambda A)^t = \lambda A^t$.
+	We need to show that $(A + B)\trans = A\trans + B\trans$ and $(\lambda A)\trans = \lambda A\trans$.
 
     First, consider the sum $A + B$.
 	The entry in row $j$, column $k$, of $A + B$ is given by
@@ -514,9 +514,9 @@
     \]
     Taking the transpose, we have
     \[
-    	((A + B)^t)_{k, j} = (A + B)_{j, k} = A_{j, k} + B_{j, k} = (A^t)_{k, j} + (B^t)_{k, j} = (A^t + B^t)_{k, j}.
+    	((A + B)\trans)_{k, j} = (A + B)_{j, k} = A_{j, k} + B_{j, k} = (A\trans)_{k, j} + (B\trans)_{k, j} = (A\trans + B\trans)_{k, j}.
     \]
-    Therefore, $(A + B)^t = A^t + B^t$.
+    Therefore, $(A + B)\trans = A\trans + B\trans$.
 
     Next, consider the scalar multiplication $\lambda A$.
 	The entry in row $j$, column $k$, of $\lambda A$ is given by
@@ -525,17 +525,17 @@
     \]
     Taking the transpose, we have
     \[
-    	((\lambda A)^t)_{k, j} = (\lambda A)_{j, k} = \lambda A_{j, k} = \lambda (A^t)_{k, j} = (\lambda A^t)_{k, j}.
+    	((\lambda A)\trans)_{k, j} = (\lambda A)_{j, k} = \lambda A_{j, k} = \lambda (A\trans)_{k, j} = (\lambda A\trans)_{k, j}.
     \]
-    Therefore, $(\lambda A)^t = \lambda A^t$.
+    Therefore, $(\lambda A)\trans = \lambda A\trans$.
 
-    Since both properties hold, we conclude that the function $A \mapsto A^t$ is a linear map from $\fbb^{m, n}$ to $\fbb^{n, m}$.
+    Since both properties hold, we conclude that the function $A \mapsto A\trans$ is a linear map from $\fbb^{m, n}$ to $\fbb^{n, m}$.
 \end{sol}
 
 \begin{exercise}{3c15}
     Prove that if $A$ is an $m$-by-$n$ matrix and $C$ is an $n$-by-$p$ matrix, then
     \[
-    	(AC)^t = C^t A^t.
+    	(AC)\trans = C\trans A\trans.
     \]
 \end{exercise}
 
@@ -547,24 +547,24 @@
     \]
     Taking the transpose, we have
     \[
-    	((AC)^t)_{k, j} = (AC)_{j, k} = \sum_{r = 1}^{n} A_{j, r} C_{r, k}.
+    	((AC)\trans)_{k, j} = (AC)_{j, k} = \sum_{r = 1}^{n} A_{j, r} C_{r, k}.
     \]
 
-    Now, consider the product $C^t A^t$.
+    Now, consider the product $C\trans A\trans$.
 	The entry in row $k$, column $j$, of this product is given by
     \[
-    	(C^t A^t)_{k, j} = \sum_{r = 1}^{n} (C^t)_{k, r} (A^t)_{r, j} = \sum_{r = 1}^{n} C_{r, k} A_{j, r}.
+    	(C\trans A\trans)_{k, j} = \sum_{r = 1}^{n} (C\trans)_{k, r} (A\trans)_{r, j} = \sum_{r = 1}^{n} C_{r, k} A_{j, r}.
     \]
 
     Since multiplication in the field $\fbb$ is commutative, we can rewrite this as
     \[
-    	(C^t A^t)_{k, j} = \sum_{r = 1}^{n} A_{j, r} C_{r, k},
+    	(C\trans A\trans)_{k, j} = \sum_{r = 1}^{n} A_{j, r} C_{r, k},
     \]
-    which is exactly the same as the expression for $((AC)^t)_{k, j}$.
+    which is exactly the same as the expression for $((AC)\trans)_{k, j}$.
 
     Therefore, we conclude that
     \[
-    	(AC)^t = C^t A^t.
+    	(AC)\trans = C\trans A\trans.
     \]
 \end{sol}
 
@@ -576,7 +576,7 @@
 \begin{sol}
     Suppose the rank of $A$ is 1.
 	Then the column rank of $A$ is 1, which means that all columns of $A$ are scalar multiples of a single non-zero column vector.
-	Let $c = (c_1, \ldots, c_m)^t$ be this non-zero column vector.
+	Let $c = (c_1, \ldots, c_m)\trans$ be this non-zero column vector.
 	Then for each column $k$ of $A$, there exists a scalar $d_k \in \fbb$ such that the $k$-th column of $A$ is given by $d_k c$.
 	Therefore, we can express the entries of $A$ as
     \[

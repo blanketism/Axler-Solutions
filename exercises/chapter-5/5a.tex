@@ -516,15 +516,15 @@
 
 \begin{solenum}
     \item Suppose the sum of the entries in each row of $A$ equals $1$.
-	Let $v = (1, 1, \ldots, 1)^t \in \fbb^n$.
+	Let $v = (1, 1, \ldots, 1)\trans \in \fbb^n$.
 	Then
     \[
     	Tv = Av = v,
     \]
     showing that $v$ is an eigenvector of $T$ corresponding to the eigenvalue $1$.
     \item Suppose the sum of the entries in each column of $A$ equals $1$.
-	By part (a), this is equivalent to saying that the sum of the entries in each row of $A^t$ equals $1$, hence $1$ is an eigenvalue of the linear operator defined by $A^t$.
-	But the eigenvalues of $A^t$ are the same as the eigenvalues of $A$ because $A - \lambda I$ is not invertible if and only if $A^t - \lambda I$ is not invertible.
+	By part (a), this is equivalent to saying that the sum of the entries in each row of $A\trans$ equals $1$, hence $1$ is an eigenvalue of the linear operator defined by $A\trans$.
+	But the eigenvalues of $A\trans$ are the same as the eigenvalues of $A$ because $A - \lambda I$ is not invertible if and only if $A\trans - \lambda I$ is not invertible.
 	Therefore, $1$ is an eigenvalue of $T$.
 \end{solenum}
 
