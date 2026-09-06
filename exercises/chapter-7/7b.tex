@@ -1,0 +1,171 @@
+\subsection{Spectral Theorem}
+
+\begin{exercise}{7b1}
+    Prove that a normal operator on a complex inner product space is self-adjoint if and only if all its eigenvalues are real.
+
+    \note{This exercise strengthens the analogy (for normal operators) between self-adjoint operators and real numbers.}
+\end{exercise}
+
+\begin{exercise}{7b2}
+    Suppose $\fbb = \cbb$.
+    Suppose $T \in \lin{V}$ is normal and has only one eigenvalue.
+    Prove that $T$ is a scalar multiple of the identity operator.
+\end{exercise}
+
+\begin{exercise}{7b3}
+    Suppose $\fbb = \cbb$ and $T \in \lin{V}$ is normal.
+    Prove that the set of eigenvalues of $T$ is contained in $\set{0, 1}$ if and only if there is a subspace $U$ of $V$ such that $T = P_U$.
+\end{exercise}
+
+\begin{exercise}{7b4}
+    Prove that a normal operator on a complex inner product space is skew (meaning it equals the negative of its adjoint) if and only if all its eigenvalues are purely imaginary (meaning that they have real part equal to $0$).
+\end{exercise}
+
+\begin{exercise}{7b5}
+    Prove or give a counterexample: If $T \in \lin{\cbb^3}$ is a diagonalizable operator, then $T$ is normal (with respect to the usual inner product).
+\end{exercise}
+
+\begin{exercise}{7b6}
+    Suppose $V$ is a complex inner product space and $T \in \lin{V}$ is a normal operator such that $T^9 = T^8$.
+    Prove that $T$ is self-adjoint and $T^2 = T$.
+\end{exercise}
+
+\begin{exercise}{7b7}
+    Give an example of an operator $T$ on a complex vector space such that $T^9 = T^8$ but $T^2 \neq T$.
+\end{exercise}
+
+\begin{exercise}{7b8}
+    Suppose $\fbb = \cbb$ and $T \in \lin{V}$.
+    Prove that $T$ is normal if and only if every eigenvector of $T$ is also an eigenvector of $T^\ast$.
+\end{exercise}
+
+\begin{exercise}{7b9}
+    Suppose $\fbb = \cbb$ and $T \in \lin{V}$.
+    Prove that $T$ is normal if and only if there exists a polynomial $p \in \pcal(\cbb)$ such that $T^\ast = p(T)$.
+\end{exercise}
+
+\begin{exercise}{7b10}
+    Suppose $V$ is a complex inner product space.
+    Prove that every normal operator on $V$ has a square root.
+
+    \note{An operator $S \in \lin{V}$ is called a \term{square root} of $T \in \lin{V}$ if $S^2 = T$.
+    We will discuss more about square roots of operators in Sections 7C and 8C.}
+\end{exercise}
+
+\begin{exercise}{7b11}
+    Prove that every self-adjoint operator on $V$ has a cube root.
+
+    \note{An operator $S \in \lin{V}$ is called a \term{cube root} of $T \in \lin{V}$ if $S^3 = T$.}
+\end{exercise}
+
+\begin{exercise}{7b12}
+    Suppose $V$ is a complex vector space and $T \in \lin{V}$ is normal.
+    Prove that if $S$ is an operator on $V$ that commutes with $T$, then $S$ commutes with $T^\ast$.
+
+    \note{The result in this exercise is called \term{Fuglede's theorem.}}
+\end{exercise}
+
+\begin{exercise}{7b13}
+    Without using the complex spectral theorem, use the version of Schur's theorem that applies to two commuting operators (take $\ecal = \set{T, T^\ast}$ in \exref{6b20}) to give a different proof that if $\fbb = \cbb$ and $T \in \lin{V}$ is normal, then $T$ has a diagonal matrix with respect to some orthonormal basis of $V$.
+\end{exercise}
+
+\begin{exercise}{7b14}
+    Suppose $\fbb = \rbb$ and $T \in \lin{V}$.
+    Prove that $T$ is self-adjoint if and only if all pairs of eigenvectors corresponding to distinct eigenvalues of $T$ are orthogonal and $V = E(\lambda_1, T) \op \cdots \op E(\lambda_m, T)$, where $\lambda_1, \ldots, \lambda_m$ denote the distinct eigenvalues of $T$.
+\end{exercise}
+
+\begin{exercise}{7b15}
+    Suppose $\fbb = \cbb$ and $T \in \lin{V}$.
+    Prove that $T$ is normal if and only if all pairs of eigenvectors corresponding to distinct eigenvalues of $T$ are orthogonal and $V = E(\lambda_1, T) \op \cdots \op E(\lambda_m, T)$, where $\lambda_1, \ldots, \lambda_m$ denote the distinct eigenvalues of $T$.
+\end{exercise}
+
+\begin{exercise}{7b16}
+    Suppose $\fbb = \cbb$ and $\ecal \subseteq \lin{V}$.
+    Prove that there is an orthonormal basis of $V$ with respect to which every element of $\ecal$ has a diagonal matrix if and only if $S$ and $T$ are commuting normal operators for all $S, T \in \ecal$.
+
+    \note{This exercise extends the complex spectral theorem to the context of a collection of commuting normal operators.}
+\end{exercise}
+
+\begin{exercise}{7b17}
+    Suppose $\fbb = \rbb$ and $\ecal \subseteq \lin{V}$.
+    Prove that there is an orthonormal basis of $V$ with respect to which every element of $\ecal$ has a diagonal matrix if and only if $S$ and $T$ are commuting self-adjoint operators for all $S, T \in \ecal$.
+    
+    \note{This exercise extends the real spectral theorem to the context of a collection of commuting self-adjoint operators.}
+\end{exercise}
+
+\begin{exercise}{7b18}
+    Give an example of a real inner product space $V$, an operator $T \in \lin{V}$, and real numbers $b, c$ with $b^2 < 4c$ such that
+    \[
+        T^2 + bT + cI
+    \]
+    is not invertible.
+    
+    \note{This exercise shows that the hypothesis that $T$ is self-adjoint cannot be deleted in 7.26, even for real vector spaces.}
+\end{exercise}
+
+\begin{exercise}{7b19}
+    Suppose $T \in \lin{V}$ is self-adjoint and $U$ is a subspace of $V$ that is invariant under $T$.
+    \begin{subexercises}
+        \item Prove that $U^\perp$ is invariant under $T$.
+        \item Prove that $T|_U \in \lin{U}$ is self-adjoint.
+        \item Prove that $T|_{U^\perp} \in \lin{U^\perp}$ is self-adjoint.
+    \end{subexercises}
+\end{exercise}
+
+\begin{exercise}{7b20}
+    Suppose $T \in \lin{V}$ is normal and $U$ is a subspace of $V$ that is invariant under $T$.
+    \begin{subexercises}
+        \item Prove that $U^\perp$ is invariant under $T$.
+        \item Prove that $U$ is invariant under $T^\ast$.
+        \item Prove that $(T|_U)^\ast = (T^\ast)|_U$.
+        \item Prove that $T|_U \in \lin{U}$ and $T|_{U^\perp} \in \lin{U^\perp}$ are normal operators.
+    \end{subexercises}
+    \note{This exercise can be used to give yet another proof of the complex spectral theorem.}
+    
+    \hint{Use induction on $\dim V$ and the result that $T$ has an eigenvector.}
+\end{exercise}
+
+\begin{exercise}{7b21}
+    Suppose that $T$ is a self-adjoint operator on a finite-dimensional inner product space and that $2$ and $3$ are the only eigenvalues of $T$.
+    Prove that
+    \[
+        T^2 - 5T + 6I = 0.
+    \]
+\end{exercise}
+
+\begin{exercise}{7b22}
+    Give an example of an operator $T \in \lin{\cbb^3}$ such that $2$ and $3$ are the only eigenvalues of $T$ and $T^2 - 5T + 6I \neq 0$.
+\end{exercise}
+
+\begin{exercise}{7b23}
+    Suppose $T \in \lin{V}$ is self-adjoint, $\lambda \in \fbb$, and $\ep > 0$.
+    Suppose there exists $v \in V$ such that $\norm{v} = 1$ and
+    \[
+        \norm{Tv - \lambda v} < \ep.
+    \]
+    Prove that $T$ has an eigenvalue $\lambda'$ such that $|\lambda - \lambda'| < \ep$.
+
+    \note{This exercise shows that for a self-adjoint operator, a number that is close to satisfying an equation that would make it an eigenvalue is close to an eigenvalue.}
+\end{exercise}
+
+\begin{exercise}{7b24}
+    Suppose $U$ is a finite-dimensional vector space and $T \in \lin{U}$.
+    \begin{subexercises}
+        \item Suppose $\fbb = \rbb$.
+        Prove that $T$ is diagonalizable if and only if there is a basis of $U$ such that the matrix of $T$ with respect to this basis equals its transpose.
+        \item Suppose $\fbb = \cbb$.
+        Prove that $T$ is diagonalizable if and only if there is a basis of $U$ such that the matrix of $T$ with respect to this basis commutes with its conjugate transpose.
+    \end{subexercises}
+    \note{This exercise adds another equivalence to the list of conditions equivalent to diagonalizability in 5.55.}
+\end{exercise}
+
+\begin{exercise}{7b25}
+    Suppose that $T \in \lin{V}$ and there is an orthonormal basis $e_1, \ldots, e_n$ of $V$ consisting of eigenvectors of $T$, with corresponding eigenvalues $\lambda_1, \ldots, \lambda_n$.
+    Show that if $k \in \set{1, \ldots, n}$, then the pseudoinverse $T^\dagger$ satisfies the equation
+    \[
+        T^\dagger e_k = \begin{cases}
+            \frac{1}{\lambda_k} e_k & \text{if } \lambda_k \neq 0, \\
+            0 & \text{if } \lambda_k = 0.
+        \end{cases}
+    \]
+\end{exercise}
