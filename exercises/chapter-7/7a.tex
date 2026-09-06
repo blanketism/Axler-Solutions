@@ -198,6 +198,19 @@
     for all $v \in V$.
 \end{exercise}
 
+\begin{soliff}
+    \leftimp If $T$ is self-adjoint, then $T = T^\ast$, so for all $v \in V$,
+    \[
+        \gen{Tv, v} = \gen{T^\ast v, v}.
+    \]
+    \rightimp Suppose $\gen{Tv, v} = \gen{T^\ast v, v}$ for all $v \in V$.
+    Then for all $v \in V$,
+    \[
+        \gen{(T - T^\ast)v, v} = 0.
+    \]
+    Since $\fbb = \cbb$, we may use 7.13 with $T - T^\ast$ in place of $T$ to conclude that $T - T^\ast = 0$, so $T = T^\ast$, i.e., $T$ is self-adjoint.
+\end{soliff}
+
 \begin{exercise}{7a11}
     Define an operator $S : \fbb^2 \to \fbb^2$ by $S(w, z) = (-z, w)$.
     \begin{subexercises}
@@ -208,14 +221,77 @@
     \note{If $\fbb = \rbb$, then $S$ is the operator on $\rbb^2$ of counterclockwise rotation by $90^\circ$.}
 \end{exercise}
 
+\begin{solenum}
+    \item For any $(w, z), (x, y) \in \fbb^2$,
+    \[
+        \gen{S(w, z), (x, y)} = \gen{(-z, w), (x, y)} = -z\bar x + w\bar y.
+    \]
+    Suppose $S^\ast(x, y) = (u, v)$. Then
+    \[
+        \gen{S(w, z), (x, y)} = \gen{(w, z), S^\ast(x, y)} = \gen{(w, z), (u, v)} = w\bar u + z\bar v.
+    \]
+    Comparing with $-z\bar x + w\bar y$, we get $w\bar u + z\bar v = -z\bar x + w\bar y$ for all $w, z \in \fbb$.
+    Hence, $u = y$ and $v = -x$, so $S^\ast(x, y) = (y, -x)$.
+    \item Observe that
+    \[
+        SS^\ast(w, z) = S(S^\ast(w, z)) = S(z, -w) = (w, z),
+    \]
+    and
+    \[
+        S^\ast S(w, z) = S^\ast(S(w, z)) = S^\ast(-z, w) = (w, z).
+    \]
+    Hence, $SS^\ast = S^\ast S$, so $S$ is normal.
+    However,
+    \[
+        S(1, 0) = (0, 1) \neq (0, -1) = S^\ast(1, 0).
+    \]
+    Hence, $S$ is not self-adjoint.
+    \item If $S(w, z) = \lambda (w, z)$ for some $\lambda \in \fbb$ and $(w, z) \neq (0, 0)$, then $-z = \lambda w$ and $w = \lambda z$.
+    From this, we get $w = -\lambda^2 w$, so $\lambda^2 = -1$.
+    If $\fbb = \rbb$, then $S$ has no real eigenvalues.
+    If $\fbb = \cbb$, then the eigenvalues of $S$ are $\lambda = i$ and $\lambda = -i$.
+\end{solenum}
+
 \begin{exercise}{7a12}
-    An operator $B \in \lin{V}$ is called \textbf{skew} if
+    An operator $B \in \lin{V}$ is called \term{skew} if
     \[
         B^\ast = -B.
     \]
     Suppose that $T \in \lin{V}$.
     Prove that $T$ is normal if and only if there exist commuting operators $A$ and $B$ such that $A$ is self-adjoint, $B$ is a skew operator, and $T = A + B$.
 \end{exercise}
+
+\begin{soliff}
+    \leftimp If $T$ is normal, then $TT^\ast = T^\ast T$.
+    Consider the operators
+    \[
+        A = \frac{T + T^\ast}{2}, \quad B = \frac{T - T^\ast}{2}.
+    \]
+    Then $A$ is self-adjoint, $B$ is skew, and $T = A + B$.
+    Moreover,
+    \begin{align*}
+        AB &= \frac{T + T^\ast}{2} \cdot \frac{T - T^\ast}{2} \\
+        &= \frac{1}{4}(TT - TT^\ast + T^\ast T - T^\ast T^\ast) \\
+        &= \frac{1}{4}(TT + TT^\ast - T^\ast T - T^\ast T^\ast) \\
+        &= \frac{T - T^\ast}{2} \cdot \frac{T + T^\ast}{2} = BA,
+    \end{align*}
+    hence $A$ and $B$ commute.
+
+    \rightimp Suppose there exist commuting operators $A$ and $B$ such that $A$ is self-adjoint, $B$ is skew, and $T = A + B$.
+    Then
+    \[
+        T^\ast = (A + B)^\ast = A^\ast + B^\ast = A - B.
+    \]
+    Hence,
+    \[
+        TT^\ast = (A + B)(A - B) = A^2 - AB + BA - B^2 = A^2 - B^2,
+    \]
+    and
+    \[
+        T^\ast T = (A - B)(A + B) = A^2 + AB - BA - B^2 = A^2 - B^2.
+    \]
+    Therefore, $TT^\ast = T^\ast T$, so $T$ is normal.
+\end{soliff}
 
 \begin{exercise}{7a13}
     Suppose $\fbb = \rbb$.
@@ -225,6 +301,29 @@
         \item Find the minimal polynomial of $\acal$.
     \end{subexercises}
 \end{exercise}
+
+\begin{solenum}
+    \item If $V = \set 0$, then $\lin{V} = \set 0$ and $\acal$ has no eigenvalues.
+    Otherwise, assume $\dim V \geq 1$.
+    If $\acal T = \lambda T$ for some $T \in \lin{V}$ and $\lambda \in \rbb$, then $T^\ast = \lambda T$.
+    Taking the adjoint of both sides gives
+    \[
+        T = \lambda T^\ast = \lambda (\lambda T) = \lambda^2 T.
+    \]
+    Hence, $\lambda^2 = 1$, so $\lambda = 1$ or $\lambda = -1$.
+    If $\dim V = 1$, then $T = \lambda I$ for some $\lambda \in \rbb$.
+    In this case, $T^\ast = T$, so $\acal T = T = 1 \cdot T$, and the only eigenvalue of $\acal$ is $1$.
+    If $\dim V \geq 2$, let $e_1, \ldots, e_n$ be an orthonormal basis of $V$ with $n = \dim V$.
+    Define $T \in \lin{V}$ by $T e_1 = e_2$, $T e_2 = -e_1$, and $T e_j = 0$ for $j \geq 3$.
+    Then $T^\ast e_1 = -e_2$, $T^\ast e_2 = e_1$, and $T^\ast e_j = 0$ for $j \geq 3$, so $T^\ast = -T$.
+    Hence, $-1$ is also an eigenvalue of $\acal$.
+    Therefore, the eigenvalues of $\acal$ are $1$ and $-1$.
+
+    \item Observe that $\acal(\acal T) = \acal T^\ast = (T^\ast)^\ast = T$ for all $T \in \lin{V}$.
+    Hence, $\acal^2 - I = 0$, so the minimal polynomial of $\acal$ must divide $z^2 - 1$.
+    If $\dim V = 1$, then $\acal$ has only one eigenvalue, $1$, so the minimal polynomial of $\acal$ is $z - 1$.
+    Otherwise, both eigenvalues $1$ and $-1$ occur when $\dim V \geq 2$, so the minimal polynomial of $\acal$ is $z^2 - 1$.
+\end{solenum}
 
 \begin{exercise}{7a14}
     Define an inner product on $\pcal_2(\rbb)$ by $\gen{p, q} = \int_0^1 pq$.
@@ -247,6 +346,24 @@
     \end{subexercises}
 \end{exercise}
 
+\begin{solenum}
+    \item Consider $p = 1$ and $q = x$. Then
+    \[
+        \gen{Tp, q} = \gen{0, x} = 0,
+    \]
+    but
+    \[
+        \gen{p, Tq} = \gen{1, x} = \int_0^1 x \dd x = \frac{1}{2} \neq 0.
+    \]
+    Hence, $T$ is not self-adjoint.
+    \item Observe that
+    \[
+        \norm{x}^2 = \gen{x, x} = \int_0^1 x^2 \dd x = \frac{1}{3}.
+    \]
+    By 7.9, given an orthonormal basis, $T$ is self-adjoint if and only if the matrix of $T$ with respect to that basis equals its conjugate transpose.
+    However, the basis $1, x, x^2$ is not orthonormal with respect to the given inner product, so the fact that the matrix of $T$ with respect to this basis equals its conjugate transpose does not imply that $T$ is self-adjoint.
+\end{solenum}
+
 \begin{exercise}{7a15}
     Suppose $T \in \lin{V}$ is invertible.
     Prove that
@@ -256,6 +373,36 @@
     \end{subexercises}
 \end{exercise}
 
+\begin{sol}
+    We first prove that $(T\inv)^\ast = (T^\ast)\inv$.
+    For any $u, v \in V$, then
+    \[
+        \gen{u, v} = \gen{T\inv Tu, v} = \gen{Tu, (T\inv)^\ast v},
+    \]
+    and
+    \[
+        \gen{u, v} = \gen{u, T^\ast (T^\ast)\inv v} = \gen{Tu, (T^\ast)\inv v}.
+    \]
+    Since $\range T = V$, equality in the second components implies that $(T\inv)^\ast = (T^\ast)\inv$.
+    \begin{subexercises}
+        \item
+        \begin{align*}
+            T\inv \text{ is self-adjoint} &\iff (T\inv)^\ast = T\inv \\
+            &\iff (T^\ast)\inv = T\inv \\
+            &\iff T^\ast = T \\
+            &\iff T \text{ is self-adjoint}.
+        \end{align*}
+        \item
+        \begin{align*}
+            T\inv \text{ is normal} &\iff (T\inv)^\ast T\inv = T\inv (T\inv)^\ast \\
+            &\iff (T^\ast)\inv T\inv = T\inv (T^\ast)\inv \\
+            &\iff (T^\ast T)\inv = (TT^\ast)\inv \\
+            &\iff T^\ast T = TT^\ast \\
+            &\iff T \text{ is normal}. \qedhere
+        \end{align*}
+    \end{subexercises}
+\end{sol}
+
 \begin{exercise}{7a16}
     Suppose $\fbb = \rbb$.
     \begin{subexercises}
@@ -264,22 +411,136 @@
     \end{subexercises}
 \end{exercise}
 
+\begin{solenum}
+    \item Let $\scal$ be the set of self-adjoint operators on $V$.
+    Since $0^\ast = 0$, we have $0 \in \scal$.
+    For $S, T \in \scal$ and $\lambda \in \rbb$, we have
+    \[
+        (S + T)^\ast = S^\ast + T^\ast = S + T \in \scal,
+    \]
+    and
+    \[
+        (\lambda T)^\ast = \bar{\lambda} T^\ast = \lambda T \in \scal.
+    \]
+    Therefore, $\scal$ is closed under addition and scalar multiplication, and contains the zero operator, so it is a subspace of $\lin{V}$.
+    \item Let $n = \dim V$, and let $e_1, \dots, e_n$ be an orthonormal basis of $V$.
+    By 7.9, it follows that $T$ is self-adjoint if and only if $\mcal(T)$ is a symmetric matrix, i.e., $\mcal(T) = \mcal(T)^t$.
+    Since a symmetric $n \times n$ matrix is determined by the entries on and above the main diagonal, the dimension of the subspace of symmetric matrices is
+    \[
+        \frac{n(n+1)}{2}. \qedhere
+    \]
+\end{solenum}
+
 \begin{exercise}{7a17}
     Suppose $\fbb = \cbb$.
     Show that the set of self-adjoint operators on $V$ is not a subspace of $\lin{V}$.
 \end{exercise}
+
+\begin{sol}
+    Note the result is not true when $V = \set 0$, since the only operator on $V$ is the zero operator, which is self-adjoint.
+    Let $\scal$ be the set of self-adjoint operators on $V$.
+    If $\scal$ were a subspace of $\lin{V}$, consider $iI$, where $I \in \scal$ is the identity operator on $V$.
+    Then
+    \[
+        (iI)^\ast = \bar\imath I = -iI \neq iI.
+    \]
+    Therefore, $iI$ is not self-adjoint, which shows that the set of self-adjoint operators on $V$ is not a subspace of $\lin{V}$ when $V \neq \set 0$.
+\end{sol}
 
 \begin{exercise}{7a18}
     Suppose $\dim V \geq 2$.
     Show that the set of normal operators on $V$ is not a subspace of $\lin{V}$.
 \end{exercise}
 
+\begin{sol}
+    Fix an orthonormal pair $e_1, e_2 \in V$.
+    Extend this to an orthonormal basis $e_1, \ldots, e_n$ of $V$.
+    Consider the operators $S$ and $T$ defined by
+    \[
+        Se_1 = e_2, Se_2 = e_1, Se_i = 0 \text{ for } i > 2, \quad Te_1 = -e_2, Te_2 = e_1, Te_i = 0 \text{ for } i > 2.
+    \]
+    Then
+    \[
+        \mcal(S) = 
+        \begin{pmatrix}
+            0 & 1 & \cdots & 0 \\
+            1 & 0 & \cdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & \cdots & 0
+        \end{pmatrix}.
+    \]
+    From this, we see that $\mcal(S) = \mcal(S)^t$, so $S$ is normal.
+    Moreover,
+    \[
+        \mcal(T) = 
+        \begin{pmatrix}
+            0 & 1 & \cdots & 0 \\
+            -1 & 0 & \cdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & \cdots & 0
+        \end{pmatrix}.
+    \]
+    Direct computation yields $\mcal(T)\mcal(T)^\ast = \mcal(T)^\ast\mcal(T)$, so $T$ is normal.
+    However, $S + T$ is not normal, as can be seen by computing
+    \[
+        \mcal(S + T) = 
+        \begin{pmatrix}
+            0 & 2 & \cdots & 0 \\
+            0 & 0 & \cdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & \cdots & 0
+        \end{pmatrix}, \quad
+        \mcal(S + T)^\ast = 
+        \begin{pmatrix}
+            0 & 0 & \cdots & 0 \\
+            2 & 0 & \cdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & \cdots & 0
+        \end{pmatrix}.
+    \]
+    Direct computation shows that $\mcal(S + T)\mcal(S + T)^\ast \neq \mcal(S + T)^\ast\mcal(S + T)$, so $S + T$ is not normal.
+\end{sol}
+
 \begin{exercise}{7a19}
     Suppose $T \in \lin{V}$ and $\norm{T^\ast v} \leq \norm{Tv}$ for every $v \in V$.
     Prove that $T$ is normal.
 
-    \note{This exercise fails on infinite-dimensional inner product spaces, leading to what are called \emph{hyponormal operators}, which have a well-developed theory.}
+    \note{This exercise fails on infinite-dimensional inner product spaces, leading to what are called \term{hyponormal operators}, which have a well-developed theory.}
 \end{exercise}
+
+\begin{sol}
+    If $\dim V = 0$, then $T$ is trivially normal. So assume $\dim V > 0$.
+    Note that for all $v \in V$, we have
+    \[
+        \norm{T^\ast v}^2 = \gen{T^\ast v, T^\ast v} = \gen{TT^\ast v, v}, \quad \norm{Tv}^2 = \gen{Tv, Tv} = \gen{T^\ast Tv, v}.
+    \]
+    From the hypothesis, we have $\norm{T^\ast v}^2 \leq \norm{Tv}^2$ for all $v \in V$, which gives
+    \[
+        \gen{(T^\ast T - TT^\ast)v, v} \leq 0 \quad \text{for all } v \in V.
+    \]
+    Let $S = TT^\ast - T^\ast T$.
+    Then $S^\ast = (TT^\ast - T^\ast T)^\ast = TT^\ast - T^\ast T = S$, so $S$ is self-adjoint.
+    Moreover, $\gen{Sv, v} \geq 0$ for all $v \in V$.
+    Let $e_1, \ldots, e_n$ be an orthonormal basis of $V$.
+    From \exref{7a5}, then
+    \[
+        \sum_{i=1}^n \norm{Te_i}^2 = \sum_{i=1}^n \gen{T^\ast Te_i, e_i} = \sum_{i=1}^n \gen{TT^\ast e_i, e_i} = \sum_{i=1}^n \norm{T^\ast e_i}^2.
+    \]
+    Then
+    \[
+        \sum_{i=1}^n \gen{Se_i, e_i} = \sum_{i=1}^n \gen{(TT^\ast - T^\ast T)e_i, e_i} = \sum_{i=1}^n \gen{TT^\ast e_i, e_i} - \sum_{i=1}^n \gen{T^\ast Te_i, e_i} = 0.
+    \]
+    Since each $\gen{Se_i, e_i} \geq 0$ and their sum is $0$, it follows that $\gen{Se_i, e_i} = 0$ for all $i$.
+    For arbitrary $u \in V$ with $\norm u = 1$, we may extend it to an orthonormal basis $u, f_2, \ldots, f_n$ of $V$.
+    Then
+    \[
+        \gen{Su, u} + \sum_{i=2}^n \gen{Sf_i, f_i} = \sum_{i=1}^n \gen{Se_i, e_i} = 0.
+    \]
+    Since each term is nonnegative, it follows that $\gen{Su, u} = 0$ for all unit vectors $u \in V$.
+    By homogeneity, $\gen{Sv, v} = 0$ for all $v \in V$.
+    From 7.16, if $S$ is self-adjoint and $\gen{Sv, v} = 0$ for all $v \in V$, then $S = 0$. 
+    Hence, $TT^\ast - T^\ast T = 0$, so $TT^\ast = T^\ast T$, and therefore $T$ is normal.
+\end{sol}
 
 \begin{exercise}{7a20}
     Suppose $P \in \lin{V}$ is such that $P^2 = P$.
@@ -291,14 +552,95 @@
     \end{subexercises}
 \end{exercise}
 
+\begin{sol}
+    \leavevmode
+
+    \noindent (a) $\implies$ (b):
+    If $P$ is self-adjoint, then $P = P^\ast$.
+    Hence,
+    \[
+        PP^\ast = PP = P^2 = P = P^\ast P = P^\ast P,
+    \]
+    so $P$ is normal.
+
+    \noindent (b) $\implies$ (c):
+    Suppose $P$ is normal.
+    By \exref{5a8}, $P$ is diagonalizable with eigenvalues $0$ and $1$.
+    Let $U = E(1, P)$, the eigenspace corresponding to the eigenvalue $1$.
+    To see that $U = \range P$, note that if $u \in U$, then $Pu = u$, so $u \in \range P$.
+    Conversely, if $v \in \range P$, then $v = Pw$ for some $w \in V$.
+    Then $Pv = P(Pw) = P^2 w = Pw = v$, so $v \in U$.
+    Hence, $U = \range P$.
+    By \exref{6c9}, $\nul P$ and $U$ are orthogonal.
+    Then $\nul P \subseteq U^\perp$, and by definition of orthogonal complement, $\dim U^\perp = \dim V - \dim U$.
+    Since $\dim \nul P = \dim V - \dim \range P = \dim V - \dim U = \dim U^\perp$, it follows that $\nul P = U^\perp$.
+    Then for $v \in V$, we may write $v = u + w$ with $u \in U$ and $w \in U^\perp$.
+    Hence,
+    \[
+        Pv = P(u + w) = Pu + Pw = u + 0 = u \in U.
+    \]
+    Therefore, $P = P_U$.
+
+    \noindent (c) $\implies$ (a):
+    Write $V = U \oplus U^\perp$.
+    Then for $v = u_1 + w_1$ and $w = u_2 + w_2$ with $u_1, u_2 \in U$ and $w_1, w_2 \in U^\perp$, we have
+    \[
+        \gen{P_U v, w} = \gen{u_1, u_2 + w_2} = \gen{u_1, u_2} = \gen{u_1 + w_1, u_2} = \gen{v, P_U w}.
+    \]
+    Hence, $P_U$ is self-adjoint.
+\end{sol}
+
 \begin{exercise}{7a21}
     Suppose $D : \pcal_8(\rbb) \to \pcal_8(\rbb)$ is the differentiation operator defined by $Dp = p'$.
     Prove that there does not exist an inner product on $\pcal_8(\rbb)$ that makes $D$ a normal operator.
 \end{exercise}
 
+\begin{sol}
+    If there did exist an inner product on $\pcal_8(\rbb)$ that makes $D$ a normal operator, then $\norm{Dp} = \norm{D^\ast p}$ for all $p \in \pcal_8(\rbb)$, by 7.20.
+    Consider $p = x$ so that $Dp = 1 \neq 0$, but $D^2 p = 0$.
+    Then applying 7.20 to $Dp$, we get
+    \[
+        \norm{D^\ast (Dp)} = \norm{D(Dp)} = \norm{D^2 p} = \norm{0} = 0
+    \]
+    so that $D^\ast (Dp) = 0$.
+    Then
+    \[
+        \gen{D^\ast (Dp), p} = \gen{Dp, Dp} = \norm{Dp}^2.
+    \]
+    Since $D^\ast (Dp) = 0$, the left-hand side of the above equation is $0$, while the right-hand side is $\norm{Dp}^2 \neq 0$.
+    This is a contradiction, so no such inner product can exist.
+\end{sol}
+
 \begin{exercise}{7a22}
     Give an example of an operator $T \in \lin{\rbb^3}$ such that $T$ is normal but not self-adjoint.
 \end{exercise}
+
+\begin{sol}
+    Let $T$ have the matrix
+    \[
+        \begin{pmatrix}
+            0 & -1 & 0 \\
+            1 & 0 & 0 \\
+            0 & 0 & 1
+        \end{pmatrix}
+    \]
+    with respect to the standard basis of $\rbb^3$, which is orthonormal.
+    Then $T$ is normal because
+    \[
+        T^\ast = 
+        \begin{pmatrix}
+            0 & 1 & 0 \\
+            -1 & 0 & 0 \\
+            0 & 0 & 1
+        \end{pmatrix}
+        = \mcal(T)^\ast.
+    \]
+    By direct computation, we have
+    \[
+        TT^\ast = I, \quad T^\ast T = I.
+    \]
+    Hence, $T$ is normal but not self-adjoint, since $T \neq T^\ast$.
+\end{sol}
 
 \begin{exercise}{7a23}
     Suppose $T$ is a normal operator on $V$.
@@ -308,6 +650,22 @@
     \]
     Show that $\norm{T(v + w)} = 10$.
 \end{exercise}
+
+\begin{sol}
+    Since $v, w$ are eigenvectors of the normal operator $T$ corresponding to distinct eigenvalues $3$ and $4$, they must be orthogonal.
+    Therefore, $\gen{v, w} = 0$.
+    Then
+    \begin{align*}
+        \norm{T(v + w)}^2 &= \gen{Tv + Tw, Tv + Tw} \\
+        &= \gen{3v + 4w, 3v + 4w} \\
+        &= \gen{3v, 3v} + \gen{3v, 4w} + \gen{4w, 3v} + \gen{4w, 4w} \\
+        &= 9\gen{v, v} + 12\gen{v, w} + 12\gen{w, v} + 16\gen{w, w} \\
+        &= 9\norm{v}^2 + 16\norm{w}^2 \\
+        &= 9 \cdot 4 + 16 \cdot 4 \\
+        &= 100.
+    \end{align*}
+    Therefore, $\norm{T(v + w)} = 10$.
+\end{sol}
 
 \begin{exercise}{7a24}
     Suppose $T \in \lin{V}$ and
@@ -322,10 +680,37 @@
     \note{This exercise shows that the minimal polynomial of $T^\ast$ equals the minimal polynomial of $T$ if $\fbb = \rbb$.}
 \end{exercise}
 
+\begin{sol}
+    Define $p(z)$ to be the minimal polynomial of $T$.
+    Let $q(z) = \sum_{i=0}^m \bar{a_i} z^i$.
+    Then
+    \[
+        q(T^\ast) = \sum_{i=0}^m \bar{a_i} (T^\ast)^i = \sum_{i=0}^m \bar{a_i} (T^i)^\ast = \left( \sum_{i=0}^m a_i T^i \right)^\ast = p(T)^\ast = 0.
+    \]
+    Hence, $q(z)$ is a polynomial that annihilates $T^\ast$.
+    Using a similar argument with $r(z)$ being the minimal polynomial of $T^\ast$, we can show that $\bar r(T) = 0$.
+    Since $q(z)$ annihilates $T^\ast$ and $r(z)$ is the minimal polynomial of $T^\ast$, it follows that $r(z)$ divides $q(z)$.
+    Similarly, since $\bar r(T) = 0$, $p(z)$ divides $\bar r(z)$.
+    Then $\deg r \leq \deg q$ from the fact that $r(z)$ divides $q(z)$, and $\deg q \leq \deg r$ from the fact that $p(z)$ divides $\bar r(z)$ and $\deg p = \deg q$.
+    Hence, $\deg r = \deg q$, and since $r(z)$ is monic and divides $q(z)$, we must have $r(z) = q(z)$.
+    Therefore, the minimal polynomial of $T^\ast$ is $q(z)$.
+\end{sol}
+
 \begin{exercise}{7a25}
     Suppose $T \in \lin{V}$.
     Prove that $T$ is diagonalizable if and only if $T^\ast$ is diagonalizable.
 \end{exercise}
+
+\begin{soliff}
+    \rightimp Suppose $T$ is diagonalizable.
+    Then the minimal polynomial of $T$ splits into distinct linear factors by 5.62.
+    By \exref{7a24}, the minimal polynomial of $T^\ast$ also splits into distinct linear factors whose roots are the complex conjugates of the roots of the minimal polynomial of $T$.
+    Hence, $T^\ast$ is diagonalizable.
+
+    \leftimp Conversely, suppose $T^\ast$ is diagonalizable.
+    Apply the same argument as above, using the fact that $(T^\ast)^\ast = T$.
+    Therefore, $T$ is diagonalizable.
+\end{soliff}
 
 \begin{exercise}{7a26}
     Fix $u, x \in V$.
@@ -336,6 +721,60 @@
     \end{subexercises}
 \end{exercise}
 
+\begin{sol}
+    Note that
+    \[
+        \gen{Tv, w} = \gen{\gen{v, u}x, w} = \gen{v, u}\gen{x, w} = \gen{v, \bar{\gen{x, w}}u} = \gen{v, T^\ast w}.
+    \]
+    Since $\gen{v, u_1} = \gen{v, u_2}$ for all $v \in V$ implies $u_1 = u_2$, we conclude that $T^\ast w = \bar{\gen{x, w}}u = \gen{w, x}u$.
+    \begin{subexercises}
+        \item
+        \rightimp If $T$ is self-adjoint, then $T = T^\ast$, which means $\gen{v, u}x = \gen{v, x}u$ for all $v \in V$.
+        If $u = 0$ or $x = 0$, then the list $u, x$ is linearly dependent.
+        If both are nonzero, then letting $v = u$ gives $\norm{u}^2 x = \gen{u, x}u$, hence
+        \[
+            x = \frac{\gen{u, x}}{\norm{u}^2} u.
+        \]
+        Hence, $x$ and $u$ are linearly dependent.
+
+        \leftimp Conversely, suppose one of $u$ or $x$ is zero. Then $T = 0 = T^\ast$, so $T$ is self-adjoint.
+        If both are nonzero and linearly dependent, let $x = \lambda u$ for some $\lambda \in \rbb$. Then for all $v \in V$,
+        \[
+            Tv = \gen{v, u}x = \gen{v, u} \lambda u = \lambda \gen{v, u} u = T^\ast v,
+        \]
+        hence $T$ is self-adjoint.
+        \item
+        \rightimp Suppose $T$ is normal. Then for any $y \in V$,
+        \[
+            TT^\ast y = T(\gen{y, x}u) = \gen{y, x}Tu = \gen{y, x}\gen{u, u}x = \norm{u}^2 \gen{y, x}x,
+        \]
+        and
+        \[
+            T^\ast T y = T^\ast(\gen{y, u}x) = \gen{y, u}T^\ast x = \gen{y, u}\gen{x, x}u = \norm{x}^2 \gen{y, u}u.
+        \]
+        If $u = 0$ or $x = 0$, then the list $u, x$ is linearly dependent.
+        Otherwise, for nonzero $u$ and $x$, we must have $\norm{u}^2 \gen{y, x}x = \norm{x}^2 \gen{y, u}u$ for all $y \in V$.
+        Let $y = u$. Then $\norm{u}^2 \gen{u, x}x = \norm{x}^2 \norm{u}^2 u$, hence $\gen{u, x}x = \norm{x}^2 u$.
+        If $x \neq 0$, then
+        \[
+            u = \frac{\gen{u, x}}{\norm{x}^2} x,
+        \]
+        so $u$ and $x$ are linearly dependent.
+
+        \leftimp If one of $u$ or $x$ is zero, then $T = 0 = T^\ast$, so $T$ is normal.
+        If both are nonzero and linearly dependent, let $u = \mu x$ for some $\mu \in \fbb$.
+        Then for all $y \in V$,
+        \[
+            TT^\ast y = \norm{u}^2 \gen{y, x}x = \norm{\mu x}^2 \gen{y, x}x = \abs{\mu}^2 \norm{x}^2 \gen{y, x}x,
+        \]
+        and
+        \[
+            T^\ast T y = \norm{x}^2 \gen{y, u}u = \norm{x}^2 \gen{y, \mu x} \mu x = \abs{\mu}^2 \norm{x}^2 \gen{y, x}x.
+        \]
+        Hence, $TT^\ast y = T^\ast T y$ for all $y \in V$, so $T$ is normal. \qedhere
+    \end{subexercises}
+\end{sol}
+
 \begin{exercise}{7a27}
     Suppose $T \in \lin{V}$ is normal.
     Prove that
@@ -345,20 +784,115 @@
     for every positive integer $k$.
 \end{exercise}
 
+\begin{sol}
+    Let $v \in \nul T$.
+    Then $T^k v = 0$, so $v \in \nul T^k$.
+    Hence, $\nul T \subseteq \nul T^k$.
+    Conversely, let $v \in \nul T^k$.
+    Since $T$ is normal, $\norm{Tv} = \norm{T^\ast v}$ by 7.20.
+    Hence, $\nul T = \nul T^\ast$.
+    If $T^2 v = 0$, then $T(Tv) = 0$, so $Tv \in \nul T = \nul T^\ast$.
+    Therefore, $T^\ast Tv = 0$ so that $\norm{Tv}^2 = \gen{Tv, Tv} = \gen{T^\ast Tv, v} = 0$.
+    Hence, $Tv = 0$, which shows that $v \in \nul T$.
+    By induction on $k$, assume that $\nul T^{k-1} = \nul T$.
+    If $v \in \nul T^k$, then $T v \in \nul T^{k-1} = \nul T$, so $T(Tv) = T^2 v = 0$.
+    By the base case earlier, $v \in \nul T^2 = \nul T$.
+    Hence, by induction, $\nul T^k = \nul T$ for all positive integers $k$.
+
+    For the other equality, note that $v \in \range T^k$ implies that there exists $u \in V$ such that $v = T^k u$.
+    Then $T(T^{k-1} u) = T^k u = v$, so $v \in \range T$.
+    Hence, $\range T^k \subseteq \range T$.
+    Conversely, note that
+    \[
+        \dim \range T^k = \dim V - \dim \nul T^k = \dim V - \dim \nul T = \dim \range T
+    \]
+    by the previous equality $\nul T^k = \nul T$.
+    Since $\range T^k \subseteq \range T$ and they have the same dimension, we conclude that $\range T^k = \range T$.
+\end{sol}
+
 \begin{exercise}{7a28}
     Suppose $T \in \lin{V}$ is normal.
     Prove that if $\lambda \in \fbb$, then the minimal polynomial of $T$ is not a polynomial multiple of $(x - \lambda)^2$.
 \end{exercise}
 
+\begin{sol}
+    If the minimal polynomial $p(x)$ of $T$ is a polynomial multiple of $(x - \lambda)^2$, then $p(x) = (x - \lambda)^2 q(x)$ for some polynomial $q(x)$.
+    Then $(T - \lambda I)^2 q(T) = 0$, but $(T - \lambda I) q(T) \neq 0$ since $p(x)$ is the minimal polynomial.
+    Pick $v$ such that $(T - \lambda I) q(T) v \neq 0$.
+    Then $(T - \lambda I)^2 q(T) v = 0$, so $q(T) v \in \nul (T - \lambda I)^2$.
+    By normality of $T$, we know that $(T - \lambda I)^\ast = T^\ast - \bar\lambda I$ which commutes with $T - \lambda I$.
+    Hence, by \exref{7a27}, $\nul (T - \lambda I)^2 = \nul (T - \lambda I)$.
+    Therefore, $q(T) v \in \nul (T - \lambda I)$, which implies that $(T - \lambda I) q(T) v = 0$.
+    This contradicts our choice of $v$.
+    Hence, the minimal polynomial of $T$ cannot be a polynomial multiple of $(x - \lambda)^2$.
+\end{sol}
+
 \begin{exercise}{7a29}
     Prove or give a counterexample: If $T \in \lin{V}$ and there is an orthonormal basis $e_1, \ldots, e_n$ of $V$ such that $\norm{Te_k} = \norm{T^\ast e_k}$ for each $k = 1, \ldots, n$, then $T$ is normal.
 \end{exercise}
+
+\begin{sol}
+    Let $V = \fbb^2$, and consider the standard orthonormal basis $e_1, e_2$.
+    Define $T \in \lin{V}$ by $T(e_1) = e_1 - e_2$ and $T(e_2) = e_1$.
+    Then
+    \[
+        \mcal(T) = 
+        \begin{pmatrix}
+            1 & 1 \\
+            -1 & 0 \\
+        \end{pmatrix}, \quad
+        \mcal(T^\ast) = 
+        \begin{pmatrix}
+            1 & -1 \\
+            1 & 0 \\
+        \end{pmatrix}
+    \]
+    so that $T^\ast e_1 = e_1 + e_2$ and $T^\ast e_2 = -e_1$.
+    Moreover,
+    \[
+        \norm{Te_1}^2 = \norm{e_1 - e_2}^2 = 2, \quad \norm{T^\ast e_1}^2 = \norm{e_1 + e_2}^2 = 2,
+    \]
+    and
+    \[
+        \norm{Te_2}^2 = \norm{e_1}^2 = 1, \quad \norm{T^\ast e_2}^2 = \norm{-e_1}^2 = 1.
+    \]
+    Hence, $\norm{Te_k} = \norm{T^\ast e_k}$ for each $k = 1, 2$.
+    However, $T$ is not normal because
+    \[
+        \mcal(TT^\ast) =
+        \begin{pmatrix}
+            2 & -1 \\
+            -1 & 1 \\
+        \end{pmatrix}, \quad
+        \mcal(T^\ast T) =
+        \begin{pmatrix}
+            2 & 1 \\
+            1 & 1
+        \end{pmatrix}.
+    \]
+    Therefore, $TT^\ast \neq T^\ast T$.
+\end{sol}
 
 \begin{exercise}{7a30}
     Suppose that $T \in \lin{\fbb^3}$ is normal and $T(1, 1, 1) = (2, 2, 2)$.
     Suppose $(z_1, z_2, z_3) \in \nul T$.
     Prove that $z_1 + z_2 + z_3 = 0$.
 \end{exercise}
+
+\begin{sol}
+    Since $T$ is normal, we have $\nul T = \nul T^\ast$ by 7.20.
+    Let $z = (z_1, z_2, z_3) \in \nul T = \nul T^\ast$.
+    By $T(1, 1, 1) = 2(1, 1, 1)$ and the definition of the adjoint, we have
+    \[
+        2\gen{(1, 1, 1), z} = \gen{T(1, 1, 1), z} = \gen{(1, 1, 1), T^\ast z} = \gen{(1, 1, 1), 0} = 0.
+    \]
+    Then $\gen{(1, 1, 1), z} = 0$.
+    Direct calculation shows that
+    \[
+        \gen{(1, 1, 1), z} = \bar{z_1} + \bar{z_2} + \bar{z_3} = \bar{z_1 + z_2 + z_3}.
+    \]
+    Since $\gen{(1, 1, 1), z} = 0$, we have $\bar{z_1 + z_2 + z_3} = 0$, which implies $z_1 + z_2 + z_3 = 0$.
+\end{sol}
 
 \begin{exercise}{7a31}
     Fix a positive integer $n$.
@@ -375,6 +909,25 @@
     \end{subexercises}
 \end{exercise}
 
+\begin{solenum}
+    \item By a similar set of arguments as in \exref{6b4}, the list above is orthogonal with respect to the given inner product.
+    Note that any $f, g \in V$ is a linear combination of $1, \cos kx, \sin kx$ for $k = 1, 2, \ldots, n$, all of which are periodic with period $2\pi$.
+    Then $f(\pi) = f(-\pi)$ and $g(\pi) = g(-\pi)$.
+    Integration by parts gives
+    \[
+        \gen{Df, g} = \int_{-\pi}^{\pi} f'g = fg\,\big|_{-\pi}^{\pi} - \int_{-\pi}^{\pi} f g' = -\int_{-\pi}^{\pi} f g' = \gen{f, -Dg}.
+    \]
+    Then $D^\ast = -D$, which shows that
+    \[
+        DD^\ast = D(-D) = -D^2 \quad\text{and}\quad D^\ast D = (-D)D = -D^2.
+    \]
+    Hence, $DD^\ast = D^\ast D$, which shows that $D$ is normal.
+    However, $D$ is not self-adjoint, since $D\cos x = -\sin x \neq \sin x = D^\ast \cos x$.
+    \item Note that $T = D^2$.
+    By the previous part, $D^\ast = -D$, so $T^\ast = (D^2)^\ast = (D^\ast)^2 = (-D)^2 = D^2 = T$.
+    Hence, $T$ is self-adjoint.
+\end{solenum}
+
 \begin{exercise}{7a32}
     Suppose $T : V \to W$ is a linear map.
     Show that under the standard identification of $V$ with $V'$ (see 6.58) and the corresponding identification of $W$ with $W'$, the adjoint map $T^\ast : W \to V$ corresponds to the dual map $T' : W' \to V'$.
@@ -384,3 +937,11 @@
     \]
     for all $w \in W$, where $\phi_w$ and $\phi_{T^\ast w}$ are defined as in 6.58.
 \end{exercise}
+
+\begin{sol}
+    For all $v \in V$ and $w \in W$, we have
+    \[
+        (T'(\phi_w))v = \phi_w(Tv) = \gen{Tv, w} = \gen{v, T^\ast w} = \phi_{T^\ast w}v.
+    \]
+    Hence, $T'(\phi_w) = \phi_{T^\ast w}$ for all $w \in W$.
+\end{sol}
