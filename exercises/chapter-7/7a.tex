@@ -374,16 +374,10 @@
 \end{exercise}
 
 \begin{sol}
-    We first prove that $(T\inv)^\ast = (T^\ast)\inv$.
-    For any $u, v \in V$, then
+    We first note that
     \[
-        \gen{u, v} = \gen{T\inv Tu, v} = \gen{Tu, (T\inv)^\ast v},
+        TT\inv = I \implies (T\inv)^\ast T^\ast = I^\ast = I \implies (T\inv)^\ast = (T^\ast)\inv.
     \]
-    and
-    \[
-        \gen{u, v} = \gen{u, T^\ast (T^\ast)\inv v} = \gen{Tu, (T^\ast)\inv v}.
-    \]
-    Since $\range T = V$, equality in the second components implies that $(T\inv)^\ast = (T^\ast)\inv$.
     \begin{subexercises}
         \item
         \begin{align*}
@@ -564,17 +558,12 @@
     so $P$ is normal.
 
     \noindent (b) $\implies$ (c):
-    Suppose $P$ is normal.
-    By \exref{5a8}, $P$ is diagonalizable with eigenvalues $0$ and $1$.
-    Let $U = E(1, P)$, the eigenspace corresponding to the eigenvalue $1$.
-    To see that $U = \range P$, note that if $u \in U$, then $Pu = u$, so $u \in \range P$.
-    Conversely, if $v \in \range P$, then $v = Pw$ for some $w \in V$.
-    Then $Pv = P(Pw) = P^2 w = Pw = v$, so $v \in U$.
-    Hence, $U = \range P$.
-    By \exref{6c9}, $\nul P$ and $U$ are orthogonal.
-    Then $\nul P \subseteq U^\perp$, and by definition of orthogonal complement, $\dim U^\perp = \dim V - \dim U$.
-    Since $\dim \nul P = \dim V - \dim \range P = \dim V - \dim U = \dim U^\perp$, it follows that $\nul P = U^\perp$.
-    Then for $v \in V$, we may write $v = u + w$ with $u \in U$ and $w \in U^\perp$.
+    Since $P$ is normal,
+    \[
+        (\range P)^\perp = \nul P^\ast = \nul P.
+    \]
+    Since $P^2 = P$, $V = \nul P \oplus \range P$ is an orthogonal direct sum.
+    Letting $U = \range P$, then any $v \in V$ can be written uniquely as $v = u + w$ with $u \in U$ and $w \in \nul P$.
     Hence,
     \[
         Pv = P(u + w) = Pu + Pw = u + 0 = u \in U.
