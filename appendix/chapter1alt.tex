@@ -10,7 +10,7 @@
     Prove that the union of three subspaces of $V$ is a subspace of $V$ if and only if one of the subspaces contains the other two.
 \end{apex}
 
-\begin{proof}[Coolempire93]
+\begin{coole}
     Conversely, suppose that $U_1 \cup U_2 \cup U_3$ is a subspace of $V$ but none of the subspaces contains the other two.
 	Let $W_1 = U_2 \cup U_3$ and $W_2 = U_1 \cup U_3$.
 	By the assumption, we cannot have $W_1 \subseteq U_1$ or $W_2 \subseteq U_2$, so there exist $x \in U_1 \setminus W_1$ and $y \in U_2 \setminus W_2$.
@@ -21,8 +21,8 @@
 
     As such, $x + y \in U_3$ and $x - y \in U_3$; that is, $(x + y) + (x - y) = 2x \in U_3$ and $(x + y) - (x - y) = 2y \in U_3$, contradicting the original definitions of $x$ and $y$$^\dagger$.
 	Therefore, one of the subspaces must contain the other two.
+\end{coole}
 
-    $^\dagger$ \textit{Final remark}.
-	This is why the field must have more than two elements.
-	Since part of the field axioms is that $0 \neq 1$, if the field only has two elements, it must be that $1 = -1$ (consider addition mod 2 as the addition operation), so $2x \in U_3$ would not mean that $x \in U_3$, as $2x = 0x = 0$.
-\end{proof}
+$^\dagger$ \textit{Final remark}.
+This is why the field must have more than two elements.
+Since part of the field axioms is that $0 \neq 1$, if the field only has two elements, it must be that $1 = -1$ (consider addition mod 2 as the addition operation), so $2x \in U_3$ would not mean that $x \in U_3$, as $2x = 0x = 0$.

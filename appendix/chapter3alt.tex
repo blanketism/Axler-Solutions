@@ -186,28 +186,28 @@ for $1 \leq i \leq n$ and $b_0 = a_0 - \sum_{j=1}^n3^jb_j$.
     \end{subexercises}
 \end{apex}
 
-\begin{proof}
+\begin{csp}
     \leavevmode
     \begin{subexercises}
         \item Since $(0,0,\dots) \in U$, $U$ is nonempty.
-	Suppose $x$, $y \in U$ and $c \in \mathbb{F}$.
-	Let $S_x$ and $S_y$ be the sets of indices where $x$ and $y$ have nonzero terms, respectively.
-	By definition, $S_x$ and $S_y$ are finite. $cx+y$ can only have nonzero terms at indices in $S_x \cup S_y$.
-	Since the union of two finite sets is finite, $cx+y \in U$, which makes $U$ a subspace of $\mathbb{F}^{\infty}$. 
+        Suppose $x$, $y \in U$ and $c \in \mathbb{F}$.
+        Let $S_x$ and $S_y$ be the sets of indices where $x$ and $y$ have nonzero terms, respectively.
+        By definition, $S_x$ and $S_y$ are finite. $cx+y$ can only have nonzero terms at indices in $S_x \cup S_y$.
+        Since the union of two finite sets is finite, $cx+y \in U$, which makes $U$ a subspace of $\mathbb{F}^{\infty}$. 
 
         \item Partition $\mathbb{Z}^{+}$ into a countably infinite family of disjoint infinite subsets $A_1$, $A_2$, $\dots$.
-	For each $n$, define $v_n \in \mathbb{F}^{\infty}$ such that its $j$-th term is $1$ if $j \in A_n$ and $0$ otherwise.
+	    For each $n$, define $v_n \in \mathbb{F}^{\infty}$ such that its $j$-th term is $1$ if $j \in A_n$ and $0$ otherwise.
 
         Suppose that $\sum^{m}_{i=1} c_i (v_i+U)=0+U$ for some positive integer $m$ and scalars $c_1$, $\dots$, $c_m \in \mathbb{F}$.
-	Then, $w=\sum^{m}_{i=1} c_i v_i \in U$.
-	By construction, for $i \in \{1, \dots, m\}$, the $j$-th term of $w$ is $c_i$ for all $j \in A_i$.
-	Since $w \in U$, it only has a finite number of nonzero terms.
-	But each $A_i$ is infinite, so this forces $c_i=0$ for all $i \in \{1, \dots, m\}$.
-	Hence, $v_1+U$, $v_2+U$, $\dots$ are linearly independent in $\mathbb{F}^{\infty}/U$.
+	    Then, $w=\sum^{m}_{i=1} c_i v_i \in U$.
+	    By construction, for $i \in \{1, \dots, m\}$, the $j$-th term of $w$ is $c_i$ for all $j \in A_i$.
+	    Since $w \in U$, it only has a finite number of nonzero terms.
+	    But each $A_i$ is infinite, so this forces $c_i=0$ for all $i \in \{1, \dots, m\}$.
+	    Hence, $v_1+U$, $v_2+U$, $\dots$ are linearly independent in $\mathbb{F}^{\infty}/U$.
 
-        Because $\mathbb{F}^{\infty}/U$ contains an infinite sequence of linearly independent vectors, it is infinite-dimensional.
+        Because $\mathbb{F}^{\infty}/U$ contains an infinite sequence of linearly independent vectors, it is infinite-dimensional. \qedhere
     \end{subexercises}
-\end{proof}
+\end{csp}
 
 \begin{apex}[3f11]
     Suppose $v_1, \ldots, v_n$ is a basis of $V$ and $\phi_1, \ldots, \phi_n$ is the corresponding dual basis of $V'$.
