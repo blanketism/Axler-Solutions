@@ -199,16 +199,17 @@
 \end{exercise}
 
 \begin{soliff}
-    \leftimp If $T$ is self-adjoint, then $T = T^\ast$, so for all $v \in V$,
-    \[
-        \gen{Tv, v} = \gen{T^\ast v, v}.
-    \]
     \rightimp Suppose $\gen{Tv, v} = \gen{T^\ast v, v}$ for all $v \in V$.
     Then for all $v \in V$,
     \[
         \gen{(T - T^\ast)v, v} = 0.
     \]
     Since $\fbb = \cbb$, we may use 7.13 with $T - T^\ast$ in place of $T$ to conclude that $T - T^\ast = 0$, so $T = T^\ast$, i.e., $T$ is self-adjoint.
+
+    \leftimp If $T$ is self-adjoint, then $T = T^\ast$, so for all $v \in V$,
+    \[
+        \gen{Tv, v} = \gen{T^\ast v, v}. \qedhere
+    \]
 \end{soliff}
 
 \begin{exercise}{7a11}
@@ -262,21 +263,6 @@
 \end{exercise}
 
 \begin{soliff}
-    \leftimp If $T$ is normal, then $TT^\ast = T^\ast T$.
-    Consider the operators
-    \[
-        A = \frac{T + T^\ast}{2}, \quad B = \frac{T - T^\ast}{2}.
-    \]
-    Then $A$ is self-adjoint, $B$ is skew, and $T = A + B$.
-    Moreover,
-    \begin{align*}
-        AB &= \frac{T + T^\ast}{2} \cdot \frac{T - T^\ast}{2} \\
-        &= \frac{1}{4}(TT - TT^\ast + T^\ast T - T^\ast T^\ast) \\
-        &= \frac{1}{4}(TT + TT^\ast - T^\ast T - T^\ast T^\ast) \\
-        &= \frac{T - T^\ast}{2} \cdot \frac{T + T^\ast}{2} = BA,
-    \end{align*}
-    hence $A$ and $B$ commute.
-
     \rightimp Suppose there exist commuting operators $A$ and $B$ such that $A$ is self-adjoint, $B$ is skew, and $T = A + B$.
     Then
     \[
@@ -291,6 +277,21 @@
         T^\ast T = (A - B)(A + B) = A^2 + AB - BA - B^2 = A^2 - B^2.
     \]
     Therefore, $TT^\ast = T^\ast T$, so $T$ is normal.
+    
+    \leftimp If $T$ is normal, then $TT^\ast = T^\ast T$.
+    Consider the operators
+    \[
+        A = \frac{T + T^\ast}{2}, \quad B = \frac{T - T^\ast}{2}.
+    \]
+    Then $A$ is self-adjoint, $B$ is skew, and $T = A + B$.
+    Moreover,
+    \begin{align*}
+        AB &= \frac{T + T^\ast}{2} \cdot \frac{T - T^\ast}{2} \\
+        &= \frac{1}{4}(TT - TT^\ast + T^\ast T - T^\ast T^\ast) \\
+        &= \frac{1}{4}(TT + TT^\ast - T^\ast T - T^\ast T^\ast) \\
+        &= \frac{T - T^\ast}{2} \cdot \frac{T + T^\ast}{2} = BA,
+    \end{align*}
+    hence $A$ and $B$ commute.
 \end{soliff}
 
 \begin{exercise}{7a13}
@@ -305,22 +306,25 @@
 \begin{solenum}
     \item If $V = \set 0$, then $\lin{V} = \set 0$ and $\acal$ has no eigenvalues.
     Otherwise, assume $\dim V \geq 1$.
-    If $\acal T = \lambda T$ for some $T \in \lin{V}$ and $\lambda \in \rbb$, then $T^\ast = \lambda T$.
+    If $\acal T = \lambda T$ for some nonzero $T \in \lin{V}$ and $\lambda \in \rbb$, then $T^\ast = \lambda T$.
     Taking the adjoint of both sides gives
     \[
         T = \lambda T^\ast = \lambda (\lambda T) = \lambda^2 T.
     \]
     Hence, $\lambda^2 = 1$, so $\lambda = 1$ or $\lambda = -1$.
-    If $\dim V = 1$, then $T = \lambda I$ for some $\lambda \in \rbb$.
+    To see that $\lambda = 1$ always occurs as an eigenvalue for $\dim V \geq 1$, note that $I^\ast = I$, so $\acal I = I = 1 \cdot I$.
+    If $\dim V = 1$, then $T = \mu I$ for some $\mu \in \rbb$.
     In this case, $T^\ast = T$, so $\acal T = T = 1 \cdot T$, and the only eigenvalue of $\acal$ is $1$.
+
     If $\dim V \geq 2$, let $e_1, \ldots, e_n$ be an orthonormal basis of $V$ with $n = \dim V$.
-    Define $T \in \lin{V}$ by $T e_1 = e_2$, $T e_2 = -e_1$, and $T e_j = 0$ for $j \geq 3$.
-    Then $T^\ast e_1 = -e_2$, $T^\ast e_2 = e_1$, and $T^\ast e_j = 0$ for $j \geq 3$, so $T^\ast = -T$.
+    Define $S \in \lin{V}$ by $S e_1 = e_2$, $S e_2 = -e_1$, and $S e_j = 0$ for $j \geq 3$.
+    Then $S^\ast e_1 = -e_2$, $S^\ast e_2 = e_1$, and $S^\ast e_j = 0$ for $j \geq 3$, so $S^\ast = -S$.
     Hence, $-1$ is also an eigenvalue of $\acal$.
-    Therefore, the eigenvalues of $\acal$ are $1$ and $-1$.
+    Therefore, the eigenvalues of $\acal$ are $1$ and $-1$ when $\dim V \geq 2$.
 
     \item Observe that $\acal(\acal T) = \acal T^\ast = (T^\ast)^\ast = T$ for all $T \in \lin{V}$.
     Hence, $\acal^2 - I = 0$, so the minimal polynomial of $\acal$ must divide $z^2 - 1$.
+    If $V = \set 0$, then $\lin{V} = \set 0$, and the minimal polynomial of $\acal$ is $1$.
     If $\dim V = 1$, then $\acal$ has only one eigenvalue, $1$, so the minimal polynomial of $\acal$ is $z - 1$.
     Otherwise, both eigenvalues $1$ and $-1$ occur when $\dim V \geq 2$, so the minimal polynomial of $\acal$ is $z^2 - 1$.
 \end{solenum}
@@ -510,10 +514,10 @@
     \]
     From the hypothesis, we have $\norm{T^\ast v}^2 \leq \norm{Tv}^2$ for all $v \in V$, which gives
     \[
-        \gen{(T^\ast T - TT^\ast)v, v} \leq 0 \quad \text{for all } v \in V.
+        \gen{(T^\ast T - TT^\ast)v, v} \geq 0 \quad \text{for all } v \in V.
     \]
-    Let $S = TT^\ast - T^\ast T$.
-    Then $S^\ast = (TT^\ast - T^\ast T)^\ast = TT^\ast - T^\ast T = S$, so $S$ is self-adjoint.
+    Let $S = T^\ast T - TT^\ast$.
+    Then $S^\ast = (T^\ast T - TT^\ast)^\ast = T^\ast T - TT^\ast = S$, so $S$ is self-adjoint.
     Moreover, $\gen{Sv, v} \geq 0$ for all $v \in V$.
     Let $e_1, \ldots, e_n$ be an orthonormal basis of $V$.
     From \exref{7a5}, then
@@ -522,7 +526,7 @@
     \]
     Then
     \[
-        \sum_{i=1}^n \gen{Se_i, e_i} = \sum_{i=1}^n \gen{(TT^\ast - T^\ast T)e_i, e_i} = \sum_{i=1}^n \gen{TT^\ast e_i, e_i} - \sum_{i=1}^n \gen{T^\ast Te_i, e_i} = 0.
+        \sum_{i=1}^n \gen{Se_i, e_i} = \sum_{i=1}^n \gen{(T^\ast T - TT^\ast)e_i, e_i} = \sum_{i=1}^n \gen{T^\ast Te_i, e_i} - \sum_{i=1}^n \gen{TT^\ast e_i, e_i} = 0.
     \]
     Since each $\gen{Se_i, e_i} \geq 0$ and their sum is $0$, it follows that $\gen{Se_i, e_i} = 0$ for all $i$.
     For arbitrary $u \in V$ with $\norm u = 1$, we may extend it to an orthonormal basis $u, f_2, \ldots, f_n$ of $V$.
@@ -553,7 +557,7 @@
     If $P$ is self-adjoint, then $P = P^\ast$.
     Hence,
     \[
-        PP^\ast = PP = P^2 = P = P^\ast P = P^\ast P,
+        PP^\ast = PP = P^2 = P = P^\ast P,
     \]
     so $P$ is normal.
 
@@ -616,7 +620,7 @@
     with respect to the standard basis of $\rbb^3$, which is orthonormal.
     Then $T$ is normal because
     \[
-        T^\ast = 
+        \mcal(T^\ast) = 
         \begin{pmatrix}
             0 & 1 & 0 \\
             -1 & 0 & 0 \\
