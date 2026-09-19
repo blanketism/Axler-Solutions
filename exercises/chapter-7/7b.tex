@@ -6,43 +6,152 @@
     \note{This exercise strengthens the analogy (for normal operators) between self-adjoint operators and real numbers.}
 \end{exercise}
 
+\begin{soliff}
+    \rightimp This follows from 7.12.
+
+    \leftimp Let $T$ be a normal operator on a complex inner product space.
+    By the complex spectral theorem, there exists an orthonormal basis such that $\mcal(T)$ is diagonal with respect to that basis.
+    By 7.9, the diagonal entries of $\mcal(T)$ are some $\lambda_1, \ldots, \lambda_n$, and the diagonal entries of $\mcal(T^\ast)$ are $\bar{\lambda_1}, \ldots, \bar{\lambda_n}$.
+    If all the eigenvalues of $T$ are real, then $\lambda_i = \bar{\lambda_i}$ for all $i$, so $\mcal(T) = \mcal(T^\ast)$, which implies $T = T^\ast$.
+\end{soliff}
+
 \begin{exercise}{7b2}
     Suppose $\fbb = \cbb$.
     Suppose $T \in \lin{V}$ is normal and has only one eigenvalue.
     Prove that $T$ is a scalar multiple of the identity operator.
 \end{exercise}
 
+\begin{sol}
+    By the complex spectral theorem, there exists an orthonormal basis such that $\mcal(T)$ is diagonal with respect to that basis.
+    Since $T$ has only one eigenvalue, all the diagonal entries of $\mcal(T)$ are equal to some $\lambda$.
+    Therefore, $\mcal(T) = \lambda I$, which implies $T = \lambda I$.
+\end{sol}
+
 \begin{exercise}{7b3}
     Suppose $\fbb = \cbb$ and $T \in \lin{V}$ is normal.
     Prove that the set of eigenvalues of $T$ is contained in $\set{0, 1}$ if and only if there is a subspace $U$ of $V$ such that $T = P_U$.
 \end{exercise}
 
+\begin{soliff}
+    \rightimp Suppose the set of eigenvalues of $T$ is contained in $\set{0, 1}$.
+    By the complex spectral theorem, there exists an orthonormal basis $e_1, \ldots, e_n$ such that $\mcal(T)$ is diagonal with respect to that basis.
+    Since all the eigenvalues are in $\set{0, 1}$, the diagonal entries of $\mcal(T)$ are all $0$ or $1$.
+
+    Let $U = \spn(\set{e_i \mid \lambda_i = 1})$.
+    Then for any $v \in V$, we have
+    \[
+        v = \sum_{j=1}^n \gen{v, e_j} e_j \implies Tv = \sum_{\lambda_j = 1}\gen{v, e_j} e_j = P_U v,
+    \]
+    where the last equality follows from the orthonormal basis.
+
+    \leftimp If $T = P_U$, then by \exref{7a20}, we know $P_U^2 = P_U$.
+    If $Tv = \lambda v$ for some $\lambda \in \cbb$ and $v \neq 0$, then $\lambda^2v = \lambda v$.
+    This yields $\lambda^2 = \lambda$, so $\lambda \in \set{0, 1}$.
+\end{soliff}
+
 \begin{exercise}{7b4}
     Prove that a normal operator on a complex inner product space is skew (meaning it equals the negative of its adjoint) if and only if all its eigenvalues are purely imaginary (meaning that they have real part equal to $0$).
 \end{exercise}
 
+\begin{soliff}
+    \rightimp From 7.21(e), we know that $Tv = \lambda v$ implies $T^\ast v = \bar\lambda v$.
+    If $T$ is skew, then $T = -T^\ast$, so $Tv = -T^\ast v = -\bar\lambda v$.
+    Therefore, $\lambda = -\bar\lambda$, which means $\lambda$ is purely imaginary.
+
+    \leftimp Suppose all eigenvalues of $T$ are purely imaginary.
+    By the complex spectral theorem, there exists an orthonormal basis $e_1, \ldots, e_n$ such that $\mcal(T)$ is diagonal with respect to that basis.
+    Let the diagonal entries of $\mcal(T)$ be $\lambda_1, \ldots, \lambda_n$.
+    Since each $\lambda_i$ is purely imaginary, we have $\lambda_i = -\bar\lambda_i$.
+    Therefore, the diagonal entries of $\mcal(T^\ast)$ are $\bar\lambda_1, \ldots, \bar\lambda_n$, and the diagonal entries of $-\mcal(T)$ are $-\lambda_1, \ldots, -\lambda_n$.
+    Since $\bar\lambda_i = -\lambda_i$ for each $i$, we have $\mcal(T^\ast) = -\mcal(T)$, which implies $T^\ast = -T$.
+\end{soliff}
+
 \begin{exercise}{7b5}
     Prove or give a counterexample: If $T \in \lin{\cbb^3}$ is a diagonalizable operator, then $T$ is normal (with respect to the usual inner product).
 \end{exercise}
+
+\begin{sol}
+    This is false.
+    Consider $T \in \lin{\cbb^3}$ with matrix
+    \[
+        \mcal(T) = 
+        \begin{pmatrix}
+            1 & 1 & 0 \\
+            0 & 2 & 0 \\
+            0 & 0 & 3
+        \end{pmatrix}.
+    \]
+    Since the diagonal entries are distinct, $T$ is diagonalizable.
+    However, $\norm{T e_1} = 1$, while $\norm{T^\ast e_1} = \sqrt 2$, so $T$ is not normal by 7.20.
+\end{sol}
 
 \begin{exercise}{7b6}
     Suppose $V$ is a complex inner product space and $T \in \lin{V}$ is a normal operator such that $T^9 = T^8$.
     Prove that $T$ is self-adjoint and $T^2 = T$.
 \end{exercise}
 
+\begin{sol}
+    By the complex spectral theorem, there exists an orthonormal basis of eigenvectors of $T$.
+    Let $e_i$ be an orthonormal eigenvector of $T$ with eigenvalue $\lambda_i$.
+    From $T^9 = T^8$, we have $\lambda_i^9 = \lambda_i^8$, which implies $\lambda_i^8(\lambda_i - 1) = 0$.
+    This gives $\lambda_i \in \set{0, 1}$.
+    By \exref{7b1}, since all eigenvalues of $T$ are real, $T$ is self-adjoint.
+    Moreover, since each eigenvalue $\lambda_i$ satisfies $\lambda_i \in \set{0, 1}$, we have $T^2 = T$.
+\end{sol}
+
 \begin{exercise}{7b7}
     Give an example of an operator $T$ on a complex vector space such that $T^9 = T^8$ but $T^2 \neq T$.
 \end{exercise}
+
+\begin{sol}
+    Consider $T \in \lin{\cbb^2}$ defined by $T(z_1, z_2) = (z_2, 0)$.
+    Then $T^2 = 0$, so $T^9 = T^8 = 0$, but $T^2 = 0 \neq T$.
+\end{sol}
 
 \begin{exercise}{7b8}
     Suppose $\fbb = \cbb$ and $T \in \lin{V}$.
     Prove that $T$ is normal if and only if every eigenvector of $T$ is also an eigenvector of $T^\ast$.
 \end{exercise}
 
+\begin{soliff}
+    \rightimp This follows directly from 7.21(e).
+
+    \leftimp If $V = \set 0$, then $T$ is trivially normal.
+    Otherwise, assume $\dim V > 0$.
+    By Schur's theorem, there exists an orthonormal basis $e_1, \ldots, e_n$ of $V$ with respect to which $T$ has an upper-triangular matrix $A$.
+    We show by induction on $k$ that $A_{k, j} = 0$ for all $j \neq k$, so that $A$ is diagonal.
+    Suppose $A_{i, j} = 0$ for all $j \neq i$ and all $i < k$.
+    Since $A$ is upper-triangular, $T e_k = \sum_{i=1}^k A_{i, k} e_i$.
+    By the inductive hypothesis, $A_{i, k} = 0$ for all $i < k$.
+    Hence, $T e_k = A_{k, k} e_k$, so $e_k$ is an eigenvector of $T$.
+    By hypothesis, $e_k$ is an eigenvector of $T^\ast$, say $T^\ast e_k = \lambda e_k$.
+    Since $\mcal(T^\ast) = A^\ast$, this gives
+    \[
+        T^\ast e_k = \sum_{j=1}^n \bar{A_{k, j}} e_j = \lambda e_k,
+    \]
+    and the uniqueness of the representation with respect to $e_1, \ldots, e_n$ forces $\bar{A_{k, j}} = 0$ for all $j \neq k$.
+    Thus, $A$ is diagonal, so $A$ and $A^\ast$ commute, and therefore $T T^\ast = T^\ast T$.
+\end{soliff}
+
 \begin{exercise}{7b9}
     Suppose $\fbb = \cbb$ and $T \in \lin{V}$.
     Prove that $T$ is normal if and only if there exists a polynomial $p \in \pcal(\cbb)$ such that $T^\ast = p(T)$.
 \end{exercise}
+
+\begin{soliff}
+    \rightimp If $V = \set 0$, then $T^\ast = 0 = p(T)$ trivially with $p = 0$.
+    Otherwise, suppose $V \neq \set 0$.
+    If $T$ is normal, then by the complex spectral theorem, there exists an orthonormal basis of $V$ consisting of eigenvectors of $T$.
+    Let $e_1, \ldots, e_n$ be such a basis, and let $\lambda_1, \ldots, \lambda_n$ be the corresponding eigenvalues.
+    Of the eigenvalues, let $\mu_1, \ldots, \mu_m$ be the distinct ones.
+    By \exref{4-7}, there exists a polynomial $p \in \pcal(\cbb)$ such that $p(\mu_i) = \bar{\mu_i}$ for all $i \in \set{1, \ldots, m}$.
+    Since each eigenvalue $\lambda_i$ is equal to some $\mu_j$, we have $p(\lambda_i) = \bar{\lambda_i}$ for all $i$.
+    Therefore, $T^\ast e_i = \bar{\lambda_i} e_i = p(T) e_i$ for all $i$.
+    Since $T^\ast$ and $p(T)$ agree on a basis of $V$, we have $T^\ast = p(T)$.
+
+    \leftimp Suppose $T^\ast = p(T)$ for some polynomial $p \in \pcal(\cbb)$.
+    Since $T$ commutes with $p(T)$, we have $T T^\ast = T p(T) = p(T) T = T^\ast T$, so $T$ is normal.
+\end{soliff}
 
 \begin{exercise}{7b10}
     Suppose $V$ is a complex inner product space.
@@ -52,32 +161,89 @@
     We will discuss more about square roots of operators in Sections 7C and 8C.}
 \end{exercise}
 
+\begin{sol}
+    Let $T \in \lin{V}$ be normal.
+    By the complex spectral theorem, there exists an orthonormal basis $e_1, \ldots, e_n$ of $V$ consisting of eigenvectors of $T$ with corresponding eigenvalues $\lambda_1, \ldots, \lambda_n$.
+    For each $i$, the fundamental theorem of algebra applied to the polynomial $z^2 - \lambda_i$ asserts the existence of $\mu_i \in \cbb$ such that $\mu_i^2 = \lambda_i$.
+    Let $S \in \lin{V}$ be the operator defined by $S e_i = \mu_i e_i$ for all $i$.
+    Then
+    \[
+        S^2 e_i = S(\mu_i e_i) = \mu_i S e_i = \mu_i (\mu_i e_i) = \mu_i^2 e_i = \lambda_i e_i = T e_i
+    \]
+    for all $i$.
+    Since $S^2$ and $T$ agree on a basis of $V$, we have $S^2 = T$.
+\end{sol}
+
 \begin{exercise}{7b11}
     Prove that every self-adjoint operator on $V$ has a cube root.
 
     \note{An operator $S \in \lin{V}$ is called a \term{cube root} of $T \in \lin{V}$ if $S^3 = T$.}
 \end{exercise}
 
+\begin{sol}
+    Let $T \in \lin{V}$ be self-adjoint.
+    By 7.29 (for $\fbb = \rbb$) or 7.31 (for $\fbb = \cbb$ by normality of $T$), there exists an orthonormal basis $e_1, \ldots, e_n$ of $V$ consisting of eigenvectors of $T$ with corresponding eigenvalues $\lambda_1, \ldots, \lambda_n \in \fbb$.
+    By 7.12, these eigenvalues $\lambda_1, \ldots, \lambda_n$ are real.
+    For each $i$, the polynomial $z^3 - \lambda_i$ has a real root $\mu_i$.
+    Let $S \in \lin{V}$ be the operator defined by $S e_i = \mu_i e_i$ for all $i$.
+    Then
+    \[
+        S^3 e_i = S^2(\mu_i e_i) = S(\mu_i^2 e_i) = \mu_i^3 e_i = \lambda_i e_i = T e_i
+    \]
+    for all $i$.
+    Since $S^3$ and $T$ agree on a basis of $V$, we have $S^3 = T$.
+\end{sol}
+
 \begin{exercise}{7b12}
     Suppose $V$ is a complex vector space and $T \in \lin{V}$ is normal.
     Prove that if $S$ is an operator on $V$ that commutes with $T$, then $S$ commutes with $T^\ast$.
 
-    \note{The result in this exercise is called \term{Fuglede's theorem.}}
+    \note{The result in this exercise is called \term{Fuglede's theorem}.}
 \end{exercise}
+
+\begin{sol}
+    By \exref{7b9}, we may write $T^\ast = p(T)$ for some polynomial $p$.
+    Since $S$ commutes with $T$, it also commutes with any polynomial in $T$, and hence with $T^\ast$.
+\end{sol}
 
 \begin{exercise}{7b13}
     Without using the complex spectral theorem, use the version of Schur's theorem that applies to two commuting operators (take $\ecal = \set{T, T^\ast}$ in \exref{6b20}) to give a different proof that if $\fbb = \cbb$ and $T \in \lin{V}$ is normal, then $T$ has a diagonal matrix with respect to some orthonormal basis of $V$.
 \end{exercise}
+
+\begin{sol}
+    Normality of $T$ implies that $T$ and $T^\ast$ commute.
+    By \exref{6b20}, there exists an orthonormal basis of $V$ with respect to which both $T$ and $T^\ast$ have upper-triangular matrices.
+    By 7.9, $\mcal(T^\ast) = \mcal(T)^\ast$.
+    Since $\mcal(T)^\ast$ is upper-triangular, $\mcal(T)$ must be lower-triangular.
+    This forces $\mcal(T)$ to be diagonal.
+\end{sol}
 
 \begin{exercise}{7b14}
     Suppose $\fbb = \rbb$ and $T \in \lin{V}$.
     Prove that $T$ is self-adjoint if and only if all pairs of eigenvectors corresponding to distinct eigenvalues of $T$ are orthogonal and $V = E(\lambda_1, T) \op \cdots \op E(\lambda_m, T)$, where $\lambda_1, \ldots, \lambda_m$ denote the distinct eigenvalues of $T$.
 \end{exercise}
 
+\begin{soliff}
+    \rightimp Since $T$ is self-adjoint, it is normal.
+    By 7.22, its eigenvectors corresponding to distinct eigenvalues are orthogonal.
+    By the real spectral theorem, $V$ has an orthonormal basis consisting of eigenvectors of $T$, so $T$ is diagonalizable.
+    By 5.55, this gives the desired decomposition of $V$.
+
+    \leftimp In each $E(\lambda_i, T)$, apply the Gram--Schmidt process to obtain an orthonormal basis for that eigenspace.
+    By hypothesis, these orthonormal bases for the eigenspaces corresponding to distinct eigenvalues are mutually orthogonal.
+    The combined list of these orthonormal bases forms an orthonormal list of eigenvectors of $T$, hence is linearly independent by 6.25.
+    Moreover, this list spans $V$ because $V = E(\lambda_1, T) \op \cdots \op E(\lambda_m, T)$.
+    Thus, the list is an orthonormal basis of $V$ consisting of eigenvectors of $T$, so $T$ is self-adjoint by the real spectral theorem.
+\end{soliff}
+
 \begin{exercise}{7b15}
     Suppose $\fbb = \cbb$ and $T \in \lin{V}$.
     Prove that $T$ is normal if and only if all pairs of eigenvectors corresponding to distinct eigenvalues of $T$ are orthogonal and $V = E(\lambda_1, T) \op \cdots \op E(\lambda_m, T)$, where $\lambda_1, \ldots, \lambda_m$ denote the distinct eigenvalues of $T$.
 \end{exercise}
+
+\begin{sol}
+    The proof is similar to that of \exref{7b14}, but using the complex spectral theorem instead of the real spectral theorem.
+\end{sol}
 
 \begin{exercise}{7b16}
     Suppose $\fbb = \cbb$ and $\ecal \subseteq \lin{V}$.
@@ -86,12 +252,89 @@
     \note{This exercise extends the complex spectral theorem to the context of a collection of commuting normal operators.}
 \end{exercise}
 
+\begin{soliff}
+    \rightimp By assumption, there exists an orthonormal basis of $V$ with respect to which every element of $\ecal$ has a diagonal matrix.
+    For each $T \in \ecal$, the diagonal matrix $\mcal(T)$ commutes with its conjugate transpose $\mcal(T)^\ast$.
+    By 7.9, we know $\mcal(T^\ast) = \mcal(T)^\ast$, so $\mcal(T)$ commutes with $\mcal(T^\ast)$, which implies that $T$ is normal.
+    By 3.43, for all $S, T \in \ecal$, we have
+    \[
+        \mcal(ST) = \mcal(S)\mcal(T) = \mcal(T)\mcal(S) = \mcal(TS),
+    \]
+    so $ST = TS$.
+
+    \leftimp Taking $S = T$ in the hypothesis gives that each $T \in \ecal$ is normal.
+    By \exref{7b12} (Fuglede's theorem), for all $S, T \in \ecal$, $S T^\ast = T^\ast S$.
+    Then
+    \[
+        S^\ast T^\ast = (T S)^\ast = (S T)^\ast = T^\ast S^\ast,
+    \]
+    so $S^\ast$ and $T^\ast$ commute.
+    Letting $\ecal^\ast = \set{T^\ast \mid T \in \ecal}$, we see that $\ecal \cup \ecal^\ast$ is a set of commuting operators.
+    By \exref{6b20}, there exists an orthonormal basis of $V$ with respect to which every element of $\ecal \cup \ecal^\ast$ has an upper-triangular matrix.
+    For each $T \in \ecal$, both $\mcal(T)$ and $\mcal(T^\ast)$ are upper-triangular, and $\mcal(T^\ast) = \mcal(T)^\ast$ by 7.9.
+    Hence, $\mcal(T)$ is both upper-triangular and lower-triangular, which implies that $\mcal(T)$ is diagonal.
+    Therefore, there exists an orthonormal basis of $V$ with respect to which every element of $\ecal$ has a diagonal matrix.
+\end{soliff}
+
 \begin{exercise}{7b17}
     Suppose $\fbb = \rbb$ and $\ecal \subseteq \lin{V}$.
     Prove that there is an orthonormal basis of $V$ with respect to which every element of $\ecal$ has a diagonal matrix if and only if $S$ and $T$ are commuting self-adjoint operators for all $S, T \in \ecal$.
     
     \note{This exercise extends the real spectral theorem to the context of a collection of commuting self-adjoint operators.}
 \end{exercise}
+
+\begin{soliff}
+    \rightimp Fix an orthonormal basis of $V$ with respect to which every element of $\ecal$ has a diagonal matrix.
+    For any $T \in \ecal$, the matrix of $T$ with respect to this orthonormal basis is diagonal.
+    Moreover, 7.9 shows that $\mcal(T^\ast) = \mcal(T)^\ast = \mcal(T)$.
+    Since the matrices are equal and over the same orthonormal basis, it follows that $T = T^\ast$, so $T$ is self-adjoint.
+    Additionally, for any $S, T \in \ecal$, the matrices of $S$ and $T$ with respect to this orthonormal basis are diagonal, and diagonal matrices commute.
+    A similar argument from \exref{7b16} shows that $ST = TS$.
+
+    \leftimp We proceed by strong induction on $\dim V = n$.
+    If $n = 0$, the empty list is an orthonormal basis of $V$, and the statement holds trivially.
+    Now assume that the result holds for any real inner product space of dimension less than $n$ and every collection of commuting self-adjoint operators on it.
+    If every $T \in \ecal$ is some scalar multiple of the identity, then any orthonormal basis of $V$ will diagonalize every element of $\ecal$, and the statement holds.
+    In particular, this holds even with $\ecal = \emptyset$.
+
+    Otherwise, choose $T \in \ecal$ that is not a scalar multiple of the identity.
+    Let $\lambda_1, \ldots, \lambda_m$ be the distinct eigenvalues of $T$.
+    By the real spectral theorem and \exref{7b14}, we may write
+    \[
+        V = E(\lambda_1, T) \oplus \cdots \oplus E(\lambda_m, T),
+    \]
+    where the eigenspaces are pairwise orthogonal.
+    Note that if $m = 1$, then $V = E(\lambda_1, T)$ so that $T = \lambda_1 I$, contradicting our choice of $T$ as not a scalar multiple of the identity.
+    Therefore, $m \geq 2$.
+    For any $i$, nontriviality of each eigenspace implies that $\dim E(\lambda_i, T) = n - \sum_{j \neq i} \dim E(\lambda_j, T) \leq n - 1$.
+
+    We now claim that each eigenspace $E(\lambda_i, T)$ is invariant under every $S \in \ecal$.
+    To see this, let $v \in E(\lambda_i, T)$ and $S \in \ecal$.
+    Then
+    \[
+        T(Sv) = S(Tv) = S(\lambda_i v) = \lambda_i (Sv),
+    \]
+    so $Sv \in E(\lambda_i, T)$.
+    Hence, each eigenspace $E(\lambda_i, T)$ is invariant under every $S \in \ecal$.
+
+    Now consider each eigenspace under the inner product inherited from $V$, and let $\ecal_i = \set{S|_{E(\lambda_i, T)} \mid S \in \ecal}$.
+    For any $u, w \in E(\lambda_i, T)$,
+    \[
+        \gen{S|_{E(\lambda_i, T)} u, w} = \gen{Su, w} = \gen{u, Sw} = \gen{u, S|_{E(\lambda_i, T)} w}
+    \]
+    so that each $S|_{E(\lambda_i, T)}$ is a self-adjoint operator on $E(\lambda_i, T)$.
+    Furthermore, for any $S|_{E(\lambda_i, T)}, R|_{E(\lambda_i, T)} \in \ecal_i$, we have
+    \[
+        S|_{E(\lambda_i, T)} R|_{E(\lambda_i, T)} = (SR)|_{E(\lambda_i, T)} = (RS)|_{E(\lambda_i, T)} = R|_{E(\lambda_i, T)} S|_{E(\lambda_i, T)},
+    \]
+    so $\ecal_i$ is a commuting family of self-adjoint operators on $E(\lambda_i, T)$.
+    Then the induction hypothesis applies to $E(\lambda_i, T)$ and $\ecal_i$, so there exists an orthonormal basis of $E(\lambda_i, T)$ with respect to which every element of $\ecal_i$ has a diagonal matrix.
+    By \exref{7b14}, concatenating these bases gives an orthonormal basis of $V$ since the eigenspaces are pairwise orthogonal, and $V$ is the direct sum of these eigenspaces.
+    Now let $S \in \ecal$.
+    For each basis vector $e$ in this orthonormal basis, there exists an $i$ such that $e$ is one of the basis vectors of $E(\lambda_i, T)$.
+    Since $\mcal(S|_{E(\lambda_i, T)})$ is diagonal with respect to the chosen orthonormal basis of $E(\lambda_i, T)$, it follows that $S e = \mu_e e$ for some $\mu_e \in \rbb$.
+    Therefore, the matrix of $S$ with respect to this orthonormal basis is diagonal.
+\end{soliff}
 
 \begin{exercise}{7b18}
     Give an example of a real inner product space $V$, an operator $T \in \lin{V}$, and real numbers $b, c$ with $b^2 < 4c$ such that
@@ -103,6 +346,23 @@
     \note{This exercise shows that the hypothesis that $T$ is self-adjoint cannot be deleted in 7.26, even for real vector spaces.}
 \end{exercise}
 
+\begin{sol}
+    Consider the real inner product space $V = \rbb^2$ and the operator $T \in \lin{V}$ whose matrix with respect to the standard basis is
+    \[
+        \mcal(T) = 
+        \begin{pmatrix}
+            0 & -1 \\
+            1 & 0
+        \end{pmatrix}
+    \]
+    so that $T^2 = -I$.
+    Now choose $b = 0$ and $c = 1$. Then $b^2 = 0 < 4c = 4$, and
+    \[
+        T^2 + bT + cI = T^2 + I = -I + I = 0,
+    \]
+    which is not invertible.
+\end{sol}
+
 \begin{exercise}{7b19}
     Suppose $T \in \lin{V}$ is self-adjoint and $U$ is a subspace of $V$ that is invariant under $T$.
     \begin{subexercises}
@@ -112,6 +372,21 @@
     \end{subexercises}
 \end{exercise}
 
+\begin{solenum}
+    \item For any $u \in U$ and $w \in U^\perp$, we have
+    \[
+        \gen{T w, u} = \gen{w, T u} = 0
+    \]
+    since $T u \in U$.
+    Hence, $T w \in U^\perp$.
+    \item For any $u_1, u_2 \in U$, we have
+    \[
+        \gen{T|_U u_1, u_2} = \gen{T u_1, u_2} = \gen{u_1, T u_2} = \gen{u_1, T|_U u_2}.
+    \]
+    Hence, $T|_U$ is self-adjoint.
+    \item Applying the same argument as in part (b) to $U^\perp$ gives the conclusion.
+\end{solenum}
+
 \begin{exercise}{7b20}
     Suppose $T \in \lin{V}$ is normal and $U$ is a subspace of $V$ that is invariant under $T$.
     \begin{subexercises}
@@ -120,10 +395,65 @@
         \item Prove that $(T|_U)^\ast = (T^\ast)|_U$.
         \item Prove that $T|_U \in \lin{U}$ and $T|_{U^\perp} \in \lin{U^\perp}$ are normal operators.
     \end{subexercises}
-    \note{This exercise can be used to give yet another proof of the complex spectral theorem.}
+    \note{This exercise can be used to give yet another proof of the complex spectral theorem. (Use induction on $\dim V$ and the result that $T$ has an eigenvector.)}
     
-    \hint{Use induction on $\dim V$ and the result that $T$ has an eigenvector.}
+    \remark{The ordering of the parts in this exercise is strange.
+    The solution below will prove (b) first as (a) falls out naturally as a consequence.}
 \end{exercise}
+
+\begin{solenum}
+    \item [(b)] If $U = \set 0$, the result is immediate since the zero subspace is invariant under any operator.
+    Otherwise, let $e_1, \ldots, e_n$ be an orthonormal basis of $U$.
+    By definition of $P_U$, we have for all $v \in V$ that $P_U v = \sum_{i=1}^n \gen{v, e_i} e_i$.
+    Moreover, the Pythagorean theorem gives $\norm{v}^2 = \norm{P_U v}^2 + \norm{v - P_U v}^2$.
+    Hence, $\norm{v}^2 = \sum_{i=1}^n |\gen{v, e_i}|^2$ if and only if $v \in U$.
+    
+    Now, for each $j = 1, \ldots, n$, the invariance of $U$ under $T$ gives $T e_j \in U$.
+    Hence,
+    \[
+        \norm{T e_j}^2 = \sum_{i=1}^n |\gen{T e_j, e_i}|^2.
+    \]
+    By Bessel's inequality, we have for all $j = 1, \ldots, n$ that
+    \[
+        \norm{T^\ast e_j}^2 \geq \sum_{i=1}^n |\gen{T^\ast e_j, e_i}|^2 = \sum_{i=1}^n |\gen{e_j, T e_i}|^2.
+    \]
+    Since $T$ is normal, we have $\norm{T^\ast e_j} = \norm{T e_j}$ for each $j = 1, \ldots, n$.
+    Summing over $j = 1, \ldots, n$ gives
+    \[
+        \sum_{j=1}^n \norm{T e_j}^2 = \sum_{j=1}^n \norm{T^\ast e_j}^2 \geq \sum_{j=1}^n \sum_{i=1}^n |\gen{T^\ast e_j, e_i}|^2 = \sum_{i=1}^n \sum_{j=1}^n |\gen{e_j, T e_i}|^2 = \sum_{i=1}^n \norm{T e_i}^2,
+    \]
+    where $T e_i \in U$ by the invariance of $U$ under $T$.
+    Since the first and last sums in the inequality are equal, equality must hold throughout.
+    In particular,
+    \[
+        \sum_{j=1}^n \left(\norm{T^\ast e_j}^2 - \sum_{i=1}^n |\gen{T^\ast e_j, e_i}|^2\right) = 0.
+    \]
+    By Bessel's inequality, each term in the sum is nonnegative. Hence, each term must be zero, and
+    \[
+        \norm{T^\ast e_j}^2 - \sum_{i=1}^n |\gen{T^\ast e_j, e_i}|^2 = 0 \quad \text{for each } j = 1, \ldots, n.
+    \]
+    The above equality shows that $T^\ast e_j \in U$ for each $j = 1, \ldots, n$.
+    The linearity of $T^\ast$ then implies that $T^\ast u \in U$ for all $u \in U$, so $U$ is invariant under $T^\ast$.
+    \item [(a)] Let $w \in U^\perp$ and $u \in U$.
+    Using (b), $T^\ast u \in U$, so $\gen{w, T^\ast u} = \gen{T w, u} = 0$.
+    Hence, $T w \in U^\perp$, and $U^\perp$ is invariant under $T$.
+    \item [(c)] By (b), we know $(T^\ast)|_U \in \lin{U}$.
+    Then for all $x, y \in U$, we have
+    \[
+        \gen{(T|_U)y, x} = \gen{T y, x} = \gen{y, T^\ast x} = \gen{y, (T^\ast)|_U x}.
+    \]
+    Since the adjoint is unique, we conclude that $(T|_U)^\ast = (T^\ast)|_U$.
+    \item [(d)] For any $u' \in U$, (b) gives $T^\ast u' \in U$.
+    Using (c), we have
+    \[
+        (T|_U)(T|_U)^\ast u' = T(T^\ast u') = (TT^\ast) u' = (T^\ast T) u' = T^\ast(T u') = (T|_U)^\ast (T|_U) u',
+    \]
+    showing normality of $T|_U$.
+
+    Now, by (a), we have that $U^\perp$ is invariant under $T$.
+    Then we may use the arguments in (b) and (c) with $U^\perp$ in place of $U$ to conclude that $U^\perp$ is invariant under $T^\ast$.
+    Additionally, the argument of the first paragraph with $U^\perp$ in place of $U$ shows that $T|_{U^\perp}$ is normal.
+\end{solenum}
 
 \begin{exercise}{7b21}
     Suppose that $T$ is a self-adjoint operator on a finite-dimensional inner product space and that $2$ and $3$ are the only eigenvalues of $T$.
@@ -133,9 +463,36 @@
     \]
 \end{exercise}
 
+\begin{sol}
+    By either the real or complex spectral theorem, we may take an orthonormal basis of eigenvectors $e_1, \ldots, e_n$ of $T$ with corresponding eigenvalues $\lambda_1, \ldots, \lambda_n$.
+    For each $i \in \set{1, \ldots, n}$, we have $\lambda_i \in \set{2, 3}$.
+    Then
+    \[
+        (T^2 - 5T + 6I)e_i = (\lambda_i^2 - 5\lambda_i + 6)e_i = (\lambda_i - 2)(\lambda_i - 3)e_i = 0.
+    \]
+    Since $T^2 - 5T + 6I$ evaluates to $0$ on each basis vector $e_i$, the conclusion follows.
+\end{sol}
+
 \begin{exercise}{7b22}
     Give an example of an operator $T \in \lin{\cbb^3}$ such that $2$ and $3$ are the only eigenvalues of $T$ and $T^2 - 5T + 6I \neq 0$.
 \end{exercise}
+
+\begin{sol}
+    Consider $T \in \lin{\cbb^3}$ with matrix representation
+    \[
+        \mcal(T) = 
+        \begin{pmatrix}
+            2 & 1 & 0 \\
+            0 & 2 & 0 \\
+            0 & 0 & 3
+        \end{pmatrix}.
+    \]
+    Since $T$ is upper-triangular with diagonal entries $2, 2, 3$, these are the eigenvalues of $T$. 
+    However,
+    \[
+        (T - 2I)(T - 3I)e_2 = (T - 2I)(e_1 - e_2) = -e_1 \neq 0. \qedhere
+    \]
+\end{sol}
 
 \begin{exercise}{7b23}
     Suppose $T \in \lin{V}$ is self-adjoint, $\lambda \in \fbb$, and $\ep > 0$.
@@ -148,6 +505,32 @@
     \note{This exercise shows that for a self-adjoint operator, a number that is close to satisfying an equation that would make it an eigenvalue is close to an eigenvalue.}
 \end{exercise}
 
+\begin{sol}
+    If $\fbb = \rbb$, the real spectral theorem guarantees an orthonormal basis of eigenvectors. 
+    If $\fbb = \cbb$, then $T$ is normal, since $T$ is self-adjoint, and the complex spectral theorem guarantees an orthonormal basis of eigenvectors.
+    In either case, we obtain an orthonormal basis of eigenvectors $e_1, \ldots, e_n$ of $T$ with corresponding eigenvalues $\lambda_1, \ldots, \lambda_n$.
+    Hence, we may write $v = \sum_{i=1}^n \alpha_i e_i$ for scalars $\alpha_1, \ldots, \alpha_n \in \fbb$.
+    Since the basis is orthonormal and $\norm{v} = 1$, we have $\sum_{i=1}^n |\alpha_i|^2 = 1$.
+    Then
+    \[
+        Tv - \lambda v = \sum_{i=1}^n \alpha_i \lambda_i e_i - \sum_{i=1}^n \alpha_i \lambda e_i = \sum_{i=1}^n \alpha_i (\lambda_i - \lambda) e_i.
+    \]
+    By orthonormality of the basis, we have
+    \[
+        \norm{Tv - \lambda v}^2 = \sum_{i=1}^n |\alpha_i|^2 |\lambda - \lambda_i|^2.
+    \]
+    Now, choose $k$ such that
+    \[
+        |\lambda - \lambda_k| = \min_{1 \leq i \leq n} |\lambda - \lambda_i|.
+    \]
+    Let $\lambda' = \lambda_k$ so that $\lambda'$ is an eigenvalue of $T$.
+    Since $|\lambda - \lambda'| = |\lambda - \lambda_k| \leq |\lambda - \lambda_i|$ for all $i$, we have
+    \[
+        |\lambda - \lambda'|^2 = |\lambda - \lambda_k|^2 \sum_{i=1}^n |\alpha_i|^2 \leq \sum_{i=1}^n |\alpha_i|^2 |\lambda - \lambda_i|^2 = \norm{Tv - \lambda v}^2 < \ep^2.
+    \]
+    Taking square roots, we conclude that $|\lambda - \lambda'| < \ep$.
+\end{sol}
+
 \begin{exercise}{7b24}
     Suppose $U$ is a finite-dimensional vector space and $T \in \lin{U}$.
     \begin{subexercises}
@@ -159,6 +542,56 @@
     \note{This exercise adds another equivalence to the list of conditions equivalent to diagonalizability in 5.55.}
 \end{exercise}
 
+\begin{sol}
+    Since $U$ is only assumed to be a finite-dimensional vector space, we require an inner product to discuss orthonormality in the \leftimp direction of both parts.
+    Hence, we prove the following lemma: there exists an inner product on $U$ that makes any basis $e_1, \ldots, e_n$ orthonormal.
+
+    Let $f_1, \ldots, f_n$ denote the standard basis of $\fbb^n$, and equip $\fbb^n$ with the Euclidean inner product.
+    Define $\phi \in \lin{U, \fbb^n}$ to be the unique linear map
+    \[
+        \phi(e_i) = f_i \quad \text{for } i = 1, \ldots, n.
+    \]
+    Then for any $u \in U$ and scalars $\alpha_1, \ldots, \alpha_n \in \fbb$ such that $u = \sum_{i=1}^n \alpha_i e_i$, we have $\phi(u) = \sum_{i=1}^n \alpha_i f_i$.
+    Additionally, if $\phi(u) = 0$, then $\alpha_i = 0$ for each $i$ so that $u = 0$.
+    Hence, $\phi$ is injective.
+    As in \exref{6a2}, applied verbatim to a linear map rather than a linear operator, we may define an inner product on $U$ as
+    \[
+        \gen{u, v} = \gen{\phi(u), \phi(v)} \quad \text{for all } u, v \in U.
+    \]
+    Moreover, $\gen{e_i, e_j} = \gen{f_i, f_j} = \delta_{ij}$ for all $i, j$, so the basis $e_1, \ldots, e_n$ is orthonormal with respect to this inner product.
+    This completes the proof of the lemma.
+    \begin{subexercises}
+        \item \rightimp Suppose $T$ is diagonalizable.
+        Then the matrix of $T$ with respect to some basis $u_1, \ldots, u_n$ consisting of eigenvectors of $T$ is a diagonal matrix whose diagonal entries are eigenvalues of $T$.
+        Since a diagonal matrix is equal to its transpose, the matrix of $T$ with respect to the basis $u_1, \ldots, u_n$ equals its transpose.
+
+        \leftimp Suppose there is a basis $e_1', \ldots, e_n'$ of $U$ such that the matrix of $T$ with respect to $e_1', \ldots, e_n'$ equals its transpose.
+        By the lemma, there exists an inner product on $U$ that makes the basis $e_1', \ldots, e_n'$ orthonormal.
+        Let $\mcal(T)$ denote the matrix of $T$ with respect to the basis $e_1', \ldots, e_n'$; similarly for $\mcal(T^\ast)$.
+        By 7.9, $\mcal(T^\ast) = \mcal(T)^\ast$, and since all entries of $\mcal(T)$ are real, $\mcal(T)^\ast = \mcal(T)\trans$.
+        Moreover, the hypothesis gives $\mcal(T)\trans = \mcal(T)$.
+        Therefore, $\mcal(T^\ast) = \mcal(T)$ so that $T$ is self-adjoint.
+        By the real spectral theorem, $T$ has a diagonal matrix with respect to some orthonormal basis, hence $T$ is diagonalizable.
+        \item \rightimp Suppose $T$ is diagonalizable.
+        Then there exists a basis $v_1, \ldots, v_n$ of $U$ consisting of eigenvectors of $T$ with corresponding eigenvalues $\lambda_1, \ldots, \lambda_n$.
+        By definition, $Tv_i = \lambda_i v_i$ for each $i = 1, \ldots, n$.
+        Let $A = \mcal(T, (v_1, \ldots, v_n))$ so that $A$ is a diagonal matrix with diagonal entries $\lambda_1, \ldots, \lambda_n$.
+        It follows that $A^\ast$ is also a diagonal matrix with diagonal entries $\bar{\lambda_1}, \ldots, \bar{\lambda_n}$.
+        Since diagonal matrices commute, we have $AA^\ast = A^\ast A$.
+
+        \leftimp Suppose there is a basis $e_1'', \ldots, e_n''$ of $U$ such that the matrix of $T$ with respect to $e_1'', \ldots, e_n''$ commutes with its conjugate transpose.
+        By the lemma, there exists an inner product on $U$ that makes the basis $e_1'', \ldots, e_n''$ orthonormal.
+        For any $S \in \lin{U}$, let $\mcal(S)$ denote the matrix of $S$ with respect to the basis $e_1'', \ldots, e_n''$.
+        By 7.9, $\mcal(T^\ast) = \mcal(T)^\ast$, and the hypothesis gives $\mcal(T)\mcal(T)^\ast = \mcal(T)^\ast \mcal(T)$.
+        By 3.43, we have
+        \[
+            \mcal(TT^\ast) = \mcal(T) \mcal(T^\ast) = \mcal(T) \mcal(T)^\ast = \mcal(T)^\ast \mcal(T) = \mcal(T^\ast) \mcal(T) = \mcal(T^\ast T),
+        \]
+        so $TT^\ast = T^\ast T$, and hence $T$ is normal.
+        By the complex spectral theorem, $T$ has a diagonal matrix with respect to some orthonormal basis of $U$, hence $T$ is diagonalizable. \qedhere
+    \end{subexercises}
+\end{sol}
+
 \begin{exercise}{7b25}
     Suppose that $T \in \lin{V}$ and there is an orthonormal basis $e_1, \ldots, e_n$ of $V$ consisting of eigenvectors of $T$, with corresponding eigenvalues $\lambda_1, \ldots, \lambda_n$.
     Show that if $k \in \set{1, \ldots, n}$, then the pseudoinverse $T^\dagger$ satisfies the equation
@@ -169,3 +602,21 @@
         \end{cases}
     \]
 \end{exercise}
+
+\begin{sol}
+    Let $S = \set{k \mid \lambda_k \neq 0}$.
+    For any $v \in V$, we can write
+    \[
+        v = \sum_{i=1}^n \gen{v, e_i} e_i.
+    \]
+    Then
+    \[
+        Tv = \sum_{i=1}^n \gen{v, e_i} Te_i = \sum_{i=1}^n \gen{v, e_i} \lambda_i e_i.
+    \]
+    It follows that $\nul T = \spn(e_j \mid j \notin S)$, and $\range T = \spn(e_i \mid i \in S)$.
+    If $k \notin S$, then $e_k$ is orthogonal to $\range T$, so $P_{\range T} e_k = 0$, and hence $T^\dagger e_k = 0$.
+    If $k \in S$, then $e_k \in \range T$ so that $P_{\range T} e_k = e_k$.
+    Since $\gen{e_k, e_j} = 0$ for all $j \notin S$, and these vectors span $\nul T$, we have $\frac{1}{\lambda_k} e_k \in (\nul T)^\perp$.
+    Since $T(\frac{1}{\lambda_k} e_k) = e_k$, we have that $(T|_{(\nul T)^\perp})\inv e_k = \frac{1}{\lambda_k} e_k$, and hence $T^\dagger e_k = \frac{1}{\lambda_k} e_k$.
+    This is exactly the formula we wanted to show.
+\end{sol}
