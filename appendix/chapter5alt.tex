@@ -6,6 +6,8 @@
 	Prove that $T$ is a scalar multiple of the identity operator.
 \end{apex}
 
+This solution is more elegant than the one provided in the main text, as it avoids the explicit construction of subspaces and instead relies on the intersection of all $k$-dimensional invariant subspaces containing a given vector.
+
 \begin{csp}
     Let $v \in V$ be nonzero. For any $u \notin \operatorname{span}(v)$, we can extend $v$, $u$ to a basis and construct a $k$-dimensional subspace that contains $v$ but not $u$ since $k \in \{1, \dots, \dim V-1\}$. So, the intersection of all $k$-dimensional subspaces containing $v$ is precisely $\operatorname{span}(v)$.
 
@@ -19,6 +21,9 @@
         \item Find all subspaces of $\fbb^n$ that are invariant under $T$.
     \end{subexercises}
 \end{apex}
+
+The solution is meant to generalize to any diagonal operator, showing that the invariant subspaces are precisely the spans of subsets of the standard basis vectors.
+The original solution is meant to show the student the mechanism by which invariant subspaces of a diagonal operator can be determined using the standard basis vectors.
 
 \begin{csp}
     Let $e_1$, $\dots$, $e_n$ be the standard basis of $\mathbb{F}^n$.
@@ -46,6 +51,8 @@
 	Prove that $\set{p(T) \mid p \in \pcal(\fbb)} \neq \lin{V}$.
 \end{apex}
 
+This solution uses the commutativity of operators in $\set{p(T) \mid p \in \pcal(\fbb)}$ to show that not all operators in $\lin{V}$ can be expressed as a polynomial in $T$.
+
 \begin{me}
 	Let $v_1, \ldots, v_n$ be a basis for $V$, with $n = \dim V$.
 	Consider the operators $T_1, T_2 \in \lin V$ defined by
@@ -71,6 +78,8 @@
     Show that every operator on a finite-dimensional vector space of dimension at least two has an invariant subspace of dimension two.
 \end{apex}
 
+This solution uses upper-triangular matrices, which have not appeared in 5B yet, but they provide a convenient way to identify invariant subspaces of dimension two.
+
 \begin{csp}
     If $\mathbb{F}=\mathbb{C}$, the result is immediate: every operator on a finite-dimensional complex vector space has an upper-triangular matrix with respect to some basis $v_1$, $\dots$, $v_n$. Then $\operatorname{span}(v_1,v_2)$ is a $2$-dimensional invariant subspace. Hence, we restrict to $\mathbb{F}=\mathbb{R}$ from now on.
 
@@ -91,6 +100,8 @@
     \]
     on the diagonal.
 \end{apex}
+
+This solution attempts for a direct computation of the entries of $T\inv$.
 
 \begin{me}
     Let $A$ be the matrix of $T$ with respect to the basis $v_1, \ldots, v_n$. 
