@@ -1,0 +1,36 @@
+\subsection{Operators on Inner Product Spaces}
+
+\begin{apex}[7b14]
+    Suppose $\fbb = \rbb$ and $T \in \lin{V}$.
+    Prove that $T$ is self-adjoint if and only if all pairs of eigenvectors corresponding to distinct eigenvalues of $T$ are orthogonal and $V = E(\lambda_1, T) \op \cdots \op E(\lambda_m, T)$, where $\lambda_1, \ldots, \lambda_m$ denote the distinct eigenvalues of $T$.
+\end{apex}
+
+This solution rewrites the backwards direction of the proof, appealing to an orthogonal projection argument rather than the real spectral theorem.
+
+\begin{csp}
+    Let $P_i$ be the orthogonal projection onto $E(\lambda_i, T)$.
+    By hypothesis, eigenvectors corresponding to distinct eigenvalues are orthogonal, so the eigenspaces are mutually orthogonal.
+    Since
+    \[
+        V = \bigoplus_{i=1}^m E(\lambda_i, T),
+    \]
+    these eigenspaces orthogonally decompose $V$, yielding $\sum_{i=1}^m P_i = I$.
+    For any $v \in V$,
+    \[
+        T v = T\left(\sum_{i=1}^m P_i v\right) = \sum_{i=1}^m \lambda_i P_i v \implies T = \sum_{i=1}^m \lambda_i P_i.
+    \]
+    Since each $P_i$ an orthogonal projection onto mutually orthogonal subspaces, $P_i^\ast = P_i$ and $P_i P_j = 0$ for $i \neq j$.
+\end{csp}
+
+\begin{apex}[7b15]
+    Suppose $\fbb = \cbb$ and $T \in \lin{V}$.
+    Prove that $T$ is normal if and only if all pairs of eigenvectors corresponding to distinct eigenvalues of $T$ are orthogonal and $V = E(\lambda_1, T) \op \cdots \op E(\lambda_m, T)$, where $\lambda_1, \ldots, \lambda_m$ denote the distinct eigenvalues of $T$.
+\end{apex}
+
+\begin{csp}
+    Since $T^\ast = \sum_{i=1}^m \bar{\lambda_i} P_i$,
+    \[
+        TT^\ast = \left(\sum_{i=1}^m \lambda_i P_i\right)\left(\sum_{j=1}^m \bar{\lambda_j} P_j\right) = \sum_{i=1}^m |\lambda_i|^2 P_i.
+    \]
+    By symmetry, $T^\ast T$ yields the same sum, so $TT^\ast = T^\ast T$ and $T$ is normal.
+\end{csp}
