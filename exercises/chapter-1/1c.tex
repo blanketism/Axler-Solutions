@@ -472,7 +472,7 @@
     \[
     	U = \set{(x, x, y, y) \in \fbb^4 \mid x, y \in \fbb}.
     \]
-    Find a subspace $W$ of $\fbb^4$ such that $\fbb^4 = U \op W$.
+    Find a subspace $W$ of $\fbb^4$ such that $\fbb^4 = U \oplus W$.
 \end{exercise}
 
 \begin{sol}
@@ -490,7 +490,7 @@
         (y_1, y_2, y_3, y_4) = (y_1, y_1, y_3, y_3) + (0, y_2 - y_1, 0, y_4 - y_3),
     \]
     where $(y_1, y_1, y_3, y_3) \in U$ and $(0, y_2 - y_1, 0, y_4 - y_3) \in W$.
-    Hence, every $x \in \fbb^4$ can be uniquely written as $x = u + w$ for some $u \in U$ and $w \in W$, so $\fbb^4 = U \op W$.
+    Hence, every $x \in \fbb^4$ can be uniquely written as $x = u + w$ for some $u \in U$ and $w \in W$, so $\fbb^4 = U \oplus W$.
 \end{sol}
 
 \begin{exercise}{1c21}
@@ -498,7 +498,7 @@
     \[
     	U = \set{(x, y, x + y, x - y, 2x) \in \fbb^5 \mid x, y \in \fbb}.
     \]
-    Find a subspace $W$ of $\fbb^5$ such that $\fbb^5 = U \op W$.
+    Find a subspace $W$ of $\fbb^5$ such that $\fbb^5 = U \oplus W$.
 \end{exercise}
 
 \begin{sol}
@@ -516,7 +516,7 @@
         (y_1, y_2, y_3, y_4, y_5) = (y_1, y_2, y_1 + y_2, y_1 - y_2, 2y_1) + (0, 0, y_3 - (y_1 + y_2), y_4 - (y_1 - y_2), y_5 - 2y_1),
     \]
     where $(y_1, y_2, y_1 + y_2, y_1 - y_2, 2y_1) \in U$ and $(0, 0, y_3 - (y_1 + y_2), y_4 - (y_1 - y_2), y_5 - 2y_1) \in W$.
-    Hence, every $x \in \fbb^5$ can be written as $x = u + w$ for some $u \in U$ and $w \in W$, so $\fbb^5 = U \op W$.
+    Hence, every $x \in \fbb^5$ can be written as $x = u + w$ for some $u \in U$ and $w \in W$, so $\fbb^5 = U \oplus W$.
 \end{sol}
 
 \begin{exercise}{1c22}
@@ -524,7 +524,7 @@
     \[
     	U = \set{(x, y, x + y, x - y, 2x) \in \fbb^5 \mid x, y \in \fbb}.
     \]
-    Find three subspaces $W_1, W_2, W_3$ of $\fbb^5$, none of which equals $\set 0$, such that $\fbb^5 = U \op W_1 \op W_2 \op W_3$.
+    Find three subspaces $W_1, W_2, W_3$ of $\fbb^5$, none of which equals $\set 0$, such that $\fbb^5 = U \oplus W_1 \oplus W_2 \oplus W_3$.
 \end{exercise}
 
 \begin{sol}
@@ -538,15 +538,15 @@
     \[
         W = \set{(0, 0, z_3, z_4, z_5) \in \fbb^5 \mid z_3, z_4, z_5 \in \fbb}.
     \]
-    It is straightforward to show that $W = W_1 \op W_2 \op W_3$.
-    By \exref{1c21}, we have that $\fbb^5 = U \op W$.
-    By uniqueness of the decomposition of $v \in \fbb^5$ as $v = u + w$ for some $u \in U$ and $w \in W$, and uniqueness of the decomposition of $w \in W$ as $w = w_1 + w_2 + w_3$ for some $w_1 \in W_1$, $w_2 \in W_2$, and $w_3 \in W_3$, we have that $\fbb^5 = U \op W_1 \op W_2 \op W_3$.
+    It is straightforward to show that $W = W_1 \oplus W_2 \oplus W_3$.
+    By \exref{1c21}, we have that $\fbb^5 = U \oplus W$.
+    By uniqueness of the decomposition of $v \in \fbb^5$ as $v = u + w$ for some $u \in U$ and $w \in W$, and uniqueness of the decomposition of $w \in W$ as $w = w_1 + w_2 + w_3$ for some $w_1 \in W_1$, $w_2 \in W_2$, and $w_3 \in W_3$, we have that $\fbb^5 = U \oplus W_1 \oplus W_2 \oplus W_3$.
 \end{sol}
 
 \begin{exercise}{1c23}
     Prove or give a counterexample: If $V_1, V_2, U$ are subspaces of $V$ such that
     \[
-    	V = V_1 \op U \quad \text{ and } \quad V = V_2 \op U,
+    	V = V_1 \oplus U \quad \text{ and } \quad V = V_2 \oplus U,
     \]
     then $V_1 = V_2$.
 
@@ -571,7 +571,7 @@
         (x, y) = (0, y - x) + (x, x),
     \]
     where $(0, y - x) \in V_2$ and $(x, x) \in U$.
-    Hence, $V = V_1 \op U$ and $V = V_2 \op U$, but $V_1 \neq V_2$.
+    Hence, $V = V_1 \oplus U$ and $V = V_2 \oplus U$, but $V_1 \neq V_2$.
 \end{sol}
 
 \begin{exercise}{1c24}
@@ -586,7 +586,7 @@
     \]
     for all $x \in \rbb$.
 	Let $V_e$ denote the set of real-valued even functions on $\rbb$, and let $V_o$ denote the set of real-valued odd functions on $\rbb$.
-	Show that $\rbb^{\rbb} = V_e \op V_o$.
+	Show that $\rbb^{\rbb} = V_e \oplus V_o$.
 \end{exercise}
 
 \begin{sol}
@@ -640,5 +640,5 @@
 
     Finally, if $h \in V_e \cap V_o$, then $h(-x) = h(x)$ and $h(-x) = -h(x)$ for all $x \in \rbb$.
     Hence, $h(x) = -h(x)$, so $h(x) = 0$ for all $x \in \rbb$.
-    Therefore, $V_e \cap V_o = \set 0$, and we conclude that $\rbb^{\rbb} = V_e \op V_o$.
+    Therefore, $V_e \cap V_o = \set 0$, and we conclude that $\rbb^{\rbb} = V_e \oplus V_o$.
 \end{sol}

@@ -382,7 +382,7 @@
 \begin{sol}
     Since $V / U$ is finite-dimensional, let $v_1 + U, \ldots, v_m + U$ be a basis of $V / U$.
 	Let $W = \spn(v_1, \ldots, v_m)$.
-	We show that $V = U \op W$.
+	We show that $V = U \oplus W$.
 	First, note that any $v \in V$ can be written as $v = u + w$ for some $u \in U$ and $w \in W$.
 	Indeed, since $v + U \in V / U$, we can write
     \[
@@ -400,7 +400,7 @@
 	Since we established that $w \in U$, we have $w + U = 0 + U$.
 	But $v_1 + U, \ldots, v_m + U$ are linearly independent in $V / U$, hence $\lambda_1 = \cdots = \lambda_m = 0$, and thus $w = 0$.
 	It follows that $u = 0$ as well, proving that the sum is direct.
-	Therefore, $V = U \op W$.
+	Therefore, $V = U \oplus W$.
 
     Consider the map $T : V \to U \times (V/U)$ given by $Tv = (u, v + U)$, where $v = u + w$ with $u \in U$ and $w \in W$.
 	This map is well-defined because the decomposition $v = u + w$ is unique.
@@ -409,13 +409,13 @@
 \end{sol}
 
 \begin{exercise}{3e14}
-    Suppose $U$ and $W$ are subspaces of $V$ and $V = U \op W$.
+    Suppose $U$ and $W$ are subspaces of $V$ and $V = U \oplus W$.
 	Suppose $w_1, \ldots, w_m$ is a basis of $W$.
 	Prove that $w_1 + U, \ldots, w_m + U$ is a basis of $V / U$.
 \end{exercise}
 
 \begin{sol}
-    Since $V = U \op W$, every $v \in V$ can be written uniquely as $v = u + w$ with $u \in U$ and $w \in W$.
+    Since $V = U \oplus W$, every $v \in V$ can be written uniquely as $v = u + w$ with $u \in U$ and $w \in W$.
 	We claim that $w_1 + U, \ldots, w_m + U$ is a basis of $V / U$.
 	First, we show that they span $V / U$.
 	Let $v + U \in V / U$.
@@ -492,7 +492,7 @@
     Suppose that $U$ is a subspace of $V$ such that $V / U$ is finite-dimensional.
     \begin{subexercises}
         \item Show that if $W$ is a finite-dimensional subspace of $V$ and $V = U + W$, then $\dim W \geq \dim V / U$.
-        \item Prove that there exists a finite-dimensional subspace $W$ of $V$ such that $\dim W = \dim V / U$ and $V = U \op W$.
+        \item Prove that there exists a finite-dimensional subspace $W$ of $V$ such that $\dim W = \dim V / U$ and $V = U \oplus W$.
     \end{subexercises}
 \end{exercise}
 
@@ -538,7 +538,7 @@
     in $V / U$.
 	Since $v_1 + U, \ldots, v_m + U$ are linearly independent, it follows that $\lambda_1 = \cdots = \lambda_m = 0$.
 	Hence, $w = 0$, and we have $U \cap W = \set 0$.
-	Therefore, $V = U \op W$.
+	Therefore, $V = U \oplus W$.
 \end{solenum}
 
 \begin{exercise}{3e19}

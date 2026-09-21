@@ -239,7 +239,7 @@
 
 \begin{exercise}*{7b14}
     Suppose $\fbb = \rbb$ and $T \in \lin{V}$.
-    Prove that $T$ is self-adjoint if and only if all pairs of eigenvectors corresponding to distinct eigenvalues of $T$ are orthogonal and $V = E(\lambda_1, T) \op \cdots \op E(\lambda_m, T)$, where $\lambda_1, \ldots, \lambda_m$ denote the distinct eigenvalues of $T$.
+    Prove that $T$ is self-adjoint if and only if all pairs of eigenvectors corresponding to distinct eigenvalues of $T$ are orthogonal and $V = E(\lambda_1, T) \oplus \cdots \oplus E(\lambda_m, T)$, where $\lambda_1, \ldots, \lambda_m$ denote the distinct eigenvalues of $T$.
 
     \remark{This exercise adds another characterization to the real spectral theorem, where $T$ is self-adjoint if and only if the eigenvectors corresponding to distinct eigenvalues are orthogonal and $V$ decomposes as the direct sum of its eigenspaces.
     In particular, this is the orthogonal analogue of Theorem 5.55.}
@@ -254,13 +254,13 @@
     \leftimp In each $E(\lambda_i, T)$, apply the Gram--Schmidt process to a basis of that eigenspace to obtain an orthonormal basis for that eigenspace.
     By hypothesis, these orthonormal bases for the eigenspaces corresponding to distinct eigenvalues are mutually orthogonal.
     The combined list of these orthonormal bases forms an orthonormal list of eigenvectors of $T$, hence is linearly independent by 6.25.
-    Moreover, this list spans $V$ because $V = E(\lambda_1, T) \op \cdots \op E(\lambda_m, T)$ since each eigenspace is the span of its orthonormal basis obtained via Gram--Schmidt.
+    Moreover, this list spans $V$ because $V = E(\lambda_1, T) \oplus \cdots \oplus E(\lambda_m, T)$ since each eigenspace is the span of its orthonormal basis obtained via Gram--Schmidt.
     Thus, the list is an orthonormal basis of $V$ consisting of eigenvectors of $T$, so $T$ is self-adjoint by the real spectral theorem.
 \end{soliff}
 
 \begin{exercise}*{7b15}
     Suppose $\fbb = \cbb$ and $T \in \lin{V}$.
-    Prove that $T$ is normal if and only if all pairs of eigenvectors corresponding to distinct eigenvalues of $T$ are orthogonal and $V = E(\lambda_1, T) \op \cdots \op E(\lambda_m, T)$, where $\lambda_1, \ldots, \lambda_m$ denote the distinct eigenvalues of $T$.
+    Prove that $T$ is normal if and only if all pairs of eigenvectors corresponding to distinct eigenvalues of $T$ are orthogonal and $V = E(\lambda_1, T) \oplus \cdots \oplus E(\lambda_m, T)$, where $\lambda_1, \ldots, \lambda_m$ denote the distinct eigenvalues of $T$.
 
     \remark{This has the same remark as \exref{7b14} but in the context of the complex spectral theorem.
     It also uses normal operators instead of self-adjoint operators.}

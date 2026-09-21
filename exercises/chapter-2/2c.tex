@@ -33,7 +33,7 @@
         \item Let $U = \set{p \in \pcal_4(\fbb) \mid p(6) = 0}$.
 	Find a basis of $U$.
         \item Extend the basis in (a) to a basis of $\pcal_4(\fbb)$.
-        \item Find a subspace $W$ of $\pcal_4(\fbb)$ such that $\pcal_4(\fbb) = U \op W$.
+        \item Find a subspace $W$ of $\pcal_4(\fbb)$ such that $\pcal_4(\fbb) = U \oplus W$.
     \end{subexercises}
     \remark{Please see remark at the beginning of this section regarding the basis of $U$.}
 \end{exercise}
@@ -69,7 +69,7 @@
 	Since $p(6) = 0$, we have $\alpha = 0$.
 	Thus, $U \cap W = \set{0}$, and so we have
     \[
-    	\pcal_4(\fbb) = U \op W. \qedhere
+    	\pcal_4(\fbb) = U \oplus W. \qedhere
     \]
 \end{solenum}
 
@@ -78,7 +78,7 @@
         \item Let $U = \set{p \in \pcal_4(\rbb) \mid p''(6) = 0}$.
 	Find a basis of $U$.
         \item Extend the basis in (a) to a basis of $\pcal_4(\rbb)$.
-        \item Find a subspace $W$ of $\pcal_4(\rbb)$ such that $\pcal_4(\rbb) = U \op W$.
+        \item Find a subspace $W$ of $\pcal_4(\rbb)$ such that $\pcal_4(\rbb) = U \oplus W$.
     \end{subexercises}
     \remark{Please see remark at the beginning of this section regarding the basis of $U$.}
 \end{exercise}
@@ -118,7 +118,7 @@
 	Since $p''(6) = 0$, we have $2\alpha = 0$, which implies that $\alpha = 0$.
 	Thus, $U \cap W = \set{0}$, and so we have
     \[
-    	\pcal_4(\rbb) = U \op W. \qedhere
+    	\pcal_4(\rbb) = U \oplus W. \qedhere
     \]
 \end{solenum}
 
@@ -127,7 +127,7 @@
         \item Let $U = \set{p \in \pcal_4(\fbb) \mid p(2) = p(5)}$.
 	Find a basis of $U$.
         \item Extend the basis in (a) to a basis of $\pcal_4(\fbb)$.
-        \item Find a subspace $W$ of $\pcal_4(\fbb)$ such that $\pcal_4(\fbb) = U \op W$.
+        \item Find a subspace $W$ of $\pcal_4(\fbb)$ such that $\pcal_4(\fbb) = U \oplus W$.
     \end{subexercises}
     \remark{Please see remark at the beginning of this section regarding the basis of $U$.}
 \end{exercise}
@@ -167,7 +167,7 @@
 	Since $p(2) = p(5)$, we have $2\alpha = 5\alpha$, which implies that $\alpha = 0$.
 	Thus, $U \cap W = \set{0}$, and so we have
     \[
-    	\pcal_4(\fbb) = U \op W. \qedhere
+    	\pcal_4(\fbb) = U \oplus W. \qedhere
     \]
 \end{solenum}
 
@@ -176,7 +176,7 @@
         \item Let $U = \set{p \in \pcal_4(\fbb) \mid p(2) = p(5) = p(6)}$.
 	Find a basis of $U$.
         \item Extend the basis in (a) to a basis of $\pcal_4(\fbb)$.
-        \item Find a subspace $W$ of $\pcal_4(\fbb)$ such that $\pcal_4(\fbb) = U \op W$.
+        \item Find a subspace $W$ of $\pcal_4(\fbb)$ such that $\pcal_4(\fbb) = U \oplus W$.
     \end{subexercises}
     \remark{Please see remark at the beginning of this section regarding the basis of $U$.}
 \end{exercise}
@@ -231,7 +231,7 @@
     Solving this system of equations, we find that $\alpha = \beta = 0$.
 	Thus, $U \cap W = \set{0}$, and so we have
     \[
-    	\pcal_4(\fbb) = U \op W. \qedhere
+    	\pcal_4(\fbb) = U \oplus W. \qedhere
     \]
 \end{solenum}
 
@@ -243,7 +243,7 @@
         \]
         Find a basis of $U$.
         \item Extend the basis in (a) to a basis of $\pcal_4(\rbb)$.
-        \item Find a subspace $W$ of $\pcal_4(\rbb)$ such that $\pcal_4(\rbb) = U \op W$.
+        \item Find a subspace $W$ of $\pcal_4(\rbb)$ such that $\pcal_4(\rbb) = U \oplus W$.
     \end{subexercises}
     \remark{Please see remark at the beginning of this section regarding the basis of $U$.}
 \end{exercise}
@@ -282,7 +282,7 @@
 	Since the integral of a constant over a symmetric interval is nonzero unless the function is identically zero, we have $\alpha = 0$.
 	Thus, $U \cap W = \set{0}$, and so we have
     \[
-    	\pcal_4(\rbb) = U \op W. \qedhere
+    	\pcal_4(\rbb) = U \oplus W. \qedhere
     \]
 \end{solenum}
 
@@ -379,7 +379,7 @@
 
 \begin{exercise}{2c12}
     Suppose that $U$ and $W$ are subspaces of $\rbb^8$ such that $\dim U = 3$, $\dim W = 5$, and $U + W = \rbb^8$.
-	Prove that $\rbb^8 = U \op W$.
+	Prove that $\rbb^8 = U \oplus W$.
 \end{exercise}
 
 \begin{sol}
@@ -395,7 +395,7 @@
     which implies that $\dim(U \cap W) = 0$.
 	Therefore, $U \cap W = \set{0}$, and so we have
     \[
-    	\rbb^8 = U \op W. \qedhere
+    	\rbb^8 = U \oplus W. \qedhere
     \]
 \end{sol}
 
@@ -555,7 +555,7 @@
     Suppose $V$ is finite-dimensional, with $\dim V = n \geq 1$.
 	Prove that there exist one-dimensional subspaces $V_1, \ldots, V_n$ of $V$ such that
     \[
-    	V = V_1 \op \cdots \op V_n.
+    	V = V_1 \oplus \cdots \oplus V_n.
     \]
 \end{exercise}
 
@@ -570,7 +570,7 @@
     and the sum is direct because the basis vectors are linearly independent.
 	Therefore, we have
     \[
-    	V = V_1 \op \cdots \op V_n. \qedhere
+    	V = V_1 \oplus \cdots \oplus V_n. \qedhere
     \]
 \end{sol}
 

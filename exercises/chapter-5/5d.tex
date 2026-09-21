@@ -36,7 +36,7 @@
 
 \begin{exercise}{5d3}
     Suppose $V$ is finite-dimensional and $T \in \lin{V}$.
-    Prove that if the operator $T$ is diagonalizable, then $V = \nul T \op \range T$.
+    Prove that if the operator $T$ is diagonalizable, then $V = \nul T \oplus \range T$.
 \end{exercise}
 
 \begin{sol}
@@ -44,15 +44,15 @@
     Let $\lambda_1, \ldots, \lambda_m$ denote the distinct eigenvalues of $T$.
     Then
     \[
-        V = E(\lambda_1, T) \op \cdots \op E(\lambda_m, T).
+        V = E(\lambda_1, T) \oplus \cdots \oplus E(\lambda_m, T).
     \]
-    If 0 is not an eigenvalue of $T$, then $\nul T = \set{0}$ and $\range T = V$, so $V = \nul T \op \range T$.
+    If 0 is not an eigenvalue of $T$, then $\nul T = \set{0}$ and $\range T = V$, so $V = \nul T \oplus \range T$.
     If 0 is an eigenvalue of $T$, then we may assume $\lambda_1 = 0$.
     Let
     \[
-        U = E(\lambda_2, T) \op \cdots \op E(\lambda_m, T).
+        U = E(\lambda_2, T) \oplus \cdots \oplus E(\lambda_m, T).
     \]
-    Since $\nul T = E(0, T)$, we have $V = \nul T \op U$.
+    Since $\nul T = E(0, T)$, we have $V = \nul T \oplus U$.
     It remains to show that $U = \range T$.
 
     Let $u \in U$.
@@ -68,21 +68,21 @@
     Note that eigenspaces are invariant as follows: If $u \in E(\lambda_k, T)$, then $T(u) = \lambda_k u \in E(\lambda_k, T)$.
     Since $U$ is a direct sum of eigenspaces, it is invariant under $T$.
     Then $v = T(w)$ for some $w \in V$.
-    Since $V = \nul T \op U$, we may write $w = w_1 + w_2$ for some $w_1 \in \nul T$ and $w_2 \in U$.
+    Since $V = \nul T \oplus U$, we may write $w = w_1 + w_2$ for some $w_1 \in \nul T$ and $w_2 \in U$.
     Then
     \[
         v = T(w) = T(w_1 + w_2) = T(w_1) + T(w_2) = 0 + T(w_2) = T(w_2) \in U.
     \]
     Thus, $\range T \subseteq U$.
     Since $U \subseteq \range T$ and $\range T \subseteq U$, we have $U = \range T$.
-    Therefore, $V = \nul T \op U = \nul T \op \range T$.
+    Therefore, $V = \nul T \oplus U = \nul T \oplus \range T$.
 \end{sol}
 
 \begin{exercise}{5d4}
     Suppose $V$ is finite-dimensional and $T \in \lin{V}$.
     Prove that the following are equivalent.
     \begin{subexercises}
-        \item $V = \nul T \op \range T$.
+        \item $V = \nul T \oplus \range T$.
         \item $V = \nul T + \range T$.
         \item $\nul T \cap \range T = \set{0}$.
     \end{subexercises}
@@ -91,7 +91,7 @@
 \begin{sol}
     \leavevmode
 
-    \noindent(a) $\implies$ (b): If $V = \nul T \op \range T$, then $V = \nul T + \range T$.
+    \noindent(a) $\implies$ (b): If $V = \nul T \oplus \range T$, then $V = \nul T + \range T$.
     
     \noindent(b) $\implies$ (c): If $V = \nul T + \range T$, then $\dim V = \dim \nul T + \dim \range T - \dim(\nul T \cap \range T)$.
     Since $\dim V = \dim \nul T + \dim \range T$ by the fundamental theorem of linear maps, we have $\dim(\nul T \cap \range T) = 0$, so $\nul T \cap \range T = \set{0}$.
@@ -109,14 +109,14 @@
     \]
 
     Since $\nul T + \range T \subseteq V$ and $\dim(\nul T + \range T) = \dim V$, we have $\nul T + \range T = V$.
-    Along with the assumption that $\nul T \cap \range T = \set{0}$, we have $V = \nul T \op \range T$.
+    Along with the assumption that $\nul T \cap \range T = \set{0}$, we have $V = \nul T \oplus \range T$.
 \end{sol}
 
 \begin{exercise}{5d5}
     Suppose $V$ is a finite-dimensional complex vector space and $T \in \lin{V}$.
     Prove that $T$ is diagonalizable if and only if
     \[
-        V = \nul(T - \lambda I) \op \range(T - \lambda I)
+        V = \nul(T - \lambda I) \oplus \range(T - \lambda I)
     \]
     for every $\lambda \in \cbb$.
 \end{exercise}
@@ -126,19 +126,19 @@
     Let $\lambda \in \cbb$.
     Since $T$ is diagonalizable, we have
     \[
-        V = E(\lambda_1, T) \op \cdots \op E(\lambda_m, T)
+        V = E(\lambda_1, T) \oplus \cdots \oplus E(\lambda_m, T)
     \]
     for some distinct eigenvalues $\lambda_1, \ldots, \lambda_m$ of $T$.
     If $\lambda$ is not an eigenvalue of $T$, then $\nul(T - \lambda I) = \set{0}$ and $\range(T - \lambda I) = V$, so
     \[
-        V = \nul(T - \lambda I) \op \range(T - \lambda I).
+        V = \nul(T - \lambda I) \oplus \range(T - \lambda I).
     \]
     If $\lambda$ is an eigenvalue of $T$, then we may assume $\lambda_1 = \lambda$.
     Let
     \[
-        U = E(\lambda_2, T) \op \cdots \op E(\lambda_m, T).
+        U = E(\lambda_2, T) \oplus \cdots \oplus E(\lambda_m, T).
     \]
-    Then $V = E(\lambda, T) \op U$.
+    Then $V = E(\lambda, T) \oplus U$.
     It remains to show that $U = \range(T - \lambda I)$.
 
     By dimension counting, we have
@@ -162,7 +162,7 @@
     Hence, $u = u_2 + \cdots + u_m = 0$, so $T - \lambda I$ is injective on $U$.
     Since $\dim U = \dim \range(T - \lambda I)$ and $U$ is invariant under $T - \lambda I$, we have $U = \range(T - \lambda I)$.
 
-    Conversely, suppose $V = \nul(T - \lambda I) \op \range(T - \lambda I)$ for every $\lambda \in \cbb$.
+    Conversely, suppose $V = \nul(T - \lambda I) \oplus \range(T - \lambda I)$ for every $\lambda \in \cbb$.
     Then $\nul(T - \lambda I) \cap \range(T - \lambda I) = \set{0}$ for every $\lambda \in \cbb$.
     Note that $T - \lambda I$ restricted to $\range(T - \lambda I)$ is injective, so $\lambda$ is not an eigenvalue of $T|_{\range(T - \lambda I)}$.
     Then the minimal polynomial of $T|_{\range(T - \lambda I)}$ does not have $\lambda$ as a root.
@@ -230,11 +230,11 @@
     For every nonzero eigenvalue $\lambda$ of $T$ and every $v \in E(\lambda, T)$, we have $v = T(\lambda\inv v) \in \range T$, so $E(\lambda, T) \subseteq \range T$.
     Since eigenspaces corresponding to distinct eigenvalues are linearly independent, we have
     \[
-        E(\lambda_1, T) \op \cdots \op E(\lambda_m, T) \subseteq \range T.
+        E(\lambda_1, T) \oplus \cdots \oplus E(\lambda_m, T) \subseteq \range T.
     \]
     It follows that
     \[
-        \dim E(\lambda_1, T) + \cdots + \dim E(\lambda_m, T) = \dim(E(\lambda_1, T) \op \cdots \op E(\lambda_m, T)) \leq \dim \range T. \qedhere
+        \dim E(\lambda_1, T) + \cdots + \dim E(\lambda_m, T) = \dim(E(\lambda_1, T) \oplus \cdots \oplus E(\lambda_m, T)) \leq \dim \range T. \qedhere
     \]
 \end{sol}
 
@@ -439,7 +439,7 @@
 \begin{exercise}{5d16}
     Suppose that $T \in \lin{V}$ is diagonalizable.
     Let $\lambda_1, \ldots, \lambda_m$ denote the distinct eigenvalues of $T$.
-    Prove that a subspace $U$ of $V$ is invariant under $T$ if and only if there exist subspaces $U_1, \ldots, U_m$ of $V$ such that $U_k \subseteq E(\lambda_k, T)$ for each $k$ and $U = U_1 \op \cdots \op U_m$.
+    Prove that a subspace $U$ of $V$ is invariant under $T$ if and only if there exist subspaces $U_1, \ldots, U_m$ of $V$ such that $U_k \subseteq E(\lambda_k, T)$ for each $k$ and $U = U_1 \oplus \cdots \oplus U_m$.
 \end{exercise}
 
 \begin{sol}
@@ -456,9 +456,9 @@
         u = u_1 + \cdots + u_m, \quad u_k \in E(\lambda_k, T).
     \]
     Then $p_k(T)(u) = u_k \in U$ for each $k$, so $u_k \in U_k$ for each $k$.
-    Hence, $U = U_1 \op \cdots \op U_m$.
+    Hence, $U = U_1 \oplus \cdots \oplus U_m$.
 
-    Conversely, suppose there exist subspaces $U_1, \ldots, U_m$ of $V$ such that $U_k \subseteq E(\lambda_k, T)$ for each $k$ and $U = U_1 \op \cdots \op U_m$.
+    Conversely, suppose there exist subspaces $U_1, \ldots, U_m$ of $V$ such that $U_k \subseteq E(\lambda_k, T)$ for each $k$ and $U = U_1 \oplus \cdots \oplus U_m$.
     Then for each $u \in U$, we have
     \[
         u = u_1 + \cdots + u_m, \quad u_k \in U_k.

@@ -39,7 +39,7 @@
     Since each $f_j$ is constructed to be orthogonal to all previous vectors in the Gram--Schmidt process, it follows that each $f_j$ is orthogonal to every $e_k$ for $k = 1, \ldots, m$.
     Hence, $f_1, \ldots, f_n \in U^\perp$.
     Additionally, $f_1, \ldots, f_n$ is an orthonormal list in $U^\perp$ because the Gram--Schmidt procedure produces orthonormal vectors.
-    By Theorem 6.49, $V = U \op U^\perp$, so $\dim U + \dim U^\perp = \dim V$.
+    By Theorem 6.49, $V = U \oplus U^\perp$, so $\dim U + \dim U^\perp = \dim V$.
     Since $\dim U = m$ and $\dim V = m + n$, we have $\dim U^\perp = n$.
     Therefore, $f_1, \ldots, f_n$ is an orthonormal basis of $U^\perp$.
 \end{sol}
@@ -215,13 +215,13 @@
 
 \begin{sol}
     Let $U = \range P$.
-    By \exref{3b27}, $P^2 = P$ implies $V = U \op \nul P$.
+    By \exref{3b27}, $P^2 = P$ implies $V = U \oplus \nul P$.
     Since every $v \in \nul P$ is orthogonal to every $u \in U$, we have $\nul P \subseteq U^\perp$.
     From the fundamental theorem of linear maps,
     \[
         \dim \nul P = \dim V - \dim U = \dim U^\perp.
     \]
-    Hence, $\nul P = U^\perp$, so $V = U \op U^\perp$.
+    Hence, $\nul P = U^\perp$, so $V = U \oplus U^\perp$.
     Then for any $x \in V$, we can write $x = u + w$ for some $u \in U$ and $w \in U^\perp$.
     Since $u \in \range P$ and $P^2 = P$, we have $Pu = u$.
     Then $Px = P(u + w) = Pu + Pw = u + 0 = u = P_U x$, so $P = P_U$.
@@ -238,7 +238,7 @@
 
 \begin{sol}
     Let $U = \range P$.
-    From \exref{3b27}, $P^2 = P$ implies $V = U \op \nul P$.
+    From \exref{3b27}, $P^2 = P$ implies $V = U \oplus \nul P$.
     Let $w \in \nul P$ and $u \in U$.
     For every $\alpha \in \fbb$,
     \[
@@ -250,7 +250,7 @@
     \[
         \dim \nul P = \dim V - \dim U = \dim U^\perp.
     \]
-    Hence, $\nul P = U^\perp$, so $V = U \op U^\perp$.
+    Hence, $\nul P = U^\perp$, so $V = U \oplus U^\perp$.
     For any $v \in V$, write $v = u + w$ with $u \in U$ and $w \in U^\perp = \nul P$.
     Then $Pv = Pu + Pw = Pu = u = P_U v$, where $Pu = u$ since $u \in \range P$ and $P^2 = P$.
     Hence, $P = P_U$.
@@ -404,7 +404,7 @@
     Since $x^2 g(x)^2 \geq 0$ for all $x \in [-1, 1]$, it follows that $x^2 g(x)^2 = 0$ for all $x \in [-1, 1]$.
     Therefore, $g(x) = 0$ for all $x \in [-1, 1] \setminus \set 0$, and by continuity, $g(0) = 0$ as well.
     Hence, $g = 0$, so $U^\perp = \set{0}$.
-    \item 6.49 asserts that $V = U \op U^\perp$, but $U^\perp = \set{0}$, so $U \op U^\perp = U \neq C[-1, 1]$ since the constant function $1$ is not in $U$.
+    \item 6.49 asserts that $V = U \oplus U^\perp$, but $U^\perp = \set{0}$, so $U \oplus U^\perp = U \neq C[-1, 1]$ since the constant function $1$ is not in $U$.
     6.52 asserts that $(U^\perp)^\perp = U$, but $(U^\perp)^\perp = \set{0}^\perp = C[-1, 1] \neq U$.
 \end{solenum}
 
@@ -567,7 +567,7 @@
 \end{exercise}
 
 \begin{sol}
-    Let $V = \nul T \op (\nul T)^\perp$ so that any $v \in V$ can be written as $v = u + w$ with $u \in \nul T$ and $w \in (\nul T)^\perp$.
+    Let $V = \nul T \oplus (\nul T)^\perp$ so that any $v \in V$ can be written as $v = u + w$ with $u \in \nul T$ and $w \in (\nul T)^\perp$.
     For the first equality, we have $Tv = Tw \in \range T$.
     Then $T^\dagger Tw = w$ since $T^\dagger$ restricted to $\range T$ is the inverse of $T$ restricted to $(\nul T)^\perp$.
     Hence,
