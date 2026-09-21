@@ -11,7 +11,7 @@
 
     \leftimp Let $T$ be a normal operator on a complex inner product space.
     By the complex spectral theorem, there exists an orthonormal basis such that $\mcal(T)$ is diagonal with respect to that basis.
-    By 7.9, the diagonal entries of $\mcal(T)$ are some $\lambda_1, \ldots, \lambda_n$, and the diagonal entries of $\mcal(T^\ast)$ are $\bar{\lambda_1}, \ldots, \bar{\lambda_n}$.
+    By the complex spectral theorem, the diagonal entries of $\mcal(T)$ are some $\lambda_1, \ldots, \lambda_n$, and the diagonal entries of $\mcal(T^\ast)$ are $\bar{\lambda_1}, \ldots, \bar{\lambda_n}$.
     If all the eigenvalues of $T$ are real, then $\lambda_i = \bar{\lambda_i}$ for all $i$, so $\mcal(T) = \mcal(T^\ast)$, which implies $T = T^\ast$.
 \end{soliff}
 
@@ -54,7 +54,8 @@
 \end{exercise}
 
 \begin{soliff}
-    \rightimp From 7.21(e), we know that $Tv = \lambda v$ implies $T^\ast v = \bar\lambda v$.
+    \rightimp Let $v \in V$ be an eigenvector of $T$ with eigenvalue $\lambda$.
+    From 7.21(e), we know that $Tv = \lambda v$ implies $T^\ast v = \bar\lambda v$.
     If $T$ is skew, then $T = -T^\ast$, so $Tv = -T^\ast v = -\bar\lambda v$.
     Therefore, $\lambda = -\bar\lambda$, which means $\lambda$ is purely imaginary.
 
@@ -91,12 +92,13 @@
 \end{exercise}
 
 \begin{sol}
-    By the complex spectral theorem, there exists an orthonormal basis of eigenvectors of $T$.
-    Let $e_i$ be an orthonormal eigenvector of $T$ with eigenvalue $\lambda_i$.
+    By the complex spectral theorem, there exists an orthonormal basis $e_1, \ldots, e_n$ of eigenvectors of $T$ with corresponding eigenvalues $\lambda_1, \ldots, \lambda_n$.
+    Define $T e_i = \lambda_i e_i$ for each $i = 1, \ldots, n$.
     From $T^9 = T^8$, we have $\lambda_i^9 = \lambda_i^8$, which implies $\lambda_i^8(\lambda_i - 1) = 0$.
     This gives $\lambda_i \in \set{0, 1}$.
     By \exref{7b1}, since all eigenvalues of $T$ are real, $T$ is self-adjoint.
-    Moreover, since each eigenvalue $\lambda_i$ satisfies $\lambda_i \in \set{0, 1}$, we have $T^2 = T$.
+    Moreover, since each eigenvalue $\lambda_i$ satisfies $\lambda_i \in \set{0, 1}$, we have $\lambda_i^2 = \lambda_i$ for each $i$, so $T^2 e_i = \lambda_i^2 e_i = \lambda_i e_i = T e_i$ for each $i = 1, \ldots, n$.
+    Since $T^2$ and $T$ agree on the basis, $T^2 = T$ by 3.4.
 \end{sol}
 
 \begin{exercise}{7b7}
@@ -146,8 +148,10 @@
     Of the eigenvalues, let $\mu_1, \ldots, \mu_m$ be the distinct ones.
     By \exref{4-7}, there exists a polynomial $p \in \pcal(\cbb)$ such that $p(\mu_i) = \bar{\mu_i}$ for all $i \in \set{1, \ldots, m}$.
     Since each eigenvalue $\lambda_i$ is equal to some $\mu_j$, we have $p(\lambda_i) = \bar{\lambda_i}$ for all $i$.
-    Therefore, $T^\ast e_i = \bar{\lambda_i} e_i = p(T) e_i$ for all $i$.
-    Since $T^\ast$ and $p(T)$ agree on a basis of $V$, we have $T^\ast = p(T)$.
+    Because $T$ is normal and $T e_i = \lambda_i e_i$, we have $T^\ast e_i = \bar{\lambda_i} e_i$ by 7.21(e).
+    Also, $p(T) e_i = p(\lambda_i) e_i = \bar{\lambda_i} e_i$.
+    Hence, $T^\ast e_i = p(T) e_i$ for all $i$.
+    Since $T^\ast$ and $p(T)$ agree on a basis of $V$, we have $T^\ast = p(T)$ by 3.4.
 
     \leftimp Suppose $T^\ast = p(T)$ for some polynomial $p \in \pcal(\cbb)$.
     Since $T$ commutes with $p(T)$, we have $T T^\ast = T p(T) = p(T) T = T^\ast T$, so $T$ is normal.
@@ -195,10 +199,13 @@
 \end{sol}
 
 \begin{exercise}{7b12}
-    Suppose $V$ is a complex vector space and $T \in \lin{V}$ is normal.
+    Suppose $V$ is a complex inner product space and $T \in \lin{V}$ is normal.
     Prove that if $S$ is an operator on $V$ that commutes with $T$, then $S$ commutes with $T^\ast$.
 
     \note{The result in this exercise is called \term{Fuglede's theorem}.}
+
+    \remark{The original exercise statement said "Suppose $V$ is a complex vector space...".
+    I believe this to be an oversight, since $T^\ast$ is defined using the inner product.}
 \end{exercise}
 
 \begin{sol}
