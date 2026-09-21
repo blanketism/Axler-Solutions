@@ -5,11 +5,15 @@
     Prove that $S$ is an isometry if and only if $Se_1, Se_2$ is an orthonormal list in $W$ for every orthonormal list $e_1, e_2$ of length two in $V$.
 \end{exercise}
 
+\begin{sol}
+    $\ip{u, t, r}$.
+\end{sol}
+
 \begin{exercise}{7d2}
     Suppose $T \in \lin{V, W}$.
     Prove that $T$ is a scalar multiple of an isometry if and only if $T$ preserves orthogonality.
 
-    \note{The phrase ``$T$ preserves orthogonality'' means that $\gen{Tu, Tv} = 0$ for all $u, v \in V$ such that $\gen{u, v} = 0$.}
+    \note{The phrase ``$T$ preserves orthogonality'' means that $\ip{Tu, Tv} = 0$ for all $u, v \in V$ such that $\ip{u, v} = 0$.}
 \end{exercise}
 
 \begin{exercise}{7d3}
@@ -42,7 +46,7 @@
 \end{exercise}
 
 \begin{exercise}{7d7}
-    Give an example of two self-adjoint operators $T_1, T_2 \in \lin{\fbb^4}$ such that the eigenvalues of both operators are $2, 5, 7$ but there does not exist a unitary operator $S \in \lin{\fbb^4}$ such that $T_1 = S^\ast T_2 S$.
+    Give an example of two self-adjoint operators $T_1, T_2 \in \lin{\fbb^4}$ such that the eigenvalues of both operators are $2, 5, 7$, but there does not exist a unitary operator $S \in \lin{\fbb^4}$ such that $T_1 = S^\ast T_2 S$.
     Be sure to explain why there is no unitary operator with the required property.
 \end{exercise}
 
@@ -83,7 +87,7 @@
 \begin{exercise}{7d14}
     Suppose $v \in V$ with $\norm{v} = 1$ and $b \in \fbb$.
     Also suppose $\dim V \geq 2$.
-    Prove that there exists a unitary operator $S \in \lin{V}$ such that $\gen{Sv, v} = b$ if and only if $|b| \leq 1$.
+    Prove that there exists a unitary operator $S \in \lin{V}$ such that $\ip{Sv, v} = b$ if and only if $|b| \leq 1$.
 \end{exercise}
 
 \begin{exercise}{7d15}

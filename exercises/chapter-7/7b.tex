@@ -346,7 +346,7 @@
     Now consider each eigenspace under the inner product inherited from $V$, and let $\ecal_i = \set{S|_{E(\lambda_i, T)} \mid S \in \ecal}$.
     For any $u, w \in E(\lambda_i, T)$,
     \[
-        \gen{S|_{E(\lambda_i, T)} u, w} = \gen{Su, w} = \gen{u, Sw} = \gen{u, S|_{E(\lambda_i, T)} w}
+        \ip{S|_{E(\lambda_i, T)} u, w} = \ip{Su, w} = \ip{u, Sw} = \ip{u, S|_{E(\lambda_i, T)} w}
     \]
     so that each $S|_{E(\lambda_i, T)}$ is a self-adjoint operator on $E(\lambda_i, T)$.
     Furthermore, for any $S|_{E(\lambda_i, T)}, R|_{E(\lambda_i, T)} \in \ecal_i$, we have
@@ -401,13 +401,13 @@
 \begin{solenum}
     \item For any $u \in U$ and $w \in U^\perp$, we have
     \[
-        \gen{T w, u} = \gen{w, T u} = 0
+        \ip{T w, u} = \ip{w, T u} = 0
     \]
     since $T u \in U$.
     Hence, $T w \in U^\perp$.
     \item For any $u_1, u_2 \in U$, we have
     \[
-        \gen{T|_U u_1, u_2} = \gen{T u_1, u_2} = \gen{u_1, T u_2} = \gen{u_1, T|_U u_2}.
+        \ip{T|_U u_1, u_2} = \ip{T u_1, u_2} = \ip{u_1, T u_2} = \ip{u_1, T|_U u_2}.
     \]
     Hence, $T|_U$ is self-adjoint.
     \item Applying the same argument as in part (b) to $U^\perp$ gives the conclusion.
@@ -430,43 +430,43 @@
 \begin{solenum}
     \item [(b)] If $U = \set 0$, the result is immediate since the zero subspace is invariant under any operator.
     Otherwise, let $e_1, \ldots, e_n$ be an orthonormal basis of $U$.
-    By definition of $P_U$, we have for all $v \in V$ that $P_U v = \sum_{i=1}^n \gen{v, e_i} e_i$.
+    By definition of $P_U$, we have for all $v \in V$ that $P_U v = \sum_{i=1}^n \ip{v, e_i} e_i$.
     Moreover, the Pythagorean theorem gives $\norm{v}^2 = \norm{P_U v}^2 + \norm{v - P_U v}^2$.
-    Hence, $\norm{v}^2 = \sum_{i=1}^n |\gen{v, e_i}|^2$ if and only if $v \in U$.
+    Hence, $\norm{v}^2 = \sum_{i=1}^n |\ip{v, e_i}|^2$ if and only if $v \in U$.
     
     Now, for each $j = 1, \ldots, n$, the invariance of $U$ under $T$ gives $T e_j \in U$.
     Hence,
     \[
-        \norm{T e_j}^2 = \sum_{i=1}^n |\gen{T e_j, e_i}|^2.
+        \norm{T e_j}^2 = \sum_{i=1}^n |\ip{T e_j, e_i}|^2.
     \]
     By Bessel's inequality, we have for all $j = 1, \ldots, n$ that
     \[
-        \norm{T^\ast e_j}^2 \geq \sum_{i=1}^n |\gen{T^\ast e_j, e_i}|^2 = \sum_{i=1}^n |\gen{e_j, T e_i}|^2.
+        \norm{T^\ast e_j}^2 \geq \sum_{i=1}^n |\ip{T^\ast e_j, e_i}|^2 = \sum_{i=1}^n |\ip{e_j, T e_i}|^2.
     \]
     Since $T$ is normal, we have $\norm{T^\ast e_j} = \norm{T e_j}$ for each $j = 1, \ldots, n$.
     Summing over $j = 1, \ldots, n$ gives
     \[
-        \sum_{j=1}^n \norm{T e_j}^2 = \sum_{j=1}^n \norm{T^\ast e_j}^2 \geq \sum_{j=1}^n \sum_{i=1}^n |\gen{T^\ast e_j, e_i}|^2 = \sum_{i=1}^n \sum_{j=1}^n |\gen{e_j, T e_i}|^2 = \sum_{i=1}^n \norm{T e_i}^2,
+        \sum_{j=1}^n \norm{T e_j}^2 = \sum_{j=1}^n \norm{T^\ast e_j}^2 \geq \sum_{j=1}^n \sum_{i=1}^n |\ip{T^\ast e_j, e_i}|^2 = \sum_{i=1}^n \sum_{j=1}^n |\ip{e_j, T e_i}|^2 = \sum_{i=1}^n \norm{T e_i}^2,
     \]
     where $T e_i \in U$ by the invariance of $U$ under $T$.
     Since the first and last sums in the inequality are equal, equality must hold throughout.
     In particular,
     \[
-        \sum_{j=1}^n \left(\norm{T^\ast e_j}^2 - \sum_{i=1}^n |\gen{T^\ast e_j, e_i}|^2\right) = 0.
+        \sum_{j=1}^n \left(\norm{T^\ast e_j}^2 - \sum_{i=1}^n |\ip{T^\ast e_j, e_i}|^2\right) = 0.
     \]
     By Bessel's inequality, each term in the sum is nonnegative. Hence, each term must be zero, and
     \[
-        \norm{T^\ast e_j}^2 - \sum_{i=1}^n |\gen{T^\ast e_j, e_i}|^2 = 0 \quad \text{for each } j = 1, \ldots, n.
+        \norm{T^\ast e_j}^2 - \sum_{i=1}^n |\ip{T^\ast e_j, e_i}|^2 = 0 \quad \text{for each } j = 1, \ldots, n.
     \]
     The above equality shows that $T^\ast e_j \in U$ for each $j = 1, \ldots, n$.
     The linearity of $T^\ast$ then implies that $T^\ast u \in U$ for all $u \in U$, so $U$ is invariant under $T^\ast$.
     \item [(a)] Let $w \in U^\perp$ and $u \in U$.
-    Using (b), $T^\ast u \in U$, so $\gen{w, T^\ast u} = \gen{T w, u} = 0$.
+    Using (b), $T^\ast u \in U$, so $\ip{w, T^\ast u} = \ip{T w, u} = 0$.
     Hence, $T w \in U^\perp$, and $U^\perp$ is invariant under $T$.
     \item [(c)] By (b), we know $(T^\ast)|_U \in \lin{U}$.
     Then for all $x, y \in U$, we have
     \[
-        \gen{(T|_U)y, x} = \gen{T y, x} = \gen{y, T^\ast x} = \gen{y, (T^\ast)|_U x}.
+        \ip{(T|_U)y, x} = \ip{T y, x} = \ip{y, T^\ast x} = \ip{y, (T^\ast)|_U x}.
     \]
     Since the adjoint is unique, we conclude that $(T|_U)^\ast = (T^\ast)|_U$.
     \item [(d)] For any $u' \in U$, (b) gives $T^\ast u' \in U$.
@@ -582,9 +582,9 @@
     Hence, $\phi$ is injective.
     As in \exref{6a2}, applied verbatim to a linear map rather than a linear operator, we may define an inner product on $U$ as
     \[
-        \gen{u, v} = \gen{\phi(u), \phi(v)} \quad \text{for all } u, v \in U.
+        \ip{u, v} = \ip{\phi(u), \phi(v)} \quad \text{for all } u, v \in U.
     \]
-    Moreover, $\gen{e_i, e_j} = \gen{f_i, f_j} = \delta_{ij}$ for all $i, j$, so the basis $e_1, \ldots, e_n$ is orthonormal with respect to this inner product.
+    Moreover, $\ip{e_i, e_j} = \ip{f_i, f_j} = \delta_{ij}$ for all $i, j$, so the basis $e_1, \ldots, e_n$ is orthonormal with respect to this inner product.
     This completes the proof of the lemma.
     \begin{subexercises}
         \item \rightimp Suppose $T$ is diagonalizable.
@@ -633,16 +633,16 @@
     Let $S = \set{k \mid \lambda_k \neq 0}$.
     For any $v \in V$, we can write
     \[
-        v = \sum_{i=1}^n \gen{v, e_i} e_i.
+        v = \sum_{i=1}^n \ip{v, e_i} e_i.
     \]
     Then
     \[
-        Tv = \sum_{i=1}^n \gen{v, e_i} Te_i = \sum_{i=1}^n \gen{v, e_i} \lambda_i e_i.
+        Tv = \sum_{i=1}^n \ip{v, e_i} Te_i = \sum_{i=1}^n \ip{v, e_i} \lambda_i e_i.
     \]
     It follows that $\nul T = \spn(e_j \mid j \notin S)$, and $\range T = \spn(e_i \mid i \in S)$.
     If $k \notin S$, then $e_k$ is orthogonal to $\range T$, so $P_{\range T} e_k = 0$, and hence $T^\dagger e_k = 0$.
     If $k \in S$, then $e_k \in \range T$ so that $P_{\range T} e_k = e_k$.
-    Since $\gen{e_k, e_j} = 0$ for all $j \notin S$, and these vectors span $\nul T$, we have $\frac{1}{\lambda_k} e_k \in (\nul T)^\perp$.
+    Since $\ip{e_k, e_j} = 0$ for all $j \notin S$, and these vectors span $\nul T$, we have $\frac{1}{\lambda_k} e_k \in (\nul T)^\perp$.
     Since $T(\frac{1}{\lambda_k} e_k) = e_k$, we have that $(T|_{(\nul T)^\perp})\inv e_k = \frac{1}{\lambda_k} e_k$, and hence $T^\dagger e_k = \frac{1}{\lambda_k} e_k$.
     This is exactly the formula we wanted to show.
 \end{sol}

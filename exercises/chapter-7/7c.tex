@@ -6,8 +6,8 @@
 \end{exercise}
 
 \begin{sol}
-    For every $v \in V$, we have $\gen{Tv, v} \geq 0$ and $\gen{-Tv, v} = -\gen{Tv, v} \geq 0$.
-    Both inequalities force $\gen{Tv, v} = 0$ for every $v \in V$.
+    For every $v \in V$, we have $\ip{Tv, v} \geq 0$ and $\ip{-Tv, v} = -\ip{Tv, v} \geq 0$.
+    Both inequalities force $\ip{Tv, v} = 0$ for every $v \in V$.
     By 7.43, $Tv = 0$ for every $v \in V$, so $T = 0$.
 \end{sol}
 
@@ -32,7 +32,7 @@
     \]
     Since $x_i \bar{x_j} + \bar{x_i} x_j = 2 \Re(x_i \bar{x_j})$, we have
     \begin{align*}
-        \gen{T x, x} &= (2x_1 - x_2)\bar{x_1} + (-x_1 + 2x_2 - x_3)\bar{x_2} + (-x_2 + 2x_3 - x_4)\bar{x_3} + (-x_3 + 2x_4)\bar{x_4} \\
+        \ip{T x, x} &= (2x_1 - x_2)\bar{x_1} + (-x_1 + 2x_2 - x_3)\bar{x_2} + (-x_2 + 2x_3 - x_4)\bar{x_3} + (-x_3 + 2x_4)\bar{x_4} \\
         &=2|x_1|^2 - \bar{x_1} x_2 - x_1 \bar{x_2} + 2|x_2|^2 - \bar{x_2} x_3 - x_2 \bar{x_3} + 2|x_3|^2 - \bar{x_3} x_4 - x_3 \bar{x_4} + 2|x_4|^2 \\
         &=2|x_1|^2 - 2\Re(\bar{x_1} x_2) + 2|x_2|^2 - 2\Re(\bar{x_2} x_3) + 2|x_3|^2 - 2\Re(\bar{x_3} x_4) + 2|x_4|^2 \\
         &=|x_1|^2 + |x_1 - x_2|^2 + |x_2 - x_3|^2 + |x_3 - x_4|^2 + |x_4|^2 \geq 0.
@@ -40,7 +40,7 @@
     Hence, $T$ is a positive operator.
     Moreover, if $T x = 0$ for some $x \in \fbb^4$, then
     \[
-        0 = \gen{T x, x} = |x_1|^2 + |x_1 - x_2|^2 + |x_2 - x_3|^2 + |x_3 - x_4|^2 + |x_4|^2.
+        0 = \ip{T x, x} = |x_1|^2 + |x_1 - x_2|^2 + |x_2 - x_3|^2 + |x_3 - x_4|^2 + |x_4|^2.
     \]
     This forces $x_1 = x_4 = 0$ so that $x_2 = x_3 = 0$ as well.
     Hence, $x = 0$, and therefore $T$ is invertible by 3.65.
@@ -55,15 +55,15 @@
     Let $x = (1, \ldots, 1) \in \fbb^n$.
     For any $y = \tuple y \in \fbb^n$, we have
     \[
-        T y = \left(\sum_{i=1}^n y_i, \ldots, \sum_{i=1}^n y_i\right) = \gen{y, x} x.
+        T y = \left(\sum_{i=1}^n y_i, \ldots, \sum_{i=1}^n y_i\right) = \ip{y, x} x.
     \]
-    Consider the operator $R \in \lin{\fbb^n}$ defined by $R z = (\gen{z, x}, 0, \ldots, 0)$ for any $z \in \fbb^n$.
+    Consider the operator $R \in \lin{\fbb^n}$ defined by $R z = (\ip{z, x}, 0, \ldots, 0)$ for any $z \in \fbb^n$.
     Then
     \[
-        \gen{R z, y} = \gen{z, x} \bar{y_1} = \gen{z, y_1 x}
+        \ip{R z, y} = \ip{z, x} \bar{y_1} = \ip{z, y_1 x}
     \]
     so that $R^\ast y = y_1 x$.
-    Therefore, $R^\ast R y = \gen{y, x} x = T y$ for any $y \in \fbb^n$.
+    Therefore, $R^\ast R y = \ip{y, x} x = T y$ for any $y \in \fbb^n$.
     Hence, $T = R^\ast R$, which shows that $T$ is a positive operator by 7.38(f).
 \end{sol}
 
@@ -80,7 +80,7 @@
     Then $(T x)_1 = 1 + 2(-1) = -1$, $(T x)_2 = 2(1) + (-1) = 1$, and $(T x)_i = 1 - 1 = 0$ for $i > 2$.
     Hence,
     \[
-        \gen{T x, x} = (-1)(1) + (1)(-1) + 0 = -2
+        \ip{T x, x} = (-1)(1) + (1)(-1) + 0 = -2
     \]
     so that $T$ is not a positive operator.
 \end{sol}
@@ -91,17 +91,17 @@
 \end{exercise}
 
 \begin{sol}
-    Note that the $(j, k)$th entry of $\mcal(T, (e_1, \ldots, e_n))$ is $\gen{T e_k, e_j}$, hence the diagonal entries are $\gen{T e_j, e_j}$ for $j = 1, \ldots, n$.
+    Note that the $(j, k)$th entry of $\mcal(T, (e_1, \ldots, e_n))$ is $\ip{T e_k, e_j}$, hence the diagonal entries are $\ip{T e_j, e_j}$ for $j = 1, \ldots, n$.
 
-    \rightimp Since $T$ is self-adjoint by hypothesis, $T$ is positive if and only if $\gen{T v, v} \geq 0$ for all $v \in V$.
+    \rightimp Since $T$ is self-adjoint by hypothesis, $T$ is positive if and only if $\ip{T v, v} \geq 0$ for all $v \in V$.
     In particular, this must hold for each $v = e_j$ in any orthonormal basis $e_1, \ldots, e_n$ of $V$, which shows that all diagonal entries of $\mcal(T, (e_1, \ldots, e_n))$ are nonnegative.
 
-    \leftimp If $v = 0$, then $\gen{T v, v} = 0 \geq 0$.
+    \leftimp If $v = 0$, then $\ip{T v, v} = 0 \geq 0$.
     Suppose $v \neq 0$, and let $e_1 = v / \norm{v}$.
     Then $\norm{e_1} = 1$, so $e_1$ is an orthonormal list by itself.
     Extend $e_1$ to an orthonormal basis $e_1, \ldots, e_n$ of $V$.
-    Then the first diagonal entry of $\mcal(T, (e_1, \ldots, e_n))$ is $\gen{T e_1, e_1} = \gen{T (v / \norm{v}), v / \norm{v}} = \gen{T v, v} / \norm{v}^2 \geq 0$.
-    Hence, $\gen{T v, v} \geq 0$ for all $v \in V$, which shows that $T$ is a positive operator.
+    Then the first diagonal entry of $\mcal(T, (e_1, \ldots, e_n))$ is $\ip{T e_1, e_1} = \ip{T (v / \norm{v}), v / \norm{v}} = \ip{T v, v} / \norm{v}^2 \geq 0$.
+    Hence, $\ip{T v, v} \geq 0$ for all $v \in V$, which shows that $T$ is a positive operator.
 \end{sol}
 
 \begin{exercise}{7c6}
@@ -114,7 +114,7 @@
     By 7.5(a), $S + T$ is also self-adjoint.
     Positivity follows from the fact that for any $v \in V$,
     \[
-        \gen{(S + T)v, v} = \gen{Sv, v} + \gen{Tv, v} \geq 0 + 0 = 0,
+        \ip{(S + T)v, v} = \ip{Sv, v} + \ip{Tv, v} \geq 0 + 0 = 0,
     \]
     since $S$ and $T$ are positive operators.
     Hence, $S + T$ is a positive operator.
@@ -126,9 +126,9 @@
 \end{exercise}
 
 \begin{sol}
-    If $(S + T)v = 0$ for some $v \in V$, then $\gen{Sv, v} + \gen{Tv, v} = \gen{(S + T)v, v} = \gen{0, v} = 0$.
-    Since $S$ and $T$ are positive, $\gen{Sv, v} \geq 0$ and $\gen{Tv, v} \geq 0$.
-    In particular, $\gen{Sv, v} = 0$.
+    If $(S + T)v = 0$ for some $v \in V$, then $\ip{Sv, v} + \ip{Tv, v} = \ip{(S + T)v, v} = \ip{0, v} = 0$.
+    Since $S$ and $T$ are positive, $\ip{Sv, v} \geq 0$ and $\ip{Tv, v} \geq 0$.
+    In particular, $\ip{Sv, v} = 0$.
     By 7.43, $Sv = 0$ so that $v = 0$ by the invertibility of $S$.
     Therefore, $(S + T)v = 0$ only if $v = 0$, which shows that $S + T$ is invertible by 3.65.
 \end{sol}
@@ -165,7 +165,7 @@
     By 7.5(c) and 7.5(d), we have $(S^\ast T S)^\ast = S^\ast T^\ast (S^\ast)^\ast = S^\ast T S$, where the last equality holds since $T$ is self-adjoint.
     Moreover, for any $w \in W$,
     \[
-        \gen{S^\ast T S w, w} = \gen{T S w, S w} \geq 0,
+        \ip{S^\ast T S w, w} = \ip{T S w, S w} \geq 0,
     \]
     since $T$ is positive.
     Hence, $S^\ast T S$ is a positive operator on $W$.
@@ -184,9 +184,9 @@
     Consider $v - w$.
     Then
     \[
-        \gen{T(v - w), v - w} = \gen{Tv - Tw, v - w} = \gen{w - v, v - w} = -\gen{v - w, v - w} = -\norm{v - w}^2.
+        \ip{T(v - w), v - w} = \ip{Tv - Tw, v - w} = \ip{w - v, v - w} = -\ip{v - w, v - w} = -\norm{v - w}^2.
     \]
-    Since $T$ is positive, $\gen{T(v - w), v - w} \geq 0$, so $-\norm{v - w}^2 \geq 0$, which implies $\norm{v - w}^2 = 0$ and hence $v - w = 0$, i.e., $v = w$.
+    Since $T$ is positive, $\ip{T(v - w), v - w} \geq 0$, so $-\norm{v - w}^2 \geq 0$, which implies $\norm{v - w}^2 = 0$ and hence $v - w = 0$, i.e., $v = w$.
 \end{sol}
 
 \begin{exercise}{7c11}
@@ -199,7 +199,7 @@
     Since $T$ is self-adjoint on $V$, \exref{7b19}(b) gives that $T|_U$ is self-adjoint on $U$.
     Moreover, for any $u \in U$,
     \[
-        \gen{T|_U u, u}_U = \gen{Tu, u}_V \geq 0,
+        \ip{T|_U u, u}_U = \ip{Tu, u}_V \geq 0,
     \]
     since $T$ is positive on $V$.
     Hence, $T|_U$ is a positive operator on $U$.
@@ -245,7 +245,7 @@
     Suppose $T$ is a positive operator on $V$ and $v_1, \ldots, v_m \in V$.
     Prove that
     \[
-        \sum_{j=1}^{m} \sum_{k=1}^{m} \gen{Tv_k, v_j} \geq 0.
+        \sum_{j=1}^{m} \sum_{k=1}^{m} \ip{Tv_k, v_j} \geq 0.
     \]
 \end{exercise}
 
@@ -253,7 +253,7 @@
     Let $v = \sum_{k=1}^{m} v_k$.
     By linearity of $T$, additivity of the inner product, and positivity of $T$, we have
     \[
-        \sum_{j=1}^{m} \sum_{k=1}^{m} \gen{Tv_k, v_j} = \sum_{j=1}^{m} \gen{T v, v_j} = \gen{Tv, v} \geq 0. \qedhere
+        \sum_{j=1}^{m} \sum_{k=1}^{m} \ip{Tv_k, v_j} = \sum_{j=1}^{m} \ip{T v, v_j} = \ip{Tv, v} \geq 0. \qedhere
     \]
 \end{sol}
 
@@ -379,11 +379,11 @@
     Suppose $T \in \lin{V}$ and $e_1, \ldots, e_n$ is an orthonormal basis of $V$.
     Prove that $T$ is a positive operator if and only if there exist $v_1, \ldots, v_n \in V$ such that
     \[
-        \gen{Te_k, e_j} = \gen{v_k, v_j}
+        \ip{Te_k, e_j} = \ip{v_k, v_j}
     \]
     for all $j, k = 1, \ldots, n$.
 
-    \note{The numbers $\set{\gen{Te_k, e_j}}_{j,k=1,\ldots,n}$ are the entries in the matrix of $T$ with respect to the orthonormal basis $e_1, \ldots, e_n$.}
+    \note{The numbers $\set{\ip{Te_k, e_j}}_{j,k=1,\ldots,n}$ are the entries in the matrix of $T$ with respect to the orthonormal basis $e_1, \ldots, e_n$.}
 \end{exercise}
 
 \begin{soliff}
@@ -391,22 +391,22 @@
     Define $v_k = R e_k$ for $k = 1, \ldots, n$. 
     Then for all $j, k = 1, \ldots, n$, we have
     \[
-        \gen{v_k, v_j} = \gen{R e_k, R e_j} = \gen{R^\ast R e_k, e_j} = \gen{T e_k, e_j}.
+        \ip{v_k, v_j} = \ip{R e_k, R e_j} = \ip{R^\ast R e_k, e_j} = \ip{T e_k, e_j}.
     \]
     \leftimp By 3.4, we may define the unique operator $R \in \lin{V}$ such that $R e_k = v_k$ for $k = 1, \ldots, n$.
     Then
     \[
-        \gen{T e_k, e_j} = \gen{v_k, v_j} = \gen{R e_k, R e_j} = \gen{R^\ast R e_k, e_j}.
+        \ip{T e_k, e_j} = \ip{v_k, v_j} = \ip{R e_k, R e_j} = \ip{R^\ast R e_k, e_j}.
     \]
     Let $S = T - R^\ast R$.
     Then
     \[
-        \gen{S e_k, e_j} = 0
+        \ip{S e_k, e_j} = 0
     \]
     for all $j, k = 1, \ldots, n$.
     By 6.30(a), we have
     \[
-        S e_k = \sum_{j=1}^n \gen{S e_k, e_j} e_j = 0.
+        S e_k = \sum_{j=1}^n \ip{S e_k, e_j} e_j = 0.
     \]
     Since this holds for all $k = 1, \ldots, n$, we have $S = 0$ by 3.4 so that $T = R^\ast R$.
     Therefore, $T$ is positive by 7.38(f).
@@ -444,7 +444,7 @@
     Note that $\bar{p(x)} = \sum_{k=1}^n \bar{\alpha_k} x^{k-1}$ since $x$ is real.
     Then
     \begin{align*}
-        \gen{T v, v} &= \sum_{j=1}^n \sum_{k=1}^n \alpha_k \bar{\alpha_j} \gen{T e_k, e_j} \\
+        \ip{T v, v} &= \sum_{j=1}^n \sum_{k=1}^n \alpha_k \bar{\alpha_j} \ip{T e_k, e_j} \\
         &= \sum_{j=1}^n \sum_{k=1}^n \alpha_k \bar{\alpha_j} \frac{1}{j+k-1} \\
         &= \sum_{j=1}^n \sum_{k=1}^n \alpha_k \bar{\alpha_j} \int_0^1 x^{j-1} x^{k-1} \dd x \\
         &= \int_0^1 \sum_{j=1}^n \sum_{k=1}^n \alpha_k \bar{\alpha_j} x^{j-1} x^{k-1} \dd x \\
@@ -453,7 +453,7 @@
     \end{align*}
     Hence, $T$ is positive.
     Moreover, suppose $T v = 0$.
-    Then $\gen{T v, v} = 0$, which implies $\int_0^1 \abs{p(x)}^2 \dd x = 0$.
+    Then $\ip{T v, v} = 0$, which implies $\int_0^1 \abs{p(x)}^2 \dd x = 0$.
     Note that $\abs{p(x)}^2$ is a continuous and nonnegative function on $[0, 1]$, so $\int_0^1 \abs{p(x)}^2 \dd x = 0$ implies that $\abs{p(x)}^2 = 0$ for all $x \in [0, 1]$.
     Then $p$ has infinitely many zeros in $[0, 1]$ while a nonzero polynomial of degree at most $n-1$ can have at most $n-1$ zeros.
     Therefore, $p$ is the zero polynomial.
@@ -496,77 +496,77 @@
 \end{sol}
 
 \begin{exercise}{7c23}
-    For $T \in \lin{V}$ and $u, v \in V$, define $\gen{u, v}_T$ by $\gen{u, v}_T = \gen{Tu, v}$.
+    For $T \in \lin{V}$ and $u, v \in V$, define $\ip{u, v}_T$ by $\ip{u, v}_T = \ip{Tu, v}$.
     \begin{subexercises}
         \item Suppose $T \in \lin{V}$.
-        Prove that $\gen{\cdot, \cdot}_T$ is an inner product on $V$ if and only if $T$ is an invertible positive operator (with respect to the original inner product $\gen{\cdot, \cdot}$).
-        \item Prove that every inner product on $V$ is of the form $\gen{\cdot, \cdot}_T$ for some positive invertible operator $T \in \lin{V}$.
+        Prove that $\ip{\cdot, \cdot}_T$ is an inner product on $V$ if and only if $T$ is an invertible positive operator (with respect to the original inner product $\ip{\cdot, \cdot}$).
+        \item Prove that every inner product on $V$ is of the form $\ip{\cdot, \cdot}_T$ for some positive invertible operator $T \in \lin{V}$.
     \end{subexercises}
 \end{exercise}
 
 \begin{solenum}
-    \item \rightimp Suppose $\gen{\cdot, \cdot}_T$ is an inner product on $V$.
-    By positivity, $\gen{Tv, v} \geq 0$ for all $v \in V$.
+    \item \rightimp Suppose $\ip{\cdot, \cdot}_T$ is an inner product on $V$.
+    By positivity, $\ip{Tv, v} \geq 0$ for all $v \in V$.
     By conjugate symmetry,
     \[
-        \gen{Tu, v} = \gen{u, v}_T = \bar{\gen{v, u}_T} = \bar{\gen{Tv, u}} = \gen{u, Tv}
+        \ip{Tu, v} = \ip{u, v}_T = \bar{\ip{v, u}_T} = \bar{\ip{Tv, u}} = \ip{u, Tv}
     \]
     for all $u, v \in V$, so $T$ is self-adjoint.
     Therefore, $T$ is positive.
-    If $T v = 0$ for some $v \in V$, then $\gen{Tv, v} = 0$, which implies $v = 0$ by definiteness of the inner product $\gen{\cdot, \cdot}_T$.
+    If $T v = 0$ for some $v \in V$, then $\ip{Tv, v} = 0$, which implies $v = 0$ by definiteness of the inner product $\ip{\cdot, \cdot}_T$.
     Hence, $T$ is invertible by 3.65.
 
-    \leftimp Suppose $T$ is an invertible positive operator, and define $\gen{\cdot, \cdot}_T$ as given.
+    \leftimp Suppose $T$ is an invertible positive operator, and define $\ip{\cdot, \cdot}_T$ as given.
     By 7.38(f), there exists $R \in \lin{V}$ such that $R^\ast R = T$, so
     \[
-        \gen{v, v}_T = \gen{Tv, v} = \gen{R^\ast R v, v} = \gen{Rv, Rv} = \norm{Rv}^2
+        \ip{v, v}_T = \ip{Tv, v} = \ip{R^\ast R v, v} = \ip{Rv, Rv} = \norm{Rv}^2
     \]
     for any $v \in V$.
     We now verify the inner product axioms.
     Let $u, v, w \in V$ and $\lambda \in \fbb$.
     Then:
     \begin{itemize}
-        \item \textbf{Positivity}: $\gen{v, v}_T = \gen{Tv, v} \geq 0$ since $T$ is positive.
-        \item \textbf{Definiteness}: If $\gen{v, v}_T = 0$, then $\norm{Rv}^2 = 0$, which implies $Rv = 0$ and hence $Tv = R^\ast(Rv) = 0$.
+        \item \textbf{Positivity}: $\ip{v, v}_T = \ip{Tv, v} \geq 0$ since $T$ is positive.
+        \item \textbf{Definiteness}: If $\ip{v, v}_T = 0$, then $\norm{Rv}^2 = 0$, which implies $Rv = 0$ and hence $Tv = R^\ast(Rv) = 0$.
         Since $T$ is invertible, this implies $v = 0$.
-        Conversely, $\gen{0, 0}_T = \gen{T0, 0} = \gen{0, 0} = 0$.
+        Conversely, $\ip{0, 0}_T = \ip{T0, 0} = \ip{0, 0} = 0$.
         \item \textbf{Additivity in the First Slot}: 
         \[
-            \gen{u + w, v}_T = \gen{T(u + w), v} = \gen{Tu + Tw, v} = \gen{Tu, v} + \gen{Tw, v} = \gen{u, v}_T + \gen{w, v}_T.
+            \ip{u + w, v}_T = \ip{T(u + w), v} = \ip{Tu + Tw, v} = \ip{Tu, v} + \ip{Tw, v} = \ip{u, v}_T + \ip{w, v}_T.
         \]
         \item \textbf{Homogeneity in the First Slot}: 
         \[
-            \gen{\lambda u, v}_T = \gen{T(\lambda u), v} = \gen{\lambda Tu, v} = \lambda \gen{Tu, v} = \lambda \gen{u, v}_T.
+            \ip{\lambda u, v}_T = \ip{T(\lambda u), v} = \ip{\lambda Tu, v} = \lambda \ip{Tu, v} = \lambda \ip{u, v}_T.
         \]
         \item \textbf{Conjugate Symmetry}: Since $T$ is self-adjoint, we have
         \[
-            \gen{u, v}_T = \gen{Tu, v} = \gen{u, Tv} = \bar{\gen{Tv, u}} = \bar{\gen{v, u}_T}.
+            \ip{u, v}_T = \ip{Tu, v} = \ip{u, Tv} = \bar{\ip{Tv, u}} = \bar{\ip{v, u}_T}.
         \]
     \end{itemize}
-    Hence, $\gen{\cdot, \cdot}_T$ satisfies all the axioms of an inner product on $V$, so it is indeed an inner product.
-    \item Let $\gen{\cdot, \cdot}'$ be an inner product on $V$.
-    For each $v \in V$, define $\phi_v : V \to \fbb$ by $\phi_v(u) = \gen{u, v}'$.
-    Since $\gen{\cdot, \cdot}'$ is an inner product on $V$, $\phi_v$ is a linear functional on $V$.
-    By the Riesz representation theorem, there exists a unique $Sv \in V$ such that $\phi_v(u) = \gen{u, Sv}$ for all $u \in V$.
+    Hence, $\ip{\cdot, \cdot}_T$ satisfies all the axioms of an inner product on $V$, so it is indeed an inner product.
+    \item Let $\ip{\cdot, \cdot}'$ be an inner product on $V$.
+    For each $v \in V$, define $\phi_v : V \to \fbb$ by $\phi_v(u) = \ip{u, v}'$.
+    Since $\ip{\cdot, \cdot}'$ is an inner product on $V$, $\phi_v$ is a linear functional on $V$.
+    By the Riesz representation theorem, there exists a unique $Sv \in V$ such that $\phi_v(u) = \ip{u, Sv}$ for all $u \in V$.
     This defines a function $S : V \to V$.
     We claim that $S$ is linear.
     To see this, let $v, w \in V$ and $\mu \in \fbb$. Then for all $u \in V$,
     \[
-        \gen{u, S(v + w)} = \gen{u, v + w}' = \gen{u, v}' + \gen{u, w}' = \gen{u, Sv} + \gen{u, Sw} = \gen{u, Sv + Sw},
+        \ip{u, S(v + w)} = \ip{u, v + w}' = \ip{u, v}' + \ip{u, w}' = \ip{u, Sv} + \ip{u, Sw} = \ip{u, Sv + Sw},
     \]
     which implies $S(v + w) = Sv + Sw$ by the uniqueness part of the Riesz representation theorem.
     Similarly,
     \[
-        \gen{u, S(\mu v)} = \gen{u, \mu v}' = \bar\mu \gen{u, v}' = \bar\mu \gen{u, Sv} = \gen{u, \mu Sv},
+        \ip{u, S(\mu v)} = \ip{u, \mu v}' = \bar\mu \ip{u, v}' = \bar\mu \ip{u, Sv} = \ip{u, \mu Sv},
     \]
     which implies $S(\mu v) = \mu Sv$ by the uniqueness part of the Riesz representation theorem.
     Hence, $S$ is linear.
-    By conjugate symmetry of both $\gen{\cdot, \cdot}'$ and $\gen{\cdot, \cdot}$, 
+    By conjugate symmetry of both $\ip{\cdot, \cdot}'$ and $\ip{\cdot, \cdot}$, 
     \[
-        \gen{u, v}' = \bar{\gen{v, u}'} = \bar{\gen{v, Su}} = \gen{Su, v} = \gen{u, v}_S
+        \ip{u, v}' = \bar{\ip{v, u}'} = \bar{\ip{v, Su}} = \ip{Su, v} = \ip{u, v}_S
     \]
-    for all $u, v \in V$, so $\gen{\cdot, \cdot}' = \gen{\cdot, \cdot}_S$.
-    Since $\gen{\cdot, \cdot}_S$ is an inner product, part (a) implies that $S$ is positive and invertible.
+    for all $u, v \in V$, so $\ip{\cdot, \cdot}' = \ip{\cdot, \cdot}_S$.
+    Since $\ip{\cdot, \cdot}_S$ is an inner product, part (a) implies that $S$ is positive and invertible.
 \end{solenum}
 
 \begin{exercise}{7c24}
@@ -581,10 +581,10 @@
     \rightset Let $v \in \nul(S + T)$.
     Then $(S + T)v = 0$, so
     \[
-        0 = \gen{(S + T)v, v} = \gen{Sv, v} + \gen{Tv, v}.
+        0 = \ip{(S + T)v, v} = \ip{Sv, v} + \ip{Tv, v}.
     \]
-    Since $S$ and $T$ are positive, $\gen{Sv, v}$ and $\gen{Tv, v}$ are both nonnegative.
-    Because their sum is zero, we must have $\gen{Sv, v} = 0$ and $\gen{Tv, v} = 0$.
+    Since $S$ and $T$ are positive, $\ip{Sv, v}$ and $\ip{Tv, v}$ are both nonnegative.
+    Because their sum is zero, we must have $\ip{Sv, v} = 0$ and $\ip{Tv, v} = 0$.
     By 7.43, $Sv = 0$ and $Tv = 0$, so $v \in \nul S \cap \nul T$.
     
     \leftset Conversely, if $v \in \nul S \cap \nul T$, then $Sv = 0$ and $Tv = 0$, so $(S + T)v = Sv + Tv = 0$. Hence, $v \in \nul(S + T)$.

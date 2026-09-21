@@ -5,40 +5,40 @@
 \begin{exercise}{6a1}
     Prove or give a counterexample: If $v_1, \ldots, v_m \in V$, then
     \[
-        \sum_{j=1}^{m} \sum_{k=1}^{m} \gen{v_j, v_k} \geq 0.
+        \sum_{j=1}^{m} \sum_{k=1}^{m} \ip{v_j, v_k} \geq 0.
     \]
 \end{exercise}
 
 \begin{sol}
     By the additivity of inner products in both slots, we have
     \[
-        \sum_{j=1}^{m} \sum_{k=1}^{m} \gen{v_j, v_k} = \gen*{\sum_{j=1}^{m} v_j, \sum_{k=1}^{m} v_k} = \norm*{\sum_{j=1}^{m} v_j}^2 \geq 0. \qedhere
+        \sum_{j=1}^{m} \sum_{k=1}^{m} \ip{v_j, v_k} = \ip*{\sum_{j=1}^{m} v_j, \sum_{k=1}^{m} v_k} = \norm*{\sum_{j=1}^{m} v_j}^2 \geq 0. \qedhere
     \]
 \end{sol}
 
 \begin{exercise}{6a2}
     Suppose $S \in \lin{V}$.
-    Define $\gen{\cdot, \cdot}_1$ by
+    Define $\ip{\cdot, \cdot}_1$ by
     \[
-        \gen{u, v}_1 = \gen{Su, Sv}
+        \ip{u, v}_1 = \ip{Su, Sv}
     \]
     for all $u, v \in V$.
-    Show that $\gen{\cdot, \cdot}_1$ is an inner product on $V$ if and only if $S$ is injective.
+    Show that $\ip{\cdot, \cdot}_1$ is an inner product on $V$ if and only if $S$ is injective.
 \end{exercise}
 
 \begin{sol}
-    Define $\gen{u, v}_1 = \gen{Su, Sv}$ for all $u, v \in V$.
-    From the linearity of $S$ and the properties of the regular inner product $\gen{\cdot, \cdot}$, we see that $\gen{\cdot, \cdot}_1$ satisfies the properties:
+    Define $\ip{u, v}_1 = \ip{Su, Sv}$ for all $u, v \in V$.
+    From the linearity of $S$ and the properties of the regular inner product $\ip{\cdot, \cdot}$, we see that $\ip{\cdot, \cdot}_1$ satisfies the properties:
     \begin{itemize}
-        \item $\gen{u, v}_1 = \gen{Su, Sv} = \bar{\gen{Sv, Su}} = \bar{\gen{v, u}_1}$ for all $u, v \in V$.
-        \item $\gen{u + w, v}_1 = \gen{S(u + w), Sv} = \gen{Su + Sw, Sv} = \gen{Su, Sv} + \gen{Sw, Sv} = \gen{u, v}_1 + \gen{w, v}_1$ for all $u, v, w \in V$.
-        \item $\gen{\alpha u, v}_1 = \gen{S(\alpha u), Sv} = \gen{\alpha Su, Sv} = \alpha \gen{Su, Sv} = \alpha \gen{u, v}_1$ for all $u, v \in V$ and $\alpha \in \fbb$.
-        \item $\gen{u, u}_1 = \gen{Su, Su} = \norm{Su}^2 \geq 0$ for all $u \in V$.
+        \item $\ip{u, v}_1 = \ip{Su, Sv} = \bar{\ip{Sv, Su}} = \bar{\ip{v, u}_1}$ for all $u, v \in V$.
+        \item $\ip{u + w, v}_1 = \ip{S(u + w), Sv} = \ip{Su + Sw, Sv} = \ip{Su, Sv} + \ip{Sw, Sv} = \ip{u, v}_1 + \ip{w, v}_1$ for all $u, v, w \in V$.
+        \item $\ip{\alpha u, v}_1 = \ip{S(\alpha u), Sv} = \ip{\alpha Su, Sv} = \alpha \ip{Su, Sv} = \alpha \ip{u, v}_1$ for all $u, v \in V$ and $\alpha \in \fbb$.
+        \item $\ip{u, u}_1 = \ip{Su, Su} = \norm{Su}^2 \geq 0$ for all $u \in V$.
     \end{itemize}
     The only property that may not hold is definiteness.
 
-    If $S$ is injective, then $\gen{u, u}_1 = 0 \implies \norm{Su}^2 = 0 \implies Su = 0 \implies u = 0$, so definiteness holds.
-    Conversely, if $\gen{\cdot, \cdot}_1$ is an inner product, then definiteness holds, so $Su = 0 \implies \gen{u, u}_1 = 0 \implies u = 0$, so $S$ is injective.
+    If $S$ is injective, then $\ip{u, u}_1 = 0 \implies \norm{Su}^2 = 0 \implies Su = 0 \implies u = 0$, so definiteness holds.
+    Conversely, if $\ip{\cdot, \cdot}_1$ is an inner product, then definiteness holds, so $Su = 0 \implies \ip{u, u}_1 = 0 \implies u = 0$, so $S$ is injective.
 \end{sol}
 
 \begin{exercise}{6a3}
@@ -51,15 +51,15 @@
 \begin{solenum}
     \item It is not linear in the first slot, since
     \[
-        \gen{(1, 0) + (-1, 0), (1, 0)} = \gen{(0, 0), (1, 0)} = |0 \cdot 1| + |0 \cdot 0| = 0,
+        \ip{(1, 0) + (-1, 0), (1, 0)} = \ip{(0, 0), (1, 0)} = |0 \cdot 1| + |0 \cdot 0| = 0,
     \]
     but
     \[
-        \gen{(1, 0), (1, 0)} + \gen{(-1, 0), (1, 0)} = |1 \cdot 1| + |0 \cdot 0| + |-1 \cdot 1| + |0 \cdot 0| = 2.
+        \ip{(1, 0), (1, 0)} + \ip{(-1, 0), (1, 0)} = |1 \cdot 1| + |0 \cdot 0| + |-1 \cdot 1| + |0 \cdot 0| = 2.
     \]
     \item It is not positive definite, since $(0, 1, 0) \neq (0, 0, 0)$ but
     \[
-        \gen{(0, 1, 0), (0, 1, 0)} = 0 \cdot 0 + 0 \cdot 0 = 0. \qedhere
+        \ip{(0, 1, 0), (0, 1, 0)} = 0 \cdot 0 + 0 \cdot 0 = 0. \qedhere
     \]
 \end{solenum}
 
@@ -78,7 +78,7 @@
 \begin{exercise}{6a5}
     Suppose $V$ is a real inner product space.
     \begin{subexercises}
-        \item Show that $\gen{u + v, u - v} = \norm{u}^2 - \norm{v}^2$ for every $u, v \in V$.
+        \item Show that $\ip{u + v, u - v} = \norm{u}^2 - \norm{v}^2$ for every $u, v \in V$.
         \item Show that if $u, v \in V$ have the same norm, then $u + v$ is orthogonal to $u - v$.
         \item Use (b) to show that the diagonals of a rhombus are perpendicular to each other.
     \end{subexercises}
@@ -87,37 +87,37 @@
 \begin{solenum}
     \item We have
     \begin{align*}
-        \gen{u + v, u - v} &= \gen{u, u - v} + \gen{v, u - v} \\
-        &= \gen{u, u} - \gen{u, v} + \gen{v, u} - \gen{v, v} \\
+        \ip{u + v, u - v} &= \ip{u, u - v} + \ip{v, u - v} \\
+        &= \ip{u, u} - \ip{u, v} + \ip{v, u} - \ip{v, v} \\
         &= \norm{u}^2 - \norm{v}^2.
     \end{align*}
-    \item If $\norm{u} = \norm{v}$, then $\gen{u + v, u - v} = \norm{u}^2 - \norm{v}^2 = 0$, so $u + v$ is orthogonal to $u - v$.
+    \item If $\norm{u} = \norm{v}$, then $\ip{u + v, u - v} = \norm{u}^2 - \norm{v}^2 = 0$, so $u + v$ is orthogonal to $u - v$.
     \item Let $u$ and $v$ be the vectors corresponding to two adjacent sides of a rhombus.
     Then $\norm{u} = \norm{v}$, so $u + v$ is orthogonal to $u - v$, where $u + v$ and $u - v$ represent the diagonals of the rhombus.
 \end{solenum}
 
 \begin{exercise}{6a6}
     Suppose $u, v \in V$.
-    Prove that $\gen{u, v} = 0 \iff \norm{u} \leq \norm{u + av}$ for all $a \in \fbb$.
+    Prove that $\ip{u, v} = 0 \iff \norm{u} \leq \norm{u + av}$ for all $a \in \fbb$.
 \end{exercise}
 
 \begin{sol}
-    Suppose $\gen{u, v} = 0$.
-    Then for all $a \in \fbb$, we have $\gen{u, av} = 0$.
+    Suppose $\ip{u, v} = 0$.
+    Then for all $a \in \fbb$, we have $\ip{u, av} = 0$.
     By the Pythagorean theorem, we have
     \[
         \norm{u + av}^2 = \norm{u}^2 + \norm{av}^2 \geq \norm{u}^2,
     \]
     Conversely, suppose that $\norm{u} \leq \norm{u + av}$ for all $a \in \fbb$.
-    If $v = 0$, then $\gen{u, v} = 0$.
-    Otherwise, consider $v \neq 0$, and let $a = -\frac{\gen{u, v}}{\norm{v}^2}$.
-    We have $\gen{u + av, v} = 0$, so $\gen{u + av, av} = 0$.
+    If $v = 0$, then $\ip{u, v} = 0$.
+    Otherwise, consider $v \neq 0$, and let $a = -\frac{\ip{u, v}}{\norm{v}^2}$.
+    We have $\ip{u + av, v} = 0$, so $\ip{u + av, av} = 0$.
     Then by the Pythagorean theorem, we have
     \[
         \norm{u}^2 = \norm{(u + av) - av}^2 = \norm{u + av}^2 + \norm{av}^2.
     \]
     Note that $\norm{u} \leq \norm{u + av}$ implies $\norm{u}^2 \leq \norm{u + av}^2$.
-    Hence, $\norm{av}^2 \leq 0$, which implies $a = 0$ and $\gen{u, v} = 0$.
+    Hence, $\norm{av}^2 \leq 0$, which implies $a = 0$ and $\ip{u, v} = 0$.
 \end{sol}
 
 \begin{exercise}{6a7}
@@ -128,8 +128,8 @@
 \begin{sol}
     For all $a, b \in \rbb$, we have
     \begin{align*}
-        \norm{au + bv}^2 = \norm{bu + av}^2 &\iff \gen{au + bv, au + bv} = \gen{bu + av, bu + av} \\
-        &\iff a^2\norm{u}^2 + 2ab\Re\gen{u, v} + b^2\norm{v}^2 = b^2\norm{u}^2 + 2ab\Re\gen{u, v} + a^2\norm{v}^2 \\
+        \norm{au + bv}^2 = \norm{bu + av}^2 &\iff \ip{au + bv, au + bv} = \ip{bu + av, bu + av} \\
+        &\iff a^2\norm{u}^2 + 2ab\Re\ip{u, v} + b^2\norm{v}^2 = b^2\norm{u}^2 + 2ab\Re\ip{u, v} + a^2\norm{v}^2 \\
         &\iff (a^2 - b^2)(\norm{u}^2 - \norm{v}^2) = 0.
     \end{align*}
     Since there exist $a, b \in \rbb$ such that $a^2 - b^2 \neq 0$, we have $\norm{au + bv} = \norm{bu + av}$ for all $a, b \in \rbb$ if and only if $\norm{u}^2 - \norm{v}^2 = 0$, which is equivalent to $\norm{u} = \norm{v}$.
@@ -145,21 +145,21 @@
     Then $\norm{u}^2 = a^2 + b^2 + c^2 + x^2 + y^2 \leq 1$ and $\norm{v}^2 = 1^2 + 1^2 + 1^2 + 4^2 + 9^2 = 100$.
     By the Cauchy--Schwarz inequality, we have
     \[
-        a + b + c + 4x + 9y = \gen{u, v} \leq |\gen{u, v}| \leq \norm{u}\,\norm{v} \leq \sqrt{100} = 10. \qedhere
+        a + b + c + 4x + 9y = \ip{u, v} \leq |\ip{u, v}| \leq \norm{u}\,\norm{v} \leq \sqrt{100} = 10. \qedhere
     \]
 \end{sol}
 
 \begin{exercise}{6a9}
-    Suppose $u, v \in V$ and $\norm{u} = \norm{v} = 1$ and $\gen{u, v} = 1$.
+    Suppose $u, v \in V$ and $\norm{u} = \norm{v} = 1$ and $\ip{u, v} = 1$.
     Prove that $u = v$.
 \end{exercise}
 
 \begin{sol}
     We have
     \[
-        \norm{u - v}^2 = \gen{u - v, u - v} = \gen{u, u} - \gen{u, v} - \gen{v, u} + \gen{v, v} = 1 - 1 - 1 + 1 = 0,
+        \norm{u - v}^2 = \ip{u - v, u - v} = \ip{u, u} - \ip{u, v} - \ip{v, u} + \ip{v, v} = 1 - 1 - 1 + 1 = 0,
     \]
-    where $\gen{v, u} = \bar{\gen{u, v}} = \bar 1 = 1$.
+    where $\ip{v, u} = \bar{\ip{u, v}} = \bar 1 = 1$.
     Therefore, $\norm{u - v} = 0$, which implies $u - v = 0$, so $u = v$.
 \end{sol}
 
@@ -167,7 +167,7 @@
     Suppose $u, v \in V$ and $\norm{u} \leq 1$ and $\norm{v} \leq 1$.
     Prove that
     \[
-        \sqrt{1 - \norm{u}^2}\sqrt{1 - \norm{v}^2} \leq 1 - |\gen{u, v}|.
+        \sqrt{1 - \norm{u}^2}\sqrt{1 - \norm{v}^2} \leq 1 - |\ip{u, v}|.
     \]
 \end{exercise}
 
@@ -177,10 +177,10 @@
     \[
         \norm{u}\,\norm{v} + \sqrt{1 - \norm{u}^2}\sqrt{1 - \norm{v}^2} \leq \sqrt{\norm{u}^2 + 1 - \norm{u}^2}\sqrt{\norm{v}^2 + 1 - \norm{v}^2} = 1.
     \]
-    By the Cauchy--Schwarz inequality, we also have $|\gen{u, v}| \leq \norm{u}\,\norm{v}$.
+    By the Cauchy--Schwarz inequality, we also have $|\ip{u, v}| \leq \norm{u}\,\norm{v}$.
     Therefore,
     \[
-        \sqrt{1 - \norm{u}^2}\sqrt{1 - \norm{v}^2} \leq 1 - \norm{u}\,\norm{v} \leq 1 - |\gen{u, v}|. \qedhere
+        \sqrt{1 - \norm{u}^2}\sqrt{1 - \norm{v}^2} \leq 1 - \norm{u}\,\norm{v} \leq 1 - |\ip{u, v}|. \qedhere
     \]
 \end{sol}
 
@@ -193,7 +193,7 @@
     Then $v = (1, 2) - u = (1 - a, 2 - 3a)$.
     Since $v$ is orthogonal to $(1, 3)$, we have
     \[
-        \gen{v, (1, 3)} = (1 - a) + 3(2 - 3a) = 7 - 10a = 0,
+        \ip{v, (1, 3)} = (1 - a) + 3(2 - 3a) = 7 - 10a = 0,
     \]
     which implies $a = \frac{7}{10}$.
     Therefore, $u = \left(\frac{7}{10}, \frac{21}{10}\right)$ and $v = \left(\frac{3}{10}, -\frac{1}{10}\right)$.
@@ -215,11 +215,11 @@
     \end{align*}
     Note that
     \[
-        \gen{u, v} = \sqrt{a}\cdot\frac{1}{\sqrt{a}} + \sqrt{b}\cdot\frac{1}{\sqrt{b}} + \sqrt{c}\cdot\frac{1}{\sqrt{c}} + \sqrt{d}\cdot\frac{1}{\sqrt{d}} = 4.
+        \ip{u, v} = \sqrt{a}\cdot\frac{1}{\sqrt{a}} + \sqrt{b}\cdot\frac{1}{\sqrt{b}} + \sqrt{c}\cdot\frac{1}{\sqrt{c}} + \sqrt{d}\cdot\frac{1}{\sqrt{d}} = 4.
     \]
-    By the Cauchy--Schwarz inequality, we have $|\gen{u, v}| \leq \norm{u}\,\norm{v}$, so
+    By the Cauchy--Schwarz inequality, we have $|\ip{u, v}| \leq \norm{u}\,\norm{v}$, so
     \[
-        16 = |\gen{u, v}|^2 \leq \norm{u}^2\,\norm{v}^2 = (a + b + c + d)\left(\frac{1}{a} + \frac{1}{b} + \frac{1}{c} + \frac{1}{d}\right).
+        16 = |\ip{u, v}|^2 \leq \norm{u}^2\,\norm{v}^2 = (a + b + c + d)\left(\frac{1}{a} + \frac{1}{b} + \frac{1}{c} + \frac{1}{d}\right).
     \]
     \item By the equality condition of the Cauchy--Schwarz inequality, we have equality if and only if $u$ is a scalar multiple of $v$.
     If $u = \alpha v$ for some $\alpha \in \rbb$, then
@@ -246,7 +246,7 @@
     Then $\norm{u}^2 = a_1^2 + \cdots + a_n^2$ and $\norm{v}^2 = n$.
     By the Cauchy--Schwarz inequality, we have
     \[
-        |a_1 + \cdots + a_n|^2 = |\gen{u, v}|^2 \leq \norm{u}^2\,\norm{v}^2 = n(a_1^2 + \cdots + a_n^2),
+        |a_1 + \cdots + a_n|^2 = |\ip{u, v}|^2 \leq \norm{u}^2\,\norm{v}^2 = n(a_1^2 + \cdots + a_n^2),
     \]
     so
     \[
@@ -268,16 +268,16 @@
     Let $u \in V$ with $\norm{u} = 1$.
     Then
     \begin{align*}
-        \norm{v - u}^2 &= \norm{v}^2 - 2\Re\gen{v, u} + \norm{u}^2 \\
-        &\geq \norm{v}^2 - 2|\gen{v, u}| + 1 \\
+        \norm{v - u}^2 &= \norm{v}^2 - 2\Re\ip{v, u} + \norm{u}^2 \\
+        &\geq \norm{v}^2 - 2|\ip{v, u}| + 1 \\
         &\geq \norm{v}^2 - 2\norm{v}\,\norm{u} + 1 \\
         &= \norm{v}^2 - 2\norm{v} + 1 \\
         &= (\norm{v} - 1)^2
     \end{align*}
 
-    Equality holds if and only if $\Re\gen{v, u} = |\gen{v, u}| = \norm{v}$.
+    Equality holds if and only if $\Re\ip{v, u} = |\ip{v, u}| = \norm{v}$.
     The second equality implies $v = \alpha u$ for some $\alpha \in \fbb$.
-    Since $\alpha = \gen{v, u}$ and $\Re\gen{v, u} = |\gen{v, u}|$, we have $\alpha = \norm{v} > 0$.
+    Since $\alpha = \ip{v, u}$ and $\Re\ip{v, u} = |\ip{v, u}|$, we have $\alpha = \norm{v} > 0$.
     Therefore, $u = v/\norm{v}$.
 \end{sol}
 
@@ -285,7 +285,7 @@
     Suppose $u, v$ are nonzero vectors in $\rbb^2$.
     Prove that
     \[
-        \gen{u, v} = \norm{u}\, \norm{v} \cos\theta,
+        \ip{u, v} = \norm{u}\, \norm{v} \cos\theta,
     \]
     where $\theta$ is the angle between $u$ and $v$ (thinking of $u$ and $v$ as arrows with initial point at the origin).
 
@@ -300,13 +300,13 @@
     \]
     On the other hand, we have
     \[
-        \norm{u - v}^2 = \gen{u - v, u - v} = \gen{u, u} - 2\gen{u, v} + \gen{v, v} = \norm{u}^2 + \norm{v}^2 - 2\gen{u, v}.
+        \norm{u - v}^2 = \ip{u - v, u - v} = \ip{u, u} - 2\ip{u, v} + \ip{v, v} = \norm{u}^2 + \norm{v}^2 - 2\ip{u, v}.
     \]
     Therefore,
     \[
-        \norm{u}^2 + \norm{v}^2 - 2\norm{u}\,\norm{v}\cos\theta = \norm{u}^2 + \norm{v}^2 - 2\gen{u, v},
+        \norm{u}^2 + \norm{v}^2 - 2\norm{u}\,\norm{v}\cos\theta = \norm{u}^2 + \norm{v}^2 - 2\ip{u, v},
     \]
-    which implies $\gen{u, v} = \norm{u}\,\norm{v}\cos\theta$.
+    which implies $\ip{u, v} = \norm{u}\,\norm{v}\cos\theta$.
 \end{sol}
 
 \begin{exercise}{6a16}
@@ -314,17 +314,17 @@
     However, geometry is not as clear in $\rbb^n$ for $n > 3$.
     Thus, the angle between two nonzero vectors $x, y \in \rbb^n$ is defined to be
     \[
-        \arccos \frac{\gen{x, y}}{\norm{x}\, \norm{y}},
+        \arccos \frac{\ip{x, y}}{\norm{x}\, \norm{y}},
     \]
     where the motivation for this definition comes from \exref{6a15}.
     Explain why the Cauchy--Schwarz inequality is needed to show that this definition makes sense.
 \end{exercise}
 
 \begin{sol}
-    The Cauchy--Schwarz inequality states that $|\gen{x, y}| \leq \norm{x}\,\norm{y}$ for all $x, y \in \rbb^n$.
+    The Cauchy--Schwarz inequality states that $|\ip{x, y}| \leq \norm{x}\,\norm{y}$ for all $x, y \in \rbb^n$.
     Therefore, if $x$ and $y$ are nonzero vectors in $\rbb^n$, then
     \[
-        -1 \leq -\frac{|\gen{x, y}|}{\norm{x}\,\norm{y}} \leq \frac{\gen{x, y}}{\norm{x}\,\norm{y}} \leq \frac{|\gen{x, y}|}{\norm{x}\,\norm{y}} \leq 1.
+        -1 \leq -\frac{|\ip{x, y}|}{\norm{x}\,\norm{y}} \leq \frac{\ip{x, y}}{\norm{x}\,\norm{y}} \leq \frac{|\ip{x, y}|}{\norm{x}\,\norm{y}} \leq 1.
     \]
 
     Since the domain of $\arccos$ is $[-1, 1]$, the Cauchy--Schwarz inequality ensures that $\arccos$ is defined for the given expression.
@@ -345,11 +345,11 @@
     \]
     Then
     \[
-        \norm{u}^2 = \sum_{k=1}^{n} k a_k^2, \quad \norm{v}^2 = \sum_{k=1}^{n} \frac{b_k^2}{k}, \quad \gen{u, v} = \sum_{k=1}^{n} a_k b_k.
+        \norm{u}^2 = \sum_{k=1}^{n} k a_k^2, \quad \norm{v}^2 = \sum_{k=1}^{n} \frac{b_k^2}{k}, \quad \ip{u, v} = \sum_{k=1}^{n} a_k b_k.
     \]
     By the Cauchy--Schwarz inequality, we have
     \[
-        \left(\sum_{k=1}^{n} a_k b_k\right)^2 = |\gen{u, v}|^2 \leq \norm{u}^2\,\norm{v}^2 = \left(\sum_{k=1}^{n} k a_k^2\right)\left(\sum_{k=1}^{n} \frac{b_k^2}{k}\right). \qedhere
+        \left(\sum_{k=1}^{n} a_k b_k\right)^2 = |\ip{u, v}|^2 \leq \norm{u}^2\,\norm{v}^2 = \left(\sum_{k=1}^{n} k a_k^2\right)\left(\sum_{k=1}^{n} \frac{b_k^2}{k}\right). \qedhere
     \]
 \end{sol}
 
@@ -371,11 +371,11 @@
     \]
     Then
     \[
-        \gen{u, v} = \int_1^{\infty} u(x)v(x) \dd x = \int_1^{\infty} f(x) \dd x, \quad \norm{u}^2 = \int_1^{\infty} (x f(x))^2 \dd x, \quad \norm{v}^2 = \int_1^{\infty} \frac{1}{x^2} \dd x = 1.
+        \ip{u, v} = \int_1^{\infty} u(x)v(x) \dd x = \int_1^{\infty} f(x) \dd x, \quad \norm{u}^2 = \int_1^{\infty} (x f(x))^2 \dd x, \quad \norm{v}^2 = \int_1^{\infty} \frac{1}{x^2} \dd x = 1.
     \]
     By the Cauchy--Schwarz inequality, we have
     \[
-        \left(\int_1^{\infty} f\right)^2 = |\gen{u, v}|^2 \leq \norm{u}^2\,\norm{v}^2 = \int_1^{\infty} x^2(f(x))^2 \dd x.
+        \left(\int_1^{\infty} f\right)^2 = |\ip{u, v}|^2 \leq \norm{u}^2\,\norm{v}^2 = \int_1^{\infty} x^2(f(x))^2 \dd x.
     \]
     \item The equality condition of the Cauchy--Schwarz inequality states that we have equality if and only if $u$ is a scalar multiple of $v$.
     Note that $f(x) \geq 0$ for all $x \in [1, \infty)$, so the scalar multiple must be nonnegative.
@@ -489,11 +489,11 @@
     Let $u = a_1 v_1 + \cdots + a_m v_m$.
     Then
     \[
-        \norm{u + v_{m+1}}^2 = \norm{u}^2 + 2\Re\gen{u, v_{m+1}} + \norm{v_{m+1}}^2,
+        \norm{u + v_{m+1}}^2 = \norm{u}^2 + 2\Re\ip{u, v_{m+1}} + \norm{v_{m+1}}^2,
     \]
     and
     \[
-        \norm{u - v_{m+1}}^2 = \norm{u}^2 - 2\Re\gen{u, v_{m+1}} + \norm{v_{m+1}}^2.
+        \norm{u - v_{m+1}}^2 = \norm{u}^2 - 2\Re\ip{u, v_{m+1}} + \norm{v_{m+1}}^2.
     \]
     Adding these two equations gives
     \[
@@ -576,7 +576,7 @@
     Suppose $V$ is a real inner product space.
     Prove that
     \[
-        \gen{u, v} = \frac{\norm{u + v}^2 - \norm{u - v}^2}{4}
+        \ip{u, v} = \frac{\norm{u + v}^2 - \norm{u - v}^2}{4}
     \]
     for all $u, v \in V$.
 \end{exercise}
@@ -584,9 +584,9 @@
 \begin{sol}
     We have
     \begin{align*}
-        \norm{u + v}^2 - \norm{u - v}^2 &= \gen{u + v, u + v} - \gen{u - v, u - v} \\
-        &= (\norm{u}^2 + 2\gen{u, v} + \norm{v}^2) - (\norm{u}^2 - 2\gen{u, v} + \norm{v}^2) \\
-        &= 4\gen{u, v}.
+        \norm{u + v}^2 - \norm{u - v}^2 &= \ip{u + v, u + v} - \ip{u - v, u - v} \\
+        &= (\norm{u}^2 + 2\ip{u, v} + \norm{v}^2) - (\norm{u}^2 - 2\ip{u, v} + \norm{v}^2) \\
+        &= 4\ip{u, v}.
     \end{align*}
     Dividing both sides by $4$ gives the desired equality.
 \end{sol}
@@ -595,7 +595,7 @@
     Suppose $V$ is a complex inner product space.
     Prove that
     \[
-        \gen{u, v} = \frac{\norm{u + v}^2 - \norm{u - v}^2 + \norm{u + iv}^2 i - \norm{u - iv}^2 i}{4}
+        \ip{u, v} = \frac{\norm{u + v}^2 - \norm{u - v}^2 + \norm{u + iv}^2 i - \norm{u - iv}^2 i}{4}
     \]
     for all $u, v \in V$.
 \end{exercise}
@@ -603,26 +603,26 @@
 \begin{sol}
     We have
     \begin{align*}
-        \norm{u + v}^2 - \norm{u - v}^2 &= \gen{u + v, u + v} - \gen{u - v, u - v} \\
-        &= (\norm{u}^2 + 2\Re\gen{u, v} + \norm{v}^2) - (\norm{u}^2 - 2\Re\gen{u, v} + \norm{v}^2) \\
-        &= 4\Re\gen{u, v},
+        \norm{u + v}^2 - \norm{u - v}^2 &= \ip{u + v, u + v} - \ip{u - v, u - v} \\
+        &= (\norm{u}^2 + 2\Re\ip{u, v} + \norm{v}^2) - (\norm{u}^2 - 2\Re\ip{u, v} + \norm{v}^2) \\
+        &= 4\Re\ip{u, v},
     \end{align*}
     and
     \begin{align*}
-        \norm{u + iv}^2 - \norm{u - iv}^2 &= \gen{u + iv, u + iv} - \gen{u - iv, u - iv} \\
-        &= (\norm{u}^2 + 2\Re\gen{u, iv} + \norm{v}^2) - (\norm{u}^2 - 2\Re\gen{u, iv} + \norm{v}^2) \\
-        &= 4\Re\gen{u, iv}.
+        \norm{u + iv}^2 - \norm{u - iv}^2 &= \ip{u + iv, u + iv} - \ip{u - iv, u - iv} \\
+        &= (\norm{u}^2 + 2\Re\ip{u, iv} + \norm{v}^2) - (\norm{u}^2 - 2\Re\ip{u, iv} + \norm{v}^2) \\
+        &= 4\Re\ip{u, iv}.
     \end{align*}
 
-    Let $\gen{u, v} = a + bi$ for some $a, b \in \rbb$.
+    Let $\ip{u, v} = a + bi$ for some $a, b \in \rbb$.
     Then
     \[
-        \gen{u, iv} = \bar \imath\gen{u, v} = -i(a + bi) = b - ai,
+        \ip{u, iv} = \bar \imath\ip{u, v} = -i(a + bi) = b - ai,
     \]
-    so $\Re\gen{u, iv} = \Im\gen{u, v}$.
+    so $\Re\ip{u, iv} = \Im\ip{u, v}$.
     Therefore, we have
     \[
-        \norm{u + v}^2 - \norm{u - v}^2 + \norm{u + iv}^2 i - \norm{u - iv}^2 i = 4\Re\gen{u, v} + 4\Im\gen{u, v}i = 4\gen{u, v}.
+        \norm{u + v}^2 - \norm{u - v}^2 + \norm{u + iv}^2 i - \norm{u - iv}^2 i = 4\Re\ip{u, v} + 4\Im\ip{u, v}i = 4\ip{u, v}.
     \]
     Dividing both sides by $4$ gives the desired equality.
 \end{sol}
@@ -633,7 +633,7 @@
         \norm{\cdot} : U \to [0, \infty)
     \]
     such that $\norm{u} = 0$ if and only if $u = 0$, $\norm{\alpha u} = |\alpha|\,\norm{u}$ for all $\alpha \in \fbb$ and all $u \in U$, and $\norm{u + v} \leq \norm{u} + \norm{v}$ for all $u, v \in U$.
-    Prove that a norm satisfying the parallelogram equality comes from an inner product (in other words, show that if $\norm{\cdot}$ is a norm on $U$ satisfying the parallelogram equality, then there is an inner product $\gen{\cdot, \cdot}$ on $U$ such that $\norm{u} = \gen{u, u}^{1/2}$ for all $u \in U$).
+    Prove that a norm satisfying the parallelogram equality comes from an inner product (in other words, show that if $\norm{\cdot}$ is a norm on $U$ satisfying the parallelogram equality, then there is an inner product $\ip{\cdot, \cdot}$ on $U$ such that $\norm{u} = \ip{u, u}^{1/2}$ for all $u \in U$).
 
     \remark{This is a highly non-trivial result known as the \term{Jordan--von Neumann theorem}.
     The proof is not easy since it requires density of $\qbb$ in $\rbb$ to ensure homogeneity from the rational numbers extends to the real numbers via continuity.}
@@ -644,22 +644,22 @@
     We first work in the case that $\fbb = \rbb$.
     Define
     \[
-        \gen{u, v} = \frac{\norm{u + v}^2 - \norm{u - v}^2}{4}
+        \ip{u, v} = \frac{\norm{u + v}^2 - \norm{u - v}^2}{4}
     \]
     for all $u, v \in U$.
-    We now check that $\gen{\cdot, \cdot}$ is an inner product on $U$.
+    We now check that $\ip{\cdot, \cdot}$ is an inner product on $U$.
     \begin{itemize}
         \item \textbf{Positive-Definiteness}: For any $u \in U$, we have
         \[
-            \gen{u, u} = \frac{\norm{u + u}^2 - \norm{u - u}^2}{4} = \frac{\norm{2u}^2 - 0}{4} = \frac{4\norm{u}^2}{4} = \norm{u}^2 \geq 0,
+            \ip{u, u} = \frac{\norm{u + u}^2 - \norm{u - u}^2}{4} = \frac{\norm{2u}^2 - 0}{4} = \frac{4\norm{u}^2}{4} = \norm{u}^2 \geq 0,
         \]
         since $\norm{u} \geq 0$.
-        This establishes that $\norm{u} = \gen{u, u}^{1/2}$ for all $u \in U$.
-        Moreover, $\gen{u, u} = 0$ if and only if $\norm{u}^2 = 0$, which is equivalent to $u = 0$.
+        This establishes that $\norm{u} = \ip{u, u}^{1/2}$ for all $u \in U$.
+        Moreover, $\ip{u, u} = 0$ if and only if $\norm{u}^2 = 0$, which is equivalent to $u = 0$.
         \item \textbf{Symmetry}: Note that $\norm{a} = \norm{-a}$ for any $a \in U$.
         For any $u, v \in U$, we have
         \[
-            \gen{u, v} = \frac{\norm{u + v}^2 - \norm{u - v}^2}{4} = \frac{\norm{v + u}^2 - \norm{v - u}^2}{4} = \gen{v, u}.
+            \ip{u, v} = \frac{\norm{u + v}^2 - \norm{u - v}^2}{4} = \frac{\norm{v + u}^2 - \norm{v - u}^2}{4} = \ip{v, u}.
         \]
         \item \textbf{Additivity in the First Slot}: Let $x, y, z \in U$.
         Applying the parallelogram equality to the pairs $(x + z, y)$ and $(x - z, y)$ gives
@@ -675,49 +675,49 @@
         \[
             \norm{(x + y) + z}^2 - \norm{(x + y) - z}^2 + \norm{(x - y) + z}^2 - \norm{(x - y) - z}^2 = 2\norm{x + z}^2 - 2\norm{x - z}^2.
         \]
-        Dividing both sides by $4$ gives the relation $\gen{x + y, z} + \gen{x - y, z} = 2\gen{x, z}$.
-        Note that $x = y$ yields $\gen{2x, z} = 2\gen{x, z}$.
+        Dividing both sides by $4$ gives the relation $\ip{x + y, z} + \ip{x - y, z} = 2\ip{x, z}$.
+        Note that $x = y$ yields $\ip{2x, z} = 2\ip{x, z}$.
         Then for any $u, v, w \in V$, define
         \[
             x = \frac{u + v}{2}, \quad y = \frac{u - v}{2}
         \]
         so that
         \[
-            \gen{u + v, w} = \gen{2x, w} = 2\gen{x, w} = \gen{x + y, w} + \gen{x - y, w} = \gen{u, w} + \gen{v, w}.
+            \ip{u + v, w} = \ip{2x, w} = 2\ip{x, w} = \ip{x + y, w} + \ip{x - y, w} = \ip{u, w} + \ip{v, w}.
         \]
         \item \textbf{Homogeneity in the First Slot}: Let $u, v \in U$ and $\alpha \in \rbb$.
-        We show that $\gen{\alpha u, v} = \alpha \gen{u, v}$ for all $\alpha \in \rbb$.
+        We show that $\ip{\alpha u, v} = \alpha \ip{u, v}$ for all $\alpha \in \rbb$.
         If $\alpha = 0$, then
         \[
-            \gen{0, v} = \frac{\norm{0 + v}^2 - \norm{0 - v}^2}{4} = \frac{\norm{v}^2 - \norm{v}^2}{4} = 0 = 0\gen{u, v}.
+            \ip{0, v} = \frac{\norm{0 + v}^2 - \norm{0 - v}^2}{4} = \frac{\norm{v}^2 - \norm{v}^2}{4} = 0 = 0\ip{u, v}.
         \]
         We first consider when $\alpha$ is a positive integer.
         We proceed by induction on $\alpha$.
-        For the base case $\alpha = 1$, we have $\gen{1\cdot u, v} = \gen{u, v}$.
+        For the base case $\alpha = 1$, we have $\ip{1\cdot u, v} = \ip{u, v}$.
         Now suppose the statement holds for some positive integer $\alpha$.
         Then
         \[
-            \gen{(\alpha + 1)u, v} = \gen{\alpha u + u, v} = \gen{\alpha u, v} + \gen{u, v} = \alpha\gen{u, v} + \gen{u, v} = (\alpha + 1)\gen{u, v}.
+            \ip{(\alpha + 1)u, v} = \ip{\alpha u + u, v} = \ip{\alpha u, v} + \ip{u, v} = \alpha\ip{u, v} + \ip{u, v} = (\alpha + 1)\ip{u, v}.
         \]
         Therefore, the statement holds for all positive integers $\alpha$.
         Next, we consider when $\alpha$ is a negative integer.
         By direct computation, we have for $\alpha = -1$ that
         \[
-            \gen{-u, v} = \frac{\norm{-u + v}^2 - \norm{-u - v}^2}{4} = \frac{\norm{v - u}^2 - \norm{-(u + v)}^2}{4} = \frac{\norm{v - u}^2 - \norm{u + v}^2}{4} = -\gen{u, v}.
+            \ip{-u, v} = \frac{\norm{-u + v}^2 - \norm{-u - v}^2}{4} = \frac{\norm{v - u}^2 - \norm{-(u + v)}^2}{4} = \frac{\norm{v - u}^2 - \norm{u + v}^2}{4} = -\ip{u, v}.
         \]
         We may now consider $\alpha = -\beta$ for some positive integer $\beta$.
         Then
         \[
-            \gen{\alpha u, v} = \gen{-\beta u, v} = \gen{-(\beta u), v} = -\gen{\beta u, v} = -\beta\gen{u, v} = \alpha\gen{u, v}.
+            \ip{\alpha u, v} = \ip{-\beta u, v} = \ip{-(\beta u), v} = -\ip{\beta u, v} = -\beta\ip{u, v} = \alpha\ip{u, v}.
         \]
 
         We now consider when $\alpha$ is a rational number.
         Let $\alpha = p/q$ for some integers $p$ and $q$ with $q > 0$.
         Then
         \[
-            q\gen{\alpha u, v} = \gen{q(\alpha u), v} = \gen{p u, v} = p\gen{u, v},
+            q\ip{\alpha u, v} = \ip{q(\alpha u), v} = \ip{p u, v} = p\ip{u, v},
         \]
-        so $\gen{\alpha u, v} = \alpha\gen{u, v}$.
+        so $\ip{\alpha u, v} = \alpha\ip{u, v}$.
         
         Finally, we consider when $\alpha$ is an arbitrary real number.
         By the density of the rational numbers in the real numbers, there exists a sequence $(\alpha_n)_{n=1}^{\infty}$ of rational numbers such that $\alpha_n \to \alpha$ as $n \to \infty$.
@@ -727,66 +727,66 @@
         \]
         where $|\alpha_n - \alpha| \to 0$ as $n \to \infty$, so $\norm{\alpha_n u + v} \to \norm{\alpha u + v}$ as $n \to \infty$.
         Similarly, we have $\norm{\alpha_n u - v} \to \norm{\alpha u - v}$ as $n \to \infty$.
-        Then $\gen{\alpha_n u, v} \to \gen{\alpha u, v}$ as $n \to \infty$.
-        It follows that $\gen{\alpha_n u, v} = \alpha_n\gen{u, v} \to \alpha\gen{u, v}$ as $n \to \infty$, so $\gen{\alpha u, v} = \alpha\gen{u, v}$.
+        Then $\ip{\alpha_n u, v} \to \ip{\alpha u, v}$ as $n \to \infty$.
+        It follows that $\ip{\alpha_n u, v} = \alpha_n\ip{u, v} \to \alpha\ip{u, v}$ as $n \to \infty$, so $\ip{\alpha u, v} = \alpha\ip{u, v}$.
     \end{itemize}
     Now suppose $\fbb = \cbb$.
     Define
     \[
-        \gen{u, v} = \frac{\norm{u + v}^2 - \norm{u - v}^2}{4} + \frac{\norm{u + iv}^2 - \norm{u - iv}^2}{4}i
+        \ip{u, v} = \frac{\norm{u + v}^2 - \norm{u - v}^2}{4} + \frac{\norm{u + iv}^2 - \norm{u - iv}^2}{4}i
     \]
     for all $u, v \in U$.
-    We again check that $\gen{\cdot, \cdot}$ is an inner product on $U$.
+    We again check that $\ip{\cdot, \cdot}$ is an inner product on $U$.
     \begin{itemize}
-        \item \textbf{Positive-Definiteness}: For any $u \in U$, $\Re\gen{u, u}$ follows from the real case.
-        Considering $\Im\gen{u, u}$, we have that
+        \item \textbf{Positive-Definiteness}: For any $u \in U$, $\Re\ip{u, u}$ follows from the real case.
+        Considering $\Im\ip{u, u}$, we have that
         \begin{align*}
             \norm{u + iu}^2 &= \norm{(1 + i)u}^2 = |1 + i|^2 \norm{u}^2 = 2\norm{u}^2, \\
             \norm{u - iu}^2 &= \norm{(1 - i)u}^2 = |1 - i|^2 \norm{u}^2 = 2\norm{u}^2,
         \end{align*}
-        so $\Im\gen{u, u} = 0$.
-        Therefore, $\gen{u, u} = \Re\gen{u, u} + \Im\gen{u, u}i = \Re\gen{u, u} \geq 0$.
-        This again establishes that $\norm{u} = \gen{u, u}^{1/2}$ for all $u \in U$.
-        Moreover, $\gen{u, u} = 0$ if and only if $\Re\gen{u, u} = 0$, which is equivalent to $u = 0$.
-        \item \textbf{Conjugate Symmetry}: For any $u, v \in U$, $\Re\gen{u, v}$ follows from the real case.
+        so $\Im\ip{u, u} = 0$.
+        Therefore, $\ip{u, u} = \Re\ip{u, u} + \Im\ip{u, u}i = \Re\ip{u, u} \geq 0$.
+        This again establishes that $\norm{u} = \ip{u, u}^{1/2}$ for all $u \in U$.
+        Moreover, $\ip{u, u} = 0$ if and only if $\Re\ip{u, u} = 0$, which is equivalent to $u = 0$.
+        \item \textbf{Conjugate Symmetry}: For any $u, v \in U$, $\Re\ip{u, v}$ follows from the real case.
         Moreover, note that $\norm{u + iv} = \norm{i(v - iu)} = |i|\,\norm{v - iu} = \norm{v - iu}$.
         Similarly, $\norm{u - iv} = \norm{-i(v + iu)} = |-i|\,\norm{v + iu} = \norm{v + iu}$.
-        Thus, for $\Im\gen{u, v}$, we have
+        Thus, for $\Im\ip{u, v}$, we have
         \begin{align*}
-            \Im\gen{u, v} &= \frac{\norm{u + iv}^2 - \norm{u - iv}^2}{4} \\
+            \Im\ip{u, v} &= \frac{\norm{u + iv}^2 - \norm{u - iv}^2}{4} \\
             &= \frac{\norm{v - iu}^2 - \norm{v + iu}^2}{4} \\
-            &= -\Im\gen{v, u}.
+            &= -\Im\ip{v, u}.
         \end{align*}
-        Therefore, $\gen{u, v} = \Re\gen{u, v} + \Im\gen{u, v}i = \Re\gen{v, u} - \Im\gen{v, u}i = \bar{\gen{v, u}}$.
+        Therefore, $\ip{u, v} = \Re\ip{u, v} + \Im\ip{u, v}i = \Re\ip{v, u} - \Im\ip{v, u}i = \bar{\ip{v, u}}$.
         \item \textbf{Additivity in the First Slot}: Let $u, v, w \in U$.
-        Then $\Re\gen{u + v, w}$ follows from the real case.
-        For $\Im\gen{u + v, w}$, the real-case additivity identity applied with $w$ replaced by $iw$ gives
+        Then $\Re\ip{u + v, w}$ follows from the real case.
+        For $\Im\ip{u + v, w}$, the real-case additivity identity applied with $w$ replaced by $iw$ gives
         \[
-            \Im\gen{u + v, w} = \Im\gen{u, w} + \Im\gen{v, w}.
+            \Im\ip{u + v, w} = \Im\ip{u, w} + \Im\ip{v, w}.
         \]
         Therefore,
         \begin{align*}
-            \gen{u + v, w} &= \Re\gen{u + v, w} + \Im\gen{u + v, w}i \\
-            &= \Re\gen{u, w} + \Re\gen{v, w} + (\Im\gen{u, w} + \Im\gen{v, w})i \\
-            &= (\Re\gen{u, w} + \Im\gen{u, w}i) + (\Re\gen{v, w} + \Im\gen{v, w}i) \\
-            &= \gen{u, w} + \gen{v, w}.
+            \ip{u + v, w} &= \Re\ip{u + v, w} + \Im\ip{u + v, w}i \\
+            &= \Re\ip{u, w} + \Re\ip{v, w} + (\Im\ip{u, w} + \Im\ip{v, w})i \\
+            &= (\Re\ip{u, w} + \Im\ip{u, w}i) + (\Re\ip{v, w} + \Im\ip{v, w}i) \\
+            &= \ip{u, w} + \ip{v, w}.
         \end{align*}
         \item \textbf{Homogeneity in the First Slot}: Let $u, v \in U$ and $\alpha \in \cbb$.
         We first consider $\alpha = i$.
         Then
         \begin{align*}
-            \gen{iu, v} &= \frac{\norm{iu + v}^2 - \norm{iu - v}^2}{4} + \frac{\norm{iu + iv}^2 - \norm{iu - iv}^2}{4}i \\
+            \ip{iu, v} &= \frac{\norm{iu + v}^2 - \norm{iu - v}^2}{4} + \frac{\norm{iu + iv}^2 - \norm{iu - iv}^2}{4}i \\
             &= \frac{\norm{v - iu}^2 - \norm{v + iu}^2}{4} + \frac{\norm{i(u + v)}^2 - \norm{i(u - v)}^2}{4}i \\
-            &= -\Im\gen{v, u} + \Re\gen{u, v}i = i\gen{u, v}.
+            &= -\Im\ip{v, u} + \Re\ip{u, v}i = i\ip{u, v}.
         \end{align*}
         Now let $\alpha = a + bi$ for some $a, b \in \rbb$.
         From the real case, we have
         \[
-            \gen{au, v} = a\gen{u, v} \quad \text{and} \quad \gen{ibu, v} = b\gen{iu, v} = bi\gen{u, v}.
+            \ip{au, v} = a\ip{u, v} \quad \text{and} \quad \ip{ibu, v} = b\ip{iu, v} = bi\ip{u, v}.
         \]
         Therefore,
         \[
-            \gen{\alpha u, v} = \gen{au + ibu, v} = \gen{au, v} + \gen{ibu, v} = a\gen{u, v} + bi\gen{u, v} = \alpha\gen{u, v}. \qedhere
+            \ip{\alpha u, v} = \ip{au + ibu, v} = \ip{au, v} + \ip{ibu, v} = a\ip{u, v} + bi\ip{u, v} = \alpha\ip{u, v}. \qedhere
         \]
     \end{itemize}
 \end{sol}
@@ -795,95 +795,95 @@
     Suppose $V_1, \ldots, V_m$ are inner product spaces.
     Show that the equation
     \[
-        \gen{(u_1, \ldots, u_m), (v_1, \ldots, v_m)} = \gen{u_1, v_1} + \cdots + \gen{u_m, v_m}
+        \ip{(u_1, \ldots, u_m), (v_1, \ldots, v_m)} = \ip{u_1, v_1} + \cdots + \ip{u_m, v_m}
     \]
     defines an inner product on $V_1 \times \cdots \times V_m$.
     
-    \note{In the expression above on the right, for each $k = 1, \ldots, m$, the inner product $\gen{u_k, v_k}$ denotes the inner product on $V_k$.
+    \note{In the expression above on the right, for each $k = 1, \ldots, m$, the inner product $\ip{u_k, v_k}$ denotes the inner product on $V_k$.
     Each of the spaces $V_1, \ldots, V_m$ may have a different inner product, even though the same notation is used here.}
 \end{exercise}
 
 \begin{sol}
-    Let $\gen{\cdot, \cdot}_k$ denote the inner product on $V_k$ for each $k = 1, \ldots, m$.
-    To see that $\gen{\cdot, \cdot}$ is an inner product on $V_1 \times \cdots \times V_m$, note that the properties of conjugate symmetry, additivity in the first slot, and homogeneity in the first slot follow from the corresponding properties of each $\gen{\cdot, \cdot}_k$.
+    Let $\ip{\cdot, \cdot}_k$ denote the inner product on $V_k$ for each $k = 1, \ldots, m$.
+    To see that $\ip{\cdot, \cdot}$ is an inner product on $V_1 \times \cdots \times V_m$, note that the properties of conjugate symmetry, additivity in the first slot, and homogeneity in the first slot follow from the corresponding properties of each $\ip{\cdot, \cdot}_k$.
 
     For positive-definiteness, let $(u_1, \ldots, u_m) \in V_1 \times \cdots \times V_m$.
     Then
     \[
-        \gen{(u_1, \ldots, u_m), (u_1, \ldots, u_m)} = \gen{u_1, u_1}_1 + \cdots + \gen{u_m, u_m}_m \geq 0.
+        \ip{(u_1, \ldots, u_m), (u_1, \ldots, u_m)} = \ip{u_1, u_1}_1 + \cdots + \ip{u_m, u_m}_m \geq 0.
     \]
-    Moreover, $\gen{(u_1, \ldots, u_m), (u_1, \ldots, u_m)} = 0$ if and only if $\gen{u_k, u_k}_k = 0$ for each $k = 1, \ldots, m$, which is equivalent to $u_k = 0$ for each $k = 1, \ldots, m$, so $(u_1, \ldots, u_m) = 0$.
+    Moreover, $\ip{(u_1, \ldots, u_m), (u_1, \ldots, u_m)} = 0$ if and only if $\ip{u_k, u_k}_k = 0$ for each $k = 1, \ldots, m$, which is equivalent to $u_k = 0$ for each $k = 1, \ldots, m$, so $(u_1, \ldots, u_m) = 0$.
 \end{sol}
 
 \begin{exercise}{6a30}
     Suppose $V$ is a real inner product space.
     For $u, v, w, x \in V$, define
     \[
-        \gen{u + iv, w + ix}_{\cbb} = \gen{u, w} + \gen{v, x} + (\gen{v, w} - \gen{u, x})i.
+        \ip{u + iv, w + ix}_{\cbb} = \ip{u, w} + \ip{v, x} + (\ip{v, w} - \ip{u, x})i.
     \]
     \begin{subexercises}
-        \item Show that $\gen{\cdot, \cdot}_{\cbb}$ makes $V_{\cbb}$ into a complex inner product space.
+        \item Show that $\ip{\cdot, \cdot}_{\cbb}$ makes $V_{\cbb}$ into a complex inner product space.
         \item Show that if $u, v \in V$, then
         \[
-            \gen{u, v}_{\cbb} = \gen{u, v} \quad \text{and} \quad \norm{u + iv}_{\cbb}^2 = \norm{u}^2 + \norm{v}^2.
+            \ip{u, v}_{\cbb} = \ip{u, v} \quad \text{and} \quad \norm{u + iv}_{\cbb}^2 = \norm{u}^2 + \norm{v}^2.
         \]
     \end{subexercises}
     \hint{See \exref{1b8} for the definition of the complexification $V_{\cbb}$.}
 \end{exercise}
 
 \begin{solenum}
-    \item We first check that $\gen{\cdot, \cdot}_{\cbb}$ is an inner product on $V_{\cbb}$.
+    \item We first check that $\ip{\cdot, \cdot}_{\cbb}$ is an inner product on $V_{\cbb}$.
     \begin{itemize}
         \item \textbf{Positive-Definiteness}: For any $u + iv \in V_{\cbb}$, we have
         \[
-            \gen{u + iv, u + iv}_{\cbb} = \gen{u, u} + \gen{v, v} + (\gen{v, u} - \gen{u, v})i = \norm{u}^2 + \norm{v}^2 \geq 0,
+            \ip{u + iv, u + iv}_{\cbb} = \ip{u, u} + \ip{v, v} + (\ip{v, u} - \ip{u, v})i = \norm{u}^2 + \norm{v}^2 \geq 0,
         \]
         since $\norm{u}, \norm{v} \geq 0$.
-        Moreover, $\gen{u + iv, u + iv}_{\cbb} = 0$ if and only if $\norm{u}^2 + \norm{v}^2 = 0$, which is equivalent to $u = v = 0$, so $u + iv = 0$.
+        Moreover, $\ip{u + iv, u + iv}_{\cbb} = 0$ if and only if $\norm{u}^2 + \norm{v}^2 = 0$, which is equivalent to $u = v = 0$, so $u + iv = 0$.
         \item \textbf{Conjugate Symmetry}: For any $u + iv, w + ix \in V_{\cbb}$, we have
         \begin{align*}
-            \gen{w + ix, u + iv}_{\cbb} &= \gen{w, u} + \gen{x, v} + (\gen{x, u} - \gen{w, v})i \\
-            &= \bar{\gen{u, w}} + \bar{\gen{v, x}} + (\bar{\gen{u, x}} - \bar{\gen{v, w}})i \\
-            &= \bar{\gen{u, w} + \gen{v, x} + (\gen{v, w} - \gen{u, x})i} = \bar{\gen{u + iv, w + ix}_{\cbb}}.
+            \ip{w + ix, u + iv}_{\cbb} &= \ip{w, u} + \ip{x, v} + (\ip{x, u} - \ip{w, v})i \\
+            &= \bar{\ip{u, w}} + \bar{\ip{v, x}} + (\bar{\ip{u, x}} - \bar{\ip{v, w}})i \\
+            &= \bar{\ip{u, w} + \ip{v, x} + (\ip{v, w} - \ip{u, x})i} = \bar{\ip{u + iv, w + ix}_{\cbb}}.
         \end{align*}
         \item \textbf{Additivity in the First Slot}: Let $u + iv, w + ix, y + iz \in V_{\cbb}$.
         Then
         \begin{align*}
-            \gen{(u + iv) + (y + iz), w + ix}_{\cbb} &= \gen{(u + y) + i(v + z), w + ix}_{\cbb} \\
-            &= \gen{u + y, w} + \gen{v + z, x} + (\gen{v + z, w} - \gen{u + y, x})i
+            \ip{(u + iv) + (y + iz), w + ix}_{\cbb} &= \ip{(u + y) + i(v + z), w + ix}_{\cbb} \\
+            &= \ip{u + y, w} + \ip{v + z, x} + (\ip{v + z, w} - \ip{u + y, x})i
         \end{align*}
         Expanding the inner products gives
         \begin{align*}
-            &\phantom{==} (\gen{u, w} + \gen{y, w}) + (\gen{v, x} + \gen{z, x}) + ((\gen{v, w} + \gen{z, w}) - (\gen{u, x} + \gen{y, x}))i \\
-            &= (\gen{u, w} + \gen{v, x} + (\gen{v, w} - \gen{u, x})i) + (\gen{y, w} + \gen{z, x} + (\gen{z, w} - \gen{y, x})i) \\
-            &= \gen{u + iv, w + ix}_{\cbb} + \gen{y + iz, w + ix}_{\cbb}.
+            &\phantom{==} (\ip{u, w} + \ip{y, w}) + (\ip{v, x} + \ip{z, x}) + ((\ip{v, w} + \ip{z, w}) - (\ip{u, x} + \ip{y, x}))i \\
+            &= (\ip{u, w} + \ip{v, x} + (\ip{v, w} - \ip{u, x})i) + (\ip{y, w} + \ip{z, x} + (\ip{z, w} - \ip{y, x})i) \\
+            &= \ip{u + iv, w + ix}_{\cbb} + \ip{y + iz, w + ix}_{\cbb}.
         \end{align*}
         \item \textbf{Homogeneity in the First Slot}: Let $u + iv, w + ix \in V_{\cbb}$ and $\lambda \in \rbb$.
         Then
         \begin{align*}
-            \gen{\lambda(u + iv), w + ix}_{\cbb} &= \gen{(\lambda u) + i(\lambda v), w + ix}_{\cbb} \\
-            &= \gen{\lambda u, w} + \gen{\lambda v, x} + (\gen{\lambda v, w} - \gen{\lambda u, x})i \\
-            &= \lambda\gen{u, w} + \lambda\gen{v, x} + (\lambda\gen{v, w} - \lambda\gen{u, x})i \\
-            &= \lambda(\gen{u, w} + \gen{v, x} + (\gen{v, w} - \gen{u, x})i) = \lambda\gen{u + iv, w + ix}_{\cbb}.
+            \ip{\lambda(u + iv), w + ix}_{\cbb} &= \ip{(\lambda u) + i(\lambda v), w + ix}_{\cbb} \\
+            &= \ip{\lambda u, w} + \ip{\lambda v, x} + (\ip{\lambda v, w} - \ip{\lambda u, x})i \\
+            &= \lambda\ip{u, w} + \lambda\ip{v, x} + (\lambda\ip{v, w} - \lambda\ip{u, x})i \\
+            &= \lambda(\ip{u, w} + \ip{v, x} + (\ip{v, w} - \ip{u, x})i) = \lambda\ip{u + iv, w + ix}_{\cbb}.
         \end{align*}
         Moreover, note that $i(u + iv) = -v + iu$.
         Then
         \begin{align*}
-            \gen{i(u + iv), w + ix}_{\cbb} &= \gen{-v + iu, w + ix}_{\cbb} \\
-            &= \gen{-v, w} + \gen{u, x} + (\gen{u, w} - \gen{-v, x})i \\
-            &= -\gen{v, w} + \gen{u, x} + (\gen{u, w} + \gen{v, x})i \\
-            &= i(\gen{u, w} + \gen{v, x} + (\gen{v, w} - \gen{u, x})i) = i\gen{u + iv, w + ix}_{\cbb}.
+            \ip{i(u + iv), w + ix}_{\cbb} &= \ip{-v + iu, w + ix}_{\cbb} \\
+            &= \ip{-v, w} + \ip{u, x} + (\ip{u, w} - \ip{-v, x})i \\
+            &= -\ip{v, w} + \ip{u, x} + (\ip{u, w} + \ip{v, x})i \\
+            &= i(\ip{u, w} + \ip{v, x} + (\ip{v, w} - \ip{u, x})i) = i\ip{u + iv, w + ix}_{\cbb}.
         \end{align*}
         Hence, homogeneity in the first slot holds for all $\alpha \in \cbb$ by using additivity in the first slot and the fact that $\alpha = a + bi$ for some $a, b \in \rbb$.
     \end{itemize}
-    Hence, $\gen{\cdot, \cdot}_{\cbb}$ is an inner product on $V_{\cbb}$, so $V_{\cbb}$ is a complex inner product space.
+    Hence, $\ip{\cdot, \cdot}_{\cbb}$ is an inner product on $V_{\cbb}$, so $V_{\cbb}$ is a complex inner product space.
     \item We have
     \[
-        \gen{u, v}_{\cbb} = \gen{u + i0, v + i0}_{\cbb} = \gen{u, v} + \gen{0, 0} + (\gen{0, v} - \gen{u, 0})i = \gen{u, v},
+        \ip{u, v}_{\cbb} = \ip{u + i0, v + i0}_{\cbb} = \ip{u, v} + \ip{0, 0} + (\ip{0, v} - \ip{u, 0})i = \ip{u, v},
     \]
     and
     \[
-        \norm{u + iv}_{\cbb}^2 = \gen{u + iv, u + iv}_{\cbb} = \gen{u, u} + \gen{v, v} + (\gen{v, u} - \gen{u, v})i = \norm{u}^2 + \norm{v}^2. \qedhere
+        \norm{u + iv}_{\cbb}^2 = \ip{u + iv, u + iv}_{\cbb} = \ip{u, u} + \ip{v, v} + (\ip{v, u} - \ip{u, v})i = \norm{u}^2 + \norm{v}^2. \qedhere
     \]
 \end{solenum}
 
@@ -941,9 +941,9 @@
 \begin{exercise}{6a33}
     Suppose $f, g$ are differentiable functions from $\rbb$ to $\rbb^n$.
     \begin{subexercises}
-        \item Show that $\gen{f(t), g(t)}' = \gen{f'(t), g(t)} + \gen{f(t), g'(t)}$.
+        \item Show that $\ip{f(t), g(t)}' = \ip{f'(t), g(t)} + \ip{f(t), g'(t)}$.
         \item Suppose $c$ is a positive number and $\norm{f(t)} = c$ for every $t \in \rbb$.
-        Show that $\gen{f'(t), f(t)} = 0$ for every $t \in \rbb$.
+        Show that $\ip{f'(t), f(t)} = 0$ for every $t \in \rbb$.
         \item Interpret the result in (b) geometrically in terms of the tangent vector to a curve lying on a sphere in $\rbb^n$ centered at the origin.
     \end{subexercises}
     \note{A function $f: \rbb \to \rbb^n$ is called differentiable if there exist differentiable functions $f_1, \ldots, f_n$ from $\rbb$ to $\rbb$ such that $f(t) = (f_1(t), \ldots, f_n(t))$ for each $t \in \rbb$.
@@ -953,15 +953,15 @@
 \begin{solenum}
     \item We have
     \[
-        \gen{f(t), g(t)}' = \left(\sum_{k=1}^n f_k(t)g_k(t)\right)' = \sum_{k=1}^n \bigl(f_k'(t)g_k(t) + f_k(t)g_k'(t)\bigr) = \gen{f'(t), g(t)} + \gen{f(t), g'(t)}.
+        \ip{f(t), g(t)}' = \left(\sum_{k=1}^n f_k(t)g_k(t)\right)' = \sum_{k=1}^n \bigl(f_k'(t)g_k(t) + f_k(t)g_k'(t)\bigr) = \ip{f'(t), g(t)} + \ip{f(t), g'(t)}.
     \]
     \item Suppose $\norm{f(t)} = c$ for every $t \in \rbb$.
-    Then $\gen{f(t), f(t)} = c^2$ for every $t \in \rbb$.
+    Then $\ip{f(t), f(t)} = c^2$ for every $t \in \rbb$.
     Differentiating both sides with respect to $t$, we get
     \[
-        \gen{f'(t), f(t)} + \gen{f(t), f'(t)} = 2\gen{f'(t), f(t)} = 0,
+        \ip{f'(t), f(t)} + \ip{f(t), f'(t)} = 2\ip{f'(t), f(t)} = 0,
     \]
-    so $\gen{f'(t), f(t)} = 0$ for every $t \in \rbb$.
+    so $\ip{f'(t), f(t)} = 0$ for every $t \in \rbb$.
     \item Geometrically, the result in (b) says that the tangent vector to a curve lying on a sphere in $\rbb^n$ centered at the origin is orthogonal to the position vector of the point on the curve.
 \end{solenum}
 

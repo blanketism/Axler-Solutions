@@ -18,16 +18,16 @@
         \norm{e_j + a_k e_k}^2 = |1|^2 + |a_k|^2 = 1 + |a_k|^2
     \]
     by the hypothesis.
-    If $a_k = 0$, then $\gen{e_j, e_j} = \norm{e_j}^2 = 1$ for all $j$.
+    If $a_k = 0$, then $\ip{e_j, e_j} = \norm{e_j}^2 = 1$ for all $j$.
     Otherwise, let $|a_k| = 1$ so that $\norm{e_j + a_k e_k}^2 = 1 + |a_k|^2 = 2$.
 
     If $\fbb = \rbb$, then
     \[
-        \gen{e_j, e_k} = \frac{1}{4} (\norm{e_j + e_k}^2 - \norm{e_j - e_k}^2) = \frac{1}{4} (2 - 2) = 0
+        \ip{e_j, e_k} = \frac{1}{4} (\norm{e_j + e_k}^2 - \norm{e_j - e_k}^2) = \frac{1}{4} (2 - 2) = 0
     \]
     by \exref{6a26}. If $\fbb = \cbb$, then
     \[
-        \gen{e_j, e_k} = \frac{1}{4}(\norm{e_j + e_k}^2 - \norm{e_j - e_k}^2 + \norm{e_j + i e_k}^2i - \norm{e_j - i e_k}^2i) = \frac{1}{4}(2 - 2 + 2i - 2i) = 0
+        \ip{e_j, e_k} = \frac{1}{4}(\norm{e_j + e_k}^2 - \norm{e_j - e_k}^2 + \norm{e_j + i e_k}^2i - \norm{e_j - i e_k}^2i) = \frac{1}{4}(2 - 2 + 2i - 2i) = 0
     \]
     by \exref{6a27}.
     Therefore, the list $e_1, \ldots, e_m$ is orthonormal.
@@ -50,19 +50,19 @@
     Then $\norm{v_1}^2 = \cos^2\theta + \sin^2\theta = 1$ and $\norm{v_2}^2 = \sin^2\theta + \cos^2\theta = 1$.
     Moreover,
     \[
-        \gen{v_1, v_2} = -\cos\theta\sin\theta + \sin\theta\cos\theta = 0.
+        \ip{v_1, v_2} = -\cos\theta\sin\theta + \sin\theta\cos\theta = 0.
     \]
     Since $v_1, v_2$ is an orthonormal list of two vectors in $\rbb^2$, it is an orthonormal basis of $\rbb^2$.
     Similarly, let $w_1 = (\cos\theta, \sin\theta)$ and $w_2 = (\sin\theta, -\cos\theta)$.
     Then $\norm{w_1}^2 = \cos^2\theta + \sin^2\theta = 1$ and $\norm{w_2}^2 = \sin^2\theta + \cos^2\theta = 1$.
     Again,
     \[
-        \gen{w_1, w_2} = \cos\theta\sin\theta - \sin\theta\cos\theta = 0.
+        \ip{w_1, w_2} = \cos\theta\sin\theta - \sin\theta\cos\theta = 0.
     \]
     Since $w_1, w_2$ is an orthonormal list of two vectors in $\rbb^2$, it is an orthonormal basis of $\rbb^2$.
     \item Suppose $u_1, u_2$ is an orthonormal basis of $\rbb^2$.
     If $u_1 = (x_1, y_1)$, then $\norm{u_1}^2 = x_1^2 + y_1^2 = 1$, so there exists $\theta \in \rbb$ such that $x_1 = \cos\theta$ and $y_1 = \sin\theta$.
-    If $u_2 = (x_2, y_2)$, then $\norm{u_2}^2 = x_2^2 + y_2^2 = 1$ and $\gen{u_1, u_2} = x_1x_2 + y_1y_2 = 0$.
+    If $u_2 = (x_2, y_2)$, then $\norm{u_2}^2 = x_2^2 + y_2^2 = 1$ and $\ip{u_1, u_2} = x_1x_2 + y_1y_2 = 0$.
     We now solve the system of equations
     \[
         \begin{cases}
@@ -87,21 +87,21 @@
     Suppose $e_1, \ldots, e_m$ is an orthonormal list in $V$ and $v \in V$.
     Prove that
     \[
-        \norm{v}^2 = |\gen{v, e_1}|^2 + \cdots + |\gen{v, e_m}|^2 \iff v \in \spn(e_1, \ldots, e_m).
+        \norm{v}^2 = |\ip{v, e_1}|^2 + \cdots + |\ip{v, e_m}|^2 \iff v \in \spn(e_1, \ldots, e_m).
     \]
 \end{exercise}
 
 \begin{sol}
-    Since $e_1, \ldots, e_m$ is an orthonormal basis for $\spn(e_1, \ldots, e_m)$, if $v \in \spn(e_1, \ldots, e_m)$, then we have $\norm{v}^2 = |\gen{v, e_1}|^2 + \cdots + |\gen{v, e_m}|^2$.
+    Since $e_1, \ldots, e_m$ is an orthonormal basis for $\spn(e_1, \ldots, e_m)$, if $v \in \spn(e_1, \ldots, e_m)$, then we have $\norm{v}^2 = |\ip{v, e_1}|^2 + \cdots + |\ip{v, e_m}|^2$.
 
-    Conversely, suppose $\norm{v}^2 = |\gen{v, e_1}|^2 + \cdots + |\gen{v, e_m}|^2$.
-    Let $w = v - (\gen{v, e_1}e_1 + \cdots + \gen{v, e_m}e_m)$.
-    Note that $\gen{w, e_k} = \gen{v, e_k} - \gen{v, e_k} = 0$ for each $k = 1, \ldots, m$, so $w$ is orthogonal to each $e_k$.
+    Conversely, suppose $\norm{v}^2 = |\ip{v, e_1}|^2 + \cdots + |\ip{v, e_m}|^2$.
+    Let $w = v - (\ip{v, e_1}e_1 + \cdots + \ip{v, e_m}e_m)$.
+    Note that $\ip{w, e_k} = \ip{v, e_k} - \ip{v, e_k} = 0$ for each $k = 1, \ldots, m$, so $w$ is orthogonal to each $e_k$.
     Then
     \[
-        \norm{v}^2 = \norm*{w + \sum_{k=1}^m \gen{v, e_k}e_k}^2 = \norm{w}^2 + \sum_{k=1}^m |\gen{v, e_k}|^2.
+        \norm{v}^2 = \norm*{w + \sum_{k=1}^m \ip{v, e_k}e_k}^2 = \norm{w}^2 + \sum_{k=1}^m |\ip{v, e_k}|^2.
     \]
-    The assumption of $\norm{v}^2 = |\gen{v, e_1}|^2 + \cdots + |\gen{v, e_m}|^2$ gives $\norm{w}^2 = 0$, so $w = 0$, and $v \in \spn(e_1, \ldots, e_m)$.
+    The assumption of $\norm{v}^2 = |\ip{v, e_1}|^2 + \cdots + |\ip{v, e_m}|^2$ gives $\norm{w}^2 = 0$, so $w = 0$, and $v \in \spn(e_1, \ldots, e_m)$.
 \end{sol}
 
 \begin{exercise}{6b4}
@@ -112,7 +112,7 @@
     \]
     is an orthonormal list of vectors in $C[-\pi, \pi]$, the vector space of continuous real-valued functions on $[-\pi, \pi]$ with inner product
     \[
-        \gen{f, g} = \int_{-\pi}^{\pi} fg.
+        \ip{f, g} = \int_{-\pi}^{\pi} fg.
     \]
     \hint{The following formulas should help.}
     \begin{align*}
@@ -133,9 +133,9 @@
     \]
     Moreover, note the following for $k = 1, \ldots, n$,
     \[
-        \gen{f_0, f_k} = \frac{1}{\sqrt{2\pi}}\frac{1}{\sqrt{\pi}}\int_{-\pi}^{\pi} \cos kx \dd x = \frac{1}{\sqrt{2\pi}}\frac{1}{\sqrt{\pi}}\left.\frac{\sin kx}{k}\right|_{-\pi}^{\pi} = 0,
+        \ip{f_0, f_k} = \frac{1}{\sqrt{2\pi}}\frac{1}{\sqrt{\pi}}\int_{-\pi}^{\pi} \cos kx \dd x = \frac{1}{\sqrt{2\pi}}\frac{1}{\sqrt{\pi}}\left.\frac{\sin kx}{k}\right|_{-\pi}^{\pi} = 0,
     \]
-    and $\gen{f_0, g_k} = 0$ because $\sin kx$ is an odd function.
+    and $\ip{f_0, g_k} = 0$ because $\sin kx$ is an odd function.
     Hence, $f_0$ is orthogonal to each of the other vectors in the list.
     Using the $\cos kx$ and $\sin kx$ computations in the above integrals, we may simplify the calculations of the norms of $f_k$ and $g_k$ to get
     \begin{align*}
@@ -147,14 +147,14 @@
     Note that $\sin mx = 0$ for all integers $m$ when $x = \pm \pi$.
     Then
     \begin{align*}
-        \gen{f_j, f_k} &= \frac{1}{\pi}\int_{-\pi}^{\pi} \cos jx \cos kx \dd x \\
+        \ip{f_j, f_k} &= \frac{1}{\pi}\int_{-\pi}^{\pi} \cos jx \cos kx \dd x \\
         &= \frac{1}{2\pi}\int_{-\pi}^{\pi} (\cos(j - k)x + \cos(j + k)x) \dd x \\
         &= \frac{1}{2\pi}\left.\left(\frac{\sin(j - k)x}{j - k} + \frac{\sin(j + k)x}{j + k}\right)\right|_{-\pi}^{\pi} = 0, \\
-        \gen{g_j, g_k} &= \frac{1}{\pi}\int_{-\pi}^{\pi} \sin jx \sin kx \dd x \\
+        \ip{g_j, g_k} &= \frac{1}{\pi}\int_{-\pi}^{\pi} \sin jx \sin kx \dd x \\
         &= \frac{1}{2\pi}\int_{-\pi}^{\pi} (\cos(j - k)x - \cos(j + k)x) \dd x \\
         &= \frac{1}{2\pi}\left.\left(\frac{\sin(j - k)x}{j - k} - \frac{\sin(j + k)x}{j + k}\right)\right|_{-\pi}^{\pi} = 0.
     \end{align*}
-    For $j, k = 1, \ldots, n$, note that $f_j g_k$ is a product of an even function and an odd function, so $\gen{f_j, g_k} = 0$.
+    For $j, k = 1, \ldots, n$, note that $f_j g_k$ is a product of an even function and an odd function, so $\ip{f_j, g_k} = 0$.
     Thus, the list of vectors is orthonormal.
 \end{sol}
 
@@ -176,13 +176,13 @@
     The list of vectors in \exref{6b4} is an orthonormal list in $C[-\pi, \pi]$.
     Using the same naming conventions of $f_0, f_k, g_k$ as in \exref{6b4}, we have that
     \[
-        \gen{f, f_0} = \frac{a_0}{\sqrt{2}}, \quad
-        \gen{f, f_k} = a_k, \quad
-        \gen{f, g_k} = b_k.
+        \ip{f, f_0} = \frac{a_0}{\sqrt{2}}, \quad
+        \ip{f, f_k} = a_k, \quad
+        \ip{f, g_k} = b_k.
     \]
     By Bessel's inequality, for every $n \geq 1$,
     \[
-        \frac{a_0^2}{2} + \sum_{k=1}^{n}(a_k^2 + b_k^2) = |\gen{f, f_0}|^2 + \sum_{k=1}^{n}(|\gen{f, f_k}|^2 + |\gen{f, g_k}|^2) \leq \norm{f}^2 = \int_{-\pi}^{\pi} f^2.
+        \frac{a_0^2}{2} + \sum_{k=1}^{n}(a_k^2 + b_k^2) = |\ip{f, f_0}|^2 + \sum_{k=1}^{n}(|\ip{f, f_k}|^2 + |\ip{f, g_k}|^2) \leq \norm{f}^2 = \int_{-\pi}^{\pi} f^2.
     \]
     Since the right side is independent of $n$, taking $n \to \infty$ gives the result.
 \end{sol}
@@ -249,12 +249,12 @@
     Set $f_1 = v_1 = (1, 0, 0)$, so $\norm{f_1}^2 = 1^2 + 0^2 + 0^2 = 1$.
     Then
     \[
-        f_2 = v_2 - \frac{\gen{v_2, f_1}}{\norm{f_1}^2}f_1 = (1, 1, 1) - \frac{1}{1}(1, 0, 0) = (0, 1, 1)
+        f_2 = v_2 - \frac{\ip{v_2, f_1}}{\norm{f_1}^2}f_1 = (1, 1, 1) - \frac{1}{1}(1, 0, 0) = (0, 1, 1)
     \]
     with $\norm{f_2}^2 = 0^2 + 1^2 + 1^2 = 2$.
     Finally,
     \[
-        f_3 = v_3 - \frac{\gen{v_3, f_1}}{\norm{f_1}^2}f_1 - \frac{\gen{v_3, f_2}}{\norm{f_2}^2}f_2 = (1, 1, 2) - (1, 0, 0) - \frac{3}{2}(0, 1, 1) = \left(0, -\frac{1}{2}, \frac{1}{2}\right)
+        f_3 = v_3 - \frac{\ip{v_3, f_1}}{\norm{f_1}^2}f_1 - \frac{\ip{v_3, f_2}}{\norm{f_2}^2}f_2 = (1, 1, 2) - (1, 0, 0) - \frac{3}{2}(0, 1, 1) = \left(0, -\frac{1}{2}, \frac{1}{2}\right)
     \]
     with $\norm{f_3}^2 = 0^2 + (-\frac{1}{2})^2 + (\frac{1}{2})^2 = \frac{1}{2}$.
     Then the orthonormal basis of $\rbb^3$ is
@@ -269,7 +269,7 @@
 \end{sol}
 
 \begin{exercise}{6b8}
-    Make $\pcal_2(\rbb)$ into an inner product space by defining $\gen{p, q} = \int_0^1 pq$ for all $p, q \in \pcal_2(\rbb)$.
+    Make $\pcal_2(\rbb)$ into an inner product space by defining $\ip{p, q} = \int_0^1 pq$ for all $p, q \in \pcal_2(\rbb)$.
     \begin{subexercises}
         \item Apply the Gram--Schmidt procedure to the basis $1, x, x^2$ to produce an orthonormal basis of $\pcal_2(\rbb)$.
         \item The differentiation operator (the operator that takes $p$ to $p'$) on $\pcal_2(\rbb)$ has an upper-triangular matrix with respect to the basis $1, x, x^2$, which is not an orthonormal basis.
@@ -282,12 +282,12 @@
     Then $f_1 = v_1 = 1$, so $\norm{f_1}^2 = \int_0^1 1^2 = 1$.
     Next,
     \[
-        f_2 = v_2 - \frac{\gen{v_2, f_1}}{\norm{f_1}^2}f_1 = x - \int_0^1 x \cdot 1 = x - \frac{1}{2}
+        f_2 = v_2 - \frac{\ip{v_2, f_1}}{\norm{f_1}^2}f_1 = x - \int_0^1 x \cdot 1 = x - \frac{1}{2}
     \]
     with $\norm{f_2}^2 = \int_0^1 (x - \frac{1}{2})^2 \dd x = \frac{1}{12}$.
     Finally,
     \[
-        f_3 = v_3 - \frac{\gen{v_3, f_1}}{\norm{f_1}^2}f_1 - \frac{\gen{v_3, f_2}}{\norm{f_2}^2}f_2 = x^2 - \int_0^1 x^2 \cdot 1 \dd x - 12\left(\int_0^1 x^2\left(x - \frac{1}{2}\right) \dd x\right)\left(x - \frac{1}{2}\right) = x^2 - x + \frac{1}{6}
+        f_3 = v_3 - \frac{\ip{v_3, f_1}}{\norm{f_1}^2}f_1 - \frac{\ip{v_3, f_2}}{\norm{f_2}^2}f_2 = x^2 - \int_0^1 x^2 \cdot 1 \dd x - 12\left(\int_0^1 x^2\left(x - \frac{1}{2}\right) \dd x\right)\left(x - \frac{1}{2}\right) = x^2 - x + \frac{1}{6}
     \]
     with $\norm{f_3}^2 = \int_0^1 (x^2 - x + \frac{1}{6})^2 \dd x = \frac{1}{180}$.
     Then the orthonormal basis of $\pcal_2(\rbb)$ is
@@ -325,42 +325,42 @@
 
 \begin{exercise}{6b9}
     Suppose $e_1, \ldots, e_m$ is the result of applying the Gram--Schmidt procedure to a linearly independent list $v_1, \ldots, v_m$ in $V$.
-    Prove that $\gen{v_k, e_k} > 0$ for each $k = 1, \ldots, m$.
+    Prove that $\ip{v_k, e_k} > 0$ for each $k = 1, \ldots, m$.
 \end{exercise}
 
 \begin{sol}
     By the Gram--Schmidt procedure, we have
     \[
-        e_k = \frac{f_k}{\norm{f_k}}, \quad f_k = v_k - \sum_{j=1}^{k-1}\gen{v_k, e_j}e_j.
+        e_k = \frac{f_k}{\norm{f_k}}, \quad f_k = v_k - \sum_{j=1}^{k-1}\ip{v_k, e_j}e_j.
     \]
     From the linear independence of $v_1, \ldots, v_m$, $v_k \notin \spn(v_1, \ldots, v_{k-1}) = \spn(e_1, \ldots, e_{k-1})$, so $f_k \neq 0$ and $\norm{f_k} > 0$.
     Then by orthogonality of $f_k$ and $e_j$ for $j < k$, we have
     \[
-        \gen{v_k, e_k} = \frac{1}{\norm{f_k}}\gen{v_k, f_k} = \frac{1}{\norm{f_k}}\gen*{f_k + \sum_{j=1}^{k-1}\gen{v_k, e_j}e_j, f_k} = \frac{1}{\norm{f_k}}\gen{f_k, f_k} = \norm{f_k} > 0. \qedhere
+        \ip{v_k, e_k} = \frac{1}{\norm{f_k}}\ip{v_k, f_k} = \frac{1}{\norm{f_k}}\ip*{f_k + \sum_{j=1}^{k-1}\ip{v_k, e_j}e_j, f_k} = \frac{1}{\norm{f_k}}\ip{f_k, f_k} = \norm{f_k} > 0. \qedhere
     \]
 \end{sol}
 
 \begin{exercise}{6b10}
     Suppose $v_1, \ldots, v_m$ is a linearly independent list in $V$.
-    Explain why the orthonormal list produced by the formulas of the Gram--Schmidt procedure (6.32) is the only orthonormal list $e_1, \ldots, e_m$ in $V$ such that $\gen{v_k, e_k} > 0$ and $\spn(v_1, \ldots, v_k) = \spn(e_1, \ldots, e_k)$ for each $k = 1, \ldots, m$.
+    Explain why the orthonormal list produced by the formulas of the Gram--Schmidt procedure (6.32) is the only orthonormal list $e_1, \ldots, e_m$ in $V$ such that $\ip{v_k, e_k} > 0$ and $\spn(v_1, \ldots, v_k) = \spn(e_1, \ldots, e_k)$ for each $k = 1, \ldots, m$.
 
     \note{The result in this exercise is used in the proof of 7.58.}
 \end{exercise}
 
 \begin{sol}
-    Suppose $e_1, \ldots, e_m$ is an orthonormal list in $V$ such that $\gen{v_k, e_k} > 0$ and $\spn(v_1, \ldots, v_k) = \spn(e_1, \ldots, e_k)$ for each $k = 1, \ldots, m$.
+    Suppose $e_1, \ldots, e_m$ is an orthonormal list in $V$ such that $\ip{v_k, e_k} > 0$ and $\spn(v_1, \ldots, v_k) = \spn(e_1, \ldots, e_k)$ for each $k = 1, \ldots, m$.
     We induce on $k$ to show that $e_k$ agrees with the Gram--Schmidt output.
 
-    For $k = 1$, we have $\spn(v_1) = \spn(e_1)$ and $\norm{e_1} = 1$, so $v_1 = \gen{v_1, e_1} e_1$.
-    Taking norms and using $\gen{v_1, e_1} > 0$ gives $\gen{v_1, e_1} = \norm{v_1}$, so $e_1 = v_1 / \norm{v_1}$, which is the Gram--Schmidt output.
+    For $k = 1$, we have $\spn(v_1) = \spn(e_1)$ and $\norm{e_1} = 1$, so $v_1 = \ip{v_1, e_1} e_1$.
+    Taking norms and using $\ip{v_1, e_1} > 0$ gives $\ip{v_1, e_1} = \norm{v_1}$, so $e_1 = v_1 / \norm{v_1}$, which is the Gram--Schmidt output.
 
     Now suppose the claim holds for $e_1, \ldots, e_k$.
     Since $v_{k+1} \in \spn(e_1, \ldots, e_{k+1})$ and $e_1, \ldots, e_{k+1}$ is orthonormal,
     \[
-        v_{k+1} = \sum_{j=1}^{k+1} \gen{v_{k+1}, e_j} e_j \implies \gen{v_{k+1}, e_{k+1}} e_{k+1} = v_{k+1} - \sum_{j=1}^{k} \gen{v_{k+1}, e_j} e_j.
+        v_{k+1} = \sum_{j=1}^{k+1} \ip{v_{k+1}, e_j} e_j \implies \ip{v_{k+1}, e_{k+1}} e_{k+1} = v_{k+1} - \sum_{j=1}^{k} \ip{v_{k+1}, e_j} e_j.
     \]
     By the induction hypothesis, the right-hand side is the Gram--Schmidt vector $f_{k+1}$.
-    Taking norms and using $\gen{v_{k+1}, e_{k+1}} > 0$ gives $\gen{v_{k+1}, e_{k+1}} = \norm{f_{k+1}}$, so $e_{k+1} = f_{k+1} / \norm{f_{k+1}}$, which is the Gram--Schmidt output.
+    Taking norms and using $\ip{v_{k+1}, e_{k+1}} > 0$ gives $\ip{v_{k+1}, e_{k+1}} = \norm{f_{k+1}}$, so $e_{k+1} = f_{k+1} / \norm{f_{k+1}}$, which is the Gram--Schmidt output.
 \end{sol}
 
 \begin{exercise}{6b11}
@@ -369,7 +369,7 @@
 
 \begin{sol}
     The map $p \mapsto p(\frac{1}{2})$ is a linear functional on $\pcal_2(\rbb)$.
-    By the Riesz representation theorem, there exists a unique $q \in \pcal_2(\rbb)$ such that $p(\frac{1}{2}) = \gen{p, q}$ for every $p \in \pcal_2(\rbb)$, given by
+    By the Riesz representation theorem, there exists a unique $q \in \pcal_2(\rbb)$ such that $p(\frac{1}{2}) = \ip{p, q}$ for every $p \in \pcal_2(\rbb)$, given by
     \[
         q = e_1\!\left(\tfrac{1}{2}\right)e_1 + e_2\!\left(\tfrac{1}{2}\right)e_2 + e_3\!\left(\tfrac{1}{2}\right)e_3,
     \]
@@ -397,18 +397,18 @@
 \begin{sol}
     By the Riesz representation theorem, there exists a unique $q \in \pcal_2(\rbb)$ such that
     \[
-        \int_0^1 p(x) \cos(\pi x)\dd x = \gen{p, q} = \int_0^1 pq
+        \int_0^1 p(x) \cos(\pi x)\dd x = \ip{p, q} = \int_0^1 pq
     \]
     for every $p \in \pcal_2(\rbb)$, given by
     \[
-        q = \gen{e_1, \cos(\pi x)}e_1 + \gen{e_2, \cos(\pi x)}e_2 + \gen{e_3, \cos(\pi x)}e_3,
+        q = \ip{e_1, \cos(\pi x)}e_1 + \ip{e_2, \cos(\pi x)}e_2 + \ip{e_3, \cos(\pi x)}e_3,
     \]
     where $e_1, e_2, e_3$ is the orthonormal basis from \exref{6b8}.
     Evaluating the inner products gives
     \begin{align*}
-        \gen{e_1, \cos(\pi x)} &= \int_0^1 e_1 \cos(\pi x) = \int_0^1 \cos(\pi x) = 0, \\
-        \gen{e_2, \cos(\pi x)} &= \int_0^1 e_2 \cos(\pi x) = \int_0^1 2\sqrt{3}\left(x - \frac{1}{2}\right) \cos(\pi x) = \frac{-4\sqrt{3}}{\pi^2}, \\
-        \gen{e_3, \cos(\pi x)} &= \int_0^1 e_3 \cos(\pi x) = \int_0^1 6\sqrt{5}\left(x^2 - x + \frac{1}{6}\right) \cos(\pi x) = 0.
+        \ip{e_1, \cos(\pi x)} &= \int_0^1 e_1 \cos(\pi x) = \int_0^1 \cos(\pi x) = 0, \\
+        \ip{e_2, \cos(\pi x)} &= \int_0^1 e_2 \cos(\pi x) = \int_0^1 2\sqrt{3}\left(x - \frac{1}{2}\right) \cos(\pi x) = \frac{-4\sqrt{3}}{\pi^2}, \\
+        \ip{e_3, \cos(\pi x)} &= \int_0^1 e_3 \cos(\pi x) = \int_0^1 6\sqrt{5}\left(x^2 - x + \frac{1}{6}\right) \cos(\pi x) = 0.
     \end{align*}
     Hence,
     \[
@@ -428,12 +428,12 @@
     Then $v_1, \ldots, v_{k-1}$ is linearly independent, so $e_1, \ldots, e_{k-1}$ is an orthonormal basis of that span.
     Hence,
     \[
-        v_k = \sum_{j=1}^{k-1} \gen{v_k, e_j} e_j \implies f_k = v_k - \sum_{j=1}^{k-1} \gen{v_k, e_j} e_j = 0.
+        v_k = \sum_{j=1}^{k-1} \ip{v_k, e_j} e_j \implies f_k = v_k - \sum_{j=1}^{k-1} \ip{v_k, e_j} e_j = 0.
     \]
 
     Conversely, if the procedure gives $f_k = 0$ for some minimal $k$, then
     \[
-        v_k = \sum_{j=1}^{k-1} \gen{v_k, e_j} e_j \in \spn(e_1, \ldots, e_{k-1}) = \spn(v_1, \ldots, v_{k-1}),
+        v_k = \sum_{j=1}^{k-1} \ip{v_k, e_j} e_j \in \spn(e_1, \ldots, e_{k-1}) = \spn(v_1, \ldots, v_{k-1}),
     \]
     so $v_1, \ldots, v_k$ is a linearly dependent list.
 \end{sol}
@@ -448,7 +448,7 @@
 \end{exercise}
 
 \begin{sol}
-    By \exref{6b10}, there is a unique orthonormal list $e_1, \ldots, e_m$ such that $\spn(v_1, \ldots, v_k) = \spn(e_1, \ldots, e_k)$ and $\gen{v_k, e_k} > 0$ for all $k$.
+    By \exref{6b10}, there is a unique orthonormal list $e_1, \ldots, e_m$ such that $\spn(v_1, \ldots, v_k) = \spn(e_1, \ldots, e_k)$ and $\ip{v_k, e_k} > 0$ for all $k$.
     Let $e_1', \ldots, e_m'$ be any orthonormal list satisfying the same span condition.
     For each $k$, the vector $e_k'$ lies in $\spn(e_1, \ldots, e_k)$ and is orthogonal to $\spn(e_1', \ldots, e_{k-1}') = \spn(e_1, \ldots, e_{k-1})$.
     Now, write $e_k'$ as
@@ -456,14 +456,14 @@
         e_k' = \sum_{j=1}^{k} c_j e_j
     \]
     for some scalars $c_1, \ldots, c_k$.
-    Then $\gen{e_k', e_j} = 0$ for $j < k$ gives $c_j = 0$ for $j < k$, so $e_k' = c_k e_k$.
+    Then $\ip{e_k', e_j} = 0$ for $j < k$ gives $c_j = 0$ for $j < k$, so $e_k' = c_k e_k$.
     Since $\norm{e_k'} = 1$ and $V$ is real, we have $e_k' = \pm e_k$.
     These $m$ sign choices are independent, giving exactly $2^m$ such lists.
 \end{sol}
 
 \begin{exercise}{6b15}
-    Suppose $\gen{\cdot, \cdot}_1$ and $\gen{\cdot, \cdot}_2$ are inner products on $V$ such that $\gen{u, v}_1 = 0$ if and only if $\gen{u, v}_2 = 0$.
-    Prove that there is a positive number $c$ such that $\gen{u, v}_1 = c\gen{u, v}_2$ for every $u, v \in V$.
+    Suppose $\ip{\cdot, \cdot}_1$ and $\ip{\cdot, \cdot}_2$ are inner products on $V$ such that $\ip{u, v}_1 = 0$ if and only if $\ip{u, v}_2 = 0$.
+    Prove that there is a positive number $c$ such that $\ip{u, v}_1 = c\ip{u, v}_2$ for every $u, v \in V$.
 
     \note{This exercise shows that if two inner products have the same pairs of orthogonal vectors, then each of the inner products is a scalar multiple of the other inner product.}
 \end{exercise}
@@ -473,31 +473,31 @@
     Otherwise, assume $V \neq \set 0$, and let $e_1 \in V$ such that $\norm{e_1}_2 = 1$.
     Let $c = \norm{e_1}_1^2$.
     For any $u, v \in V$, $U = \spn(u, v, e_1)$ is finite-dimensional.
-    Extend $e_1$ to an orthonormal basis $e_1, \ldots, e_n$ of $U$ with respect to $\gen{\cdot, \cdot}_2$.
-    Since $\gen{e_j, e_k}_2 = 0$ for $j \neq k$, the same holds for $\gen{\cdot, \cdot}_1$.
+    Extend $e_1$ to an orthonormal basis $e_1, \ldots, e_n$ of $U$ with respect to $\ip{\cdot, \cdot}_2$.
+    Since $\ip{e_j, e_k}_2 = 0$ for $j \neq k$, the same holds for $\ip{\cdot, \cdot}_1$.
 
-    For each $j > 1$, $\gen{e_1 + e_j, e_1 - e_j}_2 = 0$, so $\gen{e_1 + e_j, e_1 - e_j}_1 = 0$.
+    For each $j > 1$, $\ip{e_1 + e_j, e_1 - e_j}_2 = 0$, so $\ip{e_1 + e_j, e_1 - e_j}_1 = 0$.
     Expanding gives
     \[
-        0 = \gen{e_1 + e_j, e_1 - e_j}_1 = \gen{e_1, e_1}_1 - \gen{e_j, e_j}_1 = c - \gen{e_j, e_j}_1,
+        0 = \ip{e_1 + e_j, e_1 - e_j}_1 = \ip{e_1, e_1}_1 - \ip{e_j, e_j}_1 = c - \ip{e_j, e_j}_1,
     \]
-    so $\gen{e_j, e_j}_1 = c > 0$ for all $j$.
+    so $\ip{e_j, e_j}_1 = c > 0$ for all $j$.
     Write $u = a_1 e_1 + \cdots + a_n e_n$ and $v = b_1 e_1 + \cdots + b_n e_n$ for some scalars $a_1, \ldots, a_n, b_1, \ldots, b_n$.
     Then
     \[
-        \gen{u, v}_1 = \sum_{j=1}^{n} a_j\bar{b_j}\gen{e_j, e_j}_1 = c\sum_{j=1}^{n} a_j\bar{b_j} = c\gen{u, v}_2. \qedhere
+        \ip{u, v}_1 = \sum_{j=1}^{n} a_j\bar{b_j}\ip{e_j, e_j}_1 = c\sum_{j=1}^{n} a_j\bar{b_j} = c\ip{u, v}_2. \qedhere
     \]
 \end{sol}
 
 \begin{exercise}{6b16}
     Suppose $V$ is finite-dimensional.
-    Suppose $\gen{\cdot, \cdot}_1$, $\gen{\cdot, \cdot}_2$ are inner products on $V$ with corresponding norms $\norm{\cdot}_1$ and $\norm{\cdot}_2$.
+    Suppose $\ip{\cdot, \cdot}_1$, $\ip{\cdot, \cdot}_2$ are inner products on $V$ with corresponding norms $\norm{\cdot}_1$ and $\norm{\cdot}_2$.
     Prove that there exists a positive number $c$ such that $\norm{v}_1 \leq c\norm{v}_2$ for every $v \in V$.
 \end{exercise}
 
 \begin{sol}
     If $V = \set 0$, then the result holds trivially.
-    Otherwise, assume $V \neq \set 0$, and let $e_1, \ldots, e_n$ be an orthonormal basis of $V$ with respect to $\gen{\cdot, \cdot}_2$.
+    Otherwise, assume $V \neq \set 0$, and let $e_1, \ldots, e_n$ be an orthonormal basis of $V$ with respect to $\ip{\cdot, \cdot}_2$.
     For any $v \in V$, write $v = a_1 e_1 + \cdots + a_n e_n$ for some scalars $a_1, \ldots, a_n$.
     Then
     \[
@@ -528,21 +528,21 @@
 
 \begin{exercise}{6b18}
     Suppose $u_1, \ldots, u_m$ is a linearly independent list in $V$.
-    Show that there exists $v \in V$ such that $\gen{u_k, v} = 1$ for all $k \in \set{1, \ldots, m}$.
+    Show that there exists $v \in V$ such that $\ip{u_k, v} = 1$ for all $k \in \set{1, \ldots, m}$.
 \end{exercise}
 
 \begin{sol}
     Let $U = \spn(u_1, \ldots, u_m)$.
     Since $u_1, \ldots, u_m$ is a basis of $U$, there exists a unique linear functional $f : U \to \fbb$ satisfying $f(u_k) = 1$ for all $k \in \set{1, \ldots, m}$.
-    Because $U$ is a finite-dimensional inner product space (with the inner product inherited from $V$), the Riesz representation theorem provides a unique $v \in U$ such that $f(u) = \gen{u, v}$ for all $u \in U$.
-    In particular, $\gen{u_k, v} = f(u_k) = 1$ for all $k$.
+    Because $U$ is a finite-dimensional inner product space (with the inner product inherited from $V$), the Riesz representation theorem provides a unique $v \in U$ such that $f(u) = \ip{u, v}$ for all $u \in U$.
+    In particular, $\ip{u_k, v} = f(u_k) = 1$ for all $k$.
 \end{sol}
 
 \begin{exercise}{6b19}
     Suppose $v_1, \ldots, v_n$ is a basis of $V$.
     Prove that there exists a basis $u_1, \ldots, u_n$ of $V$ such that
     \[
-        \gen{v_j, u_k} = 
+        \ip{v_j, u_k} = 
         \begin{cases}
             0 & \text{if } j \neq k, \\
             1 & \text{if } j = k.
@@ -552,11 +552,11 @@
 
 \begin{sol}
     For each $k \in \{1, \ldots, n\}$, since $v_1, \ldots, v_n$ is a basis of $V$, there is a unique linear functional $f_k : V \to \fbb$ satisfying $f_k(v_j) = \delta_{jk}$ for all $j \in \{1, \ldots, n\}$.
-    By the Riesz representation theorem, there exists a unique $u_k \in V$ such that $f_k(v) = \gen{v, u_k}$ for all $v \in V$.
-    In particular, $\gen{v_j, u_k} = f_k(v_j) = \delta_{jk}$.
+    By the Riesz representation theorem, there exists a unique $u_k \in V$ such that $f_k(v) = \ip{v, u_k}$ for all $v \in V$.
+    In particular, $\ip{v_j, u_k} = f_k(v_j) = \delta_{jk}$.
     The list $u_1, \ldots, u_n$ is linearly independent because if $c_1 u_1 + \cdots + c_n u_n = 0$, then for each $j$,
     \[
-        0 = \gen*{v_j, \sum_{k=1}^{n} c_k u_k} = \bar{c_j},
+        0 = \ip*{v_j, \sum_{k=1}^{n} c_k u_k} = \bar{c_j},
     \]
     which implies $c_j = 0$ for all $j$.
     Hence, $u_1, \ldots, u_n$ is a basis of $V$ with the desired properties.
@@ -643,13 +643,13 @@
 \begin{exercise}{6b22}
     Suppose $C[-1, 1]$ is the vector space of continuous real-valued functions on the interval $[-1, 1]$ with inner product given by
     \[
-        \gen{f, g} = \int_{-1}^{1} fg
+        \ip{f, g} = \int_{-1}^{1} fg
     \]
     for all $f, g \in C[-1, 1]$.
     Let $\phi$ be the linear functional on $C[-1, 1]$ defined by $\phi(f) = f(0)$.
     Show that there does not exist $g \in C[-1, 1]$ such that
     \[
-        \phi(f) = \gen{f, g}
+        \phi(f) = \ip{f, g}
     \]
     for every $f \in C[-1, 1]$.
 
@@ -697,7 +697,7 @@
     A Cauchy sequence $(v_k)_{k \geq 1}$ in $V$ can be written as $v_k = a_{k,1} e_1 + \cdots + a_{k,n} e_n$ for scalars $a_{k,j}$.
     By the Cauchy--Schwarz inequality, for each $j$,
     \[
-        |a_{k,j} - a_{m,j}| = |\gen{v_k - v_m, e_j}| \leq \norm{v_k - v_m},
+        |a_{k,j} - a_{m,j}| = |\ip{v_k - v_m, e_j}| \leq \norm{v_k - v_m},
     \]
     so each coordinate sequence $(a_{k,j})_{k \geq 1}$ is Cauchy in $\fbb$.
     Since $\fbb$ is complete, each $(a_{k,j})$ converges to some $a_j \in \fbb$.

@@ -16,11 +16,11 @@
     Let $n > 1$.
     Then for all $(z_1, \ldots, z_n), (w_1, \ldots, w_n) \in \fbb^n$, we have
     \[
-        \gen{T(z_1, \ldots, z_n), (w_1, \ldots, w_n)} = \gen{(0, z_1, \ldots, z_{n-1}), (w_1, \ldots, w_n)} = z_1\bar{w_2} + \cdots + z_{n-1}\bar{w_n}.
+        \ip{T(z_1, \ldots, z_n), (w_1, \ldots, w_n)} = \ip{(0, z_1, \ldots, z_{n-1}), (w_1, \ldots, w_n)} = z_1\bar{w_2} + \cdots + z_{n-1}\bar{w_n}.
     \]
     We need
     \[
-        \gen{(z_1, \ldots, z_n), T^\ast(w_1, \ldots, w_n)} = z_1\bar{w_2} + \cdots + z_{n-1}\bar{w_n}.
+        \ip{(z_1, \ldots, z_n), T^\ast(w_1, \ldots, w_n)} = z_1\bar{w_2} + \cdots + z_{n-1}\bar{w_n}.
     \]
     By comparison, we see that $T^\ast(w_1, \ldots, w_n) = (w_2, \ldots, w_n, 0)$, so $T^\ast(z_1, \ldots, z_n) = (z_2, \ldots, z_n, 0)$ for all $(z_1, \ldots, z_n) \in \fbb^n$.
 \end{sol}
@@ -38,7 +38,7 @@
     Moreover, if $T^\ast = 0$, then $T^\ast T = 0$.
     Conversely, if $T^\ast T = 0$, then for all $v \in V$, we have
     \[
-        \norm{Tv}^2 = \gen{Tv, Tv} = \gen{v, T^\ast Tv} = \gen{v, 0} = 0.
+        \norm{Tv}^2 = \ip{Tv, Tv} = \ip{v, T^\ast Tv} = \ip{v, 0} = 0.
     \]
     Hence, $Tv = 0$ for all $v \in V$, so $T = 0$.
     Therefore,
@@ -86,8 +86,8 @@
 \begin{sol}
     \begin{align*}
         U^\perp \text{ is invariant under } T^\ast &\iff T^\ast v \in U^\perp \text{ for all } v \in U^\perp \\
-        &\iff \gen{u, T^\ast v} = 0 \text{ for all } u \in U, v \in U^\perp \\
-        &\iff \gen{Tu, v} = 0 \text{ for all } u \in U, v \in U^\perp \\
+        &\iff \ip{u, T^\ast v} = 0 \text{ for all } u \in U, v \in U^\perp \\
+        &\iff \ip{Tu, v} = 0 \text{ for all } u \in U, v \in U^\perp \\
         &\iff Tu \in (U^\perp)^\perp \text{ for all } u \in U \\
         &\iff Tu \in U \text{ for all } u \in U \\
         &\iff U \text{ is invariant under } T
@@ -112,19 +112,19 @@
 \begin{sol}
     Let
     \[
-        Te_j = \sum_{k=1}^m \gen{Te_j, f_k} f_k \implies \norm{Te_j}^2 = \sum_{k=1}^m \abs{\gen{Te_j, f_k}}^2.
+        Te_j = \sum_{k=1}^m \ip{Te_j, f_k} f_k \implies \norm{Te_j}^2 = \sum_{k=1}^m \abs{\ip{Te_j, f_k}}^2.
     \]
     Similarly, we may write
     \[
-        T^\ast f_i = \sum_{\ell=1}^n \gen{T^\ast f_i, e_\ell} e_\ell \implies \norm{T^\ast f_i}^2 = \sum_{\ell=1}^n \abs{\gen{T^\ast f_i, e_\ell}}^2.
+        T^\ast f_i = \sum_{\ell=1}^n \ip{T^\ast f_i, e_\ell} e_\ell \implies \norm{T^\ast f_i}^2 = \sum_{\ell=1}^n \abs{\ip{T^\ast f_i, e_\ell}}^2.
     \]
     Note that
     \[
-        \gen{T^\ast f_i, e_j} = \gen{f_i, Te_j} = \bar{\gen{Te_j, f_i}} \implies \abs{\gen{T^\ast f_i, e_j}}^2 = \abs{\gen{Te_j, f_i}}^2.
+        \ip{T^\ast f_i, e_j} = \ip{f_i, Te_j} = \bar{\ip{Te_j, f_i}} \implies \abs{\ip{T^\ast f_i, e_j}}^2 = \abs{\ip{Te_j, f_i}}^2.
     \]
     Therefore, we have
     \[
-        \sum_{k=1}^m \norm{T^\ast f_k}^2 = \sum_{k=1}^m \sum_{\ell=1}^n \abs{\gen{Te_\ell, f_k}}^2 = \sum_{\ell=1}^n \sum_{k=1}^m \abs{\gen{Te_\ell, f_k}}^2 = \sum_{\ell=1}^n \norm{Te_\ell}^2. \qedhere
+        \sum_{k=1}^m \norm{T^\ast f_k}^2 = \sum_{k=1}^m \sum_{\ell=1}^n \abs{\ip{Te_\ell, f_k}}^2 = \sum_{\ell=1}^n \sum_{k=1}^m \abs{\ip{Te_\ell, f_k}}^2 = \sum_{\ell=1}^n \norm{Te_\ell}^2. \qedhere
     \]
 \end{sol}
 
@@ -193,22 +193,22 @@
     Suppose $\fbb = \cbb$ and $T \in \lin{V}$.
     Prove that $T$ is self-adjoint if and only if
     \[
-        \gen{Tv, v} = \gen{T^\ast v, v}
+        \ip{Tv, v} = \ip{T^\ast v, v}
     \]
     for all $v \in V$.
 \end{exercise}
 
 \begin{soliff}
-    \rightimp Suppose $\gen{Tv, v} = \gen{T^\ast v, v}$ for all $v \in V$.
+    \rightimp Suppose $\ip{Tv, v} = \ip{T^\ast v, v}$ for all $v \in V$.
     Then for all $v \in V$,
     \[
-        \gen{(T - T^\ast)v, v} = 0.
+        \ip{(T - T^\ast)v, v} = 0.
     \]
     Since $\fbb = \cbb$, we may use 7.13 with $T - T^\ast$ in place of $T$ to conclude that $T - T^\ast = 0$, so $T = T^\ast$, i.e., $T$ is self-adjoint.
 
     \leftimp If $T$ is self-adjoint, then $T = T^\ast$, so for all $v \in V$,
     \[
-        \gen{Tv, v} = \gen{T^\ast v, v}. \qedhere
+        \ip{Tv, v} = \ip{T^\ast v, v}. \qedhere
     \]
 \end{soliff}
 
@@ -225,11 +225,11 @@
 \begin{solenum}
     \item For any $(w, z), (x, y) \in \fbb^2$,
     \[
-        \gen{S(w, z), (x, y)} = \gen{(-z, w), (x, y)} = -z\bar x + w\bar y.
+        \ip{S(w, z), (x, y)} = \ip{(-z, w), (x, y)} = -z\bar x + w\bar y.
     \]
     Suppose $S^\ast(x, y) = (u, v)$. Then
     \[
-        \gen{S(w, z), (x, y)} = \gen{(w, z), S^\ast(x, y)} = \gen{(w, z), (u, v)} = w\bar u + z\bar v.
+        \ip{S(w, z), (x, y)} = \ip{(w, z), S^\ast(x, y)} = \ip{(w, z), (u, v)} = w\bar u + z\bar v.
     \]
     Comparing with $-z\bar x + w\bar y$, we get $w\bar u + z\bar v = -z\bar x + w\bar y$ for all $w, z \in \fbb$.
     Hence, $u = y$ and $v = -x$, so $S^\ast(x, y) = (y, -x)$.
@@ -330,7 +330,7 @@
 \end{solenum}
 
 \begin{exercise}{7a14}
-    Define an inner product on $\pcal_2(\rbb)$ by $\gen{p, q} = \int_0^1 pq$.
+    Define an inner product on $\pcal_2(\rbb)$ by $\ip{p, q} = \int_0^1 pq$.
     Define an operator $T \in \lin{\pcal_2(\rbb)}$ by
     \[
         T(ax^2 + bx + c) = bx.
@@ -353,16 +353,16 @@
 \begin{solenum}
     \item Consider $p = 1$ and $q = x$. Then
     \[
-        \gen{Tp, q} = \gen{0, x} = 0,
+        \ip{Tp, q} = \ip{0, x} = 0,
     \]
     but
     \[
-        \gen{p, Tq} = \gen{1, x} = \int_0^1 x \dd x = \frac{1}{2} \neq 0.
+        \ip{p, Tq} = \ip{1, x} = \int_0^1 x \dd x = \frac{1}{2} \neq 0.
     \]
     Hence, $T$ is not self-adjoint.
     \item Observe that
     \[
-        \norm{x}^2 = \gen{x, x} = \int_0^1 x^2 \dd x = \frac{1}{3}.
+        \norm{x}^2 = \ip{x, x} = \int_0^1 x^2 \dd x = \frac{1}{3}.
     \]
     By 7.9, given an orthonormal basis, $T$ is self-adjoint if and only if the matrix of $T$ with respect to that basis equals its conjugate transpose.
     However, the basis $1, x, x^2$ is not orthonormal with respect to the given inner product, so the fact that the matrix of $T$ with respect to this basis equals its conjugate transpose does not imply that $T$ is self-adjoint.
@@ -510,33 +510,33 @@
     If $\dim V = 0$, then $T$ is trivially normal. So assume $\dim V > 0$.
     Note that for all $v \in V$, we have
     \[
-        \norm{T^\ast v}^2 = \gen{T^\ast v, T^\ast v} = \gen{TT^\ast v, v}, \quad \norm{Tv}^2 = \gen{Tv, Tv} = \gen{T^\ast Tv, v}.
+        \norm{T^\ast v}^2 = \ip{T^\ast v, T^\ast v} = \ip{TT^\ast v, v}, \quad \norm{Tv}^2 = \ip{Tv, Tv} = \ip{T^\ast Tv, v}.
     \]
     From the hypothesis, we have $\norm{T^\ast v}^2 \leq \norm{Tv}^2$ for all $v \in V$, which gives
     \[
-        \gen{(T^\ast T - TT^\ast)v, v} \geq 0 \quad \text{for all } v \in V.
+        \ip{(T^\ast T - TT^\ast)v, v} \geq 0 \quad \text{for all } v \in V.
     \]
     Let $S = T^\ast T - TT^\ast$.
     Then $S^\ast = (T^\ast T - TT^\ast)^\ast = T^\ast T - TT^\ast = S$, so $S$ is self-adjoint.
-    Moreover, $\gen{Sv, v} \geq 0$ for all $v \in V$.
+    Moreover, $\ip{Sv, v} \geq 0$ for all $v \in V$.
     Let $e_1, \ldots, e_n$ be an orthonormal basis of $V$.
     From \exref{7a5}, then
     \[
-        \sum_{i=1}^n \norm{Te_i}^2 = \sum_{i=1}^n \gen{T^\ast Te_i, e_i} = \sum_{i=1}^n \gen{TT^\ast e_i, e_i} = \sum_{i=1}^n \norm{T^\ast e_i}^2.
+        \sum_{i=1}^n \norm{Te_i}^2 = \sum_{i=1}^n \ip{T^\ast Te_i, e_i} = \sum_{i=1}^n \ip{TT^\ast e_i, e_i} = \sum_{i=1}^n \norm{T^\ast e_i}^2.
     \]
     Then
     \[
-        \sum_{i=1}^n \gen{Se_i, e_i} = \sum_{i=1}^n \gen{(T^\ast T - TT^\ast)e_i, e_i} = \sum_{i=1}^n \gen{T^\ast Te_i, e_i} - \sum_{i=1}^n \gen{TT^\ast e_i, e_i} = 0.
+        \sum_{i=1}^n \ip{Se_i, e_i} = \sum_{i=1}^n \ip{(T^\ast T - TT^\ast)e_i, e_i} = \sum_{i=1}^n \ip{T^\ast Te_i, e_i} - \sum_{i=1}^n \ip{TT^\ast e_i, e_i} = 0.
     \]
-    Since each $\gen{Se_i, e_i} \geq 0$ and their sum is $0$, it follows that $\gen{Se_i, e_i} = 0$ for all $i$.
+    Since each $\ip{Se_i, e_i} \geq 0$ and their sum is $0$, it follows that $\ip{Se_i, e_i} = 0$ for all $i$.
     For arbitrary $u \in V$ with $\norm u = 1$, we may extend it to an orthonormal basis $u, f_2, \ldots, f_n$ of $V$.
     Then
     \[
-        \gen{Su, u} + \sum_{i=2}^n \gen{Sf_i, f_i} = \sum_{i=1}^n \gen{Se_i, e_i} = 0.
+        \ip{Su, u} + \sum_{i=2}^n \ip{Sf_i, f_i} = \sum_{i=1}^n \ip{Se_i, e_i} = 0.
     \]
-    Since each term is nonnegative, it follows that $\gen{Su, u} = 0$ for all unit vectors $u \in V$.
-    By homogeneity, $\gen{Sv, v} = 0$ for all $v \in V$.
-    From 7.16, if $S$ is self-adjoint and $\gen{Sv, v} = 0$ for all $v \in V$, then $S = 0$. 
+    Since each term is nonnegative, it follows that $\ip{Su, u} = 0$ for all unit vectors $u \in V$.
+    By homogeneity, $\ip{Sv, v} = 0$ for all $v \in V$.
+    From 7.16, if $S$ is self-adjoint and $\ip{Sv, v} = 0$ for all $v \in V$, then $S = 0$. 
     Hence, $TT^\ast - T^\ast T = 0$, so $TT^\ast = T^\ast T$, and therefore $T$ is normal.
 \end{sol}
 
@@ -578,7 +578,7 @@
     Write $V = U \oplus U^\perp$.
     Then for $v = u_1 + w_1$ and $w = u_2 + w_2$ with $u_1, u_2 \in U$ and $w_1, w_2 \in U^\perp$, we have
     \[
-        \gen{P_U v, w} = \gen{u_1, u_2 + w_2} = \gen{u_1, u_2} = \gen{u_1 + w_1, u_2} = \gen{v, P_U w}.
+        \ip{P_U v, w} = \ip{u_1, u_2 + w_2} = \ip{u_1, u_2} = \ip{u_1 + w_1, u_2} = \ip{v, P_U w}.
     \]
     Hence, $P_U$ is self-adjoint.
 \end{sol}
@@ -598,7 +598,7 @@
     so that $D^\ast (Dp) = 0$.
     Then
     \[
-        \gen{D^\ast (Dp), p} = \gen{Dp, Dp} = \norm{Dp}^2.
+        \ip{D^\ast (Dp), p} = \ip{Dp, Dp} = \norm{Dp}^2.
     \]
     Since $D^\ast (Dp) = 0$, the left-hand side of the above equation is $0$, while the right-hand side is $\norm{Dp}^2 \neq 0$.
     This is a contradiction, so no such inner product can exist.
@@ -646,13 +646,13 @@
 
 \begin{sol}
     Since $v, w$ are eigenvectors of the normal operator $T$ corresponding to distinct eigenvalues $3$ and $4$, they must be orthogonal.
-    Therefore, $\gen{v, w} = 0$.
+    Therefore, $\ip{v, w} = 0$.
     Then
     \begin{align*}
-        \norm{T(v + w)}^2 &= \gen{Tv + Tw, Tv + Tw} \\
-        &= \gen{3v + 4w, 3v + 4w} \\
-        &= \gen{3v, 3v} + \gen{3v, 4w} + \gen{4w, 3v} + \gen{4w, 4w} \\
-        &= 9\gen{v, v} + 12\gen{v, w} + 12\gen{w, v} + 16\gen{w, w} \\
+        \norm{T(v + w)}^2 &= \ip{Tv + Tw, Tv + Tw} \\
+        &= \ip{3v + 4w, 3v + 4w} \\
+        &= \ip{3v, 3v} + \ip{3v, 4w} + \ip{4w, 3v} + \ip{4w, 4w} \\
+        &= 9\ip{v, v} + 12\ip{v, w} + 12\ip{w, v} + 16\ip{w, w} \\
         &= 9\norm{v}^2 + 16\norm{w}^2 \\
         &= 9 \cdot 4 + 16 \cdot 4 \\
         &= 100.
@@ -707,7 +707,7 @@
 
 \begin{exercise}{7a26}
     Fix $u, x \in V$.
-    Define $T \in \lin{V}$ by $Tv = \gen{v, u}x$ for every $v \in V$.
+    Define $T \in \lin{V}$ by $Tv = \ip{v, u}x$ for every $v \in V$.
     \begin{subexercises}
         \item Prove that if $V$ is a real vector space, then $T$ is self-adjoint if and only if the list $u, x$ is linearly dependent.
         \item Prove that $T$ is normal if and only if the list $u, x$ is linearly dependent.
@@ -717,40 +717,40 @@
 \begin{sol}
     Note that
     \[
-        \gen{Tv, w} = \gen{\gen{v, u}x, w} = \gen{v, u}\gen{x, w} = \gen{v, \bar{\gen{x, w}}u} = \gen{v, T^\ast w}.
+        \ip{Tv, w} = \ip{\ip{v, u}x, w} = \ip{v, u}\ip{x, w} = \ip{v, \bar{\ip{x, w}}u} = \ip{v, T^\ast w}.
     \]
-    Since $\gen{v, u_1} = \gen{v, u_2}$ for all $v \in V$ implies $u_1 = u_2$, we conclude that $T^\ast w = \bar{\gen{x, w}}u = \gen{w, x}u$.
+    Since $\ip{v, u_1} = \ip{v, u_2}$ for all $v \in V$ implies $u_1 = u_2$, we conclude that $T^\ast w = \bar{\ip{x, w}}u = \ip{w, x}u$.
     \begin{subexercises}
         \item
-        \rightimp If $T$ is self-adjoint, then $T = T^\ast$, which means $\gen{v, u}x = \gen{v, x}u$ for all $v \in V$.
+        \rightimp If $T$ is self-adjoint, then $T = T^\ast$, which means $\ip{v, u}x = \ip{v, x}u$ for all $v \in V$.
         If $u = 0$ or $x = 0$, then the list $u, x$ is linearly dependent.
-        If both are nonzero, then letting $v = u$ gives $\norm{u}^2 x = \gen{u, x}u$, hence
+        If both are nonzero, then letting $v = u$ gives $\norm{u}^2 x = \ip{u, x}u$, hence
         \[
-            x = \frac{\gen{u, x}}{\norm{u}^2} u.
+            x = \frac{\ip{u, x}}{\norm{u}^2} u.
         \]
         Hence, $x$ and $u$ are linearly dependent.
 
         \leftimp Conversely, suppose one of $u$ or $x$ is zero. Then $T = 0 = T^\ast$, so $T$ is self-adjoint.
         If both are nonzero and linearly dependent, let $x = \lambda u$ for some $\lambda \in \rbb$. Then for all $v \in V$,
         \[
-            Tv = \gen{v, u}x = \gen{v, u} \lambda u = \lambda \gen{v, u} u = T^\ast v,
+            Tv = \ip{v, u}x = \ip{v, u} \lambda u = \lambda \ip{v, u} u = T^\ast v,
         \]
         hence $T$ is self-adjoint.
         \item
         \rightimp Suppose $T$ is normal. Then for any $y \in V$,
         \[
-            TT^\ast y = T(\gen{y, x}u) = \gen{y, x}Tu = \gen{y, x}\gen{u, u}x = \norm{u}^2 \gen{y, x}x,
+            TT^\ast y = T(\ip{y, x}u) = \ip{y, x}Tu = \ip{y, x}\ip{u, u}x = \norm{u}^2 \ip{y, x}x,
         \]
         and
         \[
-            T^\ast T y = T^\ast(\gen{y, u}x) = \gen{y, u}T^\ast x = \gen{y, u}\gen{x, x}u = \norm{x}^2 \gen{y, u}u.
+            T^\ast T y = T^\ast(\ip{y, u}x) = \ip{y, u}T^\ast x = \ip{y, u}\ip{x, x}u = \norm{x}^2 \ip{y, u}u.
         \]
         If $u = 0$ or $x = 0$, then the list $u, x$ is linearly dependent.
-        Otherwise, for nonzero $u$ and $x$, we must have $\norm{u}^2 \gen{y, x}x = \norm{x}^2 \gen{y, u}u$ for all $y \in V$.
-        Let $y = u$. Then $\norm{u}^2 \gen{u, x}x = \norm{x}^2 \norm{u}^2 u$, hence $\gen{u, x}x = \norm{x}^2 u$.
+        Otherwise, for nonzero $u$ and $x$, we must have $\norm{u}^2 \ip{y, x}x = \norm{x}^2 \ip{y, u}u$ for all $y \in V$.
+        Let $y = u$. Then $\norm{u}^2 \ip{u, x}x = \norm{x}^2 \norm{u}^2 u$, hence $\ip{u, x}x = \norm{x}^2 u$.
         If $x \neq 0$, then
         \[
-            u = \frac{\gen{u, x}}{\norm{x}^2} x,
+            u = \frac{\ip{u, x}}{\norm{x}^2} x,
         \]
         so $u$ and $x$ are linearly dependent.
 
@@ -758,11 +758,11 @@
         If both are nonzero and linearly dependent, let $u = \mu x$ for some $\mu \in \fbb$.
         Then for all $y \in V$,
         \[
-            TT^\ast y = \norm{u}^2 \gen{y, x}x = \norm{\mu x}^2 \gen{y, x}x = \abs{\mu}^2 \norm{x}^2 \gen{y, x}x,
+            TT^\ast y = \norm{u}^2 \ip{y, x}x = \norm{\mu x}^2 \ip{y, x}x = \abs{\mu}^2 \norm{x}^2 \ip{y, x}x,
         \]
         and
         \[
-            T^\ast T y = \norm{x}^2 \gen{y, u}u = \norm{x}^2 \gen{y, \mu x} \mu x = \abs{\mu}^2 \norm{x}^2 \gen{y, x}x.
+            T^\ast T y = \norm{x}^2 \ip{y, u}u = \norm{x}^2 \ip{y, \mu x} \mu x = \abs{\mu}^2 \norm{x}^2 \ip{y, x}x.
         \]
         Hence, $TT^\ast y = T^\ast T y$ for all $y \in V$, so $T$ is normal. \qedhere
     \end{subexercises}
@@ -785,7 +785,7 @@
     Since $T$ is normal, $\norm{Tv} = \norm{T^\ast v}$ by 7.20.
     Hence, $\nul T = \nul T^\ast$.
     If $T^2 v = 0$, then $T(Tv) = 0$, so $Tv \in \nul T = \nul T^\ast$.
-    Therefore, $T^\ast Tv = 0$ so that $\norm{Tv}^2 = \gen{Tv, Tv} = \gen{T^\ast Tv, v} = 0$.
+    Therefore, $T^\ast Tv = 0$ so that $\norm{Tv}^2 = \ip{Tv, Tv} = \ip{T^\ast Tv, v} = 0$.
     Hence, $Tv = 0$, which shows that $v \in \nul T$.
     By induction on $k$, assume that $\nul T^{k-1} = \nul T$.
     If $v \in \nul T^k$, then $T v \in \nul T^{k-1} = \nul T$, so $T(Tv) = T^2 v = 0$.
@@ -877,19 +877,19 @@
     Let $z = (z_1, z_2, z_3) \in \nul T = \nul T^\ast$.
     By $T(1, 1, 1) = 2(1, 1, 1)$ and the definition of the adjoint, we have
     \[
-        2\gen{(1, 1, 1), z} = \gen{T(1, 1, 1), z} = \gen{(1, 1, 1), T^\ast z} = \gen{(1, 1, 1), 0} = 0.
+        2\ip{(1, 1, 1), z} = \ip{T(1, 1, 1), z} = \ip{(1, 1, 1), T^\ast z} = \ip{(1, 1, 1), 0} = 0.
     \]
-    Then $\gen{(1, 1, 1), z} = 0$.
+    Then $\ip{(1, 1, 1), z} = 0$.
     Direct calculation shows that
     \[
-        \gen{(1, 1, 1), z} = \bar{z_1} + \bar{z_2} + \bar{z_3} = \bar{z_1 + z_2 + z_3}.
+        \ip{(1, 1, 1), z} = \bar{z_1} + \bar{z_2} + \bar{z_3} = \bar{z_1 + z_2 + z_3}.
     \]
-    Since $\gen{(1, 1, 1), z} = 0$, we have $\bar{z_1 + z_2 + z_3} = 0$, which implies $z_1 + z_2 + z_3 = 0$.
+    Since $\ip{(1, 1, 1), z} = 0$, we have $\bar{z_1 + z_2 + z_3} = 0$, which implies $z_1 + z_2 + z_3 = 0$.
 \end{sol}
 
 \begin{exercise}{7a31}
     Fix a positive integer $n$.
-    In the inner product space of continuous real-valued functions on $[-\pi, \pi]$ with inner product $\gen{f, g} = \int_{-\pi}^{\pi} fg$, let
+    In the inner product space of continuous real-valued functions on $[-\pi, \pi]$ with inner product $\ip{f, g} = \int_{-\pi}^{\pi} fg$, let
     \[
         V = \spn(1, \cos x, \cos 2x, \ldots, \cos nx, \sin x, \sin 2x, \ldots, \sin nx).
     \]
@@ -908,7 +908,7 @@
     Then $f(\pi) = f(-\pi)$ and $g(\pi) = g(-\pi)$.
     Integration by parts gives
     \[
-        \gen{Df, g} = \int_{-\pi}^{\pi} f'g = fg\,\big|_{-\pi}^{\pi} - \int_{-\pi}^{\pi} f g' = -\int_{-\pi}^{\pi} f g' = \gen{f, -Dg}.
+        \ip{Df, g} = \int_{-\pi}^{\pi} f'g = fg\,\big|_{-\pi}^{\pi} - \int_{-\pi}^{\pi} f g' = -\int_{-\pi}^{\pi} f g' = \ip{f, -Dg}.
     \]
     Then $D^\ast = -D$, which shows that
     \[
@@ -934,7 +934,7 @@
 \begin{sol}
     For all $v \in V$ and $w \in W$, we have
     \[
-        (T'(\phi_w))v = \phi_w(Tv) = \gen{Tv, w} = \gen{v, T^\ast w} = \phi_{T^\ast w}v.
+        (T'(\phi_w))v = \phi_w(Tv) = \ip{Tv, w} = \ip{v, T^\ast w} = \phi_{T^\ast w}v.
     \]
     Hence, $T'(\phi_w) = \phi_{T^\ast w}$ for all $w \in W$.
 \end{sol}

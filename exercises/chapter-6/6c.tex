@@ -10,11 +10,11 @@
 
 \begin{sol}
     Suppose $v \in \set{v_1, \ldots, v_m}^\perp$.
-    Then $\gen{v, v_k} = 0$ for each $k = 1, \ldots, m$.
+    Then $\ip{v, v_k} = 0$ for each $k = 1, \ldots, m$.
     For any $u \in \spn(v_1, \ldots, v_m)$, we can write $u = a_1 v_1 + \cdots + a_m v_m$ for some scalars $a_1, \ldots, a_m$.
     Then
     \[
-        \gen{v, u} = \sum_{k=1}^{m} \bar{a_k} \gen{v, v_k} = 0,
+        \ip{v, u} = \sum_{k=1}^{m} \bar{a_k} \ip{v, v_k} = 0,
     \]
     so $v \in (\spn(v_1, \ldots, v_m))^\perp$.
 
@@ -57,7 +57,7 @@
     Applying the Gram--Schmidt procedure to $v_1$ and $v_2$, we first set $f_1 = v_1$ with $\norm{f_1}^2 = 30$.
     Then
     \[
-        f_2 = v_2 - \frac{\gen{v_2, f_1}}{\norm{f_1}^2} f_1 = (-5, 4, 3, 2) - \frac{4}{30}(1, 2, 3, -4) = \frac{1}{15}(-77, 56, 39, 38),
+        f_2 = v_2 - \frac{\ip{v_2, f_1}}{\norm{f_1}^2} f_1 = (-5, 4, 3, 2) - \frac{4}{30}(1, 2, 3, -4) = \frac{1}{15}(-77, 56, 39, 38),
     \]
     where
     \[
@@ -85,7 +85,7 @@
     Applying the Gram--Schmidt procedure to $u_1$ and $u_2$, we first set $g_1 = u_1$ with $\norm{g_1}^2 = 3$.
     Then
     \[
-        g_2 = u_2 - \frac{\gen{u_2, g_1}}{\norm{g_1}^2} g_1 = (10, 9, 0, 7) - \frac{17}{3}(1, 0, 1, 1) = \frac{1}{3}(13, 27, -17, 4),
+        g_2 = u_2 - \frac{\ip{u_2, g_1}}{\norm{g_1}^2} g_1 = (10, 9, 0, 7) - \frac{17}{3}(1, 0, 1, 1) = \frac{1}{3}(13, 27, -17, 4),
     \]
     where
     \[
@@ -100,7 +100,7 @@
 \begin{exercise}{6c4}
     Suppose $e_1, \ldots, e_n$ is a list of vectors in $V$ with $\norm{e_k} = 1$ for each $k = 1, \ldots, n$ and
     \[
-        \norm{v}^2 = |\gen{v, e_1}|^2 + \cdots + |\gen{v, e_n}|^2
+        \norm{v}^2 = |\ip{v, e_1}|^2 + \cdots + |\ip{v, e_n}|^2
     \]
     for all $v \in V$.
     Prove that $e_1, \ldots, e_n$ is an orthonormal basis of $V$.
@@ -111,27 +111,27 @@
 \begin{sol}
     Setting $v = e_j$, we have
     \[
-        1 = \norm{e_j}^2 = |\gen{e_j, e_1}|^2 + \cdots + |\gen{e_j, e_n}|^2 = |\gen{e_j, e_j}|^2 + \sum_{k \neq j} |\gen{e_j, e_k}|^2.
+        1 = \norm{e_j}^2 = |\ip{e_j, e_1}|^2 + \cdots + |\ip{e_j, e_n}|^2 = |\ip{e_j, e_j}|^2 + \sum_{k \neq j} |\ip{e_j, e_k}|^2.
     \]
-    Since $\norm{e_j} = 1$, we have $|\gen{e_j, e_j}|^2 = 1$, so
+    Since $\norm{e_j} = 1$, we have $|\ip{e_j, e_j}|^2 = 1$, so
     \[
-        1 = 1 + \sum_{k \neq j} |\gen{e_j, e_k}|^2 \implies \sum_{k \neq j} |\gen{e_j, e_k}|^2 = 0,
+        1 = 1 + \sum_{k \neq j} |\ip{e_j, e_k}|^2 \implies \sum_{k \neq j} |\ip{e_j, e_k}|^2 = 0,
     \]
-    which forces $|\gen{e_j, e_k}|^2 = 0$ for each $k \neq j$, so $\gen{e_j, e_k} = 0$ for each $j \neq k$.
+    which forces $|\ip{e_j, e_k}|^2 = 0$ for each $k \neq j$, so $\ip{e_j, e_k} = 0$ for each $j \neq k$.
     Hence, $e_1, \ldots, e_n$ is an orthonormal list.
     To show that $e_1, \ldots, e_n$ is a basis of $V$, let $v \in V$ be arbitrary.
     Consider
     \[
-        u = v - \sum_{k=1}^{n} \gen{v, e_k} e_k.
+        u = v - \sum_{k=1}^{n} \ip{v, e_k} e_k.
     \]
     Then for each $j$:
     \[
-        \gen{u, e_j} = \gen{v, e_j} - \sum_{k=1}^{n} \gen{v, e_k} \gen{e_k, e_j} = \gen{v, e_j} - \gen{v, e_j} = 0
+        \ip{u, e_j} = \ip{v, e_j} - \sum_{k=1}^{n} \ip{v, e_k} \ip{e_k, e_j} = \ip{v, e_j} - \ip{v, e_j} = 0
     \]
     by orthonormality.
     Thus, $u$ is orthogonal to each $e_j$, so by the given condition,
     \[
-        \norm{u}^2 = |\gen{u, e_1}|^2 + \cdots + |\gen{u, e_n}|^2 = 0,
+        \norm{u}^2 = |\ip{u, e_1}|^2 + \cdots + |\ip{u, e_n}|^2 = 0,
     \]
     which implies $u = 0$.
     Therefore, $v \in \spn(e_1, \ldots, e_n)$.
@@ -177,23 +177,23 @@
 
 \begin{exercise}{6c7}
     Suppose that $X$ and $Y$ are finite-dimensional subspaces of $V$.
-    Prove that $P_X P_Y = 0$ if and only if $\gen{x, y} = 0$ for all $x \in X$ and all $y \in Y$.
+    Prove that $P_X P_Y = 0$ if and only if $\ip{x, y} = 0$ for all $x \in X$ and all $y \in Y$.
 \end{exercise}
 
 \begin{sol}
-    $\gen{x, y} = 0$ for all $x \in X, y \in Y \iff Y \subseteq X^\perp \iff \range P_Y \subseteq \nul P_X \iff P_X P_Y = 0$.
+    $\ip{x, y} = 0$ for all $x \in X, y \in Y \iff Y \subseteq X^\perp \iff \range P_Y \subseteq \nul P_X \iff P_X P_Y = 0$.
 \end{sol}
 
 \begin{exercise}{6c8}
     Suppose $U$ is a finite-dimensional subspace of $V$ and $v \in V$.
     Define a linear functional $\phi\colon U \to \fbb$ by
     \[
-        \phi(u) = \gen{u, v}
+        \phi(u) = \ip{u, v}
     \]
     for all $u \in U$.
     By the Riesz representation theorem (6.42) as applied to the inner product space $U$, there exists a unique vector $w \in U$ such that
     \[
-        \phi(u) = \gen{u, w}
+        \phi(u) = \ip{u, w}
     \]
     for all $u \in U$.
     Show that $w = P_U v$.
@@ -202,7 +202,7 @@
 \begin{sol}
     By the Riesz representation theorem, we have $w \in U$. For any $u \in U$, we have
     \[
-        \gen{u, v - w} = \gen{u, v} - \gen{u, w} = \phi(u) - \phi(u) = 0.
+        \ip{u, v - w} = \ip{u, v} - \ip{u, w} = \phi(u) - \phi(u) = 0.
     \]
     Hence, $v - w \in U^\perp$, so $w = P_U v$.
 \end{sol}
@@ -244,7 +244,7 @@
     \[
         \norm{u} = \norm{P(u + \alpha w)} \leq \norm{u + \alpha w}.
     \]
-    By \exref{6a6}, $\gen{u, w} = 0$.
+    By \exref{6a6}, $\ip{u, w} = 0$.
     Therefore, $\nul P \subseteq U^\perp$.
     From the fundamental theorem of linear maps,
     \[
@@ -309,7 +309,7 @@
     Suppose $\fbb = \rbb$ and $V$ is finite-dimensional.
     For each $v \in V$, let $\phi_v$ denote the linear functional on $V$ defined by
     \[
-        \phi_v(u) = \gen{u, v}
+        \phi_v(u) = \ip{u, v}
     \]
     for all $u \in V$.
     \begin{subexercises}
@@ -326,14 +326,14 @@
     Then for any $u \in V$,
     \begin{align*}
         \Phi(av_1 + bv_2)(u) &= \phi_{av_1 + bv_2}(u) \\
-        &= \gen{u, av_1 + bv_2} \\
-        &= a\gen{u, v_1} + b\gen{u, v_2} \\
+        &= \ip{u, av_1 + bv_2} \\
+        &= a\ip{u, v_1} + b\ip{u, v_2} \\
         &= a\phi_{v_1}(u) + b\phi_{v_2}(u) \\
         &= a\Phi(v_1)(u) + b\Phi(v_2)(u).
     \end{align*}
     Since this holds for all $u \in V$, we have $\Phi(av_1 + bv_2) = a\Phi(v_1) + b\Phi(v_2)$, so $\Phi$ is linear.
-    Injectivity follows from the fact that if $\Phi(v) = 0$, then $\phi_v(u) = 0$ for all $u \in V$, which implies $\gen{u, v} = 0$ for all $u \in V$.
-    In particular, taking $u = v$ gives $\gen{v, v} = 0$, so $v = 0$.
+    Injectivity follows from the fact that if $\Phi(v) = 0$, then $\phi_v(u) = 0$ for all $u \in V$, which implies $\ip{u, v} = 0$ for all $u \in V$.
+    In particular, taking $u = v$ gives $\ip{v, v} = 0$, so $v = 0$.
     \item By part (a), $\Phi$ is an injective linear map from $V$ to $V'$.
     Since $V$ is finite-dimensional, we have $\dim V = \dim V'$.
     Hence, $\Phi$ is also surjective, and therefore an isomorphism from $V$ onto $V'$.
@@ -346,11 +346,11 @@
 
 \begin{sol}
     Let $\phi_1, \ldots, \phi_n$ be the dual basis of $e_1, \ldots, e_n$.
-    By the Riesz representation theorem, for each $j$ there exists a unique $v_j \in V$ such that $\phi_j(u) = \gen{u, v_j}$ for all $u \in V$.
-    Define $\psi_j \in V'$ by $\psi_j(u) = \gen{u, e_j}$.
+    By the Riesz representation theorem, for each $j$ there exists a unique $v_j \in V$ such that $\phi_j(u) = \ip{u, v_j}$ for all $u \in V$.
+    Define $\psi_j \in V'$ by $\psi_j(u) = \ip{u, e_j}$.
     Then for any $k$,
     \[
-        \psi_j(e_k) = \gen{e_k, e_j} = \delta_{jk} = \phi_j(e_k).
+        \psi_j(e_k) = \ip{e_k, e_j} = \delta_{jk} = \phi_j(e_k).
     \]
     Since $\psi_j$ and $\phi_j$ agree on a basis of $V$, they are equal.
     By uniqueness in the Riesz representation theorem, $v_j = e_j$.
@@ -369,19 +369,19 @@
     Applying the Gram--Schmidt procedure to the basis $v_1 = (1, 1, 0, 0)$ and $v_2 = (1, 1, 1, 2)$ of $U$, we first set $f_1 = v_1$ with $\norm{f_1}^2 = 2$.
     Then
     \[
-        f_2 = v_2 - \frac{\gen{v_2, f_1}}{\norm{f_1}^2} f_1 = (1, 1, 1, 2) - \frac{2}{2}(1, 1, 0, 0) = (0, 0, 1, 2),
+        f_2 = v_2 - \frac{\ip{v_2, f_1}}{\norm{f_1}^2} f_1 = (1, 1, 1, 2) - \frac{2}{2}(1, 1, 0, 0) = (0, 0, 1, 2),
     \]
     with $\norm{f_2}^2 = 5$.
     Projecting $(1, 2, 3, 4)$ onto $U$ gives
     \[
-        P_U(1, 2, 3, 4) = \frac{\gen{(1, 2, 3, 4), f_1}}{\norm{f_1}^2} f_1 + \frac{\gen{(1, 2, 3, 4), f_2}}{\norm{f_2}^2} f_2 = \frac{3}{2}(1, 1, 0, 0) + \frac{11}{5}(0, 0, 1, 2) = \left(\frac{3}{2}, \frac{3}{2}, \frac{11}{5}, \frac{22}{5}\right). \qedhere
+        P_U(1, 2, 3, 4) = \frac{\ip{(1, 2, 3, 4), f_1}}{\norm{f_1}^2} f_1 + \frac{\ip{(1, 2, 3, 4), f_2}}{\norm{f_2}^2} f_2 = \frac{3}{2}(1, 1, 0, 0) + \frac{11}{5}(0, 0, 1, 2) = \left(\frac{3}{2}, \frac{3}{2}, \frac{11}{5}, \frac{22}{5}\right). \qedhere
     \]
 \end{sol}
 
 \begin{exercise}*{6c16}
     Suppose $C[-1, 1]$ is the vector space of continuous real-valued functions on the interval $[-1, 1]$ with inner product given by
     \[
-        \gen{f, g} = \int_{-1}^{1} fg
+        \ip{f, g} = \int_{-1}^{1} fg
     \]
     for all $f, g \in C[-1, 1]$.
     Let $U$ be the subspace of $C[-1, 1]$ defined by
@@ -399,7 +399,7 @@
     Then $f$ is continuous on $[-1, 1]$ and $f(0) = 0$, so $f \in U$.
     Hence,
     \[
-        0 = \gen{f, g} = \int_{-1}^{1} x^2 g(x)^2 \dd x.
+        0 = \ip{f, g} = \int_{-1}^{1} x^2 g(x)^2 \dd x.
     \]
     Since $x^2 g(x)^2 \geq 0$ for all $x \in [-1, 1]$, it follows that $x^2 g(x)^2 = 0$ for all $x \in [-1, 1]$.
     Therefore, $g(x) = 0$ for all $x \in [-1, 1] \setminus \set 0$, and by continuity, $g(0) = 0$ as well.
@@ -417,8 +417,8 @@
     Let $f(x) = 2 + 3x$ and $g(x) = ax^2 + bx^3$.
     To minimize the integral, we project $f$ onto $\spn(x^2, x^3)$ in $C[0, 1]$ to get the resulting system of equations:
     \begin{align*}
-        0 &= \gen{f - g, x^2} = \int_0^1 (2 + 3x - ax^2 - bx^3)x^2 \dd x = \frac{2}{3} + \frac{3}{4} - \frac{a}{5} - \frac{b}{6}, \\
-        0 &= \gen{f - g, x^3} = \int_0^1 (2 + 3x - ax^2 - bx^3)x^3 \dd x = \frac{1}{2} + \frac{3}{5} - \frac{a}{6} - \frac{b}{7}.
+        0 &= \ip{f - g, x^2} = \int_0^1 (2 + 3x - ax^2 - bx^3)x^2 \dd x = \frac{2}{3} + \frac{3}{4} - \frac{a}{5} - \frac{b}{6}, \\
+        0 &= \ip{f - g, x^3} = \int_0^1 (2 + 3x - ax^2 - bx^3)x^3 \dd x = \frac{1}{2} + \frac{3}{5} - \frac{a}{6} - \frac{b}{7}.
     \end{align*}
     Solving this system yields $a = 24$ and $b = -\frac{203}{10}$, so the polynomial $p(x) = 24x^2 - \frac{203}{10}x^3$ minimizes the integral.
 \end{sol}
@@ -438,27 +438,27 @@
     Calculating the orthogonal basis, we begin with $f_1 = x$ with $\norm{f_1}^2 = \frac{2\pi^3}{3}$.
     Then
     \[
-        f_2 = x^3 - \frac{\gen{x^3, f_1}}{\norm{f_1}^2} f_1 = x^3 - \frac{3\pi^2}{5}x, \quad \norm{f_2}^2 = \frac{8\pi^7}{175}.
+        f_2 = x^3 - \frac{\ip{x^3, f_1}}{\norm{f_1}^2} f_1 = x^3 - \frac{3\pi^2}{5}x, \quad \norm{f_2}^2 = \frac{8\pi^7}{175}.
     \]
     Finally,
     \[
-        f_3 = x^5 - \frac{\gen{x^5, f_1}}{\norm{f_1}^2} f_1 - \frac{\gen{x^5, f_2}}{\norm{f_2}^2} f_2 = x^5 - \frac{10\pi^2}{9}x^3 + \frac{5\pi^4}{21}x, \quad \norm{f_3}^2 = \frac{128\pi^{11}}{43659}.
+        f_3 = x^5 - \frac{\ip{x^5, f_1}}{\norm{f_1}^2} f_1 - \frac{\ip{x^5, f_2}}{\norm{f_2}^2} f_2 = x^5 - \frac{10\pi^2}{9}x^3 + \frac{5\pi^4}{21}x, \quad \norm{f_3}^2 = \frac{128\pi^{11}}{43659}.
     \]
     Projecting $\sin x$ onto $U = \spn(x, x^3, x^5)$ gives
     \[
-        P_U \sin x = \frac{\gen{\sin x, f_1}}{\norm{f_1}^2} f_1 + \frac{\gen{\sin x, f_2}}{\norm{f_2}^2} f_2 + \frac{\gen{\sin x, f_3}}{\norm{f_3}^2} f_3,
+        P_U \sin x = \frac{\ip{\sin x, f_1}}{\norm{f_1}^2} f_1 + \frac{\ip{\sin x, f_2}}{\norm{f_2}^2} f_2 + \frac{\ip{\sin x, f_3}}{\norm{f_3}^2} f_3,
     \]
     where the inner products are computed as follows:
     \begin{align*}
-        \gen{\sin x, f_1} &= \int_{-\pi}^{\pi} x \sin x \dd x = 2\pi, \\
-        \gen{\sin x, f_2} &= \int_{-\pi}^{\pi} \left(x^3 - \frac{3\pi^2}{5}x\right) \sin x \dd x = \frac{4\pi}{5}(\pi^2 - 15), \\
-        \gen{\sin x, f_3} &= \int_{-\pi}^{\pi} \left(x^5 - \frac{10\pi^2}{9}x^3 + \frac{5\pi^4}{21}x\right) \sin x \dd x = \frac{2}{63}(8\pi^5 - 840\pi^3 + 7560\pi).
+        \ip{\sin x, f_1} &= \int_{-\pi}^{\pi} x \sin x \dd x = 2\pi, \\
+        \ip{\sin x, f_2} &= \int_{-\pi}^{\pi} \left(x^3 - \frac{3\pi^2}{5}x\right) \sin x \dd x = \frac{4\pi}{5}(\pi^2 - 15), \\
+        \ip{\sin x, f_3} &= \int_{-\pi}^{\pi} \left(x^5 - \frac{10\pi^2}{9}x^3 + \frac{5\pi^4}{21}x\right) \sin x \dd x = \frac{2}{63}(8\pi^5 - 840\pi^3 + 7560\pi).
     \end{align*}
     The coefficients of $f_1$, $f_2$, and $f_3$ in the projection are then
     \[
-        \frac{\gen{\sin x, f_1}}{\norm{f_1}^2} = \frac{3}{\pi^2}, \quad
-        \frac{\gen{\sin x, f_2}}{\norm{f_2}^2} = \frac{35(\pi^2 - 15)}{2\pi^6}, \quad
-        \frac{\gen{\sin x, f_3}}{\norm{f_3}^2} = \frac{693(\pi^4 - 105\pi^2 + 945)}{8\pi^{10}}.
+        \frac{\ip{\sin x, f_1}}{\norm{f_1}^2} = \frac{3}{\pi^2}, \quad
+        \frac{\ip{\sin x, f_2}}{\norm{f_2}^2} = \frac{35(\pi^2 - 15)}{2\pi^6}, \quad
+        \frac{\ip{\sin x, f_3}}{\norm{f_3}^2} = \frac{693(\pi^4 - 105\pi^2 + 945)}{8\pi^{10}}.
     \]
     Hence, the polynomial $p(x) = P_U \sin x$ that minimizes the integral is $p(x) = \alpha x + \beta x^3 + \gamma x^5$, where
     \begin{align*}
@@ -477,15 +477,15 @@
     For $u, v \in V$, write $u = u_U + u_{U^\perp}$ and $v = v_U + v_{U^\perp}$ with $u_U, v_U \in U = \range P$ and $u_{U^\perp}, v_{U^\perp} \in U^\perp = \nul P$.
     Then $Pu = u_U$ and $Pv = v_U$, so
     \[
-        \gen{Pu, v} = \gen{u_U, v_U + v_{U^\perp}} = \gen{u_U, v_U}
+        \ip{Pu, v} = \ip{u_U, v_U + v_{U^\perp}} = \ip{u_U, v_U}
     \]
     since $u_U \in U$ and $v_{U^\perp} \in U^\perp$.
     On the other hand,
     \[
-        \gen{u, Pv} = \gen{u_U + u_{U^\perp}, v_U} = \gen{u_U, v_U}
+        \ip{u, Pv} = \ip{u_U + u_{U^\perp}, v_U} = \ip{u_U, v_U}
     \]
     since $u_{U^\perp} \in U^\perp$ and $v_U \in U$.
-    Hence, $\gen{Pu, v} = \gen{u, Pv}$ for all $u, v \in V$, so $P^\dagger = P$.
+    Hence, $\ip{Pu, v} = \ip{u, Pv}$ for all $u, v \in V$, so $P^\dagger = P$.
 \end{sol}
 
 \begin{exercise}{6c20}
