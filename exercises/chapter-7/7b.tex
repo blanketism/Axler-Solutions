@@ -9,10 +9,16 @@
 \begin{soliff}
     \rightimp This follows from 7.12.
 
-    \leftimp Let $T$ be a normal operator on a complex inner product space.
-    By the complex spectral theorem, there exists an orthonormal basis such that $\mcal(T)$ is diagonal with respect to that basis.
-    By the complex spectral theorem, the diagonal entries of $\mcal(T)$ are some $\lambda_1, \ldots, \lambda_n$, and the diagonal entries of $\mcal(T^\ast)$ are $\bar{\lambda_1}, \ldots, \bar{\lambda_n}$.
-    If all the eigenvalues of $T$ are real, then $\lambda_i = \bar{\lambda_i}$ for all $i$, so $\mcal(T) = \mcal(T^\ast)$, which implies $T = T^\ast$.
+    \leftimp Let $T$ be a normal operator on a complex inner product space with only real eigenvalues.
+    By the complex spectral theorem, there exists an orthonormal basis $e_1, \ldots, e_n$ of eigenvectors of $T$, with corresponding eigenvalues $\lambda_1, \ldots, \lambda_n$.
+    Because $T$ is normal, each $e_i$ is also an eigenvector of $T^\ast$ with eigenvalue $\bar{\lambda_i}$ by 7.21(e).
+    Since all the eigenvalues $\lambda_i$ are real, we have $\bar{\lambda_i} = \lambda_i$ for all $i$.
+    Hence,
+    \[
+        T e_i = \lambda_i e_i = \bar{\lambda_i} e_i = T^\ast e_i
+    \]
+    for all $i = 1, \ldots, n$.
+    Since $T$ and $T^\ast$ agree on a basis of $V$, we have $T = T^\ast$ by 3.4.
 \end{soliff}
 
 \begin{exercise}{7b2}
@@ -22,9 +28,10 @@
 \end{exercise}
 
 \begin{sol}
-    By the complex spectral theorem, there exists an orthonormal basis such that $\mcal(T)$ is diagonal with respect to that basis.
-    Since $T$ has only one eigenvalue, all the diagonal entries of $\mcal(T)$ are equal to some $\lambda$.
-    Therefore, $\mcal(T) = \lambda I$, which implies $T = \lambda I$.
+    By the complex spectral theorem, $T$ is diagonalizable.
+    By 5.55, $V$ is the direct sum of the eigenspaces of $T$.
+    Since $T$ has exactly one eigenvalue $\lambda$, $V = E(\lambda, T)$.
+    Therefore, $Tv = \lambda v$ for all $v \in V$, which means $T = \lambda I$.
 \end{sol}
 
 \begin{exercise}{7b3}
@@ -34,15 +41,16 @@
 
 \begin{soliff}
     \rightimp Suppose the set of eigenvalues of $T$ is contained in $\set{0, 1}$.
-    By the complex spectral theorem, there exists an orthonormal basis $e_1, \ldots, e_n$ such that $\mcal(T)$ is diagonal with respect to that basis.
-    Since all the eigenvalues are in $\set{0, 1}$, the diagonal entries of $\mcal(T)$ are all $0$ or $1$.
-
-    Let $U = \spn(\set{e_i \mid \lambda_i = 1})$.
-    Then for any $v \in V$, we have
+    By the complex spectral theorem, $T$ is diagonalizable.
+    By 5.55, $V$ is the direct sum of the eigenspaces of $T$.
+    Thus, we can write $V = \nul(T - I) \oplus \nul T$.
+    Let $U = \nul(T - I)$.
+    By 7.22, $E(1, T)$ is orthogonal to $E(0, T)$, so $\nul T \subseteq U^\perp$.
+    Since any $v \in V$ can be uniquely written as $v = u + w$ with $u \in U$ and $w \in U^\perp$, we have
     \[
-        v = \sum_{j=1}^n \gen{v, e_j} e_j \implies Tv = \sum_{\lambda_j = 1}\gen{v, e_j} e_j = P_U v,
+        T v = T(u + w) = u + 0 = u = P_U v,
     \]
-    where the last equality follows from the orthonormal basis.
+    which shows that $T = P_U$.
 
     \leftimp If $T = P_U$, then by \exref{7a20}, we know $P_U^2 = P_U$.
     If $Tv = \lambda v$ for some $\lambda \in \cbb$ and $v \neq 0$, then $\lambda^2v = \lambda v$.
@@ -60,11 +68,15 @@
     Therefore, $\lambda = -\bar\lambda$, which means $\lambda$ is purely imaginary.
 
     \leftimp Suppose all eigenvalues of $T$ are purely imaginary.
-    By the complex spectral theorem, there exists an orthonormal basis $e_1, \ldots, e_n$ such that $\mcal(T)$ is diagonal with respect to that basis.
-    Let the diagonal entries of $\mcal(T)$ be $\lambda_1, \ldots, \lambda_n$.
-    Since each $\lambda_i$ is purely imaginary, we have $\lambda_i = -\bar\lambda_i$.
-    Therefore, the diagonal entries of $\mcal(T^\ast)$ are $\bar\lambda_1, \ldots, \bar\lambda_n$, and the diagonal entries of $-\mcal(T)$ are $-\lambda_1, \ldots, -\lambda_n$.
-    Since $\bar\lambda_i = -\lambda_i$ for each $i$, we have $\mcal(T^\ast) = -\mcal(T)$, which implies $T^\ast = -T$.
+    By the complex spectral theorem, there exists an orthonormal basis $e_1, \ldots, e_n$ of eigenvectors of $T$ with corresponding eigenvalues $\lambda_1, \ldots, \lambda_n$.
+    Since $T$ is normal, each $e_i$ is also an eigenvector of $T^\ast$ with eigenvalue $\bar\lambda_i$.
+    Because each $\lambda_i$ is purely imaginary, we have $\bar{\lambda_i} = -\lambda_i$ for each $i$.
+    Therefore,
+    \[
+        T^\ast e_i = \bar\lambda_i e_i = -\lambda_i e_i = -T e_i
+    \]
+    for all $i = 1, \ldots, n$.
+    Since $T^\ast$ and $-T$ agree on the basis, $T^\ast = -T$ by 3.4.
 \end{soliff}
 
 \begin{exercise}{7b5}
@@ -225,9 +237,12 @@
     This forces $\mcal(T)$ to be diagonal.
 \end{sol}
 
-\begin{exercise}{7b14}
+\begin{exercise}*{7b14}
     Suppose $\fbb = \rbb$ and $T \in \lin{V}$.
     Prove that $T$ is self-adjoint if and only if all pairs of eigenvectors corresponding to distinct eigenvalues of $T$ are orthogonal and $V = E(\lambda_1, T) \op \cdots \op E(\lambda_m, T)$, where $\lambda_1, \ldots, \lambda_m$ denote the distinct eigenvalues of $T$.
+
+    \remark{This exercise adds another characterization to the real spectral theorem, where $T$ is self-adjoint if and only if the eigenvectors corresponding to distinct eigenvalues are orthogonal and $V$ decomposes as the direct sum of its eigenspaces.
+    In particular, this is the orthogonal analogue of Theorem 5.55.}
 \end{exercise}
 
 \begin{soliff}
@@ -236,20 +251,24 @@
     By the real spectral theorem, $V$ has an orthonormal basis consisting of eigenvectors of $T$, so $T$ is diagonalizable.
     By 5.55, this gives the desired decomposition of $V$.
 
-    \leftimp In each $E(\lambda_i, T)$, apply the Gram--Schmidt process to obtain an orthonormal basis for that eigenspace.
+    \leftimp In each $E(\lambda_i, T)$, apply the Gram--Schmidt process to a basis of that eigenspace to obtain an orthonormal basis for that eigenspace.
     By hypothesis, these orthonormal bases for the eigenspaces corresponding to distinct eigenvalues are mutually orthogonal.
     The combined list of these orthonormal bases forms an orthonormal list of eigenvectors of $T$, hence is linearly independent by 6.25.
-    Moreover, this list spans $V$ because $V = E(\lambda_1, T) \op \cdots \op E(\lambda_m, T)$.
+    Moreover, this list spans $V$ because $V = E(\lambda_1, T) \op \cdots \op E(\lambda_m, T)$ since each eigenspace is the span of its orthonormal basis obtained via Gram--Schmidt.
     Thus, the list is an orthonormal basis of $V$ consisting of eigenvectors of $T$, so $T$ is self-adjoint by the real spectral theorem.
 \end{soliff}
 
-\begin{exercise}{7b15}
+\begin{exercise}*{7b15}
     Suppose $\fbb = \cbb$ and $T \in \lin{V}$.
     Prove that $T$ is normal if and only if all pairs of eigenvectors corresponding to distinct eigenvalues of $T$ are orthogonal and $V = E(\lambda_1, T) \op \cdots \op E(\lambda_m, T)$, where $\lambda_1, \ldots, \lambda_m$ denote the distinct eigenvalues of $T$.
+
+    \remark{This has the same remark as \exref{7b14} but in the context of the complex spectral theorem.
+    It also uses normal operators instead of self-adjoint operators.}
 \end{exercise}
 
 \begin{sol}
     The proof is similar to that of \exref{7b14}, but using the complex spectral theorem instead of the real spectral theorem.
+    Moreover, the \rightimp direction applies 7.22 directly since $T$ is normal by hypothesis.
 \end{sol}
 
 \begin{exercise}{7b16}
