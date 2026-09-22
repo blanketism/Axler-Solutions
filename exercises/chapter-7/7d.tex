@@ -5,16 +5,58 @@
     Prove that $S$ is an isometry if and only if $Se_1, Se_2$ is an orthonormal list in $W$ for every orthonormal list $e_1, e_2$ of length two in $V$.
 \end{exercise}
 
-\begin{sol}
-    $\ip{u, t, r}$.
-\end{sol}
+\begin{soliff}
+    \rightimp Let $S$ be an isometry, and let $e_1, e_2$ be an orthonormal list of length two in $V$.
+    By 7.49(c), $\ip{S e_i, S e_j} = \ip{e_i, e_j}$ for all $i, j \in \set{1, 2}$, so $Se_1, Se_2$ is an orthonormal list in $W$.
+
+    \leftimp By 6.35, there exists an orthonormal basis $f_1, \ldots, f_n$ of $V$, where $\dim V = n \geq 2$.
+    For any $j \neq k$, the list $f_j, f_k$ is orthonormal, so by assumption $S f_j, S f_k$ is orthonormal in $W$.
+    Thus, $\ip{S f_j, S f_k} = \ip{f_j, f_k} = 0$ for all $j \neq k$.
+    Moreover, since $n \geq 2$, for each $j = 1, \ldots, n$, there exists an index $k \neq j$, and orthonormality of $S f_j, S f_k$ implies that $\norm{S f_j} = 1$.
+    Hence, $S f_1, \ldots, S f_n$ is an orthonormal list in $W$, and by 7.49(d), $S$ is an isometry.
+\end{soliff}
 
 \begin{exercise}{7d2}
-    Suppose $T \in \lin{V, W}$.
+    Suppose $T \in \lin{V, W}$ and $T \neq 0$.
     Prove that $T$ is a scalar multiple of an isometry if and only if $T$ preserves orthogonality.
 
     \note{The phrase ``$T$ preserves orthogonality'' means that $\ip{Tu, Tv} = 0$ for all $u, v \in V$ such that $\ip{u, v} = 0$.}
 \end{exercise}
+
+\begin{soliff}
+    \rightimp Let $T = \lambda S$, where $\lambda \in \fbb$ and $S \in \lin{V, W}$ is an isometry.
+    Then for any $u, v \in V$ such that $\ip{u, v} = 0$, we have
+    \[
+        \ip{Tu, Tv} = \ip{\lambda Su, \lambda Sv} = \lambda \overline{\lambda} \ip{Su, Sv} = |\lambda|^2 \ip{Su, Sv} = |\lambda|^2 \ip{u, v} = 0
+    \]
+    by 7.49(c).
+    Hence, $T$ preserves orthogonality.
+
+    \leftimp Since $T \neq 0$, $V \neq \set 0$.
+    Let $e_1, \ldots, e_n$ be an orthonormal basis of $V$, where $n = \dim V \geq 1$.
+    For $j, k \in \set{1, \ldots, n}$ with $j \neq k$, we have $\ip{e_j, e_k} = 0$, so by assumption $\ip{T e_j, T e_k} = 0$.
+    Since $\norm{e_j} = \norm{e_k}$ and $\ip{e_k, e_j} = \ip{e_j, e_k} = 0$, it follows that $\ip{e_j + e_k, e_j - e_k} = 0$.
+    Therefore,
+    \[
+        0 = \ip{T(e_j + e_k), T(e_j - e_k)} = \ip{Te_j + Te_k, Te_j - Te_k} = \ip{Te_j, Te_j} - \ip{Te_k, Te_k} = \norm{Te_j}^2 - \norm{Te_k}^2,
+    \]
+    where $\ip{Te_j, Te_k} = \ip{Te_k, Te_j} = 0$ for $j \neq k$.
+    Hence, $\norm{Te_j} = \norm{Te_k}$ for all $j, k \in \set{1, \ldots, n}$.
+    Let $\lambda = \norm{Te_1}$.
+    Then $\norm{Te_j} = \lambda$ for all $j = 1, \ldots, n$.
+    If $\lambda = 0$, then $T e_j = 0$ for all $j$, so $T = 0$ on a basis.
+    This implies $T = 0$, which contradicts the assumption that $T \neq 0$.
+    Hence, $\lambda > 0$.
+    Define $S = \frac{1}{\lambda} T$.
+    Then $\norm{S e_j} = 1$ for all $j = 1, \ldots, n$.
+    Moreover,
+    \[
+        \ip{S e_j, S e_k} = \ip*{\frac{1}{\lambda}T e_j, \frac{1}{\lambda} T e_k} = \frac{1}{\lambda^2} \ip{T e_j, T e_k} = 0
+    \]
+    for $j \neq k$.
+    Hence, $S e_1, \ldots, S e_n$ is an orthonormal list in $W$, and by 7.49(d), $S$ is an isometry.
+    Therefore, $T = \lambda S$ is a scalar multiple of an isometry.
+\end{soliff}
 
 \begin{exercise}{7d3}
     \begin{subexercises}
@@ -25,10 +67,46 @@
     \note{This exercise shows that the set of unitary operators on $V$ is a group, where the group operation is the usual product of two operators.}
 \end{exercise}
 
+\begin{solenum}
+    \item Let $T_1$ and $T_2$ be unitary operators on $V$.
+    By 7.5(d) and 7.53(b), we have
+    \[
+        (T_1T_2)^\ast (T_1T_2) = T_2^\ast T_1^\ast T_1 T_2 = T_2^\ast T_2 = I, \quad 
+        (T_1T_2)(T_1T_2)^\ast = T_1T_2 T_2^\ast T_1^\ast = T_1 I T_1^\ast = T_1T_1^\ast = I.
+    \]
+    Hence, $T_1T_2$ is a unitary operator by 7.53(b).
+    \item Let $T$ be a unitary operator on $V$.
+    By 7.53(c), $T\inv = T^\ast$, and $T^\ast$ is unitary by 7.53(f).
+\end{solenum}
+
 \begin{exercise}{7d4}
     Suppose $\fbb = \cbb$ and $A, B \in \lin{V}$ are self-adjoint.
     Show that $A + iB$ is unitary if and only if $AB = BA$ and $A^2 + B^2 = I$.
 \end{exercise}
+
+\begin{sol}
+    Let $T = A + iB$.
+    By 7.5(a), (b), and the fact that $A$ and $B$ are self-adjoint, we have $T^\ast = A - iB$.
+    Therefore,
+    \[
+        TT^\ast = A^2 + B^2 + i(BA - AB), \quad T^\ast T = A^2 + B^2 + i(AB - BA).
+    \]
+    \rightimp Suppose $T$ is unitary.
+    By 7.53(b), $TT^\ast = T^\ast T = I$.
+    Then
+    \[
+        TT^\ast - T^\ast T = i(BA - AB) - i(AB - BA) = 2i(BA - AB) = 0,
+    \]
+    so $AB = BA$.
+    Moreover, $TT^\ast = I$ implies $A^2 + B^2 + i(BA - AB) = I$, and since $AB = BA$, this simplifies to $A^2 + B^2 = I$.
+
+    \leftimp Suppose $AB = BA$ and $A^2 + B^2 = I$.
+    Substituting these into either $TT^\ast$ or $T^\ast T$, we get
+    \[
+        TT^\ast = T^\ast T = A^2 + B^2 = I.
+    \]
+    Hence, $T$ is unitary by 7.53(b).
+\end{sol}
 
 \begin{exercise}{7d5}
     Suppose $S \in \lin{V}$.
@@ -40,25 +118,127 @@
     \end{subexercises}
 \end{exercise}
 
+\begin{sol}
+    \leavevmode
+
+    \noindent\fbox{(a) $\Rightarrow$ (b)}
+    Suppose $S$ is a self-adjoint unitary operator.
+    Then $S = S^\ast$.
+    By 7.53(b), $S^\ast S = SS^\ast = I$, so $S^2 = I$.
+    Let $P = \frac{1}{2}(S + I)$.
+    By 7.5(a), (b), and (e), $P$ is self-adjoint with
+    \[
+        P^2 = \left(\frac{1}{2}(S + I)\right)^2 = \frac{1}{4}(S^2 + 2S + I) = \frac{1}{4}(I + 2S + I) = \frac{1}{2}(S + I) = P.
+    \]
+    Since $P$ is self-adjoint and $P^2 = P$, \exref{7a20} gives that $P$ is an orthogonal projection.
+    Then $S = 2P - I$.
+
+    \noindent\fbox{(b) $\Rightarrow$ (c)}
+    Suppose $S = 2P - I$ for some orthogonal projection $P$ onto a subspace $U$ of $V$.
+    By 6.57, $P u = u$ for $u \in U$, and $P w = 0$ for $w \in U^\perp$.
+    Hence,
+    \[
+        S u = (2P - I) u = 2P u - u = 2u - u = u, \quad S w = (2P - I) w = 2P w - w = 0 - w = -w
+    \]
+    for $u \in U$ and $w \in U^\perp$.
+
+    \noindent\fbox{(c) $\Rightarrow$ (a)}
+    Suppose there exists a subspace $U$ of $V$ such that $Su = u$ for every $u \in U$ and $Sw = -w$ for every $w \in U^\perp$.
+    Since $V$ is finite-dimensional, so is $U$.
+    Therefore, we have $V = U \oplus U^\perp$ by 6.49.
+    For any $v, v' \in V$, write $v = u + w$ and $v' = u' + w'$ with $u, u' \in U$ and $w, w' \in U^\perp$.
+    Then
+    \[
+        S v = S(u + w) = Su + Sw = u - w, \quad S v' = S(u' + w') = Su' + Sw' = u' - w'.
+    \]
+    Hence, $S^2 v = S(Sv) = S(u - w) = Su - Sw = u + w = v$ for all $v \in V$, so $S^2 = I$.
+    Moreover, because $\ip{u, w'} = \ip{w, u'} = 0$, we have
+    \begin{align*}
+        \ip{S v, v'} &= \ip{u - w, u' + w'} = \ip{u, u'} - \ip{w, w'}, \\
+        \ip{v, S v'} &= \ip{u + w, u' - w'} = \ip{u, u'} - \ip{w, w'}.
+    \end{align*}
+    So, $\ip{S v, v'} = \ip{v, S v'}$ for all $v, v' \in V$, which shows that $S$ is self-adjoint.
+    Hence, $SS^\ast = S^\ast S = S^2 = I$.
+    Thus, $S$ is a self-adjoint unitary operator by 7.53(b).
+\end{sol}
+
 \begin{exercise}{7d6}
     Suppose $T_1, T_2$ are both normal operators on $\fbb^3$ with $2, 5, 7$ as eigenvalues.
     Prove that there exists a unitary operator $S \in \lin{\fbb^3}$ such that $T_1 = S^\ast T_2 S$.
 \end{exercise}
+
+\begin{sol}
+    Let $e_2, e_5, e_7$ and $f_2, f_5, f_7$ be unit eigenvectors of $T_1$ and $T_2$ corresponding to the eigenvalues $2, 5, 7$, respectively.
+    By 7.22, each list is an orthonormal list in $\fbb^3$.
+    By 6.28, each list is an orthonormal basis of $\fbb^3$.
+    By 3.4, there exists a linear operator $S \in \lin{\fbb^3}$ such that $S e_2 = f_2$, $S e_5 = f_5$, and $S e_7 = f_7$.
+    By 7.53(d), $S$ is unitary, and $S^\ast = S\inv$ by 7.53(c).
+    For each $k \in \set{2, 5, 7}$, we have $T_1 e_k = k e_k$ and $T_2 f_k = k f_k$, so
+    \[
+        S^\ast T_2 S e_k = S^\ast T_2 f_k = S^\ast (k f_k) = k S^\ast f_k = k S\inv f_k = k e_k = T_1 e_k.
+    \]
+    Since $T_1$ and $S^\ast T_2 S$ agree on an orthonormal basis of $\fbb^3$, we have $T_1 = S^\ast T_2 S$ by 3.4.
+\end{sol}
 
 \begin{exercise}{7d7}
     Give an example of two self-adjoint operators $T_1, T_2 \in \lin{\fbb^4}$ such that the eigenvalues of both operators are $2, 5, 7$, but there does not exist a unitary operator $S \in \lin{\fbb^4}$ such that $T_1 = S^\ast T_2 S$.
     Be sure to explain why there is no unitary operator with the required property.
 \end{exercise}
 
+\begin{sol}
+    Let $e_1, e_2, e_3, e_4$ be the standard basis of $\fbb^4$, which is an orthonormal basis.
+    Consider the operators $T_1, T_2 \in \lin{\fbb^4}$ whose matrix representations with respect to $e_1, e_2, e_3, e_4$ are diagonal with diagonal entries $2, 2, 5, 7$ and $2, 5, 5, 7$, respectively.
+    By 7.9, both operators are self-adjoint since real diagonal matrices equal their conjugate transposes.
+    By 5.41, the eigenvalues of $T_1$ and $T_2$ are exactly $2, 5, 7$.
+    Note that $E(2, T_1) = \nul(T_1 - 2I) = \spn(e_1, e_2)$ and $E(2, T_2) = \nul(T_2 - 2I) = \spn(e_1)$.
+
+    Now suppose $S \in \lin{\fbb^4}$ is a unitary operator such that $T_1 = S^\ast T_2 S$.
+    By 7.53(c), $S^\ast = S\inv$.
+    Then $ST_1 = S(S^\ast T_2 S) = (SS\inv) T_2 S = T_2 S$.
+    For any $v \in E(2, T_1)$, we have $T_1 v = 2 v$.
+    Thus,
+    \[
+        T_2 (S v) = S (T_1 v) = S(2 v) = 2 S v,
+    \]
+    which shows that $S$ maps $E(2, T_1)$ into $E(2, T_2)$.
+    Moreover, $\dim E(2, T_1) = 2$ and $\dim E(2, T_2) = 1$.
+    By 3.22, $S|_{E(2, T_1)}$ cannot be injective, 
+    and therefore $S$ cannot be injective.
+    Since a unitary operator must be invertible by 7.53(c), this is a contradiction.
+    Hence, no such unitary operator exists.
+\end{sol}
+
 \begin{exercise}{7d8}
     Prove or give a counterexample: If $S \in \lin{V}$ and there exists an orthonormal basis $e_1, \ldots, e_n$ of $V$ such that $\norm{Se_k} = 1$ for each $e_k$, then $S$ is a unitary operator.
 \end{exercise}
+
+\begin{sol}
+    The statement is false in general.
+    Consider $V = \fbb^2$ with the standard orthonormal basis $e_1, e_2$.
+    Define $S \in \lin{V}$ by $S e_1 = S e_2 = e_1$.
+    Then $\norm{Se_1} = \norm{Se_2} = 1$, but $S$ is not unitary since $S(e_1 - e_2) = 0$, which shows that $S$ is not injective and therefore not invertible.
+\end{sol}
 
 \begin{exercise}{7d9}
     Suppose $\fbb = \cbb$ and $T \in \lin{V}$.
     Suppose every eigenvalue of $T$ has absolute value $1$ and $\norm{Tv} \leq \norm{v}$ for every $v \in V$.
     Prove that $T$ is a unitary operator.
 \end{exercise}
+
+\begin{sol}
+    If $V = \set 0$, then $T$ is trivially unitary.
+    Otherwise, $V \neq \set 0$, so by Schur's theorem, there exists an orthonormal basis $e_1, \ldots, e_n$ of $V$ such that $\mcal(T)$ is upper triangular with respect to this basis; call this matrix $A$.
+    Then for each $k = 1, \ldots, n$, $T e_k = \sum_{j=1}^k A_{j, k} e_j$.
+    By 5.41, the diagonal entries $A_{k, k}$ are the eigenvalues of $T$, so $|A_{k, k}| = 1$ for each $k = 1, \ldots, n$.
+    By 6.24 and the hypothesis,
+    \[
+        1 \geq \norm{T e_k}^2 = \sum_{j=1}^k |A_{j, k}|^2 = |A_{k, k}|^2 + \sum_{j=1}^{k-1} |A_{j, k}|^2 = 1 + \sum_{j=1}^{k-1} |A_{j, k}|^2,
+    \]
+    which implies $0 \geq \sum_{j=1}^{k-1} |A_{j, k}|^2$.
+    Then $A_{j, k} = 0$ for all $j < k$, so $A$ is diagonal, and $T e_k = A_{k, k} e_k$ for each $k = 1, \ldots, n$.
+    It follows that $e_1, \ldots, e_n$ is an orthonormal basis of eigenvectors of $T$ with eigenvalues of absolute value $1$.
+    By 7.55, $T$ is unitary.
+\end{sol}
 
 \begin{exercise}{7d10}
     Suppose $\fbb = \cbb$ and $T \in \lin{V}$ is a self-adjoint operator such that $\norm{Tv} \leq \norm{v}$ for all $v \in V$.
@@ -68,6 +248,25 @@
     \end{subexercises}
 \end{exercise}
 
+\begin{solenum}
+    \item By 7.5, $I - T^2$ is self-adjoint.
+    Then for any $v \in V$,
+    \[
+        \ip{(I - T^2)v, v} = \ip{v, v} - \ip{T^2 v, v} = \ip{v, v} - \ip{T v, T^\ast v} = \ip{v, v} - \ip{T v, T v} = \norm{v}^2 - \norm{Tv}^2 \geq 0,
+    \]
+    where the final inequality follows from $\norm{Tv} \leq \norm{v}$ for all $v \in V$.
+    Hence, $I - T^2$ is a positive operator.
+    \item Let $B = \sqrt{I - T^2}$.
+    By part (a) and 7.39, $B$ is a positive self-adjoint operator.
+    By \exref{7c17}, there exists a polynomial $p$ such that $B = p(I - T^2)$, where $p$ has real coefficients.
+    Since $T$ commutes with $I - T^2$, it commutes with $B$.
+    Moreover,
+    \[
+        T^2 + B^2 = T^2 + (I - T^2) = I.
+    \]
+    By \exref{7d4} \leftimp with $A = T$ and $B$ as above, $T + iB$ is a unitary operator.
+\end{solenum}
+
 \begin{exercise}{7d11}
     Suppose $S \in \lin{V}$.
     Prove that $S$ is a unitary operator if and only if
@@ -76,19 +275,109 @@
     \]
 \end{exercise}
 
+\begin{sol}
+    Consider the set $\bcal = \set{v \in V \mid \norm{v} \leq 1}$.
+    For any $T \in \lin{V}$, let $T(\bcal) = \set{Tv \mid v \in \bcal}$.
+    Now, if $T$ is such that $T(\bcal) \subseteq \bcal$, then $\norm{T v} \leq 1$ for all $v \in \bcal$.
+    If $v = 0$, then $\norm{T0} = 0 = \norm{0}$.
+    If $v \neq 0$, then
+    \[
+        \frac{\norm{T v}}{\norm{v}} = \norm*{T\left(\frac{v}{\norm{v}}\right)} \leq 1.
+    \]
+    Hence, $\norm{Tv} \leq \norm{v}$ for all $v \in V$.
+
+    \rightimp Suppose $S$ is a unitary operator.
+    Then $S$ is also an isometry, so $S(\bcal) \subseteq \bcal$.
+    By \exref{7d3}(b), $S\inv$ is also unitary.
+    Then for any $u \in \bcal$, $S\inv u \in \bcal$.
+    Therefore, $u = S(S\inv u) \in S(\bcal)$, so $S(\bcal) = \bcal$.
+
+    \leftimp Now suppose $S(\bcal) = \bcal$.
+    Let $w \in V$, and write $w = \norm{w} w_0$ for some $w_0 \in \bcal$.
+    Since $\bcal = S(\bcal)$, there exists $v_0 \in \bcal$ such that $w_0 = S v_0$.
+    Hence, $w = \norm{w} S v_0 = S(\norm{w} v_0)$, so $w \in \range S$.
+    Therefore, $S$ is surjective, and hence invertible by 3.65.
+    Also, if $u \in \bcal$, then $u = S v$ for some $v \in \bcal$.
+    Hence, $v = S\inv u \in \bcal$, so $S\inv(\bcal) \subseteq \bcal$.
+    Applying the preliminary result from the beginning of the solution to $S$ and $S\inv$, we get $\norm{Sx} \leq \norm{x}$ and $\norm{x} = \norm{S\inv (Sx)} \leq \norm{Sx}$, so $\norm{Sx} = \norm{x}$ for all $x \in V$.
+    Therefore, $S$ is an isometry, and since it is also invertible, it is unitary.
+\end{sol}
+
 \begin{exercise}{7d12}
     Prove or give a counterexample: If $S \in \lin{V}$ is invertible and $\norm{S\inv v} = \norm{Sv}$ for every $v \in V$, then $S$ is unitary.
+
+    \remark{The solution below uses 2 and $\frac{1}{2}$, but replacing them with $\lambda$ and $\frac{1}{\lambda}$ for any nonzero $\lambda \in \fbb$ with $|\lambda| \neq 1$ gives a similar counterexample.}
 \end{exercise}
+
+\begin{sol}
+    The statement is false.
+    Consider $\fbb^2$ with the Euclidean inner product, and let $S \in \lin{\fbb^2}$ be defined by $S(x, y) = (2y, \frac{1}{2}x)$.
+    Then
+    \[
+        S^2(x, y) = S\left(2y, \frac{1}{2}x\right) = \left(2 \cdot \frac{1}{2} x, \frac{1}{2} \cdot 2 y\right) = (x, y).
+    \]
+    Hence, $S$ is invertible with $S\inv = S$.
+    Then $\norm{S\inv(x, y)} = \norm{S(x, y)}$ for all $(x, y) \in \fbb^2$.
+    However, $\norm{S(0, 1)} = 2 \neq 1 = \norm{(0, 1)}$.
+    Therefore, $S$ is not unitary.
+\end{sol}
 
 \begin{exercise}{7d13}
     Explain why the columns of a square matrix of complex numbers form an orthonormal list in $\cbb^n$ if and only if the rows of the matrix form an orthonormal list in $\cbb^n$.
 \end{exercise}
+
+\begin{sol}
+    Let $Q$ be an $n$-by-$n$ matrix with complex entries.
+    Define $T \in \lin{\cbb^n}$ by $T v = Qv$ for all $v \in \cbb^n$.
+    Moreover, let $\cbb^n$ have the Euclidean inner product.
+    If $e_1, \ldots, e_n$ denotes the standard (orthonormal) basis of $\cbb^n$, then $T e_k$ is the $k$th column of $Q$.
+    Hence, $\mcal(T) = Q$ with respect to $e_1, \ldots, e_n$.
+    Then
+    \begin{align*}
+        Q \text{ has orthonormal columns} &\iff T e_1, \ldots, T e_n \text{ is an orthonormal list} \\
+        &\iff T e_1, \ldots, T e_n \text{ is an orthonormal basis by 6.28} \\
+        &\iff T \text{ is unitary by 7.53(d)} \\
+        &\iff \text{the rows of $\mcal(T) = Q$ form an orthonormal basis by 7.53(e)} \\
+        &\iff \text{the rows of $Q$ form an orthonormal list by 6.28}. \qedhere
+    \end{align*}
+\end{sol}
 
 \begin{exercise}{7d14}
     Suppose $v \in V$ with $\norm{v} = 1$ and $b \in \fbb$.
     Also suppose $\dim V \geq 2$.
     Prove that there exists a unitary operator $S \in \lin{V}$ such that $\ip{Sv, v} = b$ if and only if $|b| \leq 1$.
 \end{exercise}
+
+\begin{soliff}
+    \rightimp Note that $\norm{S v} = \norm{v} = 1$ since $S$ is unitary.
+    By the Cauchy--Schwarz inequality, $|b| = |\ip{Sv, v}| \leq \norm{Sv}\,\norm{v} = 1$.
+
+    \leftimp Suppose $|b| \leq 1$.
+    By 6.36, we may extend $v$ to an orthonormal basis $v, u, e_3, \ldots, e_n$ of $V$, which has length $\dim V \geq 2$.
+    Let $\beta = \sqrt{1 - |b|^2}$.
+    By 3.4, there exists an operator $S \in \lin{V}$ such that
+    \[
+        S v = b v + \beta u, \quad S u = -\beta v + \bar b u, \quad S e_k = e_k \text{ for } k \geq 3.
+    \]
+    Then
+    \[
+        \norm{S v}^2 = \norm{b v + \beta u}^2 = |b|^2 \norm{v}^2 + |\beta|^2 \norm{u}^2 = |b|^2 + (1 - |b|^2) = 1,
+    \]
+    and
+    \[
+        \norm{S u}^2 = \norm{-\beta v + \bar b u}^2 = |\beta|^2 \norm{v}^2 + |b|^2 \norm{u}^2 = (1 - |b|^2) + |b|^2 = 1.
+    \]
+    Moreover, noting that $\bar{\widebar b} = b$, we have
+    \[
+        \ip{S v, S u} = \ip{b v + \beta u, -\beta v + \bar b u} = b(-\beta) \ip{v, v} + b^2 \ip{v, u} - \beta^2 \ip{u, v} + \beta b \ip{u, u} = -b\beta + \beta b = 0.
+    \]
+    Lastly, $S v, S u \in \spn(v, u)$, which is orthogonal to all $e_k$ for $k \geq 3$.
+    Then the list $S v, S u, S e_3, \ldots, S e_n$ is an orthonormal basis of $V$ by 6.28, so $S$ is unitary by 7.53(d).
+    Finally,
+    \[
+        \ip{S v, v} = \ip{b v + \beta u, v} = b \ip{v, v} + \beta \ip{u, v} = b. \qedhere
+    \]
+\end{soliff}
 
 \begin{exercise}{7d15}
     Suppose $T$ is a unitary operator on $V$ such that $T - I$ is invertible.
@@ -101,19 +390,106 @@
     Thus (b) illustrates the analogy between the unitary operators and the unit circle in $\cbb$, along with the analogy between the self-adjoint operators and $\rbb$.}
 \end{exercise}
 
+\begin{sol}
+    Define $A = (T + I)(T - I)\inv$.
+    Observe that $T + I = (T - I) + 2I$.
+    Then $A = I + 2(T - I)\inv$.
+    \begin{subexercises}
+        \item By 7.5, $A^\ast = I + 2(T^\ast - I)\inv$.
+        By 7.53(c), $T^\ast = T\inv$, so $T^\ast - I = -T\inv(T - I)$, and
+        \[
+            (T^\ast - I)\inv = -(T - I)\inv T = -(T - I)\inv((T - I) + I) = -I - (T - I)\inv.
+        \]
+        Therefore, $A^\ast = -I - 2(T - I)\inv = -A$.
+        \item Using 7.5(b) and part (a), $(iA)^\ast = \bar\imath A^\ast = (-i)(-A) = iA$. \qedhere
+    \end{subexercises}
+\end{sol}
+
 \begin{exercise}{7d16}
     Suppose $\fbb = \cbb$ and $T \in \lin{V}$ is self-adjoint.
     Prove that $(T + iI)(T - iI)\inv$ is a unitary operator and $1$ is not an eigenvalue of this operator.
 \end{exercise}
 
+\begin{sol}
+    Since $T$ is self-adjoint, $\ip{T v, v} = \ip{v, T v}$ for all $v \in V$.
+    Let $\lambda \in \set{i, -i}$.
+    Then $\abs\lambda = 1$, and $\Re\lambda = 0$.
+    It follows that
+    \begin{align*}
+        \norm{(T - \lambda I)v}^2 &= \ip{(T - \lambda I)v, (T - \lambda I)v} \\
+        &= \ip{Tv, Tv} - \bar\lambda \ip{Tv, v} - \lambda \ip{v, Tv} + \abs{\lambda}^2 \ip{v, v} \\
+        &= \ip{Tv, Tv} - 2\Re \lambda \ip{Tv, v} + \abs{\lambda}^2 \ip{v, v} \\
+        &= \norm{Tv}^2 + \abs{\lambda}^2 \norm{v}^2 \\
+        &= \norm{(T - \bar\lambda I)v}^2,
+    \end{align*}
+    where $\bar\lambda \in \set{-i, i}$.
+    From this, $\nul(T - \lambda I) = \nul(T - \bar\lambda I) = \set 0$, since $\norm{(T - \lambda I)v}^2 = \norm{Tv}^2 + \norm{v}^2 \geq \norm{v}^2$, which is $0$ only if $v = 0$.
+    Therefore, $\nul(T - \lambda I) = \set 0$.
+    By 3.15, $T - \lambda I$ is injective, and because $V$ is finite-dimensional, $T - \lambda I$ is invertible by 3.65.
+
+    We now define $S = (T + iI)(T - iI)\inv$.
+    For any $u \in V$, let $w = (T - iI)\inv u$.
+    Then
+    \[
+        \norm{S u}^2 = \norm{(T + iI)w}^2 = \norm{(T - iI)w}^2 = \norm{u}^2.
+    \]
+    Taking square roots, we get $\norm{S u} = \norm{u}$ for all $u \in V$, so $S$ is an isometry.
+    Since $S$ is a product of invertible operators, it is also invertible.
+    Hence, $S$ is a unitary operator.
+
+    Now, suppose $S x = x$ for some $x \in V$.
+    By definition of $S$, $(T + iI)(T - iI)\inv x = x$, so $(T + iI)y = x$ where $y = (T - iI)\inv x$.
+    Since $x = (T - iI)y$, we have $(T + iI)y = (T - iI)y$, so $2i y = 0$, and hence $y = 0$.
+    Therefore, $x = (T - iI)y = 0$, showing that $1$ is not an eigenvalue of $S$.
+\end{sol}
+
 \begin{exercise}{7d17}
     Explain why the characterizations of unitary matrices given by 7.57 hold.
 \end{exercise}
+
+\begin{sol}
+    Let $Q$ be an $n$-by-$n$ matrix.
+    Define $T \in \lin{\fbb^n}$ by $Tv = Qv$ for all $v \in \fbb^n$, so $\mcal(T) = Q$ with respect to the standard basis of $\fbb^n$, which is orthonormal with respect to the Euclidean inner product.
+
+    \noindent\fbox{(a) $\Leftrightarrow$ (c)} Since $Tv = Qv$ for all $v \in \fbb^n$, (c) states precisely that $T$ is an isometry.
+    By the equivalence of 7.49(a) and (e), $T$ is an isometry if and only if the columns of $\mcal(T) = Q$ are orthonormal, which is (a) by definition.
+
+    \noindent\fbox{(a) $\Leftrightarrow$ $Q^\ast Q = I$, (b) $\Leftrightarrow$ $QQ^\ast = I$} For $j, k \in \set{1, \ldots, n}$, consider the $j, k$th entry of both $Q^\ast Q$ and $QQ^\ast$.
+    By 3.46 and the definition of the conjugate transpose, we have
+    \[
+        (Q^\ast Q)_{j, k} = \sum_{\ell=1}^n \bar{Q_{\ell, j}} Q_{\ell, k} = \ip{Q_{\cdot, k}, Q_{\cdot, j}}, \quad
+        (QQ^\ast)_{j, k} = \sum_{\ell=1}^n Q_{j, \ell} \bar{Q_{k, \ell}} = \ip{Q_{j, \cdot}, Q_{k, \cdot}}.
+    \]
+    Note that $Q_{j, \cdot}$ and $Q_{k, \cdot}$ are treated as vectors in $\fbb^n$.
+    Therefore, $Q^\ast Q = I$ if and only if the columns of $Q$ are orthonormal, which is (a), and $QQ^\ast = I$ if and only if the rows of $Q$ are orthonormal, which is (b).
+
+    \noindent\fbox{$Q^\ast Q = I \Leftrightarrow QQ^\ast = I$} By 7.9 and 3.43, $\mcal(T^\ast T) = Q^\ast Q$ and $\mcal(TT^\ast) = QQ^\ast$.
+    Then $Q^\ast Q = I$ if and only if $T^\ast T = I$, and $QQ^\ast = I$ if and only if $TT^\ast = I$.
+    By 3.68, $T^\ast T = I$ if and only if $TT^\ast = I$.
+    Therefore, $Q^\ast Q = I$ if and only if $QQ^\ast = I$, so each condition is equivalent to (d).
+
+    This shows that (a) is equivalent to (c) and that (a) is equivalent to (d), which is equivalent to (b).
+\end{sol}
 
 \begin{exercise}{7d18}
     A square matrix $A$ is called \term{symmetric} if it equals its transpose.
     Prove that if $A$ is a symmetric matrix with real entries, then there exists a unitary matrix $Q$ with real entries such that $Q^\ast AQ$ is a diagonal matrix.
 \end{exercise}
+
+\begin{sol}
+    Let $A$ be a symmetric $n$-by-$n$ matrix with real entries.
+    Define $T \in \lin{\rbb^n}$ by $Tv = Av$ for all $v \in \rbb^n$, so $\mcal(T) = A$ with respect to the standard orthonormal basis of $\rbb^n$.
+    Since $A$ is real and symmetric, $A^\ast = A\trans = A$.
+    Then $\mcal(T^\ast) = A^\ast = A = \mcal(T)$, so $T$ is self-adjoint by 7.9.
+    By the real spectral theorem, there exists an orthonormal basis $f_1, \ldots, f_n$ of $\rbb^n$ such that $T f_k = \lambda_k f_k$ for some real numbers $\lambda_1, \ldots, \lambda_n$.
+
+    Define $Q$ to be the matrix whose columns are the vectors $f_1, \ldots, f_n$.
+    Moreover, let $D$ be the diagonal matrix with entries $\lambda_1, \ldots, \lambda_n$ on its diagonal.
+    By definition, $Q$ is a matrix with real entries and orthonormal columns, so it is unitary.
+    Moreover, the $k$th column of $AQ$ is $Af_k = Tf_k = \lambda_k f_k$, which is also the $k$th column of $QD$ for each $k = 1, \ldots, n$.
+    Hence, $AQ = QD$.
+    By 7.57(d), $Q^\ast Q = I$, so $Q^\ast AQ = Q^\ast QD = D$.
+\end{sol}
 
 \begin{exercise}{7d19}
     Suppose $n$ is a positive integer.
@@ -139,7 +515,85 @@
     The usual Fourier transform involves expressions of the form $\int_{-\infty}^{\infty} f(x) e^{-2\pi itx}\, dx$ for complex-valued integrable functions $f$ defined on $\rbb$.}
 \end{exercise}
 
+\begin{sol}
+    Let $e_0, e_1, \ldots, e_{n-1}$ be the standard orthonormal basis of $\cbb^n$, so the $j$th component of $\fcal e_k$ is
+    \[
+        \omega_j(e_k) = \frac{1}{\sqrt{n}} \sum_{p=0}^{n-1} (e_k)_p e^{-2\pi i jp/n} = \frac{1}{\sqrt{n}} e^{-2\pi i jk/n},
+    \]
+    where $(e_k)_p = \delta_{pk}$.
+    \begin{subexercises}
+        \item Let $m, k \in \set{0, 1, \ldots, n-1}$.
+        Then
+        \[
+            \ip{\fcal e_m, \fcal e_k} = \sum_{j=0}^{n-1} \omega_j(e_m) \bar{\omega_j(e_k)} = \sum_{j=0}^{n-1} \frac{1}{\sqrt{n}} e^{-2\pi i jm/n} \cdot \frac{1}{\sqrt{n}} e^{2\pi i jk/n} = \frac{1}{n} \sum_{j=0}^{n-1} e^{2\pi i j(k-m)/n}.
+        \]
+        If $m = k$, then $\ip{\fcal e_m, \fcal e_k} = 1$.
+        Otherwise, let $\zeta = e^{2\pi i (k-m)/n}$.
+        Then $\zeta^n = 1$ and $\zeta \neq 1$, since $0 < |k-m| < n$.
+        Therefore,
+        \[
+            \ip{\fcal e_m, \fcal e_k} = \frac{1}{n} \sum_{j=0}^{n-1} \zeta^j = \frac{1}{n} \cdot \frac{1 - \zeta^n}{1-\zeta} = 0.
+        \]
+        Hence, $\fcal e_0, \ldots, \fcal e_{n-1}$ is an orthonormal list in $\cbb^n$.
+        By 6.28, $\fcal e_0, \ldots, \fcal e_{n-1}$ is an orthonormal basis of $\cbb^n$, so $\fcal$ is unitary on $\cbb^n$ by 7.53(d).
+        \item By 7.53(c), $\fcal\inv = \fcal^\ast$.
+        By definition of $\fcal$, the entries of $\mcal(\fcal)$ with respect to the basis $e_0, \ldots, e_{n-1}$ are given by
+        \[
+            \mcal(\fcal, (e_0, \ldots, e_{n-1}))_{j, k} = \omega_j(e_k) = \frac{1}{\sqrt{n}} e^{-2\pi i jk/n}.
+        \]
+        Let $w = (z_n, z_{n-1}, \ldots, z_1)$ and $u = (z_0, z_1, \ldots, z_{n-1})$, so $w_k = z_{n-k}$ and $u_k = z_k$ for $k = 0, \ldots, n-1$.
+        Since $e_0, \ldots, e_{n - 1}$ is orthonormal, 7.9 gives $\mcal(\fcal^\ast)_{j, k} = \overline{\mcal(\fcal)_{k, j}} = \bar{\omega_k(e_j)}$.
+        By 3.76, this yields the $j$th component of $\fcal\inv u$ as
+        \[
+            (\fcal\inv u)_j = \sum_{k=0}^{n-1} \bar{\omega_k(e_j)} u_k = \sum_{k=0}^{n-1} \frac{1}{\sqrt{n}} e^{2\pi i jk/n} z_k.
+        \]
+        Then
+        \[
+            (\fcal w)_j = \sum_{k=0}^{n-1} \omega_j(e_k) w_k = \sum_{k=0}^{n-1} \frac{1}{\sqrt{n}} e^{-2\pi i jk/n} w_k = \sum_{k=0}^{n-1} \frac{1}{\sqrt{n}} e^{-2\pi i jk/n} z_{n-k},
+        \]
+        where the first equality holds by the linearity of $\omega_j$ applied to $w$.
+        Let $\ell = n-k$.
+        As $k$ goes from $0$ to $n-1$, $\ell$ goes from $n$ to $1$. 
+        Moreover, $e^{-2\pi ij k/n} = e^{-2\pi ij (n-\ell)/n} = e^{2\pi ij \ell/n} e^{-2\pi ij} = e^{2\pi ij \ell/n}$.
+        Therefore,
+        \[
+            (\fcal w)_j = \sum_{\ell=1}^{n} \frac{1}{\sqrt{n}} e^{2\pi ij \ell/n} z_\ell.
+        \]
+        The term when $\ell = n$ is the same as when $\ell = 0$ because $z_n = z_0$ and $e^{2\pi ij} = 1$.
+        Therefore, we can rewrite the sum in terms of $\ell$ from $0$ to $n-1$ as
+        \[
+            (\fcal w)_j = \sum_{\ell=0}^{n-1} \frac{1}{\sqrt{n}} e^{2\pi ij \ell/n} z_\ell.
+        \]
+        Then $(\fcal\inv u)_j = (\fcal w)_j$ for all $j$, which shows that $\fcal\inv u = \fcal w$.
+        \item Define $R \in \lin{\cbb^n}$ by
+        \[
+            R(z_0, z_1, \ldots, z_{n-1}) = (z_0, z_{n-1}, \ldots, z_1).
+        \]
+        Since $z_n = z_0$, part (b) says that $\fcal\inv = \fcal R$, so $I = \fcal\fcal\inv = \fcal^2 R$.
+        Moreover, for $v = (z_0, z_1, \ldots, z_{n-1}) \in \cbb^n$ and $j = 1, \ldots, n-1$,
+        \[
+            (R^2v)_j = (Rv)_{n-j} = v_{n-(n-j)} = v_j.
+        \]
+        For $j = 0$, we have $(R^2v)_0 = (Rv)_0 = v_0$.
+        Hence, $R^2 = I$.
+        Then $\fcal^2 = \fcal^2 R^2 = (\fcal^2 R) R = I R = R$, so $\fcal^4 = (\fcal^2)^2 = R^2 = I$. \qedhere
+    \end{subexercises}
+\end{sol}
+
 \begin{exercise}{7d20}
     Suppose $A$ is a square matrix with linearly independent columns.
     Prove that there exist unique matrices $R$ and $Q$ such that $R$ is lower triangular with only positive numbers on its diagonal, $Q$ is unitary, and $A = RQ$.
 \end{exercise}
+
+\begin{sol}
+    Since $A$ is $n$-by-$n$ and has linearly independent columns, $\colrank A = n$.
+    By 3.57, $\rowrank A = \colrank A = n$, so the rows of $A$ are linearly independent as well.
+    Since the columns of $A^\ast$ are the conjugate transposes of the rows of $A$, the columns of $A^\ast$ are linearly independent.
+    By 7.58, there exist unique matrices $Q_1$ and $R_1$ such that $Q_1$ is unitary, $R_1$ is upper triangular with positive diagonal entries, and $A^\ast = Q_1 R_1$.
+    Taking conjugate transposes gives $A = R_1^\ast Q_1^\ast$, where $R_1^\ast$ is lower triangular with the same positive diagonal entries as $R_1$, and $Q_1^\ast$ is unitary by 7.57(d).
+    Let $R = R_1^\ast$ and $Q = Q_1^\ast$, so $A = RQ$ where $R$ and $Q$ have the desired properties.
+    
+    To see uniqueness of $R$ and $Q$, suppose $A = RQ = R_0 Q_0$ where $R_0$ is lower triangular with positive diagonal entries and $Q_0$ is unitary.
+    Taking conjugate transposes again yields $A^\ast = Q^\ast R^\ast = Q_0^\ast R_0^\ast$, where $R^\ast$ and $R_0^\ast$ are upper triangular with positive diagonal entries and $Q^\ast$ and $Q_0^\ast$ are unitary.
+    By the uniqueness part of 7.58, we must have $R^\ast = R_0^\ast$ and $Q^\ast = Q_0^\ast$, which implies $R = R_0$ and $Q = Q_0$.
+\end{sol}
