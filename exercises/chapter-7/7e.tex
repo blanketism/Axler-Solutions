@@ -1,0 +1,127 @@
+\subsection{Singular Value Decomposition}
+
+\begin{exercise}{7e1}
+    Suppose $T \in \lin{V, W}$.
+    Show that $T = 0$ if and only if all singular values of $T$ are $0$.
+\end{exercise}
+
+\begin{exercise}{7e2}
+    Suppose $T \in \lin{V, W}$ and $s > 0$.
+    Prove that $s$ is a singular value of $T$ if and only if there exist nonzero vectors $v \in V$ and $w \in W$ such that
+    \[
+        Tv = sw \quad \text{and} \quad T^\ast w = sv.
+    \]
+
+    \note{The vectors $v, w$ satisfying both equations above are called a \term{Schmidt pair}.
+    Erhard Schmidt introduced the concept of singular values in 1907.}
+\end{exercise}
+
+\begin{exercise}{7e3}
+    Give an example of $T \in \lin{\cbb^2}$ such that $0$ is the only eigenvalue of $T$ and the singular values of $T$ are $5, 0$.
+\end{exercise}
+
+\begin{exercise}{7e4}
+    Suppose that $T \in \lin{V, W}$, $s_1$ is the largest singular value of $T$, and $s_n$ is the smallest singular value of $T$.
+    Prove that
+    \[
+        \set{\norm{Tv} \mid v \in V \text{ and } \norm{v} = 1} = [s_n, s_1].
+    \]
+\end{exercise}
+
+\begin{exercise}{7e5}
+    Suppose $T \in \lin{\cbb^2}$ is defined by $T(x, y) = (-4y, x)$.
+    Find the singular values of $T$.
+\end{exercise}
+
+\begin{exercise}{7e6}
+    Find the singular values of the differentiation operator $D \in \lin{\pcal_2(\rbb)}$ defined by $Dp = p'$, where the inner product on $\pcal_2(\rbb)$ is as in Example 6.34.
+\end{exercise}
+
+\begin{exercise}{7e7}
+    Suppose that $T \in \lin{V}$ is self-adjoint or that $\fbb = \cbb$ and $T \in \lin{V}$ is normal.
+    Let $\lambda_1, \ldots, \lambda_n$ be the eigenvalues of $T$, each included in this list as many times as the dimension of the corresponding eigenspace.
+    Show that the singular values of $T$ are $|\lambda_1|, \ldots, |\lambda_n|$, after these numbers have been sorted into decreasing order.
+\end{exercise}
+
+\begin{exercise}{7e8}
+    Suppose $T \in \lin{V, W}$.
+    Suppose $s_1 \geq s_2 \geq \cdots \geq s_m > 0$ and $e_1, \ldots, e_m$ is an orthonormal list in $V$ and $f_1, \ldots, f_m$ is an orthonormal list in $W$ such that
+    \[
+        Tv = s_1 \ip{v, e_1} f_1 + \cdots + s_m \ip{v, e_m} f_m
+    \]
+    for every $v \in V$.
+    \begin{subexercises}
+        \item Prove that $f_1, \ldots, f_m$ is an orthonormal basis of $\range T$.
+        \item Prove that $e_1, \ldots, e_m$ is an orthonormal basis of $(\nul T)^\perp$.
+        \item Prove that $s_1, \ldots, s_m$ are the positive singular values of $T$.
+        \item Prove that if $k \in \set{1, \ldots, m}$, then $e_k$ is an eigenvector of $T^\ast T$ with corresponding eigenvalue $s_k^2$.
+        \item Prove that
+        \[
+            TT^\ast w = s_1^2 \ip{w, f_1} f_1 + \cdots + s_m^2 \ip{w, f_m} f_m
+        \]
+        for all $w \in W$.
+    \end{subexercises}
+\end{exercise}
+
+\begin{exercise}{7e9}
+    Suppose $T \in \lin{V, W}$.
+    Show that $T$ and $T^\ast$ have the same positive singular values.
+\end{exercise}
+
+\begin{exercise}{7e10}
+    Suppose $T \in \lin{V, W}$ has singular values $s_1, \ldots, s_n$.
+    Prove that if $T$ is an invertible linear map, then $T\inv$ has singular values
+    \[
+        \frac{1}{s_n}, \ldots, \frac{1}{s_1}.
+    \]
+\end{exercise}
+
+\begin{exercise}{7e11}
+    Suppose that $T \in \lin{V, W}$ and $v_1, \ldots, v_n$ is an orthonormal basis of $V$.
+    Let $s_1, \ldots, s_n$ denote the singular values of $T$.
+    \begin{subexercises}
+        \item Prove that $\norm{Tv_1}^2 + \cdots + \norm{Tv_n}^2 = s_1^2 + \cdots + s_n^2$.
+        \item Prove that if $W = V$ and $T$ is a positive operator, then
+        \[
+            \ip{Tv_1, v_1} + \cdots + \ip{Tv_n, v_n} = s_1 + \cdots + s_n.
+        \]
+    \end{subexercises}
+
+    \note{See the comment after Exercise 5 in Section 7A.}
+\end{exercise}
+
+\begin{exercise}{7e12}
+    \begin{subexercises}
+        \item Give an example of a finite-dimensional vector space and an operator $T$ on it such that the singular values of $T^2$ do not equal the squares of the singular values of $T$.
+        \item Suppose $T \in \lin{V}$ is normal.
+        Prove that the singular values of $T^2$ equal the squares of the singular values of $T$.
+    \end{subexercises}
+\end{exercise}
+
+\begin{exercise}{7e13}
+    Suppose $T_1, T_2 \in \lin{V}$.
+    Prove that $T_1$ and $T_2$ have the same singular values if and only if there exist unitary operators $S_1, S_2 \in \lin{V}$ such that $T_1 = S_1 T_2 S_2$.
+\end{exercise}
+
+\begin{exercise}{7e14}
+    Suppose $T \in \lin{V, W}$.
+    Let $s_n$ denote the smallest singular value of $T$.
+    Prove that $s_n \norm{v} \leq \norm{Tv}$ for every $v \in V$.
+\end{exercise}
+
+\begin{exercise}{7e15}
+    Suppose $T \in \lin{V}$ and $s_1 \geq \cdots \geq s_n$ are the singular values of $T$.
+    Prove that if $\lambda$ is an eigenvalue of $T$, then $s_1 \geq |\lambda| \geq s_n$.
+\end{exercise}
+
+\begin{exercise}{7e16}
+    Suppose $T \in \lin{V, W}$.
+    Prove that $(T^\ast)^\dagger = (T^\dagger)^\ast$.
+
+    \note{Compare the result in this exercise to the analogous result for invertible linear maps [see 7.5(f)].}
+\end{exercise}
+
+\begin{exercise}{7e17}
+    Suppose $T \in \lin{V}$.
+    Prove that $T$ is self-adjoint if and only if $T^\dagger$ is self-adjoint.
+\end{exercise}
