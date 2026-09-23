@@ -34,3 +34,101 @@ This solution rewrites the backwards direction of the proof, appealing to an ort
     \]
     By symmetry, $T^\ast T$ yields the same sum, so $TT^\ast = T^\ast T$ and $T$ is normal.
 \end{csp}
+
+\begin{apex}[7c2]
+    Suppose $T \in \lin{\fbb^4}$ is the operator whose matrix (with respect to the standard basis) is
+    \[
+        \begin{pmatrix}
+            2 & -1 & 0 & 0 \\
+            -1 & 2 & -1 & 0 \\
+            0 & -1 & 2 & -1 \\
+            0 & 0 & -1 & 2
+        \end{pmatrix}.
+    \]
+    Show that $T$ is an invertible positive operator.
+\end{apex}
+
+The construction of $B$ in the following solution comes from some intuition and $T$'s structure.
+In particular, the choice of $B$ is such that $B^\ast B$ reproduces the tridiagonal structure of $T$, which makes it straightforward to verify that $T$ is positive.
+
+\begin{csp}
+    Let $B \in \mathcal{L}\left(\mathbb{F}^4, \mathbb{F}^5\right)$ be defined by
+    $$B(x_1,x_2,x_3,x_4)=(x_1,x_1-x_2,x_2-x_3,x_3-x_4,x_4).$$
+    It is easy to verify that $\mathcal{M}(B^{\ast}B)=\mathcal{M}(T)$; hence $T$ is self-adjoint.
+
+    For any $x \in \mathbb{F}^4$,
+    $$\langle Tx,x \rangle=\langle B^{\ast}Bx, x \rangle=\langle Bx,Bx \rangle=\norm{Bx}^2 \geq 0,$$
+    which implies $T$ is a positive operator.
+
+    If $Tx=0$, then
+    $$0=\langle Tx,x \rangle=\norm{Bx}^2 \implies Bx=0 \implies x=0.$$
+    Since $\operatorname{null} T=\{0\}$, $T$ is injective and therefore invertible.
+\end{csp}
+
+\begin{apex}[7c8]
+    Suppose $T \in \lin{V}$.
+    Prove that $T$ is a positive operator if and only if the pseudoinverse $T^\dagger$ is a positive operator.
+\end{apex}
+
+This solution uses some future machinery, namely the pseudoinverse of an operator and its properties which is expounded in 7E.
+While the manual solution requires an explicit witness in the form of an orthonormal basis and appealing to \exref{7b25}, the below approach only leverages the structural properties of the pseudoinverse and the decomposition of the vector space into the range and null space of $T$.
+
+\begin{csp}
+    Suppose $T$ is a positive operator. Since $T$ is self-adjoint, which means its pseudoinverse is also self-adjoint since
+    $$\left(T^{\dagger}\right)^{\ast}=\left(T^{\ast}\right)^{\dagger}=T^{\dagger}.$$
+    Also, $V=\operatorname{range} T \oplus \operatorname{null} T$. For any $v \in V$, we can write $v=u+w$ where $u \in \operatorname{range} T$ and $w \in \operatorname{null} T$. By the definition of the pseudoinverse,
+    $$T^{\dagger} w=0, \qquad T^{\dagger} u \in (\operatorname{null} T)^{\perp}=\operatorname{range} T.$$
+    Hence $T^{\dagger} u$ and $w$ are orthogonal. So,
+    $$\left \langle T^{\dagger} v,v \right \rangle=\left \langle T^{\dagger}(u+w), u+w \right \rangle=\left \langle T^{\dagger}u, u+w \right \rangle=\left \langle T^{\dagger} u, u \right \rangle.$$
+    Setting $x=T^{\dagger}u$ yields $Tx=T\left(T^{\dagger}u\right)=u$. Thus,
+    $$\left \langle T^{\dagger} u,u \right \rangle=\langle x,Tx \rangle=\langle Tx,x \rangle \geq 0$$
+    since $T$ is positive. Since $\left \langle T^{\dagger}v,v \right \rangle \geq 0$ for all $v \in V$ and $T^{\dagger}$ is self-adjoint, $T^{\dagger}$ is a positive operator.
+\end{csp}
+
+\begin{apex}[7c12]
+    Suppose $T \in \lin{V}$ is a positive operator.
+    Prove that $T^k$ is a positive operator for every positive integer $k$.
+\end{apex}
+
+This solution goes through a parity argument in $k$.
+Moreover, it again does not require an explicit orthonormal basis for the vector space.
+
+\begin{csp}
+    Since $T$ is a positive operator, it is self-adjoint. Thus
+    $$\left(T^k\right)^{\ast}=\left(T^{\ast}\right)^k=T^k \implies T^k \text{ is self adjoint for all } k \in \mathbb{Z}^{+}.$$
+    Let $v \in V$.
+    \begin{itemize}
+    \item If $k=2m$ for some integer $m \geq 1$, then
+    $$\left \langle T^k v,v \right \rangle=\left \langle T^{2m} v, v \right \rangle=\left \langle T^m v, T^m v \right \rangle=\norm{T^m v}^2 \geq 0.$$
+    \item If $k=2m+1$ for some integer $m \geq 0$, then
+    $$\left \langle T^k v, v \right \rangle=\left \langle T^{2m+1}v, v \right \rangle=\left \langle T\left(T^m v \right), T^m v \right \rangle.$$
+    Since $T$ is positive, $\langle Tu,u \rangle \geq 0$ for all $u \in V$. Taking $u=T^m v$ yields $\left \langle T\left(T^m v \right), T^m v \right \rangle \geq 0$.
+    \end{itemize}
+    Therefore, $T^k$ is a positive operator.
+\end{csp}
+
+\begin{apex}[7c19]
+    Show that the identity operator on $\fbb^2$ has infinitely many self-adjoint square roots.
+\end{apex}
+
+An alternate argument below uses no specific matrix representation of the operator.
+
+\begin{csp}
+    For any subspace $U$ of $\mathbb{F}^2$, let $P_U$ denote the orthogonal projection onto $U$. Define $T=2P_U-I$. Since orthogonal projections are self-adjoint, $T$ is also self-adjoint. Since $P_U^2=P_U$,
+    $$T^2=\left(2P_U-I\right)^2=4P_U^2-4P_U+I=4P_U-4P_U+I=I,$$
+    meaning $T$ is a square root of the identity. Because $\mathbb{F}^2$ contains infinitely many one-dimensional subspaces, there are infinitely many distinct orthogonal projections on $\mathbb{F}^2$. Since $P_U=\frac{1}{2}(T+I)$, distinct orthogonal projections yield distinct operators $T$. Therefore, the identity operator on $\mathbb{F}^2$ has infinitely many self-adjoint square roots.
+\end{csp}
+
+\begin{apex}[7d10]
+    Suppose $\fbb = \cbb$ and $T \in \lin{V}$ is a self-adjoint operator such that $\norm{Tv} \leq \norm{v}$ for all $v \in V$.
+    \begin{subexercises}
+        \item Show that $I - T^2$ is a positive operator.
+        \item Show that $T + i\sqrt{I - T^2}$ is a unitary operator.
+    \end{subexercises}
+\end{apex}
+
+An alternate argument using the spectral theorem is given for part (b), where the eigenvalues $\lambda + i\sqrt{1 - \lambda^2}$ are made explicit on the unit circle.
+
+\begin{csp}
+    Since $T$ is self-adjoint, there exists an orthonormal basis of eigenvectors of $T$. For any such eigenvector with eigenvalue $\lambda$, the condition $\norm{Tv} \leq \norm{v}$ implies $\lambda \in [-1,1]$. The operator $T+i\sqrt{1-T^2}$ acts on this eigenvector by multiplication with $\lambda+i \sqrt{1-\lambda^2}$, which has modulus $1$. Because there exists an orthonormal basis of eigenvectors whose corresponding eigenvalues all have modulus $1$, the operator is unitary.
+\end{csp}
