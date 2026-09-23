@@ -52,19 +52,15 @@
 \end{exercise}
 
 \begin{sol}
+    Since the standard basis is orthonormal, $\mcal(T)$ is equal to its conjugate transpose, so $T$ is self-adjoint by 7.9.
     Let $x = (1, \ldots, 1) \in \fbb^n$.
-    For any $y = \tuple y \in \fbb^n$, we have
+    For any $y \in \fbb^n$, observe that $Ty = \ip{y, x} x$.
+    Therefore,
     \[
-        T y = \left(\sum_{i=1}^n y_i, \ldots, \sum_{i=1}^n y_i\right) = \ip{y, x} x.
+        \ip{T y, y} = \ip{\ip{y, x} x, y} = \ip{y, x} \ip{x, y} = |\ip{y, x}|^2 \geq 0
     \]
-    Consider the operator $R \in \lin{\fbb^n}$ defined by $R z = (\ip{z, x}, 0, \ldots, 0)$ for any $z \in \fbb^n$.
-    Then
-    \[
-        \ip{R z, y} = \ip{z, x} \bar{y_1} = \ip{z, y_1 x}
-    \]
-    so that $R^\ast y = y_1 x$.
-    Therefore, $R^\ast R y = \ip{y, x} x = T y$ for any $y \in \fbb^n$.
-    Hence, $T = R^\ast R$, which shows that $T$ is a positive operator by 7.38(f).
+    for all $y \in \fbb^n$.
+    Hence, $T$ is a positive operator.
 \end{sol}
 
 \begin{exercise}{7c4}
@@ -178,6 +174,9 @@
         Tv = w \quad \text{and} \quad Tw = v.
     \]
     Prove that $v = w$.
+
+    \remark{Alternatively, observe that $T(v - w) = -(v - w)$, so $v - w \in E(-1, T) = \set 0$ by 7.38(b) and the fact that $T$ is positive.
+    Then $v - w = 0$, so $v = w$.}
 \end{exercise}
 
 \begin{sol}
@@ -236,9 +235,8 @@
     so $T - \alpha I$ is self-adjoint.
     Since $\lambda - \alpha \geq 0$ for every eigenvalue $\lambda$ of $T$, the eigenvalues of $T - \alpha I$ are nonnegative.
     Hence, $T - \alpha I$ is positive by 7.38(b).
-    \item Note that $-T$ is self-adjoint by 7.5(b).
-    Moreover, the eigenvalues of $-T$ are exactly $-\lambda$, where $\lambda$ ranges over the eigenvalues of $T$.
-    Then applying part (a) to $-T$ and $-\alpha$ gives the operator $-T - (-\alpha)I = \alpha I - T$, which is positive if and only if $-\alpha \leq -\lambda$ for every eigenvalue $\lambda$ of $T$, i.e., $\alpha \geq \lambda$ for every eigenvalue $\lambda$ of $T$.
+    \item Note that $-T$ is self-adjoint by 7.5(b), and its eigenvalues are exactly $-\lambda$, where $\lambda$ ranges over the eigenvalues of $T$.
+    Applying (a) to $-T$ and $-\alpha$, the operator $-T - (-\alpha)I = \alpha I - T$ is positive if and only if $-\alpha \leq -\lambda$, i.e., $\alpha \geq \lambda$, for every eigenvalue $\lambda$ of $T$.
 \end{solenum}
 
 \begin{exercise}{7c14}
@@ -268,22 +266,27 @@
 \begin{sol}
     If $\fbb = \rbb$, the real spectral theorem applies directly, and if $\fbb = \cbb$, self-adjointness implies normality, so the complex spectral theorem applies.
     In either case, there exists an orthonormal basis $e_1, \ldots, e_n$ of $V$ consisting of eigenvectors of $T$ with corresponding eigenvalues $\lambda_1, \ldots, \lambda_n$.
-    Let $\lambda_k^+ = \max\{\lambda_k, 0\}$ and $\lambda_k^- = \max\{-\lambda_k, 0\}$ for each $k = 1, \ldots, n$.
-    By 3.4, there exist operators $A$ and $B$ on $V$ such that
-    \[
-        A e_k = \lambda_k^+ e_k \quad \text{and} \quad B e_k = \lambda_k^- e_k
-    \]
-    for each $k = 1, \ldots, n$.
-    Since $\mcal(A, (e_1, \ldots, e_n))$ and $\mcal(B, (e_1, \ldots, e_n))$ are diagonal with nonnegative entries, both $A$ and $B$ are positive operators by 7.38(c).
-    Since $\lambda_k = \lambda_k^+ - \lambda_k^-$ for each $k$, $T e_k = (\lambda_k^+ - \lambda_k^-) e_k = (A - B) e_k$ for each $k$, so $T = A - B$ by 3.4.
-    Additionally, $\lambda_k^+ \lambda_k^- = 0$ for each $k$, so $AB e_k = \lambda_k^+ \lambda_k^- e_k = 0$ for each $k$, and similarly $BA e_k = 0$ for each $k$, hence $AB = BA = 0$ by 3.4.
-    
-    Finally, note that since $T$ is self-adjoint, $T^\ast T = T^2$, so $\sqrt{T^\ast T} = \sqrt{T^2}$.
+    Since $T$ is self-adjoint, $T^\ast T = T^2$.
     By 3.4, there exists an operator $C$ on $V$ such that $C e_k = |\lambda_k| e_k$ for each $k = 1, \ldots, n$.
     Since $\mcal(C, (e_1, \ldots, e_n))$ is diagonal with nonnegative entries, $C$ is a positive operator by 7.38(c).
     Moreover, $C^2 e_k = |\lambda_k|^2 e_k = \lambda_k^2 e_k = T^2 e_k$ for each $k$, so $C^2 = T^2$ by 3.4.
     By 7.39, $C = \sqrt{T^2} = \sqrt{T^\ast T}$.
-    Also, note that $C e_k = |\lambda_k| e_k = (\lambda_k^+ + \lambda_k^-) e_k = (A + B) e_k$ for each $k$, so $C = A + B$ by 3.4.
+
+    Consider now the operators
+    \[
+        A = \frac{1}{2}(C + T) \quad \text{and} \quad B = \frac{1}{2}(C - T).
+    \]
+    By construction, $A - B = T$ and $A + B = C = \sqrt{T^\ast T}$.
+    Then for each $k = 1, \ldots, n$,
+    \[
+        A e_k = \frac{1}{2}(C + T) e_k = \frac{1}{2}(|\lambda_k| + \lambda_k) e_k \quad \text{and} \quad B e_k = \frac{1}{2}(C - T) e_k = \frac{1}{2}(|\lambda_k| - \lambda_k) e_k.
+    \]
+    Then the diagonal entries of $\mcal(A, (e_1, \ldots, e_n))$ and $\mcal(B, (e_1, \ldots, e_n))$ are nonnegative, so $A$ and $B$ are positive operators by 7.38(c).
+    Finally,
+    \[
+        AB e_k = \frac{1}{4}((C + T)(C - T)) e_k = \frac{1}{4}((|\lambda_k| + \lambda_k)(|\lambda_k| - \lambda_k)) e_k = 0 \quad \text{and} \quad BA e_k = 0
+    \]
+    so that $AB = BA = 0$ by 3.4.
 \end{sol}
 
 \begin{exercise}{7c16}
@@ -516,34 +519,17 @@
     If $T v = 0$ for some $v \in V$, then $\ip{Tv, v} = 0$, which implies $v = 0$ by definiteness of the inner product $\ip{\cdot, \cdot}_T$.
     Hence, $T$ is invertible by 3.65.
 
-    \leftimp Suppose $T$ is an invertible positive operator, and define $\ip{\cdot, \cdot}_T$ as given.
+    \leftimp Suppose $T$ is an invertible positive operator.
     By 7.38(f), there exists $R \in \lin{V}$ such that $R^\ast R = T$, so
     \[
-        \ip{v, v}_T = \ip{Tv, v} = \ip{R^\ast R v, v} = \ip{Rv, Rv} = \norm{Rv}^2
+        \ip{u, v}_T = \ip{Tu, v} = \ip{R^\ast R u, v} = \ip{Ru, Rv}
     \]
-    for any $v \in V$.
-    We now verify the inner product axioms.
-    Let $u, v, w \in V$ and $\lambda \in \fbb$.
-    Then:
-    \begin{itemize}
-        \item \textbf{Positivity}: $\ip{v, v}_T = \ip{Tv, v} \geq 0$ since $T$ is positive.
-        \item \textbf{Definiteness}: If $\ip{v, v}_T = 0$, then $\norm{Rv}^2 = 0$, which implies $Rv = 0$ and hence $Tv = R^\ast(Rv) = 0$.
-        Since $T$ is invertible, this implies $v = 0$.
-        Conversely, $\ip{0, 0}_T = \ip{T0, 0} = \ip{0, 0} = 0$.
-        \item \textbf{Additivity in the First Slot}: 
-        \[
-            \ip{u + w, v}_T = \ip{T(u + w), v} = \ip{Tu + Tw, v} = \ip{Tu, v} + \ip{Tw, v} = \ip{u, v}_T + \ip{w, v}_T.
-        \]
-        \item \textbf{Homogeneity in the First Slot}: 
-        \[
-            \ip{\lambda u, v}_T = \ip{T(\lambda u), v} = \ip{\lambda Tu, v} = \lambda \ip{Tu, v} = \lambda \ip{u, v}_T.
-        \]
-        \item \textbf{Conjugate Symmetry}: Since $T$ is self-adjoint, we have
-        \[
-            \ip{u, v}_T = \ip{Tu, v} = \ip{u, Tv} = \bar{\ip{Tv, u}} = \bar{\ip{v, u}_T}.
-        \]
-    \end{itemize}
-    Hence, $\ip{\cdot, \cdot}_T$ satisfies all the axioms of an inner product on $V$, so it is indeed an inner product.
+    for all $u, v \in V$.
+    Since $\ip{\cdot, \cdot}$ is an inner product and $R$ is linear, $\ip{\cdot, \cdot}_T$ satisfies all the inner product axioms, except possibly definiteness.
+    If $\ip{v, v}_T = 0$, then $\norm{Rv}^2 = 0$, which implies $Rv = 0$ and hence $Tv = R^\ast(Rv) = 0$.
+    Since $T$ is invertible, this implies $v = 0$.
+    Conversely, $\ip{0, 0}_T = \ip{T0, 0} = \ip{0, 0} = 0$.
+    Therefore, $\ip{\cdot, \cdot}_T$ is an inner product on $V$.
     \item Let $\ip{\cdot, \cdot}'$ be an inner product on $V$.
     For each $v \in V$, define $\phi_v : V \to \fbb$ by $\phi_v(u) = \ip{u, v}'$.
     Since $\ip{\cdot, \cdot}'$ is an inner product on $V$, $\phi_v$ is a linear functional on $V$.
