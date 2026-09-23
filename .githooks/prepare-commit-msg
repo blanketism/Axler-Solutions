@@ -11,6 +11,9 @@ SOL_START_RE = re.compile(r"\\begin\{(?:sol|solenum|solitem|soliff)\}")
 SOL_END_RE = re.compile(r"\\end\{(?:sol|solenum|solitem|soliff)\}")
 EXERCISE_END_RE = re.compile(r"\\end\{exercise\}")
 
+APEX_START_RE = re.compile(r"\\begin\{apex\}[\{\[]([^}\]]+)[\}\]]")
+APEX_END_RE = re.compile(r"\\end\{apex\}")
+
 
 def chapter_key(label):
     return label.split(".")[0] if "." in label else label[0]
@@ -25,13 +28,15 @@ def sort_key(label):
 
 def collect_edits(diff_text):
     found = defaultdict(set)
-    current_file = current_exercise = None
-    in_solution = False
+    found_appendix = defaultdict(set)
+    current_file = current_exercise = current_apex = None
+    in_solution = in_apex = False
 
     for line in diff_text.splitlines():
         if line.startswith("+++ b/"):
             current_file = line[6:]
-            current_exercise, in_solution = None, False
+            current_exercise = current_apex = None
+            in_solution = in_apex = False
             continue
         if line.startswith(("@@", "---", "diff ")):
             continue
@@ -48,20 +53,36 @@ def collect_edits(diff_text):
             in_solution = True
         elif SOL_END_RE.search(content) or EXERCISE_END_RE.search(content):
             in_solution = False
+        elif m := APEX_START_RE.search(content):
+            current_apex = m[1]
+            in_apex = True
+        elif APEX_END_RE.search(content):
+            in_apex = False
         elif line.startswith("+") and in_solution and current_exercise:
             found[chapter_key(current_exercise)].add(current_exercise)
+        elif line.startswith("+") and in_apex and current_apex:
+            found_appendix[chapter_key(current_apex)].add(current_apex)
 
-    return found
+    return found, found_appendix
 
 
-def build_message(found):
+def _section(prefix, found):
     chapters = sorted(found, key=lambda ch: (int(ch) if ch.isdigit() else ch))
-    subject = f"fix: chapter{'s' if len(chapters) > 1 else ''} {', '.join(chapters)}\n\n"
+    subject = f"{prefix}: chapter{'s' if len(chapters) > 1 else ''} {', '.join(chapters)}\n\n"
     body = "\n".join(
         ", ".join(sorted(found[ch], key=sort_key))
         for ch in chapters
     )
     return subject + body
+
+
+def build_message(found, found_appendix):
+    parts = []
+    if found:
+        parts.append(_section("fix", found))
+    if found_appendix:
+        parts.append(_section("appendix", found_appendix))
+    return "\n\n".join(parts)
 
 
 def main():
@@ -75,10 +96,10 @@ def main():
         capture_output=True, text=True
     ).stdout
 
-    found = collect_edits(diff)
-    if found:
+    found, found_appendix = collect_edits(diff)
+    if found or found_appendix:
         with open(msg_file, "w") as f:
-            f.write(build_message(found))
+            f.write(build_message(found, found_appendix))
 
 
 if __name__ == "__main__":
