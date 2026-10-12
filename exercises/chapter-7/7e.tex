@@ -1,9 +1,32 @@
 \subsection{Singular Value Decomposition}
 
+\begin{lemma}{1}
+    Suppose $T \in \lin{V, W}$ and $v_1, \ldots, v_n$ is a basis of $V$ with $T^\ast T v_k = \mu_k v_k$ for $k = 1, \ldots, n$.
+    Then the singular values of $T$ are $\sqrt{\mu_1}, \ldots, \sqrt{\mu_n}$ sorted into decreasing order.
+    \begin{proof}
+        Each $\mu_k$ is an eigenvalue of $T^\ast T$ since $v_k \neq 0$.
+        By 7.64(a), $T^\ast T$ is positive, so $\mu_k \geq 0$ for all $k = 1, \ldots, n$ by 7.38(b).
+        Since $T^\ast T v_k = \mu_k v_k$ for each $k$, the matrix $\mcal(T^\ast T, (v_1, \ldots, v_n))$ is diagonal with diagonal entries $\mu_1, \ldots, \mu_n$.
+        By \exref{5d2}, each eigenvalue $\lambda$ of $T^\ast T$ appears in the list $\mu_1, \ldots, \mu_n$ exactly $\dim E(\lambda, T^\ast T)$ times.
+        By the definition of singular values, the singular values of $T$ are precisely $\sqrt{\mu_1}, \ldots, \sqrt{\mu_n}$ sorted into decreasing order.
+    \end{proof}
+\end{lemma}
+
 \begin{exercise}{7e1}
     Suppose $T \in \lin{V, W}$.
     Show that $T = 0$ if and only if all singular values of $T$ are $0$.
 \end{exercise}
+
+\begin{soliff}
+    \rightimp If $T = 0$, then $\range T = \set 0$.
+    Hence, $\dim \range T = 0$.
+    By 7.68(b), $T$ has no positive singular values.
+    Since all singular values are nonnegative, every singular value of $T$ is $0$.
+
+    \leftimp Suppose all singular values of $T$ are $0$.
+    Then $T$ has no positive singular values, so $\dim \range T = 0$ by 7.68(b).
+    Therefore, $\range T = \set 0$, so $T = 0$.
+\end{soliff}
 
 \begin{exercise}{7e2}
     Suppose $T \in \lin{V, W}$ and $s > 0$.
@@ -16,9 +39,48 @@
     Erhard Schmidt introduced the concept of singular values in 1907.}
 \end{exercise}
 
+\begin{soliff}
+    \rightimp Suppose $s$ is a singular value of $T$.
+    Since $s$ is a square root of an eigenvalue of $T^\ast T$, $s^2$ is an eigenvalue of $T^\ast T$.
+    Let $v \in V$ be nonzero such that $T^\ast T v = s^2 v$. 
+    Let $w = \frac{1}{s} Tv$. 
+    It follows that $Tv = sw$, and  
+    \[
+        T^\ast w = T^\ast \left(\frac{1}{s} Tv\right) = \frac{1}{s} T^\ast T v = \frac{1}{s} s^2 v = sv.
+    \]
+    Since $sv \neq 0$, we have $w \neq 0$.
+
+    \leftimp Suppose there exist nonzero vectors $v \in V$ and $w \in W$ such that $Tv = sw$ and $T^\ast w = sv$.
+    Observe that $T^\ast Tv = s T^\ast w = s^2 v$.
+    Then $s^2$ is an eigenvalue of $T^\ast T$.
+    Since $s > 0$, $\sqrt{s^2} = s$ is a singular value of $T$.
+\end{soliff}
+
 \begin{exercise}{7e3}
     Give an example of $T \in \lin{\cbb^2}$ such that $0$ is the only eigenvalue of $T$ and the singular values of $T$ are $5, 0$.
 \end{exercise}
+
+\begin{sol}
+    Consider $T \in \lin{\cbb^2}$ defined by $T(z, w) = (5w, 0)$.
+    With respect to the standard orthonormal basis $e_1, e_2$ of $\cbb^2$, the matrix of $T$ is 
+    \[
+        \begin{pmatrix}
+            0 & 5 \\
+            0 & 0
+        \end{pmatrix}.
+    \]
+    Since the matrix of $T$ is upper triangular with all diagonal entries $0$, $0$ is the only eigenvalue of $T$ by 5.41.
+    Using 7.9 and 3.43,
+    \[
+        \mcal(T^\ast T) = 
+        \begin{pmatrix}
+            0 & 0 \\
+            0 & 25
+        \end{pmatrix}.
+    \]
+    Then $T^\ast T e_1 = 0$ and $T^\ast T e_2 = 25 e_2$.
+    Therefore, by \autoref{lem:1}, the singular values of $T$ are $\sqrt{25} = 5$ and $\sqrt{0} = 0$.
+\end{sol}
 
 \begin{exercise}{7e4}
     Suppose that $T \in \lin{V, W}$, $s_1$ is the largest singular value of $T$, and $s_n$ is the smallest singular value of $T$.
@@ -28,20 +90,134 @@
     \]
 \end{exercise}
 
+\begin{sol}
+    Let $n = \dim V$, and let $m$ be the number of positive singular values of $T$.
+    Since $T$ has a largest and a smallest singular value, $V \neq \set 0$, so $n \geq 1$.
+    Then $s_{m + 1} = \cdots = s_n = 0$.
+    Let $\scal = \set{\norm{Tv} \mid v \in V \text{ and } \norm{v} = 1}$.
+    By 7.70, there exist orthonormal lists $e_1, \ldots, e_m$ in $V$ and $f_1, \ldots, f_m$ in $W$ such that
+    \[
+        T v = \sum_{k=1}^m s_k \ip{v, e_k} f_k
+    \]
+    for every $v \in V$.
+    By 6.36, we may extend $e_1, \ldots, e_m$ to an orthonormal basis $e_1, \ldots, e_n$ of $V$.
+    By 6.24,
+    \[
+        \norm{Tv}^2 = \sum_{k=1}^m s_k^2 |\ip{v, e_k}|^2 = \sum_{k=1}^n s_k^2 |\ip{v, e_k}|^2
+    \]
+    since $s_k = 0$ for $k > m$.
+
+    \rightset Suppose $\norm{v} = 1$.
+    By 6.30(b), the weights $|\ip{v, e_k}|^2$ sum to $1$.
+    Therefore, $\norm{Tv}^2$ is a weighted average of $s_1^2, \ldots, s_n^2$ with weights $|\ip{v, e_k}|^2$.
+    Hence, $s_n^2 \leq \norm{Tv}^2 \leq s_1^2$, and taking square roots gives $s_n \leq \norm{Tv} \leq s_1$, so $\scal \subseteq [s_n, s_1]$.
+
+    \leftset Let $s \in [s_n, s_1]$.
+    If $s_1 = s_n$, take $v = e_1$.
+    Otherwise, $n \geq 2$ and $s_n < s_1$.
+    Define
+    \[
+        \theta = \frac{s^2 - s_n^2}{s_1^2 - s_n^2}, \quad v = \sqrt{\theta} e_1 + \sqrt{1 - \theta} e_n.
+    \]
+    Since $s_n < s_1$ and $s \in [s_n, s_1]$, we have $\theta \in [0, 1]$.
+    By orthonormality of $e_1$ and $e_n$, we have $\norm{v}^2 = \theta + (1 - \theta) = 1$.
+    Additionally, $\ip{v, e_1} = \sqrt{\theta}$, $\ip{v, e_n} = \sqrt{1 - \theta}$, and $\ip{v, e_k} = 0$ for $1 < k < n$.
+    Thus,
+    \[
+        \norm{Tv}^2 = s_1^2 \theta + s_n^2 (1 - \theta) = s^2.
+    \]
+    Hence, $\norm{Tv} = s$, so $s \in \scal$.
+    Therefore, $[s_n, s_1] \subseteq \scal$.
+    Combining with the previous inclusion gives $\scal = [s_n, s_1]$.
+\end{sol}
+
 \begin{exercise}{7e5}
     Suppose $T \in \lin{\cbb^2}$ is defined by $T(x, y) = (-4y, x)$.
     Find the singular values of $T$.
 \end{exercise}
 
+\begin{sol}
+    With respect to the standard orthonormal basis $e_1, e_2$ of $\cbb^2$, the matrix of $T$ is
+    \[
+        \mcal(T) =
+        \begin{pmatrix}
+            0 & -4 \\
+            1 & 0
+        \end{pmatrix},
+    \]
+    so by 7.9, the matrix of $T^\ast$ with respect to the same basis is
+    \[
+        \mcal(T^\ast) =
+        \begin{pmatrix}
+            0 & 1 \\
+            -4 & 0
+        \end{pmatrix}.
+    \]
+    By 3.43, $\mcal(T^\ast T)$ is diagonal with diagonal entries $1$ and $16$.
+    Therefore, $T^\ast T e_1 = e_1$ and $T^\ast T e_2 = 16 e_2$.
+    By \autoref{lem:1}, the singular values of $T$ are $\sqrt{16} = 4$ and $\sqrt{1} = 1$.
+\end{sol}
+
 \begin{exercise}{7e6}
     Find the singular values of the differentiation operator $D \in \lin{\pcal_2(\rbb)}$ defined by $Dp = p'$, where the inner product on $\pcal_2(\rbb)$ is as in Example 6.34.
 \end{exercise}
+
+\begin{sol}
+    Let $e_1, e_2, e_3$ be the orthonormal basis of $\pcal_2(\rbb)$ given by
+    \[
+        e_1 = \sqrt{\frac{1}{2}}, \quad e_2 = \sqrt{\frac{3}{2}} x, \quad e_3 = \sqrt{\frac{45}{8}}\left(x^2 - \frac{1}{3}\right)
+    \]
+    as described in Example 6.34.
+    Then
+    \[
+        D e_1 = 0, \quad D e_2 = \sqrt{\frac{3}{2}} = \sqrt{3} e_1, \quad D e_3 = \sqrt{\frac{45}{8}} \cdot 2 x = \sqrt{15} e_2.
+    \]
+    Therefore, the matrix of $D$ with respect to the orthonormal basis $e_1, e_2, e_3$ is
+    \[
+        \mcal(D) =
+        \begin{pmatrix}
+            0 & \sqrt{3} & 0 \\
+            0 & 0 & \sqrt{15} \\
+            0 & 0 & 0
+        \end{pmatrix}.
+    \]
+    By 7.9, the matrix of $D^\ast$ with respect to the same basis is
+    \[
+        \mcal(D^\ast) =
+        \begin{pmatrix}
+            0 & 0 & 0 \\
+            \sqrt{3} & 0 & 0 \\
+            0 & \sqrt{15} & 0
+        \end{pmatrix}.
+    \]
+    By 3.43, $\mcal(D^\ast D)$ is diagonal with diagonal entries $0$, $3$, and $15$.
+    Therefore, $D^\ast D e_1 = 0$, $D^\ast D e_2 = 3 e_2$, and $D^\ast D e_3 = 15 e_3$.
+    By \autoref{lem:1}, the singular values of $D$ are $\sqrt{15}$, $\sqrt{3}$, and $0$.
+\end{sol}
 
 \begin{exercise}{7e7}
     Suppose that $T \in \lin{V}$ is self-adjoint or that $\fbb = \cbb$ and $T \in \lin{V}$ is normal.
     Let $\lambda_1, \ldots, \lambda_n$ be the eigenvalues of $T$, each included in this list as many times as the dimension of the corresponding eigenspace.
     Show that the singular values of $T$ are $|\lambda_1|, \ldots, |\lambda_n|$, after these numbers have been sorted into decreasing order.
 \end{exercise}
+
+\begin{sol}
+    If $T$ is self-adjoint, then $T^\ast T = T^2 = TT^\ast$, so $T$ is normal.
+    Hence, $T$ is normal in either case.
+    If $\fbb = \rbb$, then $T$ is self-adjoint, so the real spectral theorem applies.
+    If $\fbb = \cbb$ and $T$ is normal, then the complex spectral theorem applies.
+    In either case, we obtain an orthonormal basis $e_1, \ldots, e_{\dim V}$ of $V$ with $T e_k = \mu_k e_k$ for $k = 1, \ldots, \dim V$, where $\mu_k \in \fbb$.
+    Then $\mcal(T, (e_1, \ldots, e_{\dim V}))$ is diagonal with diagonal entries $\mu_1, \ldots, \mu_{\dim V}$.
+    Since $e_k \neq 0$, each $\mu_k$ is an eigenvalue of $T$.
+    By \exref{5d2}, each eigenvalue $\lambda$ of $T$ appears in the list exactly $\dim E(\lambda, T)$ times, so $\mu_1, \ldots, \mu_{\dim V}$ is a rearrangement of $\lambda_1, \ldots, \lambda_n$.
+    In particular, $\dim V = n$.
+    Thus, we may reorder the basis so that $\mu_k = \lambda_k$ for $k = 1, \ldots, n$.
+    By 7.21(e), $T^\ast e_k = \bar{\lambda_k} e_k$ for $k = 1, \ldots, n$, so
+    \[
+        T^\ast T e_k = \lambda_k T^\ast e_k = \lambda_k \bar{\lambda_k} e_k = |\lambda_k|^2 e_k.
+    \]
+    By \autoref{lem:1}, the singular values of $T$ are $|\lambda_1|, \ldots, |\lambda_n|$, sorted into decreasing order.
+\end{sol}
 
 \begin{exercise}{7e8}
     Suppose $T \in \lin{V, W}$.
@@ -63,10 +239,61 @@
     \end{subexercises}
 \end{exercise}
 
+\begin{sol}
+    Consider the maps $S_k \in \lin{V, W}$ defined by $S_k v = \ip{v, e_k} f_k$ for $k = 1, \ldots, m$.
+    Then $T = \sum_{k=1}^m s_k S_k$.
+    Following the calculations in Example 7.3, $S_k^\ast w = \ip{w, f_k} e_k$ for $k = 1, \ldots, m$ and $w \in W$.
+    Since $s_k \in \rbb$, by 7.5(a) and (b), we have
+    \[
+        T^\ast w = \sum_{k=1}^m s_k S_k^\ast w = \sum_{k=1}^m s_k \ip{w, f_k} e_k.
+    \]
+    Since $e_1, \ldots, e_m$ and $f_1, \ldots, f_m$ are orthonormal lists, we have $T e_k = s_k f_k$ and $T^\ast f_k = s_k e_k$ for $k = 1, \ldots, m$.
+    Hence, $T^\ast T e_k = T^\ast(s_k f_k) = s_k^2 e_k$ for $k = 1, \ldots, m$.
+    \begin{subexercises}
+        \item The computation of $T v$ for $v \in V$ gives $\range T \subseteq \spn(f_1, \ldots, f_m)$.
+        Since $f_k = T e_k / s_k$, we have $f_k \in \range T$ for $k = 1, \ldots, m$.
+        Hence, $\spn(f_1, \ldots, f_m) \subseteq \range T$, and equality follows.
+        By 6.25, orthonormal lists are linearly independent, so $f_1, \ldots, f_m$ is an orthonormal basis of $\range T$.
+        \item Using the same argument as in part (a) with $T^\ast$ in place of $T$, we get $\range T^\ast = \spn(e_1, \ldots, e_m)$.
+        Since $\range T^\ast = (\nul T)^\perp$ by 7.6(b), it follows that $e_1, \ldots, e_m$ is an orthonormal basis of $(\nul T)^\perp$.
+        \item By 6.36, we may extend $e_1, \ldots, e_m$ to an orthonormal basis $e_1, \ldots, e_n$ of $V$.
+        For $k \leq m$, the beginning calculation shows that $T^\ast T e_k = s_k^2 e_k$.
+        For $k > m$, we have $T e_k = 0$, so $T^\ast T e_k = 0$.
+        By \autoref{lem:1} and the hypothesis that $s_1 \geq \cdots \geq s_m > 0$, it follows that the singular values of $T$ are $s_1, \ldots, s_m$ together with $n-m$ zeros.
+        Thus, the positive singular values of $T$ are exactly $s_1, \ldots, s_m$.
+        \item By the beginning calculation, $T^\ast T e_k = s_k^2 e_k$ and $e_k \neq 0$ since $\norm{e_k} = 1$ for $k = 1, \ldots, m$.
+        Hence, $e_k$ is indeed an eigenvector of $T^\ast T$ corresponding to the eigenvalue $s_k^2$.
+        \item For any $w \in W$, we have
+        \[
+            T T^\ast w = \sum_{k=1}^m s_k \ip{w, f_k} T e_k = \sum_{k=1}^m s_k \ip{w, f_k} s_k f_k = \sum_{k=1}^m s_k^2 \ip{w, f_k} f_k. \qedhere
+        \]
+    \end{subexercises}
+\end{sol}
+
 \begin{exercise}{7e9}
     Suppose $T \in \lin{V, W}$.
     Show that $T$ and $T^\ast$ have the same positive singular values.
 \end{exercise}
+
+\begin{sol}
+    If $T = 0$, then $T^\ast = 0$ by 7.5(b), so neither $T$ nor $T^\ast$ has any positive singular values, and the statement holds trivially.
+    Now assume $T \neq 0$.
+    Let $s_1, \ldots, s_m$ denote the positive singular values of $T$.
+    By definition, $s_1 \geq \cdots \geq s_m > 0$.
+    Moreover, $m = \dim \range T \geq 1$ by 7.68(b), since $T \neq 0$.
+    By 7.70, there exist orthonormal lists $e_1, \ldots, e_m$ in $V$ and $f_1, \ldots, f_m$ in $W$ such that
+    \[
+        T v = \sum_{k=1}^m s_k \ip{v, e_k} f_k
+    \]
+    for all $v \in V$.
+    By 7.75,
+    \[
+        T^\ast w = \sum_{k=1}^m s_k \ip{w, f_k} e_k
+    \]
+    for all $w \in W$.
+    Applying \exref{7e8}(c) to $T^\ast \in \lin{W, V}$ with the orthonormal lists $f_1, \ldots, f_m$ in $W$ and $e_1, \ldots, e_m$ in $V$, the positive singular values of $T^\ast$ are exactly $s_1, \ldots, s_m$.
+    Hence, $T$ and $T^\ast$ have the same positive singular values.
+\end{sol}
 
 \begin{exercise}{7e10}
     Suppose $T \in \lin{V, W}$ has singular values $s_1, \ldots, s_n$.
@@ -75,6 +302,30 @@
         \frac{1}{s_n}, \ldots, \frac{1}{s_1}.
     \]
 \end{exercise}
+
+\begin{sol}
+    If $\dim V = 0$, then $\dim W = 0$ by 3.70, so neither $T$ nor $T\inv$ has any singular values, and the statement holds trivially.
+    Now assume $\dim V > 0$.
+    Since $T$ is invertible, $T$ is injective.
+    By 7.68(a) and the definition of singular values, $s_1 \geq \cdots \geq s_n > 0$.
+    Since all singular values are positive, the positive singular values of $T$ are exactly $s_1, \ldots, s_n$.
+    By 7.70, there exist orthonormal lists $e_1, \ldots, e_n$ in $V$ and $f_1, \ldots, f_n$ in $W$ such that
+    \[
+        T v = \sum_{k=1}^n s_k \ip{v, e_k} f_k
+    \]
+    for all $v \in V$.
+    By 6.69(a), $T^\dagger = T\inv$.
+    Since $s_1 \geq \cdots \geq s_n > 0$, we have $\frac{1}{s_n} \geq \cdots \geq \frac{1}{s_1} > 0$.
+    Reordering the sum, we have by 7.75 that
+    \[
+        T\inv w = \sum_{k=1}^n \frac{1}{s_{n-k+1}} \ip{w, f_{n-k+1}} e_{n-k+1}
+    \]
+    for all $w \in W$.
+    Applying \exref{7e8}(c) to $T\inv \in \lin{W, V}$ with the orthonormal lists $f_n, \ldots, f_1$ in $W$ and $e_n, \ldots, e_1$ in $V$, the positive singular values of $T\inv$ are exactly $\frac{1}{s_n}, \ldots, \frac{1}{s_1}$.
+    By 3.70, $\dim V = \dim W = n$, so $T\inv$ has exactly $n$ singular values.
+    Since $T\inv$ is injective, $0$ is not a singular value of $T\inv$ by 7.68(a).
+    Hence, the singular values of $T\inv$ are exactly $\frac{1}{s_n}, \ldots, \frac{1}{s_1}$.
+\end{sol}
 
 \begin{exercise}{7e11}
     Suppose that $T \in \lin{V, W}$ and $v_1, \ldots, v_n$ is an orthonormal basis of $V$.
@@ -87,8 +338,32 @@
         \]
     \end{subexercises}
 
-    \note{See the comment after Exercise 5 in Section 7A.}
+    \note{See the comment after \exref{7a5}.}
 \end{exercise}
+
+\begin{solenum}
+    \item Let $m$ denote the number of positive singular values of $T$.
+    By 7.70, there exist orthonormal lists $e_1, \ldots, e_m$ in $V$ and $f_1, \ldots, f_m$ in $W$ such that $T e_k = s_k f_k$ for $k = 1, \ldots, m$.
+    By 6.36, extend $e_1, \ldots, e_m$ to an orthonormal basis $e_1, \ldots, e_n$ of $V$.
+    By the formula in 7.70, $T e_k = 0$ for $k > m$ since $\ip{e_k, e_j} = 0$ for $j = 1, \ldots, m$.
+    Moreover, $s_k = 0$ for $k > m$, since $T$ has exactly $n$ singular values.
+    Therefore,
+    \[
+        \sum_{k=1}^n \norm{T e_k}^2 = \sum_{k=1}^m \norm{s_k f_k}^2 = \sum_{k=1}^m s_k^2 = \sum_{k=1}^n s_k^2.
+    \]
+    By \exref{7a5}, the left-hand side is the same for any orthonormal basis of $V$.
+    Therefore, the equality holds for the given orthonormal basis $v_1, \ldots, v_n$ as well.
+    \item Since $T \in \lin{V}$ is a positive operator, it is self-adjoint.
+    By \exref{7e7}, the singular values of $T$ are $|\lambda_1|, \ldots, |\lambda_n|$, where $\lambda_1, \ldots, \lambda_n$ are the eigenvalues of $T$, and each eigenvalue $\lambda$ is repeated exactly $\dim E(\lambda, T)$ times.
+    By 7.38(b), the eigenvalues of $T$ are nonnegative, so $s_1, \ldots, s_n$ are exactly the eigenvalues of $T$.
+    By 7.38(f), there exists an operator $R \in \lin{V}$ such that $T = R^\ast R$.
+    By part (a), the sum of the squares of the norms of $R v_k$ equals the sum of the squares of the singular values of $R$.
+    Since $R^\ast R = T$, the singular values of $R$ are, by definition, $\sqrt{s_1}, \ldots, \sqrt{s_n}$.
+    Hence,
+    \[
+        \sum_{k=1}^n \ip{Tv_k, v_k} = \sum_{k=1}^n \ip{R^\ast R v_k, v_k} = \sum_{k=1}^n \ip{R v_k, R v_k} = \sum_{k=1}^n \norm{R v_k}^2 = \sum_{k=1}^n s_k. \qedhere
+    \]
+\end{solenum}
 
 \begin{exercise}{7e12}
     \begin{subexercises}
@@ -98,10 +373,67 @@
     \end{subexercises}
 \end{exercise}
 
+\begin{solenum}
+    \item Consider $T \in \lin{\cbb^2}$ defined by $T(z, w) = (5w, 0)$.
+    By \exref{7e3}, its singular values are $5$ and $0$.
+    However, $T^2(z, w) = T(5w, 0) = (0, 0)$, so $T^2 = 0$ and its singular values are $0$ and $0$, not $25$ and $0$.
+    \item Using 7.5(c), (d), and normality of $T$,
+    \[
+        (T^2)^\ast T^2 = T^\ast(T^\ast T)T = T^\ast (TT^\ast) T = (T^\ast T)^2 = (T^\ast T)^\ast (T^\ast T).
+    \]
+    By definition, $T^2$ and $T^\ast T$ have the same singular values.
+    Since $T^\ast T$ is a positive operator by 7.64(a), its eigenvalues are nonnegative by 7.38(b).
+    By \exref{7e7} applied to $T^\ast T$, its singular values are its eigenvalues $\lambda$, each repeated $\dim E(\lambda, T^\ast T)$ times.
+    The eigenvalues of $T^\ast T$ are the squares of the singular values of $T$, so the singular values of $T^2$ are the squares of the singular values of $T$.
+\end{solenum}
+
 \begin{exercise}{7e13}
     Suppose $T_1, T_2 \in \lin{V}$.
     Prove that $T_1$ and $T_2$ have the same singular values if and only if there exist unitary operators $S_1, S_2 \in \lin{V}$ such that $T_1 = S_1 T_2 S_2$.
 \end{exercise}
+
+\begin{sol}
+    Let $n = \dim V$, let $s_1 \geq \cdots \geq s_n \geq 0$ denote the singular values of $T_2$, and let $m$ be the number of positive singular values of $T_2$.
+    If $m = 0$, then $T_2$ has no positive singular values, so by the formula in 7.70, $T_2 = 0$.
+    If $T_1$ and $T_2$ have the same singular values, the same reasoning yields $T_1 = 0$, so we may take $S_1 = S_2 = I$ and the result holds trivially.
+    Conversely, if $T_1 = S_1 T_2 S_2$ for unitary $S_1, S_2 \in \lin{V}$, then $T_1 = S_1 0 S_2 = 0$, so $T_1^\ast T_1 = 0$.
+    Since $E(0, T_1^\ast T_1) = V$, $0$ is the only eigenvalue of $T_1^\ast T_1$, and $\dim E(0, T_1^\ast T_1) = n$.
+    Therefore, the singular values of $T_1$ are all $0$, which are the same as the singular values of $T_2$.
+    Hence, we may assume $m > 0$ for the remainder of the proof.
+    
+    \rightimp Suppose $T_1$ and $T_2$ have the same singular values.
+    By 7.70, there exist orthonormal lists $e_1, \ldots, e_m$, $f_1, \ldots, f_m$, $e_1', \ldots, e_m'$, and $f_1', \ldots, f_m'$ in $V$ such that
+    \[
+        T_1 v = \sum_{i=1}^m s_i \ip{v, e_i} f_i, \quad T_2 v = \sum_{i=1}^m s_i \ip{v, e_i'} f_i'
+    \]
+    for every $v \in V$.
+    By 6.36, extend all orthonormal lists $e_1, \ldots, e_m$, $f_1, \ldots, f_m$, $e_1', \ldots, e_m'$, and $f_1', \ldots, f_m'$ to orthonormal bases $e_1, \ldots, e_n$, $f_1, \ldots, f_n$, $e_1', \ldots, e_n'$, and $f_1', \ldots, f_n'$ of $V$.
+    By the orthonormality of these lists, $T_1 e_i = s_i f_i$ and $T_2 e_i' = s_i f_i'$ for $i \leq m$, and $T_1 e_i = 0$ and $T_2 e_i' = 0$ for $i > m$.
+    By the linear map lemma, we may define operators $S_1, S_2 \in \lin{V}$ such that $S_1 f_i = f_i'$ and $S_2 e_i = e_i'$ for $i = 1, \ldots, n$.
+    By 7.53(d), $S_1$ and $S_2$ are unitary.
+    Moreover, for $i = 1, \ldots, m$, we have
+    \[
+        S_1 T_2 S_2 e_i = S_1 T_2 e_i' = S_1 (s_i f_i') = s_i f_i = T_1 e_i,
+    \]
+    and $S_1 T_2 S_2 e_i = T_1 e_i$ for $i > m$ as well, since both sides are $0$.
+    Since $S_1 T_2 S_2$ and $T_1$ agree on the basis $e_1, \ldots, e_n$, we have $S_1 T_2 S_2 = T_1$ by the linear map lemma.
+
+    \leftimp Suppose there exist unitary operators $S_1, S_2 \in \lin{V}$ such that $T_1 = S_1 T_2 S_2$.
+    By 7.70, there exist orthonormal lists $g_1, \ldots, g_m$ and $h_1, \ldots, h_m$ in $V$ such that
+    \[
+        T_2 v = \sum_{i=1}^m s_i \ip{v, g_i} h_i
+    \]
+    for every $v \in V$.
+    By linearity of $S_1$ and the definition of $S_2^\ast$, we have
+    \[
+        T_1 v = S_1 T_2 S_2 v = S_1 T_2 (S_2 v) = S_1 \sum_{i=1}^m s_i \ip{S_2 v, g_i} h_i = \sum_{i=1}^m s_i \ip{v, S_2^\ast g_i} S_1 h_i.
+    \]
+    By 7.53(f), $S_2^\ast$ is unitary, and $S_1$ is unitary by assumption.
+    Since unitary operators are isometries, 7.49(c) shows that $S_2^\ast g_1, \ldots, S_2^\ast g_m$ and $S_1 h_1, \ldots, S_1 h_m$ are orthonormal lists.
+    By \exref{7e8}(c), $s_1, \ldots, s_m$ are the positive singular values of $T_1$ as well.
+    Since both operators have $n$ singular values, the remaining $n-m$ singular values must be $0$.
+    Therefore, $T_1$ and $T_2$ have the same singular values.
+\end{sol}
 
 \begin{exercise}{7e14}
     Suppose $T \in \lin{V, W}$.
@@ -109,10 +441,30 @@
     Prove that $s_n \norm{v} \leq \norm{Tv}$ for every $v \in V$.
 \end{exercise}
 
+\begin{sol}
+    If $v = 0$, the inequality $s_n \norm{v} \leq \norm{Tv}$ holds trivially.
+    Now assume $v \neq 0$.
+    Let $u = \frac{v}{\norm{v}}$, where $\norm{u} = 1$ by construction.
+    By \exref{7e4}, $\norm{Tu} \geq s_n$.
+    Then
+    \[
+        \norm{Tv} = \norm{T(\norm{v} u)} = \norm{v}\,\norm{Tu} \geq \norm{v} s_n = s_n \norm{v}. \qedhere
+    \]
+\end{sol}
+
 \begin{exercise}{7e15}
     Suppose $T \in \lin{V}$ and $s_1 \geq \cdots \geq s_n$ are the singular values of $T$.
     Prove that if $\lambda$ is an eigenvalue of $T$, then $s_1 \geq |\lambda| \geq s_n$.
 \end{exercise}
+
+\begin{sol}
+    Let $\lambda$ be an eigenvalue of $T$ with corresponding eigenvector $v \neq 0$, so $Tv = \lambda v$.
+    Let $u = \frac{v}{\norm{v}}$, so $\norm{u} = 1$.
+    Then $Tu = \frac{1}{\norm{v}} Tv = \frac{1}{\norm{v}} \lambda v = \lambda u$.
+    Hence, $\norm{Tu} = |\lambda|$.
+    By \exref{7e4}, $s_n \leq \norm{Tu} \leq s_1$.
+    Therefore, $s_1 \geq |\lambda| \geq s_n$.
+\end{sol}
 
 \begin{exercise}{7e16}
     Suppose $T \in \lin{V, W}$.
@@ -121,7 +473,47 @@
     \note{Compare the result in this exercise to the analogous result for invertible linear maps [see 7.5(f)].}
 \end{exercise}
 
+\begin{sol}
+    Let $s_1, \ldots, s_m$ be the positive singular values of $T$.
+    By 7.70, there exist orthonormal lists $e_1, \ldots, e_m$ in $V$ and $f_1, \ldots, f_m$ in $W$ such that
+    \[
+        T v = \sum_{i=1}^m s_i \ip{v, e_i} f_i
+    \]
+    for all $v \in V$.
+    By 7.75,
+    \[
+        T^\ast w = \sum_{i=1}^m s_i \ip{w, f_i} e_i, \quad T^\dagger w = \sum_{i=1}^m \frac{1}{s_i} \ip{w, f_i} e_i
+    \]
+    for all $w \in W$.
+    By \exref{7e9}, $s_1, \ldots, s_m$ are the positive singular values of $T^\ast$ as well.
+    Applying 7.75 to $T^\ast$ with the orthonormal lists $f_1, \ldots, f_m$ in $W$ and $e_1, \ldots, e_m$ in $V$, we get
+    \[
+        (T^\ast)^\dagger v = \sum_{i=1}^m \frac{1}{s_i} \ip{v, e_i} f_i
+    \]
+    for all $v \in V$.
+    Since each $s_i \in \rbb$, for all $w \in W$ and $v \in V$,
+    \[
+        \ip{T^\dagger w, v} = \sum_{i=1}^m \frac{1}{s_i} \ip{w, f_i} \ip{e_i, v} = \ip*{w, \sum_{i=1}^m \frac{1}{s_i} \ip{v, e_i} f_i}.
+    \]
+    By the definition of the adjoint, this shows that
+    \[
+        (T^\dagger)^\ast v = \sum_{i=1}^m \frac{1}{s_i} \ip{v, e_i} f_i
+    \]
+    for all $v \in V$.
+    This matches the expression for $(T^\ast)^\dagger$ obtained earlier, so $(T^\ast)^\dagger = (T^\dagger)^\ast$.
+\end{sol}
+
 \begin{exercise}{7e17}
     Suppose $T \in \lin{V}$.
     Prove that $T$ is self-adjoint if and only if $T^\dagger$ is self-adjoint.
 \end{exercise}
+
+\begin{soliff}
+    \rightimp Suppose $T$ is self-adjoint.
+    Then $T = T^\ast$.
+    By \exref{7e16}, $T^\dagger = (T^\ast)^\dagger = (T^\dagger)^\ast$, so $T^\dagger$ is self-adjoint.
+
+    \leftimp Suppose $T^\dagger$ is self-adjoint.
+    Applying \rightimp to $T^\dagger$ shows that $(T^\dagger)^\dagger$ is self-adjoint.
+    By \exref{6c23}, $(T^\dagger)^\dagger = T$, so $T$ is self-adjoint.
+\end{soliff}
