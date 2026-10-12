@@ -1,0 +1,232 @@
+\subsection{Consequences of Singular Value Decomposition}
+
+\begin{exercise}{7f1}
+    Prove that if $S, T \in \lin{V, W}$, then $\bigl|\norm{S} - \norm{T}\bigr| \leq \norm{S - T}$.
+
+    \note{The inequality above is called the \term{reverse triangle inequality}.}
+\end{exercise}
+
+\begin{exercise}{7f2}
+    Suppose that $T \in \lin{V}$ is self-adjoint or that $\fbb = \cbb$ and $T \in \lin{V}$ is normal.
+    Prove that
+    \[
+        \norm{T} = \max\set{|\lambda| \mid \lambda \text{ is an eigenvalue of } T}.
+    \]
+\end{exercise}
+
+\begin{exercise}{7f3}
+    Suppose $T \in \lin{V, W}$ and $v \in V$.
+    Prove that
+    \[
+        \norm{Tv} = \norm{T}\,\norm{v} \iff T^\ast Tv = \norm{T}^2 v.
+    \]
+\end{exercise}
+
+\begin{exercise}{7f4}
+    Suppose $T \in \lin{V, W}$, $v \in V$, and $\norm{Tv} = \norm{T}\,\norm{v}$.
+    Prove that if $u \in V$ and $\ip{u, v} = 0$, then $\ip{Tu, Tv} = 0$.
+\end{exercise}
+
+\begin{exercise}{7f5}
+    Suppose $U$ is a finite-dimensional inner product space, $T \in \lin{V, U}$, and $S \in \lin{U, W}$.
+    Prove that
+    \[
+        \norm{ST} \leq \norm{S}\,\norm{T}.
+    \]
+\end{exercise}
+
+\begin{exercise}{7f6}
+    Prove or give a counterexample: If $S, T \in \lin{V}$, then $\norm{ST} = \norm{TS}$.
+\end{exercise}
+
+\begin{exercise}{7f7}
+    Show that defining $d(S, T) = \norm{S - T}$ for $S, T \in \lin{V, W}$ makes $d$ a metric on $\lin{V, W}$.
+
+    \note{This exercise is intended for readers who are familiar with metric spaces.}
+\end{exercise}
+
+\begin{exercise}{7f8}
+    \begin{subexercises}
+        \item Prove that if $T \in \lin{V}$ and $\norm{I - T} < 1$, then $T$ is invertible.
+        \item Suppose that $S \in \lin{V}$ is invertible.
+        Prove that if $T \in \lin{V}$ and $\norm{S - T} < 1/\norm{S\inv}$, then $T$ is invertible.
+    \end{subexercises}
+
+    \note{This exercise shows that the set of invertible operators in $\lin{V}$ is an open subset of $\lin{V}$, using the metric defined in \exref{7f7}.}
+\end{exercise}
+
+\begin{exercise}{7f9}
+    Suppose $T \in \lin{V}$.
+    Prove that for every $\ep > 0$, there exists an invertible operator $S \in \lin{V}$ such that $0 < \norm{T - S} < \ep$.
+\end{exercise}
+
+\begin{exercise}{7f10}
+    Suppose $\dim V > 1$ and $T \in \lin{V}$ is not invertible.
+    Prove that for every $\ep > 0$, there exists $S \in \lin{V}$ such that $0 < \norm{T - S} < \ep$ and $S$ is not invertible.
+\end{exercise}
+
+\begin{exercise}{7f11}
+    Suppose $\fbb = \cbb$ and $T \in \lin{V}$.
+    Prove that for every $\ep > 0$ there exists a diagonalizable operator $S \in \lin{V}$ such that $0 < \norm{T - S} < \ep$.
+\end{exercise}
+
+\begin{exercise}{7f12}
+    Suppose $T \in \lin{V}$ is a positive operator.
+    Show that $\norm{\sqrt{T}} = \sqrt{\norm{T}}$.
+\end{exercise}
+
+\begin{exercise}{7f13}
+    Suppose $S, T \in \lin{V}$ are positive operators.
+    Show that
+    \[
+        \norm{S - T} \leq \max\set{\norm{S}, \norm{T}} \leq \norm{S + T}.
+    \]
+\end{exercise}
+
+\begin{exercise}{7f14}
+    Suppose $U$ and $W$ are subspaces of $V$ such that $\norm{P_U - P_W} < 1$.
+    Prove that $\dim U = \dim W$.
+\end{exercise}
+
+\begin{exercise}{7f15}
+    Define $T \in \lin{\fbb^3}$ by
+    \[
+        T(z_1, z_2, z_3) = (z_3, 2z_1, 3z_2).
+    \]
+    Find (explicitly) a unitary operator $S \in \lin{\fbb^3}$ such that $T = S\sqrt{T^\ast T}$.
+\end{exercise}
+
+\begin{exercise}{7f16}
+    Suppose $S \in \lin{V}$ is a positive invertible operator.
+    Prove that there exists $\delta > 0$ such that $T$ is a positive operator for every self-adjoint operator $T \in \lin{V}$ with $\norm{S - T} < \delta$.
+\end{exercise}
+
+\begin{exercise}{7f17}
+    Prove that if $u \in V$ and $\phi_u$ is the linear functional on $V$ defined by the equation $\phi_u(v) = \ip{v, u}$, then $\norm{\phi_u} = \norm{u}$.
+
+    \note{Here we are thinking of the scalar field $\fbb$ as an inner product space with $\ip{\alpha, \beta} = \alpha\bar{\beta}$ for all $\alpha, \beta \in \fbb$.
+    Thus $\norm{\phi_u}$ means the norm of $\phi_u$ as a linear map from $V$ to $\fbb$.}
+\end{exercise}
+
+\begin{exercise}{7f18}
+    Suppose $e_1, \ldots, e_n$ is an orthonormal basis of $V$ and $T \in \lin{V, W}$.
+    \begin{subexercises}
+        \item Prove that $\max\set{\norm{Te_1}, \ldots, \norm{Te_n}} \leq \norm{T} \leq (\norm{Te_1}^2 + \cdots + \norm{Te_n}^2)^{1/2}$.
+        \item Prove that $\norm{T} = (\norm{Te_1}^2 + \cdots + \norm{Te_n}^2)^{1/2}$ if and only if $\dim \range T \leq 1$.
+    \end{subexercises}
+
+    \note{Here $e_1, \ldots, e_n$ is an arbitrary orthonormal basis of $V$, not necessarily connected with a singular value decomposition of $T$.
+    If $s_1, \ldots, s_n$ is the list of singular values of $T$, then the right side of the inequality above equals $(s_1^2 + \cdots + s_n^2)^{1/2}$, as was shown in \exref{7f11}(a).}
+\end{exercise}
+
+\begin{exercise}{7f19}
+    Prove that if $T \in \lin{V, W}$, then $\norm{T^\ast T} = \norm{T}^2$.
+
+    \note{This formula for $\norm{T^\ast T}$ leads to the important subject of $C^\ast$-algebras.}
+\end{exercise}
+
+\begin{exercise}{7f20}
+    Suppose $T \in \lin{V}$ is normal.
+    Prove that $\norm{T^k} = \norm{T}^k$ for every positive integer $k$.
+\end{exercise}
+
+\begin{exercise}{7f21}
+    Suppose $\dim V > 1$ and $\dim W > 1$.
+    Prove that the norm on $\lin{V, W}$ does not come from an inner product.
+    In other words, prove that there does not exist an inner product on $\lin{V, W}$ such that
+    \[
+        \max\set{\norm{Tv} \mid v \in V \text{ and } \norm{v} \leq 1} = \sqrt{\ip{T, T}}
+    \]
+    for all $T \in \lin{V, W}$.
+\end{exercise}
+
+\begin{exercise}{7f22}
+    Suppose $T \in \lin{V, W}$.
+    Let $n = \dim V$ and let $s_1 \geq \cdots \geq s_n$ denote the singular values of $T$.
+    Prove that if $1 \leq k \leq n$, then
+    \[
+        \min\set{\norm{T|_U} \mid U \text{ is a subspace of } V \text{ with } \dim U = k} = s_{n-k+1}.
+    \]
+\end{exercise}
+
+\begin{exercise}{7f23}
+    Suppose $T \in \lin{V, W}$.
+    Show that $T$ is uniformly continuous with respect to the metrics on $V$ and $W$ that arise from the norms on those spaces (see Exercise 23 in Section 6B).
+\end{exercise}
+
+\begin{exercise}{7f24}
+    Suppose $T \in \lin{V}$ is invertible.
+    Prove that
+    \[
+        \norm{T\inv} = \norm{T}\inv \iff \frac{T}{\norm{T}} \text{ is a unitary operator}.
+    \]
+\end{exercise}
+
+\begin{exercise}{7f25}
+    Fix $u, x \in V$ with $u \neq 0$.
+    Define $T \in \lin{V}$ by $Tv = \ip{v, u}x$ for every $v \in V$.
+    Prove that
+    \[
+        \sqrt{T^\ast T}\, v = \frac{\norm{x}}{\norm{u}} \ip{v, u} u
+    \]
+    for every $v \in V$.
+\end{exercise}
+
+\begin{exercise}{7f26}
+    Suppose $T \in \lin{V}$.
+    Prove that $T$ is invertible if and only if there exists a unique unitary operator $S \in \lin{V}$ such that $T = S\sqrt{T^\ast T}$.
+\end{exercise}
+
+\begin{exercise}{7f27}
+    Suppose $T \in \lin{V}$ and $s_1, \ldots, s_n$ are the singular values of $T$.
+    Let $e_1, \ldots, e_n$ and $f_1, \ldots, f_n$ be orthonormal bases of $V$ such that
+    \[
+        Tv = s_1 \ip{v, e_1} f_1 + \cdots + s_n \ip{v, e_n} f_n
+    \]
+    for all $v \in V$.
+    Define $S \in \lin{V}$ by
+    \[
+        Sv = \ip{v, e_1} f_1 + \cdots + \ip{v, e_n} f_n.
+    \]
+    \begin{subexercises}
+        \item Show that $S$ is unitary and $\norm{T - S} = \max\set{|s_1 - 1|, \ldots, |s_n - 1|}$.
+        \item Show that if $E \in \lin{V}$ is unitary, then $\norm{T - E} \geq \norm{T - S}$.
+    \end{subexercises}
+
+    \note{This exercise finds a unitary operator $S$ that is as close as possible (among the unitary operators) to a given operator $T$.}
+\end{exercise}
+
+\begin{exercise}{7f28}
+    Suppose $T \in \lin{V}$.
+    Prove that there exists a unitary operator $S \in \lin{V}$ such that $T = \sqrt{TT^\ast}\, S$.
+\end{exercise}
+
+\begin{exercise}{7f29}
+    Suppose $T \in \lin{V}$.
+    \begin{subexercises}
+        \item Use the polar decomposition to show that there exists a unitary operator $S \in \lin{V}$ such that $TT^\ast = ST^\ast TS^\ast$.
+        \item Show how (a) implies that $T$ and $T^\ast$ have the same singular values.
+    \end{subexercises}
+\end{exercise}
+
+\begin{exercise}{7f30}
+    Suppose $T \in \lin{V}$, $S \in \lin{V}$ is a unitary operator, and $R \in \lin{V}$ is a positive operator such that $T = SR$.
+    Prove that $R = \sqrt{T^\ast T}$.
+
+    \note{This exercise shows that if we write $T$ as the product of a unitary operator and a positive operator (as in the polar decomposition 7.93), then the positive operator equals $\sqrt{T^\ast T}$.}
+\end{exercise}
+
+\begin{exercise}{7f31}
+    Suppose $\fbb = \cbb$ and $T \in \lin{V}$ is normal.
+    Prove that there exists a unitary operator $S \in \lin{V}$ such that $T = S\sqrt{T^\ast T}$ and such that $S$ and $\sqrt{T^\ast T}$ both have diagonal matrices with respect to the same orthonormal basis of $V$.
+\end{exercise}
+
+\begin{exercise}{7f32}
+    Suppose that $T \in \lin{V, W}$ and $T \neq 0$.
+    Let $s_1, \ldots, s_m$ denote the positive singular values of $T$.
+    Show that there exists an orthonormal basis $e_1, \ldots, e_m$ of $(\nul T)^\perp$ such that
+    \[
+        T\left(E\left(\frac{e_1}{s_1}, \ldots, \frac{e_m}{s_m}\right)\right)
+    \]
+    equals the ball in $\range T$ of radius $1$ centered at $0$.
+\end{exercise}
