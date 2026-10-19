@@ -91,26 +91,21 @@
 \end{exercise}
 
 \begin{sol}
-    Let $n = \dim V$, and let $m$ be the number of positive singular values of $T$.
-    Since $T$ has a largest and a smallest singular value, $V \neq \set 0$, so $n \geq 1$.
-    Then $s_{m + 1} = \cdots = s_n = 0$.
+    Let $n = \dim V$.
     Let $\scal = \set{\norm{Tv} \mid v \in V \text{ and } \norm{v} = 1}$.
-    By 7.70, there exist orthonormal lists $e_1, \ldots, e_m$ in $V$ and $f_1, \ldots, f_m$ in $W$ such that
-    \[
-        T v = \sum_{k=1}^m s_k \ip{v, e_k} f_k
-    \]
-    for every $v \in V$.
-    By 6.36, we may extend $e_1, \ldots, e_m$ to an orthonormal basis $e_1, \ldots, e_n$ of $V$.
-    By 6.24,
-    \[
-        \norm{Tv}^2 = \sum_{k=1}^m s_k^2 |\ip{v, e_k}|^2 = \sum_{k=1}^n s_k^2 |\ip{v, e_k}|^2
-    \]
-    since $s_k = 0$ for $k > m$.
+    Since $T$ has a largest and a smallest singular value, $V \neq \set 0$, so $n \geq 1$.
+    Since $T^\ast T$ is positive by 7.64(a), 7.38(c) gives an orthonormal basis $e_1, \ldots, e_n$ of $V$ consisting of eigenvectors of $T^\ast T$, say $T^\ast T e_k = \mu_k e_k$ for each $k = 1, \ldots, n$.
+    After reordering, \autoref{lem:1} shows that $\mu_k = s_k^2$ for each $k = 1, \ldots, n$.
 
     \rightset Suppose $\norm{v} = 1$.
-    By 6.30(b), the weights $|\ip{v, e_k}|^2$ sum to $1$.
-    Therefore, $\norm{Tv}^2$ is a weighted average of $s_1^2, \ldots, s_n^2$ with weights $|\ip{v, e_k}|^2$.
-    Hence, $s_n^2 \leq \norm{Tv}^2 \leq s_1^2$, and taking square roots gives $s_n \leq \norm{Tv} \leq s_1$, so $\scal \subseteq [s_n, s_1]$.
+    Let $c_k = \ip{v, e_k}$ for each $k = 1, \ldots, n$.
+    By 6.30(a) and 6.30(b), $v = \sum_{k=1}^n c_k e_k$ and $\sum_{k=1}^n |c_k|^2 = \norm{v}^2 = 1$.
+    We then have
+    \[
+        \norm{Tv}^2 = \ip{T^\ast Tv, v} = \ip*{\sum_{k=1}^n c_k s_k^2 e_k, \sum_{j=1}^n c_j e_j} = \sum_{k=1}^n s_k^2 |c_k|^2.
+    \]
+    Therefore, $\norm{Tv}^2$ is a weighted average of $s_1^2, \ldots, s_n^2$ with weights $|c_k|^2$, so $s_n^2 \leq \norm{Tv}^2 \leq s_1^2$, and taking square roots gives $s_n \leq \norm{Tv} \leq s_1$.
+    Hence, $\scal \subseteq [s_n, s_1]$.
 
     \leftset Let $s \in [s_n, s_1]$.
     If $s_1 = s_n$, take $v = e_1$.
@@ -409,7 +404,7 @@
     for every $v \in V$.
     By 6.36, extend all orthonormal lists $e_1, \ldots, e_m$, $f_1, \ldots, f_m$, $e_1', \ldots, e_m'$, and $f_1', \ldots, f_m'$ to orthonormal bases $e_1, \ldots, e_n$, $f_1, \ldots, f_n$, $e_1', \ldots, e_n'$, and $f_1', \ldots, f_n'$ of $V$.
     By the orthonormality of these lists, $T_1 e_i = s_i f_i$ and $T_2 e_i' = s_i f_i'$ for $i \leq m$, and $T_1 e_i = 0$ and $T_2 e_i' = 0$ for $i > m$.
-    By the linear map lemma, we may define operators $S_1, S_2 \in \lin{V}$ such that $S_1 f_i = f_i'$ and $S_2 e_i = e_i'$ for $i = 1, \ldots, n$.
+    By the linear map lemma, we may define operators $S_1, S_2 \in \lin{V}$ such that $S_1 f_i' = f_i$ and $S_2 e_i = e_i'$ for $i = 1, \ldots, n$.
     By 7.53(d), $S_1$ and $S_2$ are unitary.
     Moreover, for $i = 1, \ldots, m$, we have
     \[
@@ -419,19 +414,15 @@
     Since $S_1 T_2 S_2$ and $T_1$ agree on the basis $e_1, \ldots, e_n$, we have $S_1 T_2 S_2 = T_1$ by the linear map lemma.
 
     \leftimp Suppose there exist unitary operators $S_1, S_2 \in \lin{V}$ such that $T_1 = S_1 T_2 S_2$.
-    By 7.70, there exist orthonormal lists $g_1, \ldots, g_m$ and $h_1, \ldots, h_m$ in $V$ such that
+    By 7.5(d) and 7.53(b), we have
     \[
-        T_2 v = \sum_{i=1}^m s_i \ip{v, g_i} h_i
+        T_1^\ast T_1 = (S_1 T_2 S_2)^\ast (S_1 T_2 S_2) = S_2^\ast T_2^\ast S_1^\ast S_1 T_2 S_2 = S_2^\ast T_2^\ast T_2 S_2.
     \]
-    for every $v \in V$.
-    By linearity of $S_1$ and the definition of $S_2^\ast$, we have
-    \[
-        T_1 v = S_1 T_2 S_2 v = S_1 T_2 (S_2 v) = S_1 \sum_{i=1}^m s_i \ip{S_2 v, g_i} h_i = \sum_{i=1}^m s_i \ip{v, S_2^\ast g_i} S_1 h_i.
-    \]
-    By 7.53(f), $S_2^\ast$ is unitary, and $S_1$ is unitary by assumption.
-    Since unitary operators are isometries, 7.49(c) shows that $S_2^\ast g_1, \ldots, S_2^\ast g_m$ and $S_1 h_1, \ldots, S_1 h_m$ are orthonormal lists.
-    By \exref{7e8}(c), $s_1, \ldots, s_m$ are the positive singular values of $T_1$ as well.
-    Since both operators have $n$ singular values, the remaining $n-m$ singular values must be $0$.
+    Moreover, 7.53(c) shows that $S_2^\ast = S_2\inv$.
+    Therefore, $T_1^\ast T_1 v = \lambda v$ if and only if $T_2^\ast T_2 (S_2 v) = \lambda (S_2 v)$ for all $\lambda \in \fbb$ and $v \in V$.
+    Hence, $S_2$ maps $E(\lambda, T_1^\ast T_1)$ onto $E(\lambda, T_2^\ast T_2)$ for all $\lambda \in \fbb$.
+    Since $S_2$ is invertible, $\dim E(\lambda, T_1^\ast T_1) = \dim E(\lambda, T_2^\ast T_2)$ for all $\lambda \in \fbb$.
+    By definition, the singular values of $T_1$ are the square roots of the eigenvalues of $T_1^\ast T_1$, each eigenvalue $\lambda$ repeated $\dim E(\lambda, T_1^\ast T_1)$ times, and similarly for $T_2$.
     Therefore, $T_1$ and $T_2$ have the same singular values.
 \end{sol}
 
