@@ -1,0 +1,174 @@
+\section{Operators on Complex Vector Spaces}
+
+\subsection{Generalized Eigenvectors and Nilpotent Operators}
+
+\begin{exercise}{8a1}
+    Suppose $T \in \lin{V}$.
+    Prove that if $\dim \nul T^4 = 8$ and $\dim \nul T^6 = 9$, then $\dim \nul T^m = 9$ for all integers $m \geq 5$.
+\end{exercise}
+
+\begin{exercise}{8a2}
+    Suppose $T \in \lin{V}$, $m$ is a positive integer, $v \in V$, and $T^{m-1} v \neq 0$ but $T^m v = 0$.
+    Prove that $v, Tv, T^2 v, \ldots, T^{m-1} v$ is linearly independent.
+
+    \note{The result in this exercise is used in the proof of 8.45.}
+\end{exercise}
+
+\begin{exercise}{8a3}
+    Suppose $T \in \lin{V}$.
+    Prove that
+    \[
+        V = \nul T \oplus \range T \iff \nul T^2 = \nul T.
+    \]
+\end{exercise}
+
+\begin{exercise}{8a4}
+    Suppose $T \in \lin{V}$, $\lambda \in \fbb$, and $m$ is a positive integer such that the minimal polynomial of $T$ is a polynomial multiple of $(z - \lambda)^m$.
+    Prove that
+    \[
+        \dim \nul(T - \lambda I)^m \geq m.
+    \]
+\end{exercise}
+
+\begin{exercise}{8a5}
+    Suppose $T \in \lin{V}$ and $m$ is a positive integer.
+    Prove that
+    \[
+        \dim \nul T^m \leq m \dim \nul T.
+    \]
+
+    \hint{Exercise 21 in Section 3B may be useful.}
+\end{exercise}
+
+\begin{exercise}{8a6}
+    Suppose $T \in \lin{V}$.
+    Show that
+    \[
+        V = \range T^0 \supseteq \range T^1 \supseteq \cdots \supseteq \range T^k \supseteq \range T^{k+1} \supseteq \cdots.
+    \]
+\end{exercise}
+
+\begin{exercise}{8a7}
+    Suppose $T \in \lin{V}$ and $m$ is a nonnegative integer such that
+    \[
+        \range T^m = \range T^{m+1}.
+    \]
+    Prove that $\range T^k = \range T^m$ for all $k > m$.
+\end{exercise}
+
+\begin{exercise}{8a8}
+    Suppose $T \in \lin{V}$.
+    Prove that
+    \[
+        \range T^{\dim V} = \range T^{\dim V + 1} = \range T^{\dim V + 2} = \cdots.
+    \]
+\end{exercise}
+
+\begin{exercise}{8a9}
+    Suppose $T \in \lin{V}$ and $m$ is a nonnegative integer.
+    Prove that
+    \[
+        \nul T^m = \nul T^{m+1} \iff \range T^m = \range T^{m+1}.
+    \]
+\end{exercise}
+
+\begin{exercise}{8a10}
+    Define $T \in \lin{\cbb^2}$ by $T(w, z) = (z, 0)$.
+    Find all generalized eigenvectors of $T$.
+\end{exercise}
+
+\begin{exercise}{8a11}
+    Suppose that $T \in \lin{V}$.
+    Prove that there is a basis of $V$ consisting of generalized eigenvectors of $T$ if and only if the minimal polynomial of $T$ equals $(z - \lambda_1) \cdots (z - \lambda_m)$ for some $\lambda_1, \ldots, \lambda_m \in \fbb$.
+
+    \hint{Assume $\fbb = \rbb$ because the case $\fbb = \cbb$ follows from 5.27(b) and 8.9.}
+
+    \note{This exercise states that the condition for there to be a basis of $V$ consisting of generalized eigenvectors of $T$ is the same as the condition for there to be a basis with respect to which $T$ has an upper-triangular matrix (see 5.44).}
+
+    \note{\textbf{Caution:} If $T$ has an upper-triangular matrix with respect to a basis $v_1, \ldots, v_n$ of $V$, then $v_1$ is an eigenvector of $T$ but it is not necessarily true that $v_2, \ldots, v_n$ are generalized eigenvectors of $T$.}
+\end{exercise}
+
+\begin{exercise}{8a12}
+    Suppose $T \in \lin{V}$ is such that every nonzero vector in $V$ is a generalized eigenvector of $T$.
+    Prove that there exists $\lambda \in \fbb$ such that $T - \lambda I$ is nilpotent.
+\end{exercise}
+
+\begin{exercise}{8a13}
+    Suppose $S, T \in \lin{V}$ and $ST$ is nilpotent.
+    Prove that $TS$ is nilpotent.
+\end{exercise}
+
+\begin{exercise}{8a14}
+    Suppose $T \in \lin{V}$ is nilpotent and $T \neq 0$.
+    Prove $T$ is not diagonalizable.
+\end{exercise}
+
+\begin{exercise}{8a15}
+    Suppose $\fbb = \cbb$ and $T \in \lin{V}$.
+    Prove that $T$ is diagonalizable if and only if every generalized eigenvector of $T$ is an eigenvector of $T$.
+
+    \note{For $\fbb = \cbb$, this exercise adds another equivalence to the list of conditions for diagonalizability in 5.55.}
+\end{exercise}
+
+\begin{exercise}{8a16}
+    \begin{subexercises}
+        \item Give an example of nilpotent operators $S, T$ on the same vector space such that neither $S + T$ nor $ST$ is nilpotent.
+        \item Suppose $S, T \in \lin{V}$ are nilpotent and $ST = TS$.
+        Prove that $S + T$ and $ST$ are nilpotent.
+    \end{subexercises}
+\end{exercise}
+
+\begin{exercise}{8a17}
+    Suppose $T \in \lin{V}$ is nilpotent and $m$ is a positive integer such that $T^m = 0$.
+    \begin{subexercises}
+        \item Prove that $I - T$ is invertible and that $(I - T)\inv = I + T + \cdots + T^{m-1}$.
+        \item Explain how you would guess the formula above.
+    \end{subexercises}
+\end{exercise}
+
+\begin{exercise}{8a18}
+    Suppose $T \in \lin{V}$ is nilpotent.
+    Prove that $T^{1 + \dim \range T} = 0$.
+
+    \note{If $\dim \range T < \dim V - 1$, then this exercise improves 8.16.}
+\end{exercise}
+
+\begin{exercise}{8a19}
+    Suppose $T \in \lin{V}$ is not nilpotent.
+    Show that
+    \[
+        V = \nul T^{\dim V - 1} \oplus \range T^{\dim V - 1}.
+    \]
+
+    \note{For operators that are not nilpotent, this exercise improves 8.4.}
+\end{exercise}
+
+\begin{exercise}{8a20}
+    Suppose $V$ is an inner product space and $T \in \lin{V}$ is normal and nilpotent.
+    Prove that $T = 0$.
+\end{exercise}
+
+\begin{exercise}{8a21}
+    Suppose $T \in \lin{V}$ is such that $\nul T^{\dim V - 1} \neq \nul T^{\dim V}$.
+    Prove that $T$ is nilpotent and that $\dim \nul T^k = k$ for every integer $k$ with $0 \leq k \leq \dim V$.
+\end{exercise}
+
+\begin{exercise}{8a22}
+    Suppose $T \in \lin{\cbb^5}$ is such that $\range T^4 \neq \range T^5$.
+    Prove that $T$ is nilpotent.
+\end{exercise}
+
+\begin{exercise}{8a23}
+    Give an example of an operator $T$ on a finite-dimensional real vector space such that $0$ is the only eigenvalue of $T$ but $T$ is not nilpotent.
+
+    \note{This exercise shows that (b) in 8.17 does not hold without the hypothesis that $\fbb = \cbb$.}
+\end{exercise}
+
+\begin{exercise}{8a24}
+    For each item in Example 8.15, find a basis of the domain vector space such that the matrix of the nilpotent operator with respect to that basis has the upper-triangular form promised by 8.18(c).
+\end{exercise}
+
+\begin{exercise}{8a25}
+    Suppose that $V$ is an inner product space and $T \in \lin{V}$ is nilpotent.
+    Show that there is an orthonormal basis of $V$ with respect to which the matrix of $T$ has the upper-triangular form promised by 8.18(c).
+\end{exercise}
