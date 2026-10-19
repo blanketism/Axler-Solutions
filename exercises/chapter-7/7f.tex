@@ -6,6 +6,13 @@
     \note{The inequality above is called the \term{reverse triangle inequality}.}
 \end{exercise}
 
+\begin{sol}
+    By 7.87(d), $\norm{S} = \norm{(S - T) + T} \leq \norm{S - T} + \norm{T}$.
+    Similarly, $\norm{T} = \norm{(T - S) + S} \leq \norm{T - S} + \norm{S}$.
+    By 7.87(c) with $\lambda = -1$, $\norm{T - S} = \norm{-(S - T)} = \norm{S - T}$.
+    Combining the inequalities yields the desired result.
+\end{sol}
+
 \begin{exercise}{7f2}
     Suppose that $T \in \lin{V}$ is self-adjoint or that $\fbb = \cbb$ and $T \in \lin{V}$ is normal.
     Prove that
@@ -13,6 +20,21 @@
         \norm{T} = \max\set{|\lambda| \mid \lambda \text{ is an eigenvalue of } T}.
     \]
 \end{exercise}
+
+\begin{sol}
+    If $V = \set 0$, then $T$ has no eigenvalues, so we adopt the convention that the maximum over the empty set is $0$.
+    In this case, the only operator on $V$ is $T = 0$, so $\norm{T} = 0$ by 7.87(b), and the equality holds.
+    Now assume $V \neq \set 0$.
+    Let $\lambda_1, \ldots, \lambda_n$ be the eigenvalues of $T$, where each eigenvalue $\lambda$ of $T$ appears in the list as many times as $\dim E(\lambda, T)$.
+    As in the solution to \exref{7e7}, $n = \dim V \geq 1$.
+    By \exref{7e7}, the singular values of $T$ are $|\lambda_1|, \ldots, |\lambda_n|$ sorted in decreasing order.
+    Each eigenvalue $\lambda$ of $T$ appears in the list $\lambda_1, \ldots, \lambda_n$ at least once since $\dim E(\lambda, T) \geq 1$.
+    We then have
+    \[
+        \max_{1 \leq k \leq n} |\lambda_k| = \max\set{|\lambda| \mid \lambda \text{ is an eigenvalue of } T}.
+    \]
+    By 7.88(a), $\norm{T}$ is the largest singular value of $T$, which is the left-hand side of the equality in the previous line.
+\end{sol}
 
 \begin{exercise}{7f3}
     Suppose $T \in \lin{V, W}$ and $v \in V$.
@@ -22,10 +44,38 @@
     \]
 \end{exercise}
 
+\begin{soliff}
+    \rightimp Define $S = \norm{T}^2 I - T^\ast T$.
+    By 7.5, $T^\ast T$ is self-adjoint.
+    Since $\norm{T}^2 \in \rbb$, $(\norm{T}^2 I)^\ast = \norm{T}^2 I$.
+    Hence, $S$ is self-adjoint.
+    For every $u \in V$, 7.88(c) gives
+    \[
+        \ip{Su, u} = \ip{(\norm{T}^2 I - T^\ast T)u, u} = \norm{T}^2 \norm{u}^2 - \norm{Tu}^2 \geq 0.
+    \]
+    Hence, $S$ is a positive operator.
+    By hypothesis, $\ip{Sv, v} = \ip{(\norm{T}^2 I - T^\ast T)v, v} = \norm{T}^2 \norm{v}^2 - \norm{Tv}^2 = 0$.
+    Since $S$ is positive, $\ip{Sv, v} = 0$ implies $Sv = 0$ by 7.43.
+    Therefore, $(\norm{T}^2 I - T^\ast T)v = 0$, which gives $T^\ast Tv = \norm{T}^2 v$.
+
+    \leftimp Suppose $T^\ast Tv = \norm{T}^2 v$.
+    Then $\norm{Tv}^2 = \ip{Tv, Tv} = \ip{T^\ast Tv, v} = \norm{T}^2 \ip{v, v} = \norm{T}^2 \norm{v}^2$.
+    Taking square roots gives $\norm{Tv} = \norm{T}\,\norm{v}$.
+\end{soliff}
+
 \begin{exercise}{7f4}
     Suppose $T \in \lin{V, W}$, $v \in V$, and $\norm{Tv} = \norm{T}\,\norm{v}$.
     Prove that if $u \in V$ and $\ip{u, v} = 0$, then $\ip{Tu, Tv} = 0$.
 \end{exercise}
+
+\begin{sol}
+    Suppose $u \in V$ with $\ip{u, v} = 0$.
+    By \exref{7f3}, $T^\ast T v = \norm{T}^2 v$.
+    By the definition of the adjoint, the previous line, and 6.6(e), since $\norm{T}^2 \in \rbb$, we have
+    \[
+        \ip{T u, T v} = \ip{u, T^\ast T v} = \ip{u, \norm{T}^2 v} = \norm{T}^2 \ip{u, v} = 0. \qedhere
+    \]
+\end{sol}
 
 \begin{exercise}{7f5}
     Suppose $U$ is a finite-dimensional inner product space, $T \in \lin{V, U}$, and $S \in \lin{U, W}$.
@@ -35,15 +85,56 @@
     \]
 \end{exercise}
 
+\begin{sol}
+    By 7.87(a), $\norm{S} \geq 0$.
+    By 7.88(c) applied to $S$ and $T$, for every $v \in V$, we have
+    \[
+        \norm{ST v} \leq \norm{S}\,\norm{T v} \leq \norm{S}\,\norm{T}\,\norm{v}.
+    \]
+    By 7.88(c), $\norm{ST}$ is the smallest number such that $\norm{ST v} \leq \norm{ST}\,\norm{v}$ for all $v \in V$.
+    Hence, $\norm{ST} \leq \norm{S}\,\norm{T}$.
+\end{sol}
+
 \begin{exercise}{7f6}
     Prove or give a counterexample: If $S, T \in \lin{V}$, then $\norm{ST} = \norm{TS}$.
 \end{exercise}
+
+\begin{sol}
+    The statement is false.
+    Suppose $\dim V \geq 2$.
+    By 6.35, there exists an orthonormal basis $e_1, e_2, \dots, e_{\dim V}$ of $V$.
+    Define the maps $S$ and $T$ by
+    \[
+        S v = \ip{v, e_1} e_1, \quad T v = \ip{v, e_1} e_2
+    \]
+    for all $v \in V$.
+    By 6.6(a), $S, T \in \lin{V}$.
+    Then $ST v = \ip{v, e_1} S e_2 = \ip{v, e_1} \ip{e_2, e_1} e_1 = 0$ for all $v \in V$.
+    On the other hand, $TS v = \ip{v, e_1} T e_1 = \ip{v, e_1} e_2 = T v$ for all $v \in V$.
+    Therefore, $ST = 0$ and $TS = T$.
+    Moreover, $T \neq 0$ because $T e_1 = e_2 \neq 0$.
+    By 7.87(a) and (b), we have $\norm{ST} = 0 < \norm{TS} = \norm{T}$.
+\end{sol}
 
 \begin{exercise}{7f7}
     Show that defining $d(S, T) = \norm{S - T}$ for $S, T \in \lin{V, W}$ makes $d$ a metric on $\lin{V, W}$.
 
     \note{This exercise is intended for readers who are familiar with metric spaces.}
 \end{exercise}
+
+\begin{sol}
+    We verify the metric axioms for $d$:
+    \begin{itemize}
+        \item \textbf{Nonnegativity and identity}: Nonnegativity follows from 7.87(a).
+        By 7.87(b), $d(S, T) = \norm{S - T} = 0$ if and only if $S - T = 0$, i.e., $S = T$.
+        \item \textbf{Symmetry}: Since $T - S = (-1)(S - T)$, 7.87(c) implies $\norm{T - S} = \norm{(-1)(S - T)} = \norm{S - T}$, so $d(S, T) = d(T, S)$.
+        \item \textbf{Triangle inequality}: For any $R \in \lin{V, W}$, $S - R = (S - T) + (T - R)$, so by 7.87(d),
+        \[
+            d(S, R) = \norm{S - R} \leq \norm{S - T} + \norm{T - R} = d(S, T) + d(T, R).
+        \]
+    \end{itemize}
+    Therefore, $(\lin{V, W}, d)$ is a metric space.
+\end{sol}
 
 \begin{exercise}{7f8}
     \begin{subexercises}
@@ -55,25 +146,112 @@
     \note{This exercise shows that the set of invertible operators in $\lin{V}$ is an open subset of $\lin{V}$, using the metric defined in \exref{7f7}.}
 \end{exercise}
 
+\begin{solenum}
+    \item By 3.65, it suffices to show that $T$ is injective.
+    Let $v \in V$ be such that $Tv = 0$.
+    Then $(I - T) v = v$.
+    By 7.88(c), $\norm{I - T}\,\norm{v} \geq \norm{(I - T)v} = \norm{v}$.
+    If $v \neq 0$, then dividing both sides by $\norm{v}$ gives $\norm{I - T} \geq 1$, which contradicts the assumption that $\norm{I - T} < 1$.
+    Therefore, $v = 0$, and $T$ is injective.
+    \item Note that the hypothesis $\norm{S - T} < 1/\norm{S\inv}$ requires that $\norm{S\inv} \neq 0$, so $\norm{S\inv} > 0$ by 7.87(a).
+    By 3.8, $I - S\inv T = S\inv(S - T)$.
+    By \exref{7f5}, 
+    \[
+        \norm{I - S\inv T} \leq \norm{S\inv}\,\norm{S - T}.
+    \]
+    Since $\norm{S - T} < 1/\norm{S\inv}$ and $\norm{S\inv} > 0$, $\norm{I - S\inv T} < 1$.
+    By part (a), $S\inv T$ is invertible, so $T = S (S\inv T)$ is invertible.
+\end{solenum}
+
 \begin{exercise}{7f9}
     Suppose $T \in \lin{V}$.
     Prove that for every $\ep > 0$, there exists an invertible operator $S \in \lin{V}$ such that $0 < \norm{T - S} < \ep$.
+
+    \remark{Note that this exercise assumes $V \neq \set 0$, for otherwise, $\norm{T - S} = 0$ for every $S \in \lin{V}$.}
 \end{exercise}
+
+\begin{sol}
+    Since $(0, \ep)$ contains infinitely many real numbers, and $T$ has at most $\dim V$ distinct eigenvalues by 5.12, there exists a real number $\lambda \in (0, \ep)$ that is not an eigenvalue of $T$.
+    Consider the operator $S = T - \lambda I$.
+    By 5.7, $S$ is invertible because $\lambda$ is not an eigenvalue of $T$.
+    Moreover, since $I$ is an isometry, its singular values are all $1$ by 7.69, so $\norm{I} = 1$ by 7.88(a).
+    Therefore, by 7.87(c), $\norm{T - S} = \norm{\lambda I} = |\lambda| \norm{I} = \lambda$, where $|\lambda| = \lambda$ because $\lambda > 0$.
+    Hence, $0 < \norm{T - S} = \lambda < \ep$.
+\end{sol}
 
 \begin{exercise}{7f10}
     Suppose $\dim V > 1$ and $T \in \lin{V}$ is not invertible.
     Prove that for every $\ep > 0$, there exists $S \in \lin{V}$ such that $0 < \norm{T - S} < \ep$ and $S$ is not invertible.
 \end{exercise}
 
+\begin{sol}
+    By 3.65, $T$ is not injective since it is not invertible.
+    Then there exists a nonzero $u \in \nul T$.
+    Let $U = (\spn(u))^\perp$.
+    Since $\dim \spn(u) = 1$ and $\dim V > 1$, we have $\dim U = \dim V - 1 \geq 1$ by 6.51.
+    Consider the operator $S \in \lin{V}$ defined by $S = T + \frac{\ep}{2} P_U$.
+    Note that for every $w \in U$, $\ip{w, u} = 0$, so $u \in U^\perp$ and hence $P_U u = 0$ by 6.57(c).
+    Then $Su = 0$, so $S$ is not injective, and hence not invertible by 3.65.
+    By 6.57(h), $\norm{P_U v} \leq \norm{v}$ for all $v \in V$, which yields $\norm{P_U} \leq 1$ by 7.88(c).
+    Since $\dim U \geq 1$, there exists a unit vector $x \in U$.
+    By 6.57(b), $P_U x = x$, so $\norm{P_U} \geq \norm{P_U x} = \norm{x} = 1$ by 7.88(b).
+    Thus, $\norm{P_U} = 1$.
+    Finally, by 7.87(c),
+    \[
+        \norm{T - S} = \norm*{-\frac{\ep}{2} P_U} = \frac{\ep}{2} \norm{P_U} = \frac{\ep}{2},
+    \]
+    so $0 < \norm{T - S} < \ep$.
+\end{sol}
+
 \begin{exercise}{7f11}
     Suppose $\fbb = \cbb$ and $T \in \lin{V}$.
     Prove that for every $\ep > 0$ there exists a diagonalizable operator $S \in \lin{V}$ such that $0 < \norm{T - S} < \ep$.
+
+    \remark{Note that this exercise assumes $V \neq \set 0$, for otherwise, $\norm{T - S} = 0$ for every $S \in \lin{V}$.}
 \end{exercise}
+
+\begin{sol}
+    Let $\dim V = n$.
+    By Schur's theorem, since $\fbb = \cbb$, there exists an orthonormal basis $e_1, \ldots, e_n$ of $V$ such that $\mcal(T)$ is upper triangular with respect to this basis with diagonal entries $\lambda_1, \ldots, \lambda_n$, which are the eigenvalues of $T$ by 5.41, possibly with repetitions.
+    Define $\delta_1 = \frac{\ep}{2}$.
+    For $k = 2, \ldots, n$, choose $\delta_k \in [0, \frac{\ep}{2})$ such that
+    \[
+        \lambda_k + \delta_k \notin \set{\lambda_j + \delta_j \mid 1 \leq j < k}.
+    \]
+    Note that this construction is possible since $[0, \frac{\ep}{2})$ contains infinitely many real numbers, and only $k-1$ values are excluded for each $k \geq 2$.
+    By the linear map lemma, we may construct an operator $D \in \lin{V}$ by $D e_k = \delta_k e_k$.
+    Then $\mcal(D, (e_1, \ldots, e_n))$ is diagonal with diagonal entries $\delta_1, \ldots, \delta_n$, which are its eigenvalues by 5.41.
+    
+    Let $S = T + D$.
+    By 3.35, $\mcal(S, (e_1, \ldots, e_n))$ is upper triangular with diagonal entries $\lambda_1 + \delta_1, \ldots, \lambda_n + \delta_n$, which are distinct by construction.
+    Since these are $n$ distinct eigenvalues by 5.41, $S$ is diagonalizable by 5.58.
+    By the complex spectral theorem, $D$ is normal since it has a diagonal matrix with respect to the orthonormal basis $e_1, \ldots, e_n$.
+    By \exref{7f2}, and since $\delta_k \geq 0$ for all $k$,
+    \[
+        \norm{T - S} = \norm{D} = \max_{1 \leq k \leq n} \abs{\delta_k} = \max_{1 \leq k \leq n} \delta_k = \frac{\ep}{2} < \ep.
+    \]
+    Then $0 < \norm{T - S} = \frac{\ep}{2} < \ep$.
+\end{sol}
 
 \begin{exercise}{7f12}
     Suppose $T \in \lin{V}$ is a positive operator.
     Show that $\norm{\sqrt{T}} = \sqrt{\norm{T}}$.
 \end{exercise}
+
+\begin{sol}
+    If $V = \set 0$, then $\lin{V} = \set 0$, so $T = \sqrt{T} = 0$, and the result holds trivially.
+    Now assume $V \neq \set 0$.
+    By 7.38(c), $T$ has a diagonal matrix with respect to some orthonormal basis of $V$.
+    Since $V \neq \set 0$, the matrix has at least one diagonal entry, which is an eigenvalue of $T$ by 5.41.
+    Since $T$ is positive, it is self-adjoint by 7.38(b).
+    Moreover, it has a unique positive square root $\sqrt{T}$ by 7.39, which is also self-adjoint by 7.38(b).
+    Hence, $(\sqrt{T})^\ast = \sqrt{T}$, so $(\sqrt{T})^\ast\sqrt T = T$.
+    By the definition of singular values, the singular values of $\sqrt{T}$ are the square roots of the eigenvalues of $T$.
+    By 7.38(b), the eigenvalues of $T$ are nonnegative, so $\norm{\sqrt{T}} = \sqrt{\mu}$ by 7.88(a), where $\mu$ is the largest eigenvalue of $T$.
+    By \exref{7f2}, $\norm{T}$ is the maximum of the absolute values of the eigenvalues of $T$.
+    Since the eigenvalues of $T$ are nonnegative, $\mu = \norm{T}$.
+    Therefore, $\norm{\sqrt{T}} = \sqrt{\mu} = \sqrt{\norm{T}}$.
+\end{sol}
 
 \begin{exercise}{7f13}
     Suppose $S, T \in \lin{V}$ are positive operators.
@@ -83,10 +261,54 @@
     \]
 \end{exercise}
 
+\begin{sol}
+    If $V = \set 0$, then $S = T = 0$, and the inequality holds trivially.
+    Now assume $V \neq \set 0$.
+    Since $S$ and $T$ are positive, the Cauchy--Schwarz inequality and 7.88(c) give
+    \[
+        0 \leq \ip{Sv, v} \leq \norm{S}, \quad 0 \leq \ip{Tv, v} \leq \norm{T}
+    \]
+    for every unit vector $v \in V$.
+    By 7.38(b), $S$ and $T$ are self-adjoint, so $S - T$ is also self-adjoint by 7.5(a) and (b).
+    By \exref{7f2}, there exists an eigenvalue $\lambda$ of $S - T$ such that $\norm{S - T} = \abs{\lambda}$.
+    Let $u \in V$ be a unit eigenvector corresponding to $\lambda$, so $(S - T)u = \lambda u$.
+    Then
+    \[
+        \lambda = \lambda\norm{u}^2 = \ip{(S - T)u, u} = \ip{Su, u} - \ip{Tu, u} \in [ -\norm{T}, \norm{S} ].
+    \]
+    Thus, $\abs{\lambda} = \norm{S - T} \leq \max\set{\norm{S}, \norm{T}}$.
+
+    By \exref{7f2} again, there exists an eigenvalue $\mu$ of $S$ such that $\norm{S} = \abs{\mu}$.
+    By 7.38(b), $\mu \geq 0$, so $\norm{S} = \abs{\mu} = \mu$.
+    Let $w \in V$ be a unit eigenvector corresponding to $\mu$, so $Sw = \mu w$.
+    Then $\ip{Sw, w} = \mu\norm{w}^2 = \mu = \norm{S}$.
+    Consequently, 
+    \[
+        \norm{S} \leq \norm{S} + \ip{Tw, w} = \ip{(S + T)w, w} \leq \norm{S + T},
+    \]
+    where the last inequality follows from the Cauchy--Schwarz inequality and 7.88(c).
+    By symmetry, we also have $\norm{T} \leq \norm{S + T}$.
+    Therefore, $\max\set{\norm{S}, \norm{T}} \leq \norm{S + T}$, and the desired inequality is proved.
+\end{sol}
+
 \begin{exercise}{7f14}
     Suppose $U$ and $W$ are subspaces of $V$ such that $\norm{P_U - P_W} < 1$.
     Prove that $\dim U = \dim W$.
 \end{exercise}
+
+\begin{sol}
+    Suppose $\dim U > \dim W$.
+    By 6.51, 2.43, and 2.37,
+    \[
+        \dim(U \cap W^\perp) = \dim U + \dim W^\perp - \dim(U + W^\perp) \geq \dim U - \dim W > 0.
+    \]
+    Let $u \in U \cap W^\perp$ be a unit vector.
+    Then $(P_U - P_W)u = P_U u - P_W u = u - 0 = u$ by 6.57(b) and (c).
+    By 7.88(c), $\norm{P_U - P_W} \geq \norm{(P_U - P_W)u} = \norm{u} = 1$, contradicting the assumption that $\norm{P_U - P_W} < 1$.
+    Therefore, our assumption that $\dim U > \dim W$ must be false.
+    By symmetry, $\dim W > \dim U$ is also impossible.
+    Hence, $\dim U = \dim W$.
+\end{sol}
 
 \begin{exercise}{7f15}
     Define $T \in \lin{\fbb^3}$ by
@@ -96,17 +318,89 @@
     Find (explicitly) a unitary operator $S \in \lin{\fbb^3}$ such that $T = S\sqrt{T^\ast T}$.
 \end{exercise}
 
+\begin{sol}
+    For any $(z_1, z_2, z_3), (w_1, w_2, w_3) \in \fbb^3$, 
+    \begin{align*}
+        \ip{T(z_1, z_2, z_3), (w_1, w_2, w_3)} &= \ip{(z_3, 2z_1, 3z_2), (w_1, w_2, w_3)} \\
+        &= z_3\bar{w_1} + 2z_1\bar{w_2} + 3z_2\bar{w_3} \\
+        &= \ip{(z_1, z_2, z_3), (2 w_2, 3 w_3, w_1)}.
+    \end{align*}
+    Therefore,
+    \[
+        T^\ast(w_1, w_2, w_3) = (2 w_2, 3 w_3, w_1), \quad T^\ast T(z_1, z_2, z_3) = (4z_1, 9z_2, z_3).
+    \]
+    Let $R \in \lin{\fbb^3}$ be defined by $R(z_1, z_2, z_3) = (2z_1, 3z_2, z_3)$.
+    Then $\mcal(R)$ with respect to the standard orthonormal basis $e_1, e_2, e_3$ of $\fbb^3$ is diagonal with nonnegative diagonal entries $2, 3, 1$.
+    By 7.38(c), $R$ is positive.
+    Additionally, $R^2(z_1, z_2, z_3) = (4z_1, 9z_2, z_3) = T^\ast T(z_1, z_2, z_3)$, so $R^2 = T^\ast T$ and hence $R = \sqrt{T^\ast T}$ by 7.39.
+    Moreover, $R\inv$ exists and is given by
+    \[
+        R\inv(z_1, z_2, z_3) = \left(\frac{z_1}{2}, \frac{z_2}{3}, z_3\right).
+    \]
+    Define $S \in \lin{\fbb^3}$ by $S = TR\inv$.
+    Then
+    \[
+        S(z_1, z_2, z_3) = T(R^{-1}(z_1, z_2, z_3)) = T\left(\frac{z_1}{2}, \frac{z_2}{3}, z_3\right) = (z_3, z_1, z_2).
+    \]
+    Observe that $S e_1 = e_2$, $S e_2 = e_3$, and $S e_3 = e_1$.
+    Since $e_2, e_3, e_1$ is an orthonormal basis of $\fbb^3$, $S$ is unitary by 7.53(d).
+    Because $S = TR\inv$, we have $T = SR = S\sqrt{T^\ast T}$.
+\end{sol}
+
 \begin{exercise}{7f16}
     Suppose $S \in \lin{V}$ is a positive invertible operator.
     Prove that there exists $\delta > 0$ such that $T$ is a positive operator for every self-adjoint operator $T \in \lin{V}$ with $\norm{S - T} < \delta$.
 \end{exercise}
 
+\begin{sol}
+    If $V = \set 0$, every operator on $V$ is positive, so any $\delta > 0$ works.
+    Now assume $V \neq \set 0$.
+    By 7.38(c), there exists an orthonormal basis $e_1, \ldots, e_n$ of $V$ such that $S e_k = \lambda_k e_k$ with $\lambda_k \geq 0$ for all $k = 1, \ldots, n$.
+    Then each $\lambda_k$ is an eigenvalue of $S$ because $e_k \neq 0$, and since $S$ is invertible, $\lambda_k > 0$ for all $k = 1, \ldots, n$ by 5.7.
+    Let
+    \[
+        \delta = \min_{1 \leq k \leq n} \lambda_k > 0.
+    \]
+    Observe that for any $v \in V$ and $k = 1, \ldots, n$, we have
+    \[
+        \ip{Sv, e_k} = \ip{v, S e_k} = \bar{\lambda_k} \ip{v, e_k} = \lambda_k \ip{v, e_k},
+    \]
+    since $S$ is self-adjoint and $\lambda_k \in \rbb$ for all $k$.
+    By 6.30(b) and (c),
+    \[
+        \ip{Sv, v} = \sum_{k=1}^n \ip{S v, e_k} \bar{\ip{v, e_k}} = \sum_{k=1}^n \lambda_k \abs{\ip{v, e_k}}^2 \geq \delta \sum_{k=1}^n \abs{\ip{v, e_k}}^2 = \delta \norm{v}^2.
+    \]
+    Let $T \in \lin{V}$ be self-adjoint with $\norm{S - T} < \delta$.
+    By the Cauchy--Schwarz inequality and 7.88(c),
+    \[
+        \ip{Tv, v} = \ip{Sv, v} - \ip{(S - T)v, v} \geq \ip{Sv, v} - \norm{S - T}\,\norm{v}^2 \geq (\delta - \norm{S - T}) \norm{v}^2 \geq 0.
+    \]
+    Since $T$ is self-adjoint and $\ip{Tv, v} \geq 0$ for all $v \in V$, it follows that $T$ is positive.
+\end{sol}
+
 \begin{exercise}{7f17}
     Prove that if $u \in V$ and $\phi_u$ is the linear functional on $V$ defined by the equation $\phi_u(v) = \ip{v, u}$, then $\norm{\phi_u} = \norm{u}$.
 
     \note{Here we are thinking of the scalar field $\fbb$ as an inner product space with $\ip{\alpha, \beta} = \alpha\bar{\beta}$ for all $\alpha, \beta \in \fbb$.
-    Thus $\norm{\phi_u}$ means the norm of $\phi_u$ as a linear map from $V$ to $\fbb$.}
+    Thus, $\norm{\phi_u}$ means the norm of $\phi_u$ as a linear map from $V$ to $\fbb$.}
 \end{exercise}
+
+\begin{sol}
+    Observe that $\norm{\alpha} = \sqrt{\ip{\alpha, \alpha}} = \sqrt{\alpha \bar{\alpha}} = \abs{\alpha}$ for all $\alpha \in \fbb$.
+    For any $v \in V$, the Cauchy--Schwarz inequality gives
+    \[
+        \abs{\phi_u(v)} = \abs{\ip{v, u}} \leq \norm{v}\,\norm{u}.
+    \]
+    By 7.88(c), $\norm{\phi_u} \leq \norm{u}$.
+
+    If $u = 0$, then $0 \leq \norm{\phi_u} \leq \norm{u} = 0$ by 7.87(a).
+    For $u \neq 0$, consider $w = \frac{u}{\norm{u}}$.
+    Since $\norm{w} = 1$, 7.88(b) gives $\norm{\phi_u} \geq \abs{\phi_u(w)}$, so
+    \[
+        \norm{\phi_u} \geq \abs{\phi_u(w)} = \abs{\ip{w, u}} = \abs*{\ip*{\frac{u}{\norm{u}}, u}} = \frac{\norm{u}^2}{\norm{u}} = \norm{u}.
+    \]
+    Hence, $\norm{\phi_u} = \norm{u}$.
+\end{sol}
 
 \begin{exercise}{7f18}
     Suppose $e_1, \ldots, e_n$ is an orthonormal basis of $V$ and $T \in \lin{V, W}$.
@@ -116,8 +410,30 @@
     \end{subexercises}
 
     \note{Here $e_1, \ldots, e_n$ is an arbitrary orthonormal basis of $V$, not necessarily connected with a singular value decomposition of $T$.
-    If $s_1, \ldots, s_n$ is the list of singular values of $T$, then the right side of the inequality above equals $(s_1^2 + \cdots + s_n^2)^{1/2}$, as was shown in \exref{7f11}(a).}
+    If $s_1, \ldots, s_n$ is the list of singular values of $T$, then the right side of the inequality above equals $(s_1^2 + \cdots + s_n^2)^{1/2}$, as was shown in \exref{7e11}(a).}
 \end{exercise}
+
+\begin{sol}
+    Let $s_1 \geq \cdots \geq s_n$ be the singular values of $T$.
+    \begin{subexercises}
+        \item Observe that $\max\set{\norm{Te_1}, \ldots, \norm{Te_n}} \leq \norm{T}$ by 7.88(b) applied to each $e_k$.
+        By \exref{7e11}(a) and 7.88(a),
+        \[
+            \sum_{k=1}^n \norm{Te_k}^2 = \sum_{k=1}^n s_k^2 \geq s_1^2 = \norm{T}^2.
+        \]
+        Taking square roots gives the desired inequality.
+        \item
+        Note that $\norm{T} = (\sum_{k=1}^n \norm{T e_k}^2)^{1/2}$ if and only if $\norm{T}^2 = \sum_{k=1}^n \norm{T e_k}^2$, since both sides are nonnegative.
+        \begin{align*}
+            \norm{T}^2 = \sum_{k=1}^n \norm{T e_k}^2 &\iff s_1^2 = \sum_{k=1}^n s_k^2 \\
+            &\iff \sum_{k=2}^n s_k^2 = 0 \\
+            &\iff s_2 = \cdots = s_n = 0 \\
+            &\iff T \text{ has at most one positive singular value} \\
+            &\iff \dim \range T \leq 1,
+        \end{align*}
+        where the first equivalence follows from 7.88(a) and \exref{7e11}(a); the third equivalence from $s_k^2 \geq 0$ for all $k$; the fourth equivalence from the decreasing order of the singular values; and the fifth equivalence from 7.68(b). \qedhere
+    \end{subexercises}
+\end{sol}
 
 \begin{exercise}{7f19}
     Prove that if $T \in \lin{V, W}$, then $\norm{T^\ast T} = \norm{T}^2$.
@@ -125,10 +441,63 @@
     \note{This formula for $\norm{T^\ast T}$ leads to the important subject of $C^\ast$-algebras.}
 \end{exercise}
 
+\begin{sol}
+    If $V = \set 0$, then $T = 0$ and $\norm{T^\ast T} = \norm{0} = 0 = \norm{T}^2$, so the result holds trivially.
+    Now assume $V \neq \set 0$.
+
+    \leftineq By \exref{7f5} and 7.91, $\norm{T^\ast T} \leq \norm{T^\ast}\,\norm{T} = \norm{T}^2$.
+
+    \rightineq By 7.88(b), there exists $v \in V$ with $\norm{v} = 1$ such that $\norm{Tv} = \norm{T}$.
+    By the definition of the adjoint, the Cauchy--Schwarz inequality, and 7.88(c),
+    \[
+        \norm{Tv}^2 = \ip{Tv, Tv} = \ip{T^\ast T v, v} \leq \norm{T^\ast Tv}\,\norm{v} \leq \norm{T^\ast T}\,\norm{v}^2 = \norm{T^\ast T}.
+    \]
+    Hence, $\norm{T}^2 = \norm{Tv}^2 \leq \norm{T^\ast T}$.
+\end{sol}
+
 \begin{exercise}{7f20}
     Suppose $T \in \lin{V}$ is normal.
     Prove that $\norm{T^k} = \norm{T}^k$ for every positive integer $k$.
 \end{exercise}
+
+\begin{sol}
+    If $V = \set 0$, then $T = 0$ and the result is trivial.
+    Now assume $V \neq \set 0$.
+    Let $n = \dim V \geq 1$.
+    We first show that $(T^m)^\ast = (T^\ast)^m$ for all positive integers $m$.
+    The base case $m=1$ is trivial since $(T^1)^\ast = T^\ast = (T^\ast)^1$.
+    Now suppose $(T^{m-1})^\ast = (T^\ast)^{m-1}$ for some integer $m \geq 2$.
+    By 7.5(d) with $S = T^{m-1}$ and the induction hypothesis, we have
+    \[
+        (T^m)^\ast = (T^{m-1}T)^\ast = T^\ast (T^{m-1})^\ast = T^\ast (T^\ast)^{m-1} = (T^\ast)^m,
+    \]
+    so $(T^m)^\ast = (T^\ast)^m$ for all positive integers $m$.
+
+    We now show that $(T^\ast)^m T^m = (T^\ast T)^m$ for all positive integers $m$.
+    Since $T$ is normal, we have $T(T^\ast T) = (TT^\ast)T = (T^\ast T)T$, so $T$ commutes with $T^\ast T$.
+    The base case $m=1$ is trivial since $(T^\ast)^1 T^1 = T^\ast T = (T^\ast T)^1$.
+    Suppose $(T^\ast)^{m-1} T^{m-1} = (T^\ast T)^{m-1}$ for some integer $m \geq 2$.
+    Then
+    \[
+        (T^\ast)^m T^m = (T^\ast)^{m-1} (T^\ast T) T^{m-1} = (T^\ast)^{m-1} T^{m-1} (T^\ast T) = (T^\ast T)^{m-1} (T^\ast T) = (T^\ast T)^m,
+    \]
+    where the second equality uses the fact that $T^\ast T$ commutes with $T^{m-1}$ since it commutes with $T$.
+    Hence, $(T^\ast)^m T^m = (T^\ast T)^m$ for all positive integers $m$.
+
+    Now fix some positive integer $k$.
+    By 7.38(c) and 7.64(a), there exist an orthonormal basis $e_1, \ldots, e_n$ of $V$ and numbers $\lambda_1, \ldots, \lambda_n \geq 0$ such that $T^\ast T e_j = \lambda_j e_j$ for each $j$.
+    By the above equalities with $m=k$,
+    \[
+        (T^k)^\ast T^k e_j = (T^\ast)^k T^k e_j = (T^\ast T)^k e_j = \lambda_j^k e_j
+    \]
+    for all $j = 1, \ldots, n$.
+    By \autoref{lem:1}, the singular values of $T$ are the numbers $\sqrt{\lambda_1}, \ldots, \sqrt{\lambda_n}$ sorted into decreasing order.
+    Moreover, the singular values of $T^k$ are the numbers $\sqrt{\lambda_1^k}, \ldots, \sqrt{\lambda_n^k}$, i.e., $(\sqrt{\lambda_1})^k, \ldots, (\sqrt{\lambda_n})^k$, sorted into decreasing order.
+    
+    Let $s_1$ denote the largest singular value of $T$.
+    Note that the map $t \mapsto t^k$ is increasing for $t \geq 0$, so the largest singular value of $T^k$ is the $k$-th power of the largest singular value of $T$, which is $s_1^k$.
+    By 7.88(a), $\norm{T^k} = s_1^k = \norm{T}^k$.
+\end{sol}
 
 \begin{exercise}{7f21}
     Suppose $\dim V > 1$ and $\dim W > 1$.
@@ -140,6 +509,41 @@
     for all $T \in \lin{V, W}$.
 \end{exercise}
 
+\begin{sol}
+    Suppose the norm on $\lin{V, W}$ comes from an inner product.
+    By 6.35, there exist orthonormal bases $e_1, \ldots, e_{\dim V}$ of $V$ and $f_1, \ldots, f_{\dim W}$ of $W$.
+    Since $\dim V > 1$ and $\dim W > 1$, we may take the orthonormal lists $e_1, e_2$ in $V$ and $f_1, f_2$ in $W$.
+    Consider the maps $S$ and $R$ defined by
+    \[
+        Sv = \ip{v, e_1} f_1, \quad Rv = \ip{v, e_2} f_2.
+    \]
+    Note that $S, R \in \lin{V, W}$ by 6.6(a).
+    By the Cauchy--Schwarz inequality,
+    \[
+        \norm{Sv} = \abs{\ip{v, e_1}}\,\norm{f_1} \leq \norm{v} \leq 1
+    \]
+    for $\norm{v} \leq 1$.
+    Since $\norm{S e_1} = \norm{f_1} = 1$, we have $\norm{S} = 1$.
+    Similarly, $\norm{R} = 1$, using $e_2$ and $f_2$.
+    By 6.24 and Bessel's inequality, we have for any $v \in V$ that
+    \[
+        \norm{(S \pm R)v}^2 = \abs{\ip{v, e_1}}^2 + \abs{\ip{v, e_2}}^2 \leq \norm{v}^2.
+    \]
+    It follows that $\norm{(S \pm R)v} \leq \norm{v} \leq 1$ for all $v \in V$ with $\norm{v} \leq 1$, so $\norm{S \pm R} \leq 1$.
+    Because $(S \pm R) e_1 = f_1$, it follows that $\norm{S + R} \geq 1$ and $\norm{S - R} \geq 1$.
+    Hence, $\norm{S + R} = \norm{S - R} = 1$.
+    Consequently,
+    \[
+        \norm{S + R}^2 + \norm{S - R}^2 = 1^2 + 1^2 = 2
+    \]
+    but
+    \[
+        2 \norm{S}^2 + 2 \norm{R}^2 = 2 \cdot 1^2 + 2 \cdot 1^2 = 4.
+    \]
+    The parallelogram equality requires that $\norm{S + R}^2 + \norm{S - R}^2 = 2 \norm{S}^2 + 2 \norm{R}^2$, which is not the case here.
+    Therefore, the norm on $\lin{V, W}$ does not come from an inner product.
+\end{sol}
+
 \begin{exercise}{7f22}
     Suppose $T \in \lin{V, W}$.
     Let $n = \dim V$ and let $s_1 \geq \cdots \geq s_n$ denote the singular values of $T$.
@@ -149,10 +553,70 @@
     \]
 \end{exercise}
 
+\begin{sol}
+    Let $m$ be the number of positive singular values of $T$, so $s_{m+1} = \cdots = s_n = 0$.
+    By 7.70, there exist orthonormal lists $e_1, \ldots, e_m$ in $V$ and $f_1, \ldots, f_m$ in $W$ such that
+    \[
+        Tv = \sum_{j=1}^{m} s_j \ip{v, e_j} f_j
+    \]
+    for all $v \in V$.
+    Extend $e_1, \ldots, e_m$ to an orthonormal basis $e_1, \ldots, e_n$ of $V$ by 6.35 if $m = 0$, or by 6.36 if $m > 0$.
+    By 6.24,
+    \[
+        \norm{Tv}^2 = \sum_{j=1}^{m} s_j^2 \abs{\ip{v, e_j}}^2 + \sum_{j=m+1}^{n} 0 \cdot \abs{\ip{v, e_j}}^2 = \sum_{j=1}^{n} s_j^2 \abs{\ip{v, e_j}}^2.
+    \]
+    
+    \rightineq Consider the subspace $X = \spn(e_{n-k+1}, \ldots, e_n)$ of $V$.
+    By 6.25, $\dim X = k$.
+    For every $x \in X$ and $j \leq n-k$, we have $\ip{x, e_j} = 0$ by the orthonormality of $e_1, \ldots, e_n$.
+    By the above calculation,
+    \[
+        \norm{Tx}^2 = \sum_{j=n-k+1}^{n} s_j^2 \abs{\ip{x, e_j}}^2 \leq s_{n-k+1}^2 \sum_{j=n-k+1}^{n} \abs{\ip{x, e_j}}^2 = s_{n-k+1}^2 \norm{x}^2,
+    \]
+    where the last equality follows from 6.30(b).
+    By 7.88(c), $\norm{T|_X} \leq s_{n-k+1}$.
+
+    \leftineq Let $U$ be any subspace of $V$ with $\dim U = k$.
+    Let $Y = \spn(e_1, \ldots, e_{n-k+1})$, so $\dim Y = n-k+1$ by 6.25.
+    By 2.37, $\dim(U + Y) \leq n$.
+    By 2.43,
+    \[
+        \dim(U \cap Y) = \dim U + \dim Y - \dim(U + Y) \geq k + (n-k+1) - n = 1.
+    \]
+    Let $u \in U \cap Y$ be nonzero.
+    For all $j > n-k+1$, we have $\ip{u, e_j} = 0$ by the orthonormality of $e_1, \ldots, e_n$.
+    By the above calculation,
+    \[
+        \norm{Tu}^2 = \sum_{j=1}^{n-k+1} s_j^2 \abs{\ip{u, e_j}}^2 \geq s_{n-k+1}^2 \sum_{j=1}^{n-k+1} \abs{\ip{u, e_j}}^2 = s_{n-k+1}^2 \norm{u}^2,
+    \]
+    where the last equality follows from 6.30(b).
+    Taking square roots yields $\norm{Tu} \geq s_{n-k+1} \norm{u}$.
+    By 7.88(c), $\norm{T|_U}\,\norm{u} \geq \norm{Tu} \geq s_{n-k+1} \norm{u}$, so $\norm{T|_U} \geq s_{n-k+1}$ by dividing both sides by $\norm{u} > 0$ since $u \neq 0$.
+    Since every $U$ with $\dim U = k$ satisfies $\norm{T|_U} \geq s_{n-k+1}$, and we have found an $X$ with $\dim X = k$ such that $\norm{T|_X} \leq s_{n-k+1}$, the minimum exists and is attained at $X$, and therefore equals $s_{n-k+1}$.
+\end{sol}
+
 \begin{exercise}{7f23}
     Suppose $T \in \lin{V, W}$.
-    Show that $T$ is uniformly continuous with respect to the metrics on $V$ and $W$ that arise from the norms on those spaces (see Exercise 23 in Section 6B).
+    Show that $T$ is uniformly continuous with respect to the metrics on $V$ and $W$ that arise from the norms on those spaces (see \exref{6b23}).
+
+    \remark{For reference, the metrics on $V$ and $W$ that arise from the norms are $d_V(v_1, v_2) = \norm{v_1 - v_2}$ and $d_W(w_1, w_2) = \norm{w_1 - w_2}$.
+    With these metrics, uniform continuity of $T$ means that for every $\ep > 0$, there exists a $\delta > 0$ such that for all $v_1, v_2 \in V$, if $\norm{v_1 - v_2} < \delta$, then $\norm{Tv_1 - Tv_2} < \ep$.}
 \end{exercise}
+
+\begin{sol}
+    Let $\ep > 0$ be given.
+    Define
+    \[
+        \delta = \frac{\ep}{\norm{T} + 1}.
+    \]
+    Note that $\delta > 0$ since $\norm{T} \geq 0$ by 7.87(a).
+    Suppose $v_1, v_2 \in V$ such that $\norm{v_1 - v_2} < \delta$.
+    By 7.88(c),
+    \[
+        \norm{Tv_1 - Tv_2} = \norm{T(v_1 - v_2)} \leq \norm{T}\,\norm{v_1 - v_2} \leq \norm{T} \delta = \norm{T} \frac{\ep}{\norm{T} + 1} < \ep.
+    \]
+    Hence, $T$ is uniformly continuous.
+\end{sol}
 
 \begin{exercise}{7f24}
     Suppose $T \in \lin{V}$ is invertible.
@@ -161,6 +625,35 @@
         \norm{T\inv} = \norm{T}\inv \iff \frac{T}{\norm{T}} \text{ is a unitary operator}.
     \]
 \end{exercise}
+
+\begin{sol}
+    Suppose $V \neq \set 0$, for otherwise $\norm{T}\inv$ is undefined.
+    Let $n = \dim V$, and let $s_1 \geq \cdots \geq s_n$ be the singular values of $T$.
+    Since $T$ is invertible, it is injective, so $s_n > 0$ by 7.68(a).
+    By \exref{7e10} and 7.88(a), $\norm{T\inv} = \frac{1}{s_n}$ and $\norm{T} = s_1 > 0$.
+    Since $s_k > 0$ for all $k = 1, \ldots, n$, by 7.70, there exist orthonormal lists $e_1, \ldots, e_n$ and $f_1, \ldots, f_n$ in $V$ such that
+    \[
+        Tv = \sum_{k=1}^{n} s_k \ip{v, e_k} f_k
+    \]
+    for all $v \in V$.
+    Define $S = \frac{T}{\norm{T}}$.
+    Then
+    \[
+        Sv = \sum_{k=1}^{n} \frac{s_k}{\norm{T}} \ip{v, e_k} f_k
+    \]
+    for all $v \in V$.
+    Since the coefficients are positive and decreasing, the positive singular values of $S$ are $\frac{s_1}{\norm{T}}, \ldots, \frac{s_n}{\norm{T}}$ by \exref{7e8}(c).
+    Because $n = \dim V$, these are all the singular values of $S$.
+    Since $S$ has inverse $\norm{T} T\inv$, it is unitary if and only if it is an isometry.
+    By 7.69, $S$ is an isometry if and only if all its singular values are 1.
+    Therefore,
+    \begin{align*}
+        \norm{T\inv} = \norm{T}\inv &\iff \frac{1}{s_n} = \frac{1}{s_1} \\
+        &\iff s_n = s_1 \\
+        &\iff \frac{s_1}{\norm{T}} = \cdots = \frac{s_n}{\norm{T}} = 1 \\
+        &\iff \frac{T}{\norm{T}} = S \text{ is a unitary operator}. \qedhere
+    \end{align*}
+\end{sol}
 
 \begin{exercise}{7f25}
     Fix $u, x \in V$ with $u \neq 0$.
@@ -172,10 +665,80 @@
     for every $v \in V$.
 \end{exercise}
 
+\begin{sol}
+    Observe that $\ip{Tv, w} = \ip{\ip{v, u}x, w} = \ip{v, u} \ip{x, w}$ for all $v, w \in V$.
+    Then $\ip{v, u} \ip{x, w} = \ip{v, \bar{\ip{x, w}} u} = \ip{v, \ip{w, x} u}$ for all $v, w \in V$, so $T^\ast w = \ip{w, x} u$ for all $w \in V$.
+    Therefore,
+    \[
+        T^\ast T v = T^\ast (\ip{v, u} x) = \ip{v, u} T^\ast x = \ip{v, u} \ip{x, x} u = \norm{x}^2 \ip{v, u} u
+    \]
+    for all $v \in V$.
+    Define $R \in \lin{V}$ by $Rv = \frac{\norm{x}}{\norm{u}} \ip{v, u} u$ for all $v \in V$.
+    Since $\frac{\norm{x}}{\norm{u}} \geq 0$, $\ip{Rv, w} = \frac{\norm{x}}{\norm{u}} \ip{v, u} \ip{u, w} = \ip{v, Rw}$ for all $v, w \in V$, so $R$ is self-adjoint.
+    Moreover,
+    \[
+        \ip{Rv, v} = \frac{\norm{x}}{\norm{u}} \ip{v, u} \ip{u, v} = \frac{\norm{x}}{\norm{u}} |\ip{v, u}|^2 \geq 0,
+    \]
+    so $R$ is positive.
+    Finally,
+    \[
+        R^2 v = R\left(\frac{\norm{x}}{\norm{u}} \ip{v, u} u\right) = \frac{\norm{x}}{\norm{u}} \ip*{\frac{\norm{x}}{\norm{u}} \ip{v, u} u, u} u = \frac{\norm{x}^2}{\norm{u}^2} \ip{v, u} \ip{u, u} u = \norm{x}^2 \ip{v, u} u = T^\ast T v
+    \]
+    for all $v \in V$.
+    Then $R$ is a positive square root of $T^\ast T$, so $R = \sqrt{T^\ast T}$ by 7.39.
+    Hence,
+    \[
+        \sqrt{T^\ast T}\,v = Rv = \frac{\norm{x}}{\norm{u}} \ip{v, u} u
+    \]
+    for all $v \in V$.
+\end{sol}
+
 \begin{exercise}{7f26}
     Suppose $T \in \lin{V}$.
     Prove that $T$ is invertible if and only if there exists a unique unitary operator $S \in \lin{V}$ such that $T = S\sqrt{T^\ast T}$.
 \end{exercise}
+
+\begin{sol}
+    Since $\sqrt{T^\ast T}$ is positive, it is self-adjoint.
+    Then for any $v \in V$, we have
+    \[
+        \norm*{\sqrt{T^\ast T}\,v}^2 = \ip{T^\ast T v, v} = \norm{Tv}^2.
+    \]
+    Hence, $\nul \sqrt{T^\ast T} = \nul T$.
+    By the polar decomposition of $T$, the existence of such $S$ is guaranteed.
+    As such, it remains to show that $S$ is unique if and only if $T$ is invertible.
+
+    \rightimp Suppose $T$ is invertible.
+    By the above, $\nul \sqrt{T^\ast T} = \nul T = \set 0$, so $\sqrt{T^\ast T}$ is injective, and hence invertible by 3.65.
+    Moreover, if $S_1, S_2 \in \lin{V}$ are unitary operators such that $T = S_1 \sqrt{T^\ast T} = S_2 \sqrt{T^\ast T}$, then right-multiplying by $(\sqrt{T^\ast T})\inv$ gives $S_1 = S_2$, so $S$ is unique.
+
+    \leftimp Suppose $T$ is not invertible.
+    By 3.65, $\nul T \neq \set 0$.
+    By the polar decomposition of $T$, there exists a unitary operator $S$ such that $T = S\sqrt{T^\ast T}$.
+    By 6.35, there exists an orthonormal basis $e_1, \ldots, e_m$ of $\nul T$, where $m \geq 1$.
+    By 6.36, we may extend this to an orthonormal basis $e_1, \ldots, e_n$ of $V$.
+    By the linear map lemma, there exists $R \in \lin{V}$ such that $R e_j = -e_j$ for $j \leq m$ and $R e_j = e_j$ for $j > m$.
+    Because $R e_1, \ldots, R e_n$ is an orthonormal basis of $V$, $R$ is unitary by 7.53(d).
+    Moreover, self-adjointness of $\sqrt{T^\ast T}$ gives
+    \[
+        \range \sqrt{T^\ast T} = (\nul \sqrt{T^\ast T})^\perp = (\nul T)^\perp
+    \]
+    by 7.6(b).
+    Now, if $u \in (\nul T)^\perp$, then $\ip{u, e_j} = 0$ for $j \leq m$.
+    By 6.30(a), we may write
+    \[
+        u = \sum_{j=m+1}^{n} \ip{u, e_j} e_j,
+    \]
+    so $R u = u$.
+    Consequently, $R \sqrt{T^\ast T} = \sqrt{T^\ast T}$, so $SR \sqrt{T^\ast T} = S \sqrt{T^\ast T} = T$.
+    By 7.5(d) and 7.53(b),
+    \[
+        (SR)^\ast (SR) = R^\ast S^\ast SR = I, \quad (SR)(SR)^\ast = SR R^\ast S^\ast = I.
+    \]
+    Hence, $SR$ is unitary.
+    Lastly, injectivity of $S$ shows that $S e_1 \neq 0$, so $SR e_1 = - Se_1 \neq S e_1$.
+    Therefore, $S$ and $SR$ are distinct unitary operators such that $T = S\sqrt{T^\ast T} = SR\sqrt{T^\ast T}$, and $S$ is not unique.
+\end{sol}
 
 \begin{exercise}{7f27}
     Suppose $T \in \lin{V}$ and $s_1, \ldots, s_n$ are the singular values of $T$.
@@ -196,10 +759,52 @@
     \note{This exercise finds a unitary operator $S$ that is as close as possible (among the unitary operators) to a given operator $T$.}
 \end{exercise}
 
+\begin{solenum}
+    \item Since $S e_j = f_j$ for all $j$, $S$ is unitary by 7.53(d).
+    By assumption,
+    \[
+        (T - S)v = \sum_{j=1}^{n} (s_j - 1) \ip{v, e_j} f_j
+    \]
+    for any $v \in V$.
+    Define
+    \[
+        M = \max_{1 \leq j \leq n} |s_j - 1|.
+    \]
+    By 6.24 and 6.30(b),
+    \[
+        \norm{(T - S)v}^2 = \sum_{j=1}^{n} |s_j - 1|^2 |\ip{v, e_j}|^2 \leq M^2 \sum_{j=1}^{n} |\ip{v, e_j}|^2 = M^2 \norm{v}^2
+    \]
+    for all $v \in V$.
+    Taking square roots and applying 7.88(c) gives $\norm{T - S} \leq M$.
+    Choose $k$ such that $|s_k - 1| = M$.
+    Since $\norm{(T - S) e_k} = |s_k - 1| = M$ and $\norm{e_k} = 1$, 7.88(b) gives $\norm{T - S} \geq M$.
+    Therefore, $\norm{T - S} = M$.
+    \item Suppose $E \in \lin{V}$ is unitary.
+    Then it is an isometry, so $\norm{E e_j} = \norm{e_j} = 1$ for all $j$.
+    Moreover, since $T e_j = s_j f_j$ and $s_j \geq 0$ for all $j$, we have $\norm{T e_j} = s_j$.
+    Because $\norm{e_j} = 1$, 7.88(b) and the reverse triangle inequality give
+    \[
+        \norm{T - E} \geq \norm{(T - E) e_j} \geq \bigl| \norm{T e_j} - \norm{E e_j} \bigr| = |s_j - 1|.
+    \]
+    Since this holds for all $j$, taking the maximum over $j$ gives
+    \[
+        \norm{T - E} \geq \max_{1 \leq j \leq n} |s_j - 1| = \norm{T - S}. \qedhere
+    \]
+\end{solenum}
+
 \begin{exercise}{7f28}
     Suppose $T \in \lin{V}$.
     Prove that there exists a unitary operator $S \in \lin{V}$ such that $T = \sqrt{TT^\ast}\, S$.
 \end{exercise}
+
+\begin{sol}
+    By the polar decomposition of $T^\ast$, there exists a unitary operator $U \in \lin{V}$ such that $T^\ast = U\sqrt{(T^\ast)^\ast T^\ast}$.
+    By 7.5(c), $(T^\ast)^\ast = T$, so $T^\ast = U\sqrt{TT^\ast}$.
+    Since $\sqrt{TT^\ast}$ is positive, it is self-adjoint, so $\sqrt{TT^\ast} = (\sqrt{TT^\ast})^\ast$.
+    By 7.5(c), (d), and taking adjoints, $T = (U \sqrt{TT^\ast})^\ast = \sqrt{TT^\ast}\, U^\ast$.
+    By 7.53(f), $U^\ast$ is unitary since $U$ is unitary.
+    Setting $S = U^\ast$ gives the desired result.
+\end{sol}
 
 \begin{exercise}{7f29}
     Suppose $T \in \lin{V}$.
@@ -209,6 +814,26 @@
     \end{subexercises}
 \end{exercise}
 
+\begin{solenum}
+    \item By the polar decomposition of $T$, there exists a unitary operator $S \in \lin{V}$ such that $T = S\sqrt{T^\ast T}$.
+    By 7.5(d), $T^\ast = (\sqrt{T^\ast T})^\ast S^\ast$.
+    Since $\sqrt{T^\ast T}$ is positive, it is self-adjoint, so $(\sqrt{T^\ast T})^\ast = \sqrt{T^\ast T}$, and hence $T^\ast = \sqrt{T^\ast T}\, S^\ast$.
+    By the definition of the square root,
+    \[
+        TT^\ast = S\sqrt{T^\ast T} \left(\sqrt{T^\ast T}\, S^\ast\right) = S T^\ast T S^\ast.
+    \]
+    \item Since $T^\ast T$ is positive, 7.38(c) gives an orthonormal basis $e_1, \ldots, e_n$ of $V$ and nonnegative numbers $\mu_1, \ldots, \mu_n$ such that $T^\ast T e_k = \mu_k e_k$ for each $k$.
+    By 7.53(b), $S^\ast S = I$ since $S$ is unitary.
+    Therefore,
+    \[
+        TT^\ast (S e_k) = S T^\ast T S^\ast (S e_k) = S T^\ast T e_k = S (\mu_k e_k) = \mu_k (S e_k).
+    \]
+    Since $S$ is invertible, $S e_1, \ldots, S e_n$ is also a basis of $V$.
+    By \autoref{lem:1} applied to $T$ with the basis $e_1, \ldots, e_n$, the singular values of $T$ are $\sqrt{\mu_1}, \ldots, \sqrt{\mu_n}$ sorted into decreasing order.
+    By 7.5(c), $(T^\ast)^\ast T^\ast = TT^\ast$, so $(T^\ast)^\ast T^\ast (S e_k) = TT^\ast (S e_k) = \mu_k (S e_k)$ for each $k$.
+    By \autoref{lem:1} applied to $T^\ast$ with the basis $S e_1, \ldots, S e_n$, the singular values of $T^\ast$ are $\sqrt{\mu_1}, \ldots, \sqrt{\mu_n}$ sorted into decreasing order, which are the same as those of $T$.
+\end{solenum}
+
 \begin{exercise}{7f30}
     Suppose $T \in \lin{V}$, $S \in \lin{V}$ is a unitary operator, and $R \in \lin{V}$ is a positive operator such that $T = SR$.
     Prove that $R = \sqrt{T^\ast T}$.
@@ -216,10 +841,39 @@
     \note{This exercise shows that if we write $T$ as the product of a unitary operator and a positive operator (as in the polar decomposition 7.93), then the positive operator equals $\sqrt{T^\ast T}$.}
 \end{exercise}
 
+\begin{sol}
+    Since $R$ is positive, it is self-adjoint.
+    By 7.5(d) and 7.53(b), $T^\ast T = RS^\ast SR = R^2$.
+    Then $R$ is a positive square root of $T^\ast T$, so $R = \sqrt{T^\ast T}$ by 7.39.
+\end{sol}
+
 \begin{exercise}{7f31}
     Suppose $\fbb = \cbb$ and $T \in \lin{V}$ is normal.
     Prove that there exists a unitary operator $S \in \lin{V}$ such that $T = S\sqrt{T^\ast T}$ and such that $S$ and $\sqrt{T^\ast T}$ both have diagonal matrices with respect to the same orthonormal basis of $V$.
 \end{exercise}
+
+\begin{sol}
+    By the complex spectral theorem, there exists an orthonormal basis $e_1, \ldots, e_n$ of $V$ consisting of eigenvectors of $T$, and scalars $\lambda_1, \ldots, \lambda_n$ such that $T e_k = \lambda_k e_k$ for each $k$.
+    By 7.21(e),
+    \[
+        T^\ast T e_k = \lambda_k T^\ast e_k = \lambda_k \bar{\lambda_k} e_k = |\lambda_k|^2 e_k.
+    \]
+    By the linear map lemma, there exists $R \in \lin{V}$ such that $R e_k = |\lambda_k| e_k$ for each $k$.
+    Then $\mcal(R, (e_1, \ldots, e_n))$ is diagonal with entries $|\lambda_1|, \ldots, |\lambda_n|$, so $R$ is positive by 7.38(c) and (a).
+    Moreover, $R^2 e_k = |\lambda_k|^2 e_k = T^\ast T e_k$ for each $k$, so $R^2 = T^\ast T$ by the linear map lemma.
+    Since $R$ is a positive square root of $T^\ast T$, we have $R = \sqrt{T^\ast T}$ by 7.39.
+    By the linear map lemma again, there exists $S \in \lin{V}$ such that $S e_k = \mu_k e_k$, where
+    \[
+        \mu_k = 
+        \begin{cases}
+            \frac{\lambda_k}{|\lambda_k|}, & \lambda_k \neq 0, \\
+            1, & \lambda_k = 0.
+        \end{cases}
+    \]
+    Since each $S e_k = \mu_k e_k$ with $|\mu_k| = 1$, it follows that $S e_1, \ldots, S e_n$ is an orthonormal basis of $V$, so $S$ is unitary by 7.53(d).
+    Moreover, $T e_k = \lambda_k e_k = \mu_k |\lambda_k| e_k = S R e_k$ for each $k$, so $T = S R = S \sqrt{T^\ast T}$ by the linear map lemma.
+    It now follows that $\mcal(S, (e_1, \ldots, e_n))$ is diagonal with entries $\mu_1, \ldots, \mu_n$, and $\mcal(\sqrt{T^\ast T}, (e_1, \ldots, e_n))$ is diagonal with entries $|\lambda_1|, \ldots, |\lambda_n|$, so $S$ and $\sqrt{T^\ast T}$ both have diagonal matrices with respect to the same orthonormal basis $e_1, \ldots, e_n$.
+\end{sol}
 
 \begin{exercise}{7f32}
     Suppose that $T \in \lin{V, W}$ and $T \neq 0$.
@@ -230,3 +884,52 @@
     \]
     equals the ball in $\range T$ of radius $1$ centered at $0$.
 \end{exercise}
+
+\begin{sol}
+    Let $B = \set{w \in \range T \mid \norm{w} < 1}$.
+    Since $T \neq 0$, we have $\dim \range T \geq 1$.
+    By 7.68(b), the number of positive singular values $m$ equals $\dim \range T$, so $m \geq 1$.
+    By 7.70, there exist orthonormal lists $e_1, \ldots, e_m$ in $V$ and $f_1, \ldots, f_m$ in $W$ such that
+    \[
+        T v = \sum_{k=1}^m s_k \ip{v, e_k} f_k
+    \]
+    for all $v \in V$.
+    We claim that the orthonormal lists in $V$ and $W$ are orthonormal bases of $(\nul T)^\perp$ and $\range T$, respectively.
+    
+    If $v \in V$ satisfies $\ip{v, e_k} = 0$ for all $k = 1, \ldots, m$, then $T v = 0$.
+    Then $\set{e_1, \ldots, e_m}^\perp \subseteq \nul T$, so $(\nul T)^\perp \subseteq \spn(e_1, \ldots, e_m)$ by 6.48(e) and 6.52.
+    Because $\dim (\nul T)^\perp = \dim V - \dim \nul T = \dim \range T = m$ by 6.51, 3.21, and 7.68(b), and $\dim \spn(e_1, \ldots, e_m) = m$ by 6.25, we have $(\nul T)^\perp = \spn(e_1, \ldots, e_m)$ by 2.39.
+    Additionally, setting $v = e_k$ in the singular value decomposition formula gives $T e_k = s_k f_k$, so $f_k = \frac{1}{s_k} T e_k \in \range T$, and an orthonormal list in $\range T$ of length $m$ must be an orthonormal basis of $\range T$ by 6.28.
+    Since $e_1, \ldots, e_m$ is an orthonormal basis of $(\nul T)^\perp$, 7.96 gives
+    \[
+        E = E\left(\frac{e_1}{s_1}, \ldots, \frac{e_m}{s_m}\right) = \set*{v \in (\nul T)^\perp \setmid \sum_{k=1}^m s_k^2 |\ip{v, e_k}|^2 < 1}.
+    \]
+    We now show that $T(E) = B$.
+
+    \rightset Suppose $v \in E$.
+    By 6.24,
+    \[
+        \norm{T v}^2 = \sum_{k=1}^m s_k^2 |\ip{v, e_k}|^2 < 1.
+    \]
+    Therefore, $T v \in B$, so $T(E) \subseteq B$.
+
+    \leftset Conversely, suppose $w \in B$.
+    Since $w \in \range T$, we can write $w = \sum_{k=1}^m \ip{w, f_k} f_k$ by 6.30(a).
+    Define
+    \[
+        v = \sum_{k=1}^m \frac{1}{s_k} \ip{w, f_k} e_k.
+    \]
+    Then $v \in \spn(e_1, \ldots, e_m) = (\nul T)^\perp$.
+    By the orthonormality of $e_1, \ldots, e_m$, we have $\ip{v, e_k} = \frac{1}{s_k} \ip{w, f_k}$ for all $k = 1, \ldots, m$.
+    Hence,
+    \[
+        T v = \sum_{k=1}^m s_k \ip{v, e_k} f_k = \sum_{k=1}^m s_k \frac{1}{s_k} \ip{w, f_k} f_k = \sum_{k=1}^m \ip{w, f_k} f_k = w.
+    \]
+    Moreover,
+    \[
+        \sum_{k=1}^m s_k^2 |\ip{v, e_k}|^2 = \sum_{k=1}^m s_k^2 \left|\frac{1}{s_k} \ip{w, f_k}\right|^2 = \sum_{k=1}^m |\ip{w, f_k}|^2 = \norm{w}^2 < 1,
+    \]
+    where the last equality follows from 6.30(b).
+    Hence, $v \in E$, so $w = Tv \in T(E)$.
+    Therefore, $B \subseteq T(E)$.
+\end{sol}
