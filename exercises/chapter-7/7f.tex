@@ -13,7 +13,7 @@
     Combining the inequalities yields the desired result.
 \end{sol}
 
-\begin{exercise}{7f2}
+\begin{exercise}*{7f2}
     Suppose that $T \in \lin{V}$ is self-adjoint or that $\fbb = \cbb$ and $T \in \lin{V}$ is normal.
     Prove that
     \[
@@ -239,18 +239,21 @@
 \end{exercise}
 
 \begin{sol}
-    If $V = \set 0$, then $\lin{V} = \set 0$, so $T = \sqrt{T} = 0$, and the result holds trivially.
-    Now assume $V \neq \set 0$.
-    By 7.38(c), $T$ has a diagonal matrix with respect to some orthonormal basis of $V$.
-    Since $V \neq \set 0$, the matrix has at least one diagonal entry, which is an eigenvalue of $T$ by 5.41.
-    Since $T$ is positive, it is self-adjoint by 7.38(b).
-    Moreover, it has a unique positive square root $\sqrt{T}$ by 7.39, which is also self-adjoint by 7.38(b).
-    Hence, $(\sqrt{T})^\ast = \sqrt{T}$, so $(\sqrt{T})^\ast\sqrt T = T$.
-    By the definition of singular values, the singular values of $\sqrt{T}$ are the square roots of the eigenvalues of $T$.
-    By 7.38(b), the eigenvalues of $T$ are nonnegative, so $\norm{\sqrt{T}} = \sqrt{\mu}$ by 7.88(a), where $\mu$ is the largest eigenvalue of $T$.
-    By \exref{7f2}, $\norm{T}$ is the maximum of the absolute values of the eigenvalues of $T$.
-    Since the eigenvalues of $T$ are nonnegative, $\mu = \norm{T}$.
-    Therefore, $\norm{\sqrt{T}} = \sqrt{\mu} = \sqrt{\norm{T}}$.
+    By 7.39, $\sqrt{T}$ is the unique positive square root of $T$, so $T$ and $\sqrt{T}$ are self-adjoint by 7.38(b).
+    By \exref{7f2} and the nonnegativity of the eigenvalues of $T$ and $\sqrt{T}$ by 7.38(b), we have 
+    \[
+        \norm{T} = \max_\lambda \lambda, \quad \norm*{\sqrt{T}} = \max_\mu \mu,
+    \]
+    where $\lambda$ and $\mu$ range over all eigenvalues of $T$ and $\sqrt{T}$, respectively.
+
+    By the proof of 7.39, for every eigenvalue $\lambda$ of $T$, $\sqrt{\lambda}$ is an eigenvalue of $\sqrt{T}$.
+    Moreover, if $\sqrt{T} v = \mu v$ for some nonzero $v \in V$, then $T v = \mu^2 v$.
+    Since $\mu \geq 0$, we have $\mu = \sqrt{\mu^2}$, and $\mu^2$ is an eigenvalue of $T$ since $v \neq 0$.
+    Therefore, the eigenvalues of $\sqrt{T}$ are precisely the square roots of the eigenvalues of $T$, so
+    \[
+        \norm*{\sqrt{T}} = \max_\mu \mu = \max_\lambda \sqrt{\lambda} = \sqrt{\max_\lambda \lambda} = \sqrt{\norm{T}},
+    \]
+    where the third equality follows from the fact that $\lambda \mapsto \sqrt{\lambda}$ is an increasing function on $[0, \infty)$.
 \end{sol}
 
 \begin{exercise}{7f13}
@@ -439,21 +442,26 @@
     Prove that if $T \in \lin{V, W}$, then $\norm{T^\ast T} = \norm{T}^2$.
 
     \note{This formula for $\norm{T^\ast T}$ leads to the important subject of $C^\ast$-algebras.}
+
+    \remark{Alternatively, if $T \neq 0$ and
+    \[
+        T v = \sum_{k=1}^m s_k \ip{v, e_k} f_k
+    \]
+    is a singular value decomposition of $T$ by 7.70, then 7.75 gives
+    \[
+        T^\ast T v = \sum_{k=1}^m s_k^2 \ip{v, e_k} e_k,
+    \]
+    so \exref{7e8}(c) and 7.88(a) give $\norm{T^\ast T} = s_1^2 = \norm{T}^2$.}
 \end{exercise}
 
-\begin{sol}
-    If $V = \set 0$, then $T = 0$ and $\norm{T^\ast T} = \norm{0} = 0 = \norm{T}^2$, so the result holds trivially.
-    Now assume $V \neq \set 0$.
-
-    \leftineq By \exref{7f5} and 7.91, $\norm{T^\ast T} \leq \norm{T^\ast}\,\norm{T} = \norm{T}^2$.
-
+\begin{soliff}
     \rightineq By 7.88(b), there exists $v \in V$ with $\norm{v} = 1$ such that $\norm{Tv} = \norm{T}$.
-    By the definition of the adjoint, the Cauchy--Schwarz inequality, and 7.88(c),
+    By the definition of the adjoint, the Cauchy--Schwarz inequality, and 7.88(c), we have
     \[
-        \norm{Tv}^2 = \ip{Tv, Tv} = \ip{T^\ast T v, v} \leq \norm{T^\ast Tv}\,\norm{v} \leq \norm{T^\ast T}\,\norm{v}^2 = \norm{T^\ast T}.
+        \norm{T}^2 = \norm{Tv}^2 = \ip{T v, T v} = \ip{v, T^\ast T v} \leq \norm{v}\,\norm{T^\ast T v} \leq \norm{T^\ast T}\,\norm{v}^2 = \norm{T^\ast T}.
     \]
-    Hence, $\norm{T}^2 = \norm{Tv}^2 \leq \norm{T^\ast T}$.
-\end{sol}
+    \leftineq By \exref{7f5} and 7.91, $\norm{T^\ast T} \leq \norm{T^\ast}\,\norm{T} = \norm{T}^2$.
+\end{soliff}
 
 \begin{exercise}{7f20}
     Suppose $T \in \lin{V}$ is normal.
@@ -461,42 +469,24 @@
 \end{exercise}
 
 \begin{sol}
-    If $V = \set 0$, then $T = 0$ and the result is trivial.
-    Now assume $V \neq \set 0$.
-    Let $n = \dim V \geq 1$.
-    We first show that $(T^m)^\ast = (T^\ast)^m$ for all positive integers $m$.
-    The base case $m=1$ is trivial since $(T^1)^\ast = T^\ast = (T^\ast)^1$.
-    Now suppose $(T^{m-1})^\ast = (T^\ast)^{m-1}$ for some integer $m \geq 2$.
-    By 7.5(d) with $S = T^{m-1}$ and the induction hypothesis, we have
+    Let $n = \dim V$ and let $S = T^\ast T$.
+    We first show that $(T^k)^\ast T^k = S^k$ for all positive integers $k$.
+    The base case $k=1$ is trivial since $(T^1)^\ast T^1 = T^\ast T = S$.
+    Now suppose $(T^{k-1})^\ast T^{k-1} = S^{k-1}$ for $k \geq 2$.
+    Since $T$ is normal, $S$ commutes with $T$, and hence with $T^{k-1}$.
+    By 7.5(d) applied to $T$ and $T^{k-1}$ and the induction hypothesis, we have
     \[
-        (T^m)^\ast = (T^{m-1}T)^\ast = T^\ast (T^{m-1})^\ast = T^\ast (T^\ast)^{m-1} = (T^\ast)^m,
+        (T^k)^\ast T^k = (TT^{k-1})^\ast T^k = (T^{k-1})^\ast (T^\ast T) T^{k-1} = (T^{k-1})^\ast S T^{k-1} = (T^{k-1})^\ast T^{k-1} S = S^{k-1} S = S^k,
     \]
-    so $(T^m)^\ast = (T^\ast)^m$ for all positive integers $m$.
+    so $(T^k)^\ast T^k = S^k$ for all positive integers $k$.
 
-    We now show that $(T^\ast)^m T^m = (T^\ast T)^m$ for all positive integers $m$.
-    Since $T$ is normal, we have $T(T^\ast T) = (TT^\ast)T = (T^\ast T)T$, so $T$ commutes with $T^\ast T$.
-    The base case $m=1$ is trivial since $(T^\ast)^1 T^1 = T^\ast T = (T^\ast T)^1$.
-    Suppose $(T^\ast)^{m-1} T^{m-1} = (T^\ast T)^{m-1}$ for some integer $m \geq 2$.
-    Then
+    Observe that $S$ is positive by 7.64(a), so by 7.38(c), $\mcal(S)$ is diagonal with entries $\lambda_1, \ldots, \lambda_n \geq 0$ with respect to some orthonormal basis of $V$.
+    By 3.43, $\mcal(S^k)$ is also diagonal with entries $\lambda_1^k, \ldots, \lambda_n^k$ with respect to the same orthonormal basis of $V$, which are exactly the eigenvalues of $S^k$ by 5.41, so $S^k$ is positive by 7.38(c).
+    By \exref{7f2} applied to $S^k$ and $S$, the nonnegativity of the eigenvalues of $S^k$, and the fact that $x \mapsto x^k$ is increasing on $[0, \infty)$, we have
     \[
-        (T^\ast)^m T^m = (T^\ast)^{m-1} (T^\ast T) T^{m-1} = (T^\ast)^{m-1} T^{m-1} (T^\ast T) = (T^\ast T)^{m-1} (T^\ast T) = (T^\ast T)^m,
+        \norm{S^k} = \max_{1 \leq j \leq n} \lambda_j^k = \left(\max_{1 \leq j \leq n} \lambda_j\right)^k = \norm{S}^k.
     \]
-    where the second equality uses the fact that $T^\ast T$ commutes with $T^{m-1}$ since it commutes with $T$.
-    Hence, $(T^\ast)^m T^m = (T^\ast T)^m$ for all positive integers $m$.
-
-    Now fix some positive integer $k$.
-    By 7.38(c) and 7.64(a), there exist an orthonormal basis $e_1, \ldots, e_n$ of $V$ and numbers $\lambda_1, \ldots, \lambda_n \geq 0$ such that $T^\ast T e_j = \lambda_j e_j$ for each $j$.
-    By the above equalities with $m=k$,
-    \[
-        (T^k)^\ast T^k e_j = (T^\ast)^k T^k e_j = (T^\ast T)^k e_j = \lambda_j^k e_j
-    \]
-    for all $j = 1, \ldots, n$.
-    By \autoref{lem:1}, the singular values of $T$ are the numbers $\sqrt{\lambda_1}, \ldots, \sqrt{\lambda_n}$ sorted into decreasing order.
-    Moreover, the singular values of $T^k$ are the numbers $\sqrt{\lambda_1^k}, \ldots, \sqrt{\lambda_n^k}$, i.e., $(\sqrt{\lambda_1})^k, \ldots, (\sqrt{\lambda_n})^k$, sorted into decreasing order.
-    
-    Let $s_1$ denote the largest singular value of $T$.
-    Note that the map $t \mapsto t^k$ is increasing for $t \geq 0$, so the largest singular value of $T^k$ is the $k$-th power of the largest singular value of $T$, which is $s_1^k$.
-    By 7.88(a), $\norm{T^k} = s_1^k = \norm{T}^k$.
+    The above computation and \exref{7f19} applied to $T^k$ and $T$ then give $\norm{T^k}^2 = \norm{S}^k = \norm{T}^{2k}$, and taking the nonnegative square roots of both sides yields $\norm{T^k} = \norm{T}^k$.
 \end{sol}
 
 \begin{exercise}{7f21}
@@ -627,32 +617,23 @@
 \end{exercise}
 
 \begin{sol}
-    Suppose $V \neq \set 0$, for otherwise $\norm{T}\inv$ is undefined.
-    Let $n = \dim V$, and let $s_1 \geq \cdots \geq s_n$ be the singular values of $T$.
-    Since $T$ is invertible, it is injective, so $s_n > 0$ by 7.68(a).
-    By \exref{7e10} and 7.88(a), $\norm{T\inv} = \frac{1}{s_n}$ and $\norm{T} = s_1 > 0$.
-    Since $s_k > 0$ for all $k = 1, \ldots, n$, by 7.70, there exist orthonormal lists $e_1, \ldots, e_n$ and $f_1, \ldots, f_n$ in $V$ such that
+    Since $T$ is invertible, $T \neq 0$ so $\norm{T} \neq 0$ by 7.87(b).
+    Let $S = \frac{T}{\norm{T}}$, so $S\inv = \norm{T} T\inv$.
+    By 7.87(c), $\norm{S} = 1$.
+
+    \rightimp Suppose $\norm{T\inv} = \norm{T}\inv$.
+    By 7.87(c), $\norm{S\inv} = \norm{T\inv} \norm{T} = 1$.
+    Then for every $v \in V$, we have by 7.88(c) that
     \[
-        Tv = \sum_{k=1}^{n} s_k \ip{v, e_k} f_k
+        \norm{v} = \norm{S\inv S v} \leq \norm{S\inv}\,\norm{S v} = \norm{S v} \leq \norm{S}\,\norm{v} = \norm{v},
     \]
-    for all $v \in V$.
-    Define $S = \frac{T}{\norm{T}}$.
-    Then
-    \[
-        Sv = \sum_{k=1}^{n} \frac{s_k}{\norm{T}} \ip{v, e_k} f_k
-    \]
-    for all $v \in V$.
-    Since the coefficients are positive and decreasing, the positive singular values of $S$ are $\frac{s_1}{\norm{T}}, \ldots, \frac{s_n}{\norm{T}}$ by \exref{7e8}(c).
-    Because $n = \dim V$, these are all the singular values of $S$.
-    Since $S$ has inverse $\norm{T} T\inv$, it is unitary if and only if it is an isometry.
-    By 7.69, $S$ is an isometry if and only if all its singular values are 1.
-    Therefore,
-    \begin{align*}
-        \norm{T\inv} = \norm{T}\inv &\iff \frac{1}{s_n} = \frac{1}{s_1} \\
-        &\iff s_n = s_1 \\
-        &\iff \frac{s_1}{\norm{T}} = \cdots = \frac{s_n}{\norm{T}} = 1 \\
-        &\iff \frac{T}{\norm{T}} = S \text{ is a unitary operator}. \qedhere
-    \end{align*}
+    so $\norm{S v} = \norm{v}$.
+    Therefore, $S$ is an invertible isometry, so $S$ is unitary.
+
+    \leftimp Suppose $S$ is unitary.
+    Then $S\inv = S^\ast$ by 7.53(c), and hence is unitary by 7.53(f).
+    Thus, $\norm{S\inv} = 1$ by 7.88(b), so $\norm{T}\,\norm{T\inv} = \norm{S\inv} = 1$ by 7.87(c).
+    Hence, $\norm{T\inv} = \norm{T}\inv$.
 \end{sol}
 
 \begin{exercise}{7f25}
@@ -887,49 +868,31 @@
 
 \begin{sol}
     Let $B = \set{w \in \range T \mid \norm{w} < 1}$.
-    Since $T \neq 0$, we have $\dim \range T \geq 1$.
-    By 7.68(b), the number of positive singular values $m$ equals $\dim \range T$, so $m \geq 1$.
-    By 7.70, there exist orthonormal lists $e_1, \ldots, e_m$ in $V$ and $f_1, \ldots, f_m$ in $W$ such that
+    Since $T \neq 0$, we have $\dim \range T = m \geq 1$ by 7.68(b).
+    By the singular value decomposition, there exist orthonormal lists $e_1, \ldots, e_m$ in $V$ and $f_1, \ldots, f_m$ in $W$ such that
     \[
         T v = \sum_{k=1}^m s_k \ip{v, e_k} f_k
     \]
     for all $v \in V$.
-    We claim that the orthonormal lists in $V$ and $W$ are orthonormal bases of $(\nul T)^\perp$ and $\range T$, respectively.
-    
-    If $v \in V$ satisfies $\ip{v, e_k} = 0$ for all $k = 1, \ldots, m$, then $T v = 0$.
-    Then $\set{e_1, \ldots, e_m}^\perp \subseteq \nul T$, so $(\nul T)^\perp \subseteq \spn(e_1, \ldots, e_m)$ by 6.48(e) and 6.52.
-    Because $\dim (\nul T)^\perp = \dim V - \dim \nul T = \dim \range T = m$ by 6.51, 3.21, and 7.68(b), and $\dim \spn(e_1, \ldots, e_m) = m$ by 6.25, we have $(\nul T)^\perp = \spn(e_1, \ldots, e_m)$ by 2.39.
-    Additionally, setting $v = e_k$ in the singular value decomposition formula gives $T e_k = s_k f_k$, so $f_k = \frac{1}{s_k} T e_k \in \range T$, and an orthonormal list in $\range T$ of length $m$ must be an orthonormal basis of $\range T$ by 6.28.
-    Since $e_1, \ldots, e_m$ is an orthonormal basis of $(\nul T)^\perp$, 7.96 gives
+    Moreover, for any $u \in \nul T$,
+    \[
+        T u = \sum_{k=1}^m s_k \ip{u, e_k} f_k = 0.
+    \]
+    Since $f_1, \ldots, f_m$ is linearly independent by 6.25 and $s_k > 0$ for all $k$, $\ip{u, e_k} = 0$ for all $k = 1, \ldots, m$, so $e_k \in (\nul T)^\perp$ for all $k$.
+    By 6.51 and the fundamental theorem of linear maps, $\dim(\nul T)^\perp = \dim \range T = m$, so $e_1, \ldots, e_m$ form an orthonormal basis of $(\nul T)^\perp$ by 6.28.
+    By 7.96 in $(\nul T)^\perp$,
     \[
         E = E\left(\frac{e_1}{s_1}, \ldots, \frac{e_m}{s_m}\right) = \set*{v \in (\nul T)^\perp \setmid \sum_{k=1}^m s_k^2 |\ip{v, e_k}|^2 < 1}.
     \]
+    By 6.24, $\norm{T v}^2 = \sum_{k=1}^m s_k^2 |\ip{v, e_k}|^2$ for all $v \in V$, so
+    \[
+        E = \set{v \in (\nul T)^\perp \mid \norm{T v} < 1}.
+    \]
     We now show that $T(E) = B$.
 
-    \rightset Suppose $v \in E$.
-    By 6.24,
-    \[
-        \norm{T v}^2 = \sum_{k=1}^m s_k^2 |\ip{v, e_k}|^2 < 1.
-    \]
-    Therefore, $T v \in B$, so $T(E) \subseteq B$.
+    \rightset This follows immediately from the definition of $E$.
 
-    \leftset Conversely, suppose $w \in B$.
-    Since $w \in \range T$, we can write $w = \sum_{k=1}^m \ip{w, f_k} f_k$ by 6.30(a).
-    Define
-    \[
-        v = \sum_{k=1}^m \frac{1}{s_k} \ip{w, f_k} e_k.
-    \]
-    Then $v \in \spn(e_1, \ldots, e_m) = (\nul T)^\perp$.
-    By the orthonormality of $e_1, \ldots, e_m$, we have $\ip{v, e_k} = \frac{1}{s_k} \ip{w, f_k}$ for all $k = 1, \ldots, m$.
-    Hence,
-    \[
-        T v = \sum_{k=1}^m s_k \ip{v, e_k} f_k = \sum_{k=1}^m s_k \frac{1}{s_k} \ip{w, f_k} f_k = \sum_{k=1}^m \ip{w, f_k} f_k = w.
-    \]
-    Moreover,
-    \[
-        \sum_{k=1}^m s_k^2 |\ip{v, e_k}|^2 = \sum_{k=1}^m s_k^2 \left|\frac{1}{s_k} \ip{w, f_k}\right|^2 = \sum_{k=1}^m |\ip{w, f_k}|^2 = \norm{w}^2 < 1,
-    \]
-    where the last equality follows from 6.30(b).
-    Hence, $v \in E$, so $w = Tv \in T(E)$.
-    Therefore, $B \subseteq T(E)$.
+    \leftset Suppose $w \in B$.
+    By 6.67, there exists $v \in (\nul T)^\perp$ such that $T v = w$.
+    Then $\norm{T v} < 1$, so $v \in E$, and hence $w = T v \in T(E)$.
 \end{sol}
