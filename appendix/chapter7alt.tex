@@ -132,3 +132,25 @@ An alternate argument using the spectral theorem is given for part (b), where th
 \begin{csp}
     Since $T$ is self-adjoint, there exists an orthonormal basis of eigenvectors of $T$. For any such eigenvector with eigenvalue $\lambda$, the condition $\norm{Tv} \leq \norm{v}$ implies $\lambda \in [-1,1]$. The operator $T+i\sqrt{1-T^2}$ acts on this eigenvector by multiplication with $\lambda+i \sqrt{1-\lambda^2}$, which has modulus $1$. Because there exists an orthonormal basis of eigenvectors whose corresponding eigenvalues all have modulus $1$, the operator is unitary.
 \end{csp}
+
+\begin{apex}[7f2]
+    Suppose that $T \in \lin{V}$ is self-adjoint or that $\fbb = \cbb$ and $T \in \lin{V}$ is normal.
+    Prove that
+    \[
+        \norm{T} = \max\set{|\lambda| \mid \lambda \text{ is an eigenvalue of } T}.
+    \]
+\end{apex}
+
+\begin{csp}
+    If $V=\{0\}$, the statement holds trivially.
+
+    Otherwise, since $T$ is self-adjoint or complex normal, the spectral theorem guarantees an orthonormal basis $e_1,\dots,e_n$ of $V$ consisting of eigenvectors of $T$ with corresponding eigenvalues $\lambda_1,\dots,\lambda_n$. For any vector ${v=\sum \limits^{n}_{i=1} c_i e_i \in V}$,
+    $$\norm{Tv}^2=\sum^{n}_{i=1} |\lambda_i|^2 |c_i|^2 \leq \left(\max_i |\lambda_i| \right)^2 \sum^{n}_{i=1} |c_i|^2=\left(\max_i |\lambda_i| \right)^2 \norm{v}^2,$$
+    which implies $\norm{T} \leq \max \limits_i |\lambda_i|$.
+
+    Conversely, letting $j$ be an index where the maximum is attained, $\norm{Te_j}=|\lambda_j| \norm{e_j}$, so
+    $$\norm{T} \geq \frac{\norm{Te_j}}{\norm{e_j}}=|\lambda_j|=\max_i |\lambda_i|.$$
+
+    Therefore,
+    $$\norm{T}=\max \{|\lambda|: \lambda \text{ is an eigenvalue of } T\}.$$
+\end{csp}
