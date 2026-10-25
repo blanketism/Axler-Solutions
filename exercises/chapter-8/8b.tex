@@ -1,0 +1,177 @@
+\subsection{Generalized Eigenspace Decomposition}
+
+\begin{exercise}{8b1}
+    Define $T \in \lin{\cbb^2}$ by $T(w, z) = (-z, w)$.
+    Find the generalized eigenspaces corresponding to the distinct eigenvalues of $T$.
+\end{exercise}
+
+\begin{exercise}{8b2}
+    Suppose $T \in \lin{V}$ is invertible.
+    Prove that $G(\lambda, T) = G\left(\tfrac{1}{\lambda}, T\inv\right)$ for every $\lambda \in \fbb$ with $\lambda \neq 0$.
+\end{exercise}
+
+\begin{exercise}{8b3}
+    Suppose $T \in \lin{V}$.
+    Suppose $S \in \lin{V}$ is invertible.
+    Prove that $T$ and $S\inv TS$ have the same eigenvalues with the same multiplicities.
+\end{exercise}
+
+\begin{exercise}{8b4}
+    Suppose $\dim V \geq 2$ and $T \in \lin{V}$ is such that $\nul T^{\dim V - 2} \neq \nul T^{\dim V - 1}$.
+    Prove that $T$ has at most two distinct eigenvalues.
+\end{exercise}
+
+\begin{exercise}{8b5}
+    Suppose $T \in \lin{V}$ and $3$ and $8$ are eigenvalues of $T$.
+    Let $n = \dim V$.
+    Prove that $V = (\nul T^{n-2}) \oplus (\range T^{n-2})$.
+\end{exercise}
+
+\begin{exercise}{8b6}
+    Suppose $T \in \lin{V}$ and $\lambda$ is an eigenvalue of $T$.
+    Explain why the exponent of $z - \lambda$ in the factorization of the minimal polynomial of $T$ is the smallest positive integer $m$ such that $(T - \lambda I)^m|_{G(\lambda, T)} = 0$.
+\end{exercise}
+
+\begin{exercise}{8b7}
+    Suppose $T \in \lin{V}$ and $\lambda$ is an eigenvalue of $T$ with multiplicity $d$.
+    Prove that $G(\lambda, T) = \nul(T - \lambda I)^d$.
+
+    \note{If $d < \dim V$, then this exercise improves 8.20.}
+\end{exercise}
+
+\begin{exercise}{8b8}
+    Suppose $T \in \lin{V}$ and $\lambda_1, \ldots, \lambda_m$ are the distinct eigenvalues of $T$.
+    Prove that
+    \[
+        V = G(\lambda_1, T) \oplus \cdots \oplus G(\lambda_m, T)
+    \]
+    if and only if the minimal polynomial of $T$ equals $(z - \lambda_1)^{k_1} \cdots (z - \lambda_m)^{k_m}$ for some positive integers $k_1, \ldots, k_m$.
+
+    \note{The case $\fbb = \cbb$ follows immediately from 5.27(b) and the generalized eigenspace decomposition (8.22); thus this exercise is interesting only when $\fbb = \rbb$.}
+\end{exercise}
+
+\begin{exercise}{8b9}
+    Suppose $\fbb = \cbb$ and $T \in \lin{V}$.
+    Prove that there exist $D, N \in \lin{V}$ such that $T = D + N$, the operator $D$ is diagonalizable, $N$ is nilpotent, and $DN = ND$.
+\end{exercise}
+
+\begin{exercise}{8b10}
+    Suppose $V$ is a complex inner product space, $e_1, \ldots, e_n$ is an orthonormal basis of $V$, and $T \in \lin{V}$.
+    Let $\lambda_1, \ldots, \lambda_n$ be the eigenvalues of $T$, each included as many times as its multiplicity.
+    Prove that
+    \[
+        |\lambda_1|^2 + \cdots + |\lambda_n|^2 \leq \norm{Te_1}^2 + \cdots + \norm{Te_n}^2.
+    \]
+
+    \note{See the comment after Exercise 5 in Section 7A.}
+\end{exercise}
+
+\begin{exercise}{8b11}
+    Give an example of an operator on $\cbb^4$ whose characteristic polynomial equals $(z - 7)^2 (z - 8)^2$.
+\end{exercise}
+
+\begin{exercise}{8b12}
+    Give an example of an operator on $\cbb^4$ whose characteristic polynomial equals $(z - 1)(z - 5)^3$ and whose minimal polynomial equals $(z - 1)(z - 5)^2$.
+\end{exercise}
+
+\begin{exercise}{8b13}
+    Give an example of an operator on $\cbb^4$ whose characteristic and minimal polynomials both equal $z(z - 1)^2(z - 3)$.
+\end{exercise}
+
+\begin{exercise}{8b14}
+    Give an example of an operator on $\cbb^4$ whose characteristic polynomial equals $z(z - 1)^2(z - 3)$ and whose minimal polynomial equals $z(z - 1)(z - 3)$.
+\end{exercise}
+
+\begin{exercise}{8b15}
+    Let $T$ be the operator on $\cbb^4$ defined by $T(z_1, z_2, z_3, z_4) = (0, z_1, z_2, z_3)$.
+    Find the characteristic polynomial and the minimal polynomial of $T$.
+\end{exercise}
+
+\begin{exercise}{8b16}
+    Let $T$ be the operator on $\cbb^6$ defined by
+    \[
+        T(z_1, z_2, z_3, z_4, z_5, z_6) = (0, z_1, z_2, 0, z_4, 0).
+    \]
+    Find the characteristic polynomial and the minimal polynomial of $T$.
+\end{exercise}
+
+\begin{exercise}{8b17}
+    Suppose $\fbb = \cbb$ and $P \in \lin{V}$ is such that $P^2 = P$.
+    Prove that the characteristic polynomial of $P$ is $z^m (z - 1)^n$, where $m = \dim \nul P$ and $n = \dim \range P$.
+\end{exercise}
+
+\begin{exercise}{8b18}
+    Suppose $T \in \lin{V}$ and $\lambda$ is an eigenvalue of $T$.
+    Explain why the following four numbers equal each other.
+    \begin{subexercises}
+        \item The exponent of $z - \lambda$ in the factorization of the minimal polynomial of $T$.
+        \item The smallest positive integer $m$ such that $(T - \lambda I)^m|_{G(\lambda, T)} = 0$.
+        \item The smallest positive integer $m$ such that
+        \[
+            \nul(T - \lambda I)^m = \nul(T - \lambda I)^{m+1}.
+        \]
+        \item The smallest positive integer $m$ such that
+        \[
+            \range(T - \lambda I)^m = \range(T - \lambda I)^{m+1}.
+        \]
+    \end{subexercises}
+\end{exercise}
+
+\begin{exercise}{8b19}
+    Suppose $\fbb = \cbb$ and $S \in \lin{V}$ is a unitary operator.
+    Prove that the constant term in the characteristic polynomial of $S$ has absolute value $1$.
+\end{exercise}
+
+\begin{exercise}{8b20}
+    Suppose that $\fbb = \cbb$ and $V_1, \ldots, V_m$ are nonzero subspaces of $V$ such that
+    \[
+        V = V_1 \oplus \cdots \oplus V_m.
+    \]
+    Suppose $T \in \lin{V}$ and each $V_k$ is invariant under $T$.
+    For each $k$, let $p_k$ denote the characteristic polynomial of $T|_{V_k}$.
+    Prove that the characteristic polynomial of $T$ equals $p_1 \cdots p_m$.
+\end{exercise}
+
+\begin{exercise}{8b21}
+    Suppose $p, q \in \pcal(\cbb)$ are monic polynomials with the same zeros and $q$ is a polynomial multiple of $p$.
+    Prove that there exists $T \in \lin{\cbb^{\deg q}}$ such that the characteristic polynomial of $T$ is $q$ and the minimal polynomial of $T$ is $p$.
+
+    \note{This exercise implies that every monic polynomial is the characteristic polynomial of some operator.}
+\end{exercise}
+
+\begin{exercise}{8b22}
+    Suppose $A$ and $B$ are block diagonal matrices of the form
+    \[
+        A = \begin{pmatrix}
+            A_1 & & 0 \\
+            & \ddots & \\
+            0 & & A_m
+        \end{pmatrix}, \quad
+        B = \begin{pmatrix}
+            B_1 & & 0 \\
+            & \ddots & \\
+            0 & & B_m
+        \end{pmatrix},
+    \]
+    where $A_k$ and $B_k$ are square matrices of the same size for each $k = 1, \ldots, m$.
+    Show that $AB$ is a block diagonal matrix of the form
+    \[
+        AB = \begin{pmatrix}
+            A_1 B_1 & & 0 \\
+            & \ddots & \\
+            0 & & A_m B_m
+        \end{pmatrix}.
+    \]
+\end{exercise}
+
+\begin{exercise}{8b23}
+    Suppose $\fbb = \rbb$, $T \in \lin{V}$, and $\lambda \in \cbb$.
+    \begin{subexercises}
+        \item Show that $u + iv \in G(\lambda, T_{\cbb})$ if and only if $u - iv \in G(\bar{\lambda}, T_{\cbb})$.
+        \item Show that the multiplicity of $\lambda$ as an eigenvalue of $T_{\cbb}$ equals the multiplicity of $\bar{\lambda}$ as an eigenvalue of $T_{\cbb}$.
+        \item Use (b) and the result about the sum of the multiplicities (8.25) to show that if $\dim V$ is an odd number, then $T_{\cbb}$ has a real eigenvalue.
+        \item Use (c) and the result about real eigenvalues of $T_{\cbb}$ (Exercise 17 in Section 5A) to show that if $\dim V$ is an odd number, then $T$ has an eigenvalue (thus giving an alternative proof of 5.34).
+    \end{subexercises}
+
+    \note{See Exercise 33 in Section 3B for the definition of the complexification $T_{\cbb}$.}
+\end{exercise}
