@@ -18,7 +18,7 @@
         T e_i = \lambda_i e_i = \bar{\lambda_i} e_i = T^\ast e_i
     \]
     for all $i = 1, \ldots, n$.
-    Since $T$ and $T^\ast$ agree on a basis of $V$, we have $T = T^\ast$ by 3.4.
+    Since $T$ and $T^\ast$ agree on a basis of $V$, we have $T = T^\ast$ by the linear map lemma.
 \end{soliff}
 
 \begin{exercise}{7b2}
@@ -76,7 +76,7 @@
         T^\ast e_i = \bar\lambda_i e_i = -\lambda_i e_i = -T e_i
     \]
     for all $i = 1, \ldots, n$.
-    Since $T^\ast$ and $-T$ agree on the basis, $T^\ast = -T$ by 3.4.
+    Since $T^\ast$ and $-T$ agree on the basis, $T^\ast = -T$ by the linear map lemma.
 \end{soliff}
 
 \begin{exercise}{7b5}
@@ -110,7 +110,7 @@
     This gives $\lambda_i \in \set{0, 1}$.
     By \exref{7b1}, since all eigenvalues of $T$ are real, $T$ is self-adjoint.
     Moreover, since each eigenvalue $\lambda_i$ satisfies $\lambda_i \in \set{0, 1}$, we have $\lambda_i^2 = \lambda_i$ for each $i$, so $T^2 e_i = \lambda_i^2 e_i = \lambda_i e_i = T e_i$ for each $i = 1, \ldots, n$.
-    Since $T^2$ and $T$ agree on the basis, $T^2 = T$ by 3.4.
+    Since $T^2$ and $T$ agree on the basis, $T^2 = T$ by the linear map lemma.
 \end{sol}
 
 \begin{exercise}{7b7}
@@ -163,7 +163,7 @@
     Because $T$ is normal and $T e_i = \lambda_i e_i$, we have $T^\ast e_i = \bar{\lambda_i} e_i$ by 7.21(e).
     Also, $p(T) e_i = p(\lambda_i) e_i = \bar{\lambda_i} e_i$.
     Hence, $T^\ast e_i = p(T) e_i$ for all $i$.
-    Since $T^\ast$ and $p(T)$ agree on a basis of $V$, we have $T^\ast = p(T)$ by 3.4.
+    Since $T^\ast$ and $p(T)$ agree on a basis of $V$, we have $T^\ast = p(T)$ by the linear map lemma.
 
     \leftimp Suppose $T^\ast = p(T)$ for some polynomial $p \in \pcal(\cbb)$.
     Since $T$ commutes with $p(T)$, we have $T T^\ast = T p(T) = p(T) T = T^\ast T$, so $T$ is normal.

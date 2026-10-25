@@ -276,7 +276,7 @@
     Let $s_1, \ldots, s_m$ denote the positive singular values of $T$.
     By definition, $s_1 \geq \cdots \geq s_m > 0$.
     Moreover, $m = \dim \range T \geq 1$ by 7.68(b), since $T \neq 0$.
-    By 7.70, there exist orthonormal lists $e_1, \ldots, e_m$ in $V$ and $f_1, \ldots, f_m$ in $W$ such that
+    By the singular value decomposition, there exist orthonormal lists $e_1, \ldots, e_m$ in $V$ and $f_1, \ldots, f_m$ in $W$ such that
     \[
         T v = \sum_{k=1}^m s_k \ip{v, e_k} f_k
     \]
@@ -304,7 +304,7 @@
     Since $T$ is invertible, $T$ is injective.
     By 7.68(a) and the definition of singular values, $s_1 \geq \cdots \geq s_n > 0$.
     Since all singular values are positive, the positive singular values of $T$ are exactly $s_1, \ldots, s_n$.
-    By 7.70, there exist orthonormal lists $e_1, \ldots, e_n$ in $V$ and $f_1, \ldots, f_n$ in $W$ such that
+    By the singular value decomposition, there exist orthonormal lists $e_1, \ldots, e_n$ in $V$ and $f_1, \ldots, f_n$ in $W$ such that
     \[
         T v = \sum_{k=1}^n s_k \ip{v, e_k} f_k
     \]
@@ -338,9 +338,9 @@
 
 \begin{solenum}
     \item Let $m$ denote the number of positive singular values of $T$.
-    By 7.70, there exist orthonormal lists $e_1, \ldots, e_m$ in $V$ and $f_1, \ldots, f_m$ in $W$ such that $T e_k = s_k f_k$ for $k = 1, \ldots, m$.
+    By the singular value decomposition, there exist orthonormal lists $e_1, \ldots, e_m$ in $V$ and $f_1, \ldots, f_m$ in $W$ such that $T e_k = s_k f_k$ for $k = 1, \ldots, m$.
     By 6.36, extend $e_1, \ldots, e_m$ to an orthonormal basis $e_1, \ldots, e_n$ of $V$.
-    By the formula in 7.70, $T e_k = 0$ for $k > m$ since $\ip{e_k, e_j} = 0$ for $j = 1, \ldots, m$.
+    By the formula in the singular value decomposition, $T e_k = 0$ for $k > m$ since $\ip{e_k, e_j} = 0$ for $j = 1, \ldots, m$.
     Moreover, $s_k = 0$ for $k > m$, since $T$ has exactly $n$ singular values.
     Therefore,
     \[
@@ -389,7 +389,7 @@
 
 \begin{sol}
     Let $n = \dim V$, let $s_1 \geq \cdots \geq s_n \geq 0$ denote the singular values of $T_2$, and let $m$ be the number of positive singular values of $T_2$.
-    If $m = 0$, then $T_2$ has no positive singular values, so by the formula in 7.70, $T_2 = 0$.
+    If $m = 0$, then $T_2$ has no positive singular values, so by the formula in the singular value decomposition, $T_2 = 0$.
     If $T_1$ and $T_2$ have the same singular values, the same reasoning yields $T_1 = 0$, so we may take $S_1 = S_2 = I$ and the result holds trivially.
     Conversely, if $T_1 = S_1 T_2 S_2$ for unitary $S_1, S_2 \in \lin{V}$, then $T_1 = S_1 0 S_2 = 0$, so $T_1^\ast T_1 = 0$.
     Since $E(0, T_1^\ast T_1) = V$, $0$ is the only eigenvalue of $T_1^\ast T_1$, and $\dim E(0, T_1^\ast T_1) = n$.
@@ -397,7 +397,7 @@
     Hence, we may assume $m > 0$ for the remainder of the proof.
     
     \rightimp Suppose $T_1$ and $T_2$ have the same singular values.
-    By 7.70, there exist orthonormal lists $e_1, \ldots, e_m$, $f_1, \ldots, f_m$, $e_1', \ldots, e_m'$, and $f_1', \ldots, f_m'$ in $V$ such that
+    By the singular value decomposition, there exist orthonormal lists $e_1, \ldots, e_m$, $f_1, \ldots, f_m$, $e_1', \ldots, e_m'$, and $f_1', \ldots, f_m'$ in $V$ such that
     \[
         T_1 v = \sum_{i=1}^m s_i \ip{v, e_i} f_i, \quad T_2 v = \sum_{i=1}^m s_i \ip{v, e_i'} f_i'
     \]
@@ -466,7 +466,7 @@
 
 \begin{sol}
     Let $s_1, \ldots, s_m$ be the positive singular values of $T$.
-    By 7.70, there exist orthonormal lists $e_1, \ldots, e_m$ in $V$ and $f_1, \ldots, f_m$ in $W$ such that
+    By the singular value decomposition, there exist orthonormal lists $e_1, \ldots, e_m$ in $V$ and $f_1, \ldots, f_m$ in $W$ such that
     \[
         T v = \sum_{i=1}^m s_i \ip{v, e_i} f_i
     \]

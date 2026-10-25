@@ -91,7 +91,7 @@
     \[
         \norm{ST v} \leq \norm{S}\,\norm{T v} \leq \norm{S}\,\norm{T}\,\norm{v}.
     \]
-    By 7.88(c), $\norm{ST}$ is the smallest number such that $\norm{ST v} \leq \norm{ST}\,\norm{v}$ for all $v \in V$.
+    By 7.88(c), $\norm{ST}$ is the smallest number $c$ such that $\norm{ST v} \leq c \norm{v}$ for all $v \in V$.
     Hence, $\norm{ST} \leq \norm{S}\,\norm{T}$.
 \end{sol}
 
@@ -447,7 +447,7 @@
     \[
         T v = \sum_{k=1}^m s_k \ip{v, e_k} f_k
     \]
-    is a singular value decomposition of $T$ by 7.70, then 7.75 gives
+    is a singular value decomposition of $T$ by the singular value decomposition, then 7.75 gives
     \[
         T^\ast T v = \sum_{k=1}^m s_k^2 \ip{v, e_k} e_k,
     \]
@@ -545,7 +545,7 @@
 
 \begin{sol}
     Let $m$ be the number of positive singular values of $T$, so $s_{m+1} = \cdots = s_n = 0$.
-    By 7.70, there exist orthonormal lists $e_1, \ldots, e_m$ in $V$ and $f_1, \ldots, f_m$ in $W$ such that
+    By the singular value decomposition, there exist orthonormal lists $e_1, \ldots, e_m$ in $V$ and $f_1, \ldots, f_m$ in $W$ such that
     \[
         Tv = \sum_{j=1}^{m} s_j \ip{v, e_j} f_j
     \]

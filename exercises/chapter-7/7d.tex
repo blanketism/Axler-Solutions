@@ -176,13 +176,13 @@
     Let $e_2, e_5, e_7$ and $f_2, f_5, f_7$ be unit eigenvectors of $T_1$ and $T_2$ corresponding to the eigenvalues $2, 5, 7$, respectively.
     By 7.22, each list is an orthonormal list in $\fbb^3$.
     By 6.28, each list is an orthonormal basis of $\fbb^3$.
-    By 3.4, there exists a linear operator $S \in \lin{\fbb^3}$ such that $S e_2 = f_2$, $S e_5 = f_5$, and $S e_7 = f_7$.
+    By the linear map lemma, there exists a linear operator $S \in \lin{\fbb^3}$ such that $S e_2 = f_2$, $S e_5 = f_5$, and $S e_7 = f_7$.
     By 7.53(d), $S$ is unitary, and $S^\ast = S\inv$ by 7.53(c).
     For each $k \in \set{2, 5, 7}$, we have $T_1 e_k = k e_k$ and $T_2 f_k = k f_k$, so
     \[
         S^\ast T_2 S e_k = S^\ast T_2 f_k = S^\ast (k f_k) = k S^\ast f_k = k S\inv f_k = k e_k = T_1 e_k.
     \]
-    Since $T_1$ and $S^\ast T_2 S$ agree on an orthonormal basis of $\fbb^3$, we have $T_1 = S^\ast T_2 S$ by 3.4.
+    Since $T_1$ and $S^\ast T_2 S$ agree on an orthonormal basis of $\fbb^3$, we have $T_1 = S^\ast T_2 S$ by the linear map lemma.
 \end{sol}
 
 \begin{exercise}{7d7}
@@ -360,7 +360,7 @@
     \leftimp Suppose $|b| \leq 1$.
     By 6.36, we may extend $v$ to an orthonormal basis $v, u, e_3, \ldots, e_n$ of $V$, which has length $\dim V \geq 2$.
     Let $\beta = \sqrt{1 - |b|^2}$.
-    By 3.4, there exists an operator $S \in \lin{V}$ such that
+    By the linear map lemma, there exists an operator $S \in \lin{V}$ such that
     \[
         S v = b v + \beta u, \quad S u = -\beta v + \bar b u, \quad S e_k = e_k \text{ for } k \geq 3.
     \]

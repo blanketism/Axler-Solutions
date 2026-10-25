@@ -267,9 +267,9 @@
     If $\fbb = \rbb$, the real spectral theorem applies directly, and if $\fbb = \cbb$, self-adjointness implies normality, so the complex spectral theorem applies.
     In either case, there exists an orthonormal basis $e_1, \ldots, e_n$ of $V$ consisting of eigenvectors of $T$ with corresponding eigenvalues $\lambda_1, \ldots, \lambda_n$.
     Since $T$ is self-adjoint, $T^\ast T = T^2$.
-    By 3.4, there exists an operator $C$ on $V$ such that $C e_k = |\lambda_k| e_k$ for each $k = 1, \ldots, n$.
+    By the linear map lemma, there exists an operator $C$ on $V$ such that $C e_k = |\lambda_k| e_k$ for each $k = 1, \ldots, n$.
     Since $\mcal(C, (e_1, \ldots, e_n))$ is diagonal with nonnegative entries, $C$ is a positive operator by 7.38(c).
-    Moreover, $C^2 e_k = |\lambda_k|^2 e_k = \lambda_k^2 e_k = T^2 e_k$ for each $k$, so $C^2 = T^2$ by 3.4.
+    Moreover, $C^2 e_k = |\lambda_k|^2 e_k = \lambda_k^2 e_k = T^2 e_k$ for each $k$, so $C^2 = T^2$ by the linear map lemma.
     By 7.39, $C = \sqrt{T^2} = \sqrt{T^\ast T}$.
 
     Consider now the operators
@@ -286,7 +286,7 @@
     \[
         AB e_k = \frac{1}{4}((C + T)(C - T)) e_k = \frac{1}{4}((|\lambda_k| + \lambda_k)(|\lambda_k| - \lambda_k)) e_k = 0 \quad \text{and} \quad BA e_k = 0
     \]
-    so that $AB = BA = 0$ by 3.4.
+    so that $AB = BA = 0$ by the linear map lemma.
 \end{sol}
 
 \begin{exercise}{7c16}
@@ -327,7 +327,7 @@
         p(T)^2 e_k = p(\lambda_k)^2 e_k = (\sqrt{\lambda_k})^2 e_k = \lambda_k e_k = T e_k
     \]
     for each $k = 1, \ldots, n$.
-    By 3.4, $p(T)^2 = T$, and by 7.39, $p(T) = \sqrt{T}$.
+    By the linear map lemma, $p(T)^2 = T$, and by 7.39, $p(T) = \sqrt{T}$.
 \end{sol}
 
 \begin{exercise}{7c18}
@@ -396,7 +396,7 @@
     \[
         \ip{v_k, v_j} = \ip{R e_k, R e_j} = \ip{R^\ast R e_k, e_j} = \ip{T e_k, e_j}.
     \]
-    \leftimp By 3.4, we may define the unique operator $R \in \lin{V}$ such that $R e_k = v_k$ for $k = 1, \ldots, n$.
+    \leftimp By the linear map lemma, we may define the unique operator $R \in \lin{V}$ such that $R e_k = v_k$ for $k = 1, \ldots, n$.
     Then
     \[
         \ip{T e_k, e_j} = \ip{v_k, v_j} = \ip{R e_k, R e_j} = \ip{R^\ast R e_k, e_j}.
@@ -411,7 +411,7 @@
     \[
         S e_k = \sum_{j=1}^n \ip{S e_k, e_j} e_j = 0.
     \]
-    Since this holds for all $k = 1, \ldots, n$, we have $S = 0$ by 3.4 so that $T = R^\ast R$.
+    Since this holds for all $k = 1, \ldots, n$, we have $S = 0$ by the linear map lemma so that $T = R^\ast R$.
     Therefore, $T$ is positive by 7.38(f).
 \end{soliff}
 
