@@ -7,12 +7,40 @@
     Prove that if $\dim \nul T^4 = 8$ and $\dim \nul T^6 = 9$, then $\dim \nul T^m = 9$ for all integers $m \geq 5$.
 \end{exercise}
 
+\begin{sol}
+    By 8.1, $\nul T^4 \subseteq \nul T^5 \subseteq \nul T^6$.
+    Then $8 \leq \dim \nul T^5 \leq 9$ by 2.37.
+    If $\dim \nul T^5 = 8$, then 2.39 gives $\nul T^4 = \nul T^5$. 
+    8.2 yields $\nul T^4 = \nul T^6$, contradicting $\dim \nul T^6 = 9$.
+    Therefore, $\dim \nul T^5 = 9$, so $\nul T^5 = \nul T^6$ by 2.39.
+    Hence, $\nul T^5 = \nul T^m$ for all $m \geq 5$ by 8.2, so $\dim \nul T^m = 9$ for all $m \geq 5$.
+\end{sol}
+
 \begin{exercise}{8a2}
     Suppose $T \in \lin{V}$, $m$ is a positive integer, $v \in V$, and $T^{m-1} v \neq 0$ but $T^m v = 0$.
     Prove that $v, Tv, T^2 v, \ldots, T^{m-1} v$ is linearly independent.
 
     \note{The result in this exercise is used in the proof of 8.45.}
 \end{exercise}
+
+\begin{sol}
+    By 3.10, $T^j v = T^{j-m}(T^m v) = T^{j-m}(0) = 0$ for all $j \geq m$.
+    Suppose
+    \[
+        \sum_{j=0}^{m-1} \lambda_j T^j v = 0
+    \]
+    for some scalars $\lambda_0, \ldots, \lambda_{m-1} \in \fbb$, where not all $\lambda_j$ are zero.
+    Let $k$ be the smallest index such that $\lambda_k \neq 0$.
+    Applying $T^{m-1-k}$ to both sides gives
+    \[
+        \sum_{j=0}^{m-1} \lambda_j T^{j + m - 1 - k} v = 0.
+    \]
+    If $j < k$, then $\lambda_j = 0$ by the choice of $k$.
+    If $j > k$, then $j + m - 1 - k \geq m$, so $T^{j + m - 1 - k} v = 0$ by the observation above.
+    Hence, the sum reduces to $\lambda_k T^{m-1} v = 0$.
+    Since $\lambda_k \neq 0$, it must be that $T^{m-1} v = 0$, which contradicts the assumption that $T^{m-1} v \neq 0$.
+    Therefore, all $\lambda_j = 0$, proving that $v, Tv, \ldots, T^{m-1} v$ is linearly independent.
+\end{sol}
 
 \begin{exercise}{8a3}
     Suppose $T \in \lin{V}$.
@@ -22,6 +50,19 @@
     \]
 \end{exercise}
 
+\begin{sol}
+    By \exref{5d4}, it suffices to show that $\nul T \cap \range T = \set 0$ if and only if $\nul T^2 = \nul T$.
+    By 8.1, $\nul T \subseteq \nul T^2$.
+    Moreover, $0 \in \nul T \cap \range T$.
+    Consequently,
+    \begin{align*}
+        \nul T^2 = \nul T &\iff \nul T^2 \subseteq \nul T \\
+        &\iff \text{for all } v \in V,\,T^2 v = 0 \text{ implies } T v = 0 \\
+        &\iff \text{for all } w \in \range T,\,Tw = 0 \text{ implies } w = 0 \\
+        &\iff \nul T \cap \range T = \set 0. \qedhere
+    \end{align*}
+\end{sol}
+
 \begin{exercise}{8a4}
     Suppose $T \in \lin{V}$, $\lambda \in \fbb$, and $m$ is a positive integer such that the minimal polynomial of $T$ is a polynomial multiple of $(z - \lambda)^m$.
     Prove that
@@ -30,6 +71,36 @@
     \]
 \end{exercise}
 
+\begin{sol}
+    Let $p$ be the minimal polynomial of $T$.
+    By assumption, $p(z) = (z - \lambda)^m q(z)$ for some $q \in \pcal(\fbb)$, which is monic since $p$ and $(z - \lambda)^m$ are monic.
+    We claim that for each $k = 1, \ldots, m$,
+    \[
+        \nul(T - \lambda I)^{k-1} \subsetneq \nul(T - \lambda I)^k.
+    \]
+    Indeed, if equality did hold for some $k$, then 8.2 applied to $T - \lambda I$ yields $\nul(T - \lambda I)^{k-1} = \nul(T - \lambda I)^m$.
+    Then for each $v \in V$,
+    \[
+        (T - \lambda I)^m(q(T)v) = p(T)v = 0
+    \]
+    by 5.17(a), so $q(T) v \in \nul(T - \lambda I)^m = \nul(T - \lambda I)^{k-1}$.
+    Let $r(z) = (z - \lambda)^{k-1} q(z)$.
+    Then $r$ is monic, and
+    \[
+        \deg r = \deg p - (m - k + 1) < \deg p.
+    \]
+    Additionally, $r(T)v = (T - \lambda I)^{k-1} q(T)v = 0$ for all $v \in V$ by 5.17(a), whence $r(T) = 0$.
+    This contradicts the minimality of $p$ by 5.22, so equality cannot hold for any $k = 1, \ldots, m$.
+    Thus,
+    \[
+        \set 0 = \nul(T - \lambda I)^0 \subsetneq \nul(T - \lambda I)^1 \subsetneq \cdots \subsetneq \nul(T - \lambda I)^m.
+    \]
+    Since strict inclusion raises the dimension by at least 1 by 2.37 and 2.39, we have
+    \[
+        \dim \nul(T - \lambda I)^m \geq m.
+    \]
+\end{sol}
+
 \begin{exercise}{8a5}
     Suppose $T \in \lin{V}$ and $m$ is a positive integer.
     Prove that
@@ -37,8 +108,27 @@
         \dim \nul T^m \leq m \dim \nul T.
     \]
 
-    \hint{Exercise 21 in Section 3B may be useful.}
+    \hint{\exref{3b21} may be useful.}
 \end{exercise}
+
+\begin{sol}
+    We proceed by induction on $m$.
+    The base case $m = 1$ is trivial since $\dim \nul T^1 = \dim \nul T \leq 1 \cdot \dim \nul T$.
+    Suppose $m \geq 2$ and the statement holds for $m-1$.
+    Since $v \in \nul T^m$ if and only if $T^{m-1} T v = 0$, i.e., $T v \in \nul T^{m-1}$, we have
+    \[
+        \nul T^m = \set{v \in V \mid T v \in \nul T^{m-1}}.
+    \]
+    By \exref{3b21} with $W = V$ and $U = \nul T^{m-1}$, we have
+    \begin{align*}
+        \dim \nul T^m &= \dim \nul T + \dim(\nul T^{m-1} \cap \range T) \\
+        &\leq \dim \nul T + \dim \nul T^{m-1} \\
+        &\leq \dim \nul T + (m-1) \dim \nul T \\
+        &= m \dim \nul T,
+    \end{align*}
+    where the first inequality follows from 2.37, and the second inequality follows from the induction hypothesis.
+    This completes the induction step and proves the statement for all positive integers $m$.
+\end{sol}
 
 \begin{exercise}{8a6}
     Suppose $T \in \lin{V}$.
@@ -48,6 +138,12 @@
     \]
 \end{exercise}
 
+\begin{sol}
+    Note that $\range T^0 = \range I = V$.
+    For each $k \geq 0$, every $v \in \range T^{k + 1}$ has the form $v = T^{k+1} u$ for some $u \in V$, hence $v = T^k(Tu) \in \range T^k$.
+    Therefore, $\range T^{k + 1} \subseteq \range T^k$ for all $k \geq 0$.
+\end{sol}
+
 \begin{exercise}{8a7}
     Suppose $T \in \lin{V}$ and $m$ is a nonnegative integer such that
     \[
@@ -55,6 +151,21 @@
     \]
     Prove that $\range T^k = \range T^m$ for all $k > m$.
 \end{exercise}
+
+\begin{sol}
+    Observe that for each $j \geq 0$,
+    \[
+        \range T^{j+1} = \set{T(T^j v) \mid v \in V} = \set{Tw \mid w \in \range T^j}.
+    \]
+    We proceed by induction on $k \geq m+1$.
+    The base case $k = m+1$ is given.
+    Suppose $k \geq m+1$ and $\range T^k = \range T^m$.
+    Then
+    \[
+        \range T^{k+1} = \set{Tw \mid w \in \range T^k} = \set{Tw \mid w \in \range T^m} = \range T^{m+1} = \range T^m.
+    \]
+    This completes the induction step and proves the statement for all $k > m$.
+\end{sol}
 
 \begin{exercise}{8a8}
     Suppose $T \in \lin{V}$.
@@ -64,6 +175,17 @@
     \]
 \end{exercise}
 
+\begin{sol}
+    By 8.3, $\nul T^{\dim V + k} = \nul T^{\dim V}$ for all $k \geq 0$.
+    By the fundamental theorem of linear maps,
+    \[
+        \dim \range T^{\dim V + k} = \dim V - \dim \nul T^{\dim V + k} = \dim V - \dim \nul T^{\dim V} = \dim \range T^{\dim V}
+    \]
+    for all $k \geq 0$.
+    By \exref{8a6}, $\range T^{\dim V + k} \subseteq \range T^{\dim V}$ for all $k \geq 0$.
+    Equality follows from 2.39.
+\end{sol}
+
 \begin{exercise}{8a9}
     Suppose $T \in \lin{V}$ and $m$ is a nonnegative integer.
     Prove that
@@ -72,10 +194,30 @@
     \]
 \end{exercise}
 
+\begin{sol}
+    By 8.1 and \exref{8a6}, $\nul T^m \subseteq \nul T^{m+1}$ and $\range T^{m+1} \subseteq \range T^m$.
+    By 2.39, each inclusion is an equality if and only if the dimensions are equal.
+    By the fundamental theorem of linear maps, $\dim \nul T^j = \dim V - \dim \range T^j$ for all $j \geq 0$.
+    Therefore,
+    \begin{align*}
+        \nul T^m = \nul T^{m+1} &\iff \dim \nul T^m = \dim \nul T^{m+1} \\
+        &\iff \dim V - \dim \range T^m = \dim V - \dim \range T^{m+1} \\
+        &\iff \dim \range T^m = \dim \range T^{m+1} \\
+        &\iff \range T^m = \range T^{m+1}. \qedhere
+    \end{align*}
+\end{sol}
+
 \begin{exercise}{8a10}
     Define $T \in \lin{\cbb^2}$ by $T(w, z) = (z, 0)$.
     Find all generalized eigenvectors of $T$.
 \end{exercise}
+
+\begin{sol}
+    Observe that $T^2(w, z) = T(z, 0) = (0, 0)$, so $T^2 = 0$, and hence $T$ is nilpotent.
+    By 8.17(a), the only eigenvalue of $T$ is $0$.
+    Therefore, every generalized eigenvector of $T$ corresponds to $0$.
+    For every nonzero $v \in \cbb^2$, we have $T^2 v = 0$, so $v$ is a generalized eigenvector of $T$ corresponding to $0$.
+\end{sol}
 
 \begin{exercise}{8a11}
     Suppose that $T \in \lin{V}$.
@@ -83,25 +225,93 @@
 
     \hint{Assume $\fbb = \rbb$ because the case $\fbb = \cbb$ follows from 5.27(b) and 8.9.}
 
-    \note{This exercise states that the condition for there to be a basis of $V$ consisting of generalized eigenvectors of $T$ is the same as the condition for there to be a basis with respect to which $T$ has an upper-triangular matrix (see 5.44).}
-
-    \note{\textbf{Caution:} If $T$ has an upper-triangular matrix with respect to a basis $v_1, \ldots, v_n$ of $V$, then $v_1$ is an eigenvector of $T$ but it is not necessarily true that $v_2, \ldots, v_n$ are generalized eigenvectors of $T$.}
+    \note{This exercise states that the condition for there to be a basis of $V$ consisting of generalized eigenvectors of $T$ is the same as the condition for there to be a basis with respect to which $T$ has an upper-triangular matrix (see 5.44). \\
+    \textbf{Caution:} If $T$ has an upper-triangular matrix with respect to a basis $v_1, \ldots, v_n$ of $V$, then $v_1$ is an eigenvector of $T$, but it is not necessarily true that $v_2, \ldots, v_n$ are generalized eigenvectors of $T$.}
 \end{exercise}
+
+\begin{sol}
+    If $\fbb = \cbb$, the result follows from 5.27(b) and 8.9, so we may assume $\fbb = \rbb$.
+
+    We first claim that a monic $q_0 \in \pcal(\fbb)$ that divides $q(z) = (z - \mu_1) \cdots (z - \mu_m)$ for some $\mu_1, \ldots, \mu_m \in \fbb$ is a product of linear factors, each of the form $z - \mu_k$ for some $k$.
+    If $q_0 \neq 1$, write $q = q_0 r$ for some $r \in \pcal(\rbb)$, and factor $q_0$ by 4.16.
+    Then every zero of $q_0$ is a zero of $q$, and hence is one of $\mu_1, \ldots, \mu_m$.
+    By 4.15, the quadratic factors of $q_0$ have only nonreal zeros, so the 4.16 factorization contains only linear factors, each of the form $z - \mu_k$ for some $k$.
+    
+    Now, let $n = \dim V$ and let $p$ be the minimal polynomial of $T$.
+
+    \rightimp Suppose $v_1, \ldots, v_n$ is a basis of $V$ consisting of generalized eigenvectors of $T$ with corresponding eigenvalues $\nu_1, \ldots, \nu_n$.
+    Then there exist positive integers $k_1, \ldots, k_n$ such that $(T - \nu_\ell I)^{k_\ell} v_\ell = 0$ for each $\ell = 1, \ldots, n$.
+    Consider the polynomial
+    \[
+        s(z) = \prod_{\ell=1}^n (z - \nu_\ell)^{k_\ell}.
+    \]
+    By 5.17, the factors of $s(T) = \prod_{\ell} (T - \nu_\ell I)^{k_\ell}$ commute with each other.
+    Moving $(T - \nu_\ell I)^{k_\ell}$ to the right gives $s(T) v_\ell = 0$ for each $\ell$, so $s(T) = 0$ because $v_1, \ldots, v_n$ is a basis of $V$.
+    By 5.29, $p$ divides $s$, so the preliminary claim implies that $p$ is a product of linear factors, each of the form $z - \nu_\ell$ for some $\ell$.
+
+    \leftimp We proceed by strong induction on $n$.
+    Suppose $p(z) = (z - \lambda_1) \cdots (z - \lambda_m)$ for some $\lambda_1, \ldots, \lambda_m \in \fbb$.
+    Suppose the result holds for all operators on all vector spaces of dimension less than $n$ whose minimal polynomial is a product of linear factors.
+    Let $U = \range(T - \lambda_1 I)^n$, so $V = \nul(T - \lambda_1 I)^n \oplus U$ by 8.4.
+    
+    If $U = \set 0$, then $V = \nul(T - \lambda_1 I)^n$ by 8.4, and any basis of $V$ works.
+    Otherwise, $U$ is nontrivial and invariant under $T$ by 5.18.
+    Since $\lambda_1$ is an eigenvalue of $T$ by 5.27(a), $\set 0 \neq \nul(T - \lambda_1 I) \subseteq \nul(T - \lambda_1 I)^n$, so $\dim U < n$.
+    By 5.31 and the preliminary claim, the minimal polynomial of $T|_U$ is a product of linear factors.
+    If $u \in U$ is a generalized eigenvector of $T|_U$ corresponding to an eigenvalue $\lambda$, then $(T - \lambda I)^k u = (T|_U - \lambda I)^k u = 0$ for some positive integer $k$.
+    Additionally, $\lambda$ is an eigenvalue of $T$ because an eigenvector of $T|_U$ is also an eigenvector of $T$.
+    Hence, $u$ is a generalized eigenvector of $T$ corresponding to $\lambda$.
+    By the induction hypothesis and the preceding argument, $U$ has a basis consisting of generalized eigenvectors of $T$.
+    Concatenating any basis of $\nul(T - \lambda_1 I)^n$ with the basis of $U$ from above gives a basis of $V$ consisting of generalized eigenvectors of $T$ by 8.4.
+\end{sol}
 
 \begin{exercise}{8a12}
     Suppose $T \in \lin{V}$ is such that every nonzero vector in $V$ is a generalized eigenvector of $T$.
     Prove that there exists $\lambda \in \fbb$ such that $T - \lambda I$ is nilpotent.
 \end{exercise}
 
+\begin{sol}
+    Let $v \in V$ be a nonzero vector, and let $\dim V = n$.
+    By 8.1 and 8.3, $\nul(T - \alpha I)^k \subseteq \nul(T - \alpha I)^n$ for all $\alpha \in \fbb$ and positive integers $k$.
+    By hypothesis, $v$ is a generalized eigenvector of $T$ corresponding to some eigenvalue $\lambda \in \fbb$.
+    We claim that every nonzero vector in $V$ is a generalized eigenvector of $T$ corresponding to the same eigenvalue $\lambda$.
+
+    Suppose some nonzero $u \in V$ is not a generalized eigenvector of $T$ corresponding to $\lambda$.
+    By hypothesis and 8.11, $u$ corresponds to a unique eigenvalue $\mu \in \fbb$, where $\mu \neq \lambda$ by choice of $u$.
+    By 8.12, the list $v, u$ is linearly independent, so $v + u$ is a nonzero vector in $V$.
+    By hypothesis and 8.11 again, $v + u$ is a generalized eigenvector of $T$ corresponding to a unique eigenvalue $\nu \in \fbb$.
+    If $\nu = \lambda$, then $u = (v + u) - v \in \nul(T - \lambda I)^n$, which contradicts 8.11, since $u$ corresponds to $\mu \neq \lambda$.
+    If $\nu = \mu$, then $v = (v + u) - u \in \nul(T - \mu I)^n$, which contradicts 8.11, since $v$ corresponds to $\lambda \neq \mu$.
+    Thus, $\nu \neq \lambda$ and $\nu \neq \mu$, whence the list $v, u, v + u$ is linearly independent by 8.12, which is a contradiction since $v + u \in \spn(v, u)$.
+    Therefore, every nonzero vector in $V$ is a generalized eigenvector of $T$ corresponding to the same eigenvalue $\lambda$.
+    Hence, each nonzero vector of $V$ lies in $\nul(T - \lambda I)^k$ for some positive integer $k$, and thus lies in $\nul(T - \lambda I)^n$.
+    Moreover, $(T - \lambda I)^n 0 = 0$, so $(T - \lambda I)^n = 0$, which shows that $T - \lambda I$ is nilpotent.
+\end{sol}
+
 \begin{exercise}{8a13}
     Suppose $S, T \in \lin{V}$ and $ST$ is nilpotent.
     Prove that $TS$ is nilpotent.
 \end{exercise}
 
+\begin{sol}
+    Since $ST$ is nilpotent, there exists a positive integer $k$ such that $(ST)^k = 0$.
+    Then
+    \[
+        (TS)^{k+1} = T(ST)^k S = T 0 S = 0,
+    \]
+    so $TS$ is nilpotent.
+\end{sol}
+
 \begin{exercise}{8a14}
     Suppose $T \in \lin{V}$ is nilpotent and $T \neq 0$.
     Prove $T$ is not diagonalizable.
 \end{exercise}
+
+\begin{sol}
+    Suppose $T$ is diagonalizable.
+    By 8.17(a), the only eigenvalue of $T$ is $0$.
+    Then 5.55(c) gives $V = E(0, T) = \nul T$, so $T = 0$, which contradicts the assumption that $T \neq 0$.
+\end{sol}
 
 \begin{exercise}{8a15}
     Suppose $\fbb = \cbb$ and $T \in \lin{V}$.
@@ -109,6 +319,16 @@
 
     \note{For $\fbb = \cbb$, this exercise adds another equivalence to the list of conditions for diagonalizability in 5.55.}
 \end{exercise}
+
+\begin{soliff}
+    \rightimp Suppose $T$ is diagonalizable, and let $v$ be a generalized eigenvector of $T$ corresponding to an eigenvalue $\lambda$.
+    By \exref{5d5}, $V = \nul(T - \lambda I) \oplus \range(T - \lambda I)$.
+    By \exref{8a3} applied to $T - \lambda I$, we have $\nul(T - \lambda I)^2 = \nul(T - \lambda I)$, so 8.2 yields $\nul(T - \lambda I)^k = \nul(T - \lambda I)$ for all positive integers $k$.
+    Since $v$ is a generalized eigenvector, there exists a positive integer $k$ such that $v \in \nul(T - \lambda I)^k = \nul(T - \lambda I)$, so $v$ is an eigenvector of $T$ corresponding to $\lambda$.
+
+    \leftimp Suppose every generalized eigenvector of $T$ is an eigenvector of $T$.
+    By 8.9, $V$ has a basis consisting of generalized eigenvectors of $T$, which are eigenvectors of $T$ by assumption, so 5.55(b) implies that $T$ is diagonalizable.
+\end{soliff}
 
 \begin{exercise}{8a16}
     \begin{subexercises}
@@ -118,6 +338,26 @@
     \end{subexercises}
 \end{exercise}
 
+\begin{solenum}
+    \item Let $V = \fbb^2$ and define $S, T \in \lin{V}$ by $S(x, y) = (y, 0)$ and $T(x, y) = (0, x)$.
+    Then $S^2(x, y) = S(y, 0) = (0, 0)$ and $T^2(x, y) = T(0, x) = (0, 0)$, so $S^2 = T^2 = 0$, which shows that $S$ and $T$ are nilpotent.
+    Moreover,
+    \[
+        (S + T)(1, 1) = (1, 1), \quad ST(1, 0) = (1, 0),
+    \]
+    from $(S + T)(x, y) = (y, x)$ and $ST(x, y) = (x, 0)$.
+    Then $(1, 1)$ and $(1, 0)$ are eigenvectors of $S + T$ and $ST$, respectively, corresponding to the eigenvalue $1$, so neither $S + T$ nor $ST$ is nilpotent by 8.17(a).
+    \item By 8.16, $S^n = T^n = 0$, where $n = \dim V$.
+    Since $S$ and $T$ commute, $(ST)^n = S^n T^n = 0$, so $ST$ is nilpotent.
+    By the commutativity of $S$ and $T$ and the distributive property of linear maps,
+    \[
+        (S + T)^{2n-1} = \sum_{k=0}^{2n-1} \binom{2n-1}{k} S^k T^{2n-1-k}.
+    \]
+    For $k \geq n$, $S^k = S^n S^{k-n} = 0$, and for $2n-1-k \geq n$, $T^{2n-1-k} = T^n T^{n-1-k} = 0$.
+    If $k \leq n-1$, then $2n-1-k \geq n$, so at least one of $S^k$ or $T^{2n-1-k}$ is $0$.
+    Hence, every term in the sum is $0$, so $(S + T)^{2n-1} = 0$, which shows that $S + T$ is nilpotent.
+\end{solenum}
+
 \begin{exercise}{8a17}
     Suppose $T \in \lin{V}$ is nilpotent and $m$ is a positive integer such that $T^m = 0$.
     \begin{subexercises}
@@ -126,6 +366,27 @@
     \end{subexercises}
 \end{exercise}
 
+\begin{solenum}
+    \item Let $R = I + T + \cdots + T^{m-1}$.
+    Then
+    \[
+        (I - T)R = (I + T + \cdots + T^{m-1}) - (T + T^2 + \cdots + T^m) = I - T^m = I.
+    \]
+    Since $V$ is finite-dimensional, 3.68 gives $R(I - T) = I$ as well, so $I - T$ is invertible with inverse $R$.
+    \item Recall the geometric series formula
+    \[
+        \frac{1}{1 - x} = \sum_{k=0}^{\infty} x^k, \quad |x| < 1.
+    \]
+    Replacing $x$ with $T$ and $1$ with $I$, this suggests that
+    \[
+        (I - T)\inv = \sum_{k=0}^{\infty} T^k.
+    \]
+    Since $T^k = T^{k-m}T^m = 0$ for $k \geq m$, the series terminates at $k = m-1$, yielding
+    \[
+        (I - T)\inv = I + T + \cdots + T^{m-1}. \qedhere
+    \]
+\end{solenum}
+
 \begin{exercise}{8a18}
     Suppose $T \in \lin{V}$ is nilpotent.
     Prove that $T^{1 + \dim \range T} = 0$.
@@ -133,30 +394,88 @@
     \note{If $\dim \range T < \dim V - 1$, then this exercise improves 8.16.}
 \end{exercise}
 
+\begin{sol}
+    Given that $T$ is nilpotent, there exists a positive integer $k$ such that $T^k = 0$.
+    Since $\range T$ is invariant under $T$, we can consider the restriction $S = T|_{\range T} \in \lin{\range T}$.
+    Because $S^k = T^k|_{\range T} = 0$, $S$ is nilpotent.
+    Applying 8.16 to $S$, we get $S^{\dim \range T} = 0$.
+    Then for every $v \in V$,
+    \[
+        T^{1 + \dim \range T} v = S^{\dim \range T} (T v) = 0. \qedhere
+    \]
+\end{sol}
+
 \begin{exercise}{8a19}
     Suppose $T \in \lin{V}$ is not nilpotent.
     Show that
     \[
         V = \nul T^{\dim V - 1} \oplus \range T^{\dim V - 1}.
     \]
-
     \note{For operators that are not nilpotent, this exercise improves 8.4.}
 \end{exercise}
+
+\begin{sol}
+    Let $n = \dim V$ and let $d = \dim \nul T^n$.
+    Because $T$ is not nilpotent, $T^n \neq 0$, so $\nul T^n \neq V$, whence $d \leq n - 1$ by 2.39.
+    Since $\nul T^n$ is invariant under $T$, consider the restriction $S = T|_{\nul T^n} \in \lin{\nul T^n}$.
+    Observe that $S^n = T^n|_{\nul T^n} = 0$, so $S$ is nilpotent.
+    By 8.16 applied to $S$, we get $S^d = 0$.
+    Thus, for every $v \in \nul T^n$, 
+    \[
+        T^{n-1} v = T^{n-1-d} (T^d v) = 0,
+    \]
+    so $\nul T^n \subseteq \nul T^{n-1}$.
+    Since $\nul T^{n-1} \subseteq \nul T^n$ by 8.1, we conclude that $\nul T^{n-1} = \nul T^n$.
+    By \exref{8a9}, $\range T^{n-1} = \range T^n$.
+    By 8.4,
+    \[
+        V = \nul T^n \oplus \range T^n = \nul T^{n-1} \oplus \range T^{n-1}. \qedhere
+    \]
+\end{sol}
 
 \begin{exercise}{8a20}
     Suppose $V$ is an inner product space and $T \in \lin{V}$ is normal and nilpotent.
     Prove that $T = 0$.
 \end{exercise}
 
+\begin{sol}
+    Let $n = \dim V$.
+    By 7.21(c), $V = \nul T \oplus \range T$.
+    By \exref{8a3}, $\nul T^2 = \nul T$.
+    Applying 8.2 yields $\nul T^k = \nul T$ for all $k \geq 1$.
+    By 8.16, $T^n = 0$, so $V = \nul T^n = \nul T$, and hence $T = 0$.
+\end{sol}
+
 \begin{exercise}{8a21}
     Suppose $T \in \lin{V}$ is such that $\nul T^{\dim V - 1} \neq \nul T^{\dim V}$.
     Prove that $T$ is nilpotent and that $\dim \nul T^k = k$ for every integer $k$ with $0 \leq k \leq \dim V$.
 \end{exercise}
 
+\begin{sol}
+    Let $n = \dim V$.
+    If $\nul T^k = \nul T^{k+1}$ for some $k \in \set{0, \ldots, n-1}$, then 8.2 gives $\nul T^{n-1} = \nul T^n$, contradicting the hypothesis.
+    Hence, every inclusion in the chain in 8.1 must be strict:
+    \[
+        \set 0 = \nul T^0 \subsetneq \nul T^1 \subsetneq \cdots \subsetneq \nul T^n.
+    \]
+    It follows that the dimension of each successive null space increases by at least 1.
+    Therefore, for $0 \leq k \leq n$,
+    \[
+        \dim \nul T^k \geq k \quad \text{and} \quad n \geq \dim \nul T^n \geq \dim \nul T^k + (n-k).
+    \]
+    This forces $\dim \nul T^k = k$ for all $0 \leq k \leq n$.
+    By 2.39, $\nul T^n = V$, so $T^n = 0$, and hence $T$ is nilpotent.
+\end{sol}
+
 \begin{exercise}{8a22}
     Suppose $T \in \lin{\cbb^5}$ is such that $\range T^4 \neq \range T^5$.
     Prove that $T$ is nilpotent.
 \end{exercise}
+
+\begin{sol}
+    By \exref{8a9} with $m=4$, $\nul T^4 \neq \nul T^5$.
+    Since $\dim(\cbb^5) = 5$, \exref{8a21} yields that $T$ is nilpotent.
+\end{sol}
 
 \begin{exercise}{8a23}
     Give an example of an operator $T$ on a finite-dimensional real vector space such that $0$ is the only eigenvalue of $T$ but $T$ is not nilpotent.
@@ -164,11 +483,68 @@
     \note{This exercise shows that (b) in 8.17 does not hold without the hypothesis that $\fbb = \cbb$.}
 \end{exercise}
 
+\begin{sol}
+    Define $T \in \lin{\rbb^3}$ by $T(x, y, z) = (0, -z, y)$.
+    Since $T(1, 0, 0) = (0, 0, 0)$, it follows that $0$ is an eigenvalue of $T$.
+    Suppose $(x, y, z)$ is an eigenvector of $T$ with eigenvalue $\lambda$.
+    Then $T(x, y, z) = \lambda(x, y, z)$ gives
+    \[
+        \begin{cases}
+            \lambda x = 0, \\
+            \lambda y = -z, \\
+            \lambda z = y.
+        \end{cases}
+    \]
+    The two equations $\lambda y = -z$ and $\lambda z = y$ imply $(\lambda^2 + 1)y = 0$.
+    Since $\lambda \in \rbb$, we have $\lambda^2 + 1 \neq 0$, so $y = 0$, whence $z = -\lambda y = 0$.
+    Since $(x, y, z)$ is an eigenvector, it is nonzero, so $x \neq 0$, and the first equation $\lambda x = 0$ forces $\lambda = 0$.
+    Thus, $0$ is the only eigenvalue of $T$.
+    Moreover, $T^3(0, 1, 0) = T^2(0, 0, 1) = T(0, -1, 0) = (0, 0, -1) \neq (0, 0, 0)$, so $T^3 \neq 0$, and hence $T$ is not nilpotent by 8.16.
+\end{sol}
+
 \begin{exercise}{8a24}
     For each item in Example 8.15, find a basis of the domain vector space such that the matrix of the nilpotent operator with respect to that basis has the upper-triangular form promised by 8.18(c).
 \end{exercise}
+
+\begin{solenum}
+    \item Let $e_1, \ldots, e_4$ be the standard basis of $\fbb^4$.
+    Then $T e_1 = e_3$ and $T e_2 = e_4$, while $T e_3 = T e_4 = 0$, so a basis of $\nul T$ is $e_3, e_4$.
+    Since $\nul T^2 = \fbb^4$ by the example, we can extend the basis of $\nul T$ to a basis $e_3, e_4, e_1, e_2$ of $\fbb^4$.
+    Therefore,
+    \[
+        \mcal(T, (e_3, e_4, e_1, e_2)) = 
+        \begin{pmatrix}
+            0 & 0 & 1 & 0 \\
+            0 & 0 & 0 & 1 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0
+        \end{pmatrix}.
+    \]
+    \item Let $T \in \lin{\fbb^3}$ be the operator whose matrix with respect to the standard basis is the matrix $A$ given in the example, and consider $v = (0, 1, 0)$.
+    Then $Tv = (9, 9, 0)$, the second column of $A$, and $T^2 v = T(9, 9, 0) = (54, 18, 36) \neq 0$.
+    Lastly, $T^3v = 0$ since $A^3 = 0$ as given in the example.
+    By \exref{8a2}, the vectors $v, Tv, T^2v$ are linearly independent, and hence form a basis of $\fbb^3$ by 2.38.
+    Therefore,
+    \[
+        \mcal(T, (T^2v, Tv, v)) = 
+        \begin{pmatrix}
+            0 & 1 & 0 \\
+            0 & 0 & 1 \\
+            0 & 0 & 0
+        \end{pmatrix}.
+    \]
+    \item Consider the standard basis of $\pcal_m(\rbb)$, and let $D$ be the differentiation operator.
+    Then $D 1 = 0$ and $D x^k = k x^{k-1}$ for $k = 1, \ldots, m$.
+    Therefore, the matrix of $D$ with respect to the standard basis has entries $1, 2, \ldots, m$ directly above the diagonal and $0$ elsewhere.
+\end{solenum}
 
 \begin{exercise}{8a25}
     Suppose that $V$ is an inner product space and $T \in \lin{V}$ is nilpotent.
     Show that there is an orthonormal basis of $V$ with respect to which the matrix of $T$ has the upper-triangular form promised by 8.18(c).
 \end{exercise}
+
+\begin{sol}
+    By 8.18(b), the minimal polynomial of $T$ is $z^m = (z - 0)^m$ for some positive integer $m$.
+    By 6.37, the matrix of $T$ is upper triangular with respect to an orthonormal basis of $V$.
+    By 5.41, the diagonal entries of the matrix are the eigenvalues of $T$, hence all $0$ by 8.17(a).
+\end{sol}
