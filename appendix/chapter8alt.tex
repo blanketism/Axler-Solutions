@@ -1,0 +1,12 @@
+\subsection{Generalized Eigenvectors and Nilpotent Operators}
+
+\begin{apex}[8a20]
+    Suppose $V$ is an inner product space and $T \in \lin{V}$ is normal and nilpotent.
+    Prove that $T = 0$.
+\end{apex}
+
+\begin{csp}
+    If $T \neq 0$, let $k \geq 2$ be the smallest integer such that $T^k=0$. Then there exists $v \in V$ with $T^{k-1} v \neq 0$. Then $T(T^{k-1}v)=T^k v=0$, meaning $T^{k-1} v \in \operatorname{null} T$. Since $T$ is normal, $\operatorname{null} T=\operatorname{null} T^{\ast}$, so $T^{\ast}(T^{k-1}v)=0$. Thus
+    $$\norm{T^{k-1}v}^2=\langle T^{k-1}v, T^{k-1}v \rangle=\langle T^{k-2}v, T^{\ast}T^{k-1}v \rangle=0 \implies T^{k-1}v=0,$$
+    contradicting the choice of $k$. Therefore, $T=0$.
+\end{csp}
