@@ -233,9 +233,7 @@
     If $\fbb = \cbb$, the result follows from 5.27(b) and 8.9, so we may assume $\fbb = \rbb$.
 
     We first claim that a monic $q_0 \in \pcal(\fbb)$ that divides $q(z) = (z - \mu_1) \cdots (z - \mu_m)$ for some $\mu_1, \ldots, \mu_m \in \fbb$ is a product of linear factors, each of the form $z - \mu_k$ for some $k$.
-    If $q_0 \neq 1$, write $q = q_0 r$ for some $r \in \pcal(\rbb)$, and factor $q_0$ by 4.16.
-    Then every zero of $q_0$ is a zero of $q$, and hence is one of $\mu_1, \ldots, \mu_m$.
-    By 4.15, the quadratic factors of $q_0$ have only nonreal zeros, so the 4.16 factorization contains only linear factors, each of the form $z - \mu_k$ for some $k$.
+    Write $q = q_0r$, and factor $q_0$ and $r$ by 4.16. By the uniqueness in 4.16, $q_0$ consists of linear factors of the form $z - \mu_k$.
     
     Now, let $n = \dim V$ and let $p$ be the minimal polynomial of $T$.
 
@@ -321,10 +319,19 @@
 \end{exercise}
 
 \begin{soliff}
-    \rightimp Suppose $T$ is diagonalizable, and let $v$ be a generalized eigenvector of $T$ corresponding to an eigenvalue $\lambda$.
-    By \exref{5d5}, $V = \nul(T - \lambda I) \oplus \range(T - \lambda I)$.
-    By \exref{8a3} applied to $T - \lambda I$, we have $\nul(T - \lambda I)^2 = \nul(T - \lambda I)$, so 8.2 yields $\nul(T - \lambda I)^k = \nul(T - \lambda I)$ for all positive integers $k$.
-    Since $v$ is a generalized eigenvector, there exists a positive integer $k$ such that $v \in \nul(T - \lambda I)^k = \nul(T - \lambda I)$, so $v$ is an eigenvector of $T$ corresponding to $\lambda$.
+    \rightimp Suppose $T$ is diagonalizable, and let $\lambda_1, \ldots, \lambda_m$ be the distinct eigenvalues of $T$.
+    By 5.55(c), we have
+    \[
+        V = \bigoplus_{k=1}^m E(\lambda_k, T).
+    \]
+    Let $v \in V$ be a generalized eigenvector of $T$ corresponding to an eigenvalue $\lambda$, so $\lambda = \lambda_j$ for some $j$, and $(T - \lambda I)^d v = 0$ for some positive integer $d$.
+    Write $v = \sum_{k=1}^m v_k$ with $v_k \in E(\lambda_k, T)$.
+    Then
+    \[
+        \sum_{k=1}^m (T - \lambda I)^d v_k = \sum_{k=1}^m (\lambda_k - \lambda)^d v_k = 0.
+    \]
+    Because the sum is direct, $(\lambda_k - \lambda)^d v_k = 0$ for each $k$.
+    For $\lambda_k \neq \lambda$, this implies $v_k = 0$, so $v = v_j \in E(\lambda, T)$, which shows that $v$ is an eigenvector of $T$ corresponding to $\lambda$.
 
     \leftimp Suppose every generalized eigenvector of $T$ is an eigenvector of $T$.
     By 8.9, $V$ has a basis consisting of generalized eigenvectors of $T$, which are eigenvectors of $T$ by assumption, so 5.55(b) implies that $T$ is diagonalizable.
@@ -372,7 +379,7 @@
     \[
         (I - T)R = (I + T + \cdots + T^{m-1}) - (T + T^2 + \cdots + T^m) = I - T^m = I.
     \]
-    Since $V$ is finite-dimensional, 3.68 gives $R(I - T) = I$ as well, so $I - T$ is invertible with inverse $R$.
+    By 5.17(b), $(I - T)R = R(I - T) = I$, so $I - T$ is invertible with inverse $R$.
     \item Recall the geometric series formula
     \[
         \frac{1}{1 - x} = \sum_{k=0}^{\infty} x^k, \quad |x| < 1.
@@ -415,25 +422,21 @@
 \end{exercise}
 
 \begin{sol}
-    Let $n = \dim V$ and let $d = \dim \nul T^n$.
-    Because $T$ is not nilpotent, $T^n \neq 0$, so $\nul T^n \neq V$, whence $d \leq n - 1$ by 2.39.
-    Since $\nul T^n$ is invariant under $T$, consider the restriction $S = T|_{\nul T^n} \in \lin{\nul T^n}$.
-    Observe that $S^n = T^n|_{\nul T^n} = 0$, so $S$ is nilpotent.
-    By 8.16 applied to $S$, we get $S^d = 0$.
-    Thus, for every $v \in \nul T^n$, 
+    If the first $n$ inclusions in the chain of 8.1 were strict, then
     \[
-        T^{n-1} v = T^{n-1-d} (T^d v) = 0,
+        \set{0} = \nul T^0 \subsetneq \nul T^1 \subsetneq \cdots \subsetneq \nul T^n,
     \]
-    so $\nul T^n \subseteq \nul T^{n-1}$.
-    Since $\nul T^{n-1} \subseteq \nul T^n$ by 8.1, we conclude that $\nul T^{n-1} = \nul T^n$.
-    By \exref{8a9}, $\range T^{n-1} = \range T^n$.
+    where the dimension of each successive null space increases by at least 1, so $\dim \nul T^n \geq n = \dim V$.
+    By 2.39, $\nul T^n = V$, so $T^n = 0$, contradicting that $T$ is not nilpotent.
+    Hence, there must be some $k \leq n-1$ such that $\nul T^k = \nul T^{k+1}$, so by 8.2, $\nul T^{n-1} = \nul T^n$.
+    Since $\range T^n \subseteq \range T^{n-1}$ and $\dim \range T^n = \dim \range T^{n-1}$ by the fundamental theorem of linear maps, it follows that $\range T^{n-1} = \range T^n$ by 2.39.
     By 8.4,
     \[
         V = \nul T^n \oplus \range T^n = \nul T^{n-1} \oplus \range T^{n-1}. \qedhere
     \]
 \end{sol}
 
-\begin{exercise}{8a20}
+\begin{exercise}*{8a20}
     Suppose $V$ is an inner product space and $T \in \lin{V}$ is normal and nilpotent.
     Prove that $T = 0$.
 \end{exercise}
