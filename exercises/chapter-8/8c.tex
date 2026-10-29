@@ -1,0 +1,88 @@
+\subsection{Consequences of Generalized Eigenspace Decomposition}
+
+\begin{exercise}{8c1}
+    Suppose $T \in \lin{\cbb^3}$ is the operator defined by $T(z_1, z_2, z_3) = (z_2, z_3, 0)$.
+    Prove that $T$ does not have a square root.
+\end{exercise}
+
+\begin{exercise}{8c2}
+    Define $T \in \lin{\fbb^5}$ by $T(x_1, x_2, x_3, x_4, x_5) = (2x_2, 3x_3, -x_4, 4x_5, 0)$.
+    \begin{subexercises}
+        \item Show that $T$ is nilpotent.
+        \item Find a square root of $I + T$.
+    \end{subexercises}
+\end{exercise}
+
+\begin{exercise}{8c3}
+    Suppose $V$ is a complex vector space.
+    Prove that every invertible operator on $V$ has a cube root.
+\end{exercise}
+
+\begin{exercise}{8c4}
+    Suppose $V$ is a real vector space.
+    Prove that the operator $-I$ on $V$ has a square root if and only if $\dim V$ is an even number.
+\end{exercise}
+
+\begin{exercise}{8c5}
+    Suppose $T \in \lin{\cbb^2}$ is the operator defined by $T(w, z) = (-w - z, 9w + 5z)$.
+    Find a Jordan basis for $T$.
+\end{exercise}
+
+\begin{exercise}{8c6}
+    Find a basis of $\pcal_4(\rbb)$ that is a Jordan basis for the differentiation operator $D$ on $\pcal_4(\rbb)$ defined by $Dp = p'$.
+\end{exercise}
+
+\begin{exercise}{8c7}
+    Suppose $T \in \lin{V}$ is nilpotent and $v_1, \ldots, v_n$ is a Jordan basis for $T$.
+    Prove that the minimal polynomial of $T$ is $z^{m+1}$, where $m$ is the length of the longest consecutive string of $1$'s that appears on the line directly above the diagonal in the matrix of $T$ with respect to $v_1, \ldots, v_n$.
+\end{exercise}
+
+\begin{exercise}{8c8}
+    Suppose $T \in \lin{V}$ and $v_1, \ldots, v_n$ is a basis of $V$ that is a Jordan basis for $T$.
+    Describe the matrix of $T^2$ with respect to this basis.
+\end{exercise}
+
+\begin{exercise}{8c9}
+    Suppose $T \in \lin{V}$ is nilpotent.
+    Explain why there exist $v_1, \ldots, v_n \in V$ and nonnegative integers $m_1, \ldots, m_n$ such that (a) and (b) below both hold.
+    \begin{subexercises}
+        \item $T^{m_1} v_1, \ldots, Tv_1, v_1, \ldots, T^{m_n} v_n, \ldots, Tv_n, v_n$ is a basis of $V$.
+        \item $T^{m_1 + 1} v_1 = \cdots = T^{m_n + 1} v_n = 0$.
+    \end{subexercises}
+\end{exercise}
+
+\begin{exercise}{8c10}
+    Suppose $T \in \lin{V}$ and $v_1, \ldots, v_n$ is a basis of $V$ that is a Jordan basis for $T$.
+    Describe the matrix of $T$ with respect to the basis $v_n, \ldots, v_1$ obtained by reversing the order of the $v$'s.
+\end{exercise}
+
+\begin{exercise}{8c11}
+    Suppose $T \in \lin{V}$.
+    Explain why every vector in each Jordan basis for $T$ is a generalized eigenvector of $T$.
+\end{exercise}
+
+\begin{exercise}{8c12}
+    Suppose $T \in \lin{V}$ is diagonalizable.
+    Show that $\mcal(T)$ is a diagonal matrix with respect to every Jordan basis for $T$.
+\end{exercise}
+
+\begin{exercise}{8c13}
+    Suppose $T \in \lin{V}$ is nilpotent.
+    Prove that if $v_1, \ldots, v_n$ are vectors in $V$ and $m_1, \ldots, m_n$ are nonnegative integers such that
+    \[
+        T^{m_1} v_1, \ldots, Tv_1, v_1, \ldots, T^{m_n} v_n, \ldots, Tv_n, v_n \text{ is a basis of } V
+    \]
+    and
+    \[
+        T^{m_1 + 1} v_1 = \cdots = T^{m_n + 1} v_n = 0,
+    \]
+    then $T^{m_1} v_1, \ldots, T^{m_n} v_n$ is a basis of $\nul T$.
+
+    \note{This exercise shows that $n = \dim \nul T$.
+    Thus, the positive integer $n$ that appears above depends only on $T$ and not on the specific Jordan basis chosen for $T$.}
+\end{exercise}
+
+\begin{exercise}{8c14}
+    Suppose $\fbb = \cbb$ and $T \in \lin{V}$.
+    Prove that there does not exist a direct sum decomposition of $V$ into two nonzero subspaces invariant under $T$ if and only if the minimal polynomial of $T$ is of the form $(z - \lambda)^{\dim V}$ for some $\lambda \in \cbb$.
+\end{exercise}
