@@ -5,10 +5,35 @@
     Find the generalized eigenspaces corresponding to the distinct eigenvalues of $T$.
 \end{exercise}
 
+\begin{sol}
+    If $T(w, z) = \lambda(w, z)$ for $\lambda \in \cbb$ and nonzero $(w, z) \in \cbb^2$, then $-z = \lambda w$ and $w = \lambda z$.
+    Together, these equations imply $(\lambda^2 + 1)z = 0$.
+    Since $z \neq 0$, for otherwise $w = 0$, we must have $\lambda^2 + 1 = 0$, whence $\lambda = \pm i$.
+    If $\lambda = i$, then $-z = i w$, so $E(i, T) = \spn((i, 1))$.
+    A similar argument shows that $E(-i, T) = \spn((-i, 1))$.
+    Since $E(\pm i, T) \subseteq G(\pm i, T)$, each generalized eigenspace must have dimension at least 1.
+    Moreover, the multiplicities must sum to 2 by 8.25, so each generalized eigenspace has dimension exactly 1.
+    By 2.39,
+    \[
+        G(i, T) = \spn((i, 1)), \quad G(-i, T) = \spn((-i, 1)). \qedhere
+    \]
+\end{sol}
+
 \begin{exercise}{8b2}
     Suppose $T \in \lin{V}$ is invertible.
     Prove that $G(\lambda, T) = G\left(\tfrac{1}{\lambda}, T\inv\right)$ for every $\lambda \in \fbb$ with $\lambda \neq 0$.
 \end{exercise}
+
+\begin{sol}
+    Observe that $T\inv - \frac{1}{\lambda} I = -\frac{1}{\lambda} T\inv (T - \lambda I)$.
+    Moreover, $T\inv(T - \lambda I) = (T - \lambda I)T\inv = I - \lambda T\inv$.
+    Then for all positive integers $k$,
+    \[
+        \left(T\inv - \frac{1}{\lambda} I\right)^k = \left(-\frac{1}{\lambda} T\inv (T - \lambda I)\right)^k = \left(-\frac{1}{\lambda}\right)^k T^{-k} (T - \lambda I)^k.
+    \]
+    Since $\lambda \neq 0$, the operator $(-\frac{1}{\lambda})^k T^{-k}$ is injective, and therefore $\nul(T\inv - \frac{1}{\lambda} I)^k = \nul(T - \lambda I)^k$.
+    By 8.19, the result follows.
+\end{sol}
 
 \begin{exercise}{8b3}
     Suppose $T \in \lin{V}$.
@@ -16,21 +41,98 @@
     Prove that $T$ and $S\inv TS$ have the same eigenvalues with the same multiplicities.
 \end{exercise}
 
+\begin{sol}
+    Note that
+    \[
+        (S\inv TS - \lambda I)^k = (S\inv (T - \lambda I) S)^k = S\inv (T - \lambda I)^k S.
+    \]
+    Because $S\inv$ is injective, $S\inv(T - \lambda I)^kSv = 0$ if and only if $(T - \lambda I)^kSv = 0$, and therefore $\nul(S\inv TS - \lambda I)^k = S\inv(\nul(T - \lambda I)^k)$ for all positive integers $k$.
+    For $k=1$, we have $E(\lambda, S\inv TS) = S\inv(E(\lambda, T))$.
+    Since $S\inv$ is injective, $E(\lambda, S\inv TS) \neq \set{0}$ if and only if $E(\lambda, T) \neq \set{0}$, so $T$ and $S\inv TS$ have the same eigenvalues.
+    Taking $k=\dim V$ and using 8.20 yields $G(\lambda, S\inv TS) = S\inv(G(\lambda, T))$.
+    Note that $S\inv|_{G(\lambda, T)} \in \lin{G(\lambda, T), V}$ is an injective linear map whose range is $G(\lambda, S\inv TS)$.
+    By the fundamental theorem of linear maps,
+    \[
+        \dim G(\lambda, T) = \dim \nul S\inv|_{G(\lambda, T)} + \dim \range S\inv|_{G(\lambda, T)} = \dim G(\lambda, S\inv TS),
+    \]
+    so each eigenvalue has the same multiplicity for $T$ as for $S\inv TS$.
+\end{sol}
+
 \begin{exercise}{8b4}
     Suppose $\dim V \geq 2$ and $T \in \lin{V}$ is such that $\nul T^{\dim V - 2} \neq \nul T^{\dim V - 1}$.
     Prove that $T$ has at most two distinct eigenvalues.
 \end{exercise}
 
+\begin{sol}
+    Let $n = \dim V$.
+    Because $\nul T^{n-2} \neq \nul T^{n-1}$, the contrapositive of 8.2 gives $\nul T^k \neq \nul T^{k+1}$ for all $k \leq n-2$.
+    Then all the inclusions in the chain up to $\nul T^{n-1}$ in 8.1 must be strict:
+    \[
+        \set{0} = \nul T^0 \subsetneq \nul T^1 \subsetneq \cdots \subsetneq \nul T^{n-1}.
+    \]
+    Consequently, the dimension of each successive null space increases by at least one, so $\dim \nul T^{n-1} \geq n-1$.
+    Because $\nul T \neq \set{0}$, 5.7 gives that $0$ is an eigenvalue of $T$.
+    By 8.1 and 8.20, $\nul T^{n-1} \subseteq \nul T^n = G(0, T)$, so $\dim G(0, T) \geq \dim \nul T^{n-1} \geq n-1$.
+    Let $0, \lambda_2, \ldots, \lambda_m$ be the distinct eigenvalues of $T$.
+    By 8.12 and 1.45, $G(0, T) + G(\lambda_2, T) + \cdots + G(\lambda_m, T)$ is a direct sum, so by 3.94 and 2.37,
+    \[
+        \dim G(0, T) + \dim G(\lambda_2, T) + \cdots + \dim G(\lambda_m, T) \leq \dim V = n.
+    \]
+    Since each dimension must be at least 1, $(n-1) + (m-1) \leq n$, so $m \leq 2$.
+\end{sol}
+
 \begin{exercise}{8b5}
     Suppose $T \in \lin{V}$ and $3$ and $8$ are eigenvalues of $T$.
     Let $n = \dim V$.
     Prove that $V = (\nul T^{n-2}) \oplus (\range T^{n-2})$.
+
+    \remark{In fact, if $T$ has $m$ distinct nonzero eigenvalues, then $V = \nul T^{n-m} \oplus \range T^{n-m}$.}
 \end{exercise}
+
+\begin{sol}
+    By 5.12, $n \geq 2$ since $T$ has at least two distinct eigenvalues, $3$ and $8$.
+    We claim that $\nul T^{n-2} = \nul T^{n-1}$.
+    If $0$ is not an eigenvalue of $T$, then 5.7 yields $\nul T^0 = \nul T^1 = \set{0}$, so 8.2 gives $\nul T^{n-2} = \nul T^{n-1}$.
+    If $0$ is an eigenvalue of $T$, then $0, 3, 8$ are three distinct eigenvalues, and the contrapositive of \exref{8b4} gives $\nul T^{n-2} = \nul T^{n-1}$.
+    In either case, we have $\nul T^{n-2} = \nul T^n$ by 8.2.
+    Applying \exref{8a9} with $m=n-2$ yields $\range T^{n-2} = \range T^{n-1}$, so $\range T^{n-2} = \range T^n$ by \exref{8a7}.
+    Therefore, 8.4 gives
+    \[
+        V = \nul T^n \oplus \range T^n = \nul T^{n-2} \oplus \range T^{n-2}. \qedhere
+    \]
+\end{sol}
 
 \begin{exercise}{8b6}
     Suppose $T \in \lin{V}$ and $\lambda$ is an eigenvalue of $T$.
     Explain why the exponent of $z - \lambda$ in the factorization of the minimal polynomial of $T$ is the smallest positive integer $m$ such that $(T - \lambda I)^m|_{G(\lambda, T)} = 0$.
 \end{exercise}
+
+\begin{sol}
+    Let $n = \dim V$.
+    Let $p$ be the minimal polynomial of $T$.
+    By 5.27(a), $\lambda$ is a zero of $p$, so applying 4.6 repeatedly gives $p(z) = (z - \lambda)^k q(z)$ for some positive integer $k$ and some $q \in \pcal(\fbb)$ with $q(\lambda) \neq 0$.  
+    Let $G = G(\lambda, T)$ and $U = \range(T - \lambda I)^n$.
+    By 8.4, $V = G \oplus U$, and both $G$ and $U$ are invariant under $T$ by 5.18.
+    Because $(T - \lambda I)^n|_G = 0$ by 8.20, there exists a smallest positive integer $m$ such that $(T - \lambda I)^m|_G = 0$.
+    We claim that $m = k$.
+
+    \rightineq By 5.29, the minimal polynomial $r$ of $T|_G$ divides $(z - \lambda)^m$, so by 4.13 if $\fbb = \cbb$ or 4.16 if $\fbb = \rbb$, we have $r(z) = (z - \lambda)^{m'}$ for some $m' \leq m$.
+    Because $\lambda$ is an eigenvalue of $T$, we have $\set{0} \neq E(\lambda, T) \subseteq G$.
+    It follows that $r \neq 1$, so $m' \geq 1$.
+    The minimality of $m$ gives $m' = m$, so the minimal polynomial of $T|_G$ is $(z - \lambda)^m$.
+    By 5.31, $r$ also divides $p$.
+    If $m > k$, then $(z - \lambda)^{m-k}$ would divide $q$, contradicting $q(\lambda) \neq 0$.
+    Therefore, $m \leq k$.
+    
+    \leftineq Note that $\nul(T - \lambda I) \subseteq G$ and $G \cap U = \set{0}$, so $(T - \lambda I)|_U$ is injective.
+    For any $u \in U$, we have $(T - \lambda I)^k q(T) u = 0$, where $q(T) u \in U$.
+    By injectivity, this implies $q(T) u = 0$.
+    Let $s(z) = (z - \lambda)^m q(z)$.
+    Then $s(T) u = (T - \lambda I)^m q(T) u = (T - \lambda I)^m 0 = 0$.
+    On $G$, we have $(T - \lambda I)^m|_G = 0$, so $s(T)|_G = q(T) (T - \lambda I)^m|_G = 0$ as well.
+    Therefore, $s(T) = 0$ on all of $V$.
+    By 5.29, $p$ divides $s$, so $m \geq k$, whence $m = k$.
+\end{sol}
 
 \begin{exercise}{8b7}
     Suppose $T \in \lin{V}$ and $\lambda$ is an eigenvalue of $T$ with multiplicity $d$.
@@ -38,6 +140,20 @@
 
     \note{If $d < \dim V$, then this exercise improves 8.20.}
 \end{exercise}
+
+\begin{sol}
+    Let $n = \dim V$ and let $G = G(\lambda, T)$.
+    Define $N = (T - \lambda I)|_G$.
+    By 8.23, $\dim G = d$.
+
+    \rightset By 8.20, $G = \nul(T - \lambda I)^n$, which is invariant under $T$ by 5.18 applied to $(z - \lambda)^n$, and $N^n = 0$.
+    Thus, $N \in \lin{G}$, so $N^d = 0$ by 8.16.
+    Hence, $G \subseteq \nul(T - \lambda I)^d$.
+
+    \leftset Since $\lambda$ is an eigenvalue of $T$, we have $\set{0} \neq E(\lambda, T) \subseteq G$, so $d \geq 1$.
+    Hence, $\nul(T - \lambda I)^d \subseteq G$ by 8.19.
+    Therefore, $G = \nul(T - \lambda I)^d$.
+\end{sol}
 
 \begin{exercise}{8b8}
     Suppose $T \in \lin{V}$ and $\lambda_1, \ldots, \lambda_m$ are the distinct eigenvalues of $T$.
@@ -50,10 +166,41 @@
     \note{The case $\fbb = \cbb$ follows immediately from 5.27(b) and the generalized eigenspace decomposition (8.22); thus this exercise is interesting only when $\fbb = \rbb$.}
 \end{exercise}
 
+\begin{soliff}
+    \rightimp By 3.94 and 2.42, taking bases of all the $G(\lambda_j, T)$ gives a basis of $V$ consisting of generalized eigenvectors of $T$.
+    By \exref{8a11}, the minimal polynomial $p$ of $T$ is $p(z) = (z - \mu_1) \cdots (z - \mu_M)$ for $\mu_1, \ldots, \mu_M \in \fbb$.
+    By 5.27(a), $\set{\mu_1, \ldots, \mu_M} = \set{\lambda_1, \ldots, \lambda_m}$, so each $\lambda_j$ appears with some positive exponent $k_j$.
+    Grouping together the factors corresponding to the same $\lambda_j$ gives the desired form $(z - \lambda_1)^{k_1} \cdots (z - \lambda_m)^{k_m}$.
+
+    \leftimp By \exref{8a11}, $V$ has a basis of generalized eigenvectors of $T$.
+    Since each generalized eigenvector belongs to some $G(\lambda_j, T)$, the span of the union of the $G(\lambda_j, T)$ equals $V$, which gives
+    \[
+        V = \sum_{j=1}^m G(\lambda_j, T).
+    \]
+    By 8.12 and 1.45, this sum is direct.
+\end{soliff}
+
 \begin{exercise}{8b9}
     Suppose $\fbb = \cbb$ and $T \in \lin{V}$.
     Prove that there exist $D, N \in \lin{V}$ such that $T = D + N$, the operator $D$ is diagonalizable, $N$ is nilpotent, and $DN = ND$.
 \end{exercise}
+
+\begin{sol}
+    Let $n = \dim V$ and let $\lambda_1, \ldots, \lambda_m$ be the distinct eigenvalues of $T$.
+    By the generalized eigenspace decomposition, $V = G_1 \oplus \cdots \oplus G_m$, where $G_j = G(\lambda_j, T)$.
+    Define $D$ by $D(v_1 + \cdots + v_m) = \lambda_1 v_1 + \cdots + \lambda_m v_m$ for $v_k \in G_k$.
+    Since the sum is direct, $D$ is well-defined and linear.
+    Define $N = T - D$.
+    Since concatenating bases of all the $G_j$ gives a basis of eigenvectors of $D$ by 3.94 and 2.42, it follows that $D$ is diagonalizable by 5.55.
+
+    Suppose $u \in G_k$ for some $k$.
+    By 8.22(a), $G_k$ is invariant under $T$.
+    Then $N u = (T - D) u = T u - \lambda_k u \in G_k$.
+    It follows that $N^n u = (T - \lambda_k I)^n u = 0$ by 8.20, so $N^n = 0$ on each $G_k$.
+    Moreover, $T u \in G_k$, so $D T u = \lambda_k T u = T (\lambda_k u) = T D u$, which gives $D T = T D$ on each $G_k$.
+    This gives $DN = D(T - D) = DT - D^2 = TD - D^2 = (T - D)D = ND$ on each $G_k$.
+    Since $V$ is the direct sum of the $G_k$, it follows that $N$ is nilpotent and $DN = ND$ on $V$.
+\end{sol}
 
 \begin{exercise}{8b10}
     Suppose $V$ is a complex inner product space, $e_1, \ldots, e_n$ is an orthonormal basis of $V$, and $T \in \lin{V}$.
@@ -63,29 +210,109 @@
         |\lambda_1|^2 + \cdots + |\lambda_n|^2 \leq \norm{Te_1}^2 + \cdots + \norm{Te_n}^2.
     \]
 
-    \note{See the comment after Exercise 5 in Section 7A.}
+    \note{See the comment after \exref{7a5}.}
 \end{exercise}
+
+\begin{sol}
+    By Schur's theorem, there exists an orthonormal basis $f_1, \ldots, f_n$ of $V$ such that the matrix $A$ of $T$ with respect to this basis is upper triangular.
+    By 5.41, 8.31, and 8.25, the diagonal entries $A_{1, 1}, \ldots, A_{n, n}$ are the eigenvalues $\lambda_1, \ldots, \lambda_n$ of $T$ rearranged in some order.
+    Observe that $T f_k = \sum_{j \leq k} A_{j, k} f_j$ for each $k$, so
+    \[
+        \norm{T f_k}^2 = \sum_{j \leq k} |A_{j, k}|^2 \geq |A_{k, k}|^2
+    \]
+    by 6.24.
+    By \exref{7a5} applied to both bases $e_1, \ldots, e_n$ and $f_1, \ldots, f_n$, we have
+    \[
+        \sum_{m=1}^n \norm{T e_m}^2 = \sum_{m=1}^n \norm{T f_m}^2 \geq \sum_{m=1}^n |A_{m, m}|^2 = \sum_{m=1}^n |\lambda_m|^2. \qedhere
+    \]
+\end{sol}
 
 \begin{exercise}{8b11}
     Give an example of an operator on $\cbb^4$ whose characteristic polynomial equals $(z - 7)^2 (z - 8)^2$.
 \end{exercise}
 
+\begin{sol}
+    Define $T \in \lin{\cbb^4}$ by $T(z_1, z_2, z_3, z_4) = (7 z_1, 7 z_2, 8 z_3, 8 z_4)$.
+    Then $\mcal(T)$ with respect to the standard basis is diagonal with diagonal entries $7, 7, 8, 8$.
+    By 5.41, the eigenvalues of $T$ are $7, 8$, each with multiplicity $2$ by 8.31.
+    Hence, the characteristic polynomial of $T$ is $(z - 7)^2 (z - 8)^2$.
+\end{sol}
+
 \begin{exercise}{8b12}
     Give an example of an operator on $\cbb^4$ whose characteristic polynomial equals $(z - 1)(z - 5)^3$ and whose minimal polynomial equals $(z - 1)(z - 5)^2$.
 \end{exercise}
+
+\begin{sol}
+    Let $e_1, e_2, e_3, e_4$ be the standard basis of $\cbb^4$.
+    Consider the operator $T \in \lin{\cbb^4}$ defined by $T(z_1, z_2, z_3, z_4) = (z_1, 5z_2 + z_3, 5z_3, 5z_4)$.
+    Then the matrix of $T$ with respect to the standard basis is
+    \[
+        \mcal(T) = 
+        \begin{pmatrix}
+            1 & 0 & 0 & 0 \\
+            0 & 5 & 1 & 0 \\
+            0 & 0 & 5 & 0 \\
+            0 & 0 & 0 & 5
+        \end{pmatrix}.
+    \]
+    By 5.41, the eigenvalues of $T$ are $1, 5$, with $1$ having multiplicity $1$ and $5$ having multiplicity $3$ by 8.31.
+    Therefore, the characteristic polynomial of $T$ is $(z - 1)(z - 5)^3$.
+    Let $p$ be the minimal polynomial of $T$.
+    By 8.30, 5.27(a), and uniqueness of the factorization of the minimal polynomial, we have $p(z) = (z - 1)(z - 5)^b$ for some $b \in \set{1, 2, 3}$.
+    Observe that $(T - I)(T - 5I) e_3 = 4 e_2 \neq 0$.
+    However, $(T - 5I)^2 e_1 = 16 e_1$ and $(T - 5I)^2 e_k = 0$ for $k = 2, 3, 4$.
+    Moreover, $(T - I) e_1 = 0$, so $(T - I)(T - 5I)^2 = 0$.
+    Hence, $b = 2$ and the minimal polynomial of $T$ is $p(z) = (z - 1)(z - 5)^2$.
+\end{sol}
 
 \begin{exercise}{8b13}
     Give an example of an operator on $\cbb^4$ whose characteristic and minimal polynomials both equal $z(z - 1)^2(z - 3)$.
 \end{exercise}
 
+\begin{sol}
+    Let $e_1, e_2, e_3, e_4$ be the standard basis of $\cbb^4$.
+    Consider the operator $T \in \lin{\cbb^4}$ defined by $T(z_1, z_2, z_3, z_4) = (0, z_2 + z_3, z_3, 3 z_4)$.
+    Then the matrix of $T$ with respect to the standard basis is
+    \[
+        \mcal(T) = 
+        \begin{pmatrix}
+            0 & 0 & 0 & 0 \\
+            0 & 1 & 1 & 0 \\
+            0 & 0 & 1 & 0 \\
+            0 & 0 & 0 & 3
+        \end{pmatrix}.
+    \]
+    By 5.41, the eigenvalues of $T$ are $0, 1, 3$, with $0$ and $3$ having multiplicity $1$ and $1$ having multiplicity $2$ by 8.31.
+    Therefore, the characteristic polynomial of $T$ is $z(z - 1)^2(z - 3)$.
+    Let $p$ be the minimal polynomial of $T$.
+    By 8.30, 5.27(a), and uniqueness of the factorization of the minimal polynomial, we have $p(z) = z(z - 1)^b(z - 3)$ for some $b \in \set{1, 2}$.
+    Since $T(T - I)(T - 3I) e_3 = -2 e_2 \neq 0$, we have $b = 2$, so $p(z) = z(z - 1)^2(z - 3)$.
+\end{sol}
+
 \begin{exercise}{8b14}
     Give an example of an operator on $\cbb^4$ whose characteristic polynomial equals $z(z - 1)^2(z - 3)$ and whose minimal polynomial equals $z(z - 1)(z - 3)$.
 \end{exercise}
+
+\begin{sol}
+    Let $T \in \lin{\cbb^4}$ be defined by $T(z_1, z_2, z_3, z_4) = (0, z_2, z_3, 3 z_4)$.
+    Then $\mcal(T)$ with respect to the standard basis is diagonal with diagonal entries $0, 1, 1, 3$.
+    By 5.41, the eigenvalues of $T$ are $0, 1, 3$, with $0$ and $3$ having multiplicity $1$ and $1$ having multiplicity $2$ by 8.31.
+    Therefore, the characteristic polynomial of $T$ is $z(z - 1)^2(z - 3)$.
+    Since $\mcal(T)$ is diagonal, $T$ is diagonalizable, so the minimal polynomial of $T$ has distinct linear factors by 5.62, and hence the minimal polynomial of $T$ is $z(z - 1)(z - 3)$ by 5.27(a).
+\end{sol}
 
 \begin{exercise}{8b15}
     Let $T$ be the operator on $\cbb^4$ defined by $T(z_1, z_2, z_3, z_4) = (0, z_1, z_2, z_3)$.
     Find the characteristic polynomial and the minimal polynomial of $T$.
 \end{exercise}
+
+\begin{sol}
+    Let $e_1, e_2, e_3, e_4$ be the standard basis of $\cbb^4$.
+    Observe that $T e_k = e_{k+1}$ for $k = 1, 2, 3$ and $T e_4 = 0$, so $T^4 = 0$, and hence $T$ is nilpotent.
+    By 8.17(a), $0$ is the only eigenvalue of $T$, and $\dim \nul T^4 = \dim \cbb^4 = 4$, so the multiplicity of $0$ is $4$ by 8.23, and hence the characteristic polynomial of $T$ is $z^4$.
+    Moreover, 8.18(b) implies that the minimal polynomial of $T$ is $z^m$ for some positive integer $m$.
+    By 5.29, $m \leq 4$, and since $T^3 e_1 = e_4 \neq 0$, we must have $m \geq 4$, so $m = 4$, and hence the minimal polynomial of $T$ is $z^4$.
+\end{sol}
 
 \begin{exercise}{8b16}
     Let $T$ be the operator on $\cbb^6$ defined by
@@ -95,10 +322,36 @@
     Find the characteristic polynomial and the minimal polynomial of $T$.
 \end{exercise}
 
+\begin{sol}
+    Let $e_1, \ldots, e_6$ be the standard basis of $\cbb^6$.
+    Observe that $T e_k = e_{k+1}$ for $k = 1, 2, 4$ and $T e_j = 0$ for $j = 3, 5, 6$.
+    Hence, $T^3 = 0$, and $T$ is nilpotent.
+    By 8.17(a), $0$ is the only eigenvalue of $T$, and $\dim \nul T^6 = \dim \cbb^6 = 6$, so the multiplicity of $0$ is $6$ by 8.23, and hence the characteristic polynomial of $T$ is $z^6$.
+    Moreover, 8.18(b) implies that the minimal polynomial of $T$ is $z^m$ for some positive integer $m$.
+    By 5.29, $m \leq 3$, and since $T^2 e_1 = e_3 \neq 0$, we must have $m \geq 3$, so $m = 3$, and hence the minimal polynomial of $T$ is $z^3$.
+\end{sol}
+
 \begin{exercise}{8b17}
     Suppose $\fbb = \cbb$ and $P \in \lin{V}$ is such that $P^2 = P$.
     Prove that the characteristic polynomial of $P$ is $z^m (z - 1)^n$, where $m = \dim \nul P$ and $n = \dim \range P$.
 \end{exercise}
+
+\begin{sol}
+    Let $d = \dim V$.
+    By \exref{5a8}, every eigenvalue of $P$ is either $0$ or $1$.
+    Note that $P^2 = P$ yields $P^d = P$.
+    Moreover, $(P - I)^2 = P^2 - 2P + I = P - 2P + I = -(P - I)$, so $(P - I)^d = (-1)^{d-1} (P - I)$ by induction.
+    Hence, $\nul(P - I)^d = \nul(P - I)$.
+    
+    We claim that $\nul(P - I) = \range P$.
+
+    \rightset If $v \in \nul(P - I)$, then $(P - I)v = 0$, so $Pv = v$, and hence $v \in \range P$.
+
+    \leftset If $v \in \range P$, then $v = Pu$ for some $u \in V$, and $(P - I)v = (P - I)Pu = P^2 u - Pu = Pu - Pu = 0$, so $v \in \nul(P - I)$.
+    Hence, $\nul(P - I) = \range P$.
+    By 8.20, $\dim G(0, P) = m$ and $\dim G(1, P) = n$, so the multiplicity of $0$ is $m$ and the multiplicity of $1$ is $n$ by 8.23.
+    Therefore, the characteristic polynomial of $P$ is $z^m (z - 1)^n$, where if $m$ or $n$ is $0$ the corresponding factor is $1$.
+\end{sol}
 
 \begin{exercise}{8b18}
     Suppose $T \in \lin{V}$ and $\lambda$ is an eigenvalue of $T$.
@@ -117,10 +370,33 @@
     \end{subexercises}
 \end{exercise}
 
+\begin{sol}
+    Let $n = \dim V$.
+    Define $S = T - \lambda I$.
+    By 8.20, $G = G(\lambda, T) = \nul S^n$.
+    Let the integers in each part be denoted by $a, b, c, d$ respectively.
+    The integer $a$ exists because of 5.27(a); $b$ exists because $S^n|_G = 0$; $c$ exists by 8.3; $d$ exists by \exref{8a9}.
+
+    By \exref{8b6}, $a = b$.
+    Applying \exref{8a9} to $S$ gives $c = d$.
+    We close the proof by showing $b = c$.
+    
+    \rightineq By 8.1 and 8.2, $G \subseteq \nul S^n \subseteq \nul S^{c+n} = \nul S^c$, so $b \leq c$.
+
+    \leftineq By 8.1, $G \subseteq \nul S^b \subseteq \nul S^{b+1} \subseteq G$, so $c \leq b$.
+    Therefore, $b = c$, and hence all four numbers are equal.
+\end{sol}
+
 \begin{exercise}{8b19}
     Suppose $\fbb = \cbb$ and $S \in \lin{V}$ is a unitary operator.
     Prove that the constant term in the characteristic polynomial of $S$ has absolute value $1$.
 \end{exercise}
+
+\begin{sol}
+    Let $\lambda_1, \ldots, \lambda_k$ be the distinct eigenvalues of $S$ and let $m_j = \dim G(\lambda_j, S)$ for each $j$.
+    The characteristic polynomial of $S$ has constant term $(-\lambda_1)^{m_1} \cdots (-\lambda_k)^{m_k}$.
+    Since $S$ is unitary, $|\lambda_j| = 1$ for each $j$ by 7.54, so the absolute value of the constant term is $|(-\lambda_1)^{m_1} \cdots (-\lambda_k)^{m_k}| = 1$.
+\end{sol}
 
 \begin{exercise}{8b20}
     Suppose that $\fbb = \cbb$ and $V_1, \ldots, V_m$ are nonzero subspaces of $V$ such that
@@ -132,12 +408,61 @@
     Prove that the characteristic polynomial of $T$ equals $p_1 \cdots p_m$.
 \end{exercise}
 
+\begin{sol}
+    Let $q$ be the characteristic polynomial of $T$.
+    For each $k$, let $n_k = \dim V_k$.
+    Since each $V_k$ is nonzero and complex, 5.47 yields a basis $v_{k, 1}, \ldots, v_{k, n_k}$ of $V_k$ with respect to which $\mcal(T|_{V_k})$ is upper triangular.
+    For each $V_k$, denote the diagonal entries of $\mcal(T|_{V_k})$ by $d_{k, j}$ for $j = 1, \ldots, n_k$.
+    Let $\bcal$ be the list obtained by concatenating the bases of the $V_k$.
+    By 3.94, the sum of $n_k$ over all $k$ equals $\dim V$.
+    Additionally, $\bcal$ spans $V$, so it is a basis of $V$ by 2.42.
+    Because $\mcal(T|_{V_k})$ is upper triangular for each $k$, 5.39(c) yields $T v_{k, j} \in \spn(v_{k, 1}, \ldots, v_{k, j})$ for each $j = 1, \ldots, n_k$.
+    Moreover, $\spn(v_{k, 1}, \ldots, v_{k, j}) \subseteq \spn(v_{1, 1}, \ldots, v_{1, n_1}, \ldots, v_{k, 1}, \ldots, v_{k, j})$, so $\mcal(T, \bcal)$ is upper triangular by 5.39(c), where the diagonal entries are precisely the $d_{k, j}$.
+    By 5.41, 8.31, and 8.26 applied to $T$ and $T|_{V_k}$ for each $k$, we obtain
+    \[
+        q = \prod_{k=1}^m \prod_{j=1}^{n_k} (z - d_{k, j}) = \prod_{k=1}^m p_k.
+    \]
+\end{sol}
+
 \begin{exercise}{8b21}
     Suppose $p, q \in \pcal(\cbb)$ are monic polynomials with the same zeros and $q$ is a polynomial multiple of $p$.
     Prove that there exists $T \in \lin{\cbb^{\deg q}}$ such that the characteristic polynomial of $T$ is $q$ and the minimal polynomial of $T$ is $p$.
 
     \note{This exercise implies that every monic polynomial is the characteristic polynomial of some operator.}
 \end{exercise}
+
+\begin{sol}
+    Since $\cbb^{\deg q} \neq \set 0$, we have $\deg q \geq 1$, so $q$ has a zero by 4.12.
+    Since $p$ and $q$ have the same zeros, $p$ also has a zero.
+    Write $q = p r$ for some $r \in \pcal(\cbb)$, and factor $r$ by the fundamental theorem of algebra.
+    By uniqueness of factorization in $\pcal(\cbb)$, we can write
+    \[
+        q(z) = \prod_{k=1}^n (z - \lambda_k)^{m_k}, \quad
+        p(z) = \prod_{k=1}^n (z - \lambda_k)^{\ell_k},
+    \]
+    where $\lambda_1, \ldots, \lambda_n$ are the distinct zeros of $q$.
+    Moreover, all $m_k$ and $\ell_k$ are positive integers since $p$ and $q$ have zeros at $\lambda_k$, and we have $\ell_k \leq m_k$ for each $k$ since $q$ is a polynomial multiple of $p$.
+    Note that $\deg q = \sum_{k=1}^n m_k$.
+    Let $e_1, \ldots, e_{\deg q}$ be the standard basis of $\cbb^{\deg q}$, and split it into blocks of sizes $m_1, \ldots, m_n$ corresponding to the distinct zeros $\lambda_1, \ldots, \lambda_n$ of $q$.
+    For each $\lambda_k$, let $v_{k, 1}, \ldots, v_{k, m_k}$ be the ordered subset of the standard basis of $\cbb^{\deg q}$ as described above.
+    By the linear map lemma, there exists a unique linear map $T \in \lin{\cbb^{\deg q}}$ such that
+    \[
+        T v_{k, j} = 
+        \begin{cases}
+            \lambda_k v_{k, j} + v_{k, j-1}, & \text{for } j = 2, \ldots, \ell_k, \\
+            \lambda_k v_{k, j}, & \text{for } j = 1 \text{ and } j = \ell_k + 1, \ldots, m_k.
+        \end{cases}
+    \]
+    Observe that the matrix of $T$ with respect to the standard basis is upper triangular, where $\lambda_k$ appears on the diagonal $m_k$ times for each $k$.
+    Therefore, the characteristic polynomial of $T$ is $q$ by 5.41 and 8.31.
+
+    Consider the subspaces $V_k = \spn(v_{k, 1}, \ldots, v_{k, m_k})$ for each $k = 1, \ldots, n$.
+    Then $(T - \lambda_k I)^{\ell_k} v_{k, j} = 0$ for all $j = 1, \ldots, m_k$.
+    Therefore, $(T - \lambda_k I)^{\ell_k}|_{V_k} = 0$, but $(T - \lambda_k I)^{\ell_k - 1} v_{k, \ell_k} = v_{k, 1} \neq 0$.
+    Since $V_k \subseteq G(\lambda_k, T)$, and $\dim V_k = \dim G(\lambda_k, T) = m_k$ by 8.31 and 8.23, we have $V_k = G(\lambda_k, T)$.
+    By 5.27(b), the minimal polynomial of $T$ is a product of the factors $(z - \lambda_k)$, and by \exref{8b6}, the exponents of these factors are exactly $\ell_k$.
+    Therefore, the minimal polynomial of $T$ is $p$.
+\end{sol}
 
 \begin{exercise}{8b22}
     Suppose $A$ and $B$ are block diagonal matrices of the form
@@ -164,14 +489,91 @@
     \]
 \end{exercise}
 
+\begin{sol}
+    Let $A_k$ and $B_k$ be $n_k$-by-$n_k$ matrices for each $k = 1, \ldots, m$.
+    Let $N_k = n_1 + \cdots + n_{k-1}$ for each $k = 1, \ldots, m$, with the convention that $N_1 = 0$.
+    Then the $k$th block matrix has indices $i, j$ with $N_k + 1 \leq i, j \leq N_k + n_k$.
+    Fix $\ell$ and $s$ with $1 \leq s \leq n_\ell$, and consider the $(N_\ell + s)$th column of $B$.
+    The $(N_\ell + s)$th column of $B$ has zeros outside the $\ell$th block and equals the $s$th column of $B_\ell$ within the $\ell$th block.
+    By 3.48 and 3.50, the $(N_\ell + s)$th column of $AB$ is
+    \[
+        \sum_{t=1}^{n_\ell} (B_\ell)_{t, s} A_{\cdot, N_\ell + t}.
+    \]
+    Since $A$ is block diagonal, every column $A_{\cdot, N_\ell + t}$ has zeros outside the rows $N_\ell + 1 \leq i \leq N_\ell + n_\ell$, and equals $(A_\ell)_{\cdot, t}$ within those rows.
+    Then the $(N_\ell + s)$th column of $AB$ is zero outside the $\ell$th block and equals
+    \[
+        \sum_{t=1}^{n_\ell} (B_\ell)_{t, s} (A_\ell)_{\cdot, t} = A_\ell (B_\ell)_{\cdot, s} = (A_\ell B_\ell)_{\cdot, s}
+    \]
+    by 3.48 and 3.50.
+    Since this holds for any column of any block, we conclude that $AB$ is block diagonal with blocks $A_k B_k$.
+\end{sol}
+
 \begin{exercise}{8b23}
     Suppose $\fbb = \rbb$, $T \in \lin{V}$, and $\lambda \in \cbb$.
     \begin{subexercises}
         \item Show that $u + iv \in G(\lambda, T_{\cbb})$ if and only if $u - iv \in G(\bar{\lambda}, T_{\cbb})$.
         \item Show that the multiplicity of $\lambda$ as an eigenvalue of $T_{\cbb}$ equals the multiplicity of $\bar{\lambda}$ as an eigenvalue of $T_{\cbb}$.
         \item Use (b) and the result about the sum of the multiplicities (8.25) to show that if $\dim V$ is an odd number, then $T_{\cbb}$ has a real eigenvalue.
-        \item Use (c) and the result about real eigenvalues of $T_{\cbb}$ (Exercise 17 in Section 5A) to show that if $\dim V$ is an odd number, then $T$ has an eigenvalue (thus giving an alternative proof of 5.34).
+        \item Use (c) and the result about real eigenvalues of $T_{\cbb}$ (\exref{5a17}) to show that if $\dim V$ is an odd number, then $T$ has an eigenvalue (thus giving an alternative proof of 5.34).
     \end{subexercises}
 
-    \note{See Exercise 33 in Section 3B for the definition of the complexification $T_{\cbb}$.}
+    \note{See \exref{3b33} for the definition of the complexification $T_{\cbb}$.}
 \end{exercise}
+
+\begin{sol}
+    Define $C : V_{\cbb} \to V_{\cbb}$ by $C(u + iv) = u - iv$ for $u, v \in V$.
+    We claim that $C$ is additive, conjugate linear, satisfies $C^2 = I$, and commutes with $T_{\cbb}$.
+    To see additivity, let $u_1 + iv_1, u_2 + iv_2 \in V_{\cbb}$. Then
+    \begin{align*}
+        C((u_1 + iv_1) + (u_2 + iv_2)) &= C((u_1 + u_2) + i(v_1 + v_2)) \\
+        &= (u_1 + u_2) - i(v_1 + v_2) \\
+        &= (u_1 - iv_1) + (u_2 - iv_2) \\
+        &= C(u_1 + iv_1) + C(u_2 + iv_2).
+    \end{align*}
+    To see conjugate linearity, let $\alpha = a + bi \in \cbb$ and $u + iv \in V_{\cbb}$. Then
+    \begin{align*}
+        C(\alpha(u + iv)) &= C((a + bi)(u + iv)) \\
+        &= C((au - bv) + i(av + bu)) \\
+        &= (au - bv) - i(av + bu) \\
+        &= (a - bi)(u - iv) \\
+        &= \bar\alpha C(u + iv).
+    \end{align*}
+    Moreover, $C^2(u + iv) = C(u - iv) = u + iv$, so $C^2 = I$.
+    Finally,
+    \[
+        C T_{\cbb}(u + iv) = C(Tu + iTv) = Tu - iTv = T_{\cbb}(u - iv) = T_{\cbb} C(u + iv),
+    \]
+    so $C$ commutes with $T_{\cbb}$.
+    \begin{subexercises}
+        \item Since $C$ commutes with $T_{\cbb}$ and $C(\lambda(u + iv)) = \bar{\lambda} C(u + iv)$ for any $u + iv \in V_{\cbb}$, we have $C(T_{\cbb} - \lambda I) = (T_{\cbb} - \bar{\lambda} I) C$.
+        Then for any positive integer $k$, it follows by induction that $C(T_{\cbb} - \lambda I)^k = (T_{\cbb} - \bar{\lambda} I)^k C$.
+        By definition, $u + iv \in G(\lambda, T_{\cbb})$ if and only if $(T_{\cbb} - \lambda I)^k (u + iv) = 0$ for some positive integer $k$.
+        Moreover, $C^2 = I$ implies that $C$ is injective, and additivity gives $C0 = 0$, so for any positive integer $k$, $(T_{\cbb} - \lambda I)^k (u + iv) = 0$ if and only if $(T_{\cbb} - \bar{\lambda} I)^k C(u + iv) = 0$.
+        Since $C(u + iv) = u - iv$, we have $(T_{\cbb} - \bar{\lambda} I)^k (u - iv) = 0$ for some $k$ if and only if $u - iv \in G(\bar{\lambda}, T_{\cbb})$.
+        \item Suppose $v_1, \ldots, v_m$ is a basis of $G(\lambda, T_{\cbb})$.
+        By part (a), $C v_j \in G(\bar\lambda, T_{\cbb})$ for each $j = 1, \ldots, m$.
+        We claim that $C v_1, \ldots, C v_m$ is a basis of $G(\bar\lambda, T_{\cbb})$.
+        To see this, suppose there are scalars $\alpha_1, \ldots, \alpha_m \in \cbb$ such that
+        \[
+            \sum_{j=1}^m \alpha_j C v_j = 0.
+        \]
+        Applying $C$ to both sides gives
+        \[
+            C\left(\sum_{j=1}^m \alpha_j C v_j\right) = \sum_{j=1}^m \bar{\alpha_j} C^2 v_j = \sum_{j=1}^m \bar{\alpha_j} v_j = C0 = 0.
+        \]
+        By the linear independence of $v_1, \ldots, v_m$, we must have $\bar{\alpha_1} = \cdots = \bar{\alpha_m} = 0$, hence $\alpha_1 = \cdots = \alpha_m = 0$.
+        Moreover, for any $w \in G(\bar\lambda, T_{\cbb})$, we have $C w \in G(\lambda, T_{\cbb})$ by part (a), so $C w = \sum_{j=1}^m \beta_j v_j$ for some $\beta_j \in \cbb$, hence
+        \[
+            w = C(C w) = C\left( \sum_{j=1}^m \beta_j v_j \right) = \sum_{j=1}^m \bar{\beta_j} C v_j.
+        \]
+        Therefore, $C v_1, \ldots, C v_m$ is a basis of $G(\bar\lambda, T_{\cbb})$, whence $\dim G(\bar\lambda, T_{\cbb}) = \dim G(\lambda, T_{\cbb})$.
+        Thus, $\lambda$ is an eigenvalue of $T_{\cbb}$ if and only if $\bar\lambda$ is an eigenvalue of $T_{\cbb}$.
+        \item By \exref{2b11}, $\dim V_{\cbb} = \dim V$.
+        Then $V_{\cbb}$ is nonzero with odd dimension, so we may apply 8.25 to $T_{\cbb}$ to conclude that $\dim V_{\cbb} = \sum_{\mu} d_\mu$, where $\mu$ ranges over the eigenvalues of $T_{\cbb}$ and $d_\mu$ is the multiplicity of $\mu$.
+        Note that for nonreal eigenvalues $\mu$, we have $\mu \neq \bar\mu$.
+        By part (b), $d_\mu = d_{\bar\mu}$ for each nonreal eigenvalue $\mu$, so the sum of the multiplicities of nonreal eigenvalues is even.
+        Since $\dim V_{\cbb}$ is odd, there must be at least one real eigenvalue of $T_{\cbb}$.
+        \item By (c), $T_{\cbb}$ has a real eigenvalue $\nu \in \rbb$.
+        By \exref{5a17}, $\nu$ is an eigenvalue of $T$. \qedhere
+    \end{subexercises}
+\end{sol}
