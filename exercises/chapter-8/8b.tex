@@ -338,19 +338,12 @@
 
 \begin{sol}
     Let $d = \dim V$.
-    By \exref{5a8}, every eigenvalue of $P$ is either $0$ or $1$.
-    Note that $P^2 = P$ yields $P^d = P$.
-    Moreover, $(P - I)^2 = P^2 - 2P + I = P - 2P + I = -(P - I)$, so $(P - I)^d = (-1)^{d-1} (P - I)$ by induction.
-    Hence, $\nul(P - I)^d = \nul(P - I)$.
-    
-    We claim that $\nul(P - I) = \range P$.
-
-    \rightset If $v \in \nul(P - I)$, then $(P - I)v = 0$, so $Pv = v$, and hence $v \in \range P$.
-
-    \leftset If $v \in \range P$, then $v = Pu$ for some $u \in V$, and $(P - I)v = (P - I)Pu = P^2 u - Pu = Pu - Pu = 0$, so $v \in \nul(P - I)$.
-    Hence, $\nul(P - I) = \range P$.
-    By 8.20, $\dim G(0, P) = m$ and $\dim G(1, P) = n$, so the multiplicity of $0$ is $m$ and the multiplicity of $1$ is $n$ by 8.23.
-    Therefore, the characteristic polynomial of $P$ is $z^m (z - 1)^n$, where if $m$ or $n$ is $0$ the corresponding factor is $1$.
+    By induction, $P^d = P$, so $V = \nul P^d \oplus \range P^d = \nul P \oplus \range P$ by 8.4.
+    Choose a basis of $V$ consisting of a basis of $\nul P$ followed by a basis of $\range P$.
+    For any $u \in \range P$, there exists some $w \in V$ such that $Pw = u$.
+    Then $P u = P(P w) = P^2 w = P w = u$, and hence the matrix of $P$ with respect to this basis is diagonal with $m$ zeros followed by $n$ ones.
+    By 5.41, the eigenvalues of $P$ are the diagonal entries, and the multiplicity of each eigenvalue is the number of times it appears on the diagonal by 8.31.
+    Hence, the characteristic polynomial of $P$ is $z^m (z - 1)^n$.
 \end{sol}
 
 \begin{exercise}{8b18}
@@ -398,7 +391,7 @@
     Since $S$ is unitary, $|\lambda_j| = 1$ for each $j$ by 7.54, so the absolute value of the constant term is $|(-\lambda_1)^{m_1} \cdots (-\lambda_k)^{m_k}| = 1$.
 \end{sol}
 
-\begin{exercise}{8b20}
+\begin{exercise}*{8b20}
     Suppose that $\fbb = \cbb$ and $V_1, \ldots, V_m$ are nonzero subspaces of $V$ such that
     \[
         V = V_1 \oplus \cdots \oplus V_m.
@@ -420,7 +413,7 @@
     Moreover, $\spn(v_{k, 1}, \ldots, v_{k, j}) \subseteq \spn(v_{1, 1}, \ldots, v_{1, n_1}, \ldots, v_{k, 1}, \ldots, v_{k, j})$, so $\mcal(T, \bcal)$ is upper triangular by 5.39(c), where the diagonal entries are precisely the $d_{k, j}$.
     By 5.41, 8.31, and 8.26 applied to $T$ and $T|_{V_k}$ for each $k$, we obtain
     \[
-        q = \prod_{k=1}^m \prod_{j=1}^{n_k} (z - d_{k, j}) = \prod_{k=1}^m p_k.
+        q = \prod_{k=1}^m \prod_{j=1}^{n_k} (z - d_{k, j}) = \prod_{k=1}^m p_k. \qedhere
     \]
 \end{sol}
 
