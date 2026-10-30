@@ -1,0 +1,90 @@
+\begin{exercise}{8d1}
+    Suppose $V$ is an inner product space and $v, w \in V$.
+    Define an operator $T \in \lin{V}$ by $Tu = \ip{u, v} w$.
+    Find a formula for $\tr T$.
+\end{exercise}
+
+\begin{exercise}{8d2}
+    Suppose $P \in \lin{V}$ satisfies $P^2 = P$.
+    Prove that
+    \[
+        \tr P = \dim \range P.
+    \]
+\end{exercise}
+
+\begin{exercise}{8d3}
+    Suppose $T \in \lin{V}$ and $T^5 = T$.
+    Prove that the real and imaginary parts of $\tr T$ are both integers.
+\end{exercise}
+
+\begin{exercise}{8d4}
+    Suppose $V$ is an inner product space and $T \in \lin{V}$.
+    Prove that
+    \[
+        \tr T^\ast = \bar{\tr T}.
+    \]
+\end{exercise}
+
+\begin{exercise}{8d5}
+    Suppose $V$ is an inner product space.
+    Suppose $T \in \lin{V}$ is a positive operator and $\tr T = 0$.
+    Prove that $T = 0$.
+\end{exercise}
+
+\begin{exercise}{8d6}
+    Suppose $V$ is an inner product space and $P, Q \in \lin{V}$ are orthogonal projections.
+    Prove that $\tr(PQ) \geq 0$.
+\end{exercise}
+
+\begin{exercise}{8d8}
+    Prove or give a counterexample: If $S, T \in \lin{V}$, then $\tr(ST) = (\tr S)(\tr T)$.
+\end{exercise}
+
+\begin{exercise}{8d9}
+    Suppose $T \in \lin{V}$ is such that $\tr(ST) = 0$ for all $S \in \lin{V}$.
+    Prove that $T = 0$.
+\end{exercise}
+
+\begin{exercise}{8d10}
+    Prove that the trace is the only linear functional $\tau : \lin{V} \to \fbb$ such that
+    \[
+        \tau(ST) = \tau(TS)
+    \]
+    for all $S, T \in \lin{V}$ and $\tau(I) = \dim V$.
+
+    \hint{Suppose that $v_1, \ldots, v_n$ is a basis of $V$.
+    For $j, k \in \set{1, \ldots, n}$, define $P_{j,k} \in \lin{V}$ by $P_{j,k}(a_1 v_1 + \cdots + a_n v_n) = a_k v_j$.
+    Prove that
+    \[
+        \tau(P_{j,k}) = \begin{cases}
+            1 & \text{if } j = k, \\
+            0 & \text{if } j \neq k.
+        \end{cases}
+    \]
+    Then for $T \in \lin{V}$, use the equation $T = \sum_{k=1}^{n} \sum_{j=1}^{n} \mcal(T)_{j,k} P_{j,k}$ to show that $\tau(T) = \tr T$.}
+\end{exercise}
+
+\begin{exercise}{8d11}
+    Suppose $V$ and $W$ are inner product spaces and $T \in \lin{V, W}$.
+    Prove that if $e_1, \ldots, e_n$ is an orthonormal basis of $V$ and $f_1, \ldots, f_m$ is an orthonormal basis of $W$, then
+    \[
+        \tr(T^\ast T) = \sum_{k=1}^{n} \sum_{j=1}^{m} |\ip{Te_k, f_j}|^2.
+    \]
+
+    \note{The numbers $\ip{Te_k, f_j}$ are the entries of the matrix of $T$ with respect to the orthonormal bases $e_1, \ldots, e_n$ and $f_1, \ldots, f_m$.
+    These numbers depend on the bases, but $\tr(T^\ast T)$ does not depend on a choice of bases.
+    Thus this exercise shows that the sum of the squares of the absolute values of the matrix entries does not depend on which orthonormal bases are used.}
+\end{exercise}
+
+\begin{exercise}{8d12}
+    Suppose $V$ and $W$ are finite-dimensional inner product spaces.
+    \begin{subexercises}
+        \item Prove that $\ip{S, T} = \tr(T^\ast S)$ defines an inner product on $\lin{V, W}$.
+        \item Suppose $e_1, \ldots, e_n$ is an orthonormal basis of $V$ and $f_1, \ldots, f_m$ is an orthonormal basis of $W$.
+        Show that the inner product on $\lin{V, W}$ from (a) is the same as the standard inner product on $\fbb^{mn}$, where we identify each element of $\lin{V, W}$ with its matrix (with respect to the bases just mentioned) and then with an element of $\fbb^{mn}$.
+    \end{subexercises}
+
+    \note{\textbf{Caution:} The norm of a linear map $T \in \lin{V, W}$ as defined by 7.86 is not the same as the norm that comes from the inner product in (a) above.
+    Unless explicitly stated otherwise, always assume that $\norm{T}$ refers to the norm as defined by 7.86.
+    The norm that comes from the inner product in (a) is called the \term{Frobenius norm} or the \term{Hilbert--Schmidt norm}.}
+\end{exercise}
