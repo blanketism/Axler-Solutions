@@ -1,5 +1,8 @@
 \subsection{Consequences of Generalized Eigenspace Decomposition}
 
+\remark{The terms \term{superdiagonal}, \term{second superdiagonal}, and \term{subdiagonal} refer to the entries immediately above, two above, and immediately below the main diagonal of a matrix, respectively.
+For $1$-by-$1$ blocks, all three diagonals are empty, while for $2$-by-$2$ blocks, the second superdiagonal is empty, so claims involving the entries of these empty diagonals hold vacuously.}
+
 \begin{exercise}{8c1}
     Suppose $T \in \lin{\cbb^3}$ is the operator defined by $T(z_1, z_2, z_3) = (z_2, z_3, 0)$.
     Prove that $T$ does not have a square root.
@@ -39,6 +42,8 @@
 \begin{exercise}{8c3}
     Suppose $V$ is a complex vector space.
     Prove that every invertible operator on $V$ has a cube root.
+
+    \remark{The coefficients in the recursion below are given by $a_j = \binom{1/3}{j}$ for $j \geq 1$.}
 \end{exercise}
 
 \begin{sol}
