@@ -5,6 +5,14 @@
     Prove that $T$ does not have a square root.
 \end{exercise}
 
+\begin{sol}
+    Note that $T^2(z_1, z_2, z_3) = (z_3, 0, 0)$ and $T^3 = 0$.
+    Suppose $S \in \lin{\cbb^3}$ is such that $S^2 = T$.
+    Then $S^6 = (S^2)^3 = T^3 = 0$, so $S$ is nilpotent.
+    By 8.16, $S^3 = 0$, but $T^2 = S^4 = SS^3 = 0$, which contradicts $T^2 \neq 0$.
+    Therefore, $T$ does not have a square root.
+\end{sol}
+
 \begin{exercise}{8c2}
     Define $T \in \lin{\fbb^5}$ by $T(x_1, x_2, x_3, x_4, x_5) = (2x_2, 3x_3, -x_4, 4x_5, 0)$.
     \begin{subexercises}
@@ -13,34 +21,161 @@
     \end{subexercises}
 \end{exercise}
 
+\begin{solenum}
+    \item With respect to the standard basis of $\fbb^5$, the matrix $\mcal(T)$ of $T$ on and below the diagonal is $0$, so $T$ is nilpotent by 8.18.
+    \item By part (a) and 8.16, $T^5 = 0$.
+    As in the proof of 8.39, we may construct the polynomial
+    \[
+        p(z) = 1 + \frac{1}{2} z - \frac{1}{8} z^2 + \frac{1}{16} z^3 - \frac{5}{128} z^4.
+    \]
+    Squaring $p(z)$ gives
+    \[
+        p^2(z) = 1 + z + z^5 q(z)
+    \]
+    for some $q \in \pcal(\fbb)$.
+    Let $S = p(T)$, so $S^2 = I + T + T^5 q(T) = I + T$ by 5.17(a) and $T^5 = 0$.
+\end{solenum}
+
 \begin{exercise}{8c3}
     Suppose $V$ is a complex vector space.
     Prove that every invertible operator on $V$ has a cube root.
 \end{exercise}
+
+\begin{sol}
+    Let $T \in \lin{V}$ be invertible with distinct eigenvalues $\lambda_1, \ldots, \lambda_m$ and let $n = \dim V$.
+    By 5.7, $\lambda_k \neq 0$ for each $k = 1, \ldots, m$.
+    Let $G_k = G(\lambda_k, T)$ for each $k = 1, \ldots, m$.
+    Then the generalized eigenspace decomposition of $V$ is
+    \[
+        V = \bigoplus_{k=1}^m G_k.
+    \]
+    By 8.22(a), we may define $N_k = (T - \lambda_k I)|_{G_k} \in \lin{G_k}$ for each $k = 1, \ldots, m$.
+    Since $N_k$ is nilpotent on $G_k$ by 8.22(b), and $\dim G_k \leq n$, we have $N_k^n = 0$ by 8.16.
+    As in the proof of 8.39 with a cubic in place of a square, set $a_1 = \frac{1}{3}$.
+    For each $2 \leq j \leq n-1$, the coefficient of $z^j$ in the expansion $(1 + a_1 z + \cdots + a_j z^j)^3$ is $3 a_j + f_j(a_1, \ldots, a_{j-1})$ for some polynomial $f_j$ in $a_1, \ldots, a_{j-1}$.
+    Choosing $a_j$ such that $3 a_j + f_j(a_1, \ldots, a_{j-1}) = 0$, we can recursively determine $a_2, \ldots, a_{n-1}$.
+    We then obtain the polynomial
+    \[
+        p(z) = 1 + a_1 z + \cdots + a_{n-1} z^{n-1}
+    \]
+    such that $p^3(z) = 1 + z + z^n r(z)$ for some $r \in \pcal(\fbb)$.
+    By the fundamental theorem of algebra, the polynomial $z^3 - \lambda_k$ has a zero in $\cbb$ for each $k = 1, \ldots, m$, say $\mu_k$.
+    Define the operators $S_k = \mu_k p(\lambda_k\inv N_k)$ on $G_k$ for each $k$.
+    By 5.17(a) and $N_k^n = 0$, it follows that $S_k^3 = (\mu_k p(\lambda_k\inv N_k))^3 = \lambda_k I + N_k = T|_{G_k}$.
+    For each $v \in V$, by the generalized eigenspace decomposition, we may uniquely write $v = v_1 + \cdots + v_m$ with $v_k \in G_k$ for each $k = 1, \ldots, m$.
+    Define $S \in \lin{V}$ by $S v = S_1 v_1 + \cdots + S_m v_m$.
+    Since $S v_k = S_k v_k \in G_k$ for each $k$, we have $S^3 v_k = S_k^3 v_k = T|_{G_k} v_k = T v_k$ for each $k$, and thus $S^3 = T$ on all of $V$.
+\end{sol}
 
 \begin{exercise}{8c4}
     Suppose $V$ is a real vector space.
     Prove that the operator $-I$ on $V$ has a square root if and only if $\dim V$ is an even number.
 \end{exercise}
 
+\begin{soliff}
+    \rightimp Let $S \in \lin{V}$ be such that $S^2 = -I$.
+    Then $\nul(S^2 + 0S + I) = \nul(-I + I) = \nul(0) = V$.
+    Since $0^2 < 4$, 5.33 gives that $\dim V$ is even.
+
+    \leftimp Let $\dim V = 2n$ for some positive integer $n$, and let $V$ have a basis $v_1, \ldots, v_{2n}$.
+    By the linear map lemma, there exists a linear map $S \in \lin{V}$ such that $S v_{2k-1} = v_{2k}$ and $S v_{2k} = -v_{2k-1}$ for each $k = 1, \ldots, n$.
+    Then $S^2 v_{2k-1} = S v_{2k} = -v_{2k-1}$ and $S^2 v_{2k} = S(-v_{2k-1}) = -v_{2k}$ for each $k = 1, \ldots, n$.
+    Since $S^2$ and $-I$ agree on a basis of $V$, the uniqueness part of the linear map lemma implies that $S^2 = -I$.
+\end{soliff}
+
 \begin{exercise}{8c5}
     Suppose $T \in \lin{\cbb^2}$ is the operator defined by $T(w, z) = (-w - z, 9w + 5z)$.
     Find a Jordan basis for $T$.
 \end{exercise}
 
+\begin{sol}
+    Let $N = T - 2I$.
+    Then $N(w, z) = (-3w - z, 9w + 3z) = (-3w - z)(1, -3)$, so
+    \[
+        N^2(w, z) = (-3w - z) N(1, -3) = 0.
+    \]
+    Let $v = (0, -1)$.
+    Then $N v = (1, -3) \neq 0$, so by \exref{8a2}, $v, Nv$ is a linearly independent list of length 2, and thus is a basis of $\cbb^2$ by 2.38.
+    We have $T N v = 2 N v$ and $T v = N v + 2 v$, so
+    \[
+        \mcal(T, (Nv, v)) =
+        \begin{pmatrix}
+            2 & 1 \\
+            0 & 2
+        \end{pmatrix}.
+    \]
+    Therefore, the list $(1, -3), (0, -1)$ is a Jordan basis for $T$.
+\end{sol}
+
 \begin{exercise}{8c6}
     Find a basis of $\pcal_4(\rbb)$ that is a Jordan basis for the differentiation operator $D$ on $\pcal_4(\rbb)$ defined by $Dp = p'$.
 \end{exercise}
+
+\begin{sol}
+    Define $v = \frac{x^4}{4!}$, so $D^4 v = 1$ and $D^5 v = 0$.
+    By \exref{8a2}, the list $v, Dv, D^2 v, D^3 v, D^4 v$ is a linearly independent list of length 5 and thus forms a basis of $\pcal_4(\rbb)$ by 2.38.
+    Then
+    \[
+        \mcal(D, (D^4 v, D^3 v, D^2 v, Dv, v)) =
+        \begin{pmatrix}
+            0 & 1 & 0 & 0 & 0 \\
+            0 & 0 & 1 & 0 & 0 \\
+            0 & 0 & 0 & 1 & 0 \\
+            0 & 0 & 0 & 0 & 1 \\
+            0 & 0 & 0 & 0 & 0
+        \end{pmatrix},
+    \]
+    so the list $1, x, \frac{x^2}{2!}, \frac{x^3}{3!}, \frac{x^4}{4!}$ is a Jordan basis for $D$.
+\end{sol}
 
 \begin{exercise}{8c7}
     Suppose $T \in \lin{V}$ is nilpotent and $v_1, \ldots, v_n$ is a Jordan basis for $T$.
     Prove that the minimal polynomial of $T$ is $z^{m+1}$, where $m$ is the length of the longest consecutive string of $1$'s that appears on the line directly above the diagonal in the matrix of $T$ with respect to $v_1, \ldots, v_n$.
 \end{exercise}
 
+\begin{sol}
+    Let $A_1, \ldots, A_p$ be the blocks as in 8.44, where each $A_k$ is $d_k$-by-$d_k$.
+    Let $v_{k, 1}, \ldots, v_{k, d_k}$ be the basis vectors of the block $A_k$ for each $k = 1, \ldots, p$.
+    By 8.44,
+    \[
+        T v_{k, j} =
+        \begin{cases}
+            \lambda_k v_{k, 1} & \text{if } j = 1, \\
+            \lambda_k v_{k, j} + v_{k, j-1} & \text{if } j > 1.
+        \end{cases}
+    \]
+    Note that $T v_{k, 1} = \lambda_k v_{k, 1}$ with $v_{k, 1} \neq 0$.
+    Since $T$ is nilpotent, 8.17(a) implies that $\lambda_k = 0$ for all $k$.
+    Then $T v_{k, 1} = 0$ and $T v_{k, j} = v_{k, j-1}$ for $j > 1$, so
+    \[
+        T^{j-1} v_{k, j} = v_{k, 1}, \quad T^j v_{k, j} = 0.
+    \]
+    The entries above the diagonal between the blocks $A_k$ and $A_{k+1}$ are all $0$, so the consecutive string of $1$'s cannot extend beyond a single block.
+    Therefore, each block $A_k$ contributes a consecutive string of $1$'s of length $d_k - 1$, so $m+1 = \max_k d_k$.
+    By 8.18, the minimal polynomial of $T$ is $z^r$ for some $r$.
+    We now claim that $r = m+1$.
+
+    \rightineq Since each $v_{k, j}$ has $j \leq d_k \leq m+1$, we have $T^{m+1} v_{k, j} = T^{m+1-j}(T^j v_{k, j}) = 0$.
+    Therefore, $T^{m+1} = 0$, and 5.29 yields $r \leq m+1$.
+
+    \leftineq Consider some $k$ such that $d_k = m+1$.
+    Then $T^m v_{k, m+1} = v_{k, 1} \neq 0$, so $T^m \neq 0$.
+    Therefore, $r \geq m+1$ by 5.29.
+    Combining this with the previous inequality gives $r = m+1$.
+\end{sol}
+
 \begin{exercise}{8c8}
     Suppose $T \in \lin{V}$ and $v_1, \ldots, v_n$ is a basis of $V$ that is a Jordan basis for $T$.
     Describe the matrix of $T^2$ with respect to this basis.
 \end{exercise}
+
+\begin{sol}
+    Let $A_1, \ldots, A_p$ be the blocks of $\mcal(T)$ with respect to the basis $v_1, \ldots, v_n$ and let $\lambda_k$ be the eigenvalue corresponding to the block $A_k$.
+    By 3.43 and \exref{8b22}, $\mcal(T^2) = \mcal(T)^2$ is block diagonal with blocks $A_1^2, \ldots, A_p^2$.
+    Write $A_k = \lambda_k I + N_k$, where $N_k$ is the matrix with $1$'s on the superdiagonal and $0$'s elsewhere.
+    Then $A_k^2 = \lambda_k^2 I + 2 \lambda_k N_k + N_k^2$, and $N_k^2$ has $1$'s on the second superdiagonal and $0$'s elsewhere by 3.46.
+    Therefore, each block $A_k^2$ has $\lambda_k^2$ on the diagonal, $2 \lambda_k$ on the superdiagonal, $1$'s on the second superdiagonal, and $0$'s elsewhere.
+\end{sol}
 
 \begin{exercise}{8c9}
     Suppose $T \in \lin{V}$ is nilpotent.
@@ -51,20 +186,62 @@
     \end{subexercises}
 \end{exercise}
 
+\begin{sol}
+    By 8.45, nilpotence of $T$ gives a Jordan basis $u_1, \ldots, u_{\dim V}$ for $T$.
+    Let $A_1, \ldots, A_n$ be the blocks of $\mcal(T, (u_1, \ldots, u_{\dim V}))$ with diagonal entries $\lambda_1, \ldots, \lambda_n$.
+    Let $u_{k, 1}, \ldots, u_{k, d_k}$ be the basis vectors corresponding to the $d_k$-by-$d_k$ block $A_k$.
+    By 5.41 and 8.17(a), $\lambda_k = 0$, so $T u_{k, 1} = 0$ and $T u_{k, j} = u_{k, j-1}$ for $2 \leq j \leq d_k$ by 8.44.
+    Let $v_k = u_{k, d_k}$ and $m_k = d_k - 1$ for $1 \leq k \leq n$.
+    
+    (a) is satisfied because $T^j v_k = u_{k, d_k - j}$ for $0 \leq j \leq m_k$, so the vectors $T^{m_k} v_k, \ldots, Tv_k, v_k$ are exactly $u_{k, 1}, \ldots, u_{k, d_k}$ in order.
+
+    (b) is satisfied because $T^{m_k + 1} v_k = T^{d_k} u_{k, d_k} = 0$ for each $k$, as $u_{k, 1} \in \nul T$.
+\end{sol}
+
 \begin{exercise}{8c10}
     Suppose $T \in \lin{V}$ and $v_1, \ldots, v_n$ is a basis of $V$ that is a Jordan basis for $T$.
     Describe the matrix of $T$ with respect to the basis $v_n, \ldots, v_1$ obtained by reversing the order of the $v$'s.
 \end{exercise}
+
+\begin{sol}
+    Let $A_1, \ldots, A_p$ be the Jordan blocks of $\mcal(T, (v_1, \ldots, v_n))$ with diagonal entries $\lambda_1, \ldots, \lambda_p$.
+    Let $v_{k, 1}, \ldots, v_{k, d_k}$ be the basis vectors among $v_1, \ldots, v_n$ corresponding to $A_k$ in order.
+    By 8.44, $T v_{k, 1} = \lambda_k v_{k, 1}$ and $T v_{k, j} = v_{k, j-1} + \lambda_k v_{k, j}$ for $2 \leq j \leq d_k$.
+    In the basis $v_n, \ldots, v_1$, the basis vectors corresponding to $A_k$ appear in the reverse order $v_{k, d_k}, \ldots, v_{k, 1}$, with the blocks appearing in the order $A_p, \ldots, A_1$.
+    Writing $w_\ell = v_{k, d_k+1-\ell}$ for $1 \leq \ell \leq d_k$, we have $T w_\ell = \lambda_k w_\ell + w_{\ell+1}$ for $1 \leq \ell \leq d_k - 1$ and $T w_{d_k} = \lambda_k w_{d_k}$.
+    Therefore, $\mcal(T, (v_n, \ldots, v_1))$ is block diagonal with the blocks $A_p\trans, \ldots, A_1\trans$.
+    Each block $A_k\trans$ has $\lambda_k$ on its diagonal, $1$'s on its subdiagonal, and $0$'s elsewhere.
+\end{sol}
 
 \begin{exercise}{8c11}
     Suppose $T \in \lin{V}$.
     Explain why every vector in each Jordan basis for $T$ is a generalized eigenvector of $T$.
 \end{exercise}
 
+\begin{sol}
+    Let $v_1, \ldots, v_n$ be a Jordan basis for $T$.
+    Let $A_1, \ldots, A_p$ be the blocks of $\mcal(T, (v_1, \ldots, v_n))$ with diagonal entries $\lambda_1, \ldots, \lambda_p$.
+    Let $v_{k, 1}, \ldots, v_{k, d_k}$ be the basis vectors corresponding to $A_k$ in order.
+    By 8.44, $(T - \lambda_k I) v_{k, 1} = 0$ and $(T - \lambda_k I) v_{k, j} = v_{k, j-1}$ for $2 \leq j \leq d_k$.
+    Hence, $\lambda_k$ is an eigenvalue of $T$ and $(T - \lambda_k I)^j v_{k, j} = 0$ for $1 \leq j \leq d_k$.
+    Since $v_{k, j} \neq 0$, it follows that $v_{k, j}$ is a generalized eigenvector of $T$ corresponding to $\lambda_k$.
+\end{sol}
+
 \begin{exercise}{8c12}
     Suppose $T \in \lin{V}$ is diagonalizable.
     Show that $\mcal(T)$ is a diagonal matrix with respect to every Jordan basis for $T$.
 \end{exercise}
+
+\begin{sol}
+    Let $v_1, \ldots, v_n$ be a Jordan basis for $T$.
+    Let $A_1, \ldots, A_p$ be the blocks of $\mcal(T, (v_1, \ldots, v_n))$ with diagonal entries $\lambda_1, \ldots, \lambda_p$.
+    Let $v_{k, 1}, \ldots, v_{k, d_k}$ be the basis vectors corresponding to the block $A_k$, and define $U_k = \spn(v_{k, 1}, \ldots, v_{k, d_k})$.
+    By 8.44, $T$ maps the vectors $v_{k, 1}, \ldots, v_{k, d_k}$ into $U_k$, so $U_k$ is invariant under $T$, and $\mcal(T|_{U_k}, (v_{k, 1}, \ldots, v_{k, d_k})) = A_k$.
+    By 5.65, $T|_{U_k}$ is diagonalizable for each $k$.
+    Since $A_k$ is upper triangular with $\lambda_k$ on the diagonal, 5.41 yields that $\lambda_k$ is the only eigenvalue of $T|_{U_k}$.
+    By 5.55, $U_k = E(\lambda_k, T|_{U_k})$, so $T|_{U_k} = \lambda_k I$, and hence $A_k = \lambda_k I$.
+    Since this holds for each block $A_k$, it follows that $\mcal(T, (v_1, \ldots, v_n))$ is diagonal.
+\end{sol}
 
 \begin{exercise}{8c13}
     Suppose $T \in \lin{V}$ is nilpotent.
@@ -82,7 +259,45 @@
     Thus, the positive integer $n$ that appears above depends only on $T$ and not on the specific Jordan basis chosen for $T$.}
 \end{exercise}
 
+\begin{sol}
+    Since $T^{m_k+1} v_k = 0$ for each $k$, $T^{m_k} v_k \in \nul T$ for each $k$.
+    Observe that $T(T^j v_k) = T^{j+1} v_k$ for each $k$ and $0 \leq j \leq m_k$, where $T^{m_k+1} v_k = 0$.
+    Therefore, the list $T v_1, \ldots, T^{m_1} v_1, \ldots, T v_n, \ldots, T^{m_n} v_n$ spans $\range T$ and is linearly independent since it is part of the given basis.
+    Consequently, the list forms a basis of $\range T$, and hence $\dim \range T = \sum_{k=1}^n m_k$.
+    Because $\dim V = \sum_{k=1}^n (m_k + 1)$, the fundamental theorem of linear maps gives
+    \[
+        \dim \nul T = \sum_{k=1}^n (m_k + 1) - \sum_{k=1}^n m_k = n.
+    \]
+    Since $T^{m_1} v_1, \ldots, T^{m_n} v_n$ is part of the given basis, it is a linearly independent list of length $n$ in $\nul T$, wherefore it forms a basis of $\nul T$ by 2.38.
+\end{sol}
+
 \begin{exercise}{8c14}
     Suppose $\fbb = \cbb$ and $T \in \lin{V}$.
     Prove that there does not exist a direct sum decomposition of $V$ into two nonzero subspaces invariant under $T$ if and only if the minimal polynomial of $T$ is of the form $(z - \lambda)^{\dim V}$ for some $\lambda \in \cbb$.
 \end{exercise}
+
+\begin{sol}
+    Let $p$ be the minimal polynomial of $T$ and let $n = \dim V$.
+
+    \rightimp Suppose no direct sum decomposition of $V$ into two nonzero subspaces invariant under $T$ exists.
+    By 8.46, there exists a Jordan basis $v_1, \ldots, v_n$ of $V$ with blocks $A_1, \ldots, A_q$.
+    Define $U$ to be the span of the basis vectors corresponding to the first block $A_1$ and $W$ to be the span of the remaining basis vectors.
+    By 8.44, $T$ maps the basis vectors corresponding to each block into their own span, so $U$ and $W$ are invariant under $T$.
+    Since $U + W$ contains the basis vectors and $\dim U + \dim W = n$, it follows that $V = U \oplus W$ by 3.94.
+    Since $U \neq \set{0}$, the hypothesis implies that $W = \set{0}$.
+    Hence, $\mcal(T, (v_1, \ldots, v_n)) = A_1$ is a single $n$-by-$n$ block.
+    Let $\lambda = \lambda_1$.
+    By 8.44, $(T - \lambda I) v_1 = 0$ and $(T - \lambda I) v_j = v_{j-1}$ for $2 \leq j \leq n$, wherefore $(T - \lambda I)^n = 0$ and $(T - \lambda I)^{n-1} v_n = v_1 \neq 0$.
+    By 5.29, $p$ divides $(z - \lambda)^n$, so $p = (z - \lambda)^r$ for some positive integer $r \leq n$.
+    On the other hand, if $r \leq n-1$, then $(z - \lambda)^{n-1}$ is a multiple of $p$, so $(T - \lambda I)^{n-1} = 0$ by 5.29, contradicting $(T - \lambda I)^{n-1} v_n = v_1 \neq 0$.
+    Hence, $r = n$, so $p = (z - \lambda)^n$.
+
+    \leftimp Suppose $p = (z - \lambda)^n$ for some $\lambda \in \cbb$.
+    Let $V = U \oplus W$ with $U$ and $W$ invariant under $T$.
+    Since $(T - \lambda I)^n = 0$ and invariance of $U$ under $T$ gives invariance under $T - \lambda I$, it follows that $(T - \lambda I)^{\dim U} = 0$ on $U$ by 8.16.
+    A similar argument shows that $(T - \lambda I)^{\dim W} = 0$ on $W$.
+    Let $M = \max(\dim U, \dim W)$.
+    Then $(T - \lambda I)^M = 0$ on $U + W = V$, so $M \geq n$ by 5.29.
+    By 3.94, $\dim U + \dim W = n$, so $M \geq \dim U + \dim W$, forcing $\min(\dim U, \dim W) = 0$.
+    Hence, either $U = \set{0}$ or $W = \set{0}$, proving that no direct sum decomposition into two nonzero invariant subspaces exists.
+\end{sol}
