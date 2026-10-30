@@ -10,3 +10,20 @@
     $$\norm{T^{k-1}v}^2=\langle T^{k-1}v, T^{k-1}v \rangle=\langle T^{k-2}v, T^{\ast}T^{k-1}v \rangle=0 \implies T^{k-1}v=0,$$
     contradicting the choice of $k$. Therefore, $T=0$.
 \end{csp}
+
+\begin{apex}[8b20]
+    Suppose that $\fbb = \cbb$ and $V_1, \ldots, V_m$ are nonzero subspaces of $V$ such that
+    \[
+        V = V_1 \oplus \cdots \oplus V_m.
+    \]
+    Suppose $T \in \lin{V}$ and each $V_k$ is invariant under $T$.
+    For each $k$, let $p_k$ denote the characteristic polynomial of $T|_{V_k}$.
+    Prove that the characteristic polynomial of $T$ equals $p_1 \cdots p_m$.
+\end{apex}
+
+\begin{csp}
+    For each eigenvalue $\lambda \in \mathbb{C}$, since $V=\bigoplus \limits^{m}_{k=1} V_k$ with each $V_k$ invariant under $T$, we have $G(\lambda,T)=\bigoplus \limits^{m}_{k=1} G\left(\lambda, T \vert_{V_k} \right)$. This implies 
+    $$\dim G(\lambda,T)=\sum^{m}_{k=1} \dim G\left(\lambda, T \vert_{V_k} \right).$$
+    The characteristic polynomial of $T$ is
+    $$\prod_{\lambda} (z-\lambda)^{\dim G(\lambda,T)}=\prod_{\lambda} (z-\lambda)^{\sum \limits^{m}_{k=1} \dim G\left(\lambda, T \vert_{V_k} \right)}=\prod^{m}_{k=1} \prod_{\lambda} (z-\lambda)^{\dim G\left(\lambda, T \vert_{V_k} \right)}=p_1 \cdots p_m.$$
+\end{csp}
