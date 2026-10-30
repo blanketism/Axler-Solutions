@@ -494,7 +494,7 @@
 
     Note that the set
     \[
-        \set{D_1, \ldots, D_n} \cup \set{N_{j, k} \mid j, k \in \set{1, \ldots, n}, j \neq k}
+        \set{D_1, \ldots, D_n} \cup \set{N_{j, k} : j, k \in \set{1, \ldots, n}, j \neq k}
     \]
     spans $\lin{V}$.
     For any $T \in \lin{V}$, we have
@@ -693,7 +693,7 @@
 \begin{sol}
     By Theorem 5.67, each eigenvalue $\lambda$ of $T$ lies in at least one of the Gershgorin disks
     \[
-        D_j = \bigg\{z \in \cbb \biggm| |z - A_{j, j}| \leq \sum_{\substack{k=1 \\ k \neq j}}^{n} |A_{j, k}|\bigg\}.
+        D_j = \bigg\{z \in \cbb : |z - A_{j, j}| \leq \sum_{\substack{k=1 \\ k \neq j}}^{n} |A_{j, k}|\bigg\}.
     \]
     
     If $\lambda = 0$ is an eigenvalue of $T$, then $0$ lies in at least one of the Gershgorin disks $D_j$.

@@ -3,10 +3,10 @@
 \begin{exercise}{1c1}
     For each of the following subsets of $\fbb^3$, determine whether it is a subspace of $\fbb^3$.
     \begin{subexercises}
-        \item $\set{(x_1, x_2, x_3) \in \fbb^3 \mid x_1 + 2x_2 + 3x_3 = 0}$
-        \item $\set{(x_1, x_2, x_3) \in \fbb^3 \mid x_1 + 2x_2 + 3x_3 = 4}$
-        \item $\set{(x_1, x_2, x_3) \in \fbb^3 \mid x_1x_2x_3 = 0}$
-        \item $\set{(x_1, x_2, x_3) \in \fbb^3 \mid x_1 = 5x_3}$
+        \item $\set{(x_1, x_2, x_3) \in \fbb^3 : x_1 + 2x_2 + 3x_3 = 0}$
+        \item $\set{(x_1, x_2, x_3) \in \fbb^3 : x_1 + 2x_2 + 3x_3 = 4}$
+        \item $\set{(x_1, x_2, x_3) \in \fbb^3 : x_1x_2x_3 = 0}$
+        \item $\set{(x_1, x_2, x_3) \in \fbb^3 : x_1 = 5x_3}$
     \end{subexercises}
 \end{exercise}
 
@@ -52,7 +52,7 @@
         Then $0 = 5(0) + b$, which implies $b = 0$.
 
         \leftimp Suppose $b = 0$.
-        Then $U = \set{(x_1, x_2, x_3, x_4) \in \fbb^4 \mid x_3 = 5x_4}$.
+        Then $U = \set{(x_1, x_2, x_3, x_4) \in \fbb^4 : x_3 = 5x_4}$.
         The proof is similar to the proof in \exref{1c1}(d), so we conclude that $U$ is a subspace of $\fbb^4$.
         \item Since the $0$ function is continuous, $0 \in U$.
         Let $f, g \in U$ and $\alpha \in \rbb$.
@@ -68,7 +68,7 @@
         \leftimp Suppose $b = 0$.
         Then
         \[
-            U = \set{f \in \rbb^{(0, 3)} \mid f'(2) = 0}.
+            U = \set{f \in \rbb^{(0, 3)} : f'(2) = 0}.
         \]
         The zero function is in $U$ since $0'(2) = 0$.
         Let $f, g \in U$ and $\alpha \in \rbb$.
@@ -100,7 +100,7 @@
 \end{exercise}
 
 \begin{sol}
-    Let $U = \set{f \in \rbb^{(-4, 4)} \mid f'(-1) = 3f(2)}$.
+    Let $U = \set{f \in \rbb^{(-4, 4)} : f'(-1) = 3f(2)}$.
     Since the zero function is differentiable on $(-4, 4)$ and $0'(-1) = 0 = 3(0) = 3 \cdot 0(2)$, $0 \in U$, so $U$ is nonempty.
     Let $f, g \in U$ and $\alpha \in \rbb$.
     Then
@@ -126,7 +126,7 @@
 \begin{sol}
     Define
     \[
-        U = \set*{f \in \rbb^{[0, 1]} \setmid f \text{ is continuous and } \int_0^1 f = b}.
+        U = \set*{f \in \rbb^{[0, 1]} : f \text{ is continuous and } \int_0^1 f = b}.
     \]
     \rightimp Suppose $U$ is a subspace of $\rbb^{[0, 1]}$.
     Then $0 \in U$, so $\int_0^1 0 = 0 = b$, which implies $b = 0$.
@@ -134,7 +134,7 @@
     \leftimp Suppose $b = 0$.
     Then
     \[
-        U = \set*{f \in \rbb^{[0, 1]} \setmid f \text{ is continuous and } \int_0^1 f = 0}.
+        U = \set*{f \in \rbb^{[0, 1]} : f \text{ is continuous and } \int_0^1 f = 0}.
     \]
     Since the zero function is continuous on $[0, 1]$ and $\int_0^1 0 = 0$, $0 \in U$, so $U$ is nonempty.
     Let $f, g \in U$ and $\alpha \in \rbb$.
@@ -161,8 +161,8 @@
 
 \begin{exercise}{1c6}
     \begin{subexercises}
-        \item Is $\set{(a, b, c) \in \rbb^3 \mid a^3 = b^3}$ a subspace of $\rbb^3$?
-        \item Is $\set{(a, b, c) \in \cbb^3 \mid a^3 = b^3}$ a subspace of $\cbb^3$?
+        \item Is $\set{(a, b, c) \in \rbb^3 : a^3 = b^3}$ a subspace of $\rbb^3$?
+        \item Is $\set{(a, b, c) \in \cbb^3 : a^3 = b^3}$ a subspace of $\cbb^3$?
     \end{subexercises}
 \end{exercise}
 
@@ -232,7 +232,7 @@
 \begin{sol}
     Consider the subset
     \[
-    	U = \{(x, 0) \mid x \in \rbb\} \cup \{(0, y) \mid y \in \rbb\}.
+    	U = \{(x, 0) : x \in \rbb\} \cup \{(0, y) : y \in \rbb\}.
     \]
     Then $U$ is nonempty since $(1, 0) \in U$, and it is closed under scalar multiplication since any scalar multiple of $(1, 0)$ or $(0, 1)$ is still in $U$.
 	However, $U$ is not closed under addition since $(1, 0) + (0, 1) = (1, 1) \notin U$.
@@ -364,7 +364,7 @@
 \begin{exercise}{1c14}
     Suppose
     \[
-    	U = \set{(x, -x, 2x) \in \fbb^3 \mid x \in \fbb} \quad \text{and} \quad W = \set{(x, x, 2x) \in \fbb^3 \mid x \in \fbb}.
+    	U = \set{(x, -x, 2x) \in \fbb^3 : x \in \fbb} \quad \text{and} \quad W = \set{(x, x, 2x) \in \fbb^3 : x \in \fbb}.
     \]
     Describe $U + W$ using symbols, and also give a description of $U + W$ that uses no symbols.
 \end{exercise}
@@ -378,7 +378,7 @@
     Observe that $x + y$ can take any value in $\fbb$, and $y - x$ can also take any value in $\fbb$.
 	Hence, we can write
     \[
-    	U + W = \set{(a, b, 2a) \in \fbb^3 \mid a, b \in \fbb}.
+    	U + W = \set{(a, b, 2a) \in \fbb^3 : a, b \in \fbb}.
     \]
     In words, $U + W$ is the set of all vectors in $\fbb^3$ whose third component is twice the first component, and whose second component can be any value in $\fbb$.
 \end{sol}
@@ -462,7 +462,7 @@
     The statement is false.
 	Consider the vector space $\rbb^2$ and the subspaces
     \[
-    	V_1 = \set{(x, 0) \in \rbb^2 \mid x \in \rbb}, \quad V_2 = \set{(0, y) \in \rbb^2 \mid y \in \rbb}, \quad U = \set{(z, z) \in \rbb^2 \mid z \in \rbb}.
+    	V_1 = \set{(x, 0) \in \rbb^2 : x \in \rbb}, \quad V_2 = \set{(0, y) \in \rbb^2 : y \in \rbb}, \quad U = \set{(z, z) \in \rbb^2 : z \in \rbb}.
     \]
     Then $V_1 + U = \rbb^2$ and $V_2 + U = \rbb^2$, but $V_1 \neq V_2$.
 \end{sol}
@@ -470,7 +470,7 @@
 \begin{exercise}{1c20}
     Suppose
     \[
-    	U = \set{(x, x, y, y) \in \fbb^4 \mid x, y \in \fbb}.
+    	U = \set{(x, x, y, y) \in \fbb^4 : x, y \in \fbb}.
     \]
     Find a subspace $W$ of $\fbb^4$ such that $\fbb^4 = U \oplus W$.
 \end{exercise}
@@ -478,7 +478,7 @@
 \begin{sol}
     Let
     \[
-        W = \set{(0, w_2, 0, w_4) \in \fbb^4 \mid w_2, w_4 \in \fbb}.
+        W = \set{(0, w_2, 0, w_4) \in \fbb^4 : w_2, w_4 \in \fbb}.
     \]
     Suppose $(x_1, x_2, x_3, x_4) \in U \cap W$.
     Since $(x_1, x_2, x_3, x_4) \in U$, we have that $x_1 = x_2$ and $x_3 = x_4$.
@@ -496,7 +496,7 @@
 \begin{exercise}{1c21}
     Suppose
     \[
-    	U = \set{(x, y, x + y, x - y, 2x) \in \fbb^5 \mid x, y \in \fbb}.
+    	U = \set{(x, y, x + y, x - y, 2x) \in \fbb^5 : x, y \in \fbb}.
     \]
     Find a subspace $W$ of $\fbb^5$ such that $\fbb^5 = U \oplus W$.
 \end{exercise}
@@ -504,7 +504,7 @@
 \begin{sol}
     Let
     \[
-        W = \set{(0, 0, w_3, w_4, w_5) \in \fbb^5 \mid w_3, w_4, w_5 \in \fbb}.
+        W = \set{(0, 0, w_3, w_4, w_5) \in \fbb^5 : w_3, w_4, w_5 \in \fbb}.
     \]
     Suppose $(x_1, x_2, x_3, x_4, x_5) \in U \cap W$.
     Since $(x_1, x_2, x_3, x_4, x_5) \in U$, we have that $x_3 = x_1 + x_2$, $x_4 = x_1 - x_2$, and $x_5 = 2x_1$.
@@ -522,7 +522,7 @@
 \begin{exercise}{1c22}
     Suppose
     \[
-    	U = \set{(x, y, x + y, x - y, 2x) \in \fbb^5 \mid x, y \in \fbb}.
+    	U = \set{(x, y, x + y, x - y, 2x) \in \fbb^5 : x, y \in \fbb}.
     \]
     Find three subspaces $W_1, W_2, W_3$ of $\fbb^5$, none of which equals $\set 0$, such that $\fbb^5 = U \oplus W_1 \oplus W_2 \oplus W_3$.
 \end{exercise}
@@ -530,13 +530,13 @@
 \begin{sol}
     Let
     \begin{align*}
-        W_1 &= \set{(0, 0, w_3, 0, 0) \in \fbb^5 \mid w_3 \in \fbb}, \\
-        W_2 &= \set{(0, 0, 0, w_4, 0) \in \fbb^5 \mid w_4 \in \fbb}, \\
-        W_3 &= \set{(0, 0, 0, 0, w_5) \in \fbb^5 \mid w_5 \in \fbb}.
+        W_1 &= \set{(0, 0, w_3, 0, 0) \in \fbb^5 : w_3 \in \fbb}, \\
+        W_2 &= \set{(0, 0, 0, w_4, 0) \in \fbb^5 : w_4 \in \fbb}, \\
+        W_3 &= \set{(0, 0, 0, 0, w_5) \in \fbb^5 : w_5 \in \fbb}.
     \end{align*}
     Consider
     \[
-        W = \set{(0, 0, z_3, z_4, z_5) \in \fbb^5 \mid z_3, z_4, z_5 \in \fbb}.
+        W = \set{(0, 0, z_3, z_4, z_5) \in \fbb^5 : z_3, z_4, z_5 \in \fbb}.
     \]
     It is straightforward to show that $W = W_1 \oplus W_2 \oplus W_3$.
     By \exref{1c21}, we have that $\fbb^5 = U \oplus W$.

@@ -86,13 +86,13 @@
     Suppose that $T \in \lin{V, W}$, $s_1$ is the largest singular value of $T$, and $s_n$ is the smallest singular value of $T$.
     Prove that
     \[
-        \set{\norm{Tv} \mid v \in V \text{ and } \norm{v} = 1} = [s_n, s_1].
+        \set{\norm{Tv} : v \in V \text{ and } \norm{v} = 1} = [s_n, s_1].
     \]
 \end{exercise}
 
 \begin{sol}
     Let $n = \dim V$.
-    Let $\scal = \set{\norm{Tv} \mid v \in V \text{ and } \norm{v} = 1}$.
+    Let $\scal = \set{\norm{Tv} : v \in V \text{ and } \norm{v} = 1}$.
     Since $T$ has a largest and a smallest singular value, $V \neq \set 0$, so $n \geq 1$.
     Since $T^\ast T$ is positive by 7.64(a), 7.38(c) gives an orthonormal basis $e_1, \ldots, e_n$ of $V$ consisting of eigenvectors of $T^\ast T$, say $T^\ast T e_k = \mu_k e_k$ for each $k = 1, \ldots, n$.
     After reordering, \autoref{lem:1} shows that $\mu_k = s_k^2$ for each $k = 1, \ldots, n$.

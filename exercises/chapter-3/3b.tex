@@ -9,7 +9,7 @@
     \[
     	T(x_1, x_2, x_3, x_4, x_5) = (x_1, x_2).
     \]
-    Then $\nul T = \set{(0, 0, x_3, x_4, x_5) \mid x_3, x_4, x_5 \in \rbb}$, which has dimension $3$, and $\range T = \rbb^2$, which has dimension $2$.
+    Then $\nul T = \set{(0, 0, x_3, x_4, x_5) : x_3, x_4, x_5 \in \rbb}$, which has dimension $3$, and $\range T = \rbb^2$, which has dimension $2$.
 \end{sol}
 
 \begin{exercise}{3b2}
@@ -49,7 +49,7 @@
 \end{solenum}
 
 \begin{exercise}{3b4}
-    Show that $\set{T \in \lin{\rbb^5, \rbb^4} \mid \dim \nul T > 2}$ is not a subspace of $\lin{\rbb^5, \rbb^4}$.
+    Show that $\set{T \in \lin{\rbb^5, \rbb^4} : \dim \nul T > 2}$ is not a subspace of $\lin{\rbb^5, \rbb^4}$.
 \end{exercise}
 
 \begin{sol}
@@ -61,12 +61,12 @@
     \[
     	T_2(x_1, x_2, x_3, x_4, x_5) = (0, 0, x_3, x_4).
     \]
-    Then $\nul T_1 = \set{(0, 0, x_3, x_4, x_5) \mid x_3, x_4, x_5 \in \rbb}$ and $\nul T_2 = \set{(x_1, x_2, 0, 0, x_5) \mid x_1, x_2, x_5 \in \rbb}$ both have dimension $3$, so $T_1$ and $T_2$ are in the set $\set{T \in \lin{\rbb^5, \rbb^4} \mid \dim \nul T > 2}$.
+    Then $\nul T_1 = \set{(0, 0, x_3, x_4, x_5) : x_3, x_4, x_5 \in \rbb}$ and $\nul T_2 = \set{(x_1, x_2, 0, 0, x_5) : x_1, x_2, x_5 \in \rbb}$ both have dimension $3$, so $T_1$ and $T_2$ are in the set $\set{T \in \lin{\rbb^5, \rbb^4} : \dim \nul T > 2}$.
 	However,
     \[
     	(T_1 + T_2)(x_1, x_2, x_3, x_4, x_5) = (x_1, x_2, x_3, x_4),
     \]
-    which has null space $\nul(T_1 + T_2) = \set{(0, 0, 0, 0, x_5) \mid x_5 \in \rbb}$ of dimension $1$.
+    which has null space $\nul(T_1 + T_2) = \set{(0, 0, 0, 0, x_5) : x_5 \in \rbb}$ of dimension $1$.
 	Therefore,
     \[
     	\dim \nul(T_1 + T_2) = 1 < 2,
@@ -91,7 +91,7 @@
     \]
     Then $\range T = \spn(v_3, v_4)$.
 	If $Tx = 0$, then $x_1 v_3 + x_2 v_4 = 0$, which implies $x_1 = x_2 = 0$.
-	Therefore, $\nul T = \set{(0, 0, x_3, x_4) \mid x_3, x_4 \in \rbb} = \spn(v_3, v_4)$.
+	Therefore, $\nul T = \set{(0, 0, x_3, x_4) : x_3, x_4 \in \rbb} = \spn(v_3, v_4)$.
 	Hence, $\range T = \nul T$.
 \end{sol}
 
@@ -111,7 +111,7 @@
 
 \begin{exercise}{3b7}
     Suppose $V$ and $W$ are finite-dimensional with $2 \leq \dim V \leq \dim W$.
-	Show that $\set{T \in \lin{V, W} \mid T \text{ is not injective}}$ is not a subspace of $\lin{V, W}$.
+	Show that $\set{T \in \lin{V, W} : T \text{ is not injective}}$ is not a subspace of $\lin{V, W}$.
 \end{exercise}
 
 \begin{sol}
@@ -145,12 +145,12 @@
     \]
     Since $w_1, w_2, \ldots, w_m$ are linearly independent, it follows that $\alpha_1 = \alpha_2 = \cdots = \alpha_n = 0$, hence $v = 0$.
 	Therefore, $T_1 + T_2$ is injective.
-	Since $T_1$ and $T_2$ are not injective, but their sum is injective, the set $\set{T \in \lin{V, W} \mid T \text{ is not injective}}$ is not closed under addition and thus is not a subspace of $\lin{V, W}$.
+	Since $T_1$ and $T_2$ are not injective, but their sum is injective, the set $\set{T \in \lin{V, W} : T \text{ is not injective}}$ is not closed under addition and thus is not a subspace of $\lin{V, W}$.
 \end{sol}
 
 \begin{exercise}{3b8}
     Suppose $V$ and $W$ are finite-dimensional with $\dim V \geq \dim W \geq 2$.
-	Show that $\set{T \in \lin{V, W} \mid T \text{ is not surjective}}$ is not a subspace of $\lin{V, W}$.
+	Show that $\set{T \in \lin{V, W} : T \text{ is not surjective}}$ is not a subspace of $\lin{V, W}$.
 \end{exercise}
 
 \begin{sol}
@@ -175,7 +175,7 @@
     	(T_1 + T_2)v_k = T_1 v_k + T_2 v_k = 0 + w_k = w_k.
     \]
     Therefore, $\range(T_1 + T_2) = \spn{w_1, w_2, \ldots, w_m} = W$, so $T_1 + T_2$ is surjective.
-	Since $T_1$ and $T_2$ are not surjective, but their sum is surjective, the set $\set{T \in \lin{V, W} \mid T \text{ is not surjective}}$ is not closed under addition and thus is not a subspace of $\lin{V, W}$.
+	Since $T_1$ and $T_2$ are not surjective, but their sum is surjective, the set $\set{T \in \lin{V, W} : T \text{ is not surjective}}$ is not closed under addition and thus is not a subspace of $\lin{V, W}$.
 \end{sol}
 
 \begin{exercise}{3b9}
@@ -225,7 +225,7 @@
     Suppose that $V$ is finite-dimensional and that $T \in \lin{V, W}$.
 	Prove that there exists a subspace $U$ of $V$ such that
     \[
-    	U \cap \nul T = \set{0} \quad \text{and} \quad \range T = \set{Tu \mid u \in U}.
+    	U \cap \nul T = \set{0} \quad \text{and} \quad \range T = \set{Tu : u \in U}.
     \]
     \remark{Note that this exercise proves the existence of a subspace $U$ of $V$ such that $V = U \oplus \nul T$.}
 \end{exercise}
@@ -236,17 +236,17 @@
     Additionally, every $v \in V$ can be written uniquely as $v = n + u$ with $n \in \nul T$ and $u \in U$.
     Hence,
     \begin{align*}
-        \range T &= \set{Tv \mid v \in V} \\
-        &= \set{T(n + u) \mid n \in \nul T, u \in U} \\
-        &= \set{Tn + Tu \mid n \in \nul T, u \in U} \\
-        &= \set{Tu \mid u \in U}. \qedhere
+        \range T &= \set{Tv : v \in V} \\
+        &= \set{T(n + u) : n \in \nul T, u \in U} \\
+        &= \set{Tn + Tu : n \in \nul T, u \in U} \\
+        &= \set{Tu : u \in U}. \qedhere
     \end{align*}
 \end{sol}
 
 \begin{exercise}{3b12}
     Suppose $T$ is a linear map from $\fbb^4$ to $\fbb^2$ such that
     \[
-    	\nul T = \set{(x_1, x_2, x_3, x_4) \in \fbb^4 \mid x_1 = 5x_2 \text{ and } x_3 = 7x_4}.
+    	\nul T = \set{(x_1, x_2, x_3, x_4) \in \fbb^4 : x_1 = 5x_2 \text{ and } x_3 = 7x_4}.
     \]
     Prove that $T$ is surjective.
 \end{exercise}
@@ -254,7 +254,7 @@
 \begin{sol}
     We may write the null space of $T$ as
     \[
-    	\nul T = \set{(5x_2, x_2, 7x_4, x_4) \mid x_2, x_4 \in \fbb}.
+    	\nul T = \set{(5x_2, x_2, 7x_4, x_4) : x_2, x_4 \in \fbb}.
     \]
     From this, we can see that $\nul T$ is spanned by the vectors $(5, 1, 0, 0)$ and $(0, 0, 7, 1)$.
 	Therefore, $\dim \nul T = 2$.
@@ -283,13 +283,13 @@
 \end{sol}
 
 \begin{exercise}{3b14}
-    Prove that there does not exist a linear map from $\fbb^5$ to $\fbb^2$ whose null space equals $\set{(x_1, x_2, x_3, x_4, x_5) \in \fbb^5 \mid x_1 = 3x_2 \text{ and } x_3 = x_4 = x_5}$.
+    Prove that there does not exist a linear map from $\fbb^5$ to $\fbb^2$ whose null space equals $\set{(x_1, x_2, x_3, x_4, x_5) \in \fbb^5 : x_1 = 3x_2 \text{ and } x_3 = x_4 = x_5}$.
 \end{exercise}
 
 \begin{sol}
     We can express the null space as
     \[
-    	\nul T = \set{(3x_2, x_2, x_4, x_4, x_4) \mid x_2, x_4 \in \fbb}.
+    	\nul T = \set{(3x_2, x_2, x_4, x_4, x_4) : x_2, x_4 \in \fbb}.
     \]
     From this, we can see that $\nul T$ is spanned by the vectors $(3, 1, 0, 0, 0)$ and $(0, 0, 1, 1, 1)$.
 	Therefore, $\dim \nul T = 2$.
@@ -519,14 +519,14 @@
 
 \begin{exercise}{3b21}
     Suppose $V$ is finite-dimensional, $T \in \lin{V, W}$, and $U$ is a subspace of $W$.
-	Prove that $\set{v \in V \mid Tv \in U}$ is a subspace of $V$ and
+	Prove that $\set{v \in V : Tv \in U}$ is a subspace of $V$ and
     \[
-    	\dim\set{v \in V \mid Tv \in U} = \dim \nul T + \dim(U \cap \range T).
+    	\dim\set{v \in V : Tv \in U} = \dim \nul T + \dim(U \cap \range T).
     \]
 \end{exercise}
 
 \begin{sol}
-    Let $X = \set{v \in V \mid Tv \in U}$.
+    Let $X = \set{v \in V : Tv \in U}$.
 	We first show that $X$ is a subspace of $V$.
 	Let $v_1, v_2 \in X$ and $\alpha, \beta \in \fbb$.
 	Then
@@ -572,7 +572,7 @@
 	Then $STu = 0$, which implies that $Tu \in \nul S$.
 	Therefore, we can express $\nul ST$ as
     \[
-    	\nul ST = \set{u \in U \mid Tu \in \nul S}.
+    	\nul ST = \set{u \in U : Tu \in \nul S}.
     \]
     Observe that this looks similar to the set in Exercise 3b21, where $T$ is a linear map from $U$ to $V$ and $\nul S$ is a subspace of $V$.
 	By applying the result from Exercise 3b21, we have
@@ -602,11 +602,11 @@
 	Then $STu = S(Tu)$, which implies that $Tu \in \range T$.
 	Therefore, we can express $\range ST$ as
     \[
-    	\range ST = \set{S(Tu) \mid u \in U}.
+    	\range ST = \set{S(Tu) : u \in U}.
     \]
     Since $Tu \in \range T$, we can rewrite this as
     \[
-    	\range ST = \set{Sv \mid v \in \range T}.
+    	\range ST = \set{Sv : v \in \range T}.
     \]
     This shows that $\range ST$ is a subset of $\range S$, and hence
     \[
@@ -829,7 +829,7 @@
 	Suppose $u \in V$ is not in $\nul \phi$.
 	Prove that
     \[
-    	V = \nul \phi \oplus \set{au \mid a \in \fbb}.
+    	V = \nul \phi \oplus \set{au : a \in \fbb}.
     \]
 \end{exercise}
 
@@ -856,21 +856,21 @@
     where $w \in \nul \phi$ and $au$ is a scalar multiple of $u$.
 	This shows that every vector in $V$ can be expressed as a sum of a vector in $\nul \phi$ and a scalar multiple of $u$, which implies that
     \[
-    	V = \nul \phi + \set{au \mid a \in \fbb}.
+    	V = \nul \phi + \set{au : a \in \fbb}.
     \]
 
     Next, we need to show that the sum is direct.
-	Suppose $w \in \nul \phi \cap \set{au \mid a \in \fbb}$.
+	Suppose $w \in \nul \phi \cap \set{au : a \in \fbb}$.
 	Then there exists a scalar $a \in \fbb$ such that $w = au$.
 	Since $w \in \nul \phi$, we have
     \[
     	0 = \phi(w) = \phi(au) = a\phi(u).
     \]
     Since $\phi(u) \neq 0$, it follows that $a = 0$.
-	Therefore, $w = 0$, which shows that the intersection of $\nul \phi$ and $\set{au \mid a \in \fbb}$ is trivial.
+	Therefore, $w = 0$, which shows that the intersection of $\nul \phi$ and $\set{au : a \in \fbb}$ is trivial.
 	Hence, the sum is direct, and we conclude that
     \[
-    	V = \nul \phi \oplus \set{au \mid a \in \fbb}. \qedhere
+    	V = \nul \phi \oplus \set{au : a \in \fbb}. \qedhere
     \]
 \end{sol}
 

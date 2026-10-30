@@ -4,7 +4,7 @@
     Suppose $T$ is a function from $V$ to $W$.
 	The \textit{graph of $T$} is the subset of $V \times W$ defined by
     \[
-    	\text{graph of } T = \set{(v, Tv) \in V \times W \mid v \in V}.
+    	\text{graph of } T = \set{(v, Tv) \in V \times W : v \in V}.
     \]
     Prove that $T$ is a linear map if and only if the graph of $T$ is a subspace of $V \times W$.
 \end{exercise}
@@ -189,11 +189,11 @@
 \end{sol}
 
 \begin{exercise}{3e7}
-    Let $U = \set{(x, y, z) \in \rbb^3 \mid 2x + 3y + 5z = 0}$.
+    Let $U = \set{(x, y, z) \in \rbb^3 : 2x + 3y + 5z = 0}$.
 	Suppose $A \subseteq \rbb^3$.
 	Prove that $A$ is a translate of $U$ if and only if there exists $c \in \rbb$ such that
     \[
-    	A = \set{(x, y, z) \in \rbb^3 \mid 2x + 3y + 5z = c}.
+    	A = \set{(x, y, z) \in \rbb^3 : 2x + 3y + 5z = c}.
     \]
 \end{exercise}
 
@@ -204,19 +204,19 @@
 	Then
     \begin{align*}
         A & = v + U \\
-        & = \set{(x_0, y_0, z_0) + (x, y, z) \in \rbb^3 \mid 2x + 3y + 5z = 0} \\
-        & = \set{(x', y', z') \in \rbb^3 \mid 2(x' - x_0) + 3(y' - y_0) + 5(z' - z_0) = 0} \\
-        & = \set{(x', y', z') \in \rbb^3 \mid 2x' + 3y' + 5z' = 2x_0 + 3y_0 + 5z_0}.
+        & = \set{(x_0, y_0, z_0) + (x, y, z) \in \rbb^3 : 2x + 3y + 5z = 0} \\
+        & = \set{(x', y', z') \in \rbb^3 : 2(x' - x_0) + 3(y' - y_0) + 5(z' - z_0) = 0} \\
+        & = \set{(x', y', z') \in \rbb^3 : 2x' + 3y' + 5z' = 2x_0 + 3y_0 + 5z_0}.
     \end{align*}
     Conversely, suppose there exists $c \in \rbb$ such that
     \[
-    	A = \set{(x, y, z) \in \rbb^3 \mid 2x + 3y + 5z = c}.
+    	A = \set{(x, y, z) \in \rbb^3 : 2x + 3y + 5z = c}.
     \]
     Let $v = (x_0, y_0, z_0)$ where $x_0, y_0, z_0$ are any real numbers such that $2x_0 + 3y_0 + 5z_0 = c$.
 	Then
     \begin{align*}
         v + U & = (x_0, y_0, z_0) + U \\
-        & = \set{(x_0, y_0, z_0) + (x, y, z) \in \rbb^3 \mid 2x + 3y + 5z = 0} \\
+        & = \set{(x_0, y_0, z_0) + (x, y, z) \in \rbb^3 : 2x + 3y + 5z = 0} \\
         & = A. \qedhere
     \end{align*}
 \end{sol}
@@ -224,14 +224,14 @@
 \begin{exercise}{3e8}
     \begin{subexercises}
         \item Suppose $T \in \lin{V, W}$ and $c \in W$.
-	Prove that $\set{x \in V \mid Tx = c}$ is either the empty set or is a translate of $\nul T$.
+	Prove that $\set{x \in V : Tx = c}$ is either the empty set or is a translate of $\nul T$.
         \item Explain why the set of solutions to a system of linear equations such as 3.27 is either the empty set or is a translate of some subspace of $\fbb^n$.
     \end{subexercises}
 \end{exercise}
 
 \begin{solenum}
     \item Suppose $T \in \lin{V, W}$ and $c \in W$.
-	Let $A = \set{x \in V \mid Tx = c}$.
+	Let $A = \set{x \in V : Tx = c}$.
 	If $A$ is nonempty, then there exists $v \in V$ such that $Tv = c$.
 	We claim that $A = v + \nul T$.
 	Let $x \in A$.
@@ -258,7 +258,7 @@
     	\lambda (v + u) + (1 - \lambda) (v + u') = v + \underbrace{(\lambda u + (1 - \lambda) u')}_{\in U} \in A.
     \]
     Conversely, suppose $\lambda v + (1 - \lambda) w  \in A$ for all $v, w \in A$ and all $\lambda \in \fbb$.
-	Fix some $v_0 \in A$, and let $U = \set{u \in V \mid v_0 + u \in A}$.
+	Fix some $v_0 \in A$, and let $U = \set{u \in V : v_0 + u \in A}$.
 	We first claim that $U$ is a subspace of $V$.
 	Since $v_0 = v_0 + 0 \in A$, we have $0 \in U$.
 	Let $u_1, u_2 \in U$.
@@ -294,7 +294,7 @@
 \end{sol}
 
 \begin{exercise}*{3e11}
-    Suppose $U = \set{(x_1, x_2, \ldots) \in \fbb^\infty \mid x_k \neq 0 \text{ for only finitely many } k}$.
+    Suppose $U = \set{(x_1, x_2, \ldots) \in \fbb^\infty : x_k \neq 0 \text{ for only finitely many } k}$.
     \begin{subexercises}
         \item Show that $U$ is a subspace of $\fbb^\infty$.
         \item Prove that $\fbb^\infty / U$ is infinite-dimensional.
@@ -325,7 +325,7 @@
 	Therefore, $U$ is a subspace of $\fbb^\infty$.
     \item For any given positive integer $m$, define the sets $B_i$ for $1 \leq i \leq m$ as follows:
     \[
-    	B_i = \set{i + km \mid k \in \nbb} = \set{i, i + m, i + 2m, \ldots}.
+    	B_i = \set{i + km : k \in \nbb} = \set{i, i + m, i + 2m, \ldots}.
     \]
     Then $B_1, \ldots, B_m$ are pairwise disjoint subsets of $\nbb$.
 	For each $i = 1, \ldots, m$, define
@@ -350,7 +350,7 @@
     Suppose $v_1, \ldots, v_m \in V$.
 	Let
     \[
-    	A = \set{\lambda_1 v_1 + \cdots + \lambda_m v_m \mid \lambda_1, \ldots, \lambda_m \in \fbb \text{ and } \lambda_1 + \cdots + \lambda_m = 1}.
+    	A = \set{\lambda_1 v_1 + \cdots + \lambda_m v_m : \lambda_1, \ldots, \lambda_m \in \fbb \text{ and } \lambda_1 + \cdots + \lambda_m = 1}.
     \]
     \begin{subexercises}
         \item Prove that $A$ is a translate of some subspace of $V$.

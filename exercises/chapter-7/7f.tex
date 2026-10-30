@@ -17,7 +17,7 @@
     Suppose that $T \in \lin{V}$ is self-adjoint or that $\fbb = \cbb$ and $T \in \lin{V}$ is normal.
     Prove that
     \[
-        \norm{T} = \max\set{|\lambda| \mid \lambda \text{ is an eigenvalue of } T}.
+        \norm{T} = \max\set{|\lambda| : \lambda \text{ is an eigenvalue of } T}.
     \]
 \end{exercise}
 
@@ -31,7 +31,7 @@
     Each eigenvalue $\lambda$ of $T$ appears in the list $\lambda_1, \ldots, \lambda_n$ at least once since $\dim E(\lambda, T) \geq 1$.
     We then have
     \[
-        \max_{1 \leq k \leq n} |\lambda_k| = \max\set{|\lambda| \mid \lambda \text{ is an eigenvalue of } T}.
+        \max_{1 \leq k \leq n} |\lambda_k| = \max\set{|\lambda| : \lambda \text{ is an eigenvalue of } T}.
     \]
     By 7.88(a), $\norm{T}$ is the largest singular value of $T$, which is the left-hand side of the equality in the previous line.
 \end{sol}
@@ -216,7 +216,7 @@
     Define $\delta_1 = \frac{\ep}{2}$.
     For $k = 2, \ldots, n$, choose $\delta_k \in [0, \frac{\ep}{2})$ such that
     \[
-        \lambda_k + \delta_k \notin \set{\lambda_j + \delta_j \mid 1 \leq j < k}.
+        \lambda_k + \delta_k \notin \set{\lambda_j + \delta_j : 1 \leq j < k}.
     \]
     Note that this construction is possible since $[0, \frac{\ep}{2})$ contains infinitely many real numbers, and only $k-1$ values are excluded for each $k \geq 2$.
     By the linear map lemma, we may construct an operator $D \in \lin{V}$ by $D e_k = \delta_k e_k$.
@@ -494,7 +494,7 @@
     Prove that the norm on $\lin{V, W}$ does not come from an inner product.
     In other words, prove that there does not exist an inner product on $\lin{V, W}$ such that
     \[
-        \max\set{\norm{Tv} \mid v \in V \text{ and } \norm{v} \leq 1} = \sqrt{\ip{T, T}}
+        \max\set{\norm{Tv} : v \in V \text{ and } \norm{v} \leq 1} = \sqrt{\ip{T, T}}
     \]
     for all $T \in \lin{V, W}$.
 \end{exercise}
@@ -539,7 +539,7 @@
     Let $n = \dim V$ and let $s_1 \geq \cdots \geq s_n$ denote the singular values of $T$.
     Prove that if $1 \leq k \leq n$, then
     \[
-        \min\set{\norm{T|_U} \mid U \text{ is a subspace of } V \text{ with } \dim U = k} = s_{n-k+1}.
+        \min\set{\norm{T|_U} : U \text{ is a subspace of } V \text{ with } \dim U = k} = s_{n-k+1}.
     \]
 \end{exercise}
 
@@ -867,7 +867,7 @@
 \end{exercise}
 
 \begin{sol}
-    Let $B = \set{w \in \range T \mid \norm{w} < 1}$.
+    Let $B = \set{w \in \range T : \norm{w} < 1}$.
     Since $T \neq 0$, we have $\dim \range T = m \geq 1$ by 7.68(b).
     By the singular value decomposition, there exist orthonormal lists $e_1, \ldots, e_m$ in $V$ and $f_1, \ldots, f_m$ in $W$ such that
     \[
@@ -882,11 +882,11 @@
     By 6.51 and the fundamental theorem of linear maps, $\dim(\nul T)^\perp = \dim \range T = m$, so $e_1, \ldots, e_m$ form an orthonormal basis of $(\nul T)^\perp$ by 6.28.
     By 7.96 in $(\nul T)^\perp$,
     \[
-        E = E\left(\frac{e_1}{s_1}, \ldots, \frac{e_m}{s_m}\right) = \set*{v \in (\nul T)^\perp \setmid \sum_{k=1}^m s_k^2 |\ip{v, e_k}|^2 < 1}.
+        E = E\left(\frac{e_1}{s_1}, \ldots, \frac{e_m}{s_m}\right) = \set*{v \in (\nul T)^\perp : \sum_{k=1}^m s_k^2 |\ip{v, e_k}|^2 < 1}.
     \]
     By 6.24, $\norm{T v}^2 = \sum_{k=1}^m s_k^2 |\ip{v, e_k}|^2$ for all $v \in V$, so
     \[
-        E = \set{v \in (\nul T)^\perp \mid \norm{T v} < 1}.
+        E = \set{v \in (\nul T)^\perp : \norm{T v} < 1}.
     \]
     We now show that $T(E) = B$.
 

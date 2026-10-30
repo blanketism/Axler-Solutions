@@ -117,7 +117,7 @@
     Suppose $m \geq 2$ and the statement holds for $m-1$.
     Since $v \in \nul T^m$ if and only if $T^{m-1} T v = 0$, i.e., $T v \in \nul T^{m-1}$, we have
     \[
-        \nul T^m = \set{v \in V \mid T v \in \nul T^{m-1}}.
+        \nul T^m = \set{v \in V : T v \in \nul T^{m-1}}.
     \]
     By \exref{3b21} with $W = V$ and $U = \nul T^{m-1}$, we have
     \begin{align*}
@@ -155,14 +155,14 @@
 \begin{sol}
     Observe that for each $j \geq 0$,
     \[
-        \range T^{j+1} = \set{T(T^j v) \mid v \in V} = \set{Tw \mid w \in \range T^j}.
+        \range T^{j+1} = \set{T(T^j v) : v \in V} = \set{Tw : w \in \range T^j}.
     \]
     We proceed by induction on $k \geq m+1$.
     The base case $k = m+1$ is given.
     Suppose $k \geq m+1$ and $\range T^k = \range T^m$.
     Then
     \[
-        \range T^{k+1} = \set{Tw \mid w \in \range T^k} = \set{Tw \mid w \in \range T^m} = \range T^{m+1} = \range T^m.
+        \range T^{k+1} = \set{Tw : w \in \range T^k} = \set{Tw : w \in \range T^m} = \range T^{m+1} = \range T^m.
     \]
     This completes the induction step and proves the statement for all $k > m$.
 \end{sol}

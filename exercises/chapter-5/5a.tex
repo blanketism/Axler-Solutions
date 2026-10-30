@@ -948,7 +948,7 @@
 
 \begin{exercise}*{5a43}
     Suppose that $V$ is finite-dimensional, $\dim V > 1$, and $T \in \lin{V}$.
-	Prove that $\set{p(T) \mid p \in \pcal(\fbb)} \neq \lin{V}$.
+	Prove that $\set{p(T) : p \in \pcal(\fbb)} \neq \lin{V}$.
 \end{exercise}
 
 \begin{sol}
@@ -956,8 +956,8 @@
     Otherwise, because $\dim V > 1$, there is at least one nonzero vector $v_1 \in V$ that is not an eigenvector of $T$.
     Let $Tv_1 = v_2$, so that $v_1$ and $v_2$ are linearly independent, and extend $v_1, v_2$ to a basis $v_1, \dots, v_n$ for $V$.
 
-    Now suppose that $\set{p(T) \mid p \in \pcal(\fbb)} = \lin{V}$ and consider the map $S \in \lin{V}$ defined by $Sv_1 = 0$ and $Sv_i = v_i$ for $i = 2,\dots,n$. Because $S \in \lin{V}$, there must be a polynomial $p \in \pcal(\fbb)$ such that $p(T) = S$.
+    Now suppose that $\set{p(T) : p \in \pcal(\fbb)} = \lin{V}$ and consider the map $S \in \lin{V}$ defined by $Sv_1 = 0$ and $Sv_i = v_i$ for $i = 2,\dots,n$. Because $S \in \lin{V}$, there must be a polynomial $p \in \pcal(\fbb)$ such that $p(T) = S$.
     Because the null space of $p(T)$ is invariant under $T$, it must be that the null space of $S$ is invariant under $T$. 
     This is impossible, though, as $Sv_1 = 0$ and $STv_1 = Sv_2 = v_2 \neq 0$. 
-    Therefore, there is no $T \in \lin{V}$ such that $\set{p(T) \mid p \in \pcal(\fbb)} = \lin{V}$.
+    Therefore, there is no $T \in \lin{V}$ such that $\set{p(T) : p \in \pcal(\fbb)} = \lin{V}$.
 \end{sol}

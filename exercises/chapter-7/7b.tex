@@ -295,7 +295,7 @@
         S^\ast T^\ast = (T S)^\ast = (S T)^\ast = T^\ast S^\ast,
     \]
     so $S^\ast$ and $T^\ast$ commute.
-    Letting $\ecal^\ast = \set{T^\ast \mid T \in \ecal}$, we see that $\ecal \cup \ecal^\ast$ is a set of commuting operators.
+    Letting $\ecal^\ast = \set{T^\ast : T \in \ecal}$, we see that $\ecal \cup \ecal^\ast$ is a set of commuting operators.
     By \exref{6b20}, there exists an orthonormal basis of $V$ with respect to which every element of $\ecal \cup \ecal^\ast$ has an upper-triangular matrix.
     For each $T \in \ecal$, both $\mcal(T)$ and $\mcal(T^\ast)$ are upper-triangular, and $\mcal(T^\ast) = \mcal(T)^\ast$ by 7.9.
     Hence, $\mcal(T)$ is both upper-triangular and lower-triangular, which implies that $\mcal(T)$ is diagonal.
@@ -343,7 +343,7 @@
     so $Sv \in E(\lambda_i, T)$.
     Hence, each eigenspace $E(\lambda_i, T)$ is invariant under every $S \in \ecal$.
 
-    Now consider each eigenspace under the inner product inherited from $V$, and let $\ecal_i = \set{S|_{E(\lambda_i, T)} \mid S \in \ecal}$.
+    Now consider each eigenspace under the inner product inherited from $V$, and let $\ecal_i = \set{S|_{E(\lambda_i, T)} : S \in \ecal}$.
     For any $u, w \in E(\lambda_i, T)$,
     \[
         \ip{S|_{E(\lambda_i, T)} u, w} = \ip{Su, w} = \ip{u, Sw} = \ip{u, S|_{E(\lambda_i, T)} w}
@@ -630,7 +630,7 @@
 \end{exercise}
 
 \begin{sol}
-    Let $S = \set{j \mid \lambda_j \neq 0}$.
+    Let $S = \set{j : \lambda_j \neq 0}$.
     For any $v \in V$, we can write
     \[
         v = \sum_{i=1}^n \ip{v, e_i} e_i.
@@ -639,7 +639,7 @@
     \[
         Tv = \sum_{i=1}^n \ip{v, e_i} Te_i = \sum_{i=1}^n \ip{v, e_i} \lambda_i e_i.
     \]
-    It follows that $\nul T = \spn(e_j \mid j \notin S)$, and $\range T = \spn(e_i \mid i \in S)$.
+    It follows that $\nul T = \spn(e_j : j \notin S)$, and $\range T = \spn(e_i : i \in S)$.
     If $k \notin S$, then $e_k$ is orthogonal to $\range T$, so $P_{\range T} e_k = 0$, and hence $T^\dagger e_k = 0$.
     If $k \in S$, then $e_k \in \range T$ so that $P_{\range T} e_k = e_k$.
     Since $\ip{e_k, e_j} = 0$ for all $j \notin S$, and these vectors span $\nul T$, we have $\frac{1}{\lambda_k} e_k \in (\nul T)^\perp$.

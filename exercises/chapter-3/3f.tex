@@ -466,7 +466,7 @@
     Suppose $U \subseteq V$.
 	Explain why
     \[
-    	U^0 = \set{\phi \in V' \mid U \subseteq \nul \phi}.
+    	U^0 = \set{\phi \in V' : U \subseteq \nul \phi}.
     \]
 \end{exercise}
 
@@ -479,13 +479,13 @@
     Suppose $V$ is finite-dimensional and $U$ is a subspace of $V$.
 	Show that
     \[
-    	U = \set{v \in V \mid \phi(v) = 0 \text{ for every } \phi \in U^0}.
+    	U = \set{v \in V : \phi(v) = 0 \text{ for every } \phi \in U^0}.
     \]
     \remark{This says that $U = (U^0)^0$.}
 \end{exercise}
 
 \begin{sol}
-    Let $S = \set{v \in V \mid \phi(v) = 0 \text{ for every } \phi \in U^0}$.
+    Let $S = \set{v \in V : \phi(v) = 0 \text{ for every } \phi \in U^0}$.
 	We need to show that $S = U$.
 
     First, if $v \in U$, then for any $\phi \in U^0$, we have $\phi(v) = 0$ by definition of the annihilator.
@@ -574,7 +574,7 @@
     \begin{subexercises}
         \item $\spn(\phi_1, \ldots, \phi_m)$
         \item $((\nul \phi_1) \cap \cdots \cap (\nul \phi_m))^0$
-        \item $\set{\phi \in V' \mid (\nul \phi_1) \cap \cdots \cap (\nul \phi_m) \subseteq \nul \phi}$
+        \item $\set{\phi \in V' : (\nul \phi_1) \cap \cdots \cap (\nul \phi_m) \subseteq \nul \phi}$
     \end{subexercises}
 \end{exercise}
 
@@ -583,13 +583,13 @@
     \begin{align*}
         A &= \spn(\phi_1, \ldots, \phi_m),\\
         B &= ((\nul \phi_1) \cap \cdots \cap (\nul \phi_m))^0,\\
-        C &= \set{\phi \in V' \mid (\nul \phi_1) \cap \cdots \cap (\nul \phi_m) \subseteq \nul \phi}.
+        C &= \set{\phi \in V' : (\nul \phi_1) \cap \cdots \cap (\nul \phi_m) \subseteq \nul \phi}.
     \end{align*}
     We will show that $A = B$ and $B = C$.
 	Starting off with $B = C$, note that by definition,
     \begin{align*}
         B &= ((\nul \phi_1) \cap \cdots \cap (\nul \phi_m))^0 \\
-          &= \set{\phi \in V' \mid (\nul \phi_1) \cap \cdots \cap (\nul \phi_m) \subseteq \nul \phi} = C,
+          &= \set{\phi \in V' : (\nul \phi_1) \cap \cdots \cap (\nul \phi_m) \subseteq \nul \phi} = C,
     \end{align*}
     where the reformulation of the annihilator subspace was shown in \exref{3f19}.
 
@@ -665,7 +665,7 @@
     \]
     By \exref{3f23}, we have
     \[
-    	\spn(\phi_1, \ldots, \phi_m) = ((\nul \phi_1) \cap \cdots \cap (\nul \phi_m))^0 = (\nul \Gamma)^0 = \set{\psi \in V' \mid \nul \Gamma \subseteq \nul \psi} = V'.
+    	\spn(\phi_1, \ldots, \phi_m) = ((\nul \phi_1) \cap \cdots \cap (\nul \phi_m))^0 = (\nul \Gamma)^0 = \set{\psi \in V' : \nul \Gamma \subseteq \nul \psi} = V'.
     \]
     Hence, $\phi_1, \ldots, \phi_m$ spans $V'$.
     \item Suppose $\phi_1, \ldots, \phi_m$ is linearly independent.
@@ -694,13 +694,13 @@
     Suppose $V$ is finite-dimensional and $\Omega$ is a subspace of $V'$.
 	Prove that
     \[
-    	\Omega = \set{v \in V \mid \phi(v) = 0 \text{ for every } \phi \in \Omega}^0.
+    	\Omega = \set{v \in V : \phi(v) = 0 \text{ for every } \phi \in \Omega}^0.
     \]
     \remark{This says $\Omega = (\Omega^0)^0$.}
 \end{exercise}
 
 \begin{sol}
-    Let $S = \set{v \in V \mid \phi(v) = 0 \text{ for every } \phi \in \Omega}$.
+    Let $S = \set{v \in V : \phi(v) = 0 \text{ for every } \phi \in \Omega}$.
 	We need to show that $\Omega = S^0$.
 	Let $\phi_1, \ldots, \phi_m$ be a basis of $\Omega$.
 	Then $S = (\nul \phi_1) \cap \cdots \cap (\nul \phi_m)$.
@@ -714,12 +714,12 @@
     Suppose $T \in \lin{\pcal_5(\rbb)}$ and $\nul T' = \spn(\phi)$, where $\phi$ is the linear functional on $\pcal_5(\rbb)$ defined by $\phi(p) = p(8)$.
 	Prove that
     \[
-    	\range T = \set{p \in \pcal_5(\rbb) \mid p(8) = 0}.
+    	\range T = \set{p \in \pcal_5(\rbb) : p(8) = 0}.
     \]
 \end{exercise}
 
 \begin{sol}
-    Let $W = \set{p \in \pcal_5(\rbb) \mid p(8) = 0}$.
+    Let $W = \set{p \in \pcal_5(\rbb) : p(8) = 0}$.
 	We need to show that $\range T = W$.
 
     First, if $p \in \range T$, then there exists $q \in \pcal_5(\rbb)$ such that $T(q) = p$.
