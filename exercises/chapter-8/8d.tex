@@ -6,6 +6,15 @@
     Find a formula for $\tr T$.
 \end{exercise}
 
+\begin{sol}
+    Let $n = \dim V$.
+    By 6.35, there exists an orthonormal basis $e_1, \ldots, e_n$ of $V$.
+    By 8.55, homogeneity in the first slot, conjugate symmetry of the inner product, and 6.30(c), we have
+    \[
+        \tr T = \sum_{k=1}^n \ip{Te_k, e_k} = \sum_{k=1}^n \ip{\ip{e_k, v} w, e_k} = \sum_{k=1}^n \ip{w, e_k} \bar{\ip{v, e_k}} = \ip{w, v}. \qedhere
+    \]
+\end{sol}
+
 \begin{exercise}{8d2}
     Suppose $P \in \lin{V}$ satisfies $P^2 = P$.
     Prove that
@@ -14,10 +23,41 @@
     \]
 \end{exercise}
 
+\begin{sol}
+    Let $n = \dim V$.
+    By \exref{3b27}, $V = \nul P \oplus \range P$.
+    Let $v_1, \ldots, v_m$ be a basis of $\range P$ and $u_1, \ldots, u_{n-m}$ be a basis of $\nul P$, where $n-m = \dim \nul P$ from the fundamental theorem of linear maps.
+    Since the list $v_1, \ldots, v_m, u_1, \ldots, u_{n-m}$ spans $\nul P + \range P = V$ and is of length $n$, it is a basis of $V$ by 2.42.
+    For each $v_k \in \range P$, there is $w \in V$ such that $v_k = P w$, and hence $P v_k = P^2 w = P w = v_k$.
+    Since $P u_j = 0$ for $j = 1, \ldots, n-m$, the matrix of $P$ with respect to this basis is diagonal with $m$ $1$'s and $n-m$ $0$'s on the diagonal.
+    Therefore, $\tr P = m = \dim \range P$.
+\end{sol}
+
 \begin{exercise}{8d3}
     Suppose $T \in \lin{V}$ and $T^5 = T$.
     Prove that the real and imaginary parts of $\tr T$ are both integers.
 \end{exercise}
+
+\begin{sol}
+    Let $n = \dim V$.
+    We show the existence of an operator $S \in \lin{\cbb^n}$ such that $S^5 = S$ and $\tr S = \tr T$.
+    Indeed, fix a basis $v_1, \ldots, v_n$ of $V$, and let $A = \mcal(T, (v_1, \ldots, v_n))$.
+    Viewing $A \in \cbb^{n, n}$, the linear map lemma yields a unique $S \in \lin{\cbb^n}$ such that $\mcal(S)$ with respect to the standard basis of $\cbb^n$ is $A$, so $\tr T = \tr A = \tr S$.
+    3.43 yields
+    \[
+        \mcal(S^5) = A^5 = \mcal(T^5) = \mcal(T) = A = \mcal(S).
+    \]
+    By 3.71, $S^5 = S$.
+    Suppose $S v = \lambda v$ for $v \neq 0$ and $\lambda \in \cbb$.
+    Then $S^5 v = \lambda^5 v = S v = \lambda v$, so $\lambda^5 = \lambda$.
+    Because $z^5 - z = z(z-1)(z+1)(z-i)(z+i)$ has zeros $0, 1, -1, i, -i$, we see that the eigenvalues of $S$ are all among these numbers.
+    Letting $d_\lambda$ be the multiplicity of the eigenvalue $\lambda$, where $d_\lambda = 0$ if $\lambda$ is not an eigenvalue, we have by 8.52 that
+    \[
+        \tr S = (d_1 - d_{-1}) + (d_i - d_{-i})i.
+    \]
+    Therefore, both $\Re(\tr S) = d_1 - d_{-1}$ and $\Im(\tr S) = d_i - d_{-i}$ are integers.
+    Since $\tr T = \tr S$, the real and imaginary parts of $\tr T$ are also integers.
+\end{sol}
 
 \begin{exercise}{8d4}
     Suppose $V$ is an inner product space and $T \in \lin{V}$.
@@ -27,16 +67,44 @@
     \]
 \end{exercise}
 
+\begin{sol}
+    Let $n = \dim V$.
+    By 6.35, there exists an orthonormal basis $e_1, \ldots, e_n$ of $V$.
+    By 7.9, $\mcal(T^\ast, (e_1, \ldots, e_n)) = \mcal(T, (e_1, \ldots, e_n))^\ast$, so the diagonal entries of $\mcal(T^\ast, (e_1, \ldots, e_n))$ are $\overline{\mcal(T)_{k,k}}$ for $k = 1, \ldots, n$.
+    By the definition of the trace and 4.4,
+    \[
+        \tr T^\ast = \sum_{k=1}^{n} \overline{\mcal(T)_{k,k}} = \overline{\sum_{k=1}^{n} \mcal(T)_{k,k}} = \bar{\tr T}. \qedhere
+    \]
+\end{sol}
+
 \begin{exercise}{8d5}
     Suppose $V$ is an inner product space.
     Suppose $T \in \lin{V}$ is a positive operator and $\tr T = 0$.
     Prove that $T = 0$.
 \end{exercise}
 
+\begin{sol}
+    Let $n = \dim V$.
+    By 7.38(c), there exists an orthonormal basis $e_1, \ldots, e_n$ of $V$ such that $\mcal(T, (e_1, \ldots, e_n))$ is diagonal with nonnegative diagonal entries $\lambda_1, \ldots, \lambda_n$.
+    Since $0 = \tr T = \sum_{k=1}^{n} \lambda_k$ and each $\lambda_k \geq 0$, we must have $\lambda_k = 0$ for all $k$.
+    Therefore, $\mcal(T, (e_1, \ldots, e_n)) = 0$, so $T = 0$.
+\end{sol}
+
 \begin{exercise}{8d6}
     Suppose $V$ is an inner product space and $P, Q \in \lin{V}$ are orthogonal projections.
     Prove that $\tr(PQ) \geq 0$.
 \end{exercise}
+
+\begin{sol}
+    Let $n = \dim V$.
+    By 6.57(g), $P^2 = P$ and $Q^2 = Q$, so $P$ and $Q$ are self-adjoint by \exref{7a20}.
+    Since $Q^2 = Q$, we have $\tr(PQ) = \tr((PQ)Q)$, so 8.56 gives $\tr((PQ)Q) = \tr(Q(PQ)) = \tr(QPQ)$.
+    By 7.5(d), $QPQ = QPPQ = (PQ)^\ast (PQ)$.
+    6.35 yields an orthonormal basis $e_1, \ldots, e_n$ of $V$, so 8.55 gives
+    \[
+        \tr(PQ) = \sum_{k=1}^n \ip{(PQ)^\ast (PQ) e_k, e_k} = \sum_{k=1}^n \norm{PQ e_k}^2 \geq 0. \qedhere
+    \]
+\end{sol}
 
 \begin{exercise}{8d7}
     Suppose $T \in \lin{\cbb^3}$ is the operator whose matrix is
@@ -51,14 +119,40 @@
     Without using a computer or writing anything down, find the third eigenvalue of $T$.
 \end{exercise}
 
+\begin{sol}
+    Note that $\tr T = 51 + (-40) + 1 = 12$.
+    By 8.25, the eigenvalues of $T$, repeated with multiplicity, form a list of length 3 that contains $-48, 24$, and a third eigenvalue $\lambda$.
+    8.52 gives $-48 + 24 + \lambda = 12$, so $\lambda = 36$.
+\end{sol}
+
 \begin{exercise}{8d8}
     Prove or give a counterexample: If $S, T \in \lin{V}$, then $\tr(ST) = (\tr S)(\tr T)$.
 \end{exercise}
+
+\begin{sol}
+    This is false. Take $V = \fbb^2$ with $S = T = I$, so $ST = I$.
+    Then $\tr(ST) = 2$, but $(\tr S)(\tr T) = 4$.
+\end{sol}
 
 \begin{exercise}{8d9}
     Suppose $T \in \lin{V}$ is such that $\tr(ST) = 0$ for all $S \in \lin{V}$.
     Prove that $T = 0$.
 \end{exercise}
+
+\begin{sol}
+    Let $v_1, \ldots, v_n$ be a basis of $V$, and let $A$ be the matrix of $T$ with respect to this basis.
+    By the linear map lemma, there exists $S \in \lin{V}$ such that $\mcal(S) = A^\ast$. 
+    By 3.43, $\tr(ST) = \tr(A^\ast A)$.
+    By 3.46 and 4.4,
+    \[
+        (A^\ast A)_{k, k} = \sum_{j=1}^n \overline{A_{j,k}} A_{j,k} = \sum_{j=1}^n |A_{j,k}|^2,
+    \]
+    so
+    \[
+        \tr(A^\ast A) = \sum_{k=1}^n (A^\ast A)_{k, k} = \sum_{k=1}^n \sum_{j=1}^n |A_{j,k}|^2.
+    \]
+    Since $\tr(ST) = 0$ by assumption, we have $\sum_{j,k} |A_{j,k}|^2 = 0$, so $A_{j,k} = 0$ for all $j,k$, whence $A = 0$ and therefore $T = 0$.
+\end{sol}
 
 \begin{exercise}{8d10}
     Prove that the trace is the only linear functional $\tau : \lin{V} \to \fbb$ such that
@@ -79,6 +173,49 @@
     Then for $T \in \lin{V}$, use the equation $T = \sum_{k=1}^{n} \sum_{j=1}^{n} \mcal(T)_{j,k} P_{j,k}$ to show that $\tau(T) = \tr T$.}
 \end{exercise}
 
+\begin{sol}
+    To show existence of such a linear functional, observe that 8.56 gives linearity of the trace and that $\tr(ST) = \tr(TS)$ for all $S, T \in \lin{V}$.
+    Since $\mcal(I) = I$, we have $\tr I = \dim V$, so the trace satisfies the same conditions as $\tau$.
+    
+    To show uniqueness, let $n = \dim V$ and let $v_1, \ldots, v_n$ be a basis of $V$.
+    Let $\tau$ be a linear functional on $\lin{V}$ such that $\tau(ST) = \tau(TS)$ for all $S, T \in \lin{V}$ and $\tau(I) = n$.
+    Let $P_{j,k}$ be as in the hint.
+    Then for $a_1, \ldots, a_n \in \fbb$, we have
+    \[
+        P_{j,k} P_{k,j}(a_1 v_1 + \cdots + a_n v_n) = P_{j, k}(a_j v_k) = a_j v_j = P_{j,j}(a_1 v_1 + \cdots + a_n v_n).
+    \]
+    Therefore, $P_{j,k} P_{k,j} = P_{j,j}$.
+    Swapping $j$ and $k$ gives $P_{k,j} P_{j,k} = P_{k,k}$.
+    Since $\tau(ST) = \tau(TS)$ for all $S, T \in \lin{V}$, we have
+    \[
+        \tau(P_{j,j}) = \tau(P_{j,k} P_{k,j}) = \tau(P_{k,j} P_{j,k}) = \tau(P_{k,k})
+    \]
+    for all $j, k$, so $\tau(P_{j,j})$ is the same for all $j$.
+    Moreover,
+    \[
+        I = \sum_{j=1}^{n} P_{j,j},
+    \]
+    so $n = \tau(I) = n \tau(P_{1,1})$, whence $\tau(P_{1,1}) = 1$.
+    Thus, $\tau(P_{j,j}) = 1$ for all $j$.
+
+    Fix $T \in \lin{V}$, and let $A = \mcal(T)$ be the matrix of $T$ with respect to the basis $v_1, \ldots, v_n$.
+    Then for any $v = a_1 v_1 + \cdots + a_n v_n \in V$, we have
+    \[
+        P_{j,j} TP_{j, j} v = a_j P_{j,j} \left(\sum_{\ell=1}^{n} A_{\ell,j} v_\ell \right) = a_j A_{j,j} v_j = A_{j,j} P_{j,j} v,
+    \]
+    so $P_{j,j} T P_{j,j} = A_{j,j} P_{j,j}$.
+    From $I = \sum_{k=1}^n P_{k,k}$, we get $T = \sum_{k=1}^n T P_{k,k}$.
+    Then
+    \[
+        \tau(T) = \sum_{k=1}^n \tau((T P_{k,k}) P_{k,k}) = \sum_{k=1}^n \tau(P_{k,k} T P_{k,k}) = \sum_{k=1}^n A_{k,k} \tau(P_{k,k}) = \sum_{k=1}^n A_{k,k} = \tr T,
+    \]
+    where the first equality follows from linearity and $P_{k,k}^2 = P_{k,k}$;
+    the second equality follows from the property $\tau(ST) = \tau(TS)$;
+    the third equality follows from $P_{k,k} T P_{k,k} = A_{k,k} P_{k,k}$ and linearity;
+    the fourth equality follows from $\tau(P_{k,k}) = 1$;
+    and the fifth equality is by the definition of the trace.
+\end{sol}
+
 \begin{exercise}{8d11}
     Suppose $V$ and $W$ are inner product spaces and $T \in \lin{V, W}$.
     Prove that if $e_1, \ldots, e_n$ is an orthonormal basis of $V$ and $f_1, \ldots, f_m$ is an orthonormal basis of $W$, then
@@ -88,8 +225,16 @@
 
     \note{The numbers $\ip{Te_k, f_j}$ are the entries of the matrix of $T$ with respect to the orthonormal bases $e_1, \ldots, e_n$ and $f_1, \ldots, f_m$.
     These numbers depend on the bases, but $\tr(T^\ast T)$ does not depend on a choice of bases.
-    Thus this exercise shows that the sum of the squares of the absolute values of the matrix entries does not depend on which orthonormal bases are used.}
+    Thus, this exercise shows that the sum of the squares of the absolute values of the matrix entries does not depend on which orthonormal bases are used.}
 \end{exercise}
+
+\begin{sol}
+    Apply 8.55 to $T^\ast T \in \lin{V}$.
+    Then the definition of the adjoint and 6.30(b) in $W$ yield
+    \[
+        \tr(T^\ast T) = \sum_{k=1}^n \ip{T^\ast T e_k, e_k} = \sum_{k=1}^n \norm{T e_k}^2 = \sum_{k=1}^n \sum_{j=1}^m |\ip{T e_k, f_j}|^2.
+    \]
+\end{sol}
 
 \begin{exercise}{8d12}
     Suppose $V$ and $W$ are finite-dimensional inner product spaces.
@@ -104,6 +249,23 @@
     The norm that comes from the inner product in (a) is called the \term{Frobenius norm} or the \term{Hilbert--Schmidt norm}.}
 \end{exercise}
 
+\begin{sol}
+    Let $n = \dim V$ and $m = \dim W$.
+    By 6.35, there exist orthonormal bases $e_1, \ldots, e_n$ of $V$ and $f_1, \ldots, f_m$ of $W$.
+    Define the map $\phi \colon \lin{V, W} \to \fbb^{mn}$ by mapping $T$ to $\mcal(T, (e_1, \ldots, e_n), (f_1, \ldots, f_m))$ as a vector in $\fbb^{mn}$, where the entries are listed column by column.
+    3.71 gives that $\phi$ is linear and injective.
+    By 3.43 and 7.9, $\mcal(T^\ast S) = \mcal(T)^\ast \mcal(S)$ with respect to the fixed orthonormal bases, so
+    \[
+        \tr(T^\ast S) = \sum_{k=1}^n \sum_{j=1}^m \mcal(S)_{j, k} \overline{\mcal(T)_{j, k}} = \ip{\phi(S), \phi(T)},
+    \]
+    where the right-hand side is the Euclidean inner product on $\fbb^{mn}$.
+    \begin{subexercises}
+        \item Note that positivity, additivity, homogeneity in the first slot, and conjugate symmetry of the inner product on $\lin{V, W}$ follow from the corresponding properties of the Euclidean inner product on $\fbb^{mn}$ via the map $\phi$.
+        To see definiteness, note that $\ip{0, 0} = 0$ and if $\ip{T, T} = 0$, then $\ip{\phi(T), \phi(T)} = 0$, which implies $\phi(T) = 0$, and hence $T = 0$ by injectivity of $\phi$.
+        \item This is exactly the identity computed in the display above, which shows that the inner product on $\lin{V, W}$ corresponds to the Euclidean inner product on $\fbb^{mn}$ under the map $\phi$. \qedhere
+    \end{subexercises}
+\end{sol}
+
 \begin{exercise}{8d13}
     Find $S, T \in \lin{\pcal(\fbb)}$ such that $ST - TS = I$.
 
@@ -111,3 +273,11 @@
 
     \note{This exercise shows that additional hypotheses are needed on $S$ and $T$ to extend 8.57 to the setting of infinite-dimensional vector spaces.}
 \end{exercise}
+
+\begin{sol}
+    Let $S, T \in \lin{\pcal(\fbb)}$ be defined by $S f = f'$ and $T f = z f$ for all $f \in \pcal(\fbb)$.
+    Each $f$ is a linear combination of monomials $z^k$, so it suffices to check the identity on $f = z^k$ for each $k \geq 0$.
+    We have $ST z^k = S(z^{k+1}) = (k+1) z^k$ for $k \geq 0$.
+    Also, $TS z^k = T(k z^{k-1}) = k z^k$ holds for $k \geq 1$, and for $k = 0$, $TS z^0 = T(S z^0) = T(0) = 0$.
+    Therefore, for all $k \geq 0$, we have $(ST - TS) z^k = z^k$, which shows that $ST - TS = I$ on $\pcal(\fbb)$.
+\end{sol}
