@@ -10,6 +10,14 @@
     for all $x, y \in \fbb$.
 \end{exercise}
 
+\begin{sol}
+    Let $c = \beta(1, 1)$.
+    Then for all $x, y \in \fbb$, homogeneity in the first and second slots gives
+    \[
+        \beta(x, y) = \beta(x \cdot 1, y \cdot 1) = xy \beta(1, 1) = cxy. \qedhere
+    \]
+\end{sol}
+
 \begin{exercise}{9a2}
     Let $n = \dim V$.
     Suppose $\beta$ is a bilinear form on $V$.
@@ -22,10 +30,26 @@
     \note{This exercise shows that if $n = \dim V$, then every bilinear form on $V$ is of the form given by the last bullet point of Example 9.2.}
 \end{exercise}
 
+\begin{sol}
+    Let $v_1, \ldots, v_n$ be a basis of $V$ with dual basis $\phi_1, \ldots, \phi_n$ of $V'$.
+    For any $u \in V$, 3.114 yields $u = \phi_1(u)v_1 + \cdots + \phi_n(u)v_n$.
+    For each $k = 1, \ldots, n$, define $\tau_k \in V'$ by $\tau_k(v) = \beta(v_k, v)$.
+    Then for any $v \in V$,
+    \[
+        \beta(u, v) = \sum_{k=1}^n \phi_k(u) \beta(v_k, v) = \sum_{k=1}^n \phi_k(u) \tau_k(v). \qedhere
+    \]
+\end{sol}
+
 \begin{exercise}{9a3}
     Suppose $\beta \colon V \times V \to \fbb$ is a bilinear form on $V$ and also is a linear functional on $V \times V$.
     Prove that $\beta = 0$.
 \end{exercise}
+
+\begin{sol}
+    For any $u, v \in V$, we have $(u, v) = (u, 0) + (0, v)$, so linearity of $\beta$ on $V \times V$ gives $\beta(u, v) = \beta(u, 0) + \beta(0, v)$.
+    Applying 3.10 to $w \mapsto \beta(u, w)$ and $w \mapsto \beta(w, v)$ gives $\beta(u, 0) = 0$ and $\beta(0, v) = 0$, respectively.
+    Hence, $\beta(u, v) = \beta(u, 0) + \beta(0, v) = 0$ for all $u, v \in V$, so $\beta = 0$.
+\end{sol}
 
 \begin{exercise}{9a4}
     Suppose $V$ is a real inner product space and $\beta$ is a bilinear form on $V$.
@@ -38,10 +62,39 @@
     \note{This exercise states that if $V$ is a real inner product space, then every bilinear form on $V$ is of the form given by the third bullet point in 9.2.}
 \end{exercise}
 
+\begin{sol}
+    For each $v \in V$, define $\phi_v \in V'$ by $\phi_v(u) = \ip{u, v}$.
+    By \exref{6c13}, $\Phi \colon V \to V'$ defined by $\Phi(v) = \phi_v$ is an isomorphism, so $\Phi\inv \in \lin{V', V}$ exists.
+    Define $\Psi \colon V \to V'$ by $\Psi(v)(u) = \beta(u, v)$ for all $u \in V$.
+    By linearity of $\beta$ in the first slot, $\Psi(v) \in V'$.
+    Moreover, for any $\lambda, \mu \in \rbb$ and $v, w \in V$, we have
+    \[
+        \Psi(\lambda v + \mu w)(u) = \beta(u, \lambda v + \mu w) = \lambda \Psi(v)(u) + \mu \Psi(w)(u)
+    \]
+    for all $u \in V$, so $\Psi \in \lin{V, V'}$.
+    Note that for any $S \in \lin{V}$, we have
+    \begin{align*}
+        \beta(u, v) = \ip{u, S v} \text{ for all $u, v \in V$} &\iff \Psi(v) = \phi_{S v} = \Phi(S v) \text{ for all $v \in V$} \\
+        &\iff \Psi = \Phi S \\
+        &\iff S = \Phi\inv \Psi.
+    \end{align*}
+    Thus, the operator $T = \Phi\inv \Psi$ satisfies $\beta(u, v) = \ip{u, Tv}$ for all $u, v \in V$, and it is unique.
+\end{sol}
+
 \begin{exercise}{9a5}
-    Suppose $\beta$ is a bilinear form on a real inner product space $V$ and $T$ is the unique operator on $V$ such that $\beta(u, v) = \ip{u, Tv}$ for all $u, v \in V$ (see Exercise 4).
+    Suppose $\beta$ is a bilinear form on a real inner product space $V$ and $T$ is the unique operator on $V$ such that $\beta(u, v) = \ip{u, Tv}$ for all $u, v \in V$ (see \exref{9a4}).
     Show that $\beta$ is an inner product on $V$ if and only if $T$ is an invertible positive operator on $V$.
 \end{exercise}
+
+\begin{sol}
+    Let $\ip{\cdot, \cdot}_T$ be defined as in \exref{7c23}.
+    Since $\fbb = \rbb$, for all $u, v \in V$, we have
+    \[
+        \ip{u, v}_T = \ip{T u, v} = \ip{v, T u} = \beta(v, u),
+    \]
+    so $\ip{\cdot, \cdot}_T$ is $\beta$ with swapped arguments.
+    Then $\beta$ is an inner product if and only if $\ip{\cdot, \cdot}_T$ is an inner product, which holds if and only if $T$ is an invertible positive operator, where the second equivalence follows from \exref{7c23}(a).
+\end{sol}
 
 \begin{exercise}{9a6}
     Prove or give a counterexample: If $\rho$ is a symmetric bilinear form on $V$, then
@@ -51,13 +104,60 @@
     is a subspace of $V$.
 \end{exercise}
 
+\begin{sol}
+    The statement is false.
+    Consider $V = \fbb^2$ and let $e_1, e_2$ be the standard basis of $V$.
+    Define $\rho \colon V \times V \to \fbb$ by
+    \[
+        \rho(a e_1 + b e_2, c e_1 + d e_2) = ad + bc.
+    \]
+    Then $\rho$ is symmetric and bilinear.
+    However, $\rho(e_1, e_1) = \rho(e_2, e_2) = 0$, but $\rho(e_1 + e_2, e_1 + e_2) = 2 \neq 0$.
+    Therefore, the set $\set{v \in V : \rho(v, v) = 0}$ is not a subspace.
+\end{sol}
+
 \begin{exercise}{9a7}
     Explain why the proof of 9.13 (diagonalization of a symmetric bilinear form by an orthonormal basis on a real inner product space) fails if the hypothesis that $\fbb = \rbb$ is dropped.
+
+    \remark{I ultimately decided to point out one specific failure within the proof, but there are other places where the argument relies on the entries being real.}
 \end{exercise}
+
+\begin{sol}
+    The proof of 9.13 fails when it claims that $T$ is self-adjoint:
+    since $f_1, \ldots, f_n$ is an orthonormal basis of $V$, 7.9 gives $\mcal(T^\ast) = B^\ast = \bar B$ because $B\trans = B$.
+    Therefore, $T = T^\ast$ only holds when $B = \bar B$, i.e., when the entries of $B$ are real, which fails when $B$ is symmetric with non-real entries.
+\end{sol}
 
 \begin{exercise}{9a8}
     Find formulas for $\dim V\mlnsym{2}$ and $\dim V\mlnalt{2}$ in terms of $\dim V$.
 \end{exercise}
+
+\begin{sol}
+    Let $n = \dim V$ and fix some basis of $V$.
+    Let $\phi \colon V\mlnset{2} \to \fbb^{n,n}$ be defined by $\phi(\beta) = \mcal(\beta)$.
+    Define $\scal$ to be the set of symmetric $n$-by-$n$ matrices over $\fbb$.
+    By 9.5 and 9.12, $\phi$ restricts to an isomorphism from $V\mlnsym{2}$ to $\scal$, so $\dim V\mlnsym{2} = \dim \scal$.
+    Consider the matrix $E_{j,k}$ with a $1$ in the $(j,k)$th entry and $0$ elsewhere.
+    We claim that the set
+    \[
+        \ecal = \set{E_{j,j} : 1 \leq j \leq n} \cup \set{E_{j,k} + E_{k,j} : 1 \leq j < k \leq n}
+    \]
+    is a basis of $\scal$.
+    Indeed, each $A \in \scal$ can be written as
+    \[
+        A = \sum_{j=1}^n A_{j,j} E_{j,j} + \sum_{1 \leq j < k \leq n} A_{j,k} (E_{j,k} + E_{k,j}),
+    \]
+    and comparing the $(j,k)$th entries, we see that the coefficients are uniquely determined, so 2.28 gives that $\ecal$ is a basis of $\scal$.
+    Counting the elements of $\ecal$, we have $n$ matrices of the form $E_{j,j}$ and $\frac{n(n-1)}{2}$ matrices of the form $E_{j,k} + E_{k,j}$ with $j < k$.
+    Hence,
+    \[
+        \dim \scal = n + \frac{n(n-1)}{2} = \frac{n(n+1)}{2} = \dim V\mlnsym{2}.
+    \]
+    Finally, 9.5 gives that $\dim V\mlnset{2} = n^2$ and 9.17 gives that $V\mlnset{2} = V\mlnsym{2} \oplus V\mlnalt{2}$, so by 3.94,
+    \[
+        \dim V\mlnalt{2} = \dim V\mlnset{2} - \dim V\mlnsym{2} = n^2 - \frac{n(n+1)}{2} = \frac{n(n-1)}{2}. \qedhere
+    \]
+\end{sol}
 
 \begin{exercise}{9a9}
     Suppose that $n$ is a positive integer and $V = \set{p \in \pcal_n(\rbb) : p(0) = p(1)}$.
@@ -67,6 +167,17 @@
     \]
     Show that $\alpha$ is an alternating bilinear form on $V$.
 \end{exercise}
+
+\begin{sol}
+    For fixed $q \in V$, the map $p \mapsto \alpha(p, q)$ is linear because the integral is linear.
+    Similarly, for fixed $p \in V$, the map $q \mapsto \alpha(p, q)$ is linear because differentiation and the integral are linear, and thus $\alpha$ is bilinear.
+    Finally, for any $r \in V$, we have
+    \[
+        \alpha(r, r) = \int_0^1 r r' = \frac{1}{2} \int_0^1 (r^2)' = \frac{1}{2} (r(1)^2 - r(0)^2) = 0,
+    \]
+    since $r(0) = r(1)$.
+    Hence, $\alpha$ is alternating.
+\end{sol}
 
 \begin{exercise}{9a10}
     Suppose that $n$ is a positive integer and
@@ -79,3 +190,16 @@
     \]
     Show that $\rho$ is a symmetric bilinear form on $V$.
 \end{exercise}
+
+\begin{sol}
+    Let $U = \set{p \in \pcal_n(\rbb) : p(0) = p(1)}$ and let $\alpha$ be as in \exref{9a9}.
+    For any $p, q \in V$, we have $p, q' \in U$ because $q' \in \pcal_{n-1}(\rbb)$ and $q'(0) = q'(1)$.
+    Therefore, $\rho(p, q) = \alpha(p, q')$.
+    Moreover, $\rho$ is linear in $p$ because $\alpha$ is linear in its first slot.
+    Also, $\rho$ is linear in $q$ since $q \mapsto q'$ is linear and $\alpha$ is linear in its second slot.
+    Finally, for any $p, q \in V$, 9.16 gives
+    \[
+        \rho(p, q) = \alpha(p, q') = -\alpha(q', p) = -\int_0^1 q' p',
+    \]
+    and swapping $p$ and $q$ results in the same expression, so $\rho$ is symmetric.
+\end{sol}
