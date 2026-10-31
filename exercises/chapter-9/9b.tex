@@ -1,0 +1,58 @@
+\subsection{Alternating Linear Forms}
+
+\begin{exercise}{9b1}
+    Suppose $m$ is a positive integer.
+    Show that $\dim V\mlnset{m} = (\dim V)^m$.
+\end{exercise}
+
+\begin{exercise}{9b2}
+    Suppose $n \geq 3$ and $\alpha \colon \fbb^n \times \fbb^n \times \fbb^n \to \fbb$ is defined by
+    \[
+        \alpha((x_1, \ldots, x_n), (y_1, \ldots, y_n), (z_1, \ldots, z_n))
+        = x_1 y_2 z_3 - x_2 y_1 z_3 - x_3 y_2 z_1 - x_1 y_3 z_2 + x_3 y_1 z_2 + x_2 y_3 z_1.
+    \]
+    Show that $\alpha$ is an alternating $3$-linear form on $\fbb^n$.
+\end{exercise}
+
+\begin{exercise}{9b3}
+    Suppose $m$ is a positive integer and $\alpha$ is an $m$-linear form on $V$ such that $\alpha(v_1, \ldots, v_m) = 0$ whenever $v_1, \ldots, v_m$ is a list of vectors in $V$ with $v_j = v_{j+1}$ for some $j \in \set{1, \ldots, m - 1}$.
+    Prove that $\alpha$ is an alternating $m$-linear form on $V$.
+\end{exercise}
+
+\begin{exercise}{9b4}
+    Prove or give a counterexample: If $\alpha \in V\mlnalt{4}$, then
+    \[
+        \set{(v_1, v_2, v_3, v_4) \in V^4 : \alpha(v_1, v_2, v_3, v_4) = 0}
+    \]
+    is a subspace of $V^4$.
+\end{exercise}
+
+\begin{exercise}{9b5}
+    Suppose $m$ is a positive integer and $\beta$ is an $m$-linear form on $V$.
+    Define an $m$-linear form $\alpha$ on $V$ by
+    \[
+        \alpha(v_1, \ldots, v_m) = \sum_{(j_1, \ldots, j_m) \in \perm m} (\sign(j_1, \ldots, j_m)) \beta(v_{j_1}, \ldots, v_{j_m})
+    \]
+    for $v_1, \ldots, v_m \in V$.
+    Explain why $\alpha \in V\mlnalt{m}$.
+\end{exercise}
+
+\begin{exercise}{9b6}
+    Suppose $m$ is a positive integer and $\beta$ is an $m$-linear form on $V$.
+    Define an $m$-linear form $\alpha$ on $V$ by
+    \[
+        \alpha(v_1, \ldots, v_m) = \sum_{(j_1, \ldots, j_m) \in \perm m} \beta(v_{j_1}, \ldots, v_{j_m})
+    \]
+    for $v_1, \ldots, v_m \in V$.
+    Explain why
+    \[
+        \alpha(v_{k_1}, \ldots, v_{k_m}) = \alpha(v_1, \ldots, v_m)
+    \]
+    for all $v_1, \ldots, v_m \in V$ and all $(k_1, \ldots, k_m) \in \perm m$.
+\end{exercise}
+
+\begin{exercise}{9b7}
+    Give an example of a nonzero alternating $2$-linear form $\alpha$ on $\rbb^3$ and a linearly independent list $v_1, v_2$ in $\rbb^3$ such that $\alpha(v_1, v_2) = 0$.
+
+    \note{This exercise shows that 9.39 can fail if the hypothesis that $n = \dim V$ is deleted.}
+\end{exercise}
