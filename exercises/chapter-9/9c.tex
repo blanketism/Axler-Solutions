@@ -1,0 +1,173 @@
+\subsection{Determinants}
+
+\begin{exercise}{9c1}
+    Prove or give a counterexample: $S, T \in \lin{V} \implies \det(S + T) = \det S + \det T$.
+\end{exercise}
+
+\begin{exercise}{9c2}
+    Suppose the first column of a square matrix $A$ consists of all zeros except possibly the first entry $A_{1,1}$.
+    Let $B$ be the matrix obtained from $A$ by deleting the first row and the first column of $A$.
+    Show that $\det A = A_{1,1} \det B$.
+\end{exercise}
+
+\begin{exercise}{9c3}
+    Suppose $T \in \lin{V}$ is nilpotent.
+    Prove that $\det(I + T) = 1$.
+\end{exercise}
+
+\begin{exercise}{9c4}
+    Suppose $V$ is an inner product space and $S \in \lin{V}$.
+    Prove that $S$ is unitary if and only if $|\det S| = \norm{S} = 1$.
+\end{exercise}
+
+\begin{exercise}{9c5}
+    Suppose $A$ is a block upper-triangular matrix
+    \[
+        A = \begin{pmatrix}
+            A_1 & & * \\
+            & \ddots & \\
+            0 & & A_m
+        \end{pmatrix},
+    \]
+    where each $A_k$ along the diagonal is a square matrix.
+    Prove that
+    \[
+        \det A = (\det A_1) \cdots (\det A_m).
+    \]
+\end{exercise}
+
+\begin{exercise}{9c6}
+    Suppose $A = \begin{pmatrix} v_1 & \cdots & v_n \end{pmatrix}$ is an $n$-by-$n$ matrix, with $v_k$ denoting the $k^{\text{th}}$ column of $A$.
+    Show that if $(m_1, \ldots, m_n) \in \perm n$, then
+    \[
+        \det \begin{pmatrix} v_{m_1} & \cdots & v_{m_n} \end{pmatrix} = (\sign(m_1, \ldots, m_n)) \det A.
+    \]
+\end{exercise}
+
+\begin{exercise}{9c7}
+    Suppose $T \in \lin{V}$ is invertible.
+    Let $p$ denote the characteristic polynomial of $T$ and let $q$ denote the characteristic polynomial of $T\inv$.
+    Prove that
+    \[
+        q(z) = \frac{1}{p(0)} z^{\dim V} p\left(\frac{1}{z}\right)
+    \]
+    for all nonzero $z \in \fbb$.
+\end{exercise}
+
+\begin{exercise}{9c8}
+    Suppose $T \in \lin{V}$ is an operator with no eigenvalues (which implies that $\fbb = \rbb$).
+    Prove that $\det T > 0$.
+\end{exercise}
+
+\begin{exercise}{9c9}
+    Suppose that $V$ is a real vector space of even dimension, $T \in \lin{V}$, and $\det T < 0$.
+    Prove that $T$ has at least two distinct eigenvalues.
+\end{exercise}
+
+\begin{exercise}{9c10}
+    Suppose $V$ is a real vector space of odd dimension and $T \in \lin{V}$.
+    Without using the minimal polynomial, prove that $T$ has an eigenvalue.
+
+    \note{This result was previously proved without using determinants or the characteristic polynomial---see 5.34.}
+\end{exercise}
+
+\begin{exercise}{9c11}
+    Prove or give a counterexample: If $\fbb = \rbb$, $T \in \lin{V}$, and $\det T > 0$, then $T$ has a square root.
+
+    \note{If $\fbb = \cbb$, $T \in \lin{V}$, and $\det T \neq 0$, then $T$ has a square root (see 8.41).}
+\end{exercise}
+
+\begin{exercise}{9c12}
+    Suppose $S, T \in \lin{V}$ and $S$ is invertible.
+    Define $p \colon \fbb \to \fbb$ by
+    \[
+        p(z) = \det(zS - T).
+    \]
+    Prove that $p$ is a polynomial of degree $\dim V$ and that the coefficient of $z^{\dim V}$ in this polynomial is $\det S$.
+\end{exercise}
+
+\begin{exercise}{9c13}
+    Suppose $\fbb = \cbb$, $T \in \lin{V}$, and $n = \dim V > 2$.
+    Let $\lambda_1, \ldots, \lambda_n$ denote the eigenvalues of $T$, with each eigenvalue included as many times as its multiplicity.
+    \begin{subexercises}
+        \item Find a formula for the coefficient of $z^{n-2}$ in the characteristic polynomial of $T$ in terms of $\lambda_1, \ldots, \lambda_n$.
+        \item Find a formula for the coefficient of $z$ in the characteristic polynomial of $T$ in terms of $\lambda_1, \ldots, \lambda_n$.
+    \end{subexercises}
+\end{exercise}
+
+\begin{exercise}{9c14}
+    Suppose $V$ is an inner product space and $T$ is a positive operator on $V$.
+    Prove that
+    \[
+        \det \sqrt{T} = \sqrt{\det T}.
+    \]
+\end{exercise}
+
+\begin{exercise}{9c15}
+    Suppose $V$ is an inner product space and $T \in \lin{V}$.
+    Use the polar decomposition to give a proof that
+    \[
+        |\det T| = \sqrt{\det(T^\ast T)}
+    \]
+    that is different from the proof given earlier (see 9.60).
+\end{exercise}
+
+\begin{exercise}{9c16}
+    Suppose $T \in \lin{V}$.
+    Define $g \colon \fbb \to \fbb$ by $g(x) = \det(I + xT)$.
+    Show that $g'(0) = \tr T$.
+
+    \hint{Look for a clean solution to this exercise, without using the explicit but complicated formula for the determinant of a matrix.}
+\end{exercise}
+
+\begin{exercise}{9c17}
+    Suppose $a, b, c$ are positive numbers.
+    Find the volume of the ellipsoid
+    \[
+        \set*{(x, y, z) \in \rbb^3 : \frac{x^2}{a^2} + \frac{y^2}{b^2} + \frac{z^2}{c^2} < 1}
+    \]
+    by finding a set $\Omega \subseteq \rbb^3$ whose volume you know and an operator $T$ on $\rbb^3$ such that $T(\Omega)$ equals the ellipsoid above.
+\end{exercise}
+
+\begin{exercise}{9c18}
+    Suppose that $A$ is an invertible square matrix.
+    Prove that Hadamard's inequality (9.66) is an equality if and only if each column of $A$ is orthogonal to the other columns.
+\end{exercise}
+
+\begin{exercise}{9c19}
+    Suppose $V$ is an inner product space, $e_1, \ldots, e_n$ is an orthonormal basis of $V$, and $T \in \lin{V}$ is a positive operator.
+    \begin{subexercises}
+        \item Prove that $\det T \leq \prod_{k=1}^{n} \ip{Te_k, e_k}$.
+        \item Prove that if $T$ is invertible, then the inequality in (a) is an equality if and only if $e_k$ is an eigenvector of $T$ for each $k = 1, \ldots, n$.
+    \end{subexercises}
+\end{exercise}
+
+\begin{exercise}{9c20}
+    Suppose $A$ is an $n$-by-$n$ matrix, and suppose $c$ is such that $|A_{j,k}| \leq c$ for all $j, k \in \set{1, \ldots, n}$.
+    Prove that
+    \[
+        |\det A| \leq c^n n^{n/2}.
+    \]
+
+    \note{The formula for the determinant of a matrix (9.46) shows that $|\det A| \leq c^n n!$.
+    However, the estimate given by this exercise is much better.
+    For example, if $c = 1$ and $n = 100$, then $c^n n! \approx 10^{158}$, but the estimate given by this exercise is the much smaller number $10^{100}$.
+    If $n$ is an integer power of $2$, then the inequality above is sharp and cannot be improved.}
+\end{exercise}
+
+\begin{exercise}{9c21}
+    Suppose $n$ is a positive integer and $\delta \colon \cbb^{n,n} \to \cbb$ is a function such that
+    \[
+        \delta(AB) = \delta(A) \cdot \delta(B)
+    \]
+    for all $A, B \in \cbb^{n,n}$ and $\delta(A)$ equals the product of the diagonal entries of $A$ for each diagonal matrix $A \in \cbb^{n,n}$.
+    Prove that
+    \[
+        \delta(A) = \det A
+    \]
+    for all $A \in \cbb^{n,n}$.
+
+    \note{Recall that $\cbb^{n,n}$ denotes the set of $n$-by-$n$ matrices with entries in $\cbb$.
+    This exercise shows that the determinant is the unique function defined on square matrices that is multiplicative and has the desired behavior on diagonal matrices.
+    This result is analogous to \exref{8d10}, which shows that the trace is uniquely determined by its algebraic properties.}
+\end{exercise}
