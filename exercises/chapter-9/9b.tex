@@ -5,19 +5,92 @@
     Show that $\dim V\mlnset{m} = (\dim V)^m$.
 \end{exercise}
 
+\begin{sol}
+    Let $n = \dim V$.
+    Let $v_1, \ldots, v_n$ be a basis of $V$ and let $\phi_1, \ldots, \phi_n$ be the dual basis.
+    For each ordered $m$-tuple $(k_1, \ldots, k_m) \in \set{1, \ldots, n}^m$, define
+    \[
+        \beta_{k_1, \ldots, k_m}(u_1, \ldots, u_m) = \phi_{k_1}(u_1) \cdots \phi_{k_m}(u_m).
+    \]
+    The $\ell$th map $u_\ell \mapsto \beta_{k_1, \ldots, k_m}(u_1, \ldots, u_m)$ is linear because it is the product of $\phi_{k_\ell}(u_\ell)$, which is linear in $u_\ell$, and the other factors, which are independent of $u_\ell$.
+    Therefore, $\beta_{k_1, \ldots, k_m}$ is $m$-linear.
+    We claim that the list $\bcal = (\beta_{k_1, \ldots, k_m})_{(k_1, \ldots, k_m) \in \set{1, \ldots, n}^m}$ forms a basis of $V\mlnset{m}$.
+
+    Indeed, suppose there are scalars $c_{k_1, \ldots, k_m}$ such that
+    \[
+        \sum_{(k_1, \ldots, k_m) \in \set{1, \ldots, n}^m} c_{k_1, \ldots, k_m} \beta_{k_1, \ldots, k_m} = 0.
+    \]
+    Fix $(p_1, \ldots, p_m) \in \set{1, \ldots, n}^m$.
+    Then for each $(k_1, \ldots, k_m) \in \set{1, \ldots, n}^m$, we have
+    \[
+        \beta_{k_1, \ldots, k_m}(v_{p_1}, \ldots, v_{p_m}) = \delta_{k_1 p_1} \cdots \delta_{k_m p_m}.
+    \]
+    Evaluating the sum at $(v_{p_1}, \ldots, v_{p_m})$ gives
+    \[
+        \sum_{(k_1, \ldots, k_m) \in \set{1, \ldots, n}^m} c_{k_1, \ldots, k_m} \beta_{k_1, \ldots, k_m}(v_{p_1}, \ldots, v_{p_m}) = 0,
+    \]
+    which simplifies to $c_{p_1, \ldots, p_m} = 0$.
+    Since $(p_1, \ldots, p_m)$ was arbitrary, it follows that all $c_{k_1, \ldots, k_m} = 0$, proving that $\bcal$ is a linearly independent list of length $n^m$.
+    Moreover, let $\beta \in V\mlnset{m}$ and $u_1, \ldots, u_m \in V$ be arbitrary.
+    By 3.114, we may write each $u_\ell$ as $u_\ell = \sum_{t=1}^n \phi_t(u_\ell) v_t$ for $\ell = 1, \ldots, m$.
+    Using the multilinearity of $\beta$ and the fact that $\phi_{t_1}(u_1) \cdots \phi_{t_m}(u_m) = \beta_{t_1, \ldots, t_m}(u_1, \ldots, u_m)$, we have
+    \[
+        \beta(u_1, \ldots, u_m) = \sum_{t_1, \ldots, t_m = 1}^n \phi_{t_1}(u_1) \cdots \phi_{t_m}(u_m) \beta(v_{t_1}, \ldots, v_{t_m}) = \sum_{t_1, \ldots, t_m = 1}^n \beta_{t_1, \ldots, t_m}(u_1, \ldots, u_m) \beta(v_{t_1}, \ldots, v_{t_m}).
+    \]
+    Since $u_1, \ldots, u_m$ were arbitrary, this shows that
+    \[
+        \beta = \sum_{t_1, \ldots, t_m = 1}^n \beta(v_{t_1}, \ldots, v_{t_m}) \beta_{t_1, \ldots, t_m}.
+    \]
+    Hence, $\bcal$ spans $V\mlnset{m}$, and thus $\bcal$ is a basis of $V\mlnset{m}$ with $\dim V\mlnset{m} = n^m = (\dim V)^m$.
+\end{sol}
+
 \begin{exercise}{9b2}
     Suppose $n \geq 3$ and $\alpha \colon \fbb^n \times \fbb^n \times \fbb^n \to \fbb$ is defined by
-    \[
-        \alpha((x_1, \ldots, x_n), (y_1, \ldots, y_n), (z_1, \ldots, z_n))
-        = x_1 y_2 z_3 - x_2 y_1 z_3 - x_3 y_2 z_1 - x_1 y_3 z_2 + x_3 y_1 z_2 + x_2 y_3 z_1.
-    \]
+    \begin{align*}
+        &\alpha((x_1, \ldots, x_n), (y_1, \ldots, y_n), (z_1, \ldots, z_n)) \\
+        &\quad = x_1 y_2 z_3 - x_2 y_1 z_3 - x_3 y_2 z_1 - x_1 y_3 z_2 + x_3 y_1 z_2 + x_2 y_3 z_1.
+    \end{align*}
     Show that $\alpha$ is an alternating $3$-linear form on $\fbb^n$.
 \end{exercise}
+
+\begin{sol}
+    Observe that the map $(x_1, \ldots, x_n) \mapsto x_i$ is linear for each $i = 1, \ldots, n$, so each term in the definition of $\alpha$ is a product of three linear maps, one in each slot.
+    Since each product is $3$-linear and a linear combination of $3$-linear maps is $3$-linear, it follows that $\alpha$ is $3$-linear.
+    Let $x, y, z \in \fbb^n$ be arbitrary with $x = (x_1, \ldots, x_n)$, $y = (y_1, \ldots, y_n)$, and $z = (z_1, \ldots, z_n)$.
+    Then
+    \begin{align*}
+        \alpha(x, x, z) &= x_1 x_2 z_3 - x_2 x_1 z_3 - x_3 x_2 z_1 - x_1 x_3 z_2 + x_3 x_1 z_2 + x_2 x_3 z_1 = 0 \\
+        \alpha(x, y, x) &= x_1 y_2 x_3 - x_2 y_1 x_3 - x_3 y_2 x_1 - x_1 y_3 x_2 + x_3 y_1 x_2 + x_2 y_3 x_1 = 0 \\
+        \alpha(x, y, y) &= x_1 y_2 y_3 - x_2 y_1 y_3 - x_3 y_2 y_1 - x_1 y_3 y_2 + x_3 y_1 y_2 + x_2 y_3 y_1 = 0.
+    \end{align*}
+    Hence, $\alpha$ is alternating.
+\end{sol}
 
 \begin{exercise}{9b3}
     Suppose $m$ is a positive integer and $\alpha$ is an $m$-linear form on $V$ such that $\alpha(v_1, \ldots, v_m) = 0$ whenever $v_1, \ldots, v_m$ is a list of vectors in $V$ with $v_j = v_{j+1}$ for some $j \in \set{1, \ldots, m - 1}$.
     Prove that $\alpha$ is an alternating $m$-linear form on $V$.
 \end{exercise}
+
+\begin{sol}
+    We claim that an adjacent swap of two vectors in the arguments of $\alpha$ changes the sign of $\alpha$.
+    Fix some $j \in \set{1, \ldots, m - 1}$ and all slots except for the $j$th and $(j+1)$th slots.
+    For arbitrary $u, w \in V$, consider $u + w$ in both the $j$th and $(j+1)$th slots.
+    By hypothesis, $\alpha(\ldots, u, u, \ldots) = 0$ and $\alpha(\ldots, w, w, \ldots) = 0$, where the repeated entries are in the $j$th and $(j+1)$th slots.
+    Expanding $\alpha(\ldots, u + w, u + w, \ldots)$ by linearity in the $j$th and $(j+1)$th slots, we get
+    \[
+        0 = \alpha(\ldots, u + w, u + w, \ldots) = \alpha(\ldots, u, w, \ldots) + \alpha(\ldots, w, u, \ldots),
+    \]
+    which shows that $\alpha(\ldots, u, w, \ldots) = -\alpha(\ldots, w, u, \ldots)$.
+
+    Now let $v_1, \ldots, v_m \in V$ be arbitrary and suppose $v_\ell = v_k$ for some $\ell < k$.
+    Apply the swap relation $k-\ell-1$ times to move $v_k$ to the $(\ell+1)$th slot, changing the sign each time.
+    Then
+    \[
+        \alpha(v_1, \ldots, v_m) = (-1)^{k-\ell-1} \alpha(v_1, \ldots, v_\ell, v_k, v_{\ell+1}, \ldots, v_{k-1}, v_{k+1}, \ldots, v_m).
+    \]
+    The $\ell$th and $(\ell+1)$th slots of the right side now contain the same vector $v_\ell = v_k$, so by the hypothesis, the right side is $0$.
+    Hence, $\alpha(v_1, \ldots, v_m) = 0$ whenever $v_\ell = v_k$ for some $\ell < k$, so $\alpha$ is alternating.
+\end{sol}
 
 \begin{exercise}{9b4}
     Prove or give a counterexample: If $\alpha \in V\mlnalt{4}$, then
@@ -26,6 +99,16 @@
     \]
     is a subspace of $V^4$.
 \end{exercise}
+
+\begin{sol}
+    Take $V = \fbb^4$ and let $U$ be the set in question.
+    By 9.37, $\dim V\mlnalt{4} = 1$, so there exists a nonzero $\alpha \in V\mlnalt{4}$.
+    Let $(x_1, x_2, x_3, x_4) \in V^4$ be such that $\alpha(x_1, x_2, x_3, x_4) \neq 0$.
+    By 3.10, the linear maps $v \mapsto \alpha(x_1, x_2, x_3, v)$ and $v \mapsto \alpha(v, 0, 0, x_4)$ both map $0$ to $0$.
+    Then $\alpha(x_1, x_2, x_3, 0) = 0$ and $\alpha(0, 0, 0, x_4) = 0$, so $(x_1, x_2, x_3, 0), (0, 0, 0, x_4) \in U$.
+    However, $(x_1, x_2, x_3, 0) + (0, 0, 0, x_4) = (x_1, x_2, x_3, x_4) \notin U$.
+    Hence, $U$ is not closed under addition and therefore is not a subspace.
+\end{sol}
 
 \begin{exercise}{9b5}
     Suppose $m$ is a positive integer and $\beta$ is an $m$-linear form on $V$.
@@ -36,6 +119,18 @@
     for $v_1, \ldots, v_m \in V$.
     Explain why $\alpha \in V\mlnalt{m}$.
 \end{exercise}
+
+\begin{sol}
+    Suppose $v_\ell = v_k$ for some $\ell \neq k$.
+    Let $\sigma = (j_1, \ldots, j_m) \in \perm m$, and let $\sigma' = (j_1', \ldots, j_m')$ be $\sigma$ with the entries equal to $\ell$ and $k$ swapped.
+    The map $\sigma \mapsto \sigma'$ is a bijection on $\perm m$ and $\sign(\sigma') = -\sign(\sigma)$ by 9.34.
+    Because $v_\ell = v_k$, the lists $(v_{j_1}, \ldots, v_{j_m})$ and $(v_{j_1'}, \ldots, v_{j_m'})$ are equal.
+    Then
+    \[
+        \alpha(v_1, \ldots, v_m) = \sum_{\sigma \in \perm m} \sign(\sigma') \beta(v_{j_1'}, \ldots, v_{j_m'}) = \sum_{\sigma \in \perm m} -\sign(\sigma) \beta(v_{j_1}, \ldots, v_{j_m}) = -\alpha(v_1, \ldots, v_m).
+    \]
+    Hence, $\alpha(v_1, \ldots, v_m) = 0$ whenever $v_\ell = v_k$ for some $\ell \neq k$, so $\alpha$ is alternating.
+\end{sol}
 
 \begin{exercise}{9b6}
     Suppose $m$ is a positive integer and $\beta$ is an $m$-linear form on $V$.
@@ -51,8 +146,31 @@
     for all $v_1, \ldots, v_m \in V$ and all $(k_1, \ldots, k_m) \in \perm m$.
 \end{exercise}
 
+\begin{sol}
+    Fix some $(k_1, \ldots, k_m) \in \perm m$ and $v_1, \ldots, v_m \in V$.
+    Let $u_p = v_{k_p}$ for $p = 1, \ldots, m$.
+    Distinctness of the entries in the lists $(j_1, \ldots, j_m)$ and $(k_1, \ldots, k_m)$ ensures that the map $(j_1, \ldots, j_m) \mapsto (k_{j_1}, \ldots, k_{j_m})$ lands in $\perm m$.
+    Since the $k_p$ are distinct, this map is injective, and because $\perm m$ is finite, it is a bijection.
+    By reindexing the sum using this bijection, we have
+    \[
+        \alpha(u_1, \ldots, u_m) = \sum_{(j_1, \ldots, j_m) \in \perm m} \beta(u_{j_1}, \ldots, u_{j_m}) = \sum_{(j_1, \ldots, j_m) \in \perm m} \beta(v_{k_{j_1}}, \ldots, v_{k_{j_m}}) = \alpha(v_1, \ldots, v_m),
+    \]
+    which gives the desired equality.
+\end{sol}
+
 \begin{exercise}{9b7}
     Give an example of a nonzero alternating $2$-linear form $\alpha$ on $\rbb^3$ and a linearly independent list $v_1, v_2$ in $\rbb^3$ such that $\alpha(v_1, v_2) = 0$.
 
     \note{This exercise shows that 9.39 can fail if the hypothesis that $n = \dim V$ is deleted.}
 \end{exercise}
+
+\begin{sol}
+    Let $x = (x_1, x_2, x_3)$ and $y = (y_1, y_2, y_3)$ be vectors in $\rbb^3$, let $e_1, e_2, e_3$ be the standard basis of $\rbb^3$, and define
+    \[
+        \alpha(x, y) = x_1 y_2 - x_2 y_1.
+    \]
+    With $y$ fixed, $\alpha(x, y)$ is a linear function of $x$, and with $x$ fixed, $\alpha(x, y)$ is a linear function of $y$, so $\alpha$ is bilinear.
+    Moreover, $\alpha(x, x) = x_1x_2 - x_2x_1 = 0$ for all $x \in \rbb^3$, so $\alpha$ is alternating.
+    Because $\alpha(e_1, e_2) = 1\cdot 1 - 0\cdot 0 = 1 \neq 0$, we see that $\alpha$ is nonzero.
+    Finally, $v_1 = e_1$ and $v_2 = e_3$ form a linearly independent list in $\rbb^3$, and $\alpha(v_1, v_2) = \alpha(e_1, e_3) = 0$.
+\end{sol}
