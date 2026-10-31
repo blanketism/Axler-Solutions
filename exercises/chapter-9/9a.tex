@@ -1,0 +1,81 @@
+\section{Multilinear Algebra and Determinants}
+
+\subsection{Bilinear Forms and Quadratic Forms}
+
+\begin{exercise}{9a1}
+    Prove that if $\beta$ is a bilinear form on $\fbb$, then there exists $c \in \fbb$ such that
+    \[
+        \beta(x, y) = cxy
+    \]
+    for all $x, y \in \fbb$.
+\end{exercise}
+
+\begin{exercise}{9a2}
+    Let $n = \dim V$.
+    Suppose $\beta$ is a bilinear form on $V$.
+    Prove that there exist $\phi_1, \ldots, \phi_n, \tau_1, \ldots, \tau_n \in V'$ such that
+    \[
+        \beta(u, v) = \phi_1(u) \cdot \tau_1(v) + \cdots + \phi_n(u) \cdot \tau_n(v)
+    \]
+    for all $u, v \in V$.
+
+    \note{This exercise shows that if $n = \dim V$, then every bilinear form on $V$ is of the form given by the last bullet point of Example 9.2.}
+\end{exercise}
+
+\begin{exercise}{9a3}
+    Suppose $\beta \colon V \times V \to \fbb$ is a bilinear form on $V$ and also is a linear functional on $V \times V$.
+    Prove that $\beta = 0$.
+\end{exercise}
+
+\begin{exercise}{9a4}
+    Suppose $V$ is a real inner product space and $\beta$ is a bilinear form on $V$.
+    Show that there exists a unique operator $T \in \lin{V}$ such that
+    \[
+        \beta(u, v) = \ip{u, Tv}
+    \]
+    for all $u, v \in V$.
+
+    \note{This exercise states that if $V$ is a real inner product space, then every bilinear form on $V$ is of the form given by the third bullet point in 9.2.}
+\end{exercise}
+
+\begin{exercise}{9a5}
+    Suppose $\beta$ is a bilinear form on a real inner product space $V$ and $T$ is the unique operator on $V$ such that $\beta(u, v) = \ip{u, Tv}$ for all $u, v \in V$ (see Exercise 4).
+    Show that $\beta$ is an inner product on $V$ if and only if $T$ is an invertible positive operator on $V$.
+\end{exercise}
+
+\begin{exercise}{9a6}
+    Prove or give a counterexample: If $\rho$ is a symmetric bilinear form on $V$, then
+    \[
+        \set{v \in V : \rho(v, v) = 0}
+    \]
+    is a subspace of $V$.
+\end{exercise}
+
+\begin{exercise}{9a7}
+    Explain why the proof of 9.13 (diagonalization of a symmetric bilinear form by an orthonormal basis on a real inner product space) fails if the hypothesis that $\fbb = \rbb$ is dropped.
+\end{exercise}
+
+\begin{exercise}{9a8}
+    Find formulas for $\dim V\mlnsym{2}$ and $\dim V\mlnalt{2}$ in terms of $\dim V$.
+\end{exercise}
+
+\begin{exercise}{9a9}
+    Suppose that $n$ is a positive integer and $V = \set{p \in \pcal_n(\rbb) : p(0) = p(1)}$.
+    Define $\alpha \colon V \times V \to \rbb$ by
+    \[
+        \alpha(p, q) = \int_0^1 pq'.
+    \]
+    Show that $\alpha$ is an alternating bilinear form on $V$.
+\end{exercise}
+
+\begin{exercise}{9a10}
+    Suppose that $n$ is a positive integer and
+    \[
+        V = \set{p \in \pcal_n(\rbb) : p(0) = p(1) \text{ and } p'(0) = p'(1)}.
+    \]
+    Define $\rho \colon V \times V \to \rbb$ by
+    \[
+        \rho(p, q) = \int_0^1 pq''.
+    \]
+    Show that $\rho$ is a symmetric bilinear form on $V$.
+\end{exercise}
