@@ -1,0 +1,115 @@
+\subsection{Tensor Products}
+
+\begin{exercise}{9d1}
+    Suppose $v \in V$ and $w \in W$.
+    Prove that $v \otimes w = 0$ if and only if $v = 0$ or $w = 0$.
+\end{exercise}
+
+\begin{exercise}{9d2}
+    Give an example of six distinct vectors $v_1, v_2, v_3, w_1, w_2, w_3$ in $\rbb^3$ such that
+    \[
+        v_1 \otimes w_1 + v_2 \otimes w_2 + v_3 \otimes w_3 = 0
+    \]
+    but none of $v_1 \otimes w_1$, $v_2 \otimes w_2$, $v_3 \otimes w_3$ is a scalar multiple of another element of this list.
+\end{exercise}
+
+\begin{exercise}{9d3}
+    Suppose that $v_1, \ldots, v_m$ is a linearly independent list in $V$.
+    Suppose also that $w_1, \ldots, w_m$ is a list in $W$ such that
+    \[
+        v_1 \otimes w_1 + \cdots + v_m \otimes w_m = 0.
+    \]
+    Prove that $w_1 = \cdots = w_m = 0$.
+\end{exercise}
+
+\begin{exercise}{9d4}
+    Suppose $\dim V > 1$ and $\dim W > 1$.
+    Prove that
+    \[
+        \set{v \otimes w : (v, w) \in V \times W}
+    \]
+    is not a subspace of $V \otimes W$.
+
+    \note{This exercise implies that if $\dim V > 1$ and $\dim W > 1$, then
+    \[
+        \set{v \otimes w : (v, w) \in V \times W} \neq V \otimes W.
+    \]}
+\end{exercise}
+
+\begin{exercise}{9d5}
+    Suppose $m$ and $n$ are positive integers.
+    For $v \in \fbb^m$ and $w \in \fbb^n$, identify $v \otimes w$ with an $m$-by-$n$ matrix as in Example 9.76.
+    With that identification, show that the set
+    \[
+        \set{v \otimes w : v \in \fbb^m \text{ and } w \in \fbb^n}
+    \]
+    is the set of $m$-by-$n$ matrices (with entries in $\fbb$) that have rank at most one.
+\end{exercise}
+
+\begin{exercise}{9d6}
+    Suppose $m$ and $n$ are positive integers.
+    Give a description, analogous to Exercise 5, of the set of $m$-by-$n$ matrices (with entries in $\fbb$) that have rank at most two.
+\end{exercise}
+
+\begin{exercise}{9d7}
+    Suppose $\dim V > 2$ and $\dim W > 2$.
+    Prove that
+    \[
+        \set{v_1 \otimes w_1 + v_2 \otimes w_2 : v_1, v_2 \in V \text{ and } w_1, w_2 \in W} \neq V \otimes W.
+    \]
+\end{exercise}
+
+\begin{exercise}{9d8}
+    Suppose $v_1, \ldots, v_m \in V$ and $w_1, \ldots, w_m \in W$ are such that
+    \[
+        v_1 \otimes w_1 + \cdots + v_m \otimes w_m = 0.
+    \]
+    Suppose that $U$ is a vector space and $\Gamma \colon V \times W \to U$ is a bilinear map.
+    Show that
+    \[
+        \Gamma(v_1, w_1) + \cdots + \Gamma(v_m, w_m) = 0.
+    \]
+\end{exercise}
+
+\begin{exercise}{9d9}
+    Suppose $S \in \lin{V}$ and $T \in \lin{W}$.
+    Prove that there exists a unique operator on $V \otimes W$ that takes $v \otimes w$ to $Sv \otimes Tw$ for all $v \in V$ and $w \in W$.
+
+    \note{In an abuse of notation, the operator on $V \otimes W$ given by this exercise is often called $S \otimes T$.}
+\end{exercise}
+
+\begin{exercise}{9d10}
+    Suppose $S \in \lin{V}$ and $T \in \lin{W}$.
+    Prove that $S \otimes T$ is an invertible operator on $V \otimes W$ if and only if both $S$ and $T$ are invertible operators.
+    Also, prove that if both $S$ and $T$ are invertible operators, then $(S \otimes T)\inv = S\inv \otimes T\inv$, where we are using the notation from the comment after Exercise 9.
+\end{exercise}
+
+\begin{exercise}{9d11}
+    Suppose $V$ and $W$ are inner product spaces.
+    Prove that if $S \in \lin{V}$ and $T \in \lin{W}$, then $(S \otimes T)^\ast = S^\ast \otimes T^\ast$, where we are using the notation from the comment after Exercise 9.
+\end{exercise}
+
+\begin{exercise}{9d12}
+    Suppose that $V_1, \ldots, V_m$ are finite-dimensional inner product spaces.
+    Prove that there is a unique inner product on $V_1 \otimes \cdots \otimes V_m$ such that
+    \[
+        \ip{v_1 \otimes \cdots \otimes v_m, u_1 \otimes \cdots \otimes u_m} = \ip{v_1, u_1} \cdots \ip{v_m, u_m}
+    \]
+    for all $(v_1, \ldots, v_m)$ and $(u_1, \ldots, u_m)$ in $V_1 \times \cdots \times V_m$.
+
+    \note{Note that the equation above implies that
+    \[
+        \norm{v_1 \otimes \cdots \otimes v_m} = \norm{v_1} \times \cdots \times \norm{v_m}
+    \]
+    for all $(v_1, \ldots, v_m) \in V_1 \times \cdots \times V_m$.}
+\end{exercise}
+
+\begin{exercise}{9d13}
+    Suppose that $V_1, \ldots, V_m$ are finite-dimensional inner product spaces and $V_1 \otimes \cdots \otimes V_m$ is made into an inner product space using the inner product from Exercise 12.
+    Suppose $e^k_1, \ldots, e^k_{n_k}$ is an orthonormal basis of $V_k$ for each $k = 1, \ldots, m$.
+    Show that the list
+    \[
+        \set{e^1_{j_1} \otimes \cdots \otimes e^m_{j_m}}_{j_1 = 1, \ldots, n_1; \ldots; j_m = 1, \ldots, n_m}
+    \]
+    is an orthonormal basis of $V_1 \otimes \cdots \otimes V_m$.
+\end{exercise}
