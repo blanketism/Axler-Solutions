@@ -4,21 +4,74 @@
     Prove or give a counterexample: $S, T \in \lin{V} \implies \det(S + T) = \det S + \det T$.
 \end{exercise}
 
+\begin{sol}
+    This statement is false in general.
+    Consider $S = T = I$ with $\dim V = 2$.
+    For any $\alpha \in V\mlnalt{2}$, we have $\alpha_I = \alpha$, and
+    \[
+        \alpha_{2I}(u, v) = \alpha(2u, 2v) = 4 \alpha(u, v).
+    \]
+    Hence, $\det(S + T) = \det(2I) = 4 \neq 1 + 1 = \det S + \det T$.
+\end{sol}
+
 \begin{exercise}{9c2}
     Suppose the first column of a square matrix $A$ consists of all zeros except possibly the first entry $A_{1,1}$.
     Let $B$ be the matrix obtained from $A$ by deleting the first row and the first column of $A$.
     Show that $\det A = A_{1,1} \det B$.
 \end{exercise}
 
+\begin{sol}
+    Let $A$ be $n$-by-$n$ with $n > 1$ so that $B$ is well-defined.
+    Let $\Lambda \subseteq \perm n$ denote the set of permutations with $1$ in the first position.
+    In 9.46, the factor $A_{j_1, 1} = 0$ unless $j_1 = 1$.
+    Therefore, the only permutations that contribute to the sum are of the form $\sigma = (1, j_2, \ldots, j_n)$, so
+    \[
+        \det A = A_{1, 1} \sum_{\sigma \in \Lambda} (\sign \sigma) \prod_{k=2}^n A_{j_k, k}.
+    \]
+    Let $\ell_p = j_{p+1} - 1$ for $1 \leq p \leq n-1$, and let $\tau = (\ell_1, \ldots, \ell_{n-1})$.
+    Then the map $\sigma \mapsto \tau$ is a bijection from $\Lambda$ to $\perm(n-1)$.
+    By 9.32, no pair $(1, j_p)$ with $p \geq 2$ contributes to the sign.
+    Moreover, for $2 \leq q < r$, the value $q$ appears after $r$ in $\sigma$ if and only if $q-1$ appears after $r-1$ in $\tau$, which holds because $\tau$ is $\sigma$ with the first element removed and each remaining element decreased by $1$.
+    Therefore, $\sign \sigma = \sign \tau$.
+    Because $B_{p,q} = A_{p+1, q+1}$ for $1 \leq p, q \leq n-1$, we have
+    \[
+        \prod_{q=1}^{n-1} B_{\ell_q, q} = \prod_{k=2}^n A_{j_k, k}.
+    \]
+    Hence,
+    \[
+        \det A = A_{1,1} \sum_{\tau \in \perm(n-1)} (\sign \tau) \prod_{q=1}^{n-1} B_{\ell_q, q} = A_{1,1} \det B.
+    \]
+\end{sol}
+
 \begin{exercise}{9c3}
     Suppose $T \in \lin{V}$ is nilpotent.
     Prove that $\det(I + T) = 1$.
 \end{exercise}
 
+\begin{sol}
+    By 8.18, $V$ has a basis with respect to which $\mcal(T)$ is strictly upper triangular.
+    By 3.35, $\mcal(I + T) = I + \mcal(T)$ is upper triangular with all diagonal entries equal to $1$.
+    By 9.53 and 9.48, $\det(I + T) = 1$.
+\end{sol}
+
 \begin{exercise}{9c4}
     Suppose $V$ is an inner product space and $S \in \lin{V}$.
     Prove that $S$ is unitary if and only if $|\det S| = \norm{S} = 1$.
 \end{exercise}
+
+\begin{sol}
+    Let $s_1 \geq \cdots \geq s_n$ denote the singular values of $S$.
+    By 7.88(a) and 9.60, $\norm{S} = s_1$ and $|\det S| = s_1 \cdots s_n$.
+
+    \rightimp Suppose $S$ is unitary.
+    Then $S$ is an isometry, so 7.69 gives $s_1 = \cdots = s_n = 1$, and hence $|\det S| = s_1 \cdots s_n = 1$ and $\norm{S} = s_1 = 1$.
+
+    \leftimp Suppose $|\det S| = \norm{S} = 1$.
+    Then $s_1 = \norm{S} = 1$ and $s_1 \cdots s_n = |\det S| = 1$.
+    Because $0 \leq s_k \leq s_1 = 1$ for all $k$, we must have $s_k = 1$ for all $k$.
+    Since $\det S \neq 0$, 9.50 yields that $S$ is invertible.
+    Therefore, $S$ is an invertible isometry by 7.69, and hence unitary.
+\end{sol}
 
 \begin{exercise}{9c5}
     Suppose $A$ is a block upper-triangular matrix
@@ -36,6 +89,40 @@
     \]
 \end{exercise}
 
+\begin{sol}
+    Proceed by induction on $m$.
+    The base case $m = 1$ is trivial, since $\det A = \det A_1$.
+    Suppose $m > 1$ and the result holds for block upper-triangular matrices with $m-1$ diagonal blocks.
+    Write $A$ as
+    \[
+        A = 
+        \begin{pmatrix}
+            A_1 & * \\
+            0 & B
+        \end{pmatrix},
+    \]
+    where $B$ is block upper triangular with diagonal blocks $A_2, \ldots, A_m$.
+    By the induction hypothesis, it suffices to show that $\det A = (\det A_1)(\det B)$.
+    Let $A_1$ be $n$-by-$n$, $B$ be $p$-by-$p$, and let $e_1, \ldots, e_n$ denote the standard basis of $\fbb^n$.
+    For $v_1, \ldots, v_n \in \fbb^n$, let $\alpha(v_1, \ldots, v_n)$ be the determinant of $A$ with the first $n$ columns replaced by $(v_1, 0), \ldots, (v_n, 0)$, where $0$ denotes the zero vector in $\fbb^p$.
+    Since the map $v \mapsto (v, 0)$ is linear from $\fbb^n$ to $\fbb^{n+p}$, 9.45 implies that $\alpha$ is an alternating $n$-linear form on $\fbb^n$.
+    By 9.36 applied to the standard basis and 9.46, we have
+    \[
+        \alpha(v_1, \ldots, v_n) = \alpha(e_1, \ldots, e_n) \det(v_1, \ldots, v_n).
+    \] 
+    Observe that
+    \[
+        \alpha(e_1, \ldots, e_n) = \det
+        \begin{pmatrix}
+            I & * \\
+            0 & B
+        \end{pmatrix}
+        = \det B,
+    \]
+    where \exref{9c2} is applied $n$ times to expand the determinant along the first $n$ columns.
+    By taking $v_1, \ldots, v_n$ to be the columns of $A_1$, we get $\det A = (\det A_1)(\det B)$, as desired.
+\end{sol}
+
 \begin{exercise}{9c6}
     Suppose $A = \begin{pmatrix} v_1 & \cdots & v_n \end{pmatrix}$ is an $n$-by-$n$ matrix, with $v_k$ denoting the $k^{\text{th}}$ column of $A$.
     Show that if $(m_1, \ldots, m_n) \in \perm n$, then
@@ -43,6 +130,15 @@
         \det \begin{pmatrix} v_{m_1} & \cdots & v_{m_n} \end{pmatrix} = (\sign(m_1, \ldots, m_n)) \det A.
     \]
 \end{exercise}
+
+\begin{sol}
+    By 9.45, $\alpha(u_1, \ldots, u_n) = \det \begin{pmatrix} u_1 & \cdots & u_n \end{pmatrix}$ is an alternating $n$-linear form on $\fbb^n$.
+    Applying 9.35 to $\alpha$ and the list $v_1, \ldots, v_n$, we get
+    \[
+        \alpha(v_{m_1}, \ldots, v_{m_n}) = \sign(m_1, \ldots, m_n) \alpha(v_1, \ldots, v_n),
+    \]
+    where $\alpha(v_1, \ldots, v_n) = \det A$, which completes the proof.
+\end{sol}
 
 \begin{exercise}{9c7}
     Suppose $T \in \lin{V}$ is invertible.
@@ -54,15 +150,65 @@
     for all nonzero $z \in \fbb$.
 \end{exercise}
 
+\begin{sol}
+    Let $n = \dim V$.
+    By 9.65, $p(0) = (-1)^n \det T$, which is nonzero by 9.50.
+    Note that for $z \neq 0$,
+    \[
+        z I - T\inv = (-z I)T\inv \left(\frac{1}{z} I - T\right).
+    \]
+    By 9.49(a), 9.53, 9.48, and 9.50, we get
+    \begin{align*}
+        q(z) &= \det\left((-z I) T\inv \left(\frac{1}{z} I - T\right)\right) \\
+             &= \det(-z I) \det(T\inv) \det\left(\frac{1}{z} I - T\right) \\
+             &= (-z)^n \det(T\inv) p\left(\frac{1}{z}\right) \\
+             &= \frac{z^n}{(-1)^n \det T} p\left(\frac{1}{z}\right) \\
+             &= \frac{z^n}{p(0)} p\left(\frac{1}{z}\right). \qedhere
+    \end{align*}
+\end{sol}
+
 \begin{exercise}{9c8}
     Suppose $T \in \lin{V}$ is an operator with no eigenvalues (which implies that $\fbb = \rbb$).
     Prove that $\det T > 0$.
 \end{exercise}
 
+\begin{sol}
+    Let $n = \dim V$ and let $p$ be the characteristic polynomial of $T$.
+    By 9.65, $p$ is monic with $\deg p = n$ and $p(0) = (-1)^n \det T$.
+    By 9.51, $p$ has no real zeros, so 4.16 yields that $p$ has no real linear factors, and
+    \[
+        p(z) = \prod_{j=1}^M (z^2 + b_j z + c_j),
+    \]
+    where $b_j, c_j \in \rbb$ and $b_j^2 < 4c_j$ for each $j$.
+    Comparing degrees gives $n = 2M$, and since $b_j^2 < 4c_j$, we have $c_j > 0$ for each $j$, so
+    \[
+        \det T = p(0) = \prod_{j=1}^M c_j > 0. \qedhere
+    \]
+\end{sol}
+
 \begin{exercise}{9c9}
     Suppose that $V$ is a real vector space of even dimension, $T \in \lin{V}$, and $\det T < 0$.
     Prove that $T$ has at least two distinct eigenvalues.
 \end{exercise}
+
+\begin{sol}
+    Let $n = \dim V$ and let $p$ be the characteristic polynomial of $T$.
+    By 9.65, $p$ is monic with $\deg p = n$ and $p(0) = (-1)^n \det T$.
+    By 4.16, we may write
+    \[
+        p(z) = \prod_{j=1}^m (z - \lambda_j) \prod_{k=1}^M (z^2 + b_k z + c_k),
+    \]
+    where $\lambda_j \in \rbb$, $b_k, c_k \in \rbb$, and $c_k > b_k^2/4 \geq 0$ for each $k$.
+    Since $\deg p$ is even and the second product has degree $2M$, it follows that $m$ must also be even.
+    Evaluating $p$ at $0$ gives
+    \[
+        p(0) = \prod_{j=1}^m (-\lambda_j) \prod_{k=1}^M c_k < 0.
+    \]
+    By 9.51, each $\lambda_j$ is an eigenvalue of $T$.
+    Suppose $T$ has at most one eigenvalue.
+    Then either $m = 0$, in which case $p(0) = \prod_{k=1}^M c_k \geq 0$, or $m \geq 2$, in which case all $\lambda_j$ are equal to some $\lambda$, and $p(0) = \prod_{j=1}^m (-\lambda) \prod_{k=1}^M c_k \geq 0$.
+    In either case, we get a contradiction with $p(0) < 0$, so $T$ must have at least two distinct eigenvalues.
+\end{sol}
 
 \begin{exercise}{9c10}
     Suppose $V$ is a real vector space of odd dimension and $T \in \lin{V}$.
@@ -71,11 +217,41 @@
     \note{This result was previously proved without using determinants or the characteristic polynomial---see 5.34.}
 \end{exercise}
 
+\begin{sol}
+    Let $n = \dim V$ and let $p$ be the characteristic polynomial of $T$.
+    By 9.65, $p$ is monic with $\deg p = n$.
+    By 4.16, we may write
+    \[
+        p(z) = \prod_{j=1}^m (z - \lambda_j) \prod_{k=1}^M (z^2 + b_k z + c_k),
+    \]
+    where $\lambda_j \in \rbb$, $b_k, c_k \in \rbb$, and $b_k^2 < 4c_k$ for each $k$.
+    Comparing degrees, we have $n = m + 2M$, which forces $m \geq 1$ since $n$ is odd.
+    Then $p(\lambda_1) = 0$, so $\lambda_1$ is an eigenvalue of $T$ by 9.51.
+\end{sol}
+
 \begin{exercise}{9c11}
     Prove or give a counterexample: If $\fbb = \rbb$, $T \in \lin{V}$, and $\det T > 0$, then $T$ has a square root.
 
     \note{If $\fbb = \cbb$, $T \in \lin{V}$, and $\det T \neq 0$, then $T$ has a square root (see 8.41).}
 \end{exercise}
+
+\begin{sol}
+    This is false.
+    Suppose $V$ is a real vector space with $\dim V = 2$ and basis $v_1, v_2$.
+    By the linear map lemma, define $T \in \lin{V}$ by $T v_1 = -v_1$ and $T v_2 = -2 v_2$.
+    Then $\mcal(T)$ with respect to the basis $v_1, v_2$ is diagonal with diagonal entries $-1$ and $-2$, so $\det T = 2 > 0$ by 9.53 and 9.48.
+    Moreover, for any $\lambda, \mu \in \rbb$, we have
+    \[
+        (T + I)(\lambda v_1 + \mu v_2) = \lambda ( -v_1 + v_1) + \mu (-2 v_2 + v_2) = -\mu v_2,
+    \]
+    so $E(-1, T) = \nul(T + I) = \spn v_1$.
+
+    Suppose $T$ has a square root $S$, so $S^2 = T$.
+    Then $S T = S^3 = T S$, so $E(-1, T)$ is invariant under $S$ by 5.75, and $S v_1 = \nu v_1$ for some $\nu \in \rbb$.
+    However, $- v_1 = T v_1 = S^2 v_1 = S(\nu v_1) = \nu S v_1 = \nu^2 v_1$ gives $v_1 = 0$ or $\nu^2 = -1$.
+    Since $v_1$ is a basis vector and $\nu \in \rbb$, this is impossible.
+    Therefore, $T$ cannot have a square root.
+\end{sol}
 
 \begin{exercise}{9c12}
     Suppose $S, T \in \lin{V}$ and $S$ is invertible.
@@ -86,6 +262,12 @@
     Prove that $p$ is a polynomial of degree $\dim V$ and that the coefficient of $z^{\dim V}$ in this polynomial is $\det S$.
 \end{exercise}
 
+\begin{sol}
+    Note that $z S - T = S(z I - S\inv T)$, so by 9.49(a), $p(z) = (\det S) q(z)$, where $q(z)$ is the characteristic polynomial of $S\inv T$.
+    By 9.65, $q$ is monic with $\deg q = \dim V$.
+    By 9.50, $\det S \neq 0$, so $p$ is a polynomial of degree $\dim V$ and the coefficient of $z^{\dim V}$ in $p$ is $\det S$.
+\end{sol}
+
 \begin{exercise}{9c13}
     Suppose $\fbb = \cbb$, $T \in \lin{V}$, and $n = \dim V > 2$.
     Let $\lambda_1, \ldots, \lambda_n$ denote the eigenvalues of $T$, with each eigenvalue included as many times as its multiplicity.
@@ -95,6 +277,24 @@
     \end{subexercises}
 \end{exercise}
 
+\begin{sol}
+    By 9.62, the characteristic polynomial of $T$ is
+    \[
+        \det(z I - T) = \prod_{k=1}^{n} (z - \lambda_k).
+    \]
+    In general, the coefficient of $z^{n-k}$ in the characteristic polynomial of $T$ is $(-1)^k$ times the sum of all products of $k$ distinct eigenvalues of $T$.
+    \begin{subexercises}
+        \item With $r = 2$, the coefficient of $z^{n-2}$ is
+        \[
+            (-1)^2 \sum_{1 \leq j < k \leq n} \lambda_j \lambda_k = \sum_{1 \leq i < j \leq n} \lambda_i \lambda_j.
+        \]
+        \item With $r = n-1$, the coefficient of $z$ is
+        \[
+            (-1)^{n-1} \sum_{1 \leq j_1 < \cdots < j_{n-1} \leq n} \lambda_{j_1} \cdots \lambda_{j_{n-1}}. \qedhere
+        \]
+    \end{subexercises}
+\end{sol}
+
 \begin{exercise}{9c14}
     Suppose $V$ is an inner product space and $T$ is a positive operator on $V$.
     Prove that
@@ -102,6 +302,11 @@
         \det \sqrt{T} = \sqrt{\det T}.
     \]
 \end{exercise}
+
+\begin{sol}
+    By 7.39, $(\sqrt{T})^2 = T$, so $\det T = (\det \sqrt{T})^2$ by 9.49(a).
+    Since $\sqrt{T}$ is positive, $\det \sqrt{T} \geq 0$ by 9.59, so taking square roots gives $\det \sqrt{T} = \sqrt{\det T}$.
+\end{sol}
 
 \begin{exercise}{9c15}
     Suppose $V$ is an inner product space and $T \in \lin{V}$.
@@ -112,6 +317,16 @@
     that is different from the proof given earlier (see 9.60).
 \end{exercise}
 
+\begin{sol}
+    By the polar decomposition, $T = S \sqrt{T^\ast T}$ for some unitary operator $S$, where $T^\ast T$ is positive by 7.64(a).
+    By 9.58 and 9.59, $|\det S| = 1$ and $\det \sqrt{T^\ast T} \geq 0$.
+    Therefore, 9.49(a) gives
+    \[
+        |\det T| = |\det S|\,|\det \sqrt{T^\ast T}| = \det \sqrt{T^\ast T},
+    \]
+    and \exref{9c14} gives $\det \sqrt{T^\ast T} = \sqrt{\det(T^\ast T)}$.
+\end{sol}
+
 \begin{exercise}{9c16}
     Suppose $T \in \lin{V}$.
     Define $g \colon \fbb \to \fbb$ by $g(x) = \det(I + xT)$.
@@ -119,6 +334,22 @@
 
     \hint{Look for a clean solution to this exercise, without using the explicit but complicated formula for the determinant of a matrix.}
 \end{exercise}
+
+\begin{sol}
+    Let $n = \dim V$.
+    By 9.65 and 8.56 applied to $-T$,
+    \[
+        \det(zI + T) = z^n + (\tr T) z^{n-1} + \sum_{k=0}^{n-2} \lambda_k z^k
+    \]
+    for $\lambda_0, \ldots, \lambda_{n-2} \in \fbb$.
+    For nonzero $x$, we have $I + xT = x(\frac{1}{x}I + T)$.
+    By 9.53, 3.38, and 9.57(c) applied to each column of $x \mcal(\frac{1}{x}I + T)$, we have $\det(x(\frac{1}{x}I + T)) = x^n \det(\frac{1}{x}I + T)$.
+    Using the substitution $z = \frac{1}{x}$ and the fact that $g(0) = \det I = 1$ by 9.53 and 9.48, we have for all $x \in \fbb$ that
+    \[
+        g(x) = 1 + (\tr T) x + \sum_{k=2}^{n} \lambda_{n-k} x^k.
+    \]
+    Since each exponent in the sum is at least $2$, evaluating $(x^k)'$ at $x = 0$ gives $0$ for each $k \geq 2$, so $g'(0) = \tr T$.
+\end{sol}
 
 \begin{exercise}{9c17}
     Suppose $a, b, c$ are positive numbers.
@@ -129,10 +360,76 @@
     by finding a set $\Omega \subseteq \rbb^3$ whose volume you know and an operator $T$ on $\rbb^3$ such that $T(\Omega)$ equals the ellipsoid above.
 \end{exercise}
 
+\begin{sol}
+    Let $E$ be the ellipsoid in question.
+    Let $\Omega$ be the unit ball in $\rbb^3$ with $\volume(\Omega) = \frac{4}{3} \pi$.
+    Define $T \in \lin{\rbb^3}$ by $T(x, y, z) = (ax, by, cz)$.
+    We claim that $T(\Omega) = E$.
+
+    \rightset Suppose $(x, y, z) \in \Omega$.
+    Then $x^2 + y^2 + z^2 < 1$, so
+    \[
+        \frac{(ax)^2}{a^2} + \frac{(by)^2}{b^2} + \frac{(cz)^2}{c^2} = x^2 + y^2 + z^2 < 1.
+    \]
+    Hence, $(ax, by, cz) \in E$, so $T(\Omega) \subseteq E$.
+
+    \leftset Suppose $(p, q, r) \in E$.
+    Then
+    \[
+        \frac{p^2}{a^2} + \frac{q^2}{b^2} + \frac{r^2}{c^2} = \left(\frac{p}{a}\right)^2 + \left(\frac{q}{b}\right)^2 + \left(\frac{r}{c}\right)^2 < 1,
+    \]
+    so $(\frac{p}{a}, \frac{q}{b}, \frac{r}{c}) \in \Omega$, and thus $T(\frac{p}{a}, \frac{q}{b}, \frac{r}{c}) = (p, q, r) \in T(\Omega)$, whence $E \subseteq T(\Omega)$.
+
+    Therefore, $T(\Omega) = E$.
+    With respect to the standard basis of $\rbb^3$, the matrix of $T$ is diagonal with diagonal entries $a$, $b$, and $c$, so $\det T = abc$ by 9.53 and 9.48.
+    By 9.61, $\volume E = |\det T|(\volume \Omega) = \frac{4}{3} abc \pi$.
+\end{sol}
+
 \begin{exercise}{9c18}
     Suppose that $A$ is an invertible square matrix.
     Prove that Hadamard's inequality (9.66) is an equality if and only if each column of $A$ is orthogonal to the other columns.
 \end{exercise}
+
+\begin{sol}
+    Since $A$ is invertible, $A x = 0$ only when $x = 0$, so the columns $v_1, \ldots, v_n$ of $A$ are linearly independent by 3.50.
+    By QR factorization, we may write $A = QR$, where $Q$ is unitary and $R$ is upper triangular with positive diagonal entries.
+    Let $e_1, \ldots, e_n$ be the standard basis of $\fbb^n$ and let $T \in \lin{\fbb^n}$ be such that $\mcal(T, (e_1, \ldots, e_n)) = Q$.
+    By 7.57(d), $Q^\ast Q = I$, where $(Q^\ast Q)_{j, k} = \ip{Q_{\cdot, k}, Q_{\cdot, j}}$, so the columns of $Q$ are orthonormal, and hence form an orthonormal basis of $\fbb^n$ by 6.28.
+    By 3.75, $T e_k = Q_{\cdot, k}$ for each $k = 1, \ldots, n$, so $T$ is unitary by 7.53(d).
+    By 9.43 and 9.58, $|\det Q| = |\det T| = 1$.
+    By 9.49(b), 9.48, and $R_{k, k} > 0$ for each $k$, we have
+    \[
+        |\det A| = |\det Q|\,|\det R| = \prod_{k=1}^n R_{k,k}.
+    \]
+    Since $v_k = Q R_{\cdot, k}$ by 3.48, we have $\norm{v_k} = \norm{R_{\cdot, k}}$ by 7.57(c).
+    Because $R$ is upper triangular,
+    \[
+        \norm{R_{\cdot, k}}^2 = R_{k,k}^2 + \sum_{j < k} |R_{j,k}|^2.
+    \]
+    Since $0 < R_{k,k} \leq \norm{R_{\cdot, k}}$ for each $k$, Hadamard's inequality for $A$ can be read as
+    \[
+        |\det A| = \prod_{k=1}^n R_{k,k} \leq \prod_{k=1}^n \norm{R_{\cdot, k}} = \prod_{k=1}^n \norm{v_k}.
+    \]
+    The products are equal if and only if $\norm{R_{\cdot, k}} = R_{k,k}$ for each $k = 1, \ldots, n$, i.e., $R_{j,k} = 0$ for all $j < k$ if and only if $R$ is diagonal.
+
+    \rightimp Suppose equality holds in Hadamard's inequality for $A$.
+    Then $R$ is diagonal, so $v_k = R_{k, k} Q_{\cdot, k}$ for each $k = 1, \ldots, n$.
+    Since the columns of $Q$ are orthonormal, $\ip{v_j, v_k} = 0$ for all $j \neq k$, i.e., each column of $A$ is orthogonal to the other columns.
+
+    \leftimp Suppose the columns of $A$ are orthogonal to each other.
+    Since the list $v_1, \ldots, v_n$ is linearly independent, each $v_k$ is nonzero.
+    Consider the matrix $Q'$ with columns $\frac{v_k}{\norm{v_k}}$ for $k = 1, \ldots, n$ and let $D$ be the diagonal matrix with $D_{k,k} = \norm{v_k} > 0$ for each $k = 1, \ldots, n$.
+    Moreover, the columns of $Q'$ are orthonormal, so they form an orthonormal basis of $\fbb^n$ by 6.28.
+    Let $S \in \lin{\fbb^n}$ be such that $\mcal(S, (e_1, \ldots, e_n)) = Q'$.
+    By 3.75, $S e_k = Q'_{\cdot, k}$ for each $k = 1, \ldots, n$, and thus $S$ is unitary with $S^\ast S = SS^\ast = I$ by 7.53(b) and (d).
+    Since the list $e_1, \ldots, e_n$ is orthonormal, $\mcal(S^\ast, (e_1, \ldots, e_n)) = (Q')^\ast$ by 7.9, and thus $Q'(Q')^\ast = (Q')^\ast Q' = I$ by 3.43, so $Q'$ is unitary by 7.57(d).
+    By 3.48,
+    \[
+        (Q'D)_{\cdot, k} = Q' D_{\cdot, k} = \norm{v_k} \frac{v_k}{\norm{v_k}} = v_k.
+    \]
+    Therefore, $A = Q'D$.
+    By the uniqueness of the $QR$ factorization, $Q' = Q$ and $D = R$, so $R$ is diagonal and equality holds in Hadamard's inequality.
+\end{sol}
 
 \begin{exercise}{9c19}
     Suppose $V$ is an inner product space, $e_1, \ldots, e_n$ is an orthonormal basis of $V$, and $T \in \lin{V}$ is a positive operator.
@@ -141,6 +438,37 @@
         \item Prove that if $T$ is invertible, then the inequality in (a) is an equality if and only if $e_k$ is an eigenvector of $T$ for each $k = 1, \ldots, n$.
     \end{subexercises}
 \end{exercise}
+
+\begin{sol}
+    Let $A = \mcal(\sqrt{T}, (e_1, \ldots, e_n))$.
+    Since $\sqrt{T}$ is positive, it is self-adjoint.
+    By 3.75, $A_{\cdot, k} = \mcal(\sqrt{T} e_k)$ for each $k = 1, \ldots, n$.
+    By 6.30(c) and self-adjointness,
+    \[
+        \ip{A_{\cdot, k}, A_{\cdot, j}} = \ip{\sqrt{T} e_k, \sqrt{T} e_j} = \ip{T e_k, e_j},
+    \]
+    and therefore, $\norm{A_{\cdot, k}}^2 = \ip{T e_k, e_k}$ for each $k = 1, \ldots, n$.
+    By 9.53 and \exref{9c14}, $\det A = \det \sqrt{T} = \sqrt{\det T} \geq 0$, so $\det T = |\det A|^2$.
+    \begin{subexercises}
+        \item By Hadamard's inequality,
+        \[
+            \det T = |\det A|^2 \leq \prod_{k=1}^n \norm{A_{\cdot, k}}^2 = \prod_{k=1}^n \ip{T e_k, e_k}.
+        \]
+        \item \rightimp Suppose the inequality in (a) is an equality.
+        Since $T$ is invertible, $\det T \neq 0$, so $\det A = \sqrt{\det T} \neq 0$, and thus $\sqrt{T}$ is invertible by 9.50, whence $A$ is also invertible by 3.86.
+        Taking nonnegative square roots, equality holds in Hadamard's inequality for $A$.
+        Thus, $\ip{T e_k, e_j} = 0$ for all $j \neq k$ by \exref{9c18}.
+        By 6.30(a), $T e_k = \ip{T e_k, e_k} e_k$ for each $k = 1, \ldots, n$, so $e_k$ is an eigenvector of $T$.
+
+        \leftimp Suppose $e_k$ is an eigenvector of $T$ for each $k = 1, \ldots, n$.
+        Then $T e_k = \lambda_k e_k$ for some $\lambda_k \in \fbb$ and each $k = 1, \ldots, n$.
+        It follows that $\mcal(T, (e_1, \ldots, e_n))$ is diagonal with diagonal entries $\lambda_k = \ip{T e_k, e_k}$ for each $k = 1, \ldots, n$.
+        By 9.53 and 9.48,
+        \[
+            \det T = \prod_{k=1}^n \lambda_k = \prod_{k=1}^n \ip{T e_k, e_k}. \qedhere
+        \]
+    \end{subexercises}
+\end{sol}
 
 \begin{exercise}{9c20}
     Suppose $A$ is an $n$-by-$n$ matrix, and suppose $c$ is such that $|A_{j,k}| \leq c$ for all $j, k \in \set{1, \ldots, n}$.
@@ -154,6 +482,18 @@
     For example, if $c = 1$ and $n = 100$, then $c^n n! \approx 10^{158}$, but the estimate given by this exercise is the much smaller number $10^{100}$.
     If $n$ is an integer power of $2$, then the inequality above is sharp and cannot be improved.}
 \end{exercise}
+
+\begin{sol}
+    Note that $c \geq |A_{1, 1}| \geq 0$.
+    For each $k = 1, \ldots, n$, the column $v_k$ of $A$ satisfies
+    \[
+        \norm{v_k}^2 = \sum_{j=1}^n |A_{j,k}|^2 \leq c^2 n.
+    \]
+    By Hadamard's inequality,
+    \[
+        |\det A| \leq \prod_{k=1}^n \norm{v_k} \leq \prod_{k=1}^n \sqrt{c^2 n} = c^n n^{n/2}. \qedhere
+    \]
+\end{sol}
 
 \begin{exercise}{9c21}
     Suppose $n$ is a positive integer and $\delta \colon \cbb^{n,n} \to \cbb$ is a function such that
@@ -171,3 +511,39 @@
     This exercise shows that the determinant is the unique function defined on square matrices that is multiplicative and has the desired behavior on diagonal matrices.
     This result is analogous to \exref{8d10}, which shows that the trace is uniquely determined by its algebraic properties.}
 \end{exercise}
+
+\begin{sol}
+    Let $e_1, \ldots, e_n$ be the standard basis of $\cbb^n$.
+    Since $I$ is diagonal, $\delta(I) = 1$.
+    For every invertible matrix $P \in \cbb^{n,n}$, we have $\delta(P)\delta(P\inv) = \delta(PP\inv) = \delta(I) = 1$, so $\delta(P\inv X P) = \delta(X)$ for all $X \in \cbb^{n,n}$.
+    Note that $\det I = 1$ by 9.48, so by 9.49(b), $\det(P\inv X P) = \det(P\inv)(\det X)(\det P) = \det X$ for all $X \in \cbb^{n,n}$ and invertible $P$.
+    Therefore, $\delta(X) = \det X$ whenever $X = P\inv D P$ for some invertible $P$ and diagonal matrix $D$.
+    We split by whether $X$ is invertible or not.
+    \begin{itemize}
+        \item Suppose $X$ is invertible.
+        By 5.47 and 3.84, $X = P\inv Y P$ for some invertible $P$ and upper-triangular matrix $Y$, where $Y$ has diagonal entries $\lambda_1, \ldots, \lambda_n$.
+        Since $\det Y = \det X \neq 0$ by 9.48 and 9.50, $\lambda_k \neq 0$ for all $k$.
+        Let $D$ be diagonal with diagonal entries $\lambda_k/k$ for each $k = 1, \ldots, n$.
+        Then $Y' = D\inv Y$ is upper triangular with entries $1, \ldots, n$ on the diagonal.
+        By 5.41, the operator $T \in \lin{\cbb^n}$ such that $\mcal(T, (e_1, \ldots, e_n)) = Y'$ has eigenvalues $1, \ldots, n$.
+        By 5.58, $T$ is diagonalizable, so 3.84 gives $Y' = Q\inv D' Q$ for invertible $Q$ and diagonal $D'$.
+        By the beginning calculation, $\det Y' = \det D'$, so $\det Y = (\det D)(\det Y') = (\det D)(\det D')$ by 9.49(b).
+        Therefore,
+        \[
+            \delta(X) = \delta(P\inv Y P) = \delta(Y) = \delta(D) \delta(Y') = (\det D)(\det D') = \det Y = \det X.
+        \]
+        \item Suppose $X$ is not invertible.
+        Let $S \in \lin{\cbb^n}$ be such that $\mcal(S, (e_1, \ldots, e_n)) = X$.
+        By 3.86, $S$ is not invertible, so it is not injective by 3.65.
+        Then there exists nonzero $v \in \cbb^n$ such that $S v = 0$, whence $X v = \mcal(S v) = 0$ by 3.76.
+        By 2.32, extend $v$ to a basis $v, v_2, \ldots, v_n$ of $\cbb^n$, and let $Q$ be the matrix whose columns are $v, v_2, \ldots, v_n$.
+        Since $Q = \mcal(I, (v, v_2, \ldots, v_n), (e_1, e_2, \ldots, e_n))$, 3.82 gives that $Q$ is invertible.
+        Let $M = Q\inv X Q$.
+        Then $M$ has the first column equal to $0$, and thus $M = M E$, where $E$ is diagonal with diagonal entries $0, 1, \ldots, 1$.
+        By 9.53 and 9.50, we have $\det X = \det S = 0$.
+        Therefore,
+        \[
+            \delta(X) = \delta(M) = \delta(M)\delta(E) = \delta(M) \cdot 0 = 0 = \det X.
+        \]
+    \end{itemize}
+\end{sol}
