@@ -70,10 +70,9 @@
 \begin{sol}
     Let $n = \dim V$.
     By 6.35, there exists an orthonormal basis $e_1, \ldots, e_n$ of $V$.
-    By 7.9, $\mcal(T^\ast, (e_1, \ldots, e_n)) = \mcal(T, (e_1, \ldots, e_n))^\ast$, so the diagonal entries of $\mcal(T^\ast, (e_1, \ldots, e_n))$ are $\overline{\mcal(T)_{k,k}}$ for $k = 1, \ldots, n$.
-    By the definition of the trace and 4.4,
+    By 8.55, we have
     \[
-        \tr T^\ast = \sum_{k=1}^{n} \overline{\mcal(T)_{k,k}} = \overline{\sum_{k=1}^{n} \mcal(T)_{k,k}} = \bar{\tr T}. \qedhere
+        \tr T^\ast = \sum_{k=1}^n \ip{T^\ast e_k, e_k} = \sum_{k=1}^n \ip{e_k, T e_k} = \sum_{k=1}^n \bar{\ip{T e_k, e_k}} = \bar{\sum_{k=1}^n \ip{T e_k, e_k}} = \bar{\tr T}. \qedhere
     \]
 \end{sol}
 
@@ -140,18 +139,22 @@
 \end{exercise}
 
 \begin{sol}
-    Let $v_1, \ldots, v_n$ be a basis of $V$, and let $A$ be the matrix of $T$ with respect to this basis.
-    By the linear map lemma, there exists $S \in \lin{V}$ such that $\mcal(S) = A^\ast$. 
-    By 3.43, $\tr(ST) = \tr(A^\ast A)$.
-    By 3.46 and 4.4,
+    Let $v_1, \ldots, v_n$ be a basis of $V$, and let $A = \mcal(T, (v_1, \ldots, v_n))$.
+    By the linear map lemma, there exist operators $S_{j,k} \in \lin{V}$ such that $E_{j,k} = \mcal(S_{j,k}, (v_1, \ldots, v_n))$ has a $1$ in the $(j,k)$th entry and $0$ elsewhere.
+    By 3.46,
     \[
-        (A^\ast A)_{k, k} = \sum_{j=1}^n \overline{A_{j,k}} A_{j,k} = \sum_{j=1}^n |A_{j,k}|^2,
+        (E_{j,k} A)_{\ell, \ell}
+        = \sum_{m=1}^n (E_{j,k})_{\ell, m} A_{m, \ell}
+        = (E_{j,k})_{\ell, k} A_{k, \ell}
+        = 
+        \begin{cases}
+            A_{k, j} & \text{if } \ell = j, \\
+            0 & \text{otherwise}.
+        \end{cases}
     \]
-    so
-    \[
-        \tr(A^\ast A) = \sum_{k=1}^n (A^\ast A)_{k, k} = \sum_{k=1}^n \sum_{j=1}^n |A_{j,k}|^2.
-    \]
-    Since $\tr(ST) = 0$ by assumption, we have $\sum_{j,k} |A_{j,k}|^2 = 0$, so $A_{j,k} = 0$ for all $j,k$, whence $A = 0$ and therefore $T = 0$.
+    By 3.43, $\tr(S_{j,k} T) = \tr(E_{j,k} A) = A_{k,j}$.
+    By assumption, $\tr(S_{j,k} T) = 0$ for all $j,k$, so $A_{k,j} = 0$ for all $j,k$.
+    Therefore, $A = 0$, so by the linear map lemma, $T = 0$.
 \end{sol}
 
 \begin{exercise}{8d10}

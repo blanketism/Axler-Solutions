@@ -104,8 +104,7 @@
     Take $V = \fbb^4$ and let $U$ be the set in question.
     By 9.37, $\dim V\mlnalt{4} = 1$, so there exists a nonzero $\alpha \in V\mlnalt{4}$.
     Let $(x_1, x_2, x_3, x_4) \in V^4$ be such that $\alpha(x_1, x_2, x_3, x_4) \neq 0$.
-    By 3.10, the linear maps $v \mapsto \alpha(x_1, x_2, x_3, v)$ and $v \mapsto \alpha(v, 0, 0, x_4)$ both map $0$ to $0$.
-    Then $\alpha(x_1, x_2, x_3, 0) = 0$ and $\alpha(0, 0, 0, x_4) = 0$, so $(x_1, x_2, x_3, 0), (0, 0, 0, x_4) \in U$.
+    Applying 3.10 to the maps $v \mapsto \alpha(x_1, x_2, x_3, v)$ and $v \mapsto \alpha(v, 0, 0, x_4)$, we see that $\alpha(x_1, x_2, x_3, 0) = 0 = \alpha(0, 0, 0, x_4)$, so $(x_1, x_2, x_3, 0), (0, 0, 0, x_4) \in U$.
     However, $(x_1, x_2, x_3, 0) + (0, 0, 0, x_4) = (x_1, x_2, x_3, x_4) \notin U$.
     Hence, $U$ is not closed under addition and therefore is not a subspace.
 \end{sol}
