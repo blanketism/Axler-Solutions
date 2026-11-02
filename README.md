@@ -14,20 +14,16 @@ The goal is to support learning, not replace independent problem solving.
 
 ## How To Use This Guide Effectively
 
-1.
-		Attempt each exercise on your own first.
-2.
-		Compare your reasoning with the solution here.
-3.
-		Focus on method and structure, not just final answers.
-4.
-		Rework difficult problems after reading the solution.
+- Attempt each exercise on your own first.
+- Compare your reasoning with the solution here.
+- Focus on method and structure, not just final answers.
+- Rework difficult problems after reading the solution.
 
 ## Repository Structure
 
 - `axler_lin_alg.tex`: main LaTeX document
-- `base-tex-files/`: shared commands and exercise macros
 - `exercises/`: chapter-specific solution files
+- `appendix/`: contains alternate solutions
 
 ## Academic Integrity
 
