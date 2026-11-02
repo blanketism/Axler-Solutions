@@ -1,1 +1,35 @@
 \subsection{Multilinear Algebra and Determinants}
+
+\begin{apex}[9a4]
+    Suppose $V$ is a real inner product space and $\beta$ is a bilinear form on $V$.
+    Show that there exists a unique operator $T \in \lin{V}$ such that
+    \[
+        \beta(u, v) = \ip{u, Tv}
+    \]
+    for all $u, v \in V$.
+
+    \note{This exercise states that if $V$ is a real inner product space, then every bilinear form on $V$ is of the form given by the third bullet point in 9.2.}
+\end{apex}
+
+This proof uses the Riesz representation theorem to each functional $u \mapsto \beta(u, v)$ separately and describes, in detail, where the assumption $\fbb = \rbb$ is used.
+
+\begin{csp}
+    For each $v \in V$, the map $u \mapsto \beta(u,v)$ is a linear functional on $V$. By the Riesz representation theorem, there exists a unique vector $Tv \in V$ such that $\beta(u,v)=\langle u, Tv \rangle$ for all $u \in V$. This defines a map $T:V \to V$.
+
+    For any $v,w \in V$ and $\lambda, \mu \in \mathbb{R}$ and $u \in V$, we have
+    $$\left \langle u, T(\lambda v+\mu w) \right \rangle=\beta(u,\lambda v+\mu w)=\lambda \beta(u,v)+\mu \beta(u,w)=\left \langle u, \lambda Tv+\mu Tw \right \rangle.$$
+    Since this holds for all $u \in V$, it follows that $T(\lambda v+\mu w)=\lambda Tv+\mu Tw$, so $T \in \mathcal{L}(V)$.
+
+    To prove uniqueness, if $S \in \mathcal{L}(V)$ also satisfies $\beta(u,v)=\langle u, Sv \rangle$ for all $u,v \in V$, then $\langle u, Tv-Sv \rangle=0$ for all $u \in V$, which implies $Tv=Sv$ for all $v \in V$ by choosing $u=Tv-Sv$. Hence, $T=S$.
+\end{csp}
+
+\begin{apex}[9b1]
+    Suppose $m$ is a positive integer.
+    Show that $\dim V\mlnset{m} = (\dim V)^m$.
+\end{apex}
+
+\begin{csp}
+    Proceed by induction on $m$. For $m=1$, $V^{(1)}=V'$ and $\dim V^{(1)}=\dim V$. Assume the claim holds for $m-1$, so $\dim V^{(m-1)}=(\dim V)^{m-1}$. There is a natural vector space isomorphism between $V^{(m)}$ and $\mathcal{L}\left(V,V^{(m-1)} \right)$ given by mapping each $\beta \in V^{(m)}$ to the linear map $v \mapsto \beta(v,\dots)$. Consequently,
+    $$\dim V^{(m)}=(\dim V)(\dim V^{(m-1)})=(\dim V)(\dim V)^{m-1}=(\dim V)^m,$$
+    completing the induction.
+\end{csp}
