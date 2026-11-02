@@ -5,6 +5,22 @@
     Prove that $v \otimes w = 0$ if and only if $v = 0$ or $w = 0$.
 \end{exercise}
 
+\begin{soliff}
+    \rightimp Suppose $v \otimes w = 0$.
+    If $v = 0$, then we are done, so suppose $v \neq 0$.
+    Let $n = \dim W$.
+    Let $w_1, \ldots, w_n$ be a basis of $W$, and write $w = \sum_{k=1}^n \lambda_k w_k$ for $\lambda_1, \ldots, \lambda_n \in \fbb$.
+    By 9.73, we have
+    \[
+        0 = v \otimes w = v \otimes \sum_{k=1}^n \lambda_k w_k = \sum_{k=1}^n \lambda_k (v \otimes w_k).
+    \]
+    Since $v \neq 0$, the list $v$ is linearly independent, so the list $v \otimes w_1, \ldots, v \otimes w_n$ is linearly independent by 9.74(a).
+    Therefore, $\lambda_k = 0$ for all $k = 1, \ldots, n$, so $w = 0$.
+
+    \leftimp Suppose $v = 0$ or $w = 0$.
+    The maps $x \mapsto x \otimes w$ and $y \mapsto v \otimes y$ are linear by 9.73, so $0 \otimes w = 0 = v \otimes 0$ by 3.10.
+\end{soliff}
+
 \begin{exercise}{9d2}
     Give an example of six distinct vectors $v_1, v_2, v_3, w_1, w_2, w_3$ in $\rbb^3$ such that
     \[
@@ -12,6 +28,21 @@
     \]
     but none of $v_1 \otimes w_1$, $v_2 \otimes w_2$, $v_3 \otimes w_3$ is a scalar multiple of another element of this list.
 \end{exercise}
+
+\begin{sol}
+    Let $e_1, e_2, e_3$ be the standard basis of $\rbb^3$.
+    Define the vectors
+    \begin{align*}
+        v_1 &= e_1, & v_2 &= e_2, & v_3 &= e_1 + 2 e_2, \\
+        w_1 &= e_3, & w_2 &= 2 e_3, & w_3 &= -e_3.
+    \end{align*}
+    Let $x = e_1 \otimes e_3$ and $y = e_2 \otimes e_3$.
+    By 9.73, $v_1 \otimes w_1 = x$, $v_2 \otimes w_2 = 2y$, and $v_3 \otimes w_3 = -x - 2y$, which sum to $0$.
+    By 9.74(a), the list $x, y$ is linearly independent.
+    Note that $\lambda x + \mu(-x - 2y) = (\lambda - \mu)x - 2\mu y$, and $\lambda (2y) + \mu(-x - 2y) = -\mu x + (2\lambda - 2\mu)y$ for $\lambda, \mu \in \rbb$.
+    Since $x$ and $y$ are linearly independent, these expressions can only be zero if $\lambda = \mu = 0$.
+    Therefore, no two of $x, 2y, -x - 2y$ are scalar multiples of each other.
+\end{sol}
 
 \begin{exercise}{9d3}
     Suppose that $v_1, \ldots, v_m$ is a linearly independent list in $V$.
@@ -21,6 +52,17 @@
     \]
     Prove that $w_1 = \cdots = w_m = 0$.
 \end{exercise}
+
+\begin{sol}
+    Let $n = \dim W$ and let $u_1, \ldots, u_n$ be a basis of $W$.
+    Write $w_k = \sum_{j=1}^n \lambda_{j, k} u_j$ for $\lambda_{j, k} \in \fbb$.
+    By 9.73, we have
+    \[
+        0 = \sum_{k=1}^m v_k \otimes w_k = \sum_{k=1}^m v_k \otimes \sum_{j=1}^n \lambda_{j, k} u_j = \sum_{k=1}^m \sum_{j=1}^n \lambda_{j, k} (v_k \otimes u_j).
+    \]
+    By 9.74(a), the list $\set{v_k \otimes u_j}_{k=1, \ldots, m; j=1, \ldots, n}$ is linearly independent.
+    Therefore, $\lambda_{j, k} = 0$ for all $j$ and $k$, and hence $w_k = 0$ for all $k$.
+\end{sol}
 
 \begin{exercise}{9d4}
     Suppose $\dim V > 1$ and $\dim W > 1$.
@@ -36,6 +78,25 @@
     \]}
 \end{exercise}
 
+\begin{sol}
+    Let $n = \dim V$ and $m = \dim W$.
+    Fix bases $v_1, \ldots, v_n$ of $V$ and $w_1, \ldots, w_m$ of $W$.
+    Let $u = v_1 \otimes w_1 + v_2 \otimes w_2$.
+    We claim that $u \neq v \otimes w$ for all $(v, w) \in V \times W$.
+    To see this, write $v = \sum_{k=1}^n \lambda_k v_k$.
+    By 9.73,
+    \[
+        v \otimes w - u = \sum_{k=1}^n v_k \otimes x_k, \quad x_k = 
+        \begin{cases}
+            \lambda_k w - w_k, & k = 1, 2 \\
+            \lambda_k w, & k > 2.
+        \end{cases}
+    \]
+    By 2.22, at least one of $w_1$ or $w_2$ is not in $\spn(w)$.
+    If $w_k \notin \spn(w)$, then $x_k \neq 0$, so $v \otimes w - u \neq 0$ by \exref{9d3}.
+    Therefore, the set contains $v_1 \otimes w_1$ and $v_2 \otimes w_2$, but not their sum $u$, so it is not closed under addition and hence not a subspace of $V \otimes W$.
+\end{sol}
+
 \begin{exercise}{9d5}
     Suppose $m$ and $n$ are positive integers.
     For $v \in \fbb^m$ and $w \in \fbb^n$, identify $v \otimes w$ with an $m$-by-$n$ matrix as in Example 9.76.
@@ -46,10 +107,43 @@
     is the set of $m$-by-$n$ matrices (with entries in $\fbb$) that have rank at most one.
 \end{exercise}
 
+\begin{soliff}
+    \rightset Note that the $k$th column of $v \otimes w$ is $w_k v$.
+    By 2.6, the span of the columns is a subspace of $\spn(v)$, so the rank of $v \otimes w$ is at most $\dim \spn(v)$ by 2.37.
+    Since $\dim \spn(v) \leq 1$ by 2.30, the rank of $v \otimes w$ is at most one.
+
+    \leftset Suppose $A$ is an $m$-by-$n$ matrix of rank at most one.
+    If $A = 0$, then $A = 0 \otimes 0$.
+    Otherwise, $\rank A = 1$, so by 3.56, $A = BC$ for $B \in \fbb^{m, 1}$ and $C \in \fbb^{1, n}$.
+    Let $x = (B_{1,1}, \ldots, B_{m,1})$ and $y = (C_{1,1}, \ldots, C_{1,n})$.
+    By 3.46, $A_{j,k} = B_{j,1} C_{1,k}$ for all $j$ and $k$, so $A = x \otimes y$ by 9.76.
+\end{soliff}
+
 \begin{exercise}{9d6}
     Suppose $m$ and $n$ are positive integers.
-    Give a description, analogous to Exercise 5, of the set of $m$-by-$n$ matrices (with entries in $\fbb$) that have rank at most two.
+    Give a description, analogous to \exref{9d5}, of the set of $m$-by-$n$ matrices (with entries in $\fbb$) that have rank at most two.
 \end{exercise}
+
+\begin{sol}
+    Identify each element of $\fbb^m \otimes \fbb^n$ with its coefficient matrix with respect to the basis of 9.74(b).
+    Note that this identification is linear and extends 9.76.
+    We claim that the set
+    \[
+        \set{v_1 \otimes w_1 + v_2 \otimes w_2 : v_1, v_2 \in \fbb^m, w_1, w_2 \in \fbb^n}
+    \]
+    is the set of $m$-by-$n$ matrices that have rank at most two.
+    
+    \rightset Let $w_{p, q}$ denote the $q$th entry of $w_p$ for $p = 1, 2$ and $q = 1, \ldots, n$, and let $u = v_1 \otimes w_1 + v_2 \otimes w_2$.
+    Note that the $k$th column of $u$ is $w_{1,k} v_1 + w_{2,k} v_2$.
+    By 2.6, the span of the columns is a subspace of $\spn(v_1, v_2)$, so the rank of $u$ is at most $\dim \spn(v_1, v_2)$ by 2.37.
+    Since $\dim \spn(v_1, v_2) \leq 2$ by 2.30, the rank of $u$ is at most two.
+
+    \leftset Suppose $A$ is an $m$-by-$n$ matrix of rank at most two.
+    If $A$ has rank at most one, then \exref{9d5} and \exref{9d1} imply that $A = v \otimes w + 0 \otimes 0$ for some $v \in \fbb^m$ and $w \in \fbb^n$.
+    If $A$ has rank two, then by 3.56, $A = BC$ for some $B \in \fbb^{m, 2}$ and $C \in \fbb^{2, n}$.
+    Let $x_\ell$ be the $\ell$th column of $B$ and $y_\ell$ be the $\ell$th row of $C$ for $\ell = 1, 2$.
+    By 3.46, $A_{j,k} = B_{j,1} C_{1,k} + B_{j,2} C_{2,k}$ for all $j$ and $k$, so $A = x_1 \otimes y_1 + x_2 \otimes y_2$.
+\end{sol}
 
 \begin{exercise}{9d7}
     Suppose $\dim V > 2$ and $\dim W > 2$.
@@ -58,6 +152,26 @@
         \set{v_1 \otimes w_1 + v_2 \otimes w_2 : v_1, v_2 \in V \text{ and } w_1, w_2 \in W} \neq V \otimes W.
     \]
 \end{exercise}
+
+\begin{sol}
+    Let $n = \dim V$ and $m = \dim W$.
+    Fix bases $e_1, \ldots, e_n$ of $V$ and $f_1, \ldots, f_m$ of $W$.
+    Let $u = e_1 \otimes f_1 + e_2 \otimes f_2 + e_3 \otimes f_3$.
+    As in \exref{9d4}, we claim that $u \neq v_1 \otimes w_1 + v_2 \otimes w_2$ for any $v_1, v_2 \in V$ and $w_1, w_2 \in W$.
+    Indeed, write $v_j = \sum_{k=1}^n \lambda_{j,k} e_k$.
+    By 9.73,
+    \[
+        v_1 \otimes w_1 + v_2 \otimes w_2 - u = \sum_{k=1}^n e_k \otimes x_k, \quad x_k = 
+        \begin{cases}
+            \lambda_{1,k} w_1 + \lambda_{2,k} w_2 - f_k & \text{ for $k \leq 3$}, \\
+            \lambda_{1,k} w_1 + \lambda_{2,k} w_2 & \text{ for $k > 3$}.
+        \end{cases}
+    \]
+    By 2.22, not all of $f_1, f_2, f_3$ lie in $\spn(w_1, w_2)$.
+    Choose $k \leq 3$ such that $f_k \notin \spn(w_1, w_2)$.
+    Since $x_k + f_k \in \spn(w_1, w_2)$, if $x_k = 0$, then $f_k \in \spn(w_1, w_2)$, which is a contradiction, so $x_k \neq 0$.
+    Hence, $v_1 \otimes w_1 + v_2 \otimes w_2 - u \neq 0$ by \exref{9d3}, and $u \notin \set{v_1 \otimes w_1 + v_2 \otimes w_2 : v_1, v_2 \in V \text{ and } w_1, w_2 \in W}$.
+\end{sol}
 
 \begin{exercise}{9d8}
     Suppose $v_1, \ldots, v_m \in V$ and $w_1, \ldots, w_m \in W$ are such that
@@ -71,6 +185,14 @@
     \]
 \end{exercise}
 
+\begin{sol}
+    By 9.79(a), there exists a linear map $\hat \Gamma \colon V \otimes W \to U$ such that $\hat \Gamma(v \otimes w) = \Gamma(v, w)$ for all $v \in V$ and $w \in W$.
+    By linearity and 3.10,
+    \[
+        \sum_{k=1}^m \Gamma(v_k, w_k) = \sum_{k=1}^m \hat \Gamma(v_k \otimes w_k) = \hat \Gamma \left(\sum_{k=1}^m v_k \otimes w_k\right) = \hat \Gamma(0) = 0. \qedhere
+    \]
+\end{sol}
+
 \begin{exercise}{9d9}
     Suppose $S \in \lin{V}$ and $T \in \lin{W}$.
     Prove that there exists a unique operator on $V \otimes W$ that takes $v \otimes w$ to $Sv \otimes Tw$ for all $v \in V$ and $w \in W$.
@@ -78,16 +200,53 @@
     \note{In an abuse of notation, the operator on $V \otimes W$ given by this exercise is often called $S \otimes T$.}
 \end{exercise}
 
+\begin{sol}
+    Note that the map $\Gamma \colon V \times W \to V \otimes W$ given by $\Gamma(v, w) = Sv \otimes Tw$ is bilinear, since each slot is linear by linearity of $S$ and $T$ and 9.73.
+    By 9.79(a) with $U = V \otimes W$, there exists a unique linear map $\hat \Gamma \colon V \otimes W \to V \otimes W$ such that $\hat \Gamma(v \otimes w) = \Gamma(v, w) = Sv \otimes Tw$ for all $v \in V$ and $w \in W$.
+\end{sol}
+
 \begin{exercise}{9d10}
     Suppose $S \in \lin{V}$ and $T \in \lin{W}$.
     Prove that $S \otimes T$ is an invertible operator on $V \otimes W$ if and only if both $S$ and $T$ are invertible operators.
-    Also, prove that if both $S$ and $T$ are invertible operators, then $(S \otimes T)\inv = S\inv \otimes T\inv$, where we are using the notation from the comment after Exercise 9.
+    Also, prove that if both $S$ and $T$ are invertible operators, then $(S \otimes T)\inv = S\inv \otimes T\inv$, where we are using the notation from the comment after \exref{9d9}.
 \end{exercise}
+
+\begin{soliff}
+    \rightimp Suppose $S \otimes T$ is invertible, so it is injective.
+    Fix $w \in W$ such that $w \neq 0$.
+    If $S v = 0$ for some $v \in V$, then \exref{9d9} and \exref{9d1} give that $(S \otimes T)(v \otimes w) = 0 \otimes Tw = 0$.
+    Therefore, $v \otimes w = 0$ by 3.15.
+    By \exref{9d1}, $v = 0$, so $\nul S = \set{0}$, so $S$ is injective by 3.15.
+    A similar argument shows that $T$ is injective, and thus $S$ and $T$ are invertible by 3.65.
+
+    \leftimp Suppose $S$ and $T$ are invertible.
+    Then for all $v \in V$ and $w \in W$,
+    \[
+        (S \otimes T)(S\inv \otimes T\inv)(v \otimes w) = (S \otimes T)(S\inv v \otimes T\inv w) = SS\inv v \otimes TT\inv w = v \otimes w.
+    \]
+    Note that both operators $I_{V \otimes W}$ and $(S \otimes T)(S\inv \otimes T\inv)$ send $v \otimes w$ to itself for all $v \in V$ and $w \in W$, so $(S \otimes T)(S\inv \otimes T\inv) = I_{V \otimes W}$ by the uniqueness in \exref{9d9}, with $I_V$ and $I_W$ in place of $S$ and $T$.
+    By 3.68, $(S\inv \otimes T\inv)(S \otimes T) = I_{V \otimes W}$ as well, so $S \otimes T$ is invertible with inverse $S\inv \otimes T\inv$.
+\end{soliff}
 
 \begin{exercise}{9d11}
     Suppose $V$ and $W$ are inner product spaces.
-    Prove that if $S \in \lin{V}$ and $T \in \lin{W}$, then $(S \otimes T)^\ast = S^\ast \otimes T^\ast$, where we are using the notation from the comment after Exercise 9.
+    Prove that if $S \in \lin{V}$ and $T \in \lin{W}$, then $(S \otimes T)^\ast = S^\ast \otimes T^\ast$, where we are using the notation from the comment after \exref{9d9}.
 \end{exercise}
+
+\begin{sol}
+    For $v_1, v_2 \in V$ and $w_1, w_2 \in W$, \exref{9d9}, 9.80, and the definition of the adjoint give
+    \begin{align*}
+        \ip{(S \otimes T)(v_1 \otimes w_1), v_2 \otimes w_2} &= \ip{Sv_1 \otimes Tw_1, v_2 \otimes w_2} \\
+        &= \ip{Sv_1, v_2} \ip{Tw_1, w_2} \\
+        &= \ip{v_1, S^\ast v_2} \ip{w_1, T^\ast w_2} \\
+        &= \ip{v_1 \otimes w_1, S^\ast v_2 \otimes T^\ast w_2}.
+    \end{align*}
+    Now fix $v_2 \in V$ and $w_2 \in W$.
+    Let $e_1, \ldots, e_n$ be a basis of $V$ and $f_1, \ldots, f_m$ be a basis of $W$, so $\set{e_j \otimes f_k}_{j = 1, \ldots, n; k = 1, \ldots, m}$ is a basis of $V \otimes W$ by 9.74(b).
+    The functionals $x \mapsto \ip{x, (S \otimes T)^\ast (v_2 \otimes w_2)} = \ip{(S \otimes T)x, v_2 \otimes w_2}$ and $x \mapsto \ip{x, S^\ast v_2 \otimes T^\ast w_2}$ agree on $\set{e_j \otimes f_k}_{j = 1, \ldots, n; k = 1, \ldots, m}$, so they are equal by the linear map lemma.
+    By the uniqueness of the Riesz representation theorem, $(S \otimes T)^\ast (v_2 \otimes w_2) = S^\ast v_2 \otimes T^\ast w_2$.
+    By 7.4, $(S \otimes T)^\ast \in \lin{V \otimes W}$, so the uniqueness proved in \exref{9d9} applied to $S^\ast$ and $T^\ast$ shows that $(S \otimes T)^\ast = S^\ast \otimes T^\ast$.
+\end{sol}
 
 \begin{exercise}{9d12}
     Suppose that $V_1, \ldots, V_m$ are finite-dimensional inner product spaces.
@@ -104,8 +263,30 @@
     for all $(v_1, \ldots, v_m) \in V_1 \times \cdots \times V_m$.}
 \end{exercise}
 
+\begin{sol}
+    By 6.35, there exists an orthonormal basis $e_1^k, \ldots, e_{n_k}^k$ of $V_k$ for each $k = 1, \ldots, m$.
+    For each $J = (j_1, \ldots, j_m) \in \set{1, \ldots, n_1} \times \cdots \times \set{1, \ldots, n_m}$, define $E_J = e_{j_1}^1 \otimes \cdots \otimes e_{j_m}^m$.
+    By 9.90, $\ecal = \set{E_J}_J$ is a basis of $V_1 \otimes \cdots \otimes V_m$.
+    By the lemma proved in \exref{7b24}, there exists an inner product on $V_1 \otimes \cdots \otimes V_m$ such that $\ecal$ is an orthonormal basis.
+    Then for any $w \in V_1 \otimes \cdots \otimes V_m$, $\ip{w, E_J}$ is the coefficient of $E_J$ in the expansion of $w$ in the basis $\ecal$ by 6.30(a) and 2.28.
+    For any $(v_1, \ldots, v_m), (u_1, \ldots, u_m) \in V_1 \times \cdots \times V_m$, fix $x = v_1 \otimes \cdots \otimes v_m$ and $y = u_1 \otimes \cdots \otimes u_m$.
+    Define
+    \[
+        \lambda_J = \prod_{k=1}^m \ip{v_k, e_{j_k}^k} \quad \text{and} \quad \mu_J = \prod_{k=1}^m \ip{u_k, e_{j_k}^k}.
+    \]
+    Since each $\phi_k \in V_k'$ in 9.88 is linear, the map $(w_1, \ldots, w_m) \mapsto w_1 \otimes \cdots \otimes w_m$ is multilinear, so expanding each $v_k$ in $x$ by 6.30(a) gives $x = \sum_J \lambda_J E_J$ and likewise $y = \sum_J \mu_J E_J$.
+    Therefore, by the observation above, 4.4, and 6.30(c),
+    \[
+        \ip{x, y} = \sum_J \lambda_J \overline{\mu_J} = \prod_{k=1}^m \sum_{j=1}^{n_k} \ip{v_k, e_j^k} \overline{\ip{u_k, e_j^k}} = \prod_{k=1}^m \ip{v_k, u_k},
+    \]
+    where the last equality follows from 6.30(c) applied in each $V_k$.
+    
+    For any inner product that satisfies the condition, applying the condition to the tensors $E_J$ and $E_{J'}$ fixes $\ip{E_J, E_{J'}}$ for all $J$ and $J'$.
+    By 9.90, 6.6(a), (d), and (e), the inner product is determined by its values on pairs $(E_J, E_{J'})$ for all $J$ and $J'$, so the inner product is uniquely determined.
+\end{sol}
+
 \begin{exercise}{9d13}
-    Suppose that $V_1, \ldots, V_m$ are finite-dimensional inner product spaces and $V_1 \otimes \cdots \otimes V_m$ is made into an inner product space using the inner product from Exercise 12.
+    Suppose that $V_1, \ldots, V_m$ are finite-dimensional inner product spaces and $V_1 \otimes \cdots \otimes V_m$ is made into an inner product space using the inner product from \exref{9d12}.
     Suppose $e^k_1, \ldots, e^k_{n_k}$ is an orthonormal basis of $V_k$ for each $k = 1, \ldots, m$.
     Show that the list
     \[
@@ -113,3 +294,13 @@
     \]
     is an orthonormal basis of $V_1 \otimes \cdots \otimes V_m$.
 \end{exercise}
+
+\begin{sol}
+    By 9.90, the list in the statement is a basis of $V_1 \otimes \cdots \otimes V_m$.
+    By \exref{9d12}, 
+    \[
+        \ip{e_{j_1}^1 \otimes \cdots \otimes e_{j_m}^m, e_{\ell_1}^1 \otimes \cdots \otimes e_{\ell_m}^m} = \prod_{k=1}^m \ip{e_{j_k}^k, e_{\ell_k}^k} = \prod_{k=1}^m \delta_{j_k, \ell_k} = \delta_{(j_1, \ldots, j_m), (\ell_1, \ldots, \ell_m)},
+    \]
+    where $j_k, \ell_k \in \set{1, \ldots, n_k}$ for each $k = 1, \ldots, m$.
+    Therefore, the list is orthonormal, and thus an orthonormal basis.
+\end{sol}
