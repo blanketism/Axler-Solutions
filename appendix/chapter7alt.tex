@@ -1,9 +1,6 @@
 \subsection{Operators on Inner Product Spaces}
 
-\begin{apex}[7b14]
-    Suppose $\fbb = \rbb$ and $T \in \lin{V}$.
-    Prove that $T$ is self-adjoint if and only if all pairs of eigenvectors corresponding to distinct eigenvalues of $T$ are orthogonal and $V = E(\lambda_1, T) \oplus \cdots \oplus E(\lambda_m, T)$, where $\lambda_1, \ldots, \lambda_m$ denote the distinct eigenvalues of $T$.
-\end{apex}
+\appendixex{7b14}
 
 This solution rewrites the backwards direction of the proof, appealing to an orthogonal projection argument rather than the real spectral theorem.
 
@@ -22,10 +19,7 @@ This solution rewrites the backwards direction of the proof, appealing to an ort
     Since each $P_i$ an orthogonal projection onto mutually orthogonal subspaces, $P_i^\ast = P_i$ and $P_i P_j = 0$ for $i \neq j$.
 \end{csp}
 
-\begin{apex}[7b15]
-    Suppose $\fbb = \cbb$ and $T \in \lin{V}$.
-    Prove that $T$ is normal if and only if all pairs of eigenvectors corresponding to distinct eigenvalues of $T$ are orthogonal and $V = E(\lambda_1, T) \oplus \cdots \oplus E(\lambda_m, T)$, where $\lambda_1, \ldots, \lambda_m$ denote the distinct eigenvalues of $T$.
-\end{apex}
+\appendixex{7b15}
 
 \begin{csp}
     Since $T^\ast = \sum_{i=1}^m \bar{\lambda_i} P_i$,
@@ -35,18 +29,7 @@ This solution rewrites the backwards direction of the proof, appealing to an ort
     By symmetry, $T^\ast T$ yields the same sum, so $TT^\ast = T^\ast T$ and $T$ is normal.
 \end{csp}
 
-\begin{apex}[7c2]
-    Suppose $T \in \lin{\fbb^4}$ is the operator whose matrix (with respect to the standard basis) is
-    \[
-        \begin{pmatrix}
-            2 & -1 & 0 & 0 \\
-            -1 & 2 & -1 & 0 \\
-            0 & -1 & 2 & -1 \\
-            0 & 0 & -1 & 2
-        \end{pmatrix}.
-    \]
-    Show that $T$ is an invertible positive operator.
-\end{apex}
+\appendixex{7c2}
 
 The construction of $B$ in the following solution comes from some intuition and $T$'s structure.
 In particular, the choice of $B$ is such that $B^\ast B$ reproduces the tridiagonal structure of $T$, which makes it straightforward to verify that $T$ is positive.
@@ -65,10 +48,7 @@ In particular, the choice of $B$ is such that $B^\ast B$ reproduces the tridiago
     Since $\operatorname{null} T=\{0\}$, $T$ is injective and therefore invertible.
 \end{csp}
 
-\begin{apex}[7c8]
-    Suppose $T \in \lin{V}$.
-    Prove that $T$ is a positive operator if and only if the pseudoinverse $T^\dagger$ is a positive operator.
-\end{apex}
+\appendixex{7c8}
 
 This solution uses some future machinery, namely the pseudoinverse of an operator and its properties which is expounded in 7E.
 While the manual solution requires an explicit witness in the form of an orthonormal basis and appealing to \exref{7b25}, the below approach only leverages the structural properties of the pseudoinverse and the decomposition of the vector space into the range and null space of $T$.
@@ -85,10 +65,10 @@ While the manual solution requires an explicit witness in the form of an orthono
     since $T$ is positive. Since $\left \langle T^{\dagger}v,v \right \rangle \geq 0$ for all $v \in V$ and $T^{\dagger}$ is self-adjoint, $T^{\dagger}$ is a positive operator.
 \end{csp}
 
-\begin{apex}[7c12]
-    Suppose $T \in \lin{V}$ is a positive operator.
-    Prove that $T^k$ is a positive operator for every positive integer $k$.
-\end{apex}
+\appendixex{7c12}
+
+Suppose $T \in \lin{V}$ is a positive operator.
+Prove that $T^k$ is a positive operator for every positive integer $k$.
 
 This solution goes through a parity argument in $k$.
 Moreover, it again does not require an explicit orthonormal basis for the vector space.
@@ -107,9 +87,7 @@ Moreover, it again does not require an explicit orthonormal basis for the vector
     Therefore, $T^k$ is a positive operator.
 \end{csp}
 
-\begin{apex}[7c19]
-    Show that the identity operator on $\fbb^2$ has infinitely many self-adjoint square roots.
-\end{apex}
+\appendixex{7c19}
 
 An alternate argument below uses no specific matrix representation of the operator.
 
@@ -119,13 +97,7 @@ An alternate argument below uses no specific matrix representation of the operat
     meaning $T$ is a square root of the identity. Because $\mathbb{F}^2$ contains infinitely many one-dimensional subspaces, there are infinitely many distinct orthogonal projections on $\mathbb{F}^2$. Since $P_U=\frac{1}{2}(T+I)$, distinct orthogonal projections yield distinct operators $T$. Therefore, the identity operator on $\mathbb{F}^2$ has infinitely many self-adjoint square roots.
 \end{csp}
 
-\begin{apex}[7d10]
-    Suppose $\fbb = \cbb$ and $T \in \lin{V}$ is a self-adjoint operator such that $\norm{Tv} \leq \norm{v}$ for all $v \in V$.
-    \begin{subexercises}
-        \item Show that $I - T^2$ is a positive operator.
-        \item Show that $T + i\sqrt{I - T^2}$ is a unitary operator.
-    \end{subexercises}
-\end{apex}
+\appendixex{7d10}
 
 An alternate argument using the spectral theorem is given for part (b), where the eigenvalues $\lambda + i\sqrt{1 - \lambda^2}$ are made explicit on the unit circle.
 
@@ -133,13 +105,7 @@ An alternate argument using the spectral theorem is given for part (b), where th
     Since $T$ is self-adjoint, there exists an orthonormal basis of eigenvectors of $T$. For any such eigenvector with eigenvalue $\lambda$, the condition $\norm{Tv} \leq \norm{v}$ implies $\lambda \in [-1,1]$. The operator $T+i\sqrt{1-T^2}$ acts on this eigenvector by multiplication with $\lambda+i \sqrt{1-\lambda^2}$, which has modulus $1$. Because there exists an orthonormal basis of eigenvectors whose corresponding eigenvalues all have modulus $1$, the operator is unitary.
 \end{csp}
 
-\begin{apex}[7f2]
-    Suppose that $T \in \lin{V}$ is self-adjoint or that $\fbb = \cbb$ and $T \in \lin{V}$ is normal.
-    Prove that
-    \[
-        \norm{T} = \max\set{|\lambda| : \lambda \text{ is an eigenvalue of } T}.
-    \]
-\end{apex}
+\appendixex{7f2}
 
 \begin{csp}
     If $V=\{0\}$, the statement holds trivially.

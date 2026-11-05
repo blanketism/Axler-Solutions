@@ -769,12 +769,12 @@
 
 \begin{exercise}{5a37}
     Suppose $V$ is finite-dimensional and $T \in \lin{V}$.
-	Define $\mathcal{A} \in \lin{\lin{V}}$ by
+	Define $\acal \in \lin{\lin{V}}$ by
     \[
-    	\mathcal{A}(S) = TS
+    	\acal(S) = TS
     \]
     for each $S \in \lin{V}$.
-	Prove that the set of eigenvalues of $T$ equals the set of eigenvalues of $\mathcal{A}$.
+	Prove that the set of eigenvalues of $T$ equals the set of eigenvalues of $\acal$.
 \end{exercise}
 
 \begin{sol}
@@ -784,12 +784,12 @@
     \[
     	TSw = T(\phi(w)v) = \phi(w)Tv = \phi(w)\lambda v = \lambda \phi(w)v = \lambda Sw.
     \]
-    Hence, $\lambda$ is an eigenvalue of $\mathcal{A}$.
+    Hence, $\lambda$ is an eigenvalue of $\acal$.
     
-    Conversely, if $\lambda$ is an eigenvalue of $\mathcal{A}$ with corresponding eigenvector $S \in \lin{V}$, then $\mathcal{A}(S) = TS = \lambda S$.
+    Conversely, if $\lambda$ is an eigenvalue of $\acal$ with corresponding eigenvector $S \in \lin{V}$, then $\acal(S) = TS = \lambda S$.
 	Since $S \neq 0$, there exists $v \in V$ such that $Sv \neq 0$.
 	Then $TSv = \lambda Sv$, so $\lambda$ is an eigenvalue of $T$.
-	Therefore, the set of eigenvalues of $T$ equals the set of eigenvalues of $\mathcal{A}$.
+	Therefore, the set of eigenvalues of $T$ equals the set of eigenvalues of $\acal$.
 \end{sol}
 
 \begin{exercise}{5a38}
@@ -820,7 +820,7 @@
     \end{align*}
     \item Let $\lambda$ be an eigenvalue of $T/U$ with eigenvector $v+U \neq 0$.
     Then $v \notin U$ and $(T-\lambda I)v \in U$.
-    Consider $(T-\lambda I) \vert_U \in \mathcal{L}(U)$.
+    Consider $(T-\lambda I) \vert_U \in \lin{U}$.
     \begin{itemize}
         \item If $(T-\lambda I) \vert_U$ is not injective, then $\lambda$ is an eigenvalue of $T \vert_U$ and hence of $T$.
         \item If $(T-\lambda I) \vert_U$ is injective, then by finite-dimensionality it is surjective onto $U$. Thus, there exists $u \in U$ with $(T-\lambda I)u = (T-\lambda I)v$.

@@ -1,9 +1,6 @@
 \subsection{Generalized Eigenvectors and Nilpotent Operators}
 
-\begin{apex}[8a20]
-    Suppose $V$ is an inner product space and $T \in \lin{V}$ is normal and nilpotent.
-    Prove that $T = 0$.
-\end{apex}
+\appendixex{8a20}
 
 \begin{csp}
     If $T \neq 0$, let $k \geq 2$ be the smallest integer such that $T^k=0$. Then there exists $v \in V$ with $T^{k-1} v \neq 0$. Then $T(T^{k-1}v)=T^k v=0$, meaning $T^{k-1} v \in \operatorname{null} T$. Since $T$ is normal, $\operatorname{null} T=\operatorname{null} T^{\ast}$, so $T^{\ast}(T^{k-1}v)=0$. Thus
@@ -11,15 +8,7 @@
     contradicting the choice of $k$. Therefore, $T=0$.
 \end{csp}
 
-\begin{apex}[8b20]
-    Suppose that $\fbb = \cbb$ and $V_1, \ldots, V_m$ are nonzero subspaces of $V$ such that
-    \[
-        V = V_1 \oplus \cdots \oplus V_m.
-    \]
-    Suppose $T \in \lin{V}$ and each $V_k$ is invariant under $T$.
-    For each $k$, let $p_k$ denote the characteristic polynomial of $T|_{V_k}$.
-    Prove that the characteristic polynomial of $T$ equals $p_1 \cdots p_m$.
-\end{apex}
+\appendixex{8b20}
 
 \begin{csp}
     For each eigenvalue $\lambda \in \mathbb{C}$, since $V=\bigoplus \limits^{m}_{k=1} V_k$ with each $V_k$ invariant under $T$, we have $G(\lambda,T)=\bigoplus \limits^{m}_{k=1} G\left(\lambda, T \vert_{V_k} \right)$. This implies 

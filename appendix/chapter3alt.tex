@@ -1,9 +1,6 @@
 \subsection{Linear Maps}
 
-\begin{apex}[3b29]
-    Suppose $p \in \pcal(\rbb)$.
-	Prove that there exists a polynomial $q \in \pcal(\rbb)$ such that $5q'' + 3q' = p$.
-\end{apex}
+\appendixex{3b29}
 
 \begin{coole}
     Let $p(x) = a_0 + a_1x + \cdots + a_nx^n$ and suppose there exists a polynomial $q(x) = b_0 + b_1x + \cdots + b_mx^m$ satisfying $5q'' + 3q' = p$. 
@@ -55,10 +52,7 @@ $^\dagger$ Solving this recurrence is outside the scope of this course, but, spe
     &= \frac{1}{3}\left(\frac{a_{j-1}}{j} + \sum_{i=j}^n\left(-\frac{5}{3}\right)^{i-j+1}\frac{i!}{j!}a_{i}\right).
 \end{align*}
 
-\begin{apex}[3d19]
-    Suppose $V$ is finite-dimensional and $T \in \lin{V}$.
-	Prove that $T$ has the same matrix with respect to every basis of $V$ if and only if $T$ is a scalar multiple of the identity operator.
-\end{apex}
+\appendixex{3d19}
 
 The manual solution provides a constructive proof utilizing sums of the form $v_1 + v_k$ to eliminate the $k$-th column, along with $v_2 + v_1$ to eliminate the 1st column.
 Here, we present different constructions.
@@ -114,17 +108,10 @@ Then, we can swap $v_1$ with any other basis vector to force all diagonal entrie
     As $v_1$ belongs to a basis for $V$, it is nonzero, and thus as $j$ was arbitrary, $A_{1,1} = A_{2,2} = \cdots = A_{n,n} = \lambda$ for some scalar $\lambda$, and we have $A = \lambda I$, i.e., $T$ is a multiple of the identity operator.
 \end{coole}
 
-\begin{apex}[3d20]
-    Suppose $q \in \pcal(\rbb)$.
-	Prove that there exists a polynomial $p \in \pcal(\rbb)$ such that
-    \[
-    	q(x) = (x^2 + x) p''(x) + 2x p'(x) + p(3)
-    \]
-    for all $x \in \rbb$.
-\end{apex}
+\appendixex{3d20}
 
 \begin{coole}
-    We go by the same technique as in \apexref{3b29}.
+    We go by the same technique as in \hyperref[apex:3b29]{Appendix 3B29}.
 
     Let $q(x) = a_0 + a_1x + \cdots + a_nx^n$ and suppose that there exists a polynomial $p(x) = b_0 + b_1x + \cdots + b_mx^m$ satisfying the constraint $q(x) = (x^2 + x)p''(x) + 2xp'(x) + p(3)$. 
     If $q$ is constant, then let $p = q = a_0$. We have $(x^2 + x)p''(x) + 2xp'(x) + p(3) = (x^2 + x)0 + 2x(0) + a_0 = a_0 = q(x)$.
@@ -178,13 +165,7 @@ $^\dagger$ As before, solving this recurrence is outside the scope of this cours
 \]
 for $1 \leq i \leq n$ and $b_0 = a_0 - \sum_{j=1}^n3^jb_j$.
 
-\begin{apex}[3e11]
-    Suppose $U = \set{(x_1, x_2, \ldots) \in \fbb^\infty : x_k \neq 0 \text{ for only finitely many } k}$.
-    \begin{subexercises}
-        \item Show that $U$ is a subspace of $\fbb^\infty$.
-        \item Prove that $\fbb^\infty / U$ is infinite-dimensional.
-    \end{subexercises}
-\end{apex}
+\appendixex{3e11}
 
 \begin{csp}
     This solution assumes that the reader is familiar with partitioning $\nbb$ into infinitely many disjoint infinite sets.
@@ -209,14 +190,7 @@ for $1 \leq i \leq n$ and $b_0 = a_0 - \sum_{j=1}^n3^jb_j$.
     \end{subexercises}
 \end{csp}
 
-\begin{apex}[3f11]
-    Suppose $v_1, \ldots, v_n$ is a basis of $V$ and $\phi_1, \ldots, \phi_n$ is the corresponding dual basis of $V'$.
-	Suppose $\psi \in V'$.
-	Prove that
-    \[
-    	\psi = \psi(v_1) \phi_1 + \cdots + \psi(v_n) \phi_n.
-    \]
-\end{apex}
+\appendixex{3f11}
 
 \begin{csp}
     Because $\phi_1$, $\dots$, $\phi_n$ is the dual basis, $\phi_i (v_j)=\delta_{i,j}$.

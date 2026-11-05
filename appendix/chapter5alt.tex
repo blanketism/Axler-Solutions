@@ -1,10 +1,6 @@
 \subsection{Eigenvalues and Eigenvectors}
 
-\begin{apex}[5a27]
-    Suppose that $V$ is finite-dimensional and $k \in \{1, \ldots, \dim V - 1\}$.
-	Suppose $T \in \lin{V}$ is such that every subspace of $V$ of dimension $k$ is invariant under $T$.
-	Prove that $T$ is a scalar multiple of the identity operator.
-\end{apex}
+\appendixex{5a27}
 
 This solution is more elegant than the one provided in the main text, as it avoids the explicit construction of subspaces and instead relies on the intersection of all $k$-dimensional invariant subspaces containing a given vector.
 
@@ -14,13 +10,7 @@ This solution is more elegant than the one provided in the main text, as it avoi
     The intersection of invariant subspaces is invariant, so $\operatorname{span}(v)$ is invariant. This means that every nonzero vector is an eigenvector of $T$, meaning that $T$ is a scalar multiple of the identity by \exref{5a26}.
 \end{csp}
 
-\begin{apex}[5a42]
-    Define $T \in \lin{\fbb^n}$ by $T(x_1, x_2, x_3, \ldots, x_n) = (x_1, 2x_2, 3x_3, \ldots, nx_n)$.
-    \begin{subexercises}
-        \item Find all eigenvalues and eigenvectors of $T$.
-        \item Find all subspaces of $\fbb^n$ that are invariant under $T$.
-    \end{subexercises}
-\end{apex}
+\appendixex{5a42}
 
 The solution is meant to generalize to any diagonal operator, showing that the invariant subspaces are precisely the spans of subsets of the standard basis vectors.
 The original solution is meant to show the student the mechanism by which invariant subspaces of a diagonal operator can be determined using the standard basis vectors.
@@ -46,10 +36,7 @@ The original solution is meant to show the student the mechanism by which invari
     \end{subexercises}
 \end{csp}
 
-\begin{apex}[5a43]
-    Suppose that $V$ is finite-dimensional, $\dim V > 1$, and $T \in \lin{V}$.
-	Prove that $\set{p(T) : p \in \pcal(\fbb)} \neq \lin{V}$.
-\end{apex}
+\appendixex{5a43}
 
 This solution uses the commutativity of operators in $\set{p(T) : p \in \pcal(\fbb)}$ to show that not all operators in $\lin{V}$ can be expressed as a polynomial in $T$.
 
@@ -74,9 +61,7 @@ This solution uses the commutativity of operators in $\set{p(T) : p \in \pcal(\f
     Hence, $T_1$ and $T_2$ cannot both be in $S$, so $S \neq \lin{V}$.
 \end{me}
 
-\begin{apex}[5b29]
-    Show that every operator on a finite-dimensional vector space of dimension at least two has an invariant subspace of dimension two.
-\end{apex}
+\appendixex{5b29}
 
 This solution uses upper-triangular matrices, which have not appeared in 5B yet, but they provide a convenient way to identify invariant subspaces of dimension two.
 
@@ -92,14 +77,7 @@ This solution uses upper-triangular matrices, which have not appeared in 5B yet,
     These two cases cover all possibilities over $\mathbb{R}$, and so combining with trivial complex case finishes the proof.
 \end{csp}
 
-\begin{apex}[5c3]
-    Suppose $T \in \lin{V}$ is invertible and $v_1, \ldots, v_n$ is a basis of $V$ with respect to which the matrix of $T$ is upper triangular, with $\lambda_1, \ldots, \lambda_n$ on the diagonal.
-    Show that the matrix of $T\inv$ is also upper triangular with respect to the basis $v_1, \ldots, v_n$, with
-    \[
-        \frac{1}{\lambda_1}, \ldots, \frac{1}{\lambda_n}
-    \]
-    on the diagonal.
-\end{apex}
+\appendixex{5c3}
 
 This solution attempts for a direct computation of the entries of $T\inv$.
 
