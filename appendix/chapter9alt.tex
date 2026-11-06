@@ -21,3 +21,34 @@ This proof uses the Riesz representation theorem to each functional $u \mapsto \
     $$\dim V^{(m)}=(\dim V)(\dim V^{(m-1)})=(\dim V)(\dim V)^{m-1}=(\dim V)^m,$$
     completing the induction.
 \end{csp}
+
+\appendixex{9d3}
+
+The proof below uses at dual basis functionals rather than relying on expanding in a basis.
+
+\begin{csp}
+    Since $v_1, \dots, v_m$ is linearly independent, there exist linear functionals $\varphi_1, \dots, \varphi_m \in V'$ such that $\varphi_j(v_k) = \delta_{j,k}$. For any $j \in \{1, \dots, m\}$ and any arbitrary $\tau \in W'$, 
+    $$0 = \left(\sum_{k=1}^m v_k \otimes w_k\right)(\varphi_j, \tau) = \sum_{k=1}^m \varphi_j(v_k)\tau(w_k) = \tau(w_j).$$
+    Since $\tau(w_j) = 0$ for all $\tau \in W'$, $w_j = 0$ for each $j$.
+\end{csp}
+
+\appendixex{9d4}
+
+Similar to \hyperref[apex:9d3]{Appendix 9D3}.
+
+\begin{csp}
+    Since $\dim V > 1$ and $\dim W > 1$, choose linearly independent $v_1, v_2 \in V$ and linearly independent $w_1, w_2 \in W$. For the sake of contradiction, suppose that $v_1 \otimes w_1 + v_2 \otimes w_2 = v \otimes w$ for some $v \in V$ and $w \in W$. Choose linear functionals $\varphi, \phi \in V'$ such that $\varphi(v_1) = 1, \varphi(v_2) = 0$ and $\phi(v_1) = 0, \phi(v_2) = 1$. 
+
+    Applying the map $V \otimes W \to W$ given by $x \otimes y \mapsto f(x)y$ for each functional yields
+    $$w_1 = \varphi(v)w, \qquad w_2 = \phi(v)w.$$
+
+    Hence, $w_1$ and $w_2$ are both scalar multiples of $w$, contradicting linear independence. Thus, the set is not a subspace of $V \otimes W$.
+\end{csp}
+
+\appendixex{9d7}
+
+This proof gives tensors as linear maps from $V'$ to $W$, then compares ranks.
+
+\begin{csp}
+    Since $\dim V > 2$ and $\dim W > 2$, choose linearly independent vectors $e_1, e_2, e_3 \in V$ and $f_1, f_2, f_3 \in W$. Under the natural isomorphism between $V \otimes W$ and $\mathcal{L}(V', W)$, $v \otimes w$ corresponds to a linear map of rank at most $1$, implying any element of the form $v_1 \otimes w_1 + v_2 \otimes w_2$ corresponds to a map of rank at most $2$. However, ${u = e_1 \otimes f_1 + e_2 \otimes f_2 + e_3 \otimes f_3 \in V \otimes W}$ corresponds to a linear map of rank $3$. Therefore, $u$ cannot be written as the sum of two pure tensors, proving the set is not all of $V \otimes W$.
+\end{csp}
