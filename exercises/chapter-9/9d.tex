@@ -6,19 +6,23 @@
 \end{exercise}
 
 \begin{soliff}
-    \rightimp Suppose $v \otimes w = 0$.
-    If $v = 0$, then we are done, so suppose $v \neq 0$.
-    Let $n = \dim W$.
-    Let $w_1, \ldots, w_n$ be a basis of $W$, and write $w = \sum_{k=1}^n \lambda_k w_k$ for $\lambda_1, \ldots, \lambda_n \in \fbb$.
-    By 9.73, we have
+    \rightimp We proceed by contrapositive.
+    Suppose $v \neq 0$ and $w \neq 0$ and let $n = \dim V$.
+    Then the list $v$ is linearly independent, so it extends to a basis $v, v_2, \ldots, v_n$ of $V$ by 2.32.
+    Let $\phi \in V'$ be the first element of the dual basis of $v, v_2, \ldots, v_n$, so $\phi(v) = 1$.
+    A similar argument applies to $w$ to obtain $\psi \in W'$ such that $\psi(w) = 1$.
+    Then
     \[
-        0 = v \otimes w = v \otimes \sum_{k=1}^n \lambda_k w_k = \sum_{k=1}^n \lambda_k (v \otimes w_k).
+        (v \otimes w)(\phi, \psi) = \phi(v)\psi(w) = 1 \neq 0,
     \]
-    Since $v \neq 0$, the list $v$ is linearly independent, so the list $v \otimes w_1, \ldots, v \otimes w_n$ is linearly independent by 9.74(a).
-    Therefore, $\lambda_k = 0$ for all $k = 1, \ldots, n$, so $w = 0$.
+    so $v \otimes w \neq 0$.
 
     \leftimp Suppose $v = 0$ or $w = 0$.
-    The maps $x \mapsto x \otimes w$ and $y \mapsto v \otimes y$ are linear by 9.73, so $0 \otimes w = 0 = v \otimes 0$ by 3.10.
+    Then for all $\phi \in V'$ and $\psi \in W'$, we have
+    \[
+        (v \otimes w)(\phi, \psi) = \phi(v)\psi(w) = 0,
+    \]
+    and so $v \otimes w = 0$.
 \end{soliff}
 
 \begin{exercise}{9d2}
@@ -44,7 +48,7 @@
     Therefore, no two of $x, 2y, -x - 2y$ are scalar multiples of each other.
 \end{sol}
 
-\begin{exercise}{9d3}
+\begin{exercise}*{9d3}
     Suppose that $v_1, \ldots, v_m$ is a linearly independent list in $V$.
     Suppose also that $w_1, \ldots, w_m$ is a list in $W$ such that
     \[
@@ -64,7 +68,7 @@
     Therefore, $\lambda_{j, k} = 0$ for all $j$ and $k$, and hence $w_k = 0$ for all $k$.
 \end{sol}
 
-\begin{exercise}{9d4}
+\begin{exercise}*{9d4}
     Suppose $\dim V > 1$ and $\dim W > 1$.
     Prove that
     \[
@@ -145,7 +149,7 @@
     By 3.46, $A_{j,k} = B_{j,1} C_{1,k} + B_{j,2} C_{2,k}$ for all $j$ and $k$, so $A = x_1 \otimes y_1 + x_2 \otimes y_2$.
 \end{sol}
 
-\begin{exercise}{9d7}
+\begin{exercise}*{9d7}
     Suppose $\dim V > 2$ and $\dim W > 2$.
     Prove that
     \[
@@ -234,18 +238,20 @@
 \end{exercise}
 
 \begin{sol}
-    For $v_1, v_2 \in V$ and $w_1, w_2 \in W$, \exref{9d9}, 9.80, and the definition of the adjoint give
+    For all $v_1, v_2 \in V$ and $w_1, w_2 \in W$, we have
     \begin{align*}
         \ip{(S \otimes T)(v_1 \otimes w_1), v_2 \otimes w_2} &= \ip{Sv_1 \otimes Tw_1, v_2 \otimes w_2} \\
         &= \ip{Sv_1, v_2} \ip{Tw_1, w_2} \\
         &= \ip{v_1, S^\ast v_2} \ip{w_1, T^\ast w_2} \\
-        &= \ip{v_1 \otimes w_1, S^\ast v_2 \otimes T^\ast w_2}.
+        &= \ip{v_1 \otimes w_1, S^\ast v_2 \otimes T^\ast w_2} \\
+        &= \ip{v_1 \otimes w_1, (S^\ast \otimes T^\ast)(v_2 \otimes w_2)},
     \end{align*}
-    Now fix $v_2 \in V$ and $w_2 \in W$.
-    Let $e_1, \ldots, e_n$ be a basis of $V$ and $f_1, \ldots, f_m$ be a basis of $W$, so $\set{e_j \otimes f_k}_{j = 1, \ldots, n; k = 1, \ldots, m}$ is a basis of $V \otimes W$ by 9.74(b).
-    The functionals $x \mapsto \ip{x, (S \otimes T)^\ast (v_2 \otimes w_2)} = \ip{(S \otimes T)x, v_2 \otimes w_2}$ and $x \mapsto \ip{x, S^\ast v_2 \otimes T^\ast w_2}$ agree on $\set{e_j \otimes f_k}_{j = 1, \ldots, n; k = 1, \ldots, m}$, so they are equal by the linear map lemma.
-    By the uniqueness of the Riesz representation theorem, $(S \otimes T)^\ast (v_2 \otimes w_2) = S^\ast v_2 \otimes T^\ast w_2$.
-    By 7.4, $(S \otimes T)^\ast \in \lin{V \otimes W}$, so the uniqueness proved in \exref{9d9} applied to $S^\ast$ and $T^\ast$ shows that $(S \otimes T)^\ast = S^\ast \otimes T^\ast$.
+    where the first equality is by \exref{9d9} applied to $S$ and $T$;
+    the second and fourth equalities are by 9.80;
+    and the last equality is by \exref{9d9} applied to $S^\ast$ and $T^\ast$.
+    By 9.74(b), tensors of the form $v \otimes w$ for $v \in V$ and $w \in W$ span $V \otimes W$.
+    By the linearity of $S \otimes T$ and $S^\ast \otimes T^\ast$ and by 6.6(a), (d), and (e), the equality $\ip{(S \otimes T)x, y} = \ip{x, (S^\ast \otimes T^\ast)y}$ extends to all $x, y \in V \otimes W$.
+    Therefore, by the uniqueness of the adjoint, $(S \otimes T)^\ast = S^\ast \otimes T^\ast$.
 \end{sol}
 
 \begin{exercise}{9d12}

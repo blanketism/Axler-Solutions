@@ -410,25 +410,23 @@
     \[
         |\det A| = \prod_{k=1}^n R_{k,k} \leq \prod_{k=1}^n \norm{R_{\cdot, k}} = \prod_{k=1}^n \norm{v_k}.
     \]
-    The products are equal if and only if $\norm{R_{\cdot, k}} = R_{k,k}$ for each $k = 1, \ldots, n$, i.e., $R_{j,k} = 0$ for all $j < k$ if and only if $R$ is diagonal.
+    The products are equal if and only if $\norm{R_{\cdot, k}} = R_{k,k}$ for each $k = 1, \ldots, n$, i.e., $R_{j,k} = 0$ for all $k$ and $j < k$ if and only if $R$ is diagonal.
 
     \rightimp Suppose equality holds in Hadamard's inequality for $A$.
     Then $R$ is diagonal, so $v_k = R_{k, k} Q_{\cdot, k}$ for each $k = 1, \ldots, n$.
     Since the columns of $Q$ are orthonormal, $\ip{v_j, v_k} = 0$ for all $j \neq k$, i.e., each column of $A$ is orthogonal to the other columns.
 
-    \leftimp Suppose the columns of $A$ are orthogonal to each other.
-    Since the list $v_1, \ldots, v_n$ is linearly independent, each $v_k$ is nonzero.
-    Consider the matrix $Q'$ with columns $\frac{v_k}{\norm{v_k}}$ for $k = 1, \ldots, n$ and let $D$ be the diagonal matrix with $D_{k,k} = \norm{v_k} > 0$ for each $k = 1, \ldots, n$.
-    Moreover, the columns of $Q'$ are orthonormal, so they form an orthonormal basis of $\fbb^n$ by 6.28.
-    Let $S \in \lin{\fbb^n}$ be such that $\mcal(S, (e_1, \ldots, e_n)) = Q'$.
-    By 3.75, $S e_k = Q'_{\cdot, k}$ for each $k = 1, \ldots, n$, and thus $S$ is unitary with $S^\ast S = SS^\ast = I$ by 7.53(b) and (d).
-    Since the list $e_1, \ldots, e_n$ is orthonormal, $\mcal(S^\ast, (e_1, \ldots, e_n)) = (Q')^\ast$ by 7.9, and thus $Q'(Q')^\ast = (Q')^\ast Q' = I$ by 3.43, so $Q'$ is unitary by 7.57(d).
-    By 3.48,
+    \leftimp Suppose the columns $v_1, \dots, v_n$ of $A$ are mutually orthogonal, and let $e_1, \ldots, e_n$ be the standard orthonormal basis of $\fbb^n$.
+    Let $T \in \lin{\fbb^n}$ be such that $\mcal(T, (e_1, \ldots, e_n)) = A$.
+    By 7.9 and 3.43, $\mcal(T^\ast T) = A^\ast A$.
+    By 9.43, 9.53, and 9.60, $|\det A| = |\det T| = \sqrt{\det(T^\ast T)} = \sqrt{\det(A^\ast A)}$.
+    By 3.46, the $(j,k)$th entry of $A^\ast A$ is $\ip{v_k, v_j}$.
+    By orthogonality of the columns, the off-diagonal entries of $A^\ast A$ are zero, and the diagonal entries are $\ip{v_k, v_k} = \norm{v_k}^2$.
+    By 9.48,
     \[
-        (Q'D)_{\cdot, k} = Q' D_{\cdot, k} = \norm{v_k} \frac{v_k}{\norm{v_k}} = v_k.
+        \det(A^\ast A) = \prod_{k=1}^n \norm{v_k}^2.
     \]
-    Therefore, $A = Q'D$.
-    By the uniqueness of the $QR$ factorization, $Q' = Q$ and $D = R$, so $R$ is diagonal and equality holds in Hadamard's inequality.
+    Taking square roots yields the desired result.
 \end{sol}
 
 \begin{exercise}{9c19}
