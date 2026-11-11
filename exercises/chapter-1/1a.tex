@@ -73,20 +73,15 @@
 
 \begin{sol}
     Let $\alpha = a + bi$.
-	We want to find $\beta = c + di$ such that $\alpha + \beta = 0$.
-	This gives
+    Then $\beta = -a - bi$ satisfies
     \[
-    	(a + bi) + (c + di) = (a + c) + (b + d)i = 0 + 0i.
+        \alpha + \beta = (a + bi) + (-a - bi) = (a - a) + (b - b)i = 0 + 0i = 0.
     \]
-    Solving for $c$ and $d$, we get $c = -a$ and $d = -b$.
-	Hence, $\beta = c + di = -a - bi = -\alpha$.
-
-    To see that $\beta$ is unique, suppose there is another $\gamma \in \cbb$ such that $\alpha + \gamma = 0$.
-	Then
+    If $\gamma \in \cbb$ is such that $\alpha + \gamma = 0$, then \exref{1a1} and \exref{1a2} give
     \[
-    	\beta = \beta + 0 = \beta + (\alpha + \gamma) = (\beta + \alpha) + \gamma = 0 + \gamma = \gamma.
+        \gamma = \gamma + 0 = \gamma + (\alpha + \beta) = (\gamma + \alpha) + \beta = 0 + \beta = \beta.
     \]
-    Hence, $\beta$ is unique.
+    Therefore, $\beta$ is unique.
 \end{sol}
 
 \begin{exercise}{1a6}
@@ -94,38 +89,21 @@
 \end{exercise}
 
 \begin{sol}
-    Let $\alpha = a + bi$ such that $\alpha \neq 0$.
-	Then at least one of $a$ or $b$ is nonzero.
-	We want to find $\beta = c + di$ such that $\alpha\beta = 1$.
-	Then
+    Let $\alpha = a + bi$ be such that $\alpha \neq 0$, so at least one of $a$ or $b$ is nonzero.
+    Then $a^2 + b^2 \neq 0$.
+    Let $\beta \in \cbb$ be given by
     \[
-    	(a + bi)(c + di) = (ac - bd) + (ad + bc)i = 1 + 0i
+        \beta = \frac{a}{a^2 + b^2} + \frac{-b}{a^2 + b^2}i.
     \]
-    which gives the system of equations
+    Since $(a + bi)(a - bi) = a^2 + b^2$, we have
     \[
-        \begin{cases}
-            ac - bd = 1 \\
-            ad + bc = 0
-        \end{cases} \implies
-        \begin{cases}
-            a^2c - abd = a \\
-            b^2c + abd = 0.
-        \end{cases}
+        \alpha\beta = (a + bi)\left(\frac{a}{a^2 + b^2} + \frac{-b}{a^2 + b^2}i\right) = \frac{(a + bi)(a - bi)}{a^2 + b^2} = \frac{a^2 + b^2}{a^2 + b^2} = 1.
     \]
-    Adding the two equations, we get
+    Moreover, if $\gamma \in \cbb$ is such that $\alpha\gamma = 1$, then using \exref{1a3} gives
     \[
-    	(a^2 + b^2)c = a \implies c = \frac{a}{a^2 + b^2} \implies abd + b^2\left(\frac{a}{a^2 + b^2}\right) = 0 \implies d = \frac{-b}{a^2 + b^2}.
+        \gamma = \gamma \cdot 1 = \gamma(\alpha\beta) = (\gamma\alpha)\beta = 1 \cdot \beta = \beta.
     \]
-    Hence,
-    \[
-    	\beta = c + di = \frac{a}{a^2 + b^2} + \frac{-b}{a^2 + b^2}i.
-    \]
-
-    If $\gamma \in \cbb$ is another complex number such that $\alpha\gamma = 1$, then
-    \[
-    	\gamma = \gamma 1 = \gamma (\alpha\beta) = (\gamma\alpha) \beta = 1\beta = \beta.
-    \]
-    Hence, $\beta$ is unique.
+    Therefore, $\beta$ is unique.
 \end{sol}
 
 \begin{exercise}{1a7}
@@ -133,19 +111,13 @@
     \[
     	\frac{-1 + \sqrt3i}{2}
     \]
-    is a cube root of 1.
+    is a cube root of $1$ (meaning that its cube equals $1$).
 \end{exercise}
 
 \begin{sol}
-    We have
-    \begin{align*}
-        (-1 + \sqrt 3i)^3 &= (-1)^3 + 3(-1)^2(\sqrt 3i) + 3(-1)(\sqrt 3i)^2 + (\sqrt 3i)^3 \\
-        &= -1 + 3\sqrt 3i - 9i^2 - 3\sqrt 3i^3 \\
-        &= -1 + 3\sqrt 3i + 9 - 3\sqrt 3i = 8.
-    \end{align*}
-    Hence,
+    By direct computation,
     \[
-        \left(\frac{-1 + \sqrt3i}{2}\right)^3 = \frac{(-1 + \sqrt 3i)^3}{2^3} = \frac{8}{8} = 1. \qedhere
+        \left(\frac{-1 + \sqrt3i}{2}\right)^3 = \frac{(-1)^3 + 3(-1)^2(\sqrt3i) + 3(-1)(\sqrt3i)^2 + (\sqrt3i)^3}{8} = \frac{-1 + 3\sqrt{3}i + 9 - 3\sqrt{3}i}{8} = \frac{8}{8} = 1. \qedhere
     \]
 \end{sol}
 
@@ -154,28 +126,12 @@
 \end{exercise}
 
 \begin{sol}
-    Let $z = a + bi \in \cbb$ such that $z^2 = i$.
+    Let $z = \frac{1+i}{\sqrt 2}$.
     Then
     \[
-        (a + bi)^2 = a^2 - b^2 + 2abi = 0 + 1i,
+        z^2 = \frac{1+2i-1}{2} = \frac{2i}{2} = i.
     \]
-    giving the system of equations
-    \[
-        \begin{cases}
-            a^2 - b^2 = 0 \\
-            2ab = 1.
-        \end{cases}
-    \]
-    The first equation yields $a = \pm b$.
-    If $a = b$, then
-    \[
-        2b^2 = 1 \implies b^2 = \frac{1}{2} \implies b = \pm\frac{1}{\sqrt 2} \implies a = \pm\frac{1}{\sqrt 2}.
-    \]
-    If $a = -b$, then $-2b^2 = 1$, which has no real solutions.
-    Hence, the two distinct square roots of $i$ are
-    \[
-    	\frac{1}{\sqrt 2} + \frac{1}{\sqrt 2}i \quad \text{and} \quad -\frac{1}{\sqrt 2} - \frac{1}{\sqrt 2}i. \qedhere
-    \]
+    Since $z \neq 0$, it follows that $-z \neq z$, and $(-z)^2 = (-1)^2 z^2 = z^2 = i$, so $-z$ is also a square root of $i$.
 \end{sol}
 
 \begin{exercise}{1a9}
@@ -186,26 +142,9 @@
 \end{exercise}
 
 \begin{sol}
-    Let $x = \tuple* x \in \rbb^4$.
-	The equation becomes
+    By direct computation,
     \[
-    	(4, -3, 1, 7) + 2(x_1, x_2, x_3, x_4) = (5, 9, -6, 8),
-    \]
-    which simplifies to the system of equations
-    \[
-        \begin{cases}
-            5 = 4 + 2x_1 \\
-            9 = -3 + 2x_2 \\
-            -6 = 1 + 2x_3 \\
-            8 = 7 + 2x_4
-        \end{cases} \implies 
-        \begin{cases}
-            2x_1 = 1 \\
-            2x_2 = 12 \\
-            2x_3 = -7 \\
-            2x_4 = 1 
-        \end{cases} \implies
-        x = \left(\frac{1}{2}, 6, -\frac{7}{2}, \frac{1}{2}\right). \qedhere
+        x = \frac{1}{2}((5, 9, -6, 8) - (4, -3, 1, 7)) = \left(\frac{1}{2}, 6, -\frac{7}{2}, \frac{1}{2}\right). \qedhere
     \]
 \end{sol}
 
@@ -217,22 +156,11 @@
 \end{exercise}
 
 \begin{sol}
-    If such a $\lambda$ exists, then we have the system of equations
+    If such a $\lambda$ exists, then $\lambda(2 - 3i) = 12 - 5i$ gives
     \[
-        \begin{cases}
-            \lambda(2 - 3i) = 12 - 5i \\
-            \lambda(5 + 4i) = 7 + 22i \\
-            \lambda(-6 + 7i) = -32 - 9i
-        \end{cases}
+        \lambda = \frac{12 - 5i}{2 - 3i} = 3 + 2i.
     \]
-    The first equation gives
-    \[
-    	\lambda = \frac{12 - 5i}{2 - 3i} = \frac{(12 - 5i)(2 + 3i)}{(2 - 3i)(2 + 3i)} = \frac{24 + 36i - 10i - 15i^2}{4 + 9} = \frac{24 + 26i + 15}{13} = 3 + 2i.
-    \]
-    However, using this value for $\lambda$ in the third equation, we get
-    \[
-    	(3 + 2i)(-6 + 7i) = -18 + 21i - 12i + 14i^2 = -18 + 9i - 14 = -32 + 9i \neq -32 - 9i. \qedhere
-    \]
+    However, $\lambda(-6 + 7i) = (3 + 2i)(-6 + 7i) = -32 + 9i \neq -32 - 9i$, so no such $\lambda$ exists.
 \end{sol}
 
 \begin{exercise}{1a11}
@@ -240,15 +168,13 @@
 \end{exercise}
 
 \begin{sol}
-    Let $x = \tuple* x, y = \tuple* y, z = \tuple* z \in \fbb^n$.
+    Let $x = (x_1, \dots, x_n), y = (y_1, \dots, y_n), z = (z_1, \dots, z_n) \in \fbb^n$.
     Then
     \begin{align*}
-        (x + y) + z &= (\tuple x + \tuple y) + \tuple z \\
-        &= \tuple{x, + y} + \tuple z \\
-        &= \tuple{(x, + y,) +z} \\
-        &= (x_i + (y_i + z_i))_1^n \\
-        &= \tuple x + \tuple{y, + z} \\
-        &= \tuple x + (\tuple y + \tuple z) = x + (y + z). \qedhere
+        (x + y) + z &= (x_1 + y_1, \dots, x_n + y_n) + (z_1, \dots, z_n) \\
+        &= ((x_1 + y_1) + z_1, \dots, (x_n + y_n) + z_n) \\
+        &= (x_1 + (y_1 + z_1), \dots, x_n + (y_n + z_n)) \\
+        &= (x_1, \dots, x_n) + (y_1 + z_1, \dots, y_n + z_n) = x + (y + z). \qedhere
     \end{align*}
 \end{sol}
 
@@ -257,11 +183,15 @@
 \end{exercise}
 
 \begin{sol}
-    Let $a, b \in \fbb$ and $x = \tuple* x \in \fbb^n$.
+    Let $a, b \in \fbb$ and let $x = (x_1, \dots, x_n) \in \fbb^n$.
     Then
-    \[
-        (ab)x = (ab)\tuple x = \tuple{(ab)x} = \tuple{a(bx)} = a\tuple{bx} = a(b\tuple x) = a(bx). \qedhere
-    \]
+    \begin{align*}
+        (ab)x &= (ab)(x_1, \dots, x_n) \\
+        &= ((ab)x_1, \dots, (ab)x_n) \\
+        &= (a(bx_1), \dots, a(bx_n)) \\
+        &= a(bx_1, \dots, bx_n) \\
+        &= a(b(x_1, \dots, x_n)) = a(bx). \qedhere
+    \end{align*}
 \end{sol}
 
 \begin{exercise}{1a13}
@@ -269,11 +199,13 @@
 \end{exercise}
 
 \begin{sol}
-    Let $x = \tuple* x \in \fbb^n$.
+    Let $x = (x_1, \dots, x_n) \in \fbb^n$.
     Then
-    \[
-        1x = 1\tuple x = \tuple{1x} = \tuple x = x. \qedhere
-    \]
+    \begin{align*}
+        1x &= 1(x_1, \dots, x_n) \\
+        &= (1x_1, \dots, 1x_n) \\
+        &= (x_1, \dots, x_n) = x. \qedhere
+    \end{align*}
 \end{sol}
 
 \begin{exercise}{1a14}
@@ -281,15 +213,14 @@
 \end{exercise}
 
 \begin{sol}
-    Let $\lambda \in \fbb$ and $x = \tuple* x, y = \tuple* y \in \fbb^n$.
+    Let $\lambda \in \fbb$ and let $x = (x_1, \dots, x_n), y = (y_1, \dots, y_n) \in \fbb^n$.
     Then
     \begin{align*}
-        \lambda(x + y) &= \lambda(\tuple x + \tuple y) \\
-        &= \lambda\tuple{x, + y} \\
-        &= \tuple{\lambda(x, + y)} \\
-        &= (\lambda x_i + \lambda y_i)_1^n \\
-        &= \tuple{\lambda x} + \tuple{\lambda y} \\
-        &= \lambda\tuple x + \lambda\tuple y = \lambda x + \lambda y. \qedhere
+        \lambda(x + y) &= \lambda(x_1 + y_1, \dots, x_n + y_n) \\
+        &= (\lambda(x_1 + y_1), \dots, \lambda(x_n + y_n)) \\
+        &= (\lambda x_1 + \lambda y_1, \dots, \lambda x_n + \lambda y_n) \\
+        &= (\lambda x_1, \dots, \lambda x_n) + (\lambda y_1, \dots, \lambda y_n) \\
+        &= \lambda(x_1, \dots, x_n) + \lambda(y_1, \dots, y_n) = \lambda x + \lambda y. \qedhere
     \end{align*}
 \end{sol}
 
@@ -298,9 +229,13 @@
 \end{exercise}
 
 \begin{sol}
-    Let $a, b \in \fbb$ and $x = \tuple* x \in \fbb^n$.
+    Let $a, b \in \fbb$ and let $x = (x_1, \dots, x_n) \in \fbb^n$.
     Then
-    \[
-        (a + b)x = (a + b)\tuple x = \tuple{(a + b)x} = \tuple{ax + bx} = \tuple{ax} + \tuple{bx} = a\tuple x + b\tuple x = ax + bx. \qedhere
-    \]
+    \begin{align*}
+        (a + b)x &= (a + b)(x_1, \dots, x_n) \\
+        &= ((a + b)x_1, \dots, (a + b)x_n) \\
+        &= (ax_1 + bx_1, \dots, ax_n + bx_n) \\
+        &= (ax_1, \dots, ax_n) + (bx_1, \dots, bx_n) \\
+        &= a(x_1, \dots, x_n) + b(x_1, \dots, x_n) = ax + bx. \qedhere
+    \end{align*}
 \end{sol}
