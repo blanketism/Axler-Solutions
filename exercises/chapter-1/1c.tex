@@ -1,5 +1,35 @@
 \subsection{Subspaces}
 
+\begin{lemma}{1}
+    Let $U$ be a subspace of $V$.
+    Suppose $\phi \in \fbb^U$ satisfies
+    \[
+        \phi(u + v) = \phi(u) + \phi(v) \quad \text{and} \quad \phi(au) = a\phi(u)
+    \]
+    for all $u, v \in U$ and $a \in \fbb$.
+    Then for any $b \in \fbb$, the set $\set{u \in U : \phi(u) = b}$ is a subspace of $V$ if and only if $b = 0$.
+    \begin{proof}
+        Let $U_b = \set{u \in U : \phi(u) = b}$.
+        Then $\phi(0) = \phi(0 + 0) = \phi(0) + \phi(0)$, so $\phi(0) = 0$.
+        \rightimp Suppose $U_b$ is a subspace of $V$.
+        By 1.34, $0 \in U_b$, so $b = \phi(0) = 0$.
+
+        \leftimp Suppose $b = 0$.
+        Then $0 \in U_0$.
+        Let $u, v \in U_0$ and let $a \in \fbb$.
+        Then
+        \[
+            \phi(u + v) = \phi(u) + \phi(v) = 0 + 0 = 0,
+        \]
+        and
+        \[
+            \phi(au) = a \phi(u) = a0 = 0.
+        \]
+        Hence, $u + v \in U_0$ and $au \in U_0$, so $U_0$ is closed under addition and scalar multiplication.
+        Therefore, $U_0$ is a subspace of $V$ by 1.34.
+    \end{proof}
+\end{lemma}
+
 \begin{exercise}{1c1}
     For each of the following subsets of $\fbb^3$, determine whether it is a subspace of $\fbb^3$.
     \begin{subexercises}
@@ -11,32 +41,18 @@
 \end{exercise}
 
 \begin{sol}
-    Let $U$ be the subset of $\fbb^3$ in question.
+    Let $U$ be the subset of $\fbb^3$ in question, and note that addition and scalar multiplication in $\fbb^3$ are defined componentwise.
+    Therefore, every $\phi$ below satisfies $\phi(u + v) = \phi(u) + \phi(v)$ and $\phi(au) = a\phi(u)$ for all $u, v \in \fbb^3$ and $a \in \fbb$.
     \begin{subexercises}
-        \item Since $0 + 2(0) + 3(0) = 0$, $(0, 0, 0) \in U$, so $U$ is nonempty. Let $u = (u_1, u_2, u_3), v = (v_1, v_2, v_3) \in U$ and $\alpha \in \fbb$.
-        Then
-        \[
-            (u_1 + v_1) + 2(u_2 + v_2) + 3(u_3 + v_3) = (u_1 + 2u_2 + 3u_3) + (v_1 + 2v_2 + 3v_3) = 0 + 0 = 0,
-        \]
-        and
-        \[
-            \alpha u_1 + 2(\alpha u_2) + 3(\alpha u_3) = \alpha(u_1 + 2u_2 + 3u_3) = \alpha(0) = 0.
-        \]
-        Hence, $u + v \in U$ and $\alpha u \in U$, so $U$ is a subspace of $\fbb^3$.
-        \item Since $0 + 2(0) + 3(0) = 0 \neq 4$, $(0, 0, 0) \notin U$, so $U$ does not contain the zero vector. Therefore, $U$ is not a subspace of $\fbb^3$.
-        \item Since $1 \cdot 0 \cdot 0 = 0$ and $0 \cdot 1 \cdot 1 = 0$, $(1, 0, 0), (0, 1, 1) \in U$.
-        However, $(1, 0, 0) + (0, 1, 1) = (1, 1, 1)$ and $1 \cdot 1 \cdot 1 = 1 \neq 0$, so $(1, 1, 1) \notin U$.
-        Hence, $U$ is not closed under addition, so $U$ is not a subspace of $\fbb^3$.
-        \item Since $5(0) = 0$, $(0, 0, 0) \in U$, so $U$ is nonempty. Let $u = (u_1, u_2, u_3), v = (v_1, v_2, v_3) \in U$ and $\alpha \in \fbb$.
-        Then
-        \[
-            u_1 + v_1 = 5u_3 + 5v_3 = 5(u_3 + v_3),
-        \]
-        and
-        \[
-            \alpha u_1 = \alpha(5u_3) = 5(\alpha u_3).
-        \]
-        Hence, $u + v \in U$ and $\alpha u \in U$, so $U$ is a subspace of $\fbb^3$. \qedhere
+        \item Let $\phi \colon \fbb^3 \to \fbb$ be defined by $\phi(x_1, x_2, x_3) = x_1 + 2x_2 + 3x_3$, so $U = \set{(x_1, x_2, x_3) \in \fbb^3 : \phi(x_1, x_2, x_3) = 0}$.
+        By \autoref{lem:1}, $U$ is a subspace of $\fbb^3$.
+        \item Take the same $\phi$ as in part (a), so $U = \set{(x_1, x_2, x_3) \in \fbb^3 : \phi(x_1, x_2, x_3) = 4}$.
+        Since $4 \neq 0$, \autoref{lem:1} gives that $U$ is not a subspace of $\fbb^3$.
+        \item Because $1 \cdot 0 \cdot 0 = 0$ and $0 \cdot 1 \cdot 1 = 0$, $(1, 0, 0), (0, 1, 1) \in U$.
+        However, $(1, 0, 0) + (0, 1, 1) = (1, 1, 1) \notin U$ since $1 \cdot 1 \cdot 1 \neq 0$.
+        Therefore, $U$ is not closed under addition, so $U$ is not a subspace of $\fbb^3$ by 1.34.
+        \item Let $\phi \colon \fbb^3 \to \fbb$ be defined by $\phi(x_1, x_2, x_3) = x_1 - 5x_3$, so $U = \set{(x_1, x_2, x_3) \in \fbb^3 : \phi(x_1, x_2, x_3) = 0}$.
+        By \autoref{lem:1}, $U$ is a subspace of $\fbb^3$. \qedhere
     \end{subexercises}
 \end{sol}
 
@@ -45,53 +61,26 @@
 \end{exercise}
 
 \begin{sol}
-    Let $U$ be the subsets in question.
+    Let $U$ be the subset in question.
     \begin{subexercises}
-        \item \rightimp Suppose $U$ is a subspace of $\fbb^4$.
-        Then it must contain the zero vector $(0, 0, 0, 0)$.
-        Then $0 = 5(0) + b$, which implies $b = 0$.
-
-        \leftimp Suppose $b = 0$.
-        Then $U = \set{(x_1, x_2, x_3, x_4) \in \fbb^4 : x_3 = 5x_4}$.
-        The proof is similar to the proof in \exref{1c1}(d), so we conclude that $U$ is a subspace of $\fbb^4$.
-        \item Since the $0$ function is continuous, $0 \in U$.
-        Let $f, g \in U$ and $\alpha \in \rbb$.
-        Since both $f + g$ and $\alpha f$ are continuous over $[0, 1]$, $f + g, \alpha f \in U$.
-        Therefore, $U$ is a subspace of $\rbb^{[0, 1]}$.
-        \item Since the $0$ function is differentiable on $\rbb$, $0 \in U$.
-        Let $f, g \in U$ and $\alpha \in \rbb$.
-        Since both $f + g$ and $\alpha f$ are differentiable on $\rbb$, $f + g, \alpha f \in U$.
-        Hence, $U$ is a subspace of $\rbb^{\rbb}$.
-        \item \rightimp Suppose $U$ is a subspace of $\rbb^{(0, 3)}$.
-        Then $0 \in U$, so $0'(2) = 0 = b$, which implies $b = 0$.
-
-        \leftimp Suppose $b = 0$.
-        Then
-        \[
-            U = \set{f \in \rbb^{(0, 3)} : f'(2) = 0}.
-        \]
-        The zero function is in $U$ since $0'(2) = 0$.
-        Let $f, g \in U$ and $\alpha \in \rbb$.
-        Then
-        \[
-            (f + g)'(2) = f'(2) + g'(2) = 0 + 0 = 0,
-        \]
-        and
-        \[
-            (\alpha f)'(2) = \alpha f'(2) = \alpha \cdot 0 = 0.
-        \]
-        Thus, $f + g, \alpha f \in U$, so $U$ is a subspace of $\rbb^{(0, 3)}$.
-        \item The sequence of zeroes has limit 0, so it is in $U$.
-        Let $\set{z_n}_{n = 1}^{\infty}, \set{w_n}_{n = 1}^{\infty} \in U$ and $\alpha \in \cbb$.
-        Then
-        \[
-            \lim_{n \to \infty} (z_n + w_n) = \lim_{n \to \infty} z_n + \lim_{n \to \infty} w_n = 0 + 0 = 0,
-        \]
-        and
-        \[
-            \lim_{n \to \infty} (\alpha z_n) = \alpha \lim_{n \to \infty} z_n = \alpha \cdot 0 = 0.
-        \]
-        Thus, $\set{z_n}_1^{\infty} + \set{w_n}_1^{\infty}, \alpha\set{z_n}_1^{\infty} \in U$, so $U$ is a subspace of $\cbb^{\infty}$. \qedhere
+        \item Let $\phi \colon \fbb^4 \to \fbb$ be defined by $\phi(x_1, x_2, x_3, x_4) = x_3 - 5x_4$, so $U = \set{(x_1, x_2, x_3, x_4) \in \fbb^4 : \phi(x_1, x_2, x_3, x_4) = b}$.
+        Since addition and scalar multiplication in $\fbb^4$ are defined componentwise, $\phi$ satisfies the hypotheses of \autoref{lem:1}, so $U$ is a subspace of $\fbb^4$ if and only if $b = 0$.
+        \item The zero function is continuous, so $0 \in U$.
+        Let $f, g \in U$ and let $a \in \rbb$.
+        Then $f + g$ and $af$ are continuous on $[0, 1]$, so $f + g, af \in U$.
+        Therefore, $U$ is a subspace of $\rbb^{[0, 1]}$ by 1.34.
+        \item The zero function is differentiable on $\rbb$, so $0 \in U$.
+        Let $f, g \in U$ and let $a \in \rbb$.
+        Then $f + g$ and $af$ are differentiable on $\rbb$, so $f + g, af \in U$.
+        Therefore, $U$ is a subspace of $\rbb^{\rbb}$ by 1.34.
+        \item Let $W$ be the set of differentiable real-valued functions on $(0, 3)$.
+        By the argument in part (c) with $(0, 3)$ in place of $\rbb$, $W$ is a subspace of $\rbb^{(0, 3)}$.
+        Define $\phi \colon W \to \rbb$ by $\phi(f) = f'(2)$, so $U = \set{f \in W : \phi(f) = b}$.
+        Since differentiation is additive and homogeneous, $\phi$ satisfies the hypotheses of \autoref{lem:1}, so $U$ is a subspace of $\rbb^{(0, 3)}$ if and only if $b = 0$.
+        \item The zero sequence $0 = (0, 0, \ldots)$ has limit $0$, so $0 \in U$.
+        Let $z, w \in U$ and let $a \in \cbb$.
+        Then $z + w \to 0 + 0 = 0$ and $az \to a \cdot 0 = 0$, so $z + w, az \in U$.
+        Therefore, $U$ is a subspace of $\cbb^{\infty}$ by 1.34. \qedhere
     \end{subexercises}
 \end{sol}
 
@@ -100,53 +89,22 @@
 \end{exercise}
 
 \begin{sol}
-    Let $U = \set{f \in \rbb^{(-4, 4)} : f'(-1) = 3f(2)}$.
-    Since the zero function is differentiable on $(-4, 4)$ and $0'(-1) = 0 = 3(0) = 3 \cdot 0(2)$, $0 \in U$, so $U$ is nonempty.
-    Let $f, g \in U$ and $\alpha \in \rbb$.
-    Then
-    \[
-        (f + g)'(-1) = f'(-1) + g'(-1) = 3f(2) + 3g(2) = 3(f(2) + g(2)) = 3(f + g)(2),
-    \]
-    and
-    \[
-        (\alpha f)'(-1) = \alpha f'(-1) = \alpha(3f(2)) = 3(\alpha f(2)) = 3(\alpha f)(2).
-    \]
-    Hence, $f + g, \alpha f \in U$, so $U$ is a subspace of $\rbb^{(-4, 4)}$. \qedhere
+    Let $U$ be the set of differentiable real-valued functions on $(-4, 4)$ and let $W = \set{f \in U : f'(-1) = 3f(2)}$.
+    By the argument in \exref{1c2}(c) with $(-4, 4)$ in place of $\rbb$, $U$ is a subspace of $\rbb^{(-4, 4)}$.
+    Define $\phi \colon U \to \rbb$ by $\phi(f) = f'(-1) - 3f(2)$, so $W = \set{f \in U : \phi(f) = 0}$.
+    Since differentiation and evaluation are additive and homogeneous, $\phi$ satisfies the hypotheses of \autoref{lem:1}, so $W$ is a subspace of $\rbb^{(-4, 4)}$.
 \end{sol}
 
 \begin{exercise}{1c4}
     Suppose $b \in \rbb$.
-	Show that the set of continuous real-valued functions $f$ on the interval $[0, 1]$ such that
-    \[
-    	\int_0^1 f = b
-    \]
-    is a subspace of $\rbb^{[0, 1]}$ if and only if $b = 0$.
+	Show that the set of continuous real-valued functions $f$ on the interval $[0, 1]$ such that $\int_0^1 f = b$ is a subspace of $\rbb^{[0, 1]}$ if and only if $b = 0$.
 \end{exercise}
 
 \begin{sol}
-    Define
-    \[
-        U = \set*{f \in \rbb^{[0, 1]} : f \text{ is continuous and } \int_0^1 f = b}.
-    \]
-    \rightimp Suppose $U$ is a subspace of $\rbb^{[0, 1]}$.
-    Then $0 \in U$, so $\int_0^1 0 = 0 = b$, which implies $b = 0$.
-
-    \leftimp Suppose $b = 0$.
-    Then
-    \[
-        U = \set*{f \in \rbb^{[0, 1]} : f \text{ is continuous and } \int_0^1 f = 0}.
-    \]
-    Since the zero function is continuous on $[0, 1]$ and $\int_0^1 0 = 0$, $0 \in U$, so $U$ is nonempty.
-    Let $f, g \in U$ and $\alpha \in \rbb$.
-    Then
-    \[
-        \int_0^1 (f + g) = \int_0^1 f + \int_0^1 g = 0 + 0 = 0,
-    \]
-    and
-    \[
-        \int_0^1 (\alpha f) = \alpha \int_0^1 f = \alpha(0) = 0.
-    \]
-    Therefore, $f + g, \alpha f \in U$, so $U$ is a subspace of $\rbb^{[0, 1]}$.
+    Let $U$ be the set of continuous real-valued functions on $[0, 1]$ and let $W = \set{f \in U : \int_0^1 f = b}$.
+    By \exref{1c2}(b), $U$ is a subspace of $\rbb^{[0, 1]}$. 
+    Define $\phi \colon U \to \rbb$ by $\phi(f) = \int_0^1 f$, so $W = \set{f \in U : \phi(f) = b}$.
+    Since integration is additive and homogeneous, $\phi$ satisfies the hypotheses of \autoref{lem:1}, so $W$ is a subspace of $\rbb^{[0, 1]}$ if and only if $b = 0$.
 \end{sol}
 
 \begin{exercise}{1c5}
@@ -154,9 +112,7 @@
 \end{exercise}
 
 \begin{sol}
-    No, $\rbb^2$ is not a subspace of $\cbb^2$.
-	Let $x = (1, 0) \in \rbb^2$ and $\alpha = i \in \cbb$.
-    Then $\alpha x = (i, 0) \notin \rbb^2$, so $\rbb^2$ is not closed under scalar multiplication and is not a subspace of $\cbb^2$.
+    Since $i(1, 0) = (i, 0) \notin \rbb^2$, $\rbb^2$ is not closed under scalar multiplication, and therefore it is not a subspace of $\cbb^2$ by 1.34.
 \end{sol}
 
 \begin{exercise}{1c6}
@@ -170,46 +126,18 @@
     Let $U$ be the subset in question.
     \begin{subexercises}
         \item Yes, $U$ is a subspace of $\rbb^3$.
-        To see this, note that $0^3 = 0^3$, so $(0, 0, 0) \in U$, and $U$ is nonempty.
-        Let $u = (u_1, u_2, u_3), v = (v_1, v_2, v_3) \in U$ and $\alpha \in \rbb$.
-        Then $u_1^3 = u_2^3$ implies
-        \[
-            u_1^3 - u_2^3 = (u_1 - u_2)(u_1^2 + u_1u_2 + u_2^2) = 0.
-        \]
-        If $u_1 - u_2 = 0$, then $u_1 = u_2$ and $(u_1 + v_1)^3 = (u_2 + v_2)^3$.
-        If $u_1^2 + u_1u_2 + u_2^2 = 0$, we may complete the square to get
-        \[
-            u_1^2 + u_1u_2 + u_2^2 = \left(u_1 + \frac{u_2}{2}\right)^2 + \frac{3u_2^2}{4} = 0.
-        \]
-        Since a square of a real number is nonnegative, we must have $u_1 + \frac{u_2}{2} = 0$ and $\frac{3u_2^2}{4} = 0$, which implies $u_1 = u_2 = 0$.
-        In either case, $u_1^3 = u_2^3$ implies $u_1 = u_2$.
-        A similar argument shows that $v_1^3 = v_2^3$ implies $v_1 = v_2$.
-        Hence,
-        \[
-            (u_1 + v_1)^3 = (u_2 + v_2)^3,
-        \]
-        and
-        \[
-            (\alpha u_1)^3 = \alpha^3 u_1^3 = \alpha^3 u_2^3 = (\alpha u_2)^3.
-        \]
-        Therefore, $u + v \in U$ and $\alpha u \in U$, so $U$ is a subspace of $\rbb^3$.
+        Note that $a^3 = b^3$ implies $a = b$ for $a, b \in \rbb$, so $U = \set{(a, a, c) : a, c \in \rbb}$, which contains $(0, 0, 0)$.
+        Let $x = (x_1, x_1, x_3), y = (y_1, y_1, y_3) \in U$ and let $t \in \rbb$.
+        Then $x + y = (x_1 + y_1, x_1 + y_1, x_3 + y_3) \in U$ and $tx = (tx_1, tx_1, tx_3) \in U$.
+        Hence, $U$ is closed under addition and scalar multiplication, so $U$ is a subspace of $\rbb^3$ by 1.34.
         \item No, $U$ is not a subspace of $\cbb^3$.
-        To see this, suppose $z^3 = 1$ for some $z \in \cbb$.
-        Then $z^3 - 1 = (z - 1)(z^2 + z + 1) = 0$.
-        Then $z = 1$ or $z^2 + z + 1 = 0$.
-        If $z^2 + z + 1 = 0$, we may use the quadratic formula to obtain
+        Let $\omega = \frac{-1 + \sqrt{3}i}{2}$ so that $\omega^3 = 1$ by \exref{1a7}.
+        Then $(1, 1, 0), (\omega, 1, 0) \in U$.
+        However,
         \[
-            z = \frac{-1 \pm \sqrt{1 - 4}}{2} = \frac{-1 \pm i\sqrt{3}}{2}.
+            (1 + \omega)^3 = \left(\frac{1 + \sqrt{3}i}{2}\right)^3 = -1 \neq 8 = 2^3.
         \]
-        Let
-        \[
-            \omega_1 = \frac{-1 + i\sqrt{3}}{2} \quad \text{and} \quad \omega_2 = \frac{-1 - i\sqrt{3}}{2}.
-        \]
-        Then $\omega_1^3 = \omega_2^3 = 1$, and $\omega_1 + \omega_2 = -1$.
-        Let $u = (\omega_1, 1, 0), v = (\omega_2, 1, 0) \in U$.
-        Then $u + v = (\omega_1 + \omega_2, 1 + 1, 0 + 0) = (-1, 2, 0)$.
-        Since $(-1)^3 = -1 \neq 8 = 2^3$, $u + v \notin U$.
-        Hence, $U$ is not closed under addition and is not a subspace of $\cbb^3$. \qedhere
+        Therefore, $(1, 1, 0) + (\omega, 1, 0) = (1 + \omega, 2, 0) \notin U$, so $U$ is not closed under addition and hence not a subspace of $\cbb^3$ by 1.34. \qedhere
     \end{subexercises}
 \end{sol}
 
@@ -219,10 +147,9 @@
 
 \begin{sol}
     Consider the subset $\qbb^2$ of $\rbb^2$.
-	Then $\qbb^2$ is nonempty because $(0, 0) \in \qbb^2$, closed under addition since the sum of any two rational numbers is rational, and closed under taking additive inverses since the additive inverse of a rational number is rational.
-	However, for any irrational number $r \in \rbb$, the vector $(r, 0) = r(1, 0) \in \rbb^2$ is not in $\qbb^2$.
-	Hence, $\qbb^2$ is not closed under scalar multiplication and is not a subspace of $\rbb^2$.
-	Therefore, the statement is false.
+	Then $\qbb^2$ contains $(0, 0)$, is closed under addition since the sum of any two rational numbers is rational, and is closed under taking additive inverses since the additive inverse of a rational number is rational.
+    However, $\sqrt{2}(1, 0) = (\sqrt{2}, 0) \notin \qbb^2$.
+    Hence, $\qbb^2$ is not closed under scalar multiplication and is not a subspace of $\rbb^2$ by 1.34.
 \end{sol}
 
 \begin{exercise}{1c8}
@@ -230,23 +157,23 @@
 \end{exercise}
 
 \begin{sol}
-    Consider the subset
+    Consider the subset of $\rbb^2$ given by
     \[
     	U = \{(x, 0) : x \in \rbb\} \cup \{(0, y) : y \in \rbb\}.
     \]
-    Then $U$ is nonempty since $(1, 0) \in U$, and it is closed under scalar multiplication since any scalar multiple of $(1, 0)$ or $(0, 1)$ is still in $U$.
+    Then $U$ is nonempty since $(1, 0) \in U$, and for all $a, x, y \in \rbb$, we have $a(x, 0) = (ax, 0) \in U$ and $a(0, y) = (0, ay) \in U$, so $U$ is closed under scalar multiplication.
 	However, $U$ is not closed under addition since $(1, 0) + (0, 1) = (1, 1) \notin U$.
-	Hence, $U$ is not a subspace of $\rbb^2$.
+	Hence, $U$ is not a subspace of $\rbb^2$ by 1.34.
 \end{sol}
 
 \begin{exercise}{1c9}
     A function $f : \rbb \to \rbb$ is called \term{periodic} if there exists a positive number $p$ such that $f(x + p) = f(x)$ for all $x \in \rbb$.
-	Is the set of periodic functions from $\rbb$ to $\rbb$ a subspace of $\rbb^{\rbb}$.
+	Is the set of periodic functions from $\rbb$ to $\rbb$ a subspace of $\rbb^{\rbb}$?
 	Explain.
 \end{exercise}
 
 \begin{sol}
-    It is not a subspace of $\rbb^{\rbb}$.
+    The set of periodic functions is not a subspace of $\rbb^{\rbb}$.
 	Consider the periodic functions $f(x) = \cos x$ and $g(x) = \cos \sqrt 2x$.
 	Then the sum $f + g$ attains a maximum value of 2 at 0.
 	If $f + g$ were periodic with period $p$, then $(f + g)(p) = (f + g)(0) = 2$.
@@ -257,7 +184,7 @@
     	2\pi m = \sqrt 2\pi n \implies \sqrt 2 = \frac nm,
     \]
     which is a contradiction, since $\sqrt 2$ is irrational.
-	Then $f + g$ is not periodic.
+	Thus, the set is not closed under addition and therefore not a subspace of $\rbb^{\rbb}$ by 1.34.
 \end{sol}
 
 \begin{exercise}{1c10}

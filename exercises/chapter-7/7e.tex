@@ -1,6 +1,6 @@
 \subsection{Singular Value Decomposition}
 
-\begin{lemma}{1}
+\begin{lemma}{2}
     Suppose $T \in \lin{V, W}$ and $v_1, \ldots, v_n$ is a basis of $V$ with $T^\ast T v_k = \mu_k v_k$ for $k = 1, \ldots, n$.
     Then the singular values of $T$ are $\sqrt{\mu_1}, \ldots, \sqrt{\mu_n}$ sorted into decreasing order.
     \begin{proof}
@@ -79,7 +79,7 @@
         \end{pmatrix}.
     \]
     Then $T^\ast T e_1 = 0$ and $T^\ast T e_2 = 25 e_2$.
-    Therefore, by \autoref{lem:1}, the singular values of $T$ are $\sqrt{25} = 5$ and $\sqrt{0} = 0$.
+    Therefore, by \autoref{lem:2}, the singular values of $T$ are $\sqrt{25} = 5$ and $\sqrt{0} = 0$.
 \end{sol}
 
 \begin{exercise}{7e4}
@@ -95,7 +95,7 @@
     Let $\scal = \set{\norm{Tv} : v \in V \text{ and } \norm{v} = 1}$.
     Since $T$ has a largest and a smallest singular value, $V \neq \set 0$, so $n \geq 1$.
     Since $T^\ast T$ is positive by 7.64(a), 7.38(c) gives an orthonormal basis $e_1, \ldots, e_n$ of $V$ consisting of eigenvectors of $T^\ast T$, say $T^\ast T e_k = \mu_k e_k$ for each $k = 1, \ldots, n$.
-    After reordering, \autoref{lem:1} shows that $\mu_k = s_k^2$ for each $k = 1, \ldots, n$.
+    After reordering, \autoref{lem:2} shows that $\mu_k = s_k^2$ for each $k = 1, \ldots, n$.
 
     \rightset Suppose $\norm{v} = 1$.
     Let $c_k = \ip{v, e_k}$ for each $k = 1, \ldots, n$.
@@ -150,7 +150,7 @@
     \]
     By 3.43, $\mcal(T^\ast T)$ is diagonal with diagonal entries $1$ and $16$.
     Therefore, $T^\ast T e_1 = e_1$ and $T^\ast T e_2 = 16 e_2$.
-    By \autoref{lem:1}, the singular values of $T$ are $\sqrt{16} = 4$ and $\sqrt{1} = 1$.
+    By \autoref{lem:2}, the singular values of $T$ are $\sqrt{16} = 4$ and $\sqrt{1} = 1$.
 \end{sol}
 
 \begin{exercise}{7e6}
@@ -187,7 +187,7 @@
     \]
     By 3.43, $\mcal(D^\ast D)$ is diagonal with diagonal entries $0$, $3$, and $15$.
     Therefore, $D^\ast D e_1 = 0$, $D^\ast D e_2 = 3 e_2$, and $D^\ast D e_3 = 15 e_3$.
-    By \autoref{lem:1}, the singular values of $D$ are $\sqrt{15}$, $\sqrt{3}$, and $0$.
+    By \autoref{lem:2}, the singular values of $D$ are $\sqrt{15}$, $\sqrt{3}$, and $0$.
 \end{sol}
 
 \begin{exercise}{7e7}
@@ -211,7 +211,7 @@
     \[
         T^\ast T e_k = \lambda_k T^\ast e_k = \lambda_k \bar{\lambda_k} e_k = |\lambda_k|^2 e_k.
     \]
-    By \autoref{lem:1}, the singular values of $T$ are $|\lambda_1|, \ldots, |\lambda_n|$, sorted into decreasing order.
+    By \autoref{lem:2}, the singular values of $T$ are $|\lambda_1|, \ldots, |\lambda_n|$, sorted into decreasing order.
 \end{sol}
 
 \begin{exercise}{7e8}
@@ -254,7 +254,7 @@
         \item By 6.36, we may extend $e_1, \ldots, e_m$ to an orthonormal basis $e_1, \ldots, e_n$ of $V$.
         For $k \leq m$, the beginning calculation shows that $T^\ast T e_k = s_k^2 e_k$.
         For $k > m$, we have $T e_k = 0$, so $T^\ast T e_k = 0$.
-        By \autoref{lem:1} and the hypothesis that $s_1 \geq \cdots \geq s_m > 0$, it follows that the singular values of $T$ are $s_1, \ldots, s_m$ together with $n-m$ zeros.
+        By \autoref{lem:2} and the hypothesis that $s_1 \geq \cdots \geq s_m > 0$, it follows that the singular values of $T$ are $s_1, \ldots, s_m$ together with $n-m$ zeros.
         Thus, the positive singular values of $T$ are exactly $s_1, \ldots, s_m$.
         \item By the beginning calculation, $T^\ast T e_k = s_k^2 e_k$ and $e_k \neq 0$ since $\norm{e_k} = 1$ for $k = 1, \ldots, m$.
         Hence, $e_k$ is indeed an eigenvector of $T^\ast T$ corresponding to the eigenvalue $s_k^2$.
