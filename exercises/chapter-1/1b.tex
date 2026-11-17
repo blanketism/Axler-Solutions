@@ -133,56 +133,60 @@
     \]
     for all $x \in S$.
     We now verify the vector space axioms for $V^S$, where the following calculations repeatedly use the commutativity, associativity, and distributive properties of addition and scalar multiplication in $V$ and $\fbb$.
-    \begin{enumerate}
-        \item \textbf{Commutativity.} Let $f, g \in V^S$.
-        Then for all $x \in S$,
-        \[
-            (f + g)(x) = f(x) + g(x) = g(x) + f(x) = (g + f)(x),
-        \]
-        so $f + g = g + f$.
-        \item \textbf{Associativity.} Let $f, g, h \in V^S$ and let $a, b \in \fbb$.
-        Then for all $x \in S$,
-        \[
-            ((f + g) + h)(x) = (f + g)(x) + h(x) = (f(x) + g(x)) + h(x) = f(x) + (g(x) + h(x)) = (f + (g + h))(x),
-        \]
-        so $(f + g) + h = f + (g + h)$.
-        Moreover,
-        \[
-            ((ab)f)(x) = (ab)f(x) = a(bf(x)) = a((bf)(x)) = (a(bf))(x),
-        \]
-        so $(ab)f = a(bf)$.
-        \item \textbf{Additive identity.} Let $0 \in V$ be the additive identity in $V$, and define the zero function $0 \in V^S$ by $0(x) = 0$ for all $x \in S$.
-        Then for all $f \in V^S$ and all $x \in S$,
-        \[
-            (f + 0)(x) = f(x) + 0 = f(x),
-        \]
-        so $f + 0 = f$.
-        \item \textbf{Additive inverse.} Let $f \in V^S$.
-        Define $-f \in V^S$ by $(-f)(x) = -f(x)$ for all $x \in S$.
-        Then for all $x \in S$,
-        \[
-            (f + (-f))(x) = f(x) + (-f(x)) = 0 = 0(x),
-        \]
-        so $f + (-f) = 0$.
-        \item \textbf{Multiplicative identity.} Let $1 \in \fbb$ be the multiplicative identity in $\fbb$.
-        Then for all $f \in V^S$ and all $x \in S$,
-        \[
-            (1f)(x) = 1 \cdot f(x) = f(x),
-        \]
-        so $1f = f$.
-        \item \textbf{Distributive properties.} Let $a, b \in \fbb$ and $f, g \in V^S$.
-        Then for all $x \in S$,
-        \[
-            (a(f + g))(x) = a((f + g)(x)) = a(f(x) + g(x)) = af(x) + ag(x) = (af + ag)(x),
-        \]
-        so $a(f + g) = af + ag$.
 
-        Also,
-        \[
-            ((a + b)f)(x) = (a + b)f(x) = af(x) + bf(x) = (af + bf)(x),
-        \]
-        so $(a + b)f = af + bf$.
-    \end{enumerate}
+    \property{Commutativity} Let $f, g \in V^S$.
+    Then for all $x \in S$,
+    \[
+        (f + g)(x) = f(x) + g(x) = g(x) + f(x) = (g + f)(x),
+    \]
+    so $f + g = g + f$.
+
+    \property{Associativity} Let $f, g, h \in V^S$ and let $a, b \in \fbb$.
+    Then for all $x \in S$,
+    \[
+        ((f + g) + h)(x) = (f + g)(x) + h(x) = (f(x) + g(x)) + h(x) = f(x) + (g(x) + h(x)) = (f + (g + h))(x),
+    \]
+    so $(f + g) + h = f + (g + h)$.
+    Moreover,
+    \[
+        ((ab)f)(x) = (ab)f(x) = a(bf(x)) = a((bf)(x)) = (a(bf))(x),
+    \]
+    so $(ab)f = a(bf)$.
+
+    \property{Additive identity} Let $0 \in V$ be the additive identity in $V$, and define the zero function $0 \in V^S$ by $0(x) = 0$ for all $x \in S$.
+    Then for all $f \in V^S$ and all $x \in S$,
+    \[
+        (f + 0)(x) = f(x) + 0 = f(x),
+    \]
+    so $f + 0 = f$.
+
+    \property{Additive inverse} Let $f \in V^S$.
+    Define $-f \in V^S$ by $(-f)(x) = -f(x)$ for all $x \in S$.
+    Then for all $x \in S$,
+    \[
+        (f + (-f))(x) = f(x) + (-f(x)) = 0 = 0(x),
+    \]
+    so $f + (-f) = 0$.
+
+    \property{Multiplicative identity} Let $1 \in \fbb$ be the multiplicative identity in $\fbb$.
+    Then for all $f \in V^S$ and all $x \in S$,
+    \[
+        (1f)(x) = 1 \cdot f(x) = f(x),
+    \]
+    so $1f = f$.
+
+    \property{Distributive properties} Let $a, b \in \fbb$ and $f, g \in V^S$.
+    Then for all $x \in S$,
+    \[
+        (a(f + g))(x) = a((f + g)(x)) = a(f(x) + g(x)) = af(x) + ag(x) = (af + ag)(x),
+    \]
+    so $a(f + g) = af + ag$.
+
+    Also,
+    \[
+        ((a + b)f)(x) = (a + b)f(x) = af(x) + bf(x) = (af + bf)(x),
+    \]
+    so $(a + b)f = af + bf$.
     Therefore, $V^S$ is a vector space.
 \end{sol}
 
@@ -210,63 +214,64 @@
 
 \begin{sol}
     We prove that $V_{\cbb}$ is a complex vector space by verifying the vector space axioms.
-    \begin{enumerate}
-        \item \textbf{Commutativity.} Let $u_1 + iv_1, u_2 + iv_2 \in V_{\cbb}$.
-        Then
-        \[
-            (u_1 + iv_1) + (u_2 + iv_2) = (u_1 + u_2) + i(v_1 + v_2) = (u_2 + u_1) + i(v_2 + v_1) = (u_2 + iv_2) + (u_1 + iv_1).
-        \]
-        \item \textbf{Associativity.} Let $u_1 + iv_1, u_2 + iv_2, u_3 + iv_3 \in V_{\cbb}$ and let $a + ib, c + id \in \cbb$.
-        Then
-        \begin{align*}
-            ((u_1 + iv_1) + (u_2 + iv_2)) + (u_3 + iv_3) &= ((u_1 + u_2) + i(v_1 + v_2)) + (u_3 + iv_3) \\
-            &= ((u_1 + u_2) + u_3) + i((v_1 + v_2) + v_3) \\
-            &= (u_1 + (u_2 + u_3)) + i(v_1 + (v_2 + v_3)) \\
-            &= (u_1 + iv_1) + ((u_2 + u_3) + i(v_2 + v_3)) \\
-            &= (u_1 + iv_1) + ((u_2 + iv_2) + (u_3 + iv_3)).
-        \end{align*}
-        Moreover,
-        \begin{align*}
-            ((a + ib)(c + id))(u_1 + iv_1) &= ((ac - bd) + i(ad + bc))(u_1 + iv_1) \\
-            &= ((ac - bd)u_1 - (ad + bc)v_1) + i((ad + bc)u_1 + (ac - bd)v_1) \\
-            &= (a(cu_1 - dv_1) - b(cv_1 + du_1)) + i(a(cv_1 + du_1) + b(cu_1 - dv_1)) \\
-            &= (a + ib)((c + id)(u_1 + iv_1)).
-        \end{align*}
-        \item \textbf{Additive identity.} Let $0 \in V$ be the additive identity in $V$.
-        Then for any $u + iv \in V_{\cbb}$,
-        \[
-            (0 + i0) + (u + iv) = (0 + u) + i(0 + v) = u + iv,
-        \]
-        so $0 + i0$ is the additive identity in $V_{\cbb}$.
-        \item \textbf{Additive inverse.} Let $u + iv \in V_{\cbb}$.
-        Since $V$ is a vector space, both $u$ and $v$ have additive inverses $-u, -v \in V$, respectively.
-        Then
-        \[
-            (u + iv) + ((-u) + i(-v)) = (u + (-u)) + i(v + (-v)) = 0 + i0,
-        \]
-        so $(-u) + i(-v)$ is the additive inverse of $u + iv$ in $V_{\cbb}$.
-        \item \textbf{Multiplicative identity.} Write $1 = 1 + i0 \in \cbb$.
-        Then for any $u + iv \in V_{\cbb}$,
-        \[
-            (1 + i0)(u + iv) = (1 \cdot u - 0 \cdot v) + i(1 \cdot v + 0 \cdot u) = u + iv.
-        \]
-        \item \textbf{Distributive properties.} Let $u_1 + iv_1, u_2 + iv_2 \in V_{\cbb}$ and let $a + ib, c + id \in \cbb$.
-        Then
-        \begin{align*}
-            (a + ib)((u_1 + iv_1) + (u_2 + iv_2)) &= (a + ib)((u_1 + u_2) + i(v_1 + v_2)) \\
-            &= (a(u_1 + u_2) - b(v_1 + v_2)) + i(a(v_1 + v_2) + b(u_1 + u_2)) \\
-            &= (au_1 - bv_1 + au_2 - bv_2) + i(av_1 + bu_1 + av_2 + bu_2) \\
-            &= (au_1 - bv_1 + i(av_1 + bu_1)) + (au_2 - bv_2 + i(av_2 + bu_2)) \\
-            &= (a + ib)(u_1 + iv_1) + (a + ib)(u_2 + iv_2).
-        \end{align*}
-        Moreover,
-        \begin{align*}
-            ((a + ib) + (c + id))(u_1 + iv_1) &= ((a + c) + i(b + d))(u_1 + iv_1) \\
-            &= ((a + c)u_1 - (b + d)v_1) + i((a + c)v_1 + (b + d)u_1) \\
-            &= (au_1 - bv_1 + cu_1 - dv_1) + i(av_1 + bu_1 + cv_1 + du_1) \\
-            &= (au_1 - bv_1 + i(av_1 + bu_1)) + (cu_1 - dv_1 + i(cv_1 + du_1)) \\
-            &= (a + ib)(u_1 + iv_1) + (c + id)(u_1 + iv_1).
-        \end{align*}
-    \end{enumerate}
+
+    \property{Commutativity} Let $u_1 + iv_1, u_2 + iv_2 \in V_{\cbb}$.
+    Then
+    \[
+        (u_1 + iv_1) + (u_2 + iv_2) = (u_1 + u_2) + i(v_1 + v_2) = (u_2 + u_1) + i(v_2 + v_1) = (u_2 + iv_2) + (u_1 + iv_1).
+    \]
+    \property{Associativity} Let $u_1 + iv_1, u_2 + iv_2, u_3 + iv_3 \in V_{\cbb}$ and let $a + ib, c + id \in \cbb$.
+    Then
+    \begin{align*}
+        ((u_1 + iv_1) + (u_2 + iv_2)) + (u_3 + iv_3) &= ((u_1 + u_2) + i(v_1 + v_2)) + (u_3 + iv_3) \\
+        &= ((u_1 + u_2) + u_3) + i((v_1 + v_2) + v_3) \\
+        &= (u_1 + (u_2 + u_3)) + i(v_1 + (v_2 + v_3)) \\
+        &= (u_1 + iv_1) + ((u_2 + u_3) + i(v_2 + v_3)) \\
+        &= (u_1 + iv_1) + ((u_2 + iv_2) + (u_3 + iv_3)).
+    \end{align*}
+    Moreover,
+    \begin{align*}
+        ((a + ib)(c + id))(u_1 + iv_1) &= ((ac - bd) + i(ad + bc))(u_1 + iv_1) \\
+        &= ((ac - bd)u_1 - (ad + bc)v_1) + i((ad + bc)u_1 + (ac - bd)v_1) \\
+        &= (a(cu_1 - dv_1) - b(cv_1 + du_1)) + i(a(cv_1 + du_1) + b(cu_1 - dv_1)) \\
+        &= (a + ib)((c + id)(u_1 + iv_1)).
+    \end{align*}
+    \property{Additive identity} Let $0 \in V$ be the additive identity in $V$.
+    Then for any $u + iv \in V_{\cbb}$,
+    \[
+        (0 + i0) + (u + iv) = (0 + u) + i(0 + v) = u + iv,
+    \]
+    so $0 + i0$ is the additive identity in $V_{\cbb}$.
+    
+    \property{Additive inverse} Let $u + iv \in V_{\cbb}$.
+    Since $V$ is a vector space, both $u$ and $v$ have additive inverses $-u, -v \in V$, respectively.
+    Then
+    \[
+        (u + iv) + ((-u) + i(-v)) = (u + (-u)) + i(v + (-v)) = 0 + i0,
+    \]
+    so $(-u) + i(-v)$ is the additive inverse of $u + iv$ in $V_{\cbb}$.
+
+    \property{Multiplicative identity} Write $1 = 1 + i0 \in \cbb$.
+    Then for any $u + iv \in V_{\cbb}$,
+    \[
+        (1 + i0)(u + iv) = (1 \cdot u - 0 \cdot v) + i(1 \cdot v + 0 \cdot u) = u + iv.
+    \]
+    \property{Distributive properties} Let $u_1 + iv_1, u_2 + iv_2 \in V_{\cbb}$ and let $a + ib, c + id \in \cbb$.
+    Then
+    \begin{align*}
+        (a + ib)((u_1 + iv_1) + (u_2 + iv_2)) &= (a + ib)((u_1 + u_2) + i(v_1 + v_2)) \\
+        &= (a(u_1 + u_2) - b(v_1 + v_2)) + i(a(v_1 + v_2) + b(u_1 + u_2)) \\
+        &= (au_1 - bv_1 + au_2 - bv_2) + i(av_1 + bu_1 + av_2 + bu_2) \\
+        &= (au_1 - bv_1 + i(av_1 + bu_1)) + (au_2 - bv_2 + i(av_2 + bu_2)) \\
+        &= (a + ib)(u_1 + iv_1) + (a + ib)(u_2 + iv_2).
+    \end{align*}
+    Moreover,
+    \begin{align*}
+        ((a + ib) + (c + id))(u_1 + iv_1) &= ((a + c) + i(b + d))(u_1 + iv_1) \\
+        &= ((a + c)u_1 - (b + d)v_1) + i((a + c)v_1 + (b + d)u_1) \\
+        &= (au_1 - bv_1 + cu_1 - dv_1) + i(av_1 + bu_1 + cv_1 + du_1) \\
+        &= (au_1 - bv_1 + i(av_1 + bu_1)) + (cu_1 - dv_1 + i(cv_1 + du_1)) \\
+        &= (a + ib)(u_1 + iv_1) + (c + id)(u_1 + iv_1).
+    \end{align*}
     Therefore, $V_{\cbb}$ is a complex vector space.
 \end{sol}

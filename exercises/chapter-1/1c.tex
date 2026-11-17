@@ -11,6 +11,7 @@
     \begin{proof}
         Let $U_b = \set{u \in U : \phi(u) = b}$.
         Then $\phi(0) = \phi(0 + 0) = \phi(0) + \phi(0)$, so $\phi(0) = 0$.
+
         \rightimp Suppose $U_b$ is a subspace of $V$.
         By 1.34, $0 \in U_b$, so $b = \phi(0) = 0$.
 
@@ -176,15 +177,14 @@
     The set of periodic functions is not a subspace of $\rbb^{\rbb}$.
 	Consider the periodic functions $f(x) = \cos x$ and $g(x) = \cos \sqrt 2x$.
 	Then the sum $f + g$ attains a maximum value of 2 at 0.
-	If $f + g$ were periodic with period $p$, then $(f + g)(p) = (f + g)(0) = 2$.
-	This implies $\cos p = \cos p\sqrt 2 = 1$.
-	Then $p = 2\pi m$ and $p\sqrt 2 = 2\pi n$ for positive integers $m$ and $n$.
-	Since $p \sqrt 2 = 2 \pi n$ implies $p = \sqrt 2 \pi n$, we have
+	If $f + g$ were periodic with period $p$, then $(f + g)(p) = (f + g)(0) = 2$, so $\cos p + \cos(p\sqrt 2) = 2$.
+    Since $\cos(x) \leq 1$ for all $x \in \rbb$, it follows that $\cos p = \cos(p\sqrt 2) = 1$, and therefore $p = 2\pi m$ and $p\sqrt 2 = 2\pi n$ for positive integers $m$ and $n$.
+    Then
     \[
-    	2\pi m = \sqrt 2\pi n \implies \sqrt 2 = \frac nm,
+        (2\pi m) \sqrt{2} = 2\pi n \implies \sqrt{2} = \frac{n}{m},
     \]
-    which is a contradiction, since $\sqrt 2$ is irrational.
-	Thus, the set is not closed under addition and therefore not a subspace of $\rbb^{\rbb}$ by 1.34.
+    contradicting that $\sqrt{2}$ is irrational.
+    Hence, $f + g$ is not periodic, so the set of periodic functions is not closed under addition and therefore not a subspace of $\rbb^{\rbb}$ by 1.34.
 \end{sol}
 
 \begin{exercise}{1c10}
@@ -194,15 +194,9 @@
 
 \begin{sol}
     Let $U = V_1 \cap V_2$.
-	Since both $V_1$ and $V_2$ are subspaces of $V$, they both contain the zero vector of $V$.
-	Hence, $0 \in U$.
-	Let $u, v \in U$.
-	Then $u, v \in V_1$ and $u, v \in V_2$.
-	Since both $V_1$ and $V_2$ are subspaces, they are closed under addition.
-	Therefore, $u + v \in V_1$ and $u + v \in V_2$, which implies that $u + v \in U$.
-	Let $a \in \fbb$.
-	Then since both $V_1$ and $V_2$ are closed under scalar multiplication, we have that $au \in V_1$ and $au \in V_2$, which implies that $au \in U$.
-	Therefore, $U$ is a subspace of $V$.
+	By 1.34, $0 \in V_1$ and $0 \in V_2$, so $0 \in U$.
+    Let $u, v \in U$ and let $a \in \fbb$.
+    By 1.34, $u + v, au \in V_1$ and $u + v, au \in V_2$, so $u + v, au \in U$, and therefore $U$ is a subspace of $V$ by 1.34.
 \end{sol}
 
 \begin{exercise}{1c11}
@@ -210,83 +204,59 @@
 \end{exercise}
 
 \begin{sol}
-    Let $\ccal$ be a collection of subspaces of $V$, and let
+    Let $\ucal$ be a collection of subspaces of $V$ and let
     \[
-    	U = \bigcap_{W \in \ccal} W.
+        U = \bigcap_{W \in \ucal} W,
     \]
-    Since each subspace in $\ccal$ contains the zero vector, $0 \in U$.
-	Let $u, v \in U$.
-	Then $u, v \in W$ for all $W \in \ccal$.
-	Since each $W$ is a subspace, they are closed under addition, so $u + v \in W$ for all $W \in \ccal$, which implies $u + v \in U$.
-	Let $a \in \fbb$.
-	Then $au \in W$ for all $W \in \ccal$, which implies $au \in U$.
-	Therefore, $U$ is a subspace of $V$.
+    where an empty intersection is understood to be $V$.
+    By 1.34, $0 \in W$ for all $W \in \ucal$, and thus $0 \in U$.
+    Let $u, v \in U$ and let $a \in \fbb$.
+    Then $u, v \in W$ for all $W \in \ucal$.
+    By 1.34, $u + v, au \in W$ for all $W \in \ucal$, so $u + v, au \in U$.
+    Therefore, $U$ is a subspace of $V$ by 1.34.
 \end{sol}
 
-\begin{exercise}{1c12}
+\begin{exercise}!{1c12}
     Prove that the union of two subspaces of $V$ is a subspace of $V$ if and only if one of the subspaces is contained in the other.
 \end{exercise}
 
 \begin{sol}
-    Let $U, W$ be subspaces of $V$.
-	Suppose $U \subseteq W$.
+    Let $U$ and $W$ be subspaces of $V$.
+
+    \rightimp Suppose $U \cup W$ is a subspace of $V$, and suppose neither $U \subseteq W$ nor $W \subseteq U$.
+    Then there exist $u \in U \setminus W$ and $w \in W \setminus U$.
+	If $u + w \in U$, then $w = (u + w) - u \in U$, a contradiction.
+    Similarly, $u + w \in W$ gives $u = (u + w) - w \in W$, also a contradiction.
+    Therefore, $u + w \notin U \cup W$, so $U \cup W$ is not closed under addition, contradicting 1.34.
+    Thus, one of the subspaces must be contained in the other.
+
+    \leftimp Suppose $U \subseteq W$.
 	Then $U \cup W = W$, which is a subspace of $V$.
 	Similarly, if $W \subseteq U$, then $U \cup W = U$, which is a subspace of $V$.
-
-    Conversely, suppose $U \cup W$ is a subspace of $V$.
-	If neither $U \subseteq W$ nor $W \subseteq U$, then there exist $u \in U \setminus W$ and $w \in W \setminus U$.
-	Since $U \cup W$ is a subspace, it must be closed under addition.
-	Then $u + w \in U \cup W$.
-	However, $u + w \notin U$ because if it were, then $w = (u + w) - u \in U$, which is a contradiction.
-	Similarly, $u + w \notin W$ because if it were, then $u = (u + w) - w \in W$, which is also a contradiction.
-	Hence, $u + w \notin U \cup W$, which contradicts the assumption that $U \cup W$ is a subspace.
-	Therefore, one of the subspaces must be contained in the other.
 \end{sol}
 
-\begin{exercise}*{1c13}
+\begin{exercise}!{1c13}
     Prove that the union of three subspaces of $V$ is a subspace of $V$ if and only if one of the subspaces contains the other two.
 
     \note{This exercise is surprisingly harder than \exref{1c12}, possibly because this exercise is not true if we replace $\fbb$ with a field containing only two elements.}
 \end{exercise}
 
-\begin{soliff}
-    \rightimp Let $U_1, U_2, U_3$ be subspaces of $V$.
-	Without loss of generality, suppose $U_2 \subseteq U_1$ and $U_3 \subseteq U_1$.
+\begin{sol}
+    Let $U_1, U_2, U_3$ be subspaces of $V$.
+
+    \rightimp Suppose $U_1 \cup U_2 \cup U_3$ is a subspace of $V$, but none of the subspaces contains the other two.
+    By assumption, $U_2 \cup U_3 \nsubseteq U_1$ and $U_1 \cup U_3 \nsubseteq U_2$, so there exist $u \in U_1 \setminus (U_2 \cup U_3)$ and $v \in U_2 \setminus (U_1 \cup U_3)$.
+    Since $U_1 \cup U_2 \cup U_3$ is a subspace, $u + av \in U_1 \cup U_2 \cup U_3$ for any nonzero $a \in \fbb$.
+    If $u + av \in U_1$, then $(u + av) - u = av \in U_1$, which implies $v \in U_1$, a contradiction.
+    Similarly, if $u + av \in U_2$, then $(u + av) - av = u \in U_2$, a contradiction.
+    Therefore, $u + av \in U_3$ for all nonzero $a \in \fbb$.
+    It follows that $u + v \in U_3$ and $u - v \in U_3$, so $(u + v) + (u - v) = 2u \in U_3$ and thus $u \in U_3$, a contradiction.
+    Hence, one of the subspaces must contain the other two.
+
+    \leftimp Suppose one of the subspaces contains the other two.
+    Without loss of generality, suppose $U_2 \subseteq U_1$ and $U_3 \subseteq U_1$.
 	Then $U_1 \cup U_2 \cup U_3 = U_1$, which is a subspace of $V$.
-
-    \leftimp Conversely, suppose $U_1 \cup U_2 \cup U_3$ is a subspace of $V$.
-	Suppose that some pair satisfies containment, say $U_3 \subseteq U_2$.
-	Let $W = U_2 \cup U_3 = U_2$.
-	Then $U_1 \cup W = U_1 \cup U_2 \cup U_3$.
-	By \exref{1c12}, either $U_1 \subseteq U_2$ or $U_2 \subseteq U_1$.
-	If the former occurs, then $U_1 \cup U_2 = U_2$, which contains $U_3$.
-	If the latter occurs, then $U_1 \cup U_2 = U_1$.
-	Since $U_3 \subseteq U_2$, then $U_3 \subseteq U_1$.
-	Therefore, one of the subspaces must contain the other two.
-
-    Now suppose no subspace is contained in another.
-	Then there exist $u \in U_2 \setminus U_3$ and $v \in U_3 \setminus U_2$.
-	Since $U_1 \cup U_2 \cup U_3$ is a subspace, $u + \alpha v \in U_1 \cup U_2 \cup U_3$ for any nonzero $\alpha \in \fbb$.
-	If $u + \alpha v \in U_2$, then $\alpha v = (u + \alpha v) - u \in U_2$, which implies $v \in U_2$, a contradiction.
-	If $u + \alpha v \in U_3$, then $u = (u + \alpha v) - \alpha v \in U_3$, a contradiction.
-	Then $u + \alpha v \in U_1$ for all nonzero $\alpha \in \fbb$.
-	Now choose nonzero $\beta, \gamma \in \fbb$ with $\beta \neq \gamma$.
-	Then $u + \beta v, u + \gamma v \in U_1$, so
-    \[
-    	(u + \beta v) - (u + \gamma v) = (\beta - \gamma)v \in U_1.
-    \]
-    Since $\beta - \gamma \neq 0$, we have $v \in U_1$.
-	Similarly, $(u + \beta v) - \beta v = u \in U_1$.
-	Since $u \in U_2 \setminus U_3$ and $v \in U_3 \setminus U_2$ were arbitrary, $U_2 \setminus U_3 \subseteq U_1$ and $U_3 \setminus U_2 \subseteq U_1$.
-
-    Now let $w \in U_2 \cap U_3$.
-	Since $U_2 \nsubseteq U_3$, there exists $x \in U_2 \setminus U_3 \subseteq U_1$.
-	Then $w + x \in U_2$.
-	If $w + x \in U_3$, then $x = (w + x) - w \in U_3$, a contradiction.
-	Hence, $w + x \in U_2 \setminus U_3 \subseteq U_1$, so $w = (w + x) - x \in U_1$.
-	Therefore, $U_2 \cap U_3 \subseteq U_1$, which gives $U_2 = (U_2 \setminus U_3) \cup (U_2 \cap U_3) \subseteq U_1$ and similarly $U_3 \subseteq U_1$, contradicting our assumption.
-	Hence, one of the subspaces must contain the other two.
-\end{soliff}
+\end{sol}
 
 \begin{exercise}{1c14}
     Suppose
@@ -297,17 +267,21 @@
 \end{exercise}
 
 \begin{sol}
-    Let $u = (x, -x, 2x) \in U$ and $w = (y, y, 2y) \in W$.
-	Then
+    We claim that $U + W = \set{(a, b, 2a) \in \fbb^3 : a, b \in \fbb}$.
+
+    \rightset Let $u = (x, -x, 2x) \in U$ and $w = (y, y, 2y) \in W$, and define $a = x + y$ and $b = y - x$.
+    Then
     \[
-    	u + w = (x + y, -x + y, 2x + 2y) = (x + y, y - x, 2(x + y)).
+        u + w = (x + y, y - x, 2(x + y)) = (a, b, 2a),
     \]
-    Observe that $x + y$ can take any value in $\fbb$, and $y - x$ can also take any value in $\fbb$.
-	Hence, we can write
+    so $u + w \in \set{(a, b, 2a) \in \fbb^3 : a, b \in \fbb}$.
+
+    \leftset Let $a, b \in \fbb$ and let $x = \frac{a - b}{2}$ and $y = \frac{a + b}{2}$.
+    Then
     \[
-    	U + W = \set{(a, b, 2a) \in \fbb^3 : a, b \in \fbb}.
+        (a, b, 2a) = (x + y, y - x, 2(x + y)) = (x, -x, 2x) + (y, y, 2y) \in U + W.
     \]
-    In words, $U + W$ is the set of all vectors in $\fbb^3$ whose third component is twice the first component, and whose second component can be any value in $\fbb$.
+    In words, $U + W$ is the set of all vectors in three-space whose third component is twice the first.
 \end{sol}
 
 \begin{exercise}{1c15}
@@ -316,14 +290,13 @@
 \end{exercise}
 
 \begin{sol}
-    Let $u_1, u_2 \in U$.
-	Then $u_1 + u_2 \in U$ since $U$ is closed under addition.
-	Hence, $U + U \subseteq U$.
-	Conversely, let $u \in U$.
-	Then $u = u + 0$, where $0$ is the additive identity in $U$.
-	Since $0 \in U$, we have that $u \in U + U$.
-	Hence, $U \subseteq U + U$.
-	Therefore, $U + U = U$.
+    We claim that $U + U = U$.
+
+    \rightset Let $u_1 + u_2 \in U + U$, where $u_1, u_2 \in U$.
+    Since $U$ is closed under addition, $u_1 + u_2 \in U$.
+
+    \leftset Let $u \in U$.
+    Then $u = u + 0 \in U + U$ since $0 \in U$.
 \end{sol}
 
 \begin{exercise}{1c16}
@@ -333,13 +306,12 @@
 
 \begin{sol}
     Yes, the operation of addition on subspaces of $V$ is commutative.
-	Let $u \in U$ and $w \in W$.
-	Then $u + w \in U + W$.
-	Because addition in $V$ is commutative, we have that $u + w = w + u$, where $w \in W$ and $u \in U$.
-	Hence, $w + u \in W + U$.
-	Therefore, every element of $U + W$ is also an element of $W + U$, which implies that $U + W \subseteq W + U$.
-	By a similar argument, we can show that $W + U \subseteq U + W$.
-	Hence, $U + W = W + U$.
+    For every $v \in V$, we have
+    \begin{align*}
+        v \in U + W &\iff v = u + w \text{ for some } u \in U, w \in W \\
+                    &\iff v = w + u \text{ for some } w \in W, u \in U \\
+                    &\iff v \in W + U. \qedhere
+    \end{align*}
 \end{sol}
 
 \begin{exercise}{1c17}
@@ -352,13 +324,12 @@
 
 \begin{sol}
     Yes, the operation of addition on subspaces of $V$ is associative.
-	Let $u_1 \in V_1$, $u_2 \in V_2$, and $u_3 \in V_3$.
-	Then $(u_1 + u_2) + u_3 \in (V_1 + V_2) + V_3$.
-	Because addition in $V$ is associative, we have that $(u_1 + u_2) + u_3 = u_1 + (u_2 + u_3)$, where $u_1 \in V_1$, $u_2 \in V_2$, and $u_3 \in V_3$.
-	Hence, $u_1 + (u_2 + u_3) \in V_1 + (V_2 + V_3)$.
-	Therefore, every element of $(V_1 + V_2) + V_3$ is also an element of $V_1 + (V_2 + V_3)$, which implies that $(V_1 + V_2) + V_3 \subseteq V_1 + (V_2 + V_3)$.
-	By a similar argument, we can show that $V_1 + (V_2 + V_3) \subseteq (V_1 + V_2) + V_3$.
-	Hence, $(V_1 + V_2) + V_3 = V_1 + (V_2 + V_3)$.
+	For every $v \in V$, we have
+	\begin{align*}
+	    v \in (V_1 + V_2) + V_3 &\iff v = (v_1 + v_2) + v_3 \text{ for some } v_1 \in V_1, v_2 \in V_2, v_3 \in V_3 \\
+	                            &\iff v = v_1 + (v_2 + v_3) \text{ for some } v_1 \in V_1, v_2 \in V_2, v_3 \in V_3 \\
+	                            &\iff v \in V_1 + (V_2 + V_3). \qedhere
+	\end{align*}
 \end{sol}
 
 \begin{exercise}{1c18}
@@ -367,14 +338,17 @@
 \end{exercise}
 
 \begin{sol}
-    Yes, the operation of addition on the subspaces of $V$ has an additive identity.
-	The additive identity is the zero subspace $\{0\}$, which contains only the zero vector of $V$.
-	For any subspace $U$ of $V$, we have that $U + \{0\} = U$.
+    Yes, the operation of addition on the subspaces of $V$ has additive identity $\set{0}$.
+    For any subspace $U$ of $V$ and for any $v \in V$,
+    \[
+        v \in U \iff v = u + 0 \text{ for some } u \in U \iff v \in U + \set{0}.
+    \]
+    Therefore, $U + \set{0} = U$.
 
-    If a subspace $U$ of $V$ had an additive inverse $W$, then we would have that $U + W = \{0\}$.
-	However, $U \subseteq U + W$ since $u = u + 0$ for any $u \in U$.
-	Hence, $U + W = \{0\}$ implies that $U = \{0\}$.
-	Therefore, the only subspace of $V$ that has an additive inverse is the zero subspace $\{0\}$.
+    By the first part, $\set{0} + \set{0} = \set{0}$, so $\set{0}$ is its own additive inverse.
+    Suppose $U$ is a subspace of $V$ with an additive inverse $W$, so $U + W = \set{0}$.
+    By 1.40, $U \subseteq U + W = \set{0}$, so $U = \set{0}$.
+    Therefore, the only subspace that has an additive inverse is the zero subspace $\set{0}$.
 \end{sol}
 
 \begin{exercise}{1c19}
@@ -387,11 +361,32 @@
 
 \begin{sol}
     The statement is false.
-	Consider the vector space $\rbb^2$ and the subspaces
+	Consider the vector space $\rbb^2$ and the sets
     \[
     	V_1 = \set{(x, 0) \in \rbb^2 : x \in \rbb}, \quad V_2 = \set{(0, y) \in \rbb^2 : y \in \rbb}, \quad U = \set{(z, z) \in \rbb^2 : z \in \rbb}.
     \]
-    Then $V_1 + U = \rbb^2$ and $V_2 + U = \rbb^2$, but $V_1 \neq V_2$.
+    Observe that $(0, 0) \in V_1$.
+    For any $(x_1, 0), (x_2, 0) \in V_1$ and any $a \in \rbb$, we have
+    \[
+        (x_1, 0) + (x_2, 0) = (x_1 + x_2, 0) \in V_1, \quad \text{and} \quad a(x_1, 0) = (ax_1, 0) \in V_1.
+    \]
+    Therefore, $V_1$ is a subspace of $\rbb^2$ by 1.34.
+    The proof for $V_2$ is similar.
+
+    Observe that $(0, 0) \in U$.
+    For any $(z_1, z_1), (z_2, z_2) \in U$ and any $a \in \rbb$, we have
+    \[
+        (z_1, z_1) + (z_2, z_2) = (z_1 + z_2, z_1 + z_2) \in U, \quad \text{and} \quad a(z_1, z_1) = (az_1, az_1) \in U.
+    \]
+    Therefore, $U$ is a subspace of $\rbb^2$ by 1.34.
+
+    It follows from the definitions of $V_1$, $V_2$, and $U$ that $V_1 + U \subseteq \rbb^2$ and $V_2 + U \subseteq \rbb^2$.
+    Moreover, for any $(x_0, y_0) \in \rbb^2$, we can write
+    \[
+        (x_0, y_0) = (x_0 - y_0, 0) + (y_0, y_0) \in V_1 + U, \quad \text{and} \quad (x_0, y_0) = (0, y_0 - x_0) + (x_0, x_0) \in V_2 + U,
+    \]
+    so $V_1 + U = V_2 + U = \rbb^2$.
+    However, $V_1 \neq V_2$ since, for example, $(1, 0) \in V_1$ but $(1, 0) \notin V_2$.
 \end{sol}
 
 \begin{exercise}{1c20}
@@ -407,17 +402,23 @@
     \[
         W = \set{(0, w_2, 0, w_4) \in \fbb^4 : w_2, w_4 \in \fbb}.
     \]
+    Observe that $(0, 0, 0, 0) \in W$.
+    For any $(0, w_2, 0, w_4), (0, w_2', 0, w_4') \in W$ and any $a \in \fbb$, we have
+    \[
+        (0, w_2, 0, w_4) + (0, w_2', 0, w_4') = (0, w_2 + w_2', 0, w_4 + w_4') \in W, \quad \text{and} \quad a(0, w_2, 0, w_4) = (0, aw_2, 0, aw_4) \in W.
+    \]
+    Therefore, $W$ is a subspace of $\fbb^4$ by 1.34.
+
     Suppose $(x_1, x_2, x_3, x_4) \in U \cap W$.
     Since $(x_1, x_2, x_3, x_4) \in U$, we have that $x_1 = x_2$ and $x_3 = x_4$.
     Moreover, since $(x_1, x_2, x_3, x_4) \in W$, we have that $x_1 = 0$ and $x_3 = 0$.
-    Hence, $x_1 = x_2 = x_3 = x_4 = 0$, so $U \cap W = \{0\}$.
+    Hence, $x_1 = x_2 = x_3 = x_4 = 0$, so $U \cap W = \set{0}$.
     Let $(y_1, y_2, y_3, y_4) \in \fbb^4$.
     Then we can write
     \[
-        (y_1, y_2, y_3, y_4) = (y_1, y_1, y_3, y_3) + (0, y_2 - y_1, 0, y_4 - y_3),
+        (y_1, y_2, y_3, y_4) = (y_1, y_1, y_3, y_3) + (0, y_2 - y_1, 0, y_4 - y_3) \in U + W,
     \]
-    where $(y_1, y_1, y_3, y_3) \in U$ and $(0, y_2 - y_1, 0, y_4 - y_3) \in W$.
-    Hence, every $x \in \fbb^4$ can be uniquely written as $x = u + w$ for some $u \in U$ and $w \in W$, so $\fbb^4 = U \oplus W$.
+    so $\fbb^4 = U \oplus W$ by 1.46.
 \end{sol}
 
 \begin{exercise}{1c21}
@@ -433,6 +434,17 @@
     \[
         W = \set{(0, 0, w_3, w_4, w_5) \in \fbb^5 : w_3, w_4, w_5 \in \fbb}.
     \]
+    Observe that $(0, 0, 0, 0, 0) \in W$.
+    For any $(0, 0, w_3, w_4, w_5), (0, 0, w_3', w_4', w_5') \in W$ and any $a \in \fbb$, we have
+    \[
+        (0, 0, w_3, w_4, w_5) + (0, 0, w_3', w_4', w_5') = (0, 0, w_3 + w_3', w_4 + w_4', w_5 + w_5') \in W,
+    \]
+    and
+    \[
+        a(0, 0, w_3, w_4, w_5) = (0, 0, aw_3, aw_4, aw_5) \in W.
+    \]
+    Therefore, $W$ is a subspace of $\fbb^5$ by 1.34.
+
     Suppose $(x_1, x_2, x_3, x_4, x_5) \in U \cap W$.
     Since $(x_1, x_2, x_3, x_4, x_5) \in U$, we have that $x_3 = x_1 + x_2$, $x_4 = x_1 - x_2$, and $x_5 = 2x_1$.
     Moreover, since $(x_1, x_2, x_3, x_4, x_5) \in W$, we have that $x_1 = 0$ and $x_2 = 0$.
@@ -440,10 +452,9 @@
     Let $(y_1, y_2, y_3, y_4, y_5) \in \fbb^5$.
     Then we can write
     \[
-        (y_1, y_2, y_3, y_4, y_5) = (y_1, y_2, y_1 + y_2, y_1 - y_2, 2y_1) + (0, 0, y_3 - (y_1 + y_2), y_4 - (y_1 - y_2), y_5 - 2y_1),
+        (y_1, y_2, y_3, y_4, y_5) = (y_1, y_2, y_1 + y_2, y_1 - y_2, 2y_1) + (0, 0, y_3 - (y_1 + y_2), y_4 - (y_1 - y_2), y_5 - 2y_1) \in U + W.
     \]
-    where $(y_1, y_2, y_1 + y_2, y_1 - y_2, 2y_1) \in U$ and $(0, 0, y_3 - (y_1 + y_2), y_4 - (y_1 - y_2), y_5 - 2y_1) \in W$.
-    Hence, every $x \in \fbb^5$ can be written as $x = u + w$ for some $u \in U$ and $w \in W$, so $\fbb^5 = U \oplus W$.
+    Therefore, $\fbb^5 = U \oplus W$ by 1.46.
 \end{sol}
 
 \begin{exercise}{1c22}
@@ -461,13 +472,22 @@
         W_2 &= \set{(0, 0, 0, w_4, 0) \in \fbb^5 : w_4 \in \fbb}, \\
         W_3 &= \set{(0, 0, 0, 0, w_5) \in \fbb^5 : w_5 \in \fbb}.
     \end{align*}
-    Consider
+    We show that $W_1$ is a subspace of $\fbb^5$.
+    Observe that $(0, 0, 0, 0, 0)$ and $(0, 0, 1, 0, 0) \in W_1$, so $W_1 \neq \set{0}$.
+    For any $(0, 0, w_3, 0, 0), (0, 0, w_3', 0, 0) \in W_1$ and any $a \in \fbb$, we have
     \[
-        W = \set{(0, 0, z_3, z_4, z_5) \in \fbb^5 : z_3, z_4, z_5 \in \fbb}.
+        (0, 0, w_3, 0, 0) + (0, 0, w_3', 0, 0) = (0, 0, w_3 + w_3', 0, 0) \in W_1, \quad \text{and} \quad a(0, 0, w_3, 0, 0) = (0, 0, aw_3, 0, 0) \in W_1.
     \]
-    It is straightforward to show that $W = W_1 \oplus W_2 \oplus W_3$.
-    By \exref{1c21}, we have that $\fbb^5 = U \oplus W$.
-    By uniqueness of the decomposition of $v \in \fbb^5$ as $v = u + w$ for some $u \in U$ and $w \in W$, and uniqueness of the decomposition of $w \in W$ as $w = w_1 + w_2 + w_3$ for some $w_1 \in W_1$, $w_2 \in W_2$, and $w_3 \in W_3$, we have that $\fbb^5 = U \oplus W_1 \oplus W_2 \oplus W_3$.
+    Therefore, $W_1$ is a subspace of $\fbb^5$ by 1.34.
+    The proofs for $W_2$ and $W_3$ are similar.
+    Now suppose $0 = (x, y, x + y, x - y, 2x) + z_1 + z_2 + z_3$ for some $z_1 \in W_1$, $z_2 \in W_2$, and $z_3 \in W_3$.
+    Then $x = y = 0$ by the first two coordinates, so the vector in $U$ is $0$.
+    Consequently, the third, fourth, and fifth coordinates must also be $0$, so $z_1 = z_2 = z_3 = 0$.
+    Moreover, for any $(y_1, y_2, y_3, y_4, y_5) \in \fbb^5$, we can write
+    \[
+        (y_1, y_2, y_3, y_4, y_5) = (y_1, y_2, y_1 + y_2, y_1 - y_2, 2y_1) + (0, 0, y_3 - (y_1 + y_2), y_4 - (y_1 - y_2), y_5 - 2y_1) \in U + W_1 + W_2 + W_3.
+    \]
+    Therefore, $\fbb^5 = U \oplus W_1 \oplus W_2 \oplus W_3$ by 1.45.
 \end{sol}
 
 \begin{exercise}{1c23}
@@ -481,91 +501,77 @@
 \end{exercise}
 
 \begin{sol}
-    See \exref{1c19} for the definitions of $V_1, V_2, U$, and let $V = \rbb^2$.
-    Suppose $(x_1, y_1) \in V_1 \cap U$.
-    Since $(x_1, y_1) \in U$, we have that $x_1 = y_1$.
-    Since $(x_1, y_1) \in V_1$, we have that $y_1 = 0$.
-    Hence, $x_1 = y_1 = 0$, so $V_1 \cap U = \{0\}$.
-    Similarly, if $(x_2, y_2) \in V_2 \cap U$, then $x_2 = y_2 = 0$, so $V_2 \cap U = \{0\}$.
-    Let $(x, y) \in V$.
-    Then we can write
-    \[
-        (x, y) = (x - y, 0) + (y, y),
-    \]
-    where $(x - y, 0) \in V_1$ and $(y, y) \in U$.
-    Additionally, we can write
-    \[
-        (x, y) = (0, y - x) + (x, x),
-    \]
-    where $(0, y - x) \in V_2$ and $(x, x) \in U$.
-    Hence, $V = V_1 \oplus U$ and $V = V_2 \oplus U$, but $V_1 \neq V_2$.
+    This statement is false.
+    Let $V = \rbb^2$ and $V_1$, $V_2$, and $U$ be as in \exref{1c19}, so $V_1 + U = V_2 + U = V$, but $V_1 \neq V_2$.
+    If $(x_1, y_1) \in V_1 \cap U$, then $y_1 = 0$ and $x_1 = y_1$, so $x_1 = y_1 = 0$.
+    Similarly, $(x_2, y_2) \in V_2 \cap U$ implies $x_2 = 0$ and $x_2 = y_2$, so $x_2 = y_2 = 0$.
+    Thus, $V_1 \cap U = V_2 \cap U = \set{0}$, so $V_1 \oplus U = V_2 \oplus U = V$ by 1.46.
 \end{sol}
 
-\begin{exercise}{1c24}
-    A function $f : \rbb \to \rbb$ is called \term{even} if
+\begin{exercise}!{1c24}
+    A function $f \colon \rbb \to \rbb$ is called \term{even} if
     \[
     	f(-x) = f(x)
     \]
     for all $x \in \rbb$.
-	A function $f : \rbb \to \rbb$ is called \term{odd} if
+	A function $f \colon \rbb \to \rbb$ is called \term{odd} if
     \[
     	f(-x) = -f(x)
     \]
     for all $x \in \rbb$.
 	Let $V_e$ denote the set of real-valued even functions on $\rbb$, and let $V_o$ denote the set of real-valued odd functions on $\rbb$.
 	Show that $\rbb^{\rbb} = V_e \oplus V_o$.
+
+    \remark{The trick of decomposing a function into its even and odd parts is useful here.}
 \end{exercise}
 
 \begin{sol}
-    Let $f(x) = 0$ for all $x \in \rbb$.
-    Since $f(-x) = f(x) = 0$, and $f(-x) = -f(x) = 0$, we have $f(x) \in V_e$ and $f(x) \in V_o$.
-    Now suppose $f_1, f_2 \in V_e$ and $\alpha \in \rbb$.
-    Then
+    Observe that $0 \in V_e$ and $0 \in V_o$.
+    Let $f_1, f_2 \in V_e$ and $a \in \rbb$.
+    Then for all $x \in \rbb$,
     \[
-        (f_1 + f_2)(-x) = f_1(-x) + f_2(-x) = f_1(x) + f_2(x) = (f_1 + f_2)(x)
+        (f_1 + f_2)(-x) = f_1(-x) + f_2(-x) = f_1(x) + f_2(x) = (f_1 + f_2)(x),
     \]
-    Hence, $f_1 + f_2 \in V_e$.
+    so $f_1 + f_2 \in V_e$.
     Also,
     \[
-        (\alpha f_1)(-x) = \alpha f_1(-x) = \alpha f_1(x) = (\alpha f_1)(x),
+        (a f_1)(-x) = a f_1(-x) = a f_1(x) = (a f_1)(x),
     \]
-    so $\alpha f_1 \in V_e$.
-    Therefore, $V_e$ is a subspace of $\rbb^{\rbb}$.
+    so $a f_1 \in V_e$.
+    Hence, $V_e$ is a subspace of $\rbb^{\rbb}$ by 1.34.
 
-    Similarly, if $g_1, g_2 \in V_o$ and $\beta \in \rbb$, then
+    Let $f_1, f_2 \in V_o$ and $a \in \rbb$.
+    Then for all $x \in \rbb$,
     \[
-        (g_1 + g_2)(-x) = g_1(-x) + g_2(-x) = -g_1(x) - g_2(x) = -(g_1 + g_2)(x)
+        (f_1 + f_2)(-x) = f_1(-x) + f_2(-x) = -f_1(x) - f_2(x) = -(f_1 + f_2)(x),
     \]
-    Hence, $g_1 + g_2 \in V_o$.
+    so $f_1 + f_2 \in V_o$.
     Also,
     \[
-        (\beta g_1)(-x) = \beta g_1(-x) = \beta (-g_1(x)) = -(\beta g_1)(x),
+        (a f_1)(-x) = a f_1(-x) = a (-f_1(x)) = -(a f_1)(x),
     \]
-    so $\beta g_1 \in V_o$.
-    Therefore, $V_o$ is a subspace of $\rbb^{\rbb}$.
+    so $a f_1 \in V_o$.
+    Hence, $V_o$ is a subspace of $\rbb^{\rbb}$ by 1.34.
 
-    We now show $\rbb^{\rbb} = V_e + V_o$.
-    Let $g \in \rbb^{\rbb}$.
-    Define the functions $g_e$ and $g_o$ by
+    Let $f \in \rbb^{\rbb}$, and consider the functions $f_e$ and $f_o$ defined by
     \[
-        g_e(x) = \frac{g(x) + g(-x)}{2}, \quad g_o(x) = \frac{g(x) - g(-x)}{2}.
+        f_e(x) = \frac{f(x) + f(-x)}{2} \quad \text{and} \quad f_o(x) = \frac{f(x) - f(-x)}{2}
     \]
+    for all $x \in \rbb$.
     Then
     \[
-        g_e(-x) = \frac{g(-x) + g(x)}{2} = \frac{g(x) + g(-x)}{2} = g_e(x),
+        f_e(-x) = \frac{f(-x) + f(x)}{2} = \frac{f(x) + f(-x)}{2} = f_e(x),
     \]
     and
     \[
-        g_o(-x) = \frac{g(-x) - g(x)}{2} = -\frac{g(x) - g(-x)}{2} = -g_o(x).
+        f_o(-x) = \frac{f(-x) - f(x)}{2} = -\frac{f(x) - f(-x)}{2} = -f_o(x),
     \]
-    Hence, $g_e \in V_e$ and $g_o \in V_o$.
-    Moreover,
+    so $f_e \in V_e$ and $f_o \in V_o$.
+    Moreover, for all $x \in \rbb$,
     \[
-        g(x) = g_e(x) + g_o(x),
+        f_e(x) + f_o(x) = \frac{f(x) + f(-x)}{2} + \frac{f(x) - f(-x)}{2} = f(x),
     \]
-    so $g \in V_e + V_o$.
-
-    Finally, if $h \in V_e \cap V_o$, then $h(-x) = h(x)$ and $h(-x) = -h(x)$ for all $x \in \rbb$.
-    Hence, $h(x) = -h(x)$, so $h(x) = 0$ for all $x \in \rbb$.
-    Therefore, $V_e \cap V_o = \set 0$, and we conclude that $\rbb^{\rbb} = V_e \oplus V_o$.
+    so $f = f_e + f_o$.
+    Finally, if $g \in V_e \cap V_o$, then $g(x) = g(-x) = -g(x)$ for all $x \in \rbb$, so $g = 0$.
+    Hence, $\rbb^{\rbb} = V_e \oplus V_o$ by 1.46.
 \end{sol}
